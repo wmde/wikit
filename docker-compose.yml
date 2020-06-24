@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+    node:
+        build:
+            context: ./
+            dockerfile: ./Dockerfile
+        image: wmde/wikit
+        volumes:
+            - '~/.npm:/.npm'
+            - './:/app'
+        working_dir: /app
