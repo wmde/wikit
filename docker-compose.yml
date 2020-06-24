@@ -8,5 +8,6 @@ services:
         image: wmde/wikit
         volumes:
             - '~/.npm:/.npm'
+            - '~/.gitconfig:/etc/gitconfig'
             - './:/app'
         working_dir: /app

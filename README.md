@@ -12,8 +12,35 @@ The following examples use `docker` and `docker-compose` to ease creating a leve
 docker-compose build --build-arg UID=$(id -u) --build-arg GID=$(id -g) node
 ```
 
-### Running npm
+### Installation
+
+This project uses [lerna](https://lerna.js.org/) to orchestrate multiple packages.
+The following steps assume you have lerna installed. (As done, globally, in the provided Dockerfile).
 
 ```sh
-docker-compose run --rm node npm
+docker-compose run --rm node lerna bootstrap
+```
+
+Alternatively, you can run
+
+```sh
+docker-compose run --rm node npm install
+```
+
+which will also invoke lerna.
+
+### Run tests
+
+You can invoke tests from the root level via 
+
+```sh
+docker-compose run --rm node npm test
+```
+
+or on the individual package level (assuming proper installation was had before), e.g.
+
+```
+docker-compose run --rm node npm /bin/bash
+cd packages/tokens
+npm test
 ```
