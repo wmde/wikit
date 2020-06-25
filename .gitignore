@@ -9,3 +9,7 @@ nbproject
 *.sublime-workspace
 *.swp
 *.swo
+
+# Project Specific
+node_modules/
+*.log
