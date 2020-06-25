@@ -1,0 +1,11 @@
+# IDE Specific
+nbproject
+.~lock.*
+.buildpath
+.idea
+.project
+.settings
+.vscode
+*.sublime-workspace
+*.swp
+*.swo
