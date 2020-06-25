@@ -5,5 +5,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wmde/wikit.git"
+  },
+  "scripts": {
+    "test": "echo \"wikit tests\" && exit 0"
   }
 }
