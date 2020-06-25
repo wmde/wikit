@@ -1,0 +1,31 @@
+@import '~@wmde/wikit-tokens/dist/_variables';
+
+/**
+ * Many variables are inspired, in naming and value, by the ones found in
+ * https://phabricator.wikimedia.org/diffusion/GOJU/browse/master/src/themes/wikimediaui/common.less
+ */
+
+$base-spacing-unit: 8px;
+$base-font-size-browser: 16px; // assumed browser default
+$base-font-size-desired-factor: 0.875;
+$base-font-size-desired: $base-font-size-browser * $base-font-size-desired-factor; // i.e. 14px
+
+// TODO taken from: https://gerrit.wikimedia.org/r/plugins/gitiles/wikibase/termbox/+/master/src/styles/_variables.scss
+$color-placeholder: $wmf-wmui-color-base-30;
+
+// Binary Input Widgets (CheckboxInput, RadioInput, ToggleSwitch)
+$size-input-binary: 1.5rem;
+$font-size-label-input-binary: 1em;
+$font-size-description-input-binary: ( 14 / 16 ) * $font-size-label-input-binary;
+$line-height-label-input-binary: 1.5;
+$line-height-description-input-binary: 1.6;
+$color-label-input-binary: $wmf-color-base;
+$color-label-input-binary--disabled: $wmf-color-base-disabled;
+$background-color-input-binary--active: $wmf-color-primary-active;
+$border-color-input-binary: $wmf-border-color-base-active;
+$border-color-input-binary--active: $wmf-color-primary-active;
+$border-color-input-binary--checked: $wmf-color-primary;
+$border-color-input-binary--hover: $wmf-color-primary-hover;
+$border-color-input-binary--focus: $wmf-color-primary-focus;
+$border-width-radio--checked: 7px;
+$box-shadow-input-binary--active: inset 0 0 0 1px $wmf-color-primary-active;

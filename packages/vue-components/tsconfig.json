@@ -1,0 +1,43 @@
+{
+	"compilerOptions": {
+		"strict": true,
+		"esModuleInterop": true,
+		"target": "esnext",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"experimentalDecorators": true,
+		"allowSyntheticDefaultImports": true,
+		"noImplicitReturns": true,
+		"noUnusedParameters": true,
+		"noUnusedLocals": false,
+		"declaration": true,
+		"baseUrl": ".",
+		"types": [
+			"jest",
+			"node"
+		],
+		"paths": {
+			"@/*": [
+				"src/*"
+			]
+		},
+		"typeRoots": [
+			"./src/@types",
+			"./node_modules/@types"
+		],
+		"lib": [
+			"esnext",
+			"dom",
+			"dom.iterable",
+			"scripthost"
+		],
+		"outDir": "./dist"
+	},
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.vue"
+	],
+	"exclude": [
+		"node_modules"
+	]
+}
