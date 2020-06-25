@@ -11,3 +11,10 @@ services:
             - '~/.gitconfig:/etc/gitconfig'
             - './:/app'
         working_dir: /app
+
+    storybook:
+        extends:
+            service: node
+        ports:
+            - '${STORYBOOK_PORT}:${STORYBOOK_PORT}'
+        command: 'npm run --prefix packages/vue-components storybook -- -p ${STORYBOOK_PORT} --ci'

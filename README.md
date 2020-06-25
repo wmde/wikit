@@ -44,3 +44,9 @@ docker-compose run --rm node npm /bin/bash
 cd packages/tokens
 npm test
 ```
+
+### Start storybook
+
+```sh
+docker-compose up storybook
+```
