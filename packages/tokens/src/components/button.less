@@ -1,0 +1,126 @@
+/**
+ * This file serves as an individual component file for a button (in our case, only button styles.
+ **/
+
+// Default
+button, 
+.button {
+    display: inline-block;
+    
+    // Typography
+    font-family: @button-text-font-family;
+    font-weight: @button-text-font-weight;
+    font-size: @button-text-font-size;
+    line-height: @button-text-line-height;
+
+    // Border
+    border-style: solid;
+    border-radius: @button-border-radius;
+    border-width: @button-border-width-default;
+
+    // Sizes
+    &, &.medium {
+        min-height: @button-size-medium-height;
+        padding: @button-size-medium-text-padding-y @button-size-medium-text-padding-x;
+    }
+    
+    &.large {
+        min-height: @button-size-large-height;
+        padding: @button-size-large-text-padding-y @button-size-large-text-padding-x;
+    }
+    
+    // States
+    &[disabled], &.disabled {
+        color: @button-text-color-disabled !important;
+        background: @button-background-color-disabled !important;
+        border-color: @button-border-color-disabled !important;
+
+        &:hover {
+            cursor: @button-cursor-hover-disabled;
+        }
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        cursor: @button-cursor-hover-enabled;
+        transition-property: @button-transition-hover-property;
+        transition-duration: @button-transition-hover-duration;
+    }
+}
+
+// Flavours
+.button-primary {
+    // Colors
+    color: @button-primary-text-color-default;
+    background:  @button-primary-background-color-default;
+    border-color: @button-primary-border-color-default;
+    
+    // States
+    &:hover {
+        background: @button-primary-background-color-hover;
+        border-color: @button-primary-border-color-hover;
+    }
+    
+    &:active {
+        background: @button-primary-background-color-active;
+        border-color: @button-primary-border-color-active;
+    }
+
+    &:focus {
+        background-color: @button-primary-background-color-focus;
+        border-color: @button-primary-border-color-focus;
+        box-shadow: @button-primary-box-shadow-focus;
+    }
+}
+
+.button-neutral {
+    // Colors
+    color: @button-neutral-text-color-default;
+    background: @button-neutral-background-color-default;
+    border-color: @button-neutral-border-color-default;
+
+    // States
+    &:hover {
+        background: @button-neutral-background-color-hover;
+        border-color: @button-neutral-border-color-hover;
+    }
+    
+    &:active {
+        color: @button-neutral-text-color-active;
+        background: @button-neutral-background-color-active;
+        border-color: @button-neutral-border-color-active;
+    }
+
+    &:focus {
+        background-color: @button-neutral-background-color-focus;
+        border-color: @button-neutral-border-color-focus;
+        box-shadow: @button-neutral-box-shadow-focus;
+    }
+}
+
+.button-destructive {
+    // Colors
+    color: @button-destructive-text-color-default;
+    background: @button-destructive-background-color-default;
+    border-color: @button-destructive-border-color-default;
+    
+    // States
+    &:hover {
+        background: @button-destructive-background-color-hover;
+        border-color: @button-destructive-border-color-hover;
+    }
+    
+    &:active {
+        background: @button-destructive-background-color-active;
+        border-color: @button-destructive-border-color-active;
+    }
+
+    &:focus {
+        background-color: @button-destructive-background-color-focus;
+        border-color: @button-destructive-border-color-focus;
+        box-shadow: @button-destructive-box-shadow-focus;
+    }
+}

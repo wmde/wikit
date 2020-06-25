@@ -16,9 +16,18 @@
   "scripts": {
     "test": "echo \"Tests of tokens\"",
     "postinstall": "echo \"installed tokens\"",
-    "prepare": "echo \"\\$color-base-0: #000;\" > ./dist/_variables.scss"
+    "prepare": "node build/wikimedia-ui-base",
+    "build": "npm run clean && npm run build:tokens",
+    "prepublish": "npm run build",
+    "clean": "rm -rf ./dist ./docs",
+    "build:tokens": "style-dictionary build -c ./.style-dictionary/config.json"
   },
   "bugs": {
     "url": "https://github.com/wmde/wikit/issues"
+  },
+  "devDependencies": {
+    "less-to-json": "^1.2.0",
+    "style-dictionary": "^2.10.0",
+    "wikimedia-ui-base": "^0.15.0"
   }
 }

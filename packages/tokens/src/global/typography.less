@@ -1,0 +1,34 @@
+/**
+ * Global Typography rules
+ */
+
+body {
+    font-family: @text-style-body-font-family;
+    font-size: @text-style-body-size;
+    font-weight: @text-style-body-font-weight;
+    color: @text-style-body-color;
+    line-height: @text-style-body-line-height;
+}
+
+// @text-style-description-font-family;
+// @text-style-description-size;
+// @text-style-description-line-height;
+// @text-style-description-color;
+// @text-style-description-font-weight;
+
+each(range(6), {
+    @family: 'text-style-h-@{value}-font-family';
+    @size: 'text-style-h-@{value}-size';
+    @weight: 'text-style-h-@{value}-font-weight';
+    @line-height: 'text-style-h-@{value}-line-height';
+    @color: 'text-style-h-@{value}-color';
+
+
+    h@{value} {
+        font-family: @@family;
+        font-size: @@size;
+        font-weight: @@weight;
+        color: @@color;
+        line-height: @@line-height;
+    }
+})
