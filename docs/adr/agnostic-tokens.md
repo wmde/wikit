@@ -1,0 +1,63 @@
+# Design token agnosticism and tooling
+
+Date: 2020-06-26
+
+## Status
+
+accepted
+
+## Context
+
+The WMF and WMDE are in close collaboration when it comes to design decisions. Most of the historic decisions have their home at [wikimedia-ui-base.less](https://gerrit.wikimedia.org/r/plugins/gitiles/wikimedia-ui-base/+/fa1e8c2/wikimedia-ui-base.less), in a technology-specific format. 
+
+There have been considerations for a [completely agnostic approach to design systems](https://gerrit.wikimedia.org/r/plugins/gitiles/wikibase/vuejs-components/+/ef82910/docs/adr/0001-use-a-design-system.md) to avoid repeating, what is today perceived as a mistake, binding to a specific technology for conceptual questions. There was pushback from developers about implementing agnostic components, but sympathy for an agnostic token solution remained.
+
+This is supported by the fact that WMDE dev, at the time of writing, has a rather clear preference for a target format (SASS), and we would have needed a way to translate Less variables into SASS variables either way.
+
+There is the additional requirement that the WMDE design system owner needs a way to be in full control of the structure of the tokens, and define values in addition to or even correcting values found in the WMF information. As a consequence, the challenge is not purely a technical one of importing the WMF variables, but also one of control inside this design system and user ergonomics when maintaining it.
+
+In April 2020 there was a prototyping week during which [some experiences had already been made](https://github.com/wmde/wikit-css) and stakeholders had a chance to validate their hypotheses.
+
+## Considered Actions
+
+### technology-specific token definition
+
+This option means specifying tokens in a format understood by one of the CSS pre-processors already used in our stack (Less or SASS).
+
+#### Advantages
+* IDE support for use of variables in notorious file formats
+* avoids dealing with a third format & toolset (on top of Less & SASS, for WMDE dev)
+
+#### Downsides
+* is conceptually "the wrong way around", going from specific to generic in case we need to support multiple target formats
+* slightly increase barrier to entry for contributors not familiar with specific technology
+* no native support for structure (beyond shared prefixes)
+* possibly laborious to support multiple target formats
+
+### technology-agnostic token definition 
+
+This option means specifying tokens in a generic format (e.g. JSON/YML) which have to be converted to files as understood by specific pieces of technology.
+
+#### Advantages
+* shows on the conceptual level system design comes before concrete implementation
+* allows us to store meta information (e.g. comments) alongside the token values
+* low barrier to entry for all trades (file format)
+* allows us to support different technologies at the same time (when combined with the appropriate software to consume it)
+* it is the future-proof option
+
+#### Downsides
+* referencing "variables" (properties from other parts of the token tree) using a custom access notation stored in strings feels brittle and receives no support (autocomplete, ...) from editors/IDEs
+
+## Decision
+
+We decided to go with the technology-agnostic token definition. It provides many advantages at the price of very few drawbacks.
+
+We also plan to use style-dictionary to consume and convert the tokens for us; it supports the required features and has been successfully tried during the prototyping week already, while being similarly popular (looking at "github stars") like its competition (e.g. [theo](https://github.com/salesforce-ux/theo)).
+
+## Consequences
+
+As a consequence we achieve agnosticism on the token level and can support many target formats effortlessly.
+
+The simple file format, albeit not exceptionally friendly, lends itself to the proposed editing workflow via the github GUI for all trades. CI will be set up to mitigate the possibility of human error.
+
+This decision does not fundamentally impact the reversibility of the "Approach for reuse of variables from wikimedia-ui-base" ("inherit" vs "cherry-pick").
