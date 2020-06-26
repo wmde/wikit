@@ -1,0 +1,42 @@
+{
+  "name": "wikit-docs",
+  "version": "0.0.0",
+  "description": "Storybook for illustrating design tokens and components",
+  "keywords": [
+    "wikit",
+    "docs",
+    "storybook",
+    "tokens",
+    "components"
+  ],
+  "author": "The Wikidata team",
+  "homepage": "https://github.com/wmde/wikit#readme",
+  "license": "BSD-3-Clause",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wmde/wikit.git"
+  },
+  "scripts": {
+    "storybook": "start-storybook"
+  },
+  "dependencies": {
+    "@wmde/wikit-tokens": "^0.0.0",
+    "@wmde/wikit-vue-components": "^0.0.0",
+    "vue": "^2.6.11"
+  },
+  "bugs": {
+    "url": "https://github.com/wmde/wikit/issues"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@storybook/vue": "^5.3.19",
+    "babel-loader": "^8.1.0",
+    "babel-preset-vue": "^2.0.2",
+    "vue-loader": "^16.0.0-beta.4",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
