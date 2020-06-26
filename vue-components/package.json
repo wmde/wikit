@@ -1,0 +1,26 @@
+{
+  "name": "@wmde/wikit-vue-components",
+  "version": "0.0.0",
+  "description": "The component implementation of wikit in vue",
+  "author": "The Wikidata team",
+  "homepage": "https://github.com/wmde/wikit/tree/master/vue-components#readme",
+  "license": "BSD-3-Clause",
+  "main": "dist/index.js",
+  "files": [
+    "src/",
+    "dist/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wmde/wikit.git"
+  },
+  "scripts": {
+    "test": "echo \"wikit vue components tests\" && exit 0"
+  },
+  "dependencies": {
+    "@wmde/wikit-tokens": "^0.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/wmde/wikit/issues"
+  }
+}
