@@ -1,5 +1,5 @@
 {
     "wmde-ftw": {
-        "value": "inherit"
+        "value": "{wmf-wmui-color-base0.value}"
     }
 }
