@@ -14,9 +14,16 @@
     "url": "git+https://github.com/wmde/wikit.git"
   },
   "scripts": {
-    "test": "echo \"wikit tokens tests\" && exit 0"
+    "test": "echo \"wikit tokens tests\" && exit 0",
+    "prepublish": "npm run build",
+    "build": "npm run clean && npm run build:tokens",
+    "build:tokens": "style-dictionary build -c ./.style-dictionary/config.json",
+    "clean": "rm -rf ./dist"
   },
   "bugs": {
     "url": "https://github.com/wmde/wikit/issues"
+  },
+  "devDependencies": {
+    "style-dictionary": "^2.10.0"
   }
 }
