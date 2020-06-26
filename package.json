@@ -7,6 +7,9 @@
     "url": "git+https://github.com/wmde/wikit.git"
   },
   "scripts": {
-    "test": "echo \"wikit tests\" && exit 0"
+    "test": "lerna run test"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1"
   }
 }

@@ -18,8 +18,17 @@ docker-compose build --build-arg UID=$(id -u) --build-arg GID=$(id -g) node
 docker-compose run --rm node npm
 ```
 
+### Installation
+
+This project uses [lerna](https://lerna.js.org/) to orchestrate multiple packages.
+
+```sh
+docker-compose run --rm node lerna bootstrap
+```
+```
+
 ### Running tests
 
 ```sh
-docker-compose run --rm node npm run test
+docker-compose run --rm node lerna run test
 ```

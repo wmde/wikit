@@ -1,0 +1,22 @@
+{
+  "name": "@wmde/wikit-tokens",
+  "version": "0.0.0",
+  "description": "Design tokens for wikit in different formats",
+  "author": "The Wikidata team",
+  "homepage": "https://github.com/wmde/wikit/tree/master/tokens#readme",
+  "license": "BSD-3-Clause",
+  "main": "dist/index.json",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wmde/wikit.git"
+  },
+  "scripts": {
+    "test": "echo \"wikit tokens tests\" && exit 0"
+  },
+  "bugs": {
+    "url": "https://github.com/wmde/wikit/issues"
+  }
+}

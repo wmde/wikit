@@ -12,5 +12,6 @@ ARG GID=1000
 
 RUN addgroup --gid $GID runuser && adduser --uid $UID --gid $GID --disabled-password --gecos "" runuser
 RUN npm install --global npm@6.14.5
+RUN npm install --global lerna@3.22.1
 
 USER runuser
