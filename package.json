@@ -7,6 +7,7 @@
     "url": "git+https://github.com/wmde/wikit.git"
   },
   "scripts": {
+    "postinstall": "lerna bootstrap",
     "test": "lerna run test"
   },
   "devDependencies": {
