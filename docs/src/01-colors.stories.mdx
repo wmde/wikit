@@ -1,14 +1,65 @@
-import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+[//]: # (The addon-docs blocks do not have official docs yet.)
+[//]: # (They are being worked on https://github.com/storybookjs/storybook/issues/9133)
+[//]: # (The list of available components can be found here:)
+[//]: # (https://github.com/storybookjs/storybook/blob/master/addons/docs/src/blocks/index.ts)
+import { Meta, Story, Preview, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import { color } from '../../tokens/dist/index.json';
+import { colorBase, colorAccent, colorUtility, colorModifier } from './color.stories.js'
 
 <Meta title="Design Tokens|Colors" />
 
-# Colors
-
-<br/>
-<br/>
-
-## Example
+## Base
 
 <ColorPalette>
-    <ColorItem title="wmf-wmui-color-base-0" subtitle="WMF import: @wmui-color-base0" colors={['#000']} />
+{
+    colorBase().map( ( color, index ) => (
+        <ColorItem key={index}
+            title={color.title}
+            subtitle={color.subtitle}
+            colors={[color.hex]}
+        />
+    ) )
+}
+</ColorPalette>
+
+## Accent
+
+<ColorPalette>
+{
+    colorAccent().map( ( color, index ) => (
+        <ColorItem key={index}
+            title={color.title}
+            subtitle={color.subtitle}
+            colors={[color.hex]}
+        />
+    ) )
+}
+</ColorPalette>
+
+## Utility
+
+<ColorPalette>
+{
+    colorUtility().map( ( color, index ) => (
+        <ColorItem key={index}
+            title={color.title}
+            subtitle={color.subtitle}
+            colors={[color.hex]}
+        />
+    ) )
+}
+</ColorPalette>
+
+## Modifier
+
+<ColorPalette>
+{
+    colorModifier().map( ( color, index ) => (
+        <ColorItem key={index}
+            title={color.title}
+            subtitle={color.subtitle}
+            colors={[color.hex]}
+        />
+    ) )
+}
 </ColorPalette>
