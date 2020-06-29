@@ -1,4 +1,4 @@
-import { color } from '../../tokens/dist/index.json';
+import { color } from '@wmde/wikit-tokens';
 
 /**
  * Gets specific set of information about every color in a subset of the color tokens
