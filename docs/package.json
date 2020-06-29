@@ -13,10 +13,6 @@
   "author": "The Wikidata team",
   "homepage": "https://github.com/wmde/wikit/tree/master/docs#readme",
   "license": "BSD-3-Clause",
-  "main": "src/index.js",
-  "files": [
-    "src"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wmde/wikit.git"
