@@ -1,5 +1,6 @@
 {
   "name": "wikit-docs",
+  "private": true,
   "version": "0.0.0",
   "description": "Storybook for illustrating design tokens and components",
   "keywords": [
@@ -10,7 +11,7 @@
     "components"
   ],
   "author": "The Wikidata team",
-  "homepage": "https://github.com/wmde/wikit#readme",
+  "homepage": "https://github.com/wmde/wikit/tree/master/docs#readme",
   "license": "BSD-3-Clause",
   "main": "src/index.js",
   "files": [
