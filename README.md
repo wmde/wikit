@@ -25,7 +25,6 @@ This project uses [lerna](https://lerna.js.org/) to orchestrate multiple package
 ```sh
 docker-compose run --rm node lerna bootstrap
 ```
-```
 
 ### Running tests
 
