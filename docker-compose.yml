@@ -10,3 +10,7 @@ services:
             - '~/.npm:/.npm'
             - './:/app'
         working_dir: /app
+    storybook:
+        extends:
+            service: node
+        command: 'npm run storybook'
