@@ -3,7 +3,8 @@
 [//]: # (The list of available components can be found here:)
 [//]: # (https://github.com/storybookjs/storybook/blob/master/addons/docs/src/blocks/index.ts)
 import { Meta, Story, Preview, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
-import { colorBase, colorAccent, colorUtility, colorModifier } from './color.stories.js'
+import { getColorInfo } from './color.stories.js'
+import { color } from '@wmde/wikit-tokens';
 
 <Meta title="Design Tokens|Colors" />
 
@@ -11,7 +12,7 @@ import { colorBase, colorAccent, colorUtility, colorModifier } from './color.sto
 
 <ColorPalette>
 {
-    colorBase().map( ( color, index ) => (
+    getColorInfo( color.base ).map( ( color, index ) => (
         <ColorItem key={index}
             title={color.title}
             subtitle={color.subtitle}
@@ -25,7 +26,7 @@ import { colorBase, colorAccent, colorUtility, colorModifier } from './color.sto
 
 <ColorPalette>
 {
-    colorAccent().map( ( color, index ) => (
+    getColorInfo( color.accent ).map( ( color, index ) => (
         <ColorItem key={index}
             title={color.title}
             subtitle={color.subtitle}
@@ -39,7 +40,7 @@ import { colorBase, colorAccent, colorUtility, colorModifier } from './color.sto
 
 <ColorPalette>
 {
-    colorUtility().map( ( color, index ) => (
+    getColorInfo( color.utility ).map( ( color, index ) => (
         <ColorItem key={index}
             title={color.title}
             subtitle={color.subtitle}
@@ -53,7 +54,7 @@ import { colorBase, colorAccent, colorUtility, colorModifier } from './color.sto
 
 <ColorPalette>
 {
-    colorModifier().map( ( color, index ) => (
+    getColorInfo( color.modifier ).map( ( color, index ) => (
         <ColorItem key={index}
             title={color.title}
             subtitle={color.subtitle}
