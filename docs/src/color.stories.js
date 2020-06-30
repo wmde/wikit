@@ -9,11 +9,11 @@ import { color } from '@wmde/wikit-tokens';
  *   information about a certain color
  */
 function getColorInfo( colorType ) {
-    return Object.keys( colorType ).map( color => ( {
-        title: colorType[ color ].name,
-        subtitle: colorType[ color ].original.value.replace( /{|}|.value/gi, '' ),
-        hex: colorType[ color ].value
-    } ) );
+	return Object.keys( colorType ).map( ( color ) => ( {
+		title: colorType[ color ].name,
+		subtitle: colorType[ color ].original.value.replace( /{|}|.value/gi, '' ),
+		hex: colorType[ color ].value,
+	} ) );
 }
 
 function flattenColorInfo( values ) {
@@ -25,11 +25,11 @@ function flattenColorInfo( values ) {
 }
 
 export function colorBase() {
-    return getColorInfo( color.base );
+	return getColorInfo( color.base );
 }
 
 export function colorAccent() {
-    return getColorInfo( color.accent );
+	return getColorInfo( color.accent );
 }
 
 export function colorUtility() {
