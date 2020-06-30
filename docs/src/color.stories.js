@@ -17,7 +17,7 @@ export function getColorInfo( colorType ) {
 		return colors.concat( {
 			title: node.name,
 			subtitle: node.original.value.replace( /{|}|.value/gi, '' ),
-			hex: node.value,
+			value: node.value,
 		} );
 	}, [] );
 }

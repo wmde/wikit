@@ -1,0 +1,24 @@
+import { color } from '@wmde/wikit-tokens';
+import { getColorInfo } from './color.stories.js'
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Design Tokens|Opacity" />
+
+## Opacity
+
+<table name="opacity" style={{ width: '100%' }}>
+    <tr>
+        <th>Name</th>
+        <th>Source</th>
+        <th>Value</th>
+    </tr>
+{
+    getColorInfo( color.opacity ).map( ( color, index ) => (
+        <tr key={index}>
+            <td>{color.title}</td>
+            <td>{color.subtitle}</td>
+            <td>{color.value}</td>
+        </tr>
+    ) )
+}
+</table>
