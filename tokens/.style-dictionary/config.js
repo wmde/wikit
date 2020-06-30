@@ -1,6 +1,6 @@
 'use strict';
 
-const { removeWikimediaUiBaseVars } = require( './lib' ),
+const { removeWikimediaUiBaseVars, getReferencedTokens } = require( './lib' ),
 	StyleDictionary = require( 'style-dictionary' ).extend( {
 		include: [ 'node_modules/wikimedia-ui-base/tokens.json' ],
 		source: [ 'properties/**/*.json' ],
@@ -33,7 +33,10 @@ const { removeWikimediaUiBaseVars } = require( './lib' ),
 				} ],
 			},
 			json: {
-				transformGroup: 'web',
+				transforms: [
+					'name/cti/kebab',
+					'attr/tokenList',
+				],
 				buildPath: 'dist/',
 				files: [ {
 					destination: 'index.json',
@@ -43,5 +46,11 @@ const { removeWikimediaUiBaseVars } = require( './lib' ),
 			},
 		},
 	} );
+
+StyleDictionary.registerTransform( {
+	name: 'attr/tokenList',
+	type: 'attribute',
+	transformer: getReferencedTokens,
+} );
 
 StyleDictionary.buildAllPlatforms();
