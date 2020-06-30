@@ -1,10 +1,13 @@
-# 1) Use a Non-agnostic Design System {#adr_0001}
+# 1) Use a Non-agnostic Design System
 
 Date: 2020-05-15
 
 ## Status
 
 Accepted
+
+## Disclaimer
+This ADR was moved out of the [wikibase/vuejs-components repository](https://gerrit.wikimedia.org/r/admin/repos/wikibase/vuejs-components), which back then was the best place to document design system related decisions. The original contents were changed slightly in places containing references specific to the original repository.
 
 ## Context
 
@@ -50,6 +53,6 @@ We decide on this approach because:
 
 ## Consequences
 
-This component library will become the implementation of the Design System. The existing components in the library (IndeterminateProgressBar, RadioInput and ResizingTextField) will be either changed to match the design and behavior of the Design System, or deprecated if the Design System do not intend to include a certain component. Consequently the products that already use this library should be adjusted along with the introduced changes of the existing components.
+This repository will become the implementation of the Design System. The existing components residing in [wikibase/vuejs-components](https://gerrit.wikimedia.org/r/admin/repos/wikibase/vuejs-components) (IndeterminateProgressBar, RadioInput and ResizingTextField) will be either changed to match the design and behavior of the Design System, or deprecated if the Design System does not intend to include a certain component. Consequently the products that already use this library should be adjusted along with the introduced changes of the existing components.
 
 We recognize that switching to a different JavaScript technology/framework in the future is going to cause a need for deep re-implementation of the system components because of differences between frameworks.
