@@ -31,3 +31,11 @@ docker-compose run --rm node lerna bootstrap
 ```sh
 docker-compose run --rm node lerna run test
 ```
+
+### Running Storybook
+
+```sh
+docker-compose up storybook
+```
+
+Follow the url "On your Network" that the above command outputs.
