@@ -27,6 +27,7 @@
   "dependencies": {
     "@wmde/wikit-tokens": "^0.0.0",
     "@wmde/wikit-vue-components": "^0.0.0",
+    "traverse": "^0.6.6",
     "vue": "^2.6.11"
   },
   "bugs": {
