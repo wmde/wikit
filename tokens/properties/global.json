@@ -57,7 +57,7 @@
         },
         "line-height": {
             "none": {
-                "value": "{wmf-text-decoration-link--hover.value}"
+                "value": "none"
             },
             "small": {
                 "value": "{wmf-line-height-heading.value}"
@@ -144,8 +144,8 @@
                 "90": {
                     "value": "{wmf-wmui-color-green90.value}"
                 }
-            },
-            
+            }
+        },
         "modifier": {
             "lighten": {
                 "base-10": {
@@ -155,28 +155,25 @@
                     "value": "#6c7378"
                 }
              }
-          },
-            
-        "interaction":{
-                "accent-50-hover": {
-                    "value": "#447ff5"
-                },
-                "utility-red-50-hover": {
-                    "value": "#ff4242"
-                },
-                "purple": {
-                    "value": "#6b4ba1"
-                }      
-            }
-     },
-            
-    "opacity": {
-            "base": {
-                "value": "{wmf-opacity-base.value}"
+        },
+        "interaction": {
+            "accent-50-hover": {
+                "value": "#447ff5"
             },
-            "disabled": {
-                "value": "{wmf-opacity-base--disabled.value}"
+            "utility-red-50-hover": {
+                "value": "#ff4242"
+            },
+            "purple": {
+                "value": "#6b4ba1"
             }
+        }
+    },
+    "opacity": {
+        "base": {
+            "value": "{wmf-opacity-base.value}"
+        },
+        "disabled": {
+            "value": "{wmf-opacity-base--disabled.value}"
         }
     },
     "dimension": {
