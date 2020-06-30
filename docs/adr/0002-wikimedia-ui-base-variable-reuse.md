@@ -1,4 +1,4 @@
-# Approach for reuse of variables from wikimedia-ui-base
+# 2) Approach for reuse of variables from wikimedia-ui-base
 
 Date: 2020-06-26
 
