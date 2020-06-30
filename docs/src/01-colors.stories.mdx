@@ -63,3 +63,17 @@ import { color } from '@wmde/wikit-tokens';
     ) )
 }
 </ColorPalette>
+
+## Interaction
+
+<ColorPalette>
+{
+    flattenTokenTree( color.interaction ).map( ( color, index ) => (
+        <ColorItem key={index}
+            title={color.name}
+            subtitle={color.referencedTokens}
+            colors={[color.value]}
+        />
+    ) )
+}
+</ColorPalette>
