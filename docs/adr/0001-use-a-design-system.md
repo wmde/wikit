@@ -1,0 +1,55 @@
+# 1) Use a Non-agnostic Design System {#adr_0001}
+
+Date: 2020-05-15
+
+## Status
+
+Accepted
+
+## Context
+
+A design system is a collection of reusable components, guided by clear standards, that can be assembled together to build any number of applications. A design system unites product teams around a common visual language. It reduces design debt, accelerates the design process, and builds bridges between teams working to bring products to life.
+This will enable us to achieve overall consistency among Wikidata/Wikibase projects by replacing the current front end with modular components based on a single visual & interactive source of truth.
+
+### Approaches
+
+#### Agnostic Design System
+A design system which is technology-agnostic. The core HTML and CSS is separated from the JavaScript implementation/framework.
+The tech-specific versions of the design system consume the agnostic design system as a dependency, and transform things into a way that fits with the tech stack.
+
+The benefits of this approach are:
+- It's self-contained, it's treated as a standalone dependency
+- It’s reusable. The components are built in a way they can be reused in many contexts.
+- The system is able to adapt to inevitable changes to tools, technologies, and trends.
+
+The downsides of this approach are:
+- Introduces an additional level of complexity where the HTML has to be provided in a schema driven way and the library has to consume it and render it into a Vue file. This makes a component's less readable.
+- The complexity of this approach will have a steep learning curve and will slow down development.
+
+#### Non-agnostic Design System
+The JavaScript implementation/framework is an inseparable part of the Design System.
+
+The benefits of this approach are:
+- The time taken to develop such a system is less than the time it will take to build the agnostic design system.
+- Using the full power and features of the chosen JavaScript implementation/framework.
+
+The downsides of this approach are:
+- Switching to different JavaScript technology/framework is likely to cause a need for deep re-implementation of system components.
+
+## Decision
+
+Build a VueJS Design System (non-agnostic) where each component is represented in a [SFC style](https://vuejs.org/v2/guide/single-file-components.html).
+The Design System consumes pure CSS styles in a schema driven way via [Design Token files](https://css-tricks.com/what-are-design-tokens/).
+The HTML is tightly coupled with the Javascript code due to the nature of SFCs.
+The agnosticism of the design system is an afterthought. We are going to explore ways to export pure HTML-CSS components from the existing Vue ones.
+
+We decide on this approach because:
+- We have several Vue products (e.g. [Termbox](https://gerrit.wikimedia.org/r/plugins/gitiles/wikibase/termbox/), [Tainted References](https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/extensions/Wikibase/+/master/view/lib/wikibase-tainted-ref)) which use similar components but with slightly different design. We need a systematic approach to our front end work as soon as possible, in order to make maintenance of exiting products and the development of new ones faster, easier and less error prone.
+- We don't know if an agnostic design system will benefit 3rd party developers from the community. We don't know if anyone would necessarily want to use something else than Vue.
+- An agnostic design system will not immediately benefit the current work on the Wikidata/Wikibase front end.
+
+## Consequences
+
+This component library will become the implementation of the Design System. The existing components in the library (IndeterminateProgressBar, RadioInput and ResizingTextField) will be either changed to match the design and behavior of the Design System, or deprecated if the Design System do not intend to include a certain component. Consequently the products that already use this library should be adjusted along with the introduced changes of the existing components.
+
+We recognize that switching to a different JavaScript technology/framework in the future is going to cause a need for deep re-implementation of the system components because of differences between frameworks.
