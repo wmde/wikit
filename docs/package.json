@@ -21,7 +21,8 @@
     "storybook": "start-storybook",
     "test": "npm-run-all test:*",
     "test:lint": "eslint .",
-    "fix": "npm run test:lint -- --fix"
+    "fix": "npm run test:lint -- --fix",
+    "build": "build-storybook -o dist"
   },
   "dependencies": {
     "@wmde/wikit-tokens": "^0.0.0",
