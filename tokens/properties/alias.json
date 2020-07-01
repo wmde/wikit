@@ -1,0 +1,39 @@
+{
+    "text": {
+        "color": {
+            "base": {
+                "value": "{color.base.10.value}"
+            },
+            "emphasized": {
+                "value": "{color.base.0.value}"
+            },
+            "subtle": {
+                "value": "{color.base.30.value}"
+            },
+            "disabled": {
+                "value": "{color.base.30.value}"
+            },
+            "inverted": {
+                "value": "{color.base.100.value}"
+            },
+            "progressive": {
+                "value": "{color.accent.50.value}"
+            },
+            "progressive-hover": {
+                "value": "{color.interaction.accent.50.hover.value}"
+            },
+            "destructive": {
+                "value": "{color.utility.red.50.value}"
+            },
+            "destructive-hover": {
+                "value": "{color.interaction.utility.red.50.hover.value}"
+            },
+            "link": {
+                "value": "{color.accent.50.value}"
+            },
+            "link-visited": {
+                "value": "{color.purple.value}"
+            }
+        }
+    }
+}
