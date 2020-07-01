@@ -20,19 +20,19 @@
                 "value": "{color.accent.50.value}"
             },
             "progressive-hover": {
-                "value": "{color.interaction.accent.50.hover.value}"
+                "value": "{color.interaction.accent-50-hover.value}"
             },
             "destructive": {
                 "value": "{color.utility.red.50.value}"
             },
             "destructive-hover": {
-                "value": "{color.interaction.utility.red.50.hover.value}"
+                "value": "{color.interaction.utility-red-50-hover.value}"
             },
-            "link": {
+            "link-default": {
                 "value": "{color.accent.50.value}"
             },
             "link-visited": {
-                "value": "{color.purple.value}"
+                "value": "{color.interaction.purple.value}"
             }
         },
 
