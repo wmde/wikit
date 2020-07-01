@@ -140,5 +140,315 @@
             }
 
         }
-    }
+    },
+
+    "background":{
+        "color": {
+            "field":{
+                "base": {
+                    "value": ""
+                },
+                "hover": {
+                    "value": ""
+                },
+                "active": {
+                    "value": ""
+                },
+                "focus": {
+                    "value": ""
+                },
+                "disabled": {
+                    "value": ""
+                }
+            },
+            "binary": {
+                "base":{
+                    "value": ""
+                },
+                "hover": {
+                    "value": ""
+                },
+                "active": {
+                    "value": ""
+                },
+                "focus": {
+                    "value": ""
+                },
+                "disabled": {
+                    "value": ""
+                }
+            },
+            "binary-selected": {
+                "base":{
+                    "value": ""
+                },
+                "hover": {
+                    "value": ""
+                },
+                "active": {
+                    "value": ""
+                },
+                "focus": {
+                    "value": ""
+                },
+                "disabled": {
+                    "value": ""
+                }
+            },
+            "button":{
+                "neutral-base":{
+                    "value": ""
+                },
+                "progressive-base":{
+                    "value": ""
+                },
+                "destructive-base":{
+                    "value": ""
+                },
+                "neutral-hover": {
+                    "value": ""
+                },
+                "progressive-hover": {
+                    "value": ""
+                },
+                "destructive-hover": {
+                    "value": ""
+                },
+                "neutral-active": {
+                    "value": ""
+                },
+                "progressive-active": {
+                    "value": ""
+                },
+                "destructive-active": {
+                    "value": ""
+                },
+                "neutral-focus": {
+                    "value": ""
+                },
+                "progressive-focus": {
+                    "value": ""
+                },
+                "destructive-focus": {
+                    "value": ""
+                },
+                "disabled": {
+                    "value": ""
+                }
+            },
+            "button-quiet":{
+                "base":{
+                    "value": ""
+                },
+                "neutral-hover": {
+                    "value": ""
+                },
+                "progressive-hover": {
+                    "value": ""
+                },
+                "destructive-hover": {
+                    "value": ""
+                },
+                "neutral-active": {
+                    "value": ""
+                },
+                "progressive-active": {
+                    "value": ""
+                },
+                "destructive-active": {
+                    "value": ""
+                },
+                "focus": {
+                    "value": ""
+                },
+                "disabled": {
+                    "value": ""
+                }
+            },
+
+            "notice": {
+                "value": ""
+            },
+            "error": {
+                "value": ""
+            },
+            "warning": {
+                "value": ""
+            },
+            "success": {
+                "value": ""
+            }
+        }
+    },    
+
+    "border":{
+        "color": {
+            "field":{
+                "base": {
+                    "value": ""
+                },
+                "hover": {
+                    "value": ""
+                },
+                "active": {
+                    "value": ""
+                },
+                "focus": {
+                    "value": ""
+                },
+                "disabled": {
+                    "value": ""
+                }
+            },
+            "binary": {
+                "base":{
+                    "value": ""
+                },
+                "hover": {
+                    "value": ""
+                },
+                "active": {
+                    "value": ""
+                },
+                "focus": {
+                    "value": ""
+                },
+                "disabled": {
+                    "value": ""
+                }
+            },
+            "binary-selected": {
+                "base":{
+                    "value": ""
+                },
+                "hover": {
+                    "value": ""
+                },
+                "active": {
+                    "value": ""
+                },
+                "focus": {
+                    "value": ""
+                },
+                "disabled": {
+                    "value": ""
+                }
+            },
+            "button":{
+                "neutral-base":{
+                    "value": ""
+                },
+                "progressive-base":{
+                    "value": ""
+                },
+                "destructive-base":{
+                    "value": ""
+                },
+                "neutral-hover": {
+                    "value": ""
+                },
+                "progressive-hover": {
+                    "value": ""
+                },
+                "destructive-hover": {
+                    "value": ""
+                },
+                "neutral-active": {
+                    "value": ""
+                },
+                "progressive-active": {
+                    "value": ""
+                },
+                "destructive-active": {
+                    "value": ""
+                },
+                "neutral-focus": {
+                    "value": ""
+                },
+                "progressive-focus": {
+                    "value": ""
+                },
+                "destructive-focus": {
+                    "value": ""
+                },
+                "disabled": {
+                    "value": ""
+                }
+            },
+            "button-quiet":{
+                "neutral-base":{
+                    "value": ""
+                },
+                "progressive-base":{
+                    "value": ""
+                },
+                "destructive-base":{
+                    "value": ""
+                },
+                "neutral-hover": {
+                    "value": ""
+                },
+                "progressive-hover": {
+                    "value": ""
+                },
+                "destructive-hover": {
+                    "value": ""
+                },
+                "neutral-active": {
+                    "value": ""
+                },
+                "progressive-active": {
+                    "value": ""
+                },
+                "destructive-active": {
+                    "value": ""
+                },
+                "neutral-focus": {
+                    "value": ""
+                },
+                "progressive-focus": {
+                    "value": ""
+                },
+                "destructive-focus": {
+                    "value": ""
+                },
+                "disabled": {
+                    "value": ""
+                }
+            },
+
+            "notice": {
+                "value": ""
+            },
+            "error": {
+                "value": ""
+            },
+            "warning": {
+                "value": ""
+            },
+            "success": {
+                "value": ""
+            }
+        },    
+        "width": {
+            "thin": {
+                "value": "{dimension.static.size.10.value}"
+                },
+            "thick": {
+                    "value": "{dimension.static.size.25.value}"
+                    }
+            },
+        "radius": {
+            "none": {
+                "value": "{dimension.static.size.0.value}"
+                },
+            "base": {
+                    "value": "{dimension.static.size.25.value}"
+            },
+            "rounder": {
+                "value": "{dimension.static.size.50.value}"
+                }
+        } 
+        
+    }    
 }
