@@ -1,0 +1,28 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { flattenTokenTree } from './lib/flattenTokenTree';
+import { cursor } from '@wmde/wikit-tokens';
+
+<Meta title="Design Tokens|Cursors" />
+
+## Cursors
+
+<table name="cursors" style={{ width: '100%' }}>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Source</th>
+            <th>Value (hover to demo)</th>
+        </tr>
+    </thead>
+    <tbody>
+{
+    flattenTokenTree( cursor ).map( ( cursor ) => (
+        <tr key={ cursor.name } id={ cursor.name }>
+            <td><a href={ '#' + cursor.name }>{ cursor.name }</a></td>
+            <td>{ cursor.referencedTokens || '-' }</td>
+            <td style={{ cursor: cursor.value }}><pre>{ cursor.value }</pre></td>
+        </tr>
+    ) )
+}
+    </tbody>
+</table >
