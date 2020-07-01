@@ -7,11 +7,14 @@ import { opacity } from '@wmde/wikit-tokens';
 ## Opacity
 
 <table name="opacity" style={{ width: '100%' }}>
-    <tr>
-        <th>Name</th>
-        <th>Source</th>
-        <th>Value</th>
-    </tr>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Source</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
 {
     flattenTokenTree( opacity ).map( ( opacity, index ) => (
         <tr key={index}>
@@ -21,4 +24,5 @@ import { opacity } from '@wmde/wikit-tokens';
         </tr>
     ) )
 }
+    </tbody>
 </table >
