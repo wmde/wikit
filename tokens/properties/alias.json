@@ -347,5 +347,40 @@
                 }
         } 
         
-    }    
+    },
+    
+    "icon": {
+        "color":{
+            "base":{
+                "value": "{color.base.10.value}"
+            },
+            "emphasized":{
+                "value": "{color.base.0.value}"
+            },
+            "inverted":{
+                "value": "{color.base.100.value}"
+            },
+            "disabled":{
+                "value": "{color.base.30.value}"
+            },
+            "progressive":{
+                "value": "{color.accent.50.value}"
+            },
+            "destructive":{
+                "value": "{color.utility.red.50.value}"
+            },
+            "notice":{
+                "value": "{color.base.0.value}"
+            },
+            "error":{
+                "value": "{color.utility.red.50.value}"
+            },
+            "warning":{
+                "value": "{color.utility.yellow.50.value}"
+            },
+            "success":{
+                "value": "{color.utility.green.30.value}"
+            },
+        }
+    }
 }
