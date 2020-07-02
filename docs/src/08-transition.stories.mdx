@@ -1,0 +1,24 @@
+import { Meta, Typeset } from '@storybook/addon-docs/blocks';
+import { TokenTable } from './lib/TokenTable';
+import { transition } from '@wmde/wikit-tokens';
+import styles from './styles/transition.css';
+
+<Meta title="Design Tokens|Transition" />
+
+## Transition
+
+### Duration
+
+<TokenTable
+    tokens={transition.duration}
+    valueCell={( value ) => (
+        <div>
+            <pre>{ value }</pre>
+            <div class="transition" style={{ transitionDuration: value }} />
+        </div>
+    )}
+/>
+
+### Property
+
+<TokenTable tokens={transition.property} />
