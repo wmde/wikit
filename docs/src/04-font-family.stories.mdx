@@ -1,0 +1,31 @@
+import { Meta, Typeset } from '@storybook/addon-docs/blocks';
+import { flattenTokenTree } from './lib/flattenTokenTree';
+import { font } from '@wmde/wikit-tokens';
+
+<Meta title="Design Tokens|Font family" />
+
+## Font family
+
+<table name="font-family" style={{ width: '100%' }}>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Source</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+{
+    flattenTokenTree( font.family ).map( ( { name, referencedTokens, value }, index ) => (
+        <tr key={index}>
+            <td>{name}</td>
+            <td>{referencedTokens || '-'}</td>
+            <td>
+                <p>{value}</p>
+                <Typeset fontSizes={[ '16px' ]} fontFamily={value} sampleText="Wiki" />
+            </td>
+        </tr>
+    ) )
+}
+    </tbody>
+</table >
