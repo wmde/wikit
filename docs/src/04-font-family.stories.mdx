@@ -22,7 +22,11 @@ import { font } from '@wmde/wikit-tokens';
             <td>{referencedTokens || '-'}</td>
             <td>
                 <p>{value}</p>
-                <Typeset fontSizes={[ '16px' ]} fontFamily={value} sampleText="Wiki" />
+                <Typeset
+                    fontSizes={[ '16px' ]}
+                    fontFamily={value}
+                    sampleText="The quick brown fox jumps over the lazy dog"
+                />
             </td>
         </tr>
     ) )
