@@ -396,6 +396,7 @@
             }
         }
     },
+
     "box-shadow":{
         "focus":{
             "progressive":{
@@ -410,8 +411,12 @@
         }
 
     },
+
     "dimension":{
-        "min-heigt":{
+        "min-height":{
+            "x-small":{
+                "value":"{dimension.static.size.250.value}"
+            },
             "small":{
                 "value":"{dimension.static.size.300.value}"
             },
@@ -435,6 +440,7 @@
             }
         }
     },
+
     "padding":{
         "none":{
             "value":"{dimension.static.size.0.value}"
