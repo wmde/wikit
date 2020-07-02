@@ -2,15 +2,14 @@ name: "Chromatic"
 on: push
 
 jobs:
-  test:
+  test-deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - run: |
-        npm ci
-        npm run build:storybook
+    - run: npm ci && npm run postinstall && npm run build:storybook
     - uses: chromaui/action@v1
       with: 
         projectToken: 3evi132fpys
         token: ${{ secrets.GITHUB_TOKEN }}
         storybookBuildDir: docs/dist
+
