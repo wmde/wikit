@@ -55,6 +55,9 @@
                 },
                 "description": {
                     "value": "{font.family.sans.value}"
+                },
+                "link": {
+                    "value": "{font.family.sans.value}"
                 }
             },
             "line-height": {
@@ -72,6 +75,9 @@
                 },
                 "description": {
                     "value": "{font.line-height.large.value}"
+                },
+                "link": {
+                    "value": "{font.line-height.medium.value}"
                 }
             },
             "font-size": {
@@ -104,6 +110,9 @@
                 },
                 "description": {
                     "value": "{dimension.font.size.small.value}"
+                },
+                "link": {
+                    "value": "{dimension.font.size.medium.value}"
                 }
             },
             "font-weight": {
@@ -136,6 +145,9 @@
                 },
                 "description": {
                     "value": "{font.weight.regular.value}"
+                },
+                "link": {
+                    "value": "{font.weight.bold.value}"
                 }
             }
 
