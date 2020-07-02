@@ -13,3 +13,4 @@ jobs:
       with: 
         projectToken: 3evi132fpys
         token: ${{ secrets.GITHUB_TOKEN }}
+        storybookBuildDir: docs/dist
