@@ -409,5 +409,30 @@
             }
         }
 
+    },
+    "dimension":{
+        "min-heigt":{
+            "small":{
+                "value":"{dimension.static.size.300.value}"
+            },
+            "medium":{
+                "value":"{dimension.static.size.400.value}"
+            },
+            "large":{
+                "value":"{dimension.static.size.500.value}"
+            }
+        },
+        "width":{
+            "field":{
+                "medium":{
+                    "value":"{dimension.static.size.3200.value}"
+                },
+            "button":{
+                    "full-width":{
+                        "value":"{dimension.static.percent.100.value}"
+                    }
+                }
+            }
+        }
     }
 }
