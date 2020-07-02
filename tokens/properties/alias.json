@@ -470,5 +470,16 @@
                 "value":"{dimension.static.size.110.value}"
             }
         }
+    },
+
+    "transition":{
+        "hover":{
+            "property":{
+                "value":"{transition.property.background-color.value}, {transition.property.border-color.value}, {transition.property.box-shadow.value}"
+            },
+            "duration": {
+                "value":"{transition.duration.fast.value}"
+            }
+        }
     }
 }
