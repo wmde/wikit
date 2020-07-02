@@ -11,6 +11,7 @@
 			"imports": "always-multiline",
 			"exports": "always-multiline",
 			"functions": "always-multiline"
-		} ]
+		} ],
+		"func-style": [ "error", "declaration" ]
 	}
 }
