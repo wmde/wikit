@@ -1,0 +1,35 @@
+import { Meta, Typeset } from '@storybook/addon-docs/blocks';
+import { flattenTokenTree } from './lib/flattenTokenTree';
+import { font } from '@wmde/wikit-tokens';
+
+<Meta title="Design Tokens|Font weight" />
+
+## Font weight
+
+<table name="font-weight" style={{ width: '100%' }}>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Source</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+{
+    flattenTokenTree( font.weight ).map( ( { name, referencedTokens, value }, index ) => (
+        <tr key={index}>
+            <td>{name}</td>
+            <td>{referencedTokens || '-'}</td>
+            <td>
+                <p>{value}</p>
+                <Typeset
+                    fontSizes={[ '16px' ]}
+                    fontWeight={value}
+                    sampleText="The quick brown fox jumps over the lazy dog"
+                />
+            </td>
+        </tr>
+    ) )
+}
+    </tbody>
+</table >
