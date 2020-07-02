@@ -1,0 +1,14 @@
+/**
+ * Illustrate a transition.
+ * Apply to an element, pass a custom transition-duration.
+ */
+.transition {
+    width: 200px;
+    height: 20px;
+    background-color: #36c;
+    transition-property: width;
+}
+
+.transition:hover {
+    width: 100px;
+}
