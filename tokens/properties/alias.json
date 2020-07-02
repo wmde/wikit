@@ -326,7 +326,6 @@
                 "value": "{color.utility.green.50.value}"
             }
         },
-
         "width": {
             "thin": {
                 "value": "{dimension.static.size.10.value}"
@@ -380,7 +379,35 @@
             },
             "success":{
                 "value": "{color.utility.green.30.value}"
+            }
+        },
+        "size":{
+            "xsmall":{
+                "value":"{dimension.static.size.150.value}"
             },
+            "small":{
+                "value":"{dimension.static.size.175.value}"
+            },
+            "medium":{
+                "value":"{dimension.static.size.200.value}"
+            },
+            "large":{
+                "value":"{dimension.static.size.250.value}"
+            }
         }
+    },
+    "box-shadow":{
+        "focus":{
+            "progressive":{
+                "value":"{box-shadow.inset.thin.value} {color.accent.50.value}"
+            },
+            "destructive":{
+                "value":"{box-shadow.inset.thin.value} {color.utility.red.50.value}"
+            },
+            "button-primary":{
+                "value":"{box-shadow.inset.thick.value} {color.base.100.value}"
+            }
+        }
+
     }
 }
