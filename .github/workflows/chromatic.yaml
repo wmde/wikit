@@ -1,8 +1,8 @@
 
 on: push
-name: Test Deploy
+name: Chromatic deploy
 jobs:
-  build-test:
+  build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
