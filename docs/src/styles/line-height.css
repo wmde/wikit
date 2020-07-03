@@ -1,0 +1,9 @@
+/**
+ * Illustrate a line-height.
+ * Apply to an element (with text content), pass a custom line-height.
+ */
+.lineHeight {
+    background-color: #36c;
+    color: #fff;
+    width: 200px;
+}
