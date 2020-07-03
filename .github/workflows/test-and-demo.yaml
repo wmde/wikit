@@ -1,14 +1,20 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests
+# This workflow will do
+# - a clean install of node dependencies
+# - run tests
+# - build and upload the storybook to a staging area
+#
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
 on: push
-name: Test
+name: Test and deploy
 jobs:
-  build:
+  test-and-demo:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 # chromatic needs access to the history
     - name: Set up node
       uses: actions/setup-node@v1
       with:
@@ -17,3 +23,5 @@ jobs:
       run: npm ci
     - name: Test
       run: npm run test
+    - name: Deploy Storybook
+      run: npm run chromatic
