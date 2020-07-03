@@ -10,16 +10,22 @@ export function TokenTable( { tokens, valueCell } ) {
 			<thead>
 			<tr>
 				<th>Name</th>
-				<th>Source</th>
-				<th>Value</th>
+				<th>Value / Swatch</th>
 			</tr>
 			</thead>
 			<tbody>
 			{
 				flattenTokenTree( tokens ).map( ( { name, referencedTokens, value } ) => (
 					<tr key={name} id={name}>
-						<td><components.a href={'#' + name}>🔗</components.a> {name}</td>
-						<td>{referencedTokens || '-'}</td>
+						<td>
+							<components.a href={'#' + name}>🔗</components.a>
+							&nbsp;<strong>{name}</strong>
+							<br />
+							{referencedTokens ?
+								<span title="value influenced by">{referencedTokens}</span> :
+								<i>primary value</i>
+							}
+						</td>
 						<td>{renderValue( value )}</td>
 					</tr>
 				) )
