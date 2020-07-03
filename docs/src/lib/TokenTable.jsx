@@ -1,6 +1,7 @@
 import React from 'react';
 import { flattenTokenTree } from './flattenTokenTree';
 import { components } from '@storybook/components/dist/typography/DocumentFormatting';
+import { AnchorMdx } from '@storybook/addon-docs/dist/blocks/mdx';
 
 export function TokenTable( { tokens, valueCell } ) {
 	const renderValue = ( value ) => valueCell ? valueCell( value ) : <pre>{value}</pre>;
@@ -18,7 +19,7 @@ export function TokenTable( { tokens, valueCell } ) {
 				flattenTokenTree( tokens ).map( ( { name, referencedTokens, value } ) => (
 					<tr key={name} id={name}>
 						<td>
-							<components.a href={'#' + name}>🔗</components.a>
+							<AnchorMdx href={'#' + name}>🔗</AnchorMdx>
 							&nbsp;<strong>{name}</strong>
 							<br />
 							{referencedTokens ?
