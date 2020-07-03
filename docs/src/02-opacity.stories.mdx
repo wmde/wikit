@@ -1,28 +1,9 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { flattenTokenTree } from './lib/flattenTokenTree';
 import { opacity } from '@wmde/wikit-tokens';
+import { TokenTable } from './lib/TokenTable';
 
 <Meta title="Design Tokens|Opacity" />
 
 ## Opacity
 
-<table name="opacity" style={{ width: '100%' }}>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Source</th>
-            <th>Value</th>
-        </tr>
-    </thead>
-    <tbody>
-{
-    flattenTokenTree( opacity ).map( ( opacity, index ) => (
-        <tr key={index}>
-            <td>{opacity.name}</td>
-            <td>{opacity.referencedTokens}</td>
-            <td>{opacity.value}</td>
-        </tr>
-    ) )
-}
-    </tbody>
-</table >
+<TokenTable tokens={opacity} />
