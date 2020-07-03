@@ -18,7 +18,7 @@ export function TokenTable( { tokens, valueCell } ) {
 			{
 				flattenTokenTree( tokens ).map( ( { name, referencedTokens, value } ) => (
 					<tr key={name} id={name}>
-						<td><a href={'#' + name}>{name}</a></td>
+						<td><components.a href={'#' + name}>{name}</components.a></td>
 						<td>{referencedTokens || '-'}</td>
 						<td>{renderValue( value )}</td>
 					</tr>
