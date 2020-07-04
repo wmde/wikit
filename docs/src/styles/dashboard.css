@@ -1,0 +1,6 @@
+.dashboard .scrollit {
+    display: block;
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

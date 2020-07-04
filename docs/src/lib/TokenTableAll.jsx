@@ -63,8 +63,9 @@ function render( token ) {
 }
 
 export function TokenTableAll( { tokens } ) {
+	const flatTokens = Array.isArray( tokens ) ? tokens : flattenTokenTree( tokens );
 	return (
-		<components.table style={{ width: '100%' }}>
+		<components.table className="dashboardTable" style={{ width: '100%' }}>
 			<thead>
 			<tr>
 				<th>Name</th>
@@ -73,13 +74,13 @@ export function TokenTableAll( { tokens } ) {
 			</thead>
 			<tbody>
 			{
-				flattenTokenTree( tokens ).map( ( token ) => (
+				flatTokens.map( ( token ) => (
 					<tr key={ token.name } id={ token.name }>
 						<td>
 							<AnchorMdx href={ '#' + token.name }>🔗</AnchorMdx>
 							&nbsp;<strong>{ token.name }</strong>
 							<br />
-							{ token.referencedTokens ?
+							{ token.referencedTokens.length ?
 								<span title="value influenced by">{ token.referencedTokens }</span> :
 								<i>primary value</i>
 							}
