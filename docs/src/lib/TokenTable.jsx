@@ -1,11 +1,10 @@
 import React from 'react';
 import { flattenTokenTree } from './flattenTokenTree';
+import { TokenPresenter } from './TokenPresenter';
 import { components } from '@storybook/components/dist/typography/DocumentFormatting';
 import { AnchorMdx } from '@storybook/addon-docs/dist/blocks/mdx';
 
-export function TokenTable( { tokens, valueCell } ) {
-	const renderValue = ( value ) => valueCell ? valueCell( value ) : <pre>{value}</pre>;
-
+export function TokenTable( { tokens } ) {
 	return (
 		<components.table style={{ width: '100%' }}>
 			<thead>
@@ -16,18 +15,20 @@ export function TokenTable( { tokens, valueCell } ) {
 			</thead>
 			<tbody>
 			{
-				flattenTokenTree( tokens ).map( ( { name, referencedTokens, value } ) => (
-					<tr key={name} id={name}>
+				flattenTokenTree( tokens ).map( ( token ) => (
+					<tr key={ token.name } id={ token.name }>
 						<td>
-							<AnchorMdx href={'#' + name}>🔗</AnchorMdx>
-							&nbsp;<strong>{name}</strong>
+							<AnchorMdx href={ '#' + token.name }>🔗</AnchorMdx>
+							&nbsp;<strong>{ token.name }</strong>
 							<br />
-							{referencedTokens ?
-								<span title="value influenced by">{referencedTokens}</span> :
+							{ token.referencedTokens ?
+								<span title="value influenced by">{ token.referencedTokens }</span> :
 								<i>primary value</i>
 							}
 						</td>
-						<td>{renderValue( value )}</td>
+						<td>
+							<TokenPresenter token={ token } />
+						</td>
 					</tr>
 				) )
 			}

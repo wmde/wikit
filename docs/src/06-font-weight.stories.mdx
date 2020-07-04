@@ -6,16 +6,4 @@ import { font } from '@wmde/wikit-tokens';
 
 ## Font weight
 
-<TokenTable
-    tokens={font.weight}
-    valueCell={( value ) => (
-        <div>
-            <p>{value}</p>
-            <Typeset
-                fontSizes={[ '16px' ]}
-                fontWeight={value}
-                sampleText="The quick brown fox jumps over the lazy dog"
-            />
-        </div>
-    )}
-/>
+<TokenTable tokens={font.weight} />

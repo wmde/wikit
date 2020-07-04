@@ -3,77 +3,27 @@
 [//]: # (The list of available components can be found here:)
 [//]: # (https://github.com/storybookjs/storybook/blob/master/addons/docs/src/blocks/index.ts)
 import { Meta, Story, Preview, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
-import { flattenTokenTree } from './lib/flattenTokenTree'
+import { TokenTable } from './lib/TokenTable';
 import { color } from '@wmde/wikit-tokens';
 
 <Meta title="Design Tokens|Colors" />
 
 ## Base
 
-<ColorPalette>
-{
-    flattenTokenTree( color.base ).map( ( color, index ) => (
-        <ColorItem key={index}
-            title={color.name}
-            subtitle={color.referencedTokens}
-            colors={[color.value]}
-        />
-    ) )
-}
-</ColorPalette>
+<TokenTable tokens={color.base} />
 
 ## Accent
 
-<ColorPalette>
-{
-    flattenTokenTree( color.accent ).map( ( color, index ) => (
-        <ColorItem key={index}
-            title={color.name}
-            subtitle={color.referencedTokens}
-            colors={[color.value]}
-        />
-    ) )
-}
-</ColorPalette>
+<TokenTable tokens={color.accent} />
 
 ## Utility
 
-<ColorPalette>
-{
-    flattenTokenTree( color.utility ).map( ( color, index ) => (
-        <ColorItem key={index}
-            title={color.name}
-            subtitle={color.referencedTokens}
-            colors={[color.value]}
-        />
-    ) )
-}
-</ColorPalette>
+<TokenTable tokens={color.utility} />
 
 ## Modifier
 
-<ColorPalette>
-{
-    flattenTokenTree( color.modifier ).map( ( color, index ) => (
-        <ColorItem key={index}
-            title={color.name}
-            subtitle={color.referencedTokens}
-            colors={[color.value]}
-        />
-    ) )
-}
-</ColorPalette>
+<TokenTable tokens={color.modifier} />
 
 ## Interaction
 
-<ColorPalette>
-{
-    flattenTokenTree( color.interaction ).map( ( color, index ) => (
-        <ColorItem key={index}
-            title={color.name}
-            subtitle={color.referencedTokens}
-            colors={[color.value]}
-        />
-    ) )
-}
-</ColorPalette>
+<TokenTable tokens={color.interaction} />

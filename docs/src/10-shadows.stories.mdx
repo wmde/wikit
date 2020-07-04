@@ -6,18 +6,4 @@ import * as tokens from '@wmde/wikit-tokens';
 
 ## Shadows
 
-<TokenTable
-    tokens={tokens['box-shadow']} 
-    valueCell={( value ) => (
-            <div style={{
-                height: '80px',
-                width: '150px',
-                boxShadow: value,
-                backgroundColor: '#FFE599',
-                padding: '20px 10px'
-            }}>
-                <pre>{ value }</pre>
-            </div>
-            
-        )}
-/>
+<TokenTable tokens={tokens['box-shadow']} />
