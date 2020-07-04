@@ -6,16 +6,4 @@ import { TokenTable } from './lib/TokenTable';
 
 ## Font family
 
-<TokenTable
-    tokens={font.family}
-    valueCell={( value ) => (
-        <div>
-            <p>{value}</p>
-            <Typeset
-                fontSizes={[ '16px' ]}
-                fontFamily={value}
-                sampleText="The quick brown fox jumps over the lazy dog"
-            />
-        </div>
-    )}
-/>
+<TokenTable tokens={font.family} />
