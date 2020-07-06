@@ -1,13 +1,13 @@
 import React from 'react';
-import Shadows from './presenters/Shadows';
-import LineHeight from './presenters/LineHeight';
-import FontWeight from './presenters/FontWeight';
-import FontSize from './presenters/FontSize';
-import FontFamily from './presenters/FontFamily';
-import Transition from './presenters/Transition';
-import Cursor from './presenters/Cursor';
-import Default from './presenters/Default';
-import Color from './presenters/Color';
+import Shadows from './Shadows';
+import LineHeight from './LineHeight';
+import FontWeight from './FontWeight';
+import FontSize from './FontSize';
+import FontFamily from './FontFamily';
+import Transition from './Transition';
+import Cursor from './Cursor';
+import Default from './Default';
+import Color from './Color';
 
 /**
  * Is a token used to denote another (CSS) property,
@@ -20,7 +20,7 @@ function isPropertyToken( name ) {
 	return !!name.match(/\bproperty\b/);
 }
 
-export function TokenPresenter( { token } ) {
+export function InferPresenter( { token } ) {
 	const name = token.name;
 
 	if ( isPropertyToken( name ) ) {

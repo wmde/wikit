@@ -1,10 +1,12 @@
 import React from 'react';
 import { flattenTokenTree } from './flattenTokenTree';
-import { TokenPresenter } from './TokenPresenter';
+import Default from './presenters/Default';
 import { components } from '@storybook/components/dist/typography/DocumentFormatting';
 import { AnchorMdx } from '@storybook/addon-docs/dist/blocks/mdx';
 
-export function TokenTable( { tokens } ) {
+export function TokenTable( { tokens, Presenter } ) {
+	Presenter = Presenter || Default;
+
 	return (
 		<components.table style={{ width: '100%' }}>
 			<thead>
@@ -27,7 +29,7 @@ export function TokenTable( { tokens } ) {
 							}
 						</td>
 						<td>
-							<TokenPresenter token={ token } />
+							<Presenter token={ token } />
 						</td>
 					</tr>
 				) )

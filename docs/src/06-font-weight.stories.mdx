@@ -1,9 +1,10 @@
 import { Meta, Typeset } from '@storybook/addon-docs/blocks';
 import { TokenTable } from './lib/TokenTable';
+import FontWeight from './lib/presenters/FontWeight';
 import { font } from '@wmde/wikit-tokens';
 
 <Meta title="Design Tokens|Font weight" />
 
 ## Font weight
 
-<TokenTable tokens={font.weight} />
+<TokenTable tokens={font.weight} Presenter={FontWeight} />

@@ -1,9 +1,10 @@
 import { Meta, Typeset } from '@storybook/addon-docs/blocks';
 import { TokenTable } from './lib/TokenTable';
+import FontSize from './lib/presenters/FontSize';
 import { dimension } from '@wmde/wikit-tokens';
 
 <Meta title="Design Tokens|Font size" />
 
 ## Font size
 
-<TokenTable tokens={dimension.font.size} />
+<TokenTable tokens={dimension.font.size} Presenter={FontSize} />

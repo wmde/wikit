@@ -1,5 +1,6 @@
 import { Meta, Typeset } from '@storybook/addon-docs/blocks';
 import { TokenTable } from './lib/TokenTable';
+import LineHeight from './lib/presenters/LineHeight';
 import { font } from '@wmde/wikit-tokens';
 import styles from './styles/line-height.css';
 
@@ -7,4 +8,4 @@ import styles from './styles/line-height.css';
 
 ## Line-height
 
-<TokenTable tokens={font[ 'line-height' ]} />
+<TokenTable tokens={font[ 'line-height' ]} Presenter={LineHeight} />

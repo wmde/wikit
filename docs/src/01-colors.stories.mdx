@@ -4,26 +4,27 @@
 [//]: # (https://github.com/storybookjs/storybook/blob/master/addons/docs/src/blocks/index.ts)
 import { Meta, Story, Preview, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 import { TokenTable } from './lib/TokenTable';
+import Color from './lib/presenters/Color';
 import { color } from '@wmde/wikit-tokens';
 
 <Meta title="Design Tokens|Colors" />
 
 ## Base
 
-<TokenTable tokens={color.base} />
+<TokenTable tokens={color.base} Presenter={Color} />
 
 ## Accent
 
-<TokenTable tokens={color.accent} />
+<TokenTable tokens={color.accent} Presenter={Color} />
 
 ## Utility
 
-<TokenTable tokens={color.utility} />
+<TokenTable tokens={color.utility} Presenter={Color} />
 
 ## Modifier
 
-<TokenTable tokens={color.modifier} />
+<TokenTable tokens={color.modifier} Presenter={Color} />
 
 ## Interaction
 
-<TokenTable tokens={color.interaction} />
+<TokenTable tokens={color.interaction} Presenter={Color} />
