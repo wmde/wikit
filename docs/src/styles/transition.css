@@ -3,12 +3,13 @@
  * Apply to an element, pass a custom transition-duration.
  */
 .transition {
-    width: 200px;
-    height: 20px;
-    background-color: #36c;
-    transition-property: width;
+    width: 300px;
+    height: 50px;
+    margin-bottom: 5px;
+    background-color: #eaf3ff;
+    transition-property: background-color;
 }
 
 .transition:hover {
-    width: 100px;
+    background-color: #36c;
 }
