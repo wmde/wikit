@@ -7,7 +7,7 @@ import FontFamily from './presenters/FontFamily';
 import Transition from './presenters/Transition';
 import Cursor from './presenters/Cursor';
 import Default from './presenters/Default';
-import { ColorItem } from '@storybook/addon-docs/blocks';
+import Color from './presenters/Color';
 
 /**
  * Is a token used to denote another (CSS) property,
@@ -28,11 +28,7 @@ export function TokenPresenter( { token } ) {
 	}
 
 	if ( name.match(/\bcolor\b/) ) {
-		return <ColorItem key={ name }
-			title={ name }
-			subtitle={ token.referencedTokens }
-			colors={[ token.value ]}
-		/>;
+		return <Color token={ token } />;
 	}
 	else if ( name.match( /\bfont-family\b/ ) ) {
 		return <FontFamily token={ token } />;
