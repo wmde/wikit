@@ -6,7 +6,6 @@ import FontSize from './presenters/FontSize';
 import FontFamily from './presenters/FontFamily';
 import Transition from './presenters/Transition';
 import Cursor from './presenters/Cursor';
-import Default from './presenters/Default';
 import Color from './presenters/Color';
 
 /**
@@ -24,7 +23,7 @@ export function TokenPresenter( { token } ) {
 	const name = token.name;
 
 	if ( isPropertyToken( name ) ) {
-		return <Default token={ token } />;
+		return null;
 	}
 
 	if ( name.match(/\bcolor\b/) ) {
@@ -52,5 +51,5 @@ export function TokenPresenter( { token } ) {
 		return <Cursor token={ token } />
 	}
 
-	return <Default token={ token } />;
+	return null;
 }
