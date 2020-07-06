@@ -7,10 +7,7 @@ import styles from './../../styles/color.css';
  */
 export default function ( { token } ) {
 	return (
-		<div>
-			<div className='color' style={{ backgroundColor: token.value }} />
-			<pre>{ token.value }</pre>
-		</div>
+		<div className='color' style={{ backgroundColor: token.value }} />
 	);
 }
 

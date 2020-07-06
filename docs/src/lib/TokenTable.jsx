@@ -27,6 +27,7 @@ export function TokenTable( { tokens } ) {
 							}
 						</td>
 						<td>
+							<pre>{ token.value }</pre>
 							<TokenPresenter token={ token } />
 						</td>
 					</tr>
