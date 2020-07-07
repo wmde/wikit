@@ -1,19 +1,110 @@
 {
-    "width-breakpoint": {
-        "mobile": {
-            "value": "{wmf-width-breakpoint-mobile.value}"
+    "color": {
+        "global": {
+            "base": {
+                "0": {
+                    "value": "{wmf-wmui-color-base0.value}"
+                },
+                "10": {
+                    "value": "{wmf-wmui-color-base10.value}"
+                },
+                "20": {
+                    "value": "{wmf-wmui-color-base20.value}"
+                },
+                "30": {
+                    "value": "{wmf-wmui-color-base30.value}"
+                },
+                "50": {
+                    "value": "{wmf-wmui-color-base50.value}"
+                },
+                "70": {
+                    "value": "{wmf-wmui-color-base70.value}"
+                },
+                "80": {
+                    "value": "{wmf-wmui-color-base80.value}"
+                },
+                "90": {
+                    "value": "{wmf-wmui-color-base90.value}"
+                },
+                "100": {
+                    "value": "{wmf-wmui-color-base100.value}"
+                }
+            },
+            "accent": {
+                "30": {
+                    "value": "{wmf-wmui-color-accent30.value}"
+                },
+                "50": {
+                    "value": "{wmf-wmui-color-accent50.value}"
+                },
+                "90": {
+                    "value": "{wmf-wmui-color-accent90.value}"
+                }
+            },
+            "utility": {
+                "red": {
+                    "30": {
+                        "value": "{wmf-wmui-color-red30.value}"
+                    },
+                    "50": {
+                        "value": "{wmf-wmui-color-red50.value}"
+                    },
+                    "90": {
+                        "value": "{wmf-wmui-color-red90.value}"
+                    }
+                },
+                "yellow": {
+                    "30": {
+                        "value": "{wmf-wmui-color-yellow30.value}"
+                    },
+                    "50": {
+                        "value": "{wmf-wmui-color-yellow50.value}"
+                    },
+                    "90": {
+                        "value": "{wmf-wmui-color-yellow90.value}"
+                    }
+                },
+                "green": {
+                    "30": {
+                        "value": "{wmf-wmui-color-green30.value}"
+                    },
+                    "50": {
+                        "value": "{wmf-wmui-color-green50.value}"
+                    },
+                    "90": {
+                        "value": "{wmf-wmui-color-green90.value}"
+                    }
+                }
+            },
+            "modifier": {
+                "lighten": {
+                    "base-10": {
+                        "value": "#404244"
+                    },
+                    "base-20": {
+                        "value": "#6c7378"
+                    }
+                }
+            },
+            "interaction": {
+                "accent-50-hover": {
+                    "value": "#447ff5"
+                },
+                "utility-red-50-hover": {
+                    "value": "#ff4242"
+                },
+                "purple": {
+                    "value": "#6b4ba1"
+                }
+            }
+        }
+    },
+    "opacity": {
+        "base": {
+            "value": "{wmf-opacity-base.value}"
         },
-        "tablet": {
-            "value": "{wmf-width-breakpoint-tablet.value}"
-        },
-        "desktop": {
-            "value": "{wmf-width-breakpoint-desktop.value}"
-        },
-        "desktop-wide": {
-            "value": "{wmf-width-breakpoint-desktop-wide.value}"
-        },
-        "desktop-extrawide": {
-            "value": "{wmf-width-breakpoint-desktop-extrawide.value}"
+        "disabled": {
+            "value": "{wmf-opacity-base--disabled.value}"
         }
     },
     "font": {
@@ -68,140 +159,39 @@
             "large": {
                 "value": "{wmf-line-height-base.value}"
             }
-        }
-    },
-    "color": {
-        "base": {
-            "0": {
-                "value": "{wmf-wmui-color-base0.value}"
-            },
-            "10": {
-                "value": "{wmf-wmui-color-base10.value}"
-            },
-            "20": {
-                "value": "{wmf-wmui-color-base20.value}"
-            },
-            "30": {
-                "value": "{wmf-wmui-color-base30.value}"
-            },
-            "50": {
-                "value": "{wmf-wmui-color-base50.value}"
-            },
-            "70": {
-                "value": "{wmf-wmui-color-base70.value}"
-            },
-            "80": {
-                "value": "{wmf-wmui-color-base80.value}"
-            },
-            "90": {
-                "value": "{wmf-wmui-color-base90.value}"
-            },
-            "100": {
-                "value": "{wmf-wmui-color-base100.value}"
-            }
         },
-        "accent": {
-            "30": {
-                "value": "{wmf-wmui-color-accent30.value}"
+        "size": {
+            "xsmall": {
+                "value": "13px"
             },
-            "50": {
-                "value": "{wmf-wmui-color-accent50.value}"
+            "small": {
+                "value": "14px"
             },
-            "90": {
-                "value": "{wmf-wmui-color-accent90.value}"
-            }
-        },
-        "utility": {
-            "red": {
-                "30": {
-                    "value": "{wmf-wmui-color-red30.value}"
-                },
-                "50": {
-                    "value": "{wmf-wmui-color-red50.value}"
-                },
-                "90": {
-                    "value": "{wmf-wmui-color-red90.value}"
-                }
+            "medium": {
+                "value": "16px"
             },
-            "yellow": {
-                "30": {
-                    "value": "{wmf-wmui-color-yellow30.value}"
-                },
-                "50": {
-                    "value": "{wmf-wmui-color-yellow50.value}"
-                },
-                "90": {
-                    "value": "{wmf-wmui-color-yellow90.value}"
-                }
+            "large": {
+                "value": "18px"
             },
-            "green": {
-                "30": {
-                    "value": "{wmf-wmui-color-green30.value}"
-                },
-                "50": {
-                    "value": "{wmf-wmui-color-green50.value}"
-                },
-                "90": {
-                    "value": "{wmf-wmui-color-green90.value}"
-                }
-            }
-        },
-        "modifier": {
-            "lighten": {
-                "base-10": {
-                    "value": "#404244"
-                },
-                "base-20": {
-                    "value": "#6c7378"
-                }
-             }
-        },
-        "interaction": {
-            "accent-50-hover": {
-                "value": "#447ff5"
+            "xlarge": {
+                "value": "20px"
             },
-            "utility-red-50-hover": {
-                "value": "#ff4242"
+            "xxlarge": {
+                "value": "24px"
             },
-            "purple": {
-                "value": "#6b4ba1"
+            "xxxlarge": {
+                "value": "32px"
             }
         }
-    },
-    "opacity": {
-        "base": {
-            "value": "{wmf-opacity-base.value}"
-        },
-        "disabled": {
-            "value": "{wmf-opacity-base--disabled.value}"
+     },
+    "border": {
+        "style": {
+            "base": {
+                "value": "{wmf-border-style-base.value}"
+            }
         }
     },
     "dimension": {
-        "font": {
-            "size": {
-                "xsmall": {
-                    "value": "13px"
-                },
-                "small": {
-                    "value": "14px"
-                },
-                "medium": {
-                    "value": "16px"
-                },
-                "large": {
-                    "value": "18px"
-                },
-                "xlarge": {
-                    "value": "20px"
-                },
-                "xxlarge": {
-                    "value": "24px"
-                },
-                "xxxlarge": {
-                    "value": "32px"
-                }
-            }
-        },
         "static": {
             "size": {
                 "0": {
@@ -263,6 +253,37 @@
             }
         }
     },
+    "width-breakpoint": {
+        "mobile": {
+            "value": "{wmf-width-breakpoint-mobile.value}"
+        },
+        "tablet": {
+            "value": "{wmf-width-breakpoint-tablet.value}"
+        },
+        "desktop": {
+            "value": "{wmf-width-breakpoint-desktop.value}"
+        },
+        "desktop-wide": {
+            "value": "{wmf-width-breakpoint-desktop-wide.value}"
+        },
+        "desktop-extrawide": {
+            "value": "{wmf-width-breakpoint-desktop-extrawide.value}"
+        }
+    },
+    "shadow":{
+        "box-shadow": {
+            "inset": {
+                "style":{
+                    "thin": {
+                        "value": "inset 0 0 0 1px"
+                    },
+                    "thick": {
+                        "value": "inset 0 0 0 2px"
+                    }
+                }
+            }
+        }
+    },
     "transition": {
         "duration": {
             "fast": {
@@ -284,21 +305,12 @@
             }
         }
     },
-    "box-shadow": {
-        "inset": {
-            "thin": {
-                "value": "inset 0 0 0 1px"
-            },
-            "thick": {
-                "value": "inset 0 0 0 2px"
-            }
-        }
-    },
-    "border": {
-        "style": {
-            "base": {
-                "value": "{wmf-border-style-base.value}"
-            }
+    "z-index": {
+        "base":{
+            "value": "{wmf-z-index-base.value}"
+        },
+        "overlay":{
+            "value": "{wmf-z-index-overlay.value}"
         }
     },
     "cursor": {
@@ -313,14 +325,6 @@
         },
         "not-allowed": {
             "value": "not-allowed"
-        }
-    },
-    "z-index": {
-        "base":{
-            "value": "{wmf-z-index-base.value}"
-        },
-        "overlay":{
-            "value": "{wmf-z-index-overlay.value}"
         }
     }
 }
