@@ -292,7 +292,7 @@
                     "value": "{color.base.80.value}"
                 },
                 "focus": {
-                    "value": "{color.base.100.value}"
+                    "value": "{color.accent.50.value}"
                 }
             },
             "destructive":{
