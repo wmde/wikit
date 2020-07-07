@@ -7,6 +7,7 @@ import FontFamily from './presenters/FontFamily';
 import Transition from './presenters/Transition';
 import Cursor from './presenters/Cursor';
 import Color from './presenters/Color';
+import BorderColor from './presenters/BorderColor';
 
 /**
  * Is a token used to denote another (CSS) property,
@@ -25,8 +26,11 @@ export function TokenPresenter( { token } ) {
 	if ( isPropertyToken( name ) ) {
 		return null;
 	}
-
-	if ( name.match(/\bcolor\b/) ) {
+	
+	if ( name.match(/\bborder-color\b/) ) {
+		return <BorderColor token={ token } />;
+	}
+	else if ( name.match(/\bcolor\b/) ) {
 		return <Color token={ token } />;
 	}
 	else if ( name.match( /\bfont-family\b/ ) ) {
