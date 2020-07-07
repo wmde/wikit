@@ -1,4 +1,4 @@
-import styles from './../../styles/shadows.css';
+import './Shadows.css';
 import React from 'react';
 
 export default function ( { token } ) {

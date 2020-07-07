@@ -1,4 +1,4 @@
-import styles from './../../styles/transition.css';
+import './Transition.css';
 import React from 'react';
 
 export default function ( { token } ) {
