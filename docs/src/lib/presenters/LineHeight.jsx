@@ -1,4 +1,4 @@
-import styles from './../../styles/line-height.css';
+import './LineHeight.css';
 import React from 'react';
 
 export default function ( { token } ) {

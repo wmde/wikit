@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './../../styles/color.css';
+import './Color.css';
 
 /**
  * Inspired by { ColorItem } from '@storybook/addon-docs/blocks';
