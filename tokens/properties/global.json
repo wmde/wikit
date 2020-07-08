@@ -1,6 +1,5 @@
 {
     "color": {
-        "global": {
             "base": {
                 "0": {
                     "value": "{wmf-wmui-color-base0.value}"
@@ -97,7 +96,6 @@
                     "value": "#6b4ba1"
                 }
             }
-        }
     },
     "opacity": {
         "base": {
