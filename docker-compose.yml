@@ -13,4 +13,6 @@ services:
     storybook:
         extends:
             service: node
-        command: 'npm run storybook'
+        ports:
+            - '${STORYBOOK_PORT}:${STORYBOOK_PORT}'
+        command: 'npm run storybook -- -- -- -p ${STORYBOOK_PORT} --ci'
