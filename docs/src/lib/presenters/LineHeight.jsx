@@ -1,5 +1,6 @@
 import './LineHeight.css';
 import React from 'react';
+import { Token } from '../propTypes/Token';
 
 export function LineHeight( { token } ) {
 	return (
@@ -9,3 +10,7 @@ export function LineHeight( { token } ) {
 		</div>
 	);
 }
+
+LineHeight.propTypes = {
+	token: Token,
+};

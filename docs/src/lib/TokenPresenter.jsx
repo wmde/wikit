@@ -8,6 +8,7 @@ import { Transition } from './presenters/Transition';
 import { Cursor } from './presenters/Cursor';
 import { Color } from './presenters/Color';
 import { BorderColor } from './presenters/BorderColor';
+import { Token } from './propTypes/Token';
 
 /**
  * Is a token used to denote another (CSS) property,
@@ -49,3 +50,7 @@ export function TokenPresenter( { token } ) {
 
 	return null;
 }
+
+TokenPresenter.propTypes = {
+	token: Token,
+};

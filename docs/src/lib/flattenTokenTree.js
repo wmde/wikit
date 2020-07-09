@@ -6,7 +6,7 @@ import traverse from 'traverse';
  *
  * @param {Object} nestedTokens A potentially nested object containing tokens
  * @return {{name: string, referencedTokens: string, value: string}[]} Array of
- *     objects containing token information.
+ *     objects containing token information, which are described by propType Token.
  */
 export function flattenTokenTree( nestedTokens ) {
 	return traverse( nestedTokens ).reduce( ( tokens, node ) => {

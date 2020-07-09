@@ -1,5 +1,6 @@
 import React from 'react';
 import './Color.css';
+import { Token } from '../propTypes/Token';
 
 /**
  * Inspired by { ColorItem } from '@storybook/addon-docs/blocks';
@@ -14,3 +15,7 @@ export function Color( { token } ) {
 		<div className='color' style={{ backgroundColor: token.value }} />
 	);
 }
+
+Color.propTypes = {
+	token: Token,
+};

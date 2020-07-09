@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typeset } from '@storybook/addon-docs/blocks';
+import { Token } from '../propTypes/Token';
 
 export function FontSize( { token } ) {
 	return (
@@ -9,3 +10,7 @@ export function FontSize( { token } ) {
 		/>
 	);
 }
+
+FontSize.propTypes = {
+	token: Token,
+};

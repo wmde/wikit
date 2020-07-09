@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typeset } from '@storybook/addon-docs/blocks';
+import { Token } from '../propTypes/Token';
 
 export function FontFamily( { token } ) {
 	return (
@@ -10,3 +11,7 @@ export function FontFamily( { token } ) {
 		/>
 	);
 }
+
+FontFamily.propTypes = {
+	token: Token,
+};

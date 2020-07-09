@@ -19,7 +19,6 @@
 			"exports": "always-multiline",
 			"functions": "always-multiline"
 		} ],
-		"func-style": [ "error", "declaration" ],
-		"react/prop-types": "off"
+		"func-style": [ "error", "declaration" ]
 	}
 }

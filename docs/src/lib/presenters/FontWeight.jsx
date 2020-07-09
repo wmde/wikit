@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typeset } from '@storybook/addon-docs/blocks';
+import { Token } from '../propTypes/Token';
 
 export function FontWeight( { token } ) {
 	return (
@@ -10,3 +11,7 @@ export function FontWeight( { token } ) {
 		/>
 	);
 }
+
+FontWeight.propTypes = {
+	token: Token,
+};

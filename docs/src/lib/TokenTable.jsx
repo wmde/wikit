@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { flattenTokenTree } from './flattenTokenTree';
 import { TokenPresenter } from './TokenPresenter';
@@ -36,3 +37,8 @@ export function TokenTable( { tokens } ) {
 		</components.table>
 	);
 }
+
+TokenTable.propTypes = {
+	// a raw token tree which will internally be processed into many propType Token
+	tokens: PropTypes.any.isRequired,
+};
