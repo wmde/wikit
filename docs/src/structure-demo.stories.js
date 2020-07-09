@@ -1,5 +1,7 @@
 import * as globals from '@wmde/wikit-tokens/properties/global.json';
+import * as aliases from '@wmde/wikit-tokens/properties/alias.json';
 import traverse from 'traverse';
+import _ from 'lodash';
 
 function flattenInputTokenTree( tokens ) {
 	return traverse( tokens ).reduce( function ( tokens, node ) {
@@ -56,7 +58,7 @@ function renderWithNestingLevel( depth ) {
 }
 
 let html = '<ul>';
-Object.entries( globals.default ).forEach( ( [ page, tokens ] ) => {
+Object.entries( _.merge( globals.default, aliases.default ) ).forEach( ( [ page, tokens ] ) => {
 	const depth = getTokenNestingLevel( tokens );
 	html += `<li>
 			<div>${page} (page)</div>

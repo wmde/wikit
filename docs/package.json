@@ -28,6 +28,7 @@
   "dependencies": {
     "@wmde/wikit-tokens": "^0.0.0",
     "@wmde/wikit-vue-components": "^0.0.0",
+    "lodash": "^4.17.19",
     "traverse": "^0.6.6",
     "vue": "^2.6.11"
   },
