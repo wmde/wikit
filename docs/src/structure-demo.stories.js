@@ -75,7 +75,7 @@ function renderSubPage( tokens ) {
 
 	Object.entries( tokens ).forEach( ( [ subPage, subPageTokens ] ) => {
 		html += `<li>
-			<div>${subPage} (sub page)</div>
+			<div>${subPage} (nested page)</div>
 			${renderSection( subPageTokens )}
 		</li>`;
 	} );
