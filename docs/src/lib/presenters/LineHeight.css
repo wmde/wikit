@@ -11,3 +11,12 @@
     padding: 30px 20px;
     font-size: 16px;
 }
+
+.lineHeightContainer:not(:last-of-type) {
+    margin-bottom: 2ex;
+}
+
+.lineHeightContainer dt {
+    margin-bottom: 1ex;
+}
+
