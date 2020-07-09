@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typeset } from '@storybook/addon-docs/blocks';
 
-export default function ( { token } ) {
+export function FontSize( { token } ) {
 	return (
 		<Typeset
 			fontSizes={[ token.value ]}
