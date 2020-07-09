@@ -13,4 +13,5 @@ nbproject
 # Project Specific
 node_modules/
 *.log
-
+.env.local
+.env.*.local
