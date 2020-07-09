@@ -20,7 +20,7 @@
   "scripts": {
     "storybook": "start-storybook",
     "test": "npm-run-all test:*",
-    "test:lint": "eslint .",
+    "test:lint": "eslint . --ext .js --ext .jsx",
     "fix": "npm run test:lint -- --fix",
     "build": "build-storybook -o dist",
     "chromatic": "npx chromatic build --project-token=3evi132fpys --build-script-name build"

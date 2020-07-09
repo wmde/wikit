@@ -5,7 +5,10 @@
 		"wikimedia/language/es6"
 	],
 	"parserOptions": {
-		"sourceType": "module"
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
 	},
 	"rules": {
 		"comma-dangle": [ "error", {
