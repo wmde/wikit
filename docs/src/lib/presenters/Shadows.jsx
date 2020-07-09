@@ -1,7 +1,7 @@
 import './Shadows.css';
 import React from 'react';
 
-export default function ( { token } ) {
+export function Shadows( { token } ) {
 	return (
 		<div>
 			<div className="shadows" style={{ boxShadow: token.value }} />
