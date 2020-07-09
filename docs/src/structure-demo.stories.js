@@ -5,8 +5,24 @@ import _ from 'lodash';
 
 function flattenInputTokenTree( tokens ) {
 	return traverse( tokens ).reduce( function ( tokens, node ) {
-		return node.value ? tokens.concat( this.path.join( '-' ) ) : tokens;
+		return isToken( node ) ? tokens.concat( { ...node, value: this.path.join( '-' ) } ) : tokens;
 	}, [] );
+}
+
+function markAliases( tokens ) {
+	return traverse( tokens ).forEach( function ( node ) {
+		if ( isToken( node ) ) {
+			this.update( { ...node, alias: true } );
+		}
+	} );
+}
+
+function isToken( token ) {
+	return !!token.value;
+}
+
+function isAlias( token ) {
+	return isToken( token ) && token.alias;
 }
 
 function getTokenNestingLevel( subtree ) {
@@ -17,10 +33,28 @@ function getTokenNestingLevel( subtree ) {
 	}, Infinity );
 }
 
-function renderTokens( tokens ) {
+function renderMixedTokenLists( tokens ) {
+	const globals = tokens.filter( ( t ) => isToken( t ) && !isAlias( t ) );
+	const aliases = tokens.filter( ( t ) => isAlias( t ) );
+
+	return `<div>
+			${renderTokenList( globals )}
+			${renderTokenList( aliases )}
+		</div>`
+}
+
+function renderTokenList( tokens ) {
 	return '<ul>' +
-		flattenInputTokenTree( tokens ).map( ( t ) => `<li>${t}</li>` ).join( '' ) +
-		'</ul>';
+		tokens.map( ( t ) => `<li>${t.value} (${isAlias( t ) ? 'alias' : 'global'})</li>` ).join( '' ) +
+		'</ul>'
+}
+
+function renderTokens( tokens ) {
+	const flattenedTokens = flattenInputTokenTree( tokens );
+	const hasGlobalTokens = flattenedTokens.some( ( t ) => !isAlias( t ) );
+	const hasAliases = flattenedTokens.some( isAlias );
+
+	return hasGlobalTokens && hasAliases ? renderMixedTokenLists( flattenedTokens ) : renderTokenList( flattenedTokens );
 }
 
 function renderSection( tokens ) {
@@ -58,7 +92,7 @@ function renderWithNestingLevel( depth ) {
 }
 
 let html = '<ul>';
-Object.entries( _.merge( globals.default, aliases.default ) ).forEach( ( [ page, tokens ] ) => {
+Object.entries( _.merge( globals.default, markAliases( aliases.default ) ) ).forEach( ( [ page, tokens ] ) => {
 	const depth = getTokenNestingLevel( tokens );
 	html += `<li>
 			<div>${page} (page)</div>
