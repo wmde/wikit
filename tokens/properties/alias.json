@@ -397,7 +397,7 @@
             },
             "x":{
                 "small":{
-                    "value":"{dimension.static.size.150.value}"
+                    "value":"{dimension.static.size.100.value}"
                 },
                 "medium":{
                     "value":"{dimension.static.size.150.value}"
