@@ -1,3 +1,7 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation|dev/ADRs/4) Use a monorepo" />
+
 # 4) Use a monorepo
 
 Date: 2020-06-30
@@ -7,7 +11,7 @@ Date: 2020-06-30
 Accepted
 
 ## Context
-The Design System consists of two parts - tokens in agnostic format (see [ADR #3](./0003-agnostic-tokens.md)) and Vue components (see [ADR #1](0001-use-a-design-system.md)). The components depend on the tokens in order to consume the design system styles. The tokens are published in a separate package from the components, because they are agnostic, and therefore can be used in a non-vuejs project. The two packages can be kept either together in one repository (monorepo) or in separate repositories. 
+The Design System consists of two parts - tokens in agnostic format (see [ADR #3](0003-agnostic-tokens.md)) and Vue components (see [ADR #1](0001-use-a-design-system.md)). The components depend on the tokens in order to consume the design system styles. The tokens are published in a separate package from the components, because they are agnostic, and therefore can be used in a non-vuejs project. The two packages can be kept either together in one repository (monorepo) or in separate repositories. 
 
 ### Keeping them in the same repository (monorepo)
 :x: Needs documentation to ensure people do not confuse tech-agnostic & tech-specific parts  
