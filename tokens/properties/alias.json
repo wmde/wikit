@@ -435,12 +435,48 @@
 
     "transition":{
         "interaction":{
-            "hover":{
-                "property":{
-                    "value":"{transition.property.background-color.value}, {transition.property.border-color.value}, {transition.property.box-shadow.value}"
+            "button":{
+                "hover":{
+                    "property":{
+                        "value":"{transition.property.background-color.value}, {transition.property.border-color.value}"
+                    },
+                    "duration": {
+                        "value":"{transition.duration.fast.value}"
+                    }
                 },
-                "duration": {
-                    "value":"{transition.duration.fast.value}"
+                "active":{
+                    "property":{
+                        "value":"{transition.property.background-color.value}, {transition.property.border-color.value}"
+                    },
+                    "duration": {
+                        "value":"{transition.duration.fast.value}"
+                    }
+                },
+                "focus":{
+                    "property":{
+                        "value":"{transition.property.background-color.value}, {transition.property.border-color.value}, {transition.property.box-shadow.value}"
+                    },
+                    "duration": {
+                        "value":"{transition.duration.fast.value}"
+                    }
+                }
+            },
+            "field":{
+                "hover":{
+                    "property":{
+                        "value":"{transition.property.border-color.value}"
+                    },
+                    "duration": {
+                        "value":"{transition.duration.fast.value}"
+                    }
+                },
+                "focus":{
+                    "property":{
+                        "value":"{transition.property.border-color.value}, {transition.property.box-shadow.value}"
+                    },
+                    "duration": {
+                        "value":"{transition.duration.fast.value}"
+                    }
                 }
             }
         }
