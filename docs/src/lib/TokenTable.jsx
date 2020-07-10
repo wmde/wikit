@@ -1,5 +1,4 @@
 import React from 'react';
-import { flattenTokenTree } from './flattenTokenTree';
 import { TokenPresenter } from './TokenPresenter';
 import { components } from '@storybook/components/dist/typography/DocumentFormatting';
 import { AnchorMdx } from '@storybook/addon-docs/dist/blocks/mdx';
@@ -16,7 +15,7 @@ export function TokenTable( { tokens } ) {
 			</thead>
 			<tbody>
 				{
-					flattenTokenTree( tokens ).map( ( token ) => (
+					tokens.map( ( token ) => (
 						<tr key={ token.name } id={ token.name }>
 							<td>
 								<AnchorMdx href={ '#' + token.name }>🔗</AnchorMdx>

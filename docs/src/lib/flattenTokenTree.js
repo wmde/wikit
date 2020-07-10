@@ -15,6 +15,7 @@ export function flattenTokenTree( nestedTokens ) {
 		}
 
 		return tokens.concat( {
+			path: node.path,
 			name: node.name,
 			referencedTokens: node.attributes.tokens.join( ', ' ),
 			value: node.value,
