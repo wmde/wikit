@@ -271,10 +271,10 @@
                 "default":{
                     "value": "{color.base.50.value}"
                 },
-                "binary-base": {
+                "binary": {
                     "value": "{color.base.30.value}"
                 },
-                "table-base": {
+                "table": {
                     "value": "{color.base.70.value}"
                 },
                 "hover": {
