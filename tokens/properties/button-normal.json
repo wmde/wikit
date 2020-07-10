@@ -1,0 +1,97 @@
+{
+    "button": {
+        "size": {
+            "medium": {
+                "height": {
+                    "value": "{dimension.min-height.medium.value}"
+                },
+                "text-padding": {
+                    "x": {
+                        "value": "{padding.x.small.value}"
+                    },
+                    "y": {
+                        "value": "{padding.y.medium.value}"
+                    }
+                }
+            },
+            "large": {
+                "height": {
+                    "value": "{dimension.min-height.large.value}"
+                },
+                "text-padding": {
+                    "x": {
+                        "value": "{padding.x.small.value}"
+                    },
+                    "y": {
+                        "value": "{padding.y.large.value}"
+                    }
+                }
+            }
+        },
+        "text": {
+            "font-family": {
+                "value": "{font.family.style.label.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.bold.value}"
+            },
+            "font-size": {
+                "value": "{font.size.style.label.value}"
+            },
+            "line-height": {
+                "value": "{font.line-height.style.label.value}"
+            },
+            "color": {
+                "disabled": {
+                    "value": "{font.color.inverted.value}"
+                }
+            }
+        },
+        
+        "background": {
+            "color": {
+                "disabled": {
+                    "value": "{background.color.disabled.value}"
+                }
+            }
+        },
+        "border": {
+            "color": {
+                "disabled": {
+                    "value": "{border.color.disabled.value}"
+                }
+            },
+            "radius": {
+                "value": "{border.radius.base.value}"
+            },
+            "width": {
+                "default": {
+                    "value": "{border.width.thin.value}"
+                }
+            },
+            "style":{
+                "value":"{border.style.base.value}"
+                }
+        },
+        "cursor":{
+            "hover":{
+                "enabled":{
+                    "value":"{cursor.pointer.value}"
+                },
+                "disabled":{
+                    "value":"{cursor.default.value}"
+                }
+            }
+        },
+        "transition":{
+            "hover":{
+                "property":{
+                    "value":"{transition.interaction.hover.property.value}"
+                },
+                "duration":{
+                    "value":"{transition.interaction.hover.duration.value}"
+                }
+            }
+        },
+
+}

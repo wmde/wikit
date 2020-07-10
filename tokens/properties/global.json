@@ -1,6 +1,5 @@
 {
     "color": {
-        "global": {
             "base": {
                 "0": {
                     "value": "{wmf-wmui-color-base0.value}"
@@ -97,7 +96,6 @@
                     "value": "#6b4ba1"
                 }
             }
-        }
     },
     "opacity": {
         "base": {
@@ -270,8 +268,7 @@
             "value": "{wmf-width-breakpoint-desktop-extrawide.value}"
         }
     },
-    "shadow":{
-        "box-shadow": {
+    "box-shadow":{
             "inset": {
                 "style":{
                     "thin": {
@@ -279,9 +276,8 @@
                     },
                     "thick": {
                         "value": "inset 0 0 0 2px"
-                    }
-                }
-            }
+                     }
+            }   
         }
     },
     "transition": {
