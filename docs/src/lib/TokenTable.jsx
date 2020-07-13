@@ -17,7 +17,7 @@ export function TokenTable( { tokens } ) {
 				{
 					tokens.map( ( token ) => (
 						<tr key={ token.name } id={ token.name }>
-							<td>
+							<td className="token-name">
 								<AnchorMdx href={ '#' + token.name }>🔗</AnchorMdx>
 							&nbsp;<strong>{ token.name }</strong>
 								<div className="referenced-tokens" title="value influenced by">
