@@ -16,7 +16,12 @@ function getReferencedTokens( prop ) {
 	};
 }
 
+function kebabCase( { path } ) {
+	return path.join( '-' );
+}
+
 module.exports = {
 	removeWikimediaUiBaseVars,
 	getReferencedTokens,
+	kebabCase,
 };

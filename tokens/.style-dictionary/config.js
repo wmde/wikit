@@ -1,12 +1,16 @@
 'use strict';
 
-const { removeWikimediaUiBaseVars, getReferencedTokens } = require( './lib' ),
-	StyleDictionary = require( 'style-dictionary' ).extend( {
+const StyleDictionary = require( 'style-dictionary' ),
+	{ removeWikimediaUiBaseVars, getReferencedTokens, kebabCase } = require( './lib' ),
+	wikitStyleDictionary = StyleDictionary.extend( {
 		include: [ 'node_modules/wikimedia-ui-base/tokens.json' ],
 		source: [ 'properties/**/*.json' ],
 		platforms: {
 			scss: {
-				transformGroup: 'scss',
+				transforms: [
+					...StyleDictionary.transformGroup.scss,
+					'name/kebabCase',
+				],
 				buildPath: 'dist/',
 				files: [ {
 					destination: '_variables.scss',
@@ -15,7 +19,10 @@ const { removeWikimediaUiBaseVars, getReferencedTokens } = require( './lib' ),
 				} ],
 			},
 			css: {
-				transformGroup: 'css',
+				transforms: [
+					...StyleDictionary.transformGroup.css,
+					'name/kebabCase',
+				],
 				buildPath: 'dist/',
 				files: [ {
 					destination: 'variables.css',
@@ -24,7 +31,10 @@ const { removeWikimediaUiBaseVars, getReferencedTokens } = require( './lib' ),
 				} ],
 			},
 			less: {
-				transformGroup: 'less',
+				transforms: [
+					...StyleDictionary.transformGroup.less,
+					'name/kebabCase',
+				],
 				buildPath: 'dist/',
 				files: [ {
 					destination: '_variables.less',
@@ -34,7 +44,8 @@ const { removeWikimediaUiBaseVars, getReferencedTokens } = require( './lib' ),
 			},
 			json: {
 				transforms: [
-					'name/cti/kebab',
+					...StyleDictionary.transformGroup.web,
+					'name/kebabCase',
 					'attr/tokenList',
 				],
 				buildPath: 'dist/',
@@ -47,10 +58,16 @@ const { removeWikimediaUiBaseVars, getReferencedTokens } = require( './lib' ),
 		},
 	} );
 
-StyleDictionary.registerTransform( {
+wikitStyleDictionary.registerTransform( {
 	name: 'attr/tokenList',
 	type: 'attribute',
 	transformer: getReferencedTokens,
 } );
 
-StyleDictionary.buildAllPlatforms();
+wikitStyleDictionary.registerTransform( {
+	name: 'name/kebabCase',
+	type: 'name',
+	transformer: kebabCase,
+} );
+
+wikitStyleDictionary.buildAllPlatforms();
