@@ -2,25 +2,51 @@
   "name": "@wmde/wikit-vue-components",
   "version": "0.0.0",
   "description": "The component implementation of wikit in vue",
-  "author": "The Wikidata team",
-  "homepage": "https://github.com/wmde/wikit/tree/master/vue-components#readme",
-  "license": "BSD-3-Clause",
+  "author": {
+    "name": "The Wikidata team"
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --report --report-json",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint",
+    "test": "npm run lint && npm run test:unit"
+  },
   "main": "dist/index.js",
   "files": [
     "src/",
     "dist/"
   ],
+  "dependencies": {
+    "@wmde/wikit-tokens": "^0.0.0",
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.19",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-plugin-eslint": "~4.4.0",
+    "@vue/cli-plugin-typescript": "~4.4.0",
+    "@vue/cli-plugin-unit-jest": "~4.4.0",
+    "@vue/cli-service": "~4.4.0",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "@vue/eslint-config-typescript": "^5.0.2",
+    "@vue/test-utils": "^1.0.3",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "typescript": "~3.9.3",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "homepage": "https://github.com/wmde/wikit/tree/master/vue-components#readme",
+  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wmde/wikit.git"
-  },
-  "scripts": {
-    "test": "echo \"wikit vue components tests\" && exit 0"
-  },
-  "dependencies": {
-    "@wmde/wikit-tokens": "^0.0.0"
-  },
-  "bugs": {
-    "url": "https://github.com/wmde/wikit/issues"
   }
 }
