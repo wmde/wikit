@@ -17,11 +17,17 @@ export function TokenTable( { tokens } ) {
 				{
 					tokens.map( ( token ) => (
 						<tr key={ token.name } id={ token.name }>
-							<td className="token-name">
+							<td>
 								<AnchorMdx href={ '#' + token.name }>🔗</AnchorMdx>
-							&nbsp;<strong>{ token.name }</strong>
+							&nbsp;<strong className="token-name">{ token.name }</strong>
 								<div className="referenced-tokens" title="value influenced by">
-									{ token.referencedTokens || '—' }
+									{token.referencedTokens.length > 0 ?
+										token.referencedTokens.map( ( token, i ) => [
+											i > 0 ? ', ' : '',
+											<span key={i} className="token-name">{token}</span>,
+										] ) :
+										'-'
+									}
 								</div>
 							</td>
 							<td>

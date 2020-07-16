@@ -17,7 +17,7 @@ export function flattenTokenTree( nestedTokens ) {
 		return tokens.concat( {
 			path: node.path,
 			name: node.name,
-			referencedTokens: node.attributes.tokens.join( ', ' ),
+			referencedTokens: node.attributes.tokens,
 			value: node.value,
 		} );
 	}, [] );
