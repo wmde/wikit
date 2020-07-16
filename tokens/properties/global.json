@@ -236,9 +236,6 @@
                 },
                 "500": {
                     "value": "40px"
-                },
-                "3200": {
-                    "value": "256px"
                 }
             },
             "percent": {
@@ -247,6 +244,17 @@
                 },
                 "100": {
                     "value": "100%"
+                }
+            },
+            "width": {
+                "small": {
+                    "value": "128px"
+                },
+                "medium": {
+                    "value": "256px"
+                },
+                "large": {
+                    "value": "384px"
                 }
             }
         }
@@ -277,7 +285,7 @@
                     "thick": {
                         "value": "inset 0 0 0 2px"
                      }
-            }   
+            }
         }
     },
     "transition": {
