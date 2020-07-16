@@ -1,0 +1,37 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation|dev/ADRs/5) Use typescript" />
+
+# 5) Use TypeScript
+
+Date: 2020-07-16
+
+## Status
+
+Accepted
+
+## Context
+The components library that implements the design system will be implemented in Vue (see ADR #1). In addition to that we discussed what benefits we can gain by using [TypeScript](https://www.typescriptlang.org/).
+
+There are several products (as of date) in the WMDE realm that were built with Vue, TypeScript and [Class Component syntax](https://github.com/vuejs/vue-class-component): Termbox, Tainted References, Data Bridge, and we anticipate there will be more. This means the components library needs to support TypeScript apps.
+
+Using TypeScript together with Decorators, when developing Vue projects, used to be the recommended way, because Decorators provide full compatibility between Vue and TypeScript. The TypeScript support in Vue has significantly improved since then.
+
+Benefits of using TypeScript:
+ - It reduces the need for code-level documentation through static typing
+ - It can help with defining interfaces for code that is shared between components
+ - It can help for testing by adding better editor support and type checking
+ - Automatically enables the library to be consumed in TypeScript apps
+
+Downsides of using TypeScript:
+ - Slightly raises the entry barrier for newcomers to Vue
+ - If used with Decorators ([Component](https://github.com/vuejs/vue-class-component), [Prop](https://github.com/kaorun343/vue-property-decorator)) it changes the syntax significantly and the [Vue docs](https://vuejs.org/v2/guide/) become less usable. The Decorators are also not well documented (compared to the [Vue docs](https://vuejs.org/v2/guide/)). The TypeScript support in Vue has improved significantly with time, therefore we might not need the additional help of Decorators to make Vue and TypeScript work well together.
+
+
+## Decision
+Use TypeScript to build the components library (the package vue-components in this monorepo) which implements the design system.
+Don't use [class components](https://vuejs.org/v2/guide/typescript.html#Class-Style-Vue-Components). Use object notation to write Vue components (the default way).
+
+## Consequences
+Using TypeScript will make testing better. It will also make internal reusing of code easier to develop and navigate.
+Using an object notation syntax to develop Vue components (no Decorators) will ensure the ability to easily use the official Vue docs. We don't anticipate any downsides that come from not using Decorators.
