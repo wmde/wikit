@@ -1,15 +1,22 @@
 import HelloWorld from '@wmde/wikit-vue-components/src/components/HelloWorld';
+import { withKnobs, text } from '@storybook/addon-knobs';
 
 export default {
 	title: 'Components/Dummy',
+	decorators: [ withKnobs ],
 };
 
 export function withText() {
 	return {
 		components: { HelloWorld },
+		props: {
+			msg: {
+				default: text( 'Message', 'Hello World!!1' ),
+			},
+		},
 		template: `
 			<p>
-				<HelloWorld msg="hello world"/>
+				<HelloWorld :msg="msg"/>
 			</p>`,
 	};
 }
