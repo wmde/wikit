@@ -1,18 +1,21 @@
 <template>
-  <div class="hello">
-    {{ msg }}
-  </div>
+	<div class="hello">
+		{{ msg }}
+	</div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 
-export default Vue.extend({
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
-})
+export default Vue.extend( {
+	name: 'HelloWorld',
+	props: {
+		msg: {
+			type: String,
+			default: 'Hallo',
+		},
+	},
+} );
 </script>
 
 <style scoped>
