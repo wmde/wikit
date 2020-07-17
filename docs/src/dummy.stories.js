@@ -1,9 +1,10 @@
 import HelloWorld from '@wmde/wikit-vue-components/src/components/HelloWorld';
 import { withKnobs, text } from '@storybook/addon-knobs';
+import { withA11y } from '@storybook/addon-a11y';
 
 export default {
 	title: 'Components/Dummy',
-	decorators: [ withKnobs ],
+	decorators: [ withKnobs, withA11y ],
 };
 
 export function withText() {
