@@ -1,7 +1,15 @@
+import HelloWorld from '@wmde/wikit-vue-components/src/components/HelloWorld';
+
 export default {
-	title: 'Components',
+	title: 'Components/Dummy',
 };
 
-export function dummy() {
-	return '<p>Component stories will be shown here</p>';
+export function withText() {
+	return {
+		components: { HelloWorld },
+		template: `
+			<p>
+				<HelloWorld msg="hello world"/>
+			</p>`,
+	};
 }
