@@ -12,7 +12,7 @@
     "lint": "vue-cli-service lint",
     "test": "npm run lint && npm run test:unit"
   },
-  "main": "dist/index.js",
+  "main": "dist/wikit-vue-components.common.js",
   "files": [
     "src/",
     "dist/"
