@@ -1,4 +1,4 @@
-import HelloWorld from '@wmde/wikit-vue-components/src/components/HelloWorld';
+import { HelloWorld } from '@wmde/wikit-vue-components';
 
 export default {
 	title: 'Components/Dummy',
