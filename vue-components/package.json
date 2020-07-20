@@ -6,7 +6,7 @@
     "name": "The Wikidata team"
   },
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service build --target lib --name wikit-vue-components src/main.ts --inline-vue --watch --mode development",
     "build": "vue-cli-service build --target lib --formats commonjs --name wikit-vue-components src/main.ts --report --report-json",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
