@@ -1,7 +1,7 @@
 module.exports = {
 	extends: [
 		'wikimedia',
-		'wikimedia/node',
+		'wikimedia/client',
 		'wikimedia/language/rules-es2017', // the not-* parts are obsolete after transpiling and polyfills
 		'plugin:vue/strongly-recommended',
 		'@wmde/wikimedia-typescript',
@@ -40,14 +40,6 @@ module.exports = {
 				allowFirstLine: false,
 			},
 		} ],
-
-		/* copied from eslint-config-wikimedia/client.json;
-		 * TODO extend (part of) client.json again
-		 * once it doesn’t pull in es5.json
-		 */
-		'no-alert': 'error',
-		'no-console': 'error',
-		'no-implied-eval': 'error',
 
 		// required
 		'@typescript-eslint/no-require-imports': 'off',
@@ -108,6 +100,9 @@ module.exports = {
 		},
 		{
 			files: [ '*.js' ],
+			extends: [
+				'wikimedia/node',
+			],
 			rules: {
 				'@typescript-eslint/explicit-function-return-type': 'off',
 				'@typescript-eslint/explicit-member-accessibility': 'off',
