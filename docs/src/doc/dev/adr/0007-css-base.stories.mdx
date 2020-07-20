@@ -1,0 +1,44 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation|dev/ADRs/7) CSS base" />
+
+# 7) CSS base
+
+Date: 2020-07-20
+
+## Status
+
+Accepted
+
+## Context
+
+We are in the process of implementing a component library. Those components are supposed to become portable manifestations of our Design System decisions which can get integrated into existing applications where needed.
+
+This poses a challenge when users look at our components with user agents of different default styles, and when the applications - in which the components get embedded to - contain other styles (which were not developed with isolation in mind) already. We also want the developer experience during component development to be intuitive (no surprising base styles).
+
+All component (style) development will happen on this foundation so it is important to make our component library robust and easy to contribute to.
+
+## Decision
+
+We decided that - even though inconsistent between user agent stylesheets are less of an issue today[0] than they were in the past - the need to address this challenge remains and doing so early in the process (before first styles are developed) is important to avoid bug reports and double effort.
+
+We also decided that - while the definition of "intuitive" base style is arguably subjective - there is the need to have a base and its values have to be chosen carefully. While e.g. a reset of the margins of elements can help to ensure that the desired behavior correctly gets specified inside the component, un-styling the bold text of a `<strong>` tag may be unintuitive and cause confusion.
+
+The decision was to employ best practices as seen in other popular open source software, e.g. [vuetify] and [bootstrap-vue], and - as documented there - go with a solution "to correct inconsistencies across browsers and devices while providing slightly more opinionated resets to common HTML elements".
+
+We also decided to trust the task of mitigating styles inherited from other greedy selectors to the individual users of our library. _If_ it is needed, then the applications will know best which concrete styles need compensation.
+
+## Consequences
+
+We have to decide for one of the existing technical solutions for this challenge, e.g. [ress], [normalize.css] or [bootstrap reboot].
+
+Component development can happen against a stable base style. We must create a shared "namespace"/selector for our components in order to ensure that we apply the base styles only to the intended namespace under our control.
+
+We will need this base style to be shipped alongside the component styles, and our users will need to consume it when using the components (if that means a separate include or not remains to be seen), just like we will use them when demoing the components in storybook.
+
+[0]: https://bitsofco.de/a-look-at-css-resets-in-2018/#arentuseragentstylesheetslessinconsistentnowadays
+[vuetify]: https://github.com/vuetifyjs/vuetify/blob/95da759/packages/vuetify/src/styles/generic/_reset.scss
+[bootstrap-vue]: https://github.com/bootstrap-vue/bootstrap-vue/blob/9e814ec/docs/markdown/intro/README.md#style-reboot
+[ress]: https://github.com/filipelinhares/ress
+[normalize.css]: https://github.com/necolas/normalize.css
+[bootstrap reboot]: https://github.com/twbs/bootstrap/blob/99013a5/scss/_reboot.scss
