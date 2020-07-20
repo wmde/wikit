@@ -1,0 +1,67 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation|dev/ADRs/6) Manual token documentation" />
+
+# 6) Manual token documentation
+
+Date: 2020-07-17
+
+## Status
+
+Accepted
+
+## Context
+
+The token information is stored inside this repository in a structured way in JSON files. Some tokens explicitly list a value, some refer to other tokens for their value. As a human user, using those files to gain an overview about which tokens there are, what is their individual value and "what they look like" has limited appeal.
+
+As we want all users of the Design System to have a good overview about the current state and available capabilities, we want our tokens to be organized by user-friendly categories and presented visually in storybook.
+
+Groups of tokens should be listed on individual pages and those pages should be indexed in the navigation, with similar groups of tokens structured by categories.
+
+## Considered Actions
+
+We considered two possible ways to achieve the desired structure of token documentation - in an "automatic" or "manual" way.
+
+### "Automatic" token documentation
+
+In this approach we would create a set of rules based on which the categories and pages of the tokens documentation would be automatically generated from the structure of the tokens and show exactly the matching tokens on each resulting page.
+
+#### Advantages
+
+* No risk of forgetting to list newly added token branches in storybook
+* Identical structure for all pages makes relation between the token files and the documentation more intuitive to the user
+* Potentially saves future development time
+* Our tokens files are still quite subject to change, automation could be superior in this situation (see "saves future development time")
+
+#### Downsides
+
+* Less flexible (e.g. comments on _some_ pages but not others)
+* Docs structure cannot diverge from token structure
+* Could lead to the token structure to be "bent" to achieve a certain effect in the documentation structure
+
+### "Manual" token documentation
+
+In this approach we would manually create the categories and pages of the tokens documentation and decide which tokens to show on each individual page.
+
+#### Advantages
+
+* More flexible (page structure)
+* Easier to add comments to sections
+
+#### Downsides
+
+* Potential to forget branches from the token structure
+* Additional work to create individual pages (creation or renaming of branches)
+* Higher maintenance when adding new branches in the token structure or renaming branches
+
+## Decision
+
+We decided to go with the "manual" approach. Even though an attempt at the "automatic" approach produced a presentable result we concluded that the factor of flexibility (or - on the flip side - the risk of lack thereof) has to receive a higher weight than the other arguments.
+
+## Consequences
+
+Dev manually creates the categories and pages of the tokens documentation.
+
+Upon future changes to the token files, dev has to adapt the page structure of the token documentation as needed.
+
+Care needs to be taken to not accidentally forget token branches in the documentation.
