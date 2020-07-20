@@ -1,4 +1,10 @@
-# wikit
+# WiKit
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+  
+[![github](https://github.com/wmde/wikit/workflows/Build%20and%20Deploy%20documentation/badge.svg)](https://wmde.github.io/wikit/)
+[![github](https://github.com/wmde/wikit/workflows/Test%20and%20deploy/badge.svg)](https://www.chromatic.com/builds?appId=5efdb3b5f65950002286285d)
+
 The Wikibase Design System and home of WMDE-supported component implementations.
 
 ## Development
