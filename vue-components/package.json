@@ -11,7 +11,8 @@
     "test:unit": "vue-cli-service test:unit",
     "test:lint": "vue-cli-service lint --no-fix",
     "test": "npm-run-all test:*",
-    "fix": "vue-cli-service lint"
+    "fix": "vue-cli-service lint",
+    "storybook": "start-storybook -p 6005"
   },
   "main": "dist/index.js",
   "files": [
@@ -24,6 +25,8 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
+    "@storybook/addon-docs": "6.0.0-rc.13",
+    "@storybook/vue": "6.0.0-rc.13",
     "@types/jest": "^24.0.19",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",

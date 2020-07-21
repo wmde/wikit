@@ -18,7 +18,7 @@
     "url": "git+https://github.com/wmde/wikit.git"
   },
   "scripts": {
-    "storybook": "start-storybook",
+    "storybook": "start-storybook -p 6006",
     "test": "npm-run-all test:*",
     "test:lint": "eslint . --ext .js --ext .jsx",
     "fix": "npm run test:lint -- --fix",

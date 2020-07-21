@@ -15,4 +15,5 @@ services:
             service: node
         ports:
             - '${STORYBOOK_PORT}:${STORYBOOK_PORT}'
-        command: 'npm run storybook -- -- -- -p ${STORYBOOK_PORT} --ci'
+            - '6005:6005'
+        command: 'npm run storybook -- -- -- --ci'
