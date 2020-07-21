@@ -9,7 +9,6 @@
   "scripts": {
     "postinstall": "lerna bootstrap",
     "test": "lerna run test",
-    "storybook": "lerna run storybook --stream",
     "build:storybook": "lerna run build --scope @wmde/wikit-docs",
     "chromatic": "lerna run chromatic --scope @wmde/wikit-docs"
   },

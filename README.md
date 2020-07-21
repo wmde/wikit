@@ -40,6 +40,15 @@ docker-compose run --rm node lerna run test
 
 ### Running Storybook
 
+The following command starts two storybooks
+
+* the storybook of the docs package - the Design System incl. documentation and tokens, on `DOCS_STORYBOOK_PORT`¹
+* the storybook of the vue-components package - an inventory of the component library, on `VUECOMPONENTS_STORYBOOK_PORT`¹
+
 ```sh
-docker-compose up storybook
+docker-compose up
 ```
+
+¹ Please refer to the `.env` file(s) for port configuration.
+
+As usual, docker-compose also allows for those services to be started independently of each other if preferred.
