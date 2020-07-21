@@ -10,9 +10,15 @@ services:
             - '~/.npm:/.npm'
             - './:/app'
         working_dir: /app
-    storybook:
+    storybook-docs:
         extends:
             service: node
         ports:
-            - '${STORYBOOK_PORT}:${STORYBOOK_PORT}'
-        command: 'npm run storybook -- -- -- -p ${STORYBOOK_PORT} --ci'
+            - '${DOCS_STORYBOOK_PORT}:${DOCS_STORYBOOK_PORT}'
+        command: 'lerna run storybook --stream --scope @wmde/wikit-docs -- -- -p ${DOCS_STORYBOOK_PORT} --ci'
+    storybook-vue:
+        extends:
+            service: node
+        ports:
+            - '${VUECOMPONENTS_STORYBOOK_PORT}:${VUECOMPONENTS_STORYBOOK_PORT}'
+        command: 'lerna run storybook --stream --scope @wmde/wikit-vue-components -- -- -p ${VUECOMPONENTS_STORYBOOK_PORT} --ci'
