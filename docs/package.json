@@ -37,8 +37,8 @@
   "devDependencies": {
     "@babel/core": "^7.10.3",
     "@babel/preset-react": "^7.10.4",
-    "@storybook/addon-docs": "^5.3.19",
-    "@storybook/vue": "^5.3.19",
+    "@storybook/addon-docs": "^6.0.0-rc.14",
+    "@storybook/vue": "^6.0.0-rc.14",
     "babel-loader": "^8.1.0",
     "babel-preset-vue": "^2.0.2",
     "chromatic": "^5.0.0",
