@@ -370,15 +370,17 @@
             }
         },
         "width": {
-            "field": {
-                "medium": {
-                    "value": "{dimension.width.medium.value}"
-                }
+            "small": {
+                "value": "{dimension.static.size.1600.value}"
             },
-            "button": {
-                "full-width": {
-                    "value": "{dimension.static.percent.100.value}"
-                }
+            "medium": {
+                "value": "{dimension.static.size.3200.value}"
+            },
+            "large": {
+                "value": "{dimension.static.size.4800.value}"
+            },
+            "full-width": {
+                "value": "{dimension.static.percent.100.value}"
             }
         },
         "padding": {
