@@ -372,7 +372,7 @@
         "width": {
             "field": {
                 "medium": {
-                    "value": "{dimension.static.width.medium.value}"
+                    "value": "{dimension.width.medium.value}"
                 }
             },
             "button": {
