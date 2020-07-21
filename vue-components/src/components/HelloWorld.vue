@@ -1,18 +1,30 @@
 <template>
 	<div class="hello">
 		{{ msg }}
+		<p>{{ readme() }}</p>
 	</div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 
+/**
+ * Our favorite component for obvious reasons <- this will be shown in addon-docs
+ */
 export default Vue.extend( {
 	name: 'HelloWorld',
 	props: {
+		/**
+		 * Description of the msg property <- this will be shown in addon-docs
+		 */
 		msg: {
 			type: String,
 			default: 'Hallo',
+		},
+	},
+	methods: {
+		readme(): string {
+			return 'straight from TS';
 		},
 	},
 } );
