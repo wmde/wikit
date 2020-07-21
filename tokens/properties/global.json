@@ -245,19 +245,19 @@
                 "100": {
                     "value": "100%"
                 }
-            },
-            "width": {
-                "small": {
-                    "value": "128px"
-                },
-                "medium": {
-                    "value": "256px"
-                },
-                "large": {
-                    "value": "384px"
-                }
             }
-        }
+        },
+        "width": {
+             "small": {
+                 "value": "128px"
+             },
+             "medium": {
+                 "value": "256px"
+             },
+            "large": {
+                 "value": "384px"
+             }
+         }
     },
     "width-breakpoint": {
         "mobile": {
