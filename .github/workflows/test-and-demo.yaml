@@ -23,5 +23,7 @@ jobs:
       run: npm ci
     - name: Test
       run: npm run test
+    - name: Build Storybooks
+      run: npm run build:storybook
     - name: Deploy Storybook
       run: npm run chromatic
