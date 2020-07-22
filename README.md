@@ -49,6 +49,8 @@ The following command starts two storybooks
 docker-compose up
 ```
 
+ℹ In development mode, the storybooks currently do **not** support "composition", i.e. vue-components is not featured in the docs storybook. Please look at it in isolation.
+
 ¹ Please refer to the `.env` file(s) for port configuration.
 
 As usual, docker-compose also allows for those services to be started independently of each other if preferred.
