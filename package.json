@@ -10,7 +10,7 @@
     "postinstall": "lerna bootstrap",
     "test": "lerna run test",
     "storybook": "lerna run storybook --parallel --stream",
-    "build:storybook": "lerna run build --scope @wmde/wikit-docs",
+    "build:storybook": "lerna run build --scope @wmde/wikit-docs && lerna run build:storybook --scope @wmde/wikit-vue-components",
     "chromatic": "lerna run chromatic --scope @wmde/wikit-docs"
   },
   "devDependencies": {

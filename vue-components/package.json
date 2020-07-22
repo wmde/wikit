@@ -12,6 +12,7 @@
     "test:lint": "vue-cli-service lint --no-fix",
     "test": "npm-run-all test:*",
     "fix": "vue-cli-service lint",
+    "build:storybook": "build-storybook -o storybook",
     "storybook": "start-storybook -p 6005"
   },
   "main": "dist/index.js",
