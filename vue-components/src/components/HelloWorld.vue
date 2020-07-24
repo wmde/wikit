@@ -1,7 +1,13 @@
 <template>
-	<div class="hello">
-		{{ msg }}
-		<p>{{ readme() }}</p>
+	<div class="wikit-HelloWorld">
+		<h3 class="wikit-HelloWorld__headline">
+			{{ msg }}
+		</h3>
+		<ul class="wikit-HelloWorld__action-list">
+			<li class="wikit-HelloWorld__action">
+				{{ readme() }} <a class="wikit-HelloWorld__link" href="#">ok</a>
+			</li>
+		</ul>
 	</div>
 </template>
 
@@ -30,20 +36,21 @@ export default Vue.extend( {
 } );
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+<style lang="scss">
+.wikit-HelloWorld {
+	&__headline {
+		margin: 40px 0 0;
+	}
+	&__action-list {
+		list-style-type: none;
+		padding: 0;
+	}
+	&__action {
+		display: inline-block;
+		margin: 0 10px;
+	}
+	&__link {
+		color: #42b983;
+	}
 }
 </style>
