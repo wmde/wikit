@@ -430,7 +430,6 @@
         }
     },
     "transition": {
-        "interaction": {
             "button": {
                 "hover": {
                     "property": {
@@ -475,7 +474,6 @@
                     }
                 }
             }
-        }
     },
     "icon": {
         "color": {
