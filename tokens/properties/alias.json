@@ -431,63 +431,65 @@
         }
     },
     "transition": {
-        "button": {
-            "hover": {
-                "property": {
-                    "value": "{transition.property.background-color.value}, {transition.property.border-color.value}"
+        "interaction": {
+            "button": {
+                "hover": {
+                    "property": {
+                        "value": "{transition.property.background-color.value}, {transition.property.border-color.value}"
+                    },
+                    "duration": {
+                        "value": "{transition.duration.fast.value}",
+                        "comment": "May be worthy unifying all transitions under transition-button-duration"
+                    }
                 },
-                "duration": {
-                    "value": "{transition.duration.fast.value}",
-                    "comment": "May be worthy unifying all transitions under transition-button-duration"
+                "active": {
+                    "property": {
+                        "value": "{transition.property.background-color.value}, {transition.property.border-color.value}"
+                    },
+                    "duration": {
+                        "value": "{transition.duration.fast.value}"
+                    }
+                },
+                "focus": {
+                    "property": {
+                        "value": "{transition.property.background-color.value}, {transition.property.border-color.value}, {transition.property.box-shadow.value}"
+                    },
+                    "duration": {
+                        "value": "{transition.duration.fast.value}"
+                    }
                 }
             },
-            "active": {
-                "property": {
-                    "value": "{transition.property.background-color.value}, {transition.property.border-color.value}"
-                },
-                "duration": {
-                    "value": "{transition.duration.fast.value}"
+            "button-neutral": {
+                "hover": {
+                    "property": {
+                        "value": "{transition.property.background-color.value}, {transition.property.color.value}"
+                    }
                 }
             },
-            "focus": {
-                "property": {
-                    "value": "{transition.property.background-color.value}, {transition.property.border-color.value}, {transition.property.box-shadow.value}"
-                },
-                "duration": {
-                    "value": "{transition.duration.fast.value}"
-                }
-            }
-        },
-        "button-neutral": {
-            "hover": {
-                "property": {
-                    "value": "{transition.property.background-color.value}, {transition.property.color.value}"
-                }
-            }
-        },
-        "button-primary": {
-            "focus": {
-                "property": {
-                    "value": "{transition.property.box-shadow.value}",
-                    "comment": "Only applies to filled primary buttons."
-                }
-            }
-        },
-        "field": {
-            "hover": {
-                "property": {
-                    "value": "{transition.property.border-color.value}"
-                },
-                "duration": {
-                    "value": "{transition.duration.fast.value}"
+            "button-primary": {
+                "focus": {
+                    "property": {
+                        "value": "{transition.property.box-shadow.value}",
+                        "comment": "Only applies to filled primary buttons."
+                    }
                 }
             },
-            "focus": {
-                "property": {
-                    "value": "{transition.property.border-color.value}, {transition.property.box-shadow.value}"
+            "field": {
+                "hover": {
+                    "property": {
+                        "value": "{transition.property.border-color.value}"
+                    },
+                    "duration": {
+                        "value": "{transition.duration.fast.value}"
+                    }
                 },
-                "duration": {
-                    "value": "{transition.duration.fast.value}"
+                "focus": {
+                    "property": {
+                        "value": "{transition.property.border-color.value}, {transition.property.box-shadow.value}"
+                    },
+                    "duration": {
+                        "value": "{transition.duration.fast.value}"
+                    }
                 }
             }
         }
