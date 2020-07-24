@@ -304,6 +304,14 @@
             },
             "box-shadow": {
                 "value": "box-shadow"
+            },
+            "color": {
+                "value": "color"
+            }
+        },
+        "timing function": {
+            "ease": {
+                "value": "ease"
             }
         }
     },
