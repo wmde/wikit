@@ -10,8 +10,10 @@
     "build": "vue-cli-service build --target lib --formats commonjs --name wikit-vue-components src/main.ts --report --report-json",
     "test:unit": "vue-cli-service test:unit",
     "test:lint": "vue-cli-service lint --no-fix",
+    "test:lintcss": "stylelint '**/*.vue'",
     "test": "npm-run-all test:*",
     "fix": "vue-cli-service lint",
+    "fix:css": "stylelint '**/*.vue' --fix",
     "build:storybook": "build-storybook",
     "storybook": "start-storybook"
   },
@@ -52,6 +54,9 @@
     "postcss-dir-pseudo-class": "^5.0.0",
     "postcss-logical": "^4.0.2",
     "postcss-prefixwrap": "^1.16.0",
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-use-logical": "^1.1.0",
     "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.11"
   },
