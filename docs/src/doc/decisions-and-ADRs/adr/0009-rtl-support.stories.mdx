@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation/Decisions and ADRs/ADRs/9) RTL support" />
+
+# 9) RTL support
+
+Date: 2020-07-24
+
+## Status
+
+Accepted
+
+## Context
+The components library has to support text in Right-to-Left (RTL) scripts.
+In the past the challenge of writing styles which work in LTR and RTL scripts was solved by tools which take a stylesheet developed in a LTR-mindset and flip it for RTL.
+Such tools include but are not limited to [cssjanus](https://www.npmjs.com/package/cssjanus), [rtlcss](https://www.npmjs.com/package/rtlcss), [rtl-css-js](https://www.npmjs.com/package/rtl-css-js).
+
+In the recent past (2018) [CSS Logical Properties and Values](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties) was introduced. As MDN web docs describe it, it's a module of CSS introducing logical properties and values that provide the ability to control layout through logical, rather than physical, direction and dimension mappings.
+This approach solves the double support for LTR and RTL scripts. Instead of writing 2 stylesheets, we can now write one, which defines the correct directionality regardless of the direction of the text.
+
+We identified two challenges:
+- [No IE11 support as of date](https://caniuse.com/#search=logical)
+- Make sure future contributors don't write directional style rules, e.g. `margin-left` instead of `margin-start`
+
+Fortunately, both problems have solutions in the form of postcss plugins ([postcss-logical](https://www.npmjs.com/package/postcss-logical), [postcss-dir-pseudo-class](https://www.npmjs.com/package/postcss-dir-pseudo-class)) and a stylelint plugin ([stylelint-use-logical](https://www.npmjs.com/package/stylelint-use-logical)).
+
+## Decision
+Use CSS Logical Properties and Values
+
+## Consequences
+Using logical properties gives us native browser support for RTL styling.
+We cannot use the shorthand `margin` or `padding` for now, because it implies a LTR directionality and is [not supported yet](https://github.com/w3c/csswg-drafts/issues/1282) in the logical properties.
