@@ -32,7 +32,7 @@ export default Vue.extend( {
 
 <style scoped>
 .hello {
-	color: #222222;
+	color: #222;
 	inset: logical 0 5px 10px;
 	padding-inline: 20px 40px;
 	resize: block;
