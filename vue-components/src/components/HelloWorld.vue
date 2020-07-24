@@ -40,17 +40,21 @@ export default Vue.extend( {
 .wikit-HelloWorld {
 	inset: logical 0 5px 10px;
 	padding-inline: 20px 40px;
+
 	&__headline {
 		margin: 40px 0 0;
 	}
+
 	&__action-list {
 		list-style-type: none;
 		padding: 0;
 	}
+
 	&__action {
 		display: inline-block;
 		margin: 0 10px;
 	}
+
 	&__link {
 		color: #42b983;
 	}
