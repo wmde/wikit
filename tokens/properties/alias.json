@@ -439,7 +439,6 @@
                     },
                     "duration": {
                         "value": "{transition.duration.fast.value}",
-                        "comment": "May be worthy unifying all transitions under transition-button-duration"
                     }
                 },
                 "active": {
