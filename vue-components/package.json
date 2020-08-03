@@ -13,6 +13,7 @@
     "test": "npm-run-all test:*",
     "fix": "vue-cli-service lint",
     "build:storybook": "build-storybook",
+    "build:extract-stories": "npx sb@6.0.0-rc.24 extract storybook-static storybook-static/stories.json",
     "storybook": "start-storybook"
   },
   "main": "dist/index.js",
