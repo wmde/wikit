@@ -23,6 +23,7 @@
   "dependencies": {
     "@wmde/wikit-tokens": "^0.0.0",
     "core-js": "^3.6.5",
+    "ress": "^3.0.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
