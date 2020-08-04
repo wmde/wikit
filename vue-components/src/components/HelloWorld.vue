@@ -1,5 +1,5 @@
 <template>
-	<div class="wikit-HelloWorld">
+	<div class="wikit wikit-HelloWorld">
 		<h3 class="wikit-HelloWorld__headline">
 			{{ msg }}
 		</h3>
