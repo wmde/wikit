@@ -39,20 +39,18 @@ export default Vue.extend( {
 <style lang="scss">
 .wikit-HelloWorld {
 	inset: logical 0 5px 10px;
-	padding-inline: 20px 40px;
 
 	&__headline {
-		margin: 40px 0 0;
+		margin-block-start: 40px;
 	}
 
 	&__action-list {
 		list-style-type: none;
-		padding: 0;
 	}
 
 	&__action {
 		display: inline-block;
-		margin: 0 10px;
+		margin-inline: 10px;
 	}
 
 	&__link {
