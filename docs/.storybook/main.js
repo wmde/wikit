@@ -1,6 +1,10 @@
 module.exports = {
 	stories: [ '../src/**/*.stories.@(js|mdx)' ],
-	addons: [ '@storybook/addon-docs' ],
+	addons: [
+		'@storybook/addon-a11y',
+		'@storybook/addon-docs',
+		'@storybook/addon-knobs',
+	],
 	refs: {
 		vue: {
 			title: 'vue components',
