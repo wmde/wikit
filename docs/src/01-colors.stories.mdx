@@ -2,7 +2,7 @@
 [//]: # (They are being worked on https://github.com/storybookjs/storybook/issues/9133)
 [//]: # (The list of available components can be found here:)
 [//]: # (https://github.com/storybookjs/storybook/blob/master/addons/docs/src/blocks/index.ts)
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Story } from '@storybook/addon-docs/blocks';
 import { TokenSection } from './lib/TokenSection';
 import { color } from '@wmde/wikit-tokens';
 
@@ -12,20 +12,30 @@ import { color } from '@wmde/wikit-tokens';
 
 ### Base
 
-<TokenSection tokens={color.base} />
+<Story name="Base">
+    <TokenSection tokens={color.base} />
+</Story>
 
 ### Accent
 
-<TokenSection tokens={color.accent} />
+<Story name="Accent">
+    <TokenSection tokens={color.accent} />
+</Story>
 
 ### Utility
 
-<TokenSection tokens={color.utility} />
+<Story name="Utility">
+    <TokenSection tokens={color.utility} />
+</Story>
 
 ### Modifier
 
-<TokenSection tokens={color.modifier} />
+<Story name="Modifier">
+    <TokenSection tokens={color.modifier} />
+</Story>
 
 ### Interaction
 
-<TokenSection tokens={color.interaction} />
+<Story name="Interaction">
+    <TokenSection tokens={color.interaction} />
+</Story>
