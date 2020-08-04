@@ -1,0 +1,22 @@
+{
+  "v": 2,
+  "globalParameters": {},
+  "kindParameters": {
+    "Hello World": {
+      "fileName": 400,
+      "framework": "vue"
+    }
+  },
+  "stories": {
+    "hello-world--dummy": {
+      "id": "hello-world--dummy",
+      "name": "Dummy",
+      "kind": "Hello World",
+      "story": "Dummy",
+      "parameters": {
+        "__id": "hello-world--dummy",
+        "__isArgsStory": false
+      }
+    }
+  }
+}
