@@ -23,7 +23,7 @@
     "test:lint": "eslint . --ext .js --ext .jsx",
     "fix": "npm run test:lint -- --fix",
     "build": "build-storybook -o dist",
-    "chromatic": "npx chromatic build --project-token=3evi132fpys --storybook-build-dir dist"
+    "chromatic": "chromatic build --project-token=3evi132fpys --storybook-build-dir dist"
   },
   "dependencies": {
     "@wmde/wikit-tokens": "^0.0.0",
@@ -41,7 +41,7 @@
     "@storybook/addon-knobs": "^6.0.0-rc.25",
     "@storybook/html": "^6.0.0-rc.25",
     "babel-loader": "^8.1.0",
-    "chromatic": "^5.0.0",
+    "chromatic": "^5.1.0",
     "eslint": "^7.3.1",
     "eslint-config-wikimedia": "^0.16.2",
     "eslint-plugin-react": "^7.20.3",
