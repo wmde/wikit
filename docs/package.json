@@ -23,7 +23,7 @@
     "test:lint": "eslint . --ext .js --ext .jsx",
     "fix": "npm run test:lint -- --fix",
     "build": "build-storybook -o dist",
-    "chromatic": "chromatic build --project-token=3evi132fpys --storybook-build-dir dist"
+    "chromatic": "chromatic build --project-token=3evi132fpys --storybook-build-dir dist --exit-once-uploaded"
   },
   "dependencies": {
     "@wmde/wikit-tokens": "^0.0.0",
