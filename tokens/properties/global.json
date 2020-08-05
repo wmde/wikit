@@ -309,7 +309,7 @@
                 "value": "color"
             }
         },
-        "timing function": {
+        "timing-function": {
             "ease": {
                 "value": "ease"
             }
