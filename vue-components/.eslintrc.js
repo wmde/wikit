@@ -1,7 +1,6 @@
 module.exports = {
 	extends: [
 		'wikimedia',
-		'wikimedia/client',
 		'wikimedia/language/rules-es2017', // the not-* parts are obsolete after transpiling and polyfills
 		'plugin:vue/strongly-recommended',
 		'@wmde/wikimedia-typescript',
