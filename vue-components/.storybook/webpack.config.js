@@ -1,7 +1,10 @@
+const path = require( 'path' );
 const ourVueConfig = require( '../vue.config' );
 const ourPostCssConfig = require( '../postcss.config' );
 
 module.exports = async ( { config } ) => {
+	config.resolve.alias[ '@' ] = path.resolve( __dirname, '../src' );
+
 	config.module.rules.push( {
 		test: /\.scss$/,
 		use: [
