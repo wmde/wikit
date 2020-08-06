@@ -10,7 +10,7 @@
 module.exports = {
 	// this controls whether to abort the test execution when an assertion failed and skip the rest
 	// it's being used in waitFor commands and expect assertions
-	abortOnAssertionFailure: true,
+	abortOnAssertionFailure: false,
 
 	// this will overwrite the default polling interval (currently 500ms) for waitFor commands
 	// and expect assertions that use retry

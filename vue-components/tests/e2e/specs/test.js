@@ -1,21 +1,19 @@
-// For authoring Nightwatch tests, see
-// https://nightwatchjs.org/guide
-
+/* eslint-disable @typescript-eslint/indent, indent */
 module.exports = {
 	'default e2e tests': ( browser ) => {
 		browser
 			.init()
-			.waitForElementVisible( '#app' )
-			.assert.elementPresent( '.hello' )
-			.assert.containsText( 'h1', 'Welcome to Your Vue.js + TypeScript App' )
-			.assert.elementCount( 'img', 1 )
+			.waitForElementVisible( '#root' ) // Storybook's root node
+			.frame( 0 )
+				.assert.elementPresent( '.wikit-HelloWorld' )
 			.end();
 	},
 
 	'example e2e test using a custom command': ( browser ) => {
 		browser
-			.openHomepage()
-			.assert.elementPresent( '.hello' )
+			.openStorybook()
+			.frame( 0 )
+				.assert.elementPresent( '.wikit-HelloWorld' )
 			.end();
 	},
 };
