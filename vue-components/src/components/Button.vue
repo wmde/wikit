@@ -111,7 +111,7 @@ $wikit-Button-neutral-border-radius: $border-radius-base;
 
 				color: $wikit-Button-neutral-focus-color;
 				background-color: $wikit-Button-neutral-focus-background-color;
-				border-color: $wikit-Button-neutral-focus-border-color; // FIXME not blue in chrome?!
+				border-color: $wikit-Button-neutral-focus-border-color;
 				box-shadow: $wikit-Button-neutral-focus-box-shadow;
 			}
 		}
@@ -119,6 +119,12 @@ $wikit-Button-neutral-border-radius: $border-radius-base;
 
 	&:disabled {
 		cursor: $wikit-Button-disabled-cursor;
+	}
+
+	// should ideally be taken care of by the globally applied style reset (ress)
+	// see https://github.com/filipelinhares/ress/pull/24
+	&:focus {
+		outline: none;
 	}
 }
 </style>
