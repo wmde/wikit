@@ -1,12 +1,13 @@
-import Button from '../src/components/Button';
+import Button from '@/components/Button';
 import { boolean, text } from '@storybook/addon-knobs';
+import { Component } from 'vue';
 
 export default {
 	component: Button,
 	title: 'Button',
 };
 
-export function normal() {
+export function normal(): Component {
 	return {
 		components: { Button },
 		props: {
