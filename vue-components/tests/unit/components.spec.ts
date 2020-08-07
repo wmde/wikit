@@ -6,7 +6,7 @@ describe( 'All components', () => {
 		Object.keys( allComponents ).forEach( ( component ) => {
 			// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 			// @ts-ignore
-			const wrapper = mount( allComponents[ component ] ); // { HelloWorld: VueConstructor<Vue>; }
+			const wrapper = mount( allComponents[ component ] ); // { ComponentName: VueConstructor<Vue>; }
 			expect( wrapper.classes() ).toContain( 'wikit' );
 		} );
 	} );
