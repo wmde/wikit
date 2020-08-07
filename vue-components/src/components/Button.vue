@@ -44,7 +44,7 @@ export default Vue.extend( {
 	font-weight: $font-weight-bold;
 	font-size: $font-size-style-label; // unit? px vs em vs rem
 	line-height: $wikit-Button-line-height;
-	cursor: $wikit-Button-default-cursor;
+	cursor: $wikit-Button-cursor;
 
 	// TODO use breakpoint mixin?
 	@media (max-width: $width-breakpoint-mobile) {
@@ -56,9 +56,9 @@ export default Vue.extend( {
 		border-width: $wikit-Button-neutral-border-width;
 		border-style: $wikit-Button-neutral-border-style;
 		border-radius: $wikit-Button-neutral-border-radius;
-		color: $wikit-Button-neutral-default-color;
-		background-color: $wikit-Button-neutral-default-background-color;
-		border-color: $wikit-Button-neutral-default-border-color;
+		color: $wikit-Button-neutral-color;
+		background-color: $wikit-Button-neutral-background-color;
+		border-color: $wikit-Button-neutral-border-color;
 
 		&:not(:disabled) {
 			&:hover {
