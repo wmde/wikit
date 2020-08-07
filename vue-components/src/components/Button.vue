@@ -29,20 +29,6 @@ export default Vue.extend( {
 </script>
 
 <style lang="scss">
-$wikit-Button-medium-padding-vertical: $dimension-padding-vertical-medium;
-$wikit-Button-medium-padding-horizontal: $dimension-padding-horizontal-medium;
-
-$wikit-Button-large-padding-vertical: $dimension-padding-vertical-large;
-$wikit-Button-large-padding-horizontal: $dimension-padding-horizontal-large;
-
-$wikit-Button-font-family: $font-family-style-label;
-$wikit-Button-font-weight: $font-weight-bold;
-$wikit-Button-font-size: $font-size-style-label; // unit? px vs em vs rem
-$wikit-Button-line-height: $font-line-height-style-label;
-$wikit-Button-border-width: $border-width-thin;
-$wikit-Button-border-style: $border-style-base;
-$wikit-Button-border-radius: $border-radius-base;
-
 /**
  * Construction site identified:
  * How do we name the component level token?
@@ -50,15 +36,13 @@ $wikit-Button-border-radius: $border-radius-base;
  * Suggestion for naming scheme:
  * wikit-<Component>-[prop]-[state]-css-property
  */
-$wikit-Button-default-cursor: $cursor-pointer;
-$wikit-Button-disabled-cursor: $cursor-default;
 
 .wikit-Button {
 	padding-inline: $wikit-Button-medium-padding-horizontal;
 	padding-block: $wikit-Button-medium-padding-vertical;
 	font-family: $wikit-Button-font-family;
-	font-weight: $font-weight-bold;
-	font-size: $font-size-style-label;
+	font-weight: $wikit-Button-font-weight;
+	font-size: $wikit-Button-font-size; // unit? px vs em vs rem
 	line-height: $wikit-Button-line-height;
 	cursor: $wikit-Button-default-cursor;
 	border-width: $wikit-Button-border-width;
@@ -72,30 +56,18 @@ $wikit-Button-disabled-cursor: $cursor-default;
 	}
 
 	&--neutral {
-		$wikit-Button-neutral-default-color: $font-color-base;
-		$wikit-Button-neutral-default-border-color: $border-color-neutral-default;
-		$wikit-Button-neutral-default-background-color: $background-color-neutral-default;
-
 		color: $wikit-Button-neutral-default-color;
 		background-color: $wikit-Button-neutral-default-background-color;
 		border-color: $wikit-Button-neutral-default-border-color;
 
 		&:not(:disabled) {
 			&:hover {
-				$wikit-Button-neutral-hover-color: $color-modifier-lighten-base-10;
-				$wikit-Button-neutral-hover-border-color: $border-color-neutral-hover;
-				$wikit-Button-neutral-hover-background-color: $background-color-neutral-hover;
-
 				color: $wikit-Button-neutral-hover-color;
 				background-color: $wikit-Button-neutral-hover-background-color;
 				border-color: $wikit-Button-neutral-hover-border-color;
 			}
 
 			&:active {
-				$wikit-Button-neutral-active-color: $font-color-emphasized;
-				$wikit-Button-neutral-active-border-color: $border-color-neutral-active;
-				$wikit-Button-neutral-active-background-color: $background-color-neutral-active;
-
 				color: $wikit-Button-neutral-active-color;
 				background-color: $wikit-Button-neutral-active-background-color;
 				border-color: $wikit-Button-neutral-active-border-color;
@@ -103,11 +75,6 @@ $wikit-Button-disabled-cursor: $cursor-default;
 
 			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
 			&:focus:not(:active) {
-				$wikit-Button-neutral-focus-color: $font-color-base;
-				$wikit-Button-neutral-focus-border-color: $border-color-neutral-focus;
-				$wikit-Button-neutral-focus-background-color: $background-color-neutral-focus;
-				$wikit-Button-neutral-focus-box-shadow: $box-shadow-inset-focus-progressive;
-
 				color: $wikit-Button-neutral-focus-color;
 				background-color: $wikit-Button-neutral-focus-background-color;
 				border-color: $wikit-Button-neutral-focus-border-color;
