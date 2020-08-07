@@ -1,5 +1,5 @@
 module.exports = {
-	stories: [ '../stories/**/*.stories.[tj]s' ],
+	stories: [ '../stories/**/*.stories.ts' ],
 	addons: [
 		'@storybook/addon-a11y',
 		'@storybook/addon-docs',
