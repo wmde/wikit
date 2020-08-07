@@ -1,4 +1,4 @@
-import { addDecorator, addParameters } from '@storybook/vue';
+import { addDecorator } from '@storybook/vue';
 import { withA11y } from '@storybook/addon-a11y';
 import { withKnobs } from '@storybook/addon-knobs';
 

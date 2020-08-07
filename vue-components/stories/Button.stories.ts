@@ -16,8 +16,8 @@ export function normal(): Component {
 			},
 			disabled: {
 				default: boolean( 'disabled', false ),
-			}
+			},
 		},
-		template: `<Button v-html="content" :disabled="disabled" />`,
-	}
+		template: '<Button v-html="content" :disabled="disabled" />',
+	};
 }
