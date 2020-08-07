@@ -3,10 +3,8 @@ import * as allComponents from '@/main';
 
 describe( 'All components', () => {
 	it( 'have the class wikit in their root node', () => {
-		Object.keys( allComponents ).forEach( ( component ) => {
-			// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-			// @ts-ignore
-			const wrapper = mount( allComponents[ component ] ); // { ComponentName: VueConstructor<Vue>; }
+		Object.values( allComponents ).forEach( ( component ) => {
+			const wrapper = mount( component );
 			expect( wrapper.classes() ).toContain( 'wikit' );
 		} );
 	} );
