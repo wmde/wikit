@@ -44,7 +44,7 @@ export default Vue.extend( {
 	font-weight: $wikit-Button-font-weight;
 	font-size: $wikit-Button-font-size; // unit? px vs em vs rem
 	line-height: $wikit-Button-line-height;
-	cursor: $wikit-Button-default-cursor;
+	cursor: $wikit-Button-cursor;
 	border-width: $wikit-Button-border-width;
 	border-style: $wikit-Button-border-style;
 	border-radius: $wikit-Button-border-radius;
@@ -56,9 +56,9 @@ export default Vue.extend( {
 	}
 
 	&--neutral {
-		color: $wikit-Button-neutral-default-color;
-		background-color: $wikit-Button-neutral-default-background-color;
-		border-color: $wikit-Button-neutral-default-border-color;
+		color: $wikit-Button-neutral-color;
+		background-color: $wikit-Button-neutral-background-color;
+		border-color: $wikit-Button-neutral-border-color;
 
 		&:not(:disabled) {
 			&:hover {

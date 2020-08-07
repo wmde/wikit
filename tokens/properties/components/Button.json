@@ -12,7 +12,7 @@
         "line-height": {
             "value": "{font.line-height.style.label.value}"
         },
-        "default-cursor": {
+        "cursor": {
             "value": "{cursor.pointer.value}"
         },
         "border-width": {
@@ -41,13 +41,13 @@
             }
         },
         "neutral": {
-            "default-color": {
+            "color": {
                 "value": "{font.color.base.value}"
             },
-            "default-border-color": {
+            "border-color": {
                 "value": "{border.color.neutral.default.value}"
             },
-            "default-background-color": {
+            "background-color": {
                 "value": "{background.color.neutral.default.value}"
             },
             "hover": {
