@@ -5,14 +5,7 @@ module.exports = {
 			.init()
 			.waitForElementVisible( '#root' ) // Storybook's root node
 			.frame( 0 )
-				.assert.elementPresent( '.wikit-HelloWorld' )
-			.end();
-	},
-
-	'example e2e test using a custom command': ( browser ) => {
-		browser
-			.openStorybook()
-			.frame( 0 )
+				.waitForElementVisible( '.wikit-HelloWorld' )
 				.assert.elementPresent( '.wikit-HelloWorld' )
 			.end();
 	},
