@@ -3,8 +3,10 @@ node_modules
 /dist
 /storybook-static
 /tests/e2e/reports
+/tests_output
 
 # local env files
+.env
 .env.local
 .env.*.local
 

@@ -13,7 +13,7 @@ module.exports = {
 		const storybook = browser.page.storybook();
 		storybook.waitForElementVisible( '@appContainer' );
 		browser.frame( 0 );
-
+		browser.waitForElementVisible( '.wikit-HelloWorld' );
 		const app = storybook.section.app;
 		app.expect.section( '@headline' ).text.to.match( /^Hello World!!1$/ );
 

@@ -38,6 +38,28 @@ docker-compose run --rm node lerna bootstrap
 docker-compose run --rm node lerna run test
 ```
 
+### Running browser tests
+
+#### Local
+
+To run browser tests locally make sure `storybook-vue` is up and running. Navigate to `vue-components` subdirectory and run 
+```sh
+npm run e2e
+```
+
+#### Cross-browser testing
+
+The cross browser tests for the `vue-components` package run on [Saucelabs](saucelabs.com). To connect to the Saucelabs servers you need an account. If you don't have it, please contact your manager.
+Once you have an account, go to  https://app.saucelabs.com/user-settings to check the username and access key.
+Create an `.env` file like the `.env.example` one.
+
+Then execute the e2e tests on Saucelabs. It might take a while to see the result in your terminal.
+```sh
+npm run e2e:saucelabs
+```
+
+:warning: Running browser tests in Docker doesn't work yet.
+
 ### Running Storybook
 
 The following command starts two storybooks
