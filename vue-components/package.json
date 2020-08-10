@@ -9,7 +9,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --formats commonjs --name wikit-vue-components src/main.ts --report --report-json",
     "test:unit": "vue-cli-service test:unit",
-    "e2e": "vue-cli-service test:e2e --url https://localhost:6005/",
+    "e2e": "vue-cli-service test:e2e --url https://localhost:6006/",
     "e2e:saucelabs": "env DATE=\"$(date)\" nightwatch --config nightwatch.config.js --env sauceChrome,sauceFirefox,sauceIE,sauceEdge",
     "build:extract-stories": "npx sb@6.0.0-rc.24 extract storybook-static storybook-static/stories.json",
     "build:storybook": "build-storybook",
