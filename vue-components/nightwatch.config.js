@@ -4,7 +4,6 @@ const build = `Nightwatch build-${process.env.DATE}`;
 module.exports = {
 	src_folders: [ 'tests/e2e/specs' ],
 	page_objects_path: 'tests/e2e/page-objects',
-	custom_commands_path: 'tests/e2e/custom-commands',
 
 	test_workers: {
 		enabled: true,
@@ -15,10 +14,10 @@ module.exports = {
 		// full default config at
 		// https://github.com/vuejs/vue-cli/blob/dev/packages/%40vue/cli-plugin-e2e-nightwatch/nightwatch.config.js
 		default: {
-			launch_url: 'localhost:6005',
+			launch_url: 'localhost:6006',
 		},
 		sauceLabs: {
-			launch_url: 'https://wmde.github.io/wikit/vue-components/',
+			launch_url: `https://${process.env.BRANCH_NAME}--5efdb3b5f65950002286285d.chromatic.com`,
 			selenium_host: 'ondemand.saucelabs.com',
 			selenium_port: 80,
 			username: process.env.SAUCE_USERNAME,
