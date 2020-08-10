@@ -87,6 +87,39 @@
                 }
             }
         },
+        "active": {
+            "transition-timing-function": {
+                "value": "{transition.timing-function.ease.value}"
+            },
+            "transition-property": {
+                "value": "{transition.interaction.button.active.property.value}"
+            },
+            "transition-duration": {
+                "value": "{transition.interaction.button.active.duration.value}"
+            }
+        },
+        "hover": {
+            "transition-timing-function": {
+                "value": "{transition.timing-function.ease.value}"
+            },
+            "transition-property": {
+                "value": "{transition.interaction.button.hover.property.value}"
+            },
+            "transition-duration": {
+                "value": "{transition.interaction.button.hover.duration.value}"
+            }
+        },
+        "focus": {
+            "transition-timing-function": {
+                "value": "{transition.timing-function.ease.value}"
+            },
+            "transition-property": {
+                "value": "{transition.interaction.button.focus.property.value}"
+            },
+            "transition-duration": {
+                "value": "{transition.interaction.button.focus.duration.value}"
+            }
+        },
         "disabled": {
             "cursor": {
                 "value": "{cursor.default.value}"

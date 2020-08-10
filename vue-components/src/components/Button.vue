@@ -37,7 +37,9 @@ export default Vue.extend( {
  * wikit-<Component>-[prop]-[state]-css-property
  */
 
-.wikit-Button {
+$base: ".wikit-Button";
+
+#{$base} {
 	padding-inline: $wikit-Button-medium-padding-horizontal;
 	padding-block: $wikit-Button-medium-padding-vertical;
 	font-family: $wikit-Button-font-family;
@@ -55,12 +57,12 @@ export default Vue.extend( {
 		padding-block: $wikit-Button-large-padding-vertical;
 	}
 
-	&--neutral {
-		color: $wikit-Button-neutral-color;
-		background-color: $wikit-Button-neutral-background-color;
-		border-color: $wikit-Button-neutral-border-color;
+	&:not(:disabled) {
+		&#{$base}--neutral {
+			color: $wikit-Button-neutral-color;
+			background-color: $wikit-Button-neutral-background-color;
+			border-color: $wikit-Button-neutral-border-color;
 
-		&:not(:disabled) {
 			&:hover {
 				color: $wikit-Button-neutral-hover-color;
 				background-color: $wikit-Button-neutral-hover-background-color;
@@ -80,6 +82,24 @@ export default Vue.extend( {
 				border-color: $wikit-Button-neutral-focus-border-color;
 				box-shadow: $wikit-Button-neutral-focus-box-shadow;
 			}
+		}
+
+		&:hover {
+			transition-timing-function: $wikit-Button-hover-transition-timing-function;
+			transition-property: $wikit-Button-hover-transition-property;
+			transition-duration: $wikit-Button-hover-transition-duration;
+		}
+
+		&:active {
+			transition-timing-function: $wikit-Button-active-transition-timing-function;
+			transition-property: $wikit-Button-active-transition-property;
+			transition-duration: $wikit-Button-active-transition-duration;
+		}
+
+		&:focus:not(:active) {
+			transition-timing-function: $wikit-Button-focus-transition-timing-function;
+			transition-property: $wikit-Button-focus-transition-property;
+			transition-duration: $wikit-Button-focus-transition-duration;
 		}
 	}
 
