@@ -1,5 +1,5 @@
 <template>
-	<button :class="[ 'wikit', 'wikit-Button', `wikit-Button--${ flavor }` ]">
+	<button :class="[ 'wikit', 'wikit-Button', `wikit-Button--${ type }` ]">
 		<slot />
 	</button>
 </template>
@@ -14,13 +14,13 @@ export default Vue.extend( {
 	name: 'Button',
 	props: {
 		/**
-		 * The flavor of the button
+		 * The type of the button
 		 */
-		flavor: {
+		type: {
 			type: String,
 			// TODO why does the shorter version cause problems with doc-gen?
 			validator( value: string ): boolean {
-				return [ 'neutral' ].includes( value );
+				return [ 'neutral', 'progressive' ].includes( value );
 			},
 			default: 'neutral',
 		},
@@ -84,6 +84,32 @@ $base: ".wikit-Button";
 			}
 		}
 
+		&#{$base}--progressive {
+			color: $wikit-Button-progressive-color;
+			background-color: $wikit-Button-progressive-background-color;
+			border-color: $wikit-Button-progressive-border-color;
+
+			&:hover {
+				background-color: $wikit-Button-progressive-hover-background-color;
+				border-color: $wikit-Button-progressive-hover-border-color;
+			}
+
+			&:active {
+				background-color: $wikit-Button-progressive-active-background-color;
+				border-color: $wikit-Button-progressive-active-border-color;
+			}
+
+			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
+			&:focus:not(:active) {
+				background-color: $wikit-Button-progressive-focus-background-color;
+				border-color: $wikit-Button-progressive-focus-border-color;
+				box-shadow: $wikit-Button-progressive-focus-box-shadow;
+				transition-timing-function: $wikit-Button-progressive-focus-transition-timing-function;
+				transition-property: $wikit-Button-progressive-focus-transition-property;
+				transition-duration: $wikit-Button-progressive-focus-transition-duration;
+			}
+		}
+
 		&:hover {
 			transition-timing-function: $wikit-Button-hover-transition-timing-function;
 			transition-property: $wikit-Button-hover-transition-property;
@@ -104,6 +130,12 @@ $base: ".wikit-Button";
 	}
 
 	&:disabled {
+		&#{$base}--progressive {
+			color: $wikit-Button-progressive-disabled-color;
+			background-color: $wikit-Button-progressive-disabled-background-color;
+			border-color: $wikit-Button-progressive-disabled-border-color;
+		}
+
 		cursor: $wikit-Button-disabled-cursor;
 	}
 
