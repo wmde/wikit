@@ -1,0 +1,33 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation/Decisions and ADRs/ADRs/10) Browser testing" />
+
+# 9) Browser testing
+
+Date: 2020-08-11
+
+## Status
+
+Accepted
+
+## Context
+
+Browser testing needs to be set up in order to catch bugs that cannot be caught by unit tests.
+It's very important to be able to run browser tests on more than one browser, ideally on all browsers officially supported by MediaWiki projects (ref. [Browser_support_matrix](https://www.mediawiki.org/wiki/Compatibility#Browser_support_matrix)).
+IE11 is particularly important, because a bug was found in Data Bridge, which could have been caught immediately if the browser tests ran on IE11 [T249343](https://phabricator.wikimedia.org/T249343).
+Such a bug in a component library can affect multiple applications and would, even when detected retro-actively, entail avoidable cost of updating the individual applications.
+
+In order to support IE11 (and all kinds of other browsers) we need to use [Selenium (WebDriver)](https://www.selenium.dev/documentation/en/getting_started/quick/) with a service that enables cross browser testing.
+
+## Decision
+
+Use [Nightwatch](https://nightwatchjs.org/) - a Selenium based framework for browser testing, recommended by [vue-cli](https://cli.vuejs.org/core-plugins/e2e-nightwatch.html)
+Use [Saucelabs](https://saucelabs.com/) - a cross browser testing provider, as there may be synergies with other teams. The FUN team runs their browser tests there as well.
+
+## Consequences
+
+Run browser tests locally on Chrome.
+Run browser tests (in CI) with Saucelabs on Chrome, Firefox, Edge and IE11.
+
+
+
