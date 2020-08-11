@@ -42,7 +42,17 @@ docker-compose run --rm node lerna run test
 
 #### Local
 
-To run browser tests locally make sure `storybook-vue` is up and running. Navigate to `vue-components` subdirectory and run it with your storybook URL specified, e.g.
+To run browser tests locally make sure `storybook-vue` is up and running.
+
+##### In Docker
+
+```sh
+docker-compose -f docker-compose.yml -f docker-compose.browsertests.yml up browsertests
+```
+
+##### On the host machine
+
+Navigate to `vue-components` subdirectory and run it with your storybook URL specified, e.g.
 ```sh
 STORYBOOK_URL=localhost:6005 npm run e2e
 ```
