@@ -4,6 +4,8 @@ const build = `Nightwatch build-${process.env.DATE}`;
 module.exports = {
 	src_folders: [ 'tests/e2e/specs' ],
 	page_objects_path: 'tests/e2e/page-objects',
+	custom_assertions_path: 'tests/e2e/custom-assertions',
+	custom_commands_path: 'tests/e2e/custom-commands',
 
 	test_workers: {
 		enabled: true,
