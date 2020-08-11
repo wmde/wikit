@@ -11,18 +11,18 @@ describe( 'Button', () => {
 		} ).text() ).toBe( content );
 	} );
 
-	it( 'renders the flavor name as a root node class', () => {
+	it.each( [ 'neutral', 'progressive' ] )( 'renders the type %s as a root node class', ( type ) => {
 		expect( mount( Button, {
 			propsData: {
-				flavor: 'neutral',
+				type,
 			},
-		} ).classes() ).toContain( 'wikit-Button--neutral' );
+		} ).classes() ).toContain( `wikit-Button--${type}` );
 	} );
 
-	it( 'validates the flavor prop', () => {
+	it( 'validates the type prop', () => {
 		expect( () => mount( Button, {
 			propsData: {
-				flavor: 'random',
+				type: 'random',
 			},
 		} ) ).toThrow();
 	} );
