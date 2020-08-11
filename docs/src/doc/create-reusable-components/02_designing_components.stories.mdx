@@ -49,9 +49,11 @@ The following essential documentation should be provided for every new system co
 - Provide a **short description** of the overall purpose of the component.
 Example: “A notification is a one-way dialogue triggered instantly by a user action, usually to communicate success or failure as an outcome of said action.”
 
-- Capture the component **states** (e.g. default, hover, active, focus, error, disabled) and interactive behavior (specially required for non single-step components such as dropdowns). In both cases, the user action leading to each state should also be specified.
+- Capture the component **states** (e.g. default, hover, active, focus, error, disabled).
 
 - Provide visual specifications (sizes, paddings, typographic styles, colors) of both the default and all component states. It should be possible to translate all these specifications using design tokens before handover (See 3).
+
+- Define the **interactive features** that are essential to fully understand the component's behavior (this is specially required for non single-step components such as dropdowns). In both cases, the user action leading to each state should also be specified.
 
 - Include **responsive** behavior specifications
 
@@ -135,9 +137,9 @@ In Storybook, tokens are classified in sections, depending on the styling proper
 
 Following the previous example. After checking the token documentation, we could assign the following tokens to the outlined styles:
 
-- Height and width of the bolean input: $dimension-min-height-xsmall, &$dimension-width-xsmall
-- Border color: $border-color-base-binary
-- Border radius:$border-radius-base
+- Height and width of the bolean input: `$dimension-min-height-xsmall`, `&$dimension-width-xsmall`
+- Border color: `$border-color-base-binary`
+- Border radius: `$border-radius-base`
 - and so on...
 
 ###Using alias v. global tokens
@@ -164,3 +166,28 @@ When suggesting the creation of missing tokens, the following process is advised
 - Once the new token is introduced in the system, you and the rest of the design team will be notified
 
 Although unlikely, it may happen that the newly needed alias token does not yet have a global representation. In that case, a new global token would be created together with its alias. New global tokens will also be introduced in case a major redesign or style change is imposed by the WMF.
+
+# 3. Design handover
+
+Figma is the agreed-upon handover environment. In order to collect specs in a centralized way, designers should create a new documentation frame in the Specs and documentation page, and name it after their “Component_Typology” [see example](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=3348%3A259)). 
+
+The following information should be provided in order to carry out an effective handover:
+
+- Component specs fully outlined using tokens (as defined in 1.4):
+
+  - **Visual** specification (sizes, paddings, typographic styles, colors) are fully defined using design tokens (See 3).
+  - **States**’ specifications (e.g. default, hover, active, focus, error, disabled) and **interactive behavior** are defined and fully specified. In both cases, the user actions leading to each state should also be specified.
+  - **Responsive** behavior specifications are also outlined
+  
+- Basic component documentation (as defined in 1.4):
+
+  - A distinctive **name** for the component and its relevant typologies
+  - A **short description** of the overall purpose of the component
+  
+- Storybook indications:
+
+  - Specify where, within the current Storybook structure, the component should  be classified (new dedicated section or subsection), based on the relationship to its component family.
+  - Indicate the required Storybook knobs: these modifiers will allow users to visualize all the component’s visual aspects and behavior
+  
+- **Assets** should be exported from Figma in an svg format and attached to the component story in Phabricator, so developers can easily download them
+
