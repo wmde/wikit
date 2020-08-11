@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/indent, indent */
 module.exports = {
 	'default e2e tests': ( client ) => {
 		client
