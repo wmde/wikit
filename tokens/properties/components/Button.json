@@ -87,6 +87,64 @@
                 }
             }
         },
+        "progressive": {
+            "color": {
+                "value": "{font.color.inverted.value}"
+            },
+            "border-color": {
+                "value": "{border.color.progressive.default.value}"
+            },
+            "background-color": {
+                "value": "{background.color.progressive.default.value}"
+            },
+            "hover": {
+                "border-color": {
+                    "value": "{border.color.progressive.hover.value}"
+                },
+                "background-color": {
+                    "value": "{background.color.progressive.hover.value}"
+                }
+            },
+            "active": {
+                "border-color": {
+                    "value": "{border.color.progressive.active.value}"
+                },
+                "background-color": {
+                    "value": "{background.color.progressive.active.value}"
+                }
+            },
+            "focus": {
+                "border-color": {
+                    "value": "{border.color.progressive.focus.value}"
+                },
+                "background-color": {
+                    "value": "{background.color.progressive.focus.value}"
+                },
+                "box-shadow": {
+                    "value": "{box-shadow.inset.focus.button-primary.value}"
+                },
+                "transition-timing-function": {
+                    "value": "{transition.timing-function.ease.value}"
+                },
+                "transition-property": {
+                    "value": "{transition.interaction.button-primary.focus.property.value}"
+                },
+                "transition-duration": {
+                    "value": "{transition.interaction.button.focus.duration.value}"
+                }
+            },
+            "disabled": {
+                "color": {
+                    "value": "{font.color.inverted.value}"
+                },
+                "border-color": {
+                    "value": "{border.color.base.disabled.value}"
+                },
+                "background-color": {
+                    "value": "{background.color.base.disabled.value}"
+                }
+            }
+        },
         "active": {
             "transition-timing-function": {
                 "value": "{transition.timing-function.ease.value}"
