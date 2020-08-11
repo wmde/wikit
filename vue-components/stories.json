@@ -2,12 +2,26 @@
   "v": 2,
   "globalParameters": {},
   "kindParameters": {
+    "Button": {
+      "fileName": 404,
+      "framework": "vue"
+    },
     "Hello World": {
-      "fileName": 400,
+      "fileName": 405,
       "framework": "vue"
     }
   },
   "stories": {
+    "button--normal": {
+      "id": "button--normal",
+      "name": "Normal",
+      "kind": "Button",
+      "story": "Normal",
+      "parameters": {
+        "__id": "button--normal",
+        "__isArgsStory": false
+      }
+    },
     "hello-world--dummy": {
       "id": "hello-world--dummy",
       "name": "Dummy",
