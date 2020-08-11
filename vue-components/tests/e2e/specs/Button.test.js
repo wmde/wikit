@@ -4,7 +4,7 @@ module.exports = {
 		client
 			.init()
 			.waitForElementVisible( '#root' ) // Storybook's root node
-			.click( 'a[href="#hello-world"]' ); // load the vue components frame
+			.click( 'a[href="#button"]' ); // load the vue components frame
 
 		client.element(
 			'css selector',
@@ -12,8 +12,8 @@ module.exports = {
 			( result ) => {
 				const frameWebElementId = result.value;
 				client.frame( frameWebElementId );
-				client.waitForElementVisible( '.wikit-HelloWorld' );
-				client.assert.elementPresent( '.wikit-HelloWorld' );
+				client.waitForElementVisible( '.wikit-Button' );
+				client.assert.elementPresent( '.wikit-Button' );
 				client.end();
 			},
 		);
