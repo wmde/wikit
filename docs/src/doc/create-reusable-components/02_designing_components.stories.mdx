@@ -73,4 +73,94 @@ As it can be inferred from the previous section, the design of new system compon
 
 - The final version of the component has been shared and **reviewed by other members of the design team**
 
-- The totality of the component’s visual and interactive characteristics can be expressed using **design tokens** (See 3.2)
+- The totality of the component’s visual and interactive characteristics can be expressed using **design tokens** (See 2.2)
+
+All the items on the previous list are a prerequisite to consider the component ready for handover (See 3).
+
+# 2. Using design tokens
+
+Design tokens have two main applications. They can mainly help designers to:
+
+- **Define the style of a component**: Since tokens capture the system’s styling patterns and premade decisions (See 2.1), they can provide guidance to designers working to define the styles of any new system components.
+
+- **Create specs**: Once the design of the new component is ready, its styles will be outlined using design tokens (See section 2.2). This is a necessary step of the handover process (See 3).
+
+## 2.1. Introduction: What are design tokens in the context of the Wikidata design system?
+
+Design tokens are atoms that store the visual foundations of our design system. They exhaustively codify colors, spacing, typographic styles, and even transitions in an agnostic and scalable way. The whole purpose of using tokens is to replace concrete values or single-use variables at a component level. They prevent deviations from the system’s visual and interactive properties, and make style modifications possible at scale and from a single source of truth.
+
+[IMG]
+
+In the context of the Wikidata design system (WiKit), tokens are stored using [JSON](https://github.com/wmde/wikit/tree/master/tokens/properties), and converted into actionable CSS variables that can be used to style components (via Style dictionary). Tokens are structured following three levels of granularity that reflect the chain of systematic decisions made, from high-level visual styles to specific component properties: 
+
+___Global tokens___ reflect the elementary visual foundations of the system. They are context agnostic (e.g. "accent-30"). 
+
+___Alias tokens___ are abstractions that communicate the token’s intended use. They mostly represent styles that are shared among several components (e.g. "border-color-progressive-active") and take global tokens as values. 
+
+___Component-level tokens___ are created by developers and they represent every value associated with the style and interactive properties of a specific component (e.g. button-primary-progressive-border-color-active). They take alias tokens as values.
+
+[IMG]
+
+In order to ensure visual consistency between the WMDE and WMF projects, Wikidata’s global tokens use  [wikimedia-ui-base.less](https://gerrit.wikimedia.org/r/plugins/gitiles/wikimedia-ui-base/+/refs/heads/master/wikimedia-ui-base.less) variables (defined by WMF) as values (rather than specific ones, such as #36c) whenever possible (the approach is explained in depth in  [ADR #2](https://wmde.github.io/wikit/?path=/docs/documentation-decisions-and-adrs-adrs-2-approach-for-reuse-of-variables-from-wikimedia-ui-base--page)).
+
+[IMG]
+
+## 2.2. Using tokens to specify a new component
+
+Designers should only use tokens (aliases or globals) rather than concrete values (e.g. pixels or hex colors) to define the handover specs of any newly designed system component. Developers will then use the provided alias or global tokens to define the low-level component-specific tokens applied to style components (See 3). 
+
+A list of all the currently available global and alias design tokens can be found in the Design tokens section in this Storybook environment. 
+
+### Selecting  tokens to define component specs
+
+Throughout the specs' creation process,  all the component’s styling properties will need to be exhaustively defined. Make sure to align with developers before handover in order to make sure that no property is left unspecified.
+
+**Example**
+
+[IMG]
+
+When creating  the checkbox component above,  we can identify the following visual and interactive properties:
+
+- Height and width of the bolean input
+- Border color
+- Border radius
+- Border width
+- A label element (with all its styles)
+- Padding between the input and the label
+- Interaction-wise: The input changes its border color if hovered, focused, activated and selected (transition).
+
+In Storybook, tokens are classified in sections, depending on the styling property that they define (e.g. paddings, background color). Go through the token visualization pages to find and copy the alias or global tokens to be used as styling values for each one of the visual and interactive properties outlined in your handover file.
+
+[IMG]
+
+Following the previous example. After checking the token documentation, we could assign the following tokens to the outlined styles:
+
+- Height and width of the bolean input: $dimension-min-height-xsmall, &$dimension-width-xsmall
+- Border color: $border-color-base-binary
+- Border radius:$border-radius-base
+- and so on...
+
+###Using alias v. global tokens
+
+Use alias tokens to define specs whenever possible: they represent the styling patterns that all system components should follow. 
+There may be exceptions, though, when you’ll have to use global tokens. For example, to define single-use styles that only apply to an individual component, and for which a styling pattern has not (yet) been detected. 
+
+[IMG]
+
+Alias tokens are context-specific, so try to use them accordingly to their intended purpose:
+
+[IMG]
+
+It is important to bear in mind that not all patterns could be detected or all design decisions could be anticipated when creating our first batch of tokens. In order to reflect further design decisions as the system matures, tokens will need to be updated and, in some cases, also created.
+
+### Suggesting the creation of new tokens
+
+As mentioned, if none of the existing alias tokens can provide the right value for a given style, designers can, as an exception, use global tokens instead. Nevertheless, in case a visual pattern is detected (i.e. a given global token is used or will be used from now on to define a particular style that is shared by at least two components), the recommendation would be to create a new alias token that reflects that systemic decision, so it can be used from now on.
+
+When suggesting the creation of missing tokens, the following process is advised:
+
+- Bring up your findings and proposal to your friendly system designer (Sarai) for it to be evaluated
+- The proposal will be shared with the UX team for review and alignment
+- Once the new token is introduced in the system, you and the rest of the design team will be notified
+
+Although unlikely, it may happen that the newly needed alias token does not yet have a global representation. In that case, a new global token would be created together with its alias. New global tokens will also be introduced in case a major redesign or style change is imposed by the WMF.
