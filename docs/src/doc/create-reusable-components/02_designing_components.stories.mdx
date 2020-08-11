@@ -5,4 +5,72 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Designing Components
 
-how to use tokens to create specs, preparing handover artifacts for developers
+Predictive instructions on how to design and specify new design system components for handover.
+
+## 1. Designing new system components
+
+Due to the decentralized nature of our system, designers embedded in the different feature teams will be accountable for creating the final designs and specs for new system components. The dedicated system designer (Sarai) will provide as much support as possible throughout the design process, which consists of the following recommended steps:
+
+## 1.1. Discover
+
+The designer in charge of the creation of the new system component should start by checking the [WiKit symbol library](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=166%3A2), to see if the new needed component has already been designed or can be designed based on any of the existing WiKit symbols.
+
+It is advised that the designer performs an interface inventory by inspecting and capturing existing instances of the component in multiple sources: production (particularly Wikidata), OOUI and the Wikimedia Foundation UI (Wikimedia Design Style Guide). Screenshots and specs of said instances should be collected in a central art board within the [Component Inventory] (https://www.figma.com/file/QHIKwqfmSERr2fTqRj5UYM/Pattern%2FComponent-Inventory?node-id=0%3A1) in Figma. The purpose of the inventory is to achieve behavior parity, by making sure that all the specific functionalities of a given component are included in its new system-compliant version.
+
+## 1.2. Design
+
+All new components should follow the [system’s visual guidelines](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2510%3A3540), which are captured by the [color palette](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2510%3A3725), [typographic styles](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2510%3A3550) and premade [sizing and spacing](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2696%3A0). 
+These guidelines are for now available only in Figma, but will also have their dedicated section in this Storybook.
+
+While designing new system components, bear in mind to:
+
+- Only use *colors* from the system’s color palette
+
+- Only use pre-made **font styles** 
+
+- Apply pre-made widths and heights to **size** components and their elements (e.g. borders) as needed 
+
+- Whenever possible, base **spacing** (horizontal and vertical margins) on the 8px unit. Paddings may require smaller values: it’s ok to adjust it in order to ensure that overall component sizing (height) is maintained.
+
+- **Interaction patterns** can be based on the existing components’ documentation templates (See 1.4) and their displayed behavior at the Storybook stories. Existing patterns (the behavior of the previous version of the component in production) will also be evaluated and applied to the new component version in case that doesn’t contradict the system (See 1.1).
+
+If you still hesitate about the appropriateness of certain color or size after checking the visual guidelines and existing designs, you could find guidance in alias tokens. These tokens encapsulate the shared styling patterns of the system:their name expresses the intended use of any given visual value (See 2).
+
+## 1.3. Decide
+
+The system designer will make herself available as needed to support you while making system-related decisions. Nevertheless, it is important that, at any step of the design process, and necessarily before handover, the UX design team in involved in the definition and the review of the new system component. This is in order to align on the design decisions made, catch potential systemic inconsistencies or improvements, and refine the whole component design process.
+
+## 1.4. Document
+
+The following essential documentation should be provided for every new system component in Figma:
+
+- Give a distinctive **name** to the component and to its relevant typologies. When applicable, follow the naming structure “family variant/type/flavor”: e.g. “Quiet button” (component name), “Quiet button primary progressive” (typology & flavor name).
+
+- Provide a **short description** of the overall purpose of the component.
+Example: “A notification is a one-way dialogue triggered instantly by a user action, usually to communicate success or failure as an outcome of said action.”
+
+- Capture the component **states** (e.g. default, hover, active, focus, error, disabled) and interactive behavior (specially required for non single-step components such as dropdowns). In both cases, the user action leading to each state should also be specified.
+
+- Provide visual specifications (sizes, paddings, typographic styles, colors) of both the default and all component states. It should be possible to translate all these specifications using design tokens before handover (See 3).
+
+- Include **responsive** behavior specifications
+
+Although providing extended documentation about a component (anatomy, usage, good/bad practices, etc) is not a prerequisite for handover, it is advised to collect this information whenever possible using the component’s [documentation template](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=3652%3A59). Behavior and do’s/don'ts documentation can be key to inform future design decisions (see 1.2), and to help keeping the system’s interaction patterns consistent.
+
+Again, you can count on the system designer to help with, or even take over, component documentation (both essential and/or extended). The system designer will also be responsible for the creation of a reusable symbolized version of the component in the WiKit’s UI Kit page in Figma if required (depending on the perceived reusability of the component in future designs).
+
+## 1.5. The design definition of done
+
+As it can be inferred from the previous section, the design of new system components must comply with the following requirements in order to be considered done:
+
+- All the visual and interactive design features of the component are **fully based on the preexisting design system’s guidelines** and documentation
+
+- The design of the component and **all its interactive states** are fully represented in Figma, and all the component’s essential documentation is defined (See 1.4)
+
+- **Accessibility** has been taken into consideration (contrast, sizing, copy)
+
+- **Responsive** behavior has been defined
+
+- The final version of the component has been shared and **reviewed by other members of the design team**
+
+- The totality of the component’s visual and interactive characteristics can be expressed using **design tokens** (See 3.2)
