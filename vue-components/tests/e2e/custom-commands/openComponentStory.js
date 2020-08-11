@@ -2,10 +2,14 @@ module.exports.command = function openComponentStory( component ) {
 	return this.waitForElementVisible( '#root' )
 		.click( `a[href="#${component}"]` )
 		.element(
-			'css selector',
-			'[id="storybook-ref-vue"]',
+			'id',
+			'storybook-ref-vue',
 			( { value } ) => {
-				this.frame( value );
+				if ( value && !value.error ) {
+					this.frame( value ); // storybook composition
+				} else {
+					this.frame( 'storybook-preview-iframe' ); // vue-components storybook, no composition
+				}
 			},
 		);
 };
