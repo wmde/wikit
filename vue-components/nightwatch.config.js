@@ -18,6 +18,17 @@ module.exports = {
 		default: {
 			launch_url: process.env.STORYBOOK_URL,
 		},
+		docker: {
+			launch_url: `http://storybook-vue:${process.env.VUECOMPONENTS_STORYBOOK_PORT}`,
+			selenium_host: 'selenium',
+			desiredCapabilities: {
+				browserName: 'chrome',
+				chromeOptions: {
+					args: [ 'headless', 'no-sandbox', 'disable-gpu' ],
+					w3c: false,
+				},
+			},
+		},
 		sauceLabs: {
 			launch_url: `https://${process.env.BRANCH_NAME}--5efdb3b5f65950002286285d.chromatic.com`,
 			selenium_host: 'ondemand.saucelabs.com',
