@@ -132,17 +132,6 @@
                 "transition-duration": {
                     "value": "{transition.interaction.button.focus.duration.value}"
                 }
-            },
-            "disabled": {
-                "color": {
-                    "value": "{font.color.inverted.value}"
-                },
-                "border-color": {
-                    "value": "{border.color.base.disabled.value}"
-                },
-                "background-color": {
-                    "value": "{background.color.base.disabled.value}"
-                }
             }
         },
         "active": {
@@ -181,6 +170,15 @@
         "disabled": {
             "cursor": {
                 "value": "{cursor.default.value}"
+            },
+            "color": {
+                "value": "{font.color.inverted.value}"
+            },
+            "border-color": {
+                "value": "{border.color.base.disabled.value}"
+            },
+            "background-color": {
+                "value": "{background.color.base.disabled.value}"
             }
         }
     }

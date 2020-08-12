@@ -130,12 +130,9 @@ $base: ".wikit-Button";
 	}
 
 	&:disabled {
-		&#{$base}--progressive {
-			color: $wikit-Button-progressive-disabled-color;
-			background-color: $wikit-Button-progressive-disabled-background-color;
-			border-color: $wikit-Button-progressive-disabled-border-color;
-		}
-
+		color: $wikit-Button-disabled-color;
+		background-color: $wikit-Button-disabled-background-color;
+		border-color: $wikit-Button-disabled-border-color;
 		cursor: $wikit-Button-disabled-cursor;
 	}
 
