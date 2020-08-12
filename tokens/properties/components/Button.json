@@ -134,6 +134,53 @@
                 }
             }
         },
+        "destructive": {
+            "color": {
+                "value": "{font.color.inverted.value}"
+            },
+            "border-color": {
+                "value": "{border.color.destructive.default.value}"
+            },
+            "background-color": {
+                "value": "{background.color.destructive.default.value}"
+            },
+            "hover": {
+                "border-color": {
+                    "value": "{border.color.destructive.hover.value}"
+                },
+                "background-color": {
+                    "value": "{background.color.destructive.hover.value}"
+                }
+            },
+            "active": {
+                "border-color": {
+                    "value": "{border.color.destructive.active.value}"
+                },
+                "background-color": {
+                    "value": "{background.color.destructive.active.value}"
+                }
+            },
+            "focus": {
+                "border-color": {
+                    "value": "{border.color.destructive.focus.value}"
+                },
+                "background-color": {
+                    "value": "{background.color.destructive.focus.value}"
+                },
+                "box-shadow": {
+                    "value": "{box-shadow.inset.focus.button-primary.value}"
+                },
+                "transition-timing-function": {
+                    "value": "{transition.timing-function.ease.value}"
+                },
+                "transition-property": {
+                    "value": "{transition.interaction.button-primary.focus.property.value}"
+                },
+                "transition-duration": {
+                    "value": "{transition.interaction.button.focus.duration.value}"
+                }
+            }
+        },
         "active": {
             "transition-timing-function": {
                 "value": "{transition.timing-function.ease.value}"
