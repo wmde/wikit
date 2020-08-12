@@ -16,7 +16,7 @@ module.exports = {
 		// full default config at
 		// https://github.com/vuejs/vue-cli/blob/dev/packages/%40vue/cli-plugin-e2e-nightwatch/nightwatch.config.js
 		default: {
-			launch_url: 'localhost:6006',
+			launch_url: process.env.STORYBOOK_URL,
 		},
 		sauceLabs: {
 			launch_url: `https://${process.env.BRANCH_NAME}--5efdb3b5f65950002286285d.chromatic.com`,
