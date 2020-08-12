@@ -21,7 +21,11 @@ export function normal(): Component {
 			// a broken state where the property value is not passed to the component
 			// this happens with vue-cli v4.4.0 and storybook v6.0.0-rc.24
 			buttonType: {
-				default: select( 'Type', [ 'neutral', 'progressive' ], 'neutral' ),
+				default: select(
+					'Type',
+					[ 'neutral', 'progressive', 'destructive' ],
+					'neutral',
+				),
 			},
 		},
 		template: '<Button v-html="content" :disabled="disabled" :type="buttonType" />',

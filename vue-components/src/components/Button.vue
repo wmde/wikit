@@ -20,7 +20,7 @@ export default Vue.extend( {
 			type: String,
 			// TODO why does the shorter version cause problems with doc-gen?
 			validator( value: string ): boolean {
-				return [ 'neutral', 'progressive' ].includes( value );
+				return [ 'neutral', 'progressive', 'destructive' ].includes( value );
 			},
 			default: 'neutral',
 		},
@@ -107,6 +107,32 @@ $base: ".wikit-Button";
 				transition-timing-function: $wikit-Button-progressive-focus-transition-timing-function;
 				transition-property: $wikit-Button-progressive-focus-transition-property;
 				transition-duration: $wikit-Button-progressive-focus-transition-duration;
+			}
+		}
+
+		&#{$base}--destructive {
+			color: $wikit-Button-destructive-color;
+			background-color: $wikit-Button-destructive-background-color;
+			border-color: $wikit-Button-destructive-border-color;
+
+			&:hover {
+				background-color: $wikit-Button-destructive-hover-background-color;
+				border-color: $wikit-Button-destructive-hover-border-color;
+			}
+
+			&:active {
+				background-color: $wikit-Button-destructive-active-background-color;
+				border-color: $wikit-Button-destructive-active-border-color;
+			}
+
+			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
+			&:focus:not(:active) {
+				background-color: $wikit-Button-destructive-focus-background-color;
+				border-color: $wikit-Button-destructive-focus-border-color;
+				box-shadow: $wikit-Button-destructive-focus-box-shadow;
+				transition-timing-function: $wikit-Button-destructive-focus-transition-timing-function;
+				transition-property: $wikit-Button-destructive-focus-transition-property;
+				transition-duration: $wikit-Button-destructive-focus-transition-duration;
 			}
 		}
 
