@@ -18,7 +18,8 @@
     "storybook": "start-storybook",
     "test": "npm-run-all test:*",
     "test:lint": "vue-cli-service lint --no-fix",
-    "test:lintcss": "stylelint '**/*.vue'"
+    "test:lintcss": "stylelint '**/*.vue'",
+    "chromatic": "npx chromatic build --project-token=3evi132fpys --build-script-name=build:storybook"
   },
   "main": "dist/index.js",
   "files": [
@@ -49,6 +50,7 @@
     "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "^1.0.3",
     "@wmde/eslint-config-wikimedia-typescript": "^0.2.0",
+    "chromatic": "^5.0.0",
     "chromedriver": "83",
     "eslint": "^7.2.0",
     "eslint-config-wikimedia": "^0.16.2",
