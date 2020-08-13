@@ -24,6 +24,15 @@
         "border-radius": {
             "value": "{border.radius.base.value}"
         },
+        "transition-timing-function": {
+            "value": "{transition.timing-function.ease.value}"
+        },
+        "transition-property": {
+            "value": "{transition.interaction.button.property.value}"
+        },
+        "transition-duration": {
+            "value": "{transition.interaction.button.duration.value}"
+        },
         "medium": {
             "padding-vertical": {
                 "value": "{dimension.padding.vertical.medium.value}"
@@ -122,15 +131,6 @@
                 },
                 "box-shadow": {
                     "value": "{box-shadow.inset.focus.button-primary.value}"
-                },
-                "transition-timing-function": {
-                    "value": "{transition.timing-function.ease.value}"
-                },
-                "transition-property": {
-                    "value": "{transition.interaction.button-primary.focus.property.value}"
-                },
-                "transition-duration": {
-                    "value": "{transition.interaction.button.focus.duration.value}"
                 }
             }
         },
@@ -169,49 +169,7 @@
                 },
                 "box-shadow": {
                     "value": "{box-shadow.inset.focus.button-primary.value}"
-                },
-                "transition-timing-function": {
-                    "value": "{transition.timing-function.ease.value}"
-                },
-                "transition-property": {
-                    "value": "{transition.interaction.button-primary.focus.property.value}"
-                },
-                "transition-duration": {
-                    "value": "{transition.interaction.button.focus.duration.value}"
                 }
-            }
-        },
-        "active": {
-            "transition-timing-function": {
-                "value": "{transition.timing-function.ease.value}"
-            },
-            "transition-property": {
-                "value": "{transition.interaction.button.active.property.value}"
-            },
-            "transition-duration": {
-                "value": "{transition.interaction.button.active.duration.value}"
-            }
-        },
-        "hover": {
-            "transition-timing-function": {
-                "value": "{transition.timing-function.ease.value}"
-            },
-            "transition-property": {
-                "value": "{transition.interaction.button.hover.property.value}"
-            },
-            "transition-duration": {
-                "value": "{transition.interaction.button.hover.duration.value}"
-            }
-        },
-        "focus": {
-            "transition-timing-function": {
-                "value": "{transition.timing-function.ease.value}"
-            },
-            "transition-property": {
-                "value": "{transition.interaction.button.focus.property.value}"
-            },
-            "transition-duration": {
-                "value": "{transition.interaction.button.focus.duration.value}"
             }
         },
         "disabled": {
