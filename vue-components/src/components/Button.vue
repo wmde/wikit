@@ -42,6 +42,9 @@ $base: ".wikit-Button";
 	border-width: $wikit-Button-border-width;
 	border-style: $wikit-Button-border-style;
 	border-radius: $wikit-Button-border-radius;
+	transition-duration: $wikit-Button-transition-duration;
+	transition-timing-function: $wikit-Button-transition-timing-function;
+	transition-property: $wikit-Button-transition-property;
 
 	// TODO use breakpoint mixin?
 	@media (max-width: $width-breakpoint-mobile) {
@@ -96,9 +99,6 @@ $base: ".wikit-Button";
 				background-color: $wikit-Button-progressive-focus-background-color;
 				border-color: $wikit-Button-progressive-focus-border-color;
 				box-shadow: $wikit-Button-progressive-focus-box-shadow;
-				transition-timing-function: $wikit-Button-progressive-focus-transition-timing-function;
-				transition-property: $wikit-Button-progressive-focus-transition-property;
-				transition-duration: $wikit-Button-progressive-focus-transition-duration;
 			}
 		}
 
@@ -122,28 +122,7 @@ $base: ".wikit-Button";
 				background-color: $wikit-Button-destructive-focus-background-color;
 				border-color: $wikit-Button-destructive-focus-border-color;
 				box-shadow: $wikit-Button-destructive-focus-box-shadow;
-				transition-timing-function: $wikit-Button-destructive-focus-transition-timing-function;
-				transition-property: $wikit-Button-destructive-focus-transition-property;
-				transition-duration: $wikit-Button-destructive-focus-transition-duration;
 			}
-		}
-
-		&:hover {
-			transition-timing-function: $wikit-Button-hover-transition-timing-function;
-			transition-property: $wikit-Button-hover-transition-property;
-			transition-duration: $wikit-Button-hover-transition-duration;
-		}
-
-		&:active {
-			transition-timing-function: $wikit-Button-active-transition-timing-function;
-			transition-property: $wikit-Button-active-transition-property;
-			transition-duration: $wikit-Button-active-transition-duration;
-		}
-
-		&:focus:not(:active) {
-			transition-timing-function: $wikit-Button-focus-transition-timing-function;
-			transition-property: $wikit-Button-focus-transition-property;
-			transition-duration: $wikit-Button-focus-transition-duration;
 		}
 	}
 
