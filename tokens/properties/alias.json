@@ -433,6 +433,12 @@
     "transition": {
         "interaction": {
             "button": {
+                "property": {
+                    "value": "{transition.property.color.value}, {transition.property.background-color.value}, {transition.property.border-color.value}, {transition.property.box-shadow.value}"
+                },
+                "duration": {
+                    "value": "{transition.duration.fast.value}"
+                },
                 "hover": {
                     "property": {
                         "value": "{transition.property.background-color.value}, {transition.property.border-color.value}"
