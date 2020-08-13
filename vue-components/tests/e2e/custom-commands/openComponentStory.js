@@ -3,13 +3,9 @@ module.exports.command = function openComponentStory( component ) {
 		.click( `a[href="#${component}"]` )
 		.element(
 			'id',
-			'storybook-ref-vue',
+			'storybook-preview-iframe',
 			( { value } ) => {
-				if ( value && !value.error ) {
-					this.frame( value ); // storybook composition
-				} else {
-					this.frame( 'storybook-preview-iframe' ); // vue-components storybook, no composition
-				}
+				this.frame( value );
 			},
 		);
 };
