@@ -1,0 +1,34 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation/Decisions and ADRs/ADRs/11) Visual testing" />
+
+# 11) Visual testing
+
+Date: 2020-08-13
+
+## Status
+
+Accepted
+
+## Context
+
+Visual testing (also called visual regression testing) catches bugs in UI appearance. It works by taking screenshots of a component and comparing it to a baseline to identify changes. This way we can verify what the user sees: layout, color, size, and contrast.
+
+This type of testing is especially useful in a component library to make sure regression bugs or unwanted changes are not introduced to the UI.
+
+There were previous unsuccessful attempts of setting up visual regression tests in [Data Bridge](https://phabricator.wikimedia.org/T244990).
+
+For the Design System we already started using Chromatic to make it possible to deploy docs/storybook on feature branches ([T256864](https://phabricator.wikimedia.org/T256864)). Chromatic also offers a feature called [Visual tests](https://www.chromatic.com/docs/test) which performs visual regression testing on Storybook stories in Chrome.
+
+The UI tests results are automatically part of CI and are shown on the respective github PR.
+
+## Decision
+
+Have visual regression tests run on the vue components of the design system.  
+Use Chromatic's "Visual tests" tool.
+
+## Consequences
+
+We have automated visual testing of the Design System's vue components to prevent regression bugs and unwanted changes.  
+We outsourced this to a tool that already does everything for us.  
+The [type of plan](https://www.chromatic.com/pricing) we use for Chromatic allows for 5000 snapshots a month. This seems sufficient for now but might have to be revisited in the future when the library grows.
