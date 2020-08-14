@@ -4,6 +4,7 @@ node_modules
 /storybook-static
 /tests/e2e/reports
 /tests_output
+/coverage
 
 # local env files
 .env
