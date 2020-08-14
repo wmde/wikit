@@ -29,14 +29,6 @@ export default Vue.extend( {
 </script>
 
 <style lang="scss">
-/**
- * Construction site identified:
- * How do we name the component level token?
- *
- * Suggestion for naming scheme:
- * wikit-<Component>-[prop]-[state]-css-property
- */
-
 $base: ".wikit-Button";
 
 #{$base} {

@@ -5,6 +5,14 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Developing Components
 
-developing components with tokens 
+## Working with Component-level Design Tokens
+
+A general overview of how we use design tokens in our design system can be found in the "Using design tokens" section of the [design documentation](?path=/story/documentation-how-to-create-reusable-components-designing-components--page). While global and alias tokens are created by system designers, the creation of component-level tokens is part of the component implementation and thus responsibility of developers.
+
+All component-level tokens must reference alias and global tokens listed in the design specification. This way, they act as a check for the completeness of the design specification.
+
+The name of a component-level token file should match the name of the component. For example, a component implemented in `Button.vue` should have a `Button.json` containing its tokens.
+
+The recommended naming scheme for individual tokens is `wikit-<ComponentName>-[prop-][state-]<css-property>` - increasing specificity from left to right. A token containing the background-color (CSS property) value of a hovered (state) progressive (prop) button (component name) should be called `wikit-Button-progressive-hover-background-color`. Default prop values and states can be omitted from the name. A border-radius token that applies to all button types in all states can simply be named `wikit-Button-border-radius`.
 
 releasing components
