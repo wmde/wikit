@@ -190,8 +190,8 @@
         }
     },
     "dimension": {
-        "dynamic":{
-            "size":{
+        "dynamic": {
+            "size": {
                 "0": {
                     "value": "0em"
                 },
