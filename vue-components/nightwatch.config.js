@@ -77,5 +77,14 @@ module.exports = {
 				version: 'latest',
 			},
 		},
+
+		sauceSafari: {
+			extends: 'sauceLabs',
+			desiredCapabilities: {
+				browserName: 'safari',
+				browserVersion: 'latest',
+				platformName: 'macOS 10.14',
+			},
+		},
 	},
 };
