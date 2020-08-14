@@ -80,3 +80,13 @@ docker-compose up
 ¹ Please refer to the `.env` file(s) for port configuration.
 
 As usual, docker-compose also allows for those services to be started independently of each other if preferred.
+
+### Automatically rebuilding tokens on source file changes
+
+Run the following command to automatically rebuild the tokens in all output formats during development when changing one of the json source files:
+
+```sh
+docker-compose run --rm node lerna run watch --stream
+```
+
+This way you don't have to manually run the `build:tokens` command for every token change.
