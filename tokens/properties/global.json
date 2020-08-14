@@ -160,25 +160,25 @@
         },
         "size": {
             "xsmall": {
-                "value": "13px"
+                "value": "0.813em"
             },
             "small": {
-                "value": "14px"
+                "value": "0.875em"
             },
             "medium": {
-                "value": "16px"
+                "value": "1em"
             },
             "large": {
-                "value": "18px"
+                "value": "1.125em"
             },
             "xlarge": {
-                "value": "20px"
+                "value": "1.250em"
             },
             "xxlarge": {
-                "value": "24px"
+                "value": "1.500em"
             },
             "xxxlarge": {
-                "value": "32px"
+                "value": "2em"
             }
         }
     },
