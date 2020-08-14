@@ -59,16 +59,10 @@ STORYBOOK_URL=localhost:6005 npm run e2e
 
 #### Cross-browser testing
 
-The cross browser tests for the `vue-components` package run on [Saucelabs](saucelabs.com). To connect to the Saucelabs servers you need an account. If you don't have it, please contact your manager.
-Once you have an account, go to  https://app.saucelabs.com/user-settings to check the username and access key.
-Create an `.env` file like the `.env.example` one.
+The cross browser tests for the `vue-components` package run on [Saucelabs](saucelabs.com). To see the test results on Saucelabs you need an account. If you don't have one, please contact your manager.
 
-Then execute the e2e tests on Saucelabs. It might take a while to see the result in your terminal.
-```sh
-npm run e2e:saucelabs
-```
-
-:warning: Running browser tests in Docker doesn't work yet.
+The cross browser tests run in CI against the vue storybook built on that branch and deployed on Chromatic. 
+The url is dynamic and changes for each branch. That's why you cannot run Saucelabs tests from your machine.
 
 ### Running Storybook
 
