@@ -18,9 +18,11 @@ module.exports = {
 		// https://github.com/vuejs/vue-cli/blob/dev/packages/%40vue/cli-plugin-e2e-nightwatch/nightwatch.config.js
 		default: {
 			launch_url: process.env.STORYBOOK_URL,
+			isLocal: true,
 		},
 		docker: {
 			launch_url: `http://storybook-vue:${process.env.VUECOMPONENTS_STORYBOOK_PORT}`,
+			isLocal: true,
 			selenium_host: 'selenium',
 			desiredCapabilities: {
 				browserName: 'chrome',
@@ -32,6 +34,7 @@ module.exports = {
 		},
 		sauceLabs: {
 			launch_url: `https://${process.env.BRANCH_NAME}--5efdb3b5f65950002286285d.chromatic.com`,
+			isLocal: false,
 			selenium_host: 'ondemand.saucelabs.com',
 			selenium_port: 80,
 			username: process.env.SAUCE_USERNAME,

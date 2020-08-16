@@ -1,11 +1,5 @@
-// /////////////////////////////////////////////////////////////////////////////////
-// Refer to the entire list of global config settings here:
-// https://github.com/nightwatchjs/nightwatch/blob/master/lib/settings/defaults.js#L16
-//
-// More info on test globals:
-//   https://nightwatchjs.org/gettingstarted/configuration/#test-globals
-//
-// /////////////////////////////////////////////////////////////////////////////////
+const SauceLabs = require( 'saucelabs' ).default;
+const account = new SauceLabs( { user: process.env.SAUCE_USERNAME, key: process.env.SAUCE_ACCESS_KEY } );
 
 module.exports = {
 	// this controls whether to abort the test execution when an assertion failed and skip the rest
@@ -20,85 +14,22 @@ module.exports = {
 	// expect assertions
 	waitForConditionTimeout: 20000,
 
-	'default': {
-		/*
-    The globals defined here are available everywhere in any test env
-    */
-
-		/*
-    myGlobal: function() {
-      return 'I\'m a method';
-    }
-    */
+	// Pass information about the browser tests to SauceLabs
+	afterEach( client, done ) {
+		if ( !this.isLocal ) {
+			const sessionId = client.sessionId;
+			const testPassed = client.currentTest.results.failed === 0;
+			client.end( function () {
+				account.updateJob(
+					process.env.SAUCE_USERNAME,
+					sessionId,
+					{
+						tags: [ 'WiKit' ],
+						passed: testPassed,
+					},
+				);
+				done();
+			} );
+		}
 	},
-
-	'firefox': {
-		/*
-    The globals defined here are available only when the chrome testing env is being used
-       i.e. when running with --env firefox
-    */
-		/*
-     * myGlobal: function() {
-     *   return 'Firefox specific global';
-     * }
-     */
-	},
-
-	// ///////////////////////////////////////////////////////////////
-	// Global hooks
-	// - simple functions which are executed as part of the test run
-	// - take a callback argument which can be called when an async
-	//    async operation is finished
-	// ///////////////////////////////////////////////////////////////
-	/**
-	 * executed before the test run has started, so before a session is created
-	 */
-	/*
-  before(cb) {
-    //console.log('global before')
-    cb();
-  },
-  */
-
-	/**
-	 * executed before every test suite has started
-	 */
-	/*
-  beforeEach(browser, cb) {
-    //console.log('global beforeEach')
-    cb();
-  },
-  */
-
-	/**
-	 * executed after every test suite has ended
-	 */
-	/*
-  afterEach(browser, cb) {
-    browser.perform(function() {
-      //console.log('global afterEach')
-      cb();
-    });
-  },
-  */
-
-	/**
-	 * executed after the test run has finished
-	 */
-	/*
-  after(cb) {
-    //console.log('global after')
-    cb();
-  },
-  */
-
-	// ///////////////////////////////////////////////////////////////
-	// Global reporter
-	//  - define your own custom reporter
-	// ///////////////////////////////////////////////////////////////
-	/*
-  reporter(results, cb) {
-    cb();
-  }
-   */
 };
