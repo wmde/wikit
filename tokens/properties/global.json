@@ -160,25 +160,25 @@
         },
         "size": {
             "xsmall": {
-                "value": "13px"
+                "value": "0.813em"
             },
             "small": {
-                "value": "14px"
+                "value": "0.875em"
             },
             "medium": {
-                "value": "16px"
+                "value": "1em"
             },
             "large": {
-                "value": "18px"
+                "value": "1.125em"
             },
             "xlarge": {
-                "value": "20px"
+                "value": "1.250em"
             },
             "xxlarge": {
-                "value": "24px"
+                "value": "1.500em"
             },
             "xxxlarge": {
-                "value": "32px"
+                "value": "2em"
             }
         }
     },
@@ -190,6 +190,46 @@
         }
     },
     "dimension": {
+        "dynamic": {
+            "size": {
+                "0": {
+                    "value": "0em"
+                },
+                "25": {
+                    "value": "0.250em"
+                },
+                "30": {
+                    "value": "0.313em"
+                },
+                "50": {
+                    "value": "0.500em"
+                },
+                "56": {
+                    "value": "0.563em"
+                },
+                "75": {
+                    "value": "0.750em"
+                },
+                "87": {
+                    "value": "0.875em"
+                },
+                "100": {
+                    "value": "1em"
+                },
+                "125": {
+                    "value": "1.125em"
+                },
+                "150": {
+                    "value": "1.500em"
+                },
+                "200": {
+                    "value": "2em"
+                },
+                "250": {
+                    "value": "2.500em"
+                }
+            }
+        },
         "static": {
             "size": {
                 "0": {
@@ -204,17 +244,8 @@
                 "50": {
                     "value": "4px"
                 },
-                "65": {
-                    "value": "5px"
-                },
                 "100": {
                     "value": "8px"
-                },
-                "110": {
-                    "value": "9px"
-                },
-                "125": {
-                    "value": "10px"
                 },
                 "150": {
                     "value": "12px"

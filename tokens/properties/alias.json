@@ -385,31 +385,31 @@
         },
         "padding": {
             "none": {
-                "value": "{dimension.static.size.0.value}"
+                "value": "{dimension.dynamic.size.0.value}"
             },
             "xsmall": {
-                "value": "{dimension.static.size.50.value}"
+                "value": "{dimension.dynamic.size.25.value}"
             },
             "small": {
-                "value": "{dimension.static.size.100.value}"
+                "value": "{dimension.dynamic.size.50.value}"
             },
             "horizontal": {
                 "small": {
-                    "value": "{dimension.static.size.100.value}"
+                    "value": "{dimension.dynamic.size.50.value}"
                 },
                 "medium": {
-                    "value": "{dimension.static.size.150.value}"
+                    "value": "{dimension.dynamic.size.75.value}"
                 },
                 "large": {
-                    "value": "{dimension.static.size.200.value}"
+                    "value": "{ dimension.dynamic.size.100.value}"
                 }
             },
             "vertical": {
                 "medium": {
-                    "value": "{dimension.static.size.65.value}"
+                    "value": "{dimension.dynamic.size.30.value}"
                 },
                 "large": {
-                    "value": "{dimension.static.size.110.value}"
+                    "value": "{dimension.dynamic.size.56.value}"
                 }
             }
         }
@@ -495,16 +495,16 @@
         },
         "size": {
             "xsmall": {
-                "value": "{dimension.static.size.150.value}"
+                "value": "{dimension.dynamic.size.75.value}"
             },
             "small": {
-                "value": "{dimension.static.size.175.value}"
+                "value": "{dimension.dynamic.size.87.value}"
             },
             "medium": {
-                "value": "{dimension.static.size.200.value}"
+                "value": "{dimension.dynamic.size.100.value}"
             },
             "large": {
-                "value": "{dimension.static.size.250.value}"
+                "value": "{dimension.dynamic.size.125.value}"
             }
         }
     }
