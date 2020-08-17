@@ -6,7 +6,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 Documentation on important decisions, non-tech and tech-related in the form of ADRs.
 
-## Wikit dev documentation
+## WiKit dev documentation
 
 Documentation which covers topics exclusive to the dev realm.
 
@@ -16,7 +16,12 @@ There is also some additional - very tech heavy - documentation contained in sub
 
 ### Packages
 
-The code of Wikit is organized into multiple packages, each tending to its own distinct task:
+The code of WiKit is organized into multiple packages, each tending to its own distinct task:
 
 * docs - the docs you are looking at, this includes general documentation and demoing the other packages
 * tokens - the Design Tokens which Wikit, as a Design system, is based on
+* vue-components - the component library that implements the Design System
+
+### Vue components
+
+The library assumes it is going to be used in a Vue project, therefor Vue is externalized.
