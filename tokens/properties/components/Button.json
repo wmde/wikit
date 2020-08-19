@@ -96,7 +96,7 @@
                 }
             }
         },
-        "progressive": {
+        "primaryProgressive": {
             "color": {
                 "value": "{font.color.inverted.value}"
             },
@@ -134,7 +134,7 @@
                 }
             }
         },
-        "destructive": {
+        "primaryDestructive": {
             "color": {
                 "value": "{font.color.inverted.value}"
             },
