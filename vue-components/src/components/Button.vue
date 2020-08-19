@@ -20,7 +20,7 @@ export default Vue.extend( {
 			type: String,
 			// TODO why does the shorter version cause problems with doc-gen?
 			validator( value: string ): boolean {
-				return [ 'neutral', 'progressive', 'destructive' ].includes( value );
+				return [ 'neutral', 'primaryProgressive', 'primaryDestructive' ].includes( value );
 			},
 			default: 'neutral',
 		},
@@ -79,49 +79,49 @@ $base: ".wikit-Button";
 			}
 		}
 
-		&#{$base}--progressive {
-			color: $wikit-Button-progressive-color;
-			background-color: $wikit-Button-progressive-background-color;
-			border-color: $wikit-Button-progressive-border-color;
+		&#{$base}--primaryProgressive {
+			color: $wikit-Button-primaryProgressive-color;
+			background-color: $wikit-Button-primaryProgressive-background-color;
+			border-color: $wikit-Button-primaryProgressive-border-color;
 
 			&:hover {
-				background-color: $wikit-Button-progressive-hover-background-color;
-				border-color: $wikit-Button-progressive-hover-border-color;
+				background-color: $wikit-Button-primaryProgressive-hover-background-color;
+				border-color: $wikit-Button-primaryProgressive-hover-border-color;
 			}
 
 			&:active {
-				background-color: $wikit-Button-progressive-active-background-color;
-				border-color: $wikit-Button-progressive-active-border-color;
+				background-color: $wikit-Button-primaryProgressive-active-background-color;
+				border-color: $wikit-Button-primaryProgressive-active-border-color;
 			}
 
 			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
 			&:focus:not(:active) {
-				background-color: $wikit-Button-progressive-focus-background-color;
-				border-color: $wikit-Button-progressive-focus-border-color;
-				box-shadow: $wikit-Button-progressive-focus-box-shadow;
+				background-color: $wikit-Button-primaryProgressive-focus-background-color;
+				border-color: $wikit-Button-primaryProgressive-focus-border-color;
+				box-shadow: $wikit-Button-primaryProgressive-focus-box-shadow;
 			}
 		}
 
-		&#{$base}--destructive {
-			color: $wikit-Button-destructive-color;
-			background-color: $wikit-Button-destructive-background-color;
-			border-color: $wikit-Button-destructive-border-color;
+		&#{$base}--primaryDestructive {
+			color: $wikit-Button-primaryDestructive-color;
+			background-color: $wikit-Button-primaryDestructive-background-color;
+			border-color: $wikit-Button-primaryDestructive-border-color;
 
 			&:hover {
-				background-color: $wikit-Button-destructive-hover-background-color;
-				border-color: $wikit-Button-destructive-hover-border-color;
+				background-color: $wikit-Button-primaryDestructive-hover-background-color;
+				border-color: $wikit-Button-primaryDestructive-hover-border-color;
 			}
 
 			&:active {
-				background-color: $wikit-Button-destructive-active-background-color;
-				border-color: $wikit-Button-destructive-active-border-color;
+				background-color: $wikit-Button-primaryDestructive-active-background-color;
+				border-color: $wikit-Button-primaryDestructive-active-border-color;
 			}
 
 			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
 			&:focus:not(:active) {
-				background-color: $wikit-Button-destructive-focus-background-color;
-				border-color: $wikit-Button-destructive-focus-border-color;
-				box-shadow: $wikit-Button-destructive-focus-box-shadow;
+				background-color: $wikit-Button-primaryDestructive-focus-background-color;
+				border-color: $wikit-Button-primaryDestructive-focus-border-color;
+				box-shadow: $wikit-Button-primaryDestructive-focus-box-shadow;
 			}
 		}
 	}
