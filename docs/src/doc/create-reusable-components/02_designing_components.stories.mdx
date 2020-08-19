@@ -6,18 +6,18 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 This section provides UX designers with predictive instructions on how to design and specify new design system components for handover. Specifically, the following topics are covered:
 
-**[1. Designing new system components](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#1-designing-new-system-components)** <br/>
- [1.1. Discover](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#11-discover)<br/>
- [1.2. Design](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#12-design)<br/>
- [1.3. Decide](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#13-decide)<br/>
- [1.4. Document](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#14-document)<br/>
- [1.5. The design definition of done](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#15-the-design-definition-of-done) <br/>
+**[1. Designing new system components](#1-designing-new-system-components)** <br/>
+ [1.1. Discover](#11-discover)<br/>
+ [1.2. Design](#12-design)<br/>
+ [1.3. Decide](#13-decide)<br/>
+ [1.4. Document](#14-document)<br/>
+ [1.5. The design definition of done](#15-the-design-definition-of-done) <br/>
 
-**[2. Using design tokens](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#2-using-design-tokens)** <br/>
-  [2.1. Introduction: Design tokens in the context of the Wikidata design system](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#21-introduction-what-are-design-tokens-in-the-context-of-the-wikidata-design-system)<br/>
-  [2.2. Using tokens to specify a new component](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#22-using-tokens-to-specify-a-new-component)<br/>
+**[2. Using design tokens](#2-using-design-tokens)** <br/>
+  [2.1. Introduction: Design tokens in the context of the Wikidata design system](#21-introduction-what-are-design-tokens-in-the-context-of-the-wikidata-design-system)<br/>
+  [2.2. Using tokens to specify a new component](#22-using-tokens-to-specify-a-new-component)<br/>
   
-**[3. Design handover](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#3-design-handover)**<br/>
+**[3. Design handover](#3-design-handover)**<br/>
 
 ******
 
@@ -46,9 +46,9 @@ While designing new system components, bear in mind to:
 
 - Whenever possible, base **spacing** (horizontal and vertical margins) on the 8px unit. Paddings may require smaller values: it’s ok to adjust them in order to preserve the right component sizing (height).
 
-- **Interaction patterns** can be based on the existing components’ documentation templates ([See 1.4](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#14-document)) and their displayed behavior at the Storybook stories. Existing patterns (the behavior of the current version of the component in production) will also be evaluated and applied to the new component version in case that doesn’t contradict the system ([See 1.1](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#11-discover)).
+- **Interaction patterns** can be based on the existing components’ documentation templates ([See 1.4](#14-document)) and their displayed behavior at the Storybook stories. Existing patterns (the behavior of the current version of the component in production) will also be evaluated and applied to the new component version in case that doesn’t contradict the system ([See 1.1](#11-discover)).
 
-If you still hesitate about the appropriateness of certain color or size after checking the visual guidelines and existing designs, you could find guidance in alias tokens. These tokens encapsulate the shared styling patterns of the system: their names express the intended use of any given visual value ([See 2](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#2-using-design-tokens)). They can also help you make accessible design decisions.
+If you still hesitate about the appropriateness of certain color or size after checking the visual guidelines and existing designs, you could find guidance in alias tokens. These tokens encapsulate the shared styling patterns of the system: their names express the intended use of any given visual value ([See 2](#2-using-design-tokens)). They can also help you make accessible design decisions.
 
 ### 1.3. Decide
 
@@ -65,13 +65,13 @@ Example: _“A notification is a one-way dialogue triggered instantly by a user 
 
 - Capture the component interactive **states** (e.g. default, hover, active, focus, error, disabled), together with the user action that triggered them.
 
-- Outline **visual specifications** (sizes, paddings, typographic styles, colors) of both the default and all component states. It should be possible to translate all these specifications using design tokens during handover ([See 3](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#3-design-handover)).
+- Outline **visual specifications** (sizes, paddings, typographic styles, colors) of both the default and all component states. It should be possible to translate all these specifications using design tokens during handover ([See 3](#3-design-handover)).
 
 - Define the **interactive features** that are essential to fully understand the component's behavior (this is specially required for non single-step components such as dropdowns). In both cases, the user action leading to each state should also be specified.
 
 - Include **responsive** behavior specifications
 
-Although providing more extended documentation about a component (anatomy, usage, good/bad practices, etc) is not a prerequisite for handover, it is advised to collect this information whenever possible following the component’s [documentation template](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=3652%3A59). More detailed behavior descriptions and good practices can be key to inform future design decisions ([See 1.2](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#12-design)), and to help keeping the system’s interaction patterns consistent.
+Although providing more extended documentation about a component (anatomy, usage, good/bad practices, etc) is not a prerequisite for handover, it is advised to collect this information whenever possible following the component’s [documentation template](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=3652%3A59). More detailed behavior descriptions and good practices can be key to inform future design decisions ([See 1.2](#12-design)), and to help keeping the system’s interaction patterns consistent.
 
 Again, you can count on the system designer to help with, or even take over, component documentation (both essential and/or extended).
 Once a final version of the new design is agreed upon, the system designer will be responsible for the creation of a reusable, symbolized version of the component in the WiKit’s UI Kit page in Figma.
@@ -82,7 +82,7 @@ As it can be inferred from the previous sections, the design of new system compo
 
 - All the visual and interactive design features of the component are **fully based on the preexisting design system’s guidelines** and documentation
 
-- The design of the component and **all its interactive states** are fully represented in Figma, and all the component’s essential documentation is defined ([See 1.4](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#14-document))
+- The design of the component and **all its interactive states** are fully represented in Figma, and all the component’s essential documentation is defined ([See 1.4](#14-document))
 
 - **Accessibility** has been taken into consideration (contrast, sizing, copy)
 
@@ -90,9 +90,9 @@ As it can be inferred from the previous sections, the design of new system compo
 
 - The final version of the component has been shared and **reviewed by other members of the design team**
 
-- The totality of the component’s visual and interactive characteristics can be expressed using **design tokens** ([See 2](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#2-using-design-tokens))
+- The totality of the component’s visual and interactive characteristics can be expressed using **design tokens** ([See 2](#2-using-design-tokens))
 
-All the items on the previous list are a prerequisite to consider the component ready for handover ([See 3](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#3-design-handover)).
+All the items on the previous list are a prerequisite to consider the component ready for handover ([See 3](#3-design-handover)).
 
 ******
 
@@ -100,9 +100,9 @@ All the items on the previous list are a prerequisite to consider the component 
 
 Design tokens have two main applications. They can mainly help designers to:
 
-- **Define the style of a component**: Since tokens capture the system’s styling patterns and premade decisions ([See 2.1](/?path=/story/documentation-how-to-create-reusable-components-designing-components--page#21-introduction-what-are-design-tokens-in-the-context-of-the-wikidata-design-system)), they can provide guidance to designers working to define the styles of new system components from scratch.
+- **Define the style of a component**: Since tokens capture the system’s styling patterns and premade decisions ([See 2.1](#21-introduction-what-are-design-tokens-in-the-context-of-the-wikidata-design-system)), they can provide guidance to designers working to define the styles of new system components from scratch.
 
-- **Create specs**: Once the design of the new component is ready, its styles will be outlined using design tokens ([See 2.2](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#22-using-tokens-to-specify-a-new-component)). This is a necessary step of the handover process ([See 3](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#3-design-handover)).
+- **Create specs**: Once the design of the new component is ready, its styles will be outlined using design tokens ([See 2.2](#22-using-tokens-to-specify-a-new-component)). This is a necessary step of the handover process ([See 3](3-design-handover)).
 
 ### 2.1. Introduction: What are design tokens in the context of the Wikidata design system?
 
@@ -128,7 +128,7 @@ In order to ensure visual consistency between the WMDE and WMF projects, Wikidat
 
 ### 2.2. Using tokens to specify a new component
 
-Designers should only use tokens (aliases or globals) rather than concrete values (e.g. pixels or hex colors) to define the handover specs of any newly designed system component. Developers will then use the provided alias or global tokens to define the low-level component-specific tokens applied to style components ([See 3](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#3-design-handover)).
+Designers should only use tokens (aliases or globals) rather than concrete values (e.g. pixels or hex colors) to define the handover specs of any newly designed system component. Developers will then use the provided alias or global tokens to define the low-level component-specific tokens applied to style components ([See 3](#3-design-handover)).
 
 A list of all the currently available global and alias design tokens can be found in the Design tokens section in this Storybook environment.
 
@@ -201,23 +201,20 @@ Figma is the agreed-upon handover environment. In order to collect specs in a ce
 
 Many of the handover items should already be covered through by the design process. At this point, though, it is essential to make sure that the collected information really covers the needs of developer, and is expressed in a clear and distinct way. An effective handover documentation provides developers with:
 
-- Component specs that are fully outlined using tokens (as defined in 1.4):
-
-  - **Visual** specification (sizes, paddings, typographic styles, colors) are fully defined using design tokens ([See 3](?path=/story/documentation-how-to-create-reusable-components-designing-components--page#3-design-handover)).
-  - **States**’ specifications (e.g. default, hover, active, focus, error, disabled) and **interactive behavior** are defined and fully specified. In both cases, the user actions leading to each state should also be specified.
-  - **Responsive** behavior specifications are also outlined
-
-- Basic component documentation (as defined in 1.4):
-
+- Component specs that are fully outlined using tokens (as defined in 1.4):<br/>
+  - **Visual** specification (sizes, paddings, typographic styles, colors) are fully defined using design tokens ([See 2.2](#22-using-tokens-to-specify-a-new-component)).
+  - **States**’ specifications (e.g. default, hover, active, focus, error, disabled) and **interactive behavior** are defined and fully specified. In both cases, the user actions leading to each state should also be indicated.
+  - **Responsive** behavior specifications are also outlined <br/>
+<br/>
+- Basic component documentation (as defined in 1.4):<br/>
   - A distinctive **name** for the component and its relevant typologies
-  - A **short description** of the overall purpose of the component
-
-- Storybook indications:
-
+  - A **short description** of the overall purpose of the component<br/>
+  <br/>
+- Storybook indications:<br/>
   - Specify where, within the current **Storybook structure**, the component should  be classified (new dedicated section or subsection), based on the relationship to its component family (this relationship should also be expressed by the name).
-  - Indicate the required Storybook **knobs**: these are sets of modifiers that allow users to check the visual and interactive properties of a component (e.g change the text of a button label to see its width adjust).
-
-- **Assets** used by components (e.g. icons) should be included in Figma, but ideally these could be exported in an svg format and attached to the component story in Phabricator, to make them directly available for download
+  - Indicate the required Storybook **knobs**, if needed: these are sets of modifiers that allow users to check the visual and interactive properties of a component.<br/>
+  <br/>
+- **Assets** used by components (e.g. icons) should be included in Figma, but ideally these could be exported in an svg format and attached to the component story in Phabricator, to make them directly available for download. <br/>
 
 👉🏻  Designers should dedicate time to go through handover files with the developers in their hike in order to make sure that the documentation is intelligible and well structured for everyone, and to detect potential missing requirements before moving into implementation.
 
