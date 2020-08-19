@@ -23,7 +23,7 @@ export function normal(): Component {
 			buttonType: {
 				default: select(
 					'Type',
-					[ 'neutral', 'progressive', 'destructive' ],
+					[ 'neutral', 'primaryProgressive', 'primaryDestructive' ],
 					'neutral',
 				),
 			},
