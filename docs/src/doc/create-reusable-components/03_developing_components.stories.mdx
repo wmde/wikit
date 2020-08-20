@@ -34,7 +34,16 @@ The recommended naming scheme for individual tokens is `wikit-<ComponentName>-[p
 
 ## Releasing a new component
 
-TODO
+Once your changes are merged and you want to release a new version of the components library you need to take the following steps:
+ - First create and push a new tag in compliance with [semantic versioning standards](https://semver.org/), e.g. `v1.2.3`. Alternatively you can use the npm provided tool [npm-version](https://docs.npmjs.com/cli/version)
+ - Then go to the GitHub repository and create a new release out of that tag, describing what changed, like in the image below.
+
+<center>
+    <img src="./images/docs_release_example.png" alt="release example on github"/>
+</center>
+
+ - Creating the new release will trigger a GitHub action, which will publish **both** the `tokens` and the `vue-components` packages.
+ - Go to https://www.npmjs.com/ to check the newly created versions.
 
 # Testing Components
 
