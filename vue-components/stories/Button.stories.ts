@@ -1,5 +1,4 @@
 import Button from '@/components/Button';
-import { boolean, text, select } from '@storybook/addon-knobs';
 import { Component } from 'vue';
 
 export default {
@@ -10,24 +9,15 @@ export default {
 export function normal(): Component {
 	return {
 		components: { Button },
-		props: {
-			content: {
-				default: text( 'Message', 'Everything normal' ),
-			},
-			disabled: {
-				default: boolean( 'disabled', false ),
-			},
-			// naming a prop the same way the component's prop is named leads to
-			// a broken state where the property value is not passed to the component
-			// this happens with vue-cli v4.4.0 and storybook v6.0.0-rc.24
-			buttonType: {
-				default: select(
-					'Type',
-					[ 'neutral', 'primaryProgressive', 'primaryDestructive' ],
-					'neutral',
-				),
-			},
-		},
-		template: '<Button v-html="content" :disabled="disabled" :type="buttonType" />',
+		// The normal button types are all in the same story to achieve high % of visual tests coverage.
+		// Do not use knobs to change the type unless you actively decide that is better than having test coverage.
+		template: `
+			<div>
+				<Button type="neutral">Neutral</Button>
+				<Button type="primaryProgressive">Primary progressive</Button>
+				<Button type="primaryDestructive">Primary destructive</Button>
+				<Button disabled="true">Disabled</Button>
+			</div>
+		`,
 	};
 }
