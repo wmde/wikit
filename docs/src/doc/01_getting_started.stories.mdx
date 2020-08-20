@@ -12,4 +12,40 @@ The documentation is organized into these categories:
 * How to create reusable components - if you want to create a new system-compliant component
 * Decisions and ADRs - if you want to understand technical decisions or why the process was defined as described
 
+## Working with GitHub
 
+WiKit lives on GitHub. Anyone within the wmde GitHub org should be able to contribute to the repository.
+If you don't have write access, please reach out to a manager.
+
+### Branches
+
+Name your branches using lowercase letters `[a-z]` and `-` or `_`, e.g. `improve-overview-doc`, `improve_overview_doc`.  
+This is important, because the vue storybook is built and deployed to [Chromatic](https://www.chromatic.com/builds?appId=5efdb3b5f65950002286285d&branch=master) using the branch name.  
+For example, if your branch is called `dropdown_component`, the vue storybook built on that branch will be deployed to  
+https://dropdown_component--5efdb3b5f65950002286285d.chromatic.com  
+This link is used by the cross-browser tests running on Saucelabs. If your branch name contains a character that is automatically changed by the browser (e.g. uppercase letters become lowercase letters), the tests will fail, because they won't be able to open the Chromatic link.
+
+### Checks
+
+All checks configured to run on each branch need to pass in order for the PR to be merged (the merge button will be inactive).
+
+ - **Test and Deploy** - runs unit tests and linters, builds Storybook, deploys to [Chromatic](https://www.chromatic.com/builds?appId=5efdb3b5f65950002286285d&branch=master) and runs cross browser tests.
+ - **Storybook Publish** - leads to the Storybook built on this branch and deployed to Chromatic.
+ - **UI Tests** - leads to the Visual Tests feature on Chromatic which reports if there were any visual changes between master and the respective branch.
+ 
+<center>
+    <img src="./images/docs_github_checks.png" alt="Checks performed on each GitHub PR" />
+</center>
+
+### Peer Reviews
+
+At least one person (different than the author of the PR) has to approve the PR in order for the merge button to become active.
+This is true regardless of the type of change - tokens, docs or vue-components.
+
+
+### Merging to master
+
+The master branch is the single source of truth for all three parts of the Design System - tokens, docs and vue-components.  
+Nevertheless, when you are developing a new feature, you can safely merge to master, because the Design System does not get released automatically on push to master.
+A release happens after a developer takes several intentional actions.  
+You can read more about releases in the section [Releasing a new component](?path=/story/documentation-how-to-create-reusable-components-developing-components--page#releasing-a-new-component).
