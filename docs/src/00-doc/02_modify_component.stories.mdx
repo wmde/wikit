@@ -4,38 +4,39 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # How to modify existing components
 
-Our design system is a living organism that all Wikidata/Wikibase team memebers should contribute to grow and evolve. In some cases, that contribution will take place by the direct supply of a newly implemented component to the existing library. In other occasions, it will have the shape of an improvement or a correction applied to an existing system component. 
+Our design system is a living organism that all Wikidata/Wikibase team members should contribute to grow and evolve. In some cases, that contribution will take place by the direct supply of a newly implemented component to the library. In other occasions, it will take the form of an improvement or a correction applied to an existing system component. 
 
-## 1. Component and token modification process
+Changes can be applied to existing library components whenever they don't perform as expected, or in case they don't reflect existing or new visual styles or interaction patterns documented by the Style guide and the component design specs.
 
-The WiKit library is versioned following the [Semantic Versioning](https://semver.org/) standard. A new version of the Design System is released whenever a new component is incorporated to it and made availale for any application to use. In case the version in which a component is contained in the library is not suitable to be used by a given app, due to either the component being faulty or out of date, modification is possible. 
-Depending on what wants to be achieved, changes can be applied to ***tokens*** (visual changes or corrections) or directly to the ***component code*** (bugs, component interaction). Each one of the potential changes will have a different impact in the versioning of the component library:
+Depending on the type of modification needed, changes can be applied by modifying the system's ***design tokens*** – in case the visual style of components need to be corrected or updated – or by directly adjusting the ***component's code***. 
 
-### 1.1. Modifying tokens
+## 1. Updating or adding component styles: modifying design tokens
 
-Designers may detect the need to modify our token structure (regrouping, adding, deleting), or to correct token naming or values, all in order to capture and spread the system's visual patterns consistently. All changes to global and alias tokens will need to be performed by directly modifying the [JSON files that store them](https://github.com/wmde/wikit/tree/master/tokens/properties).
+_Global_ and _alias_ design tokens encapsulate the visual styles of the design system, and ultimately dictate the appearance of library commponents. In case any existing component styles need to be updated, this can be achieved by simply modifying the value of the corresponding tokens directly in the [JSON files that store them](https://github.com/wmde/wikit/tree/master/tokens/properties). The new style will be applied once the new token version is published thanks to the use component-level tokens. Since tokens are shared across components, the impact of style modifications should be anticipated and necessarily inform the styling decision.
 
-Changes may have different impact on versioning depending on the the type of token being modified, and on whether these are being used by published components:
+In the event that a given visual style was left undefined while specifying/implementing a component, it may be required for the developer to incorporate new _component-level tokens_ to the component's SCF file. In this case, a new component and library version should be released ([See 2](#2-fixing-or-adding-functionality-component-versioning)).
 
-| Modification  | Impact on versioning | Observations |
-|---|---|---|
-| Creating new global or alias tokens | No impact | |
-| Updating the name of a global token | No impact | |
-| Updating the name of an alias token | Impact | The value of the component-level tokens using the modified alias token will need to be updated to prevent breaking changes|
+Not all token changes may be directly triggered by component style updates. Designers may detect the need to modify the existing token structure (regrouping, adding, deleting), or to correct token naming or values, all in order to capture the system's visual patterns consistently. 
+While creating global and alias tokens and modifying their values can be done without implications for released components, renaming and deleting these can have consequences that require special care in the following cases:
+
+- **Renaming**: giving global tokens a different name requires updating the values of the alias token that were using them. In the same way, if the name of an alias token being consumed by a component-level token is modified, that value should also be updated in the component code.
+- **Deleting**: Similarly, deleting any token that was being used as a value for a lower-level one will require replacing said value by another token.
 
 
-### 1.2. Modifying components
+## 2. Fixing or adding functionality: component versioning
 
-Basically going through Creation flow again
+Changes to existign components, beyond their visual appearance, are justified whenever these display interactive features that are not consistent with the Design System guidelines – either existent or new –, when they fail to perform in an expected way or, finally, when new funcionality need to be added on top of its original features. 
 
-## 2. Releasing changes
+In these last two cases, whenever the modification of a component cannot be justified as a fix, the creation of a component variant must have been considered and dismissed before any changes are applied to the existing element. Also, the new interactive properties of the component must have been shared, documented and fully specified by the designer accountable for the modification before any implementation changes are applied, in accordance to the [design and handover process](/?path=/story/documentation-how-to-create-reusable-components-designing-components--page#3-design-handover).
 
-Modifying components has different implications depending on whether they are merely published in the WiKit library, or they are in use by other applications.
+You can access the existing component implementation in the [components folder](https://github.com/wmde/wikit/tree/master/vue-components/src) of the WiKit repository. Follow the standard component creation steps to proceed with your modification:
 
-### 1.1. Modifying unpublished components
+1. Open a PR with your changes and look at the UI Tests in Chromatic to check the results from the visual regression tests.
+2. Ask UX for a review.
+3. Ask a fellow developer for a technical review.
+4. Make a new release after the PR is merged to master.
 
-If the component being modified is unpublished, you can submit your changes through the usual channel (GitHub) and wait for comments and approval. The new version of the component will be available in Storybook once the changes are merged and the new component version is released. >>> What is this from a semver perspective?
 
-### 1.2. Modifying published components
+## 3. Releasing changes
 
-When the component that is undergoing modifications is already used in one or more applications, the developer o developers applying those should make sure that all component instances are updated, by  to use the latest version of the Design System and component library. This is to ensure both, that the applications' visual styles match the visual style as documented in the Design System and that applications have consistent UI between them.
+The person submitting the component modification request receives accountability for restablishing cosinstency, by making sure that all the applications using instances of the component are swiftly updated. The modification process cannot be considered concluded until the new release of the component library is not propagated into all consuming applications.
