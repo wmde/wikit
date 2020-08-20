@@ -2,7 +2,40 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Documentation/How to modify existing components" />
 
-
 # How to modify existing components
 
-...
+Our design system is a living organism that all Wikidata/Wikibase team memebers should contribute to grow and evolve. In some cases, that contribution will take place by the direct supply of a newly implemented component to the existing library. In other occasions, it will have the shape of an improvement or a correction applied to an existing system component. 
+
+## 1. Component and token modification process
+
+The WiKit library is versioned following the [Semantic Versioning](https://semver.org/) standard. A new version of the Design System is released whenever a new component is incorporated to it and made availale for any application to use. In case the version in which a component is contained in the library is not suitable to be used by a given app, due to either the component being faulty or out of date, modification is possible. 
+Depending on what wants to be achieved, changes can be applied to ***tokens*** (visual changes or corrections) or directly to the ***component code*** (bugs, component interaction). Each one of the potential changes will have a different impact in the versioning of the component library:
+
+### 1.1. Modifying tokens
+
+Designers may detect the need to modify our token structure (regrouping, adding, deleting), or to correct token naming or values, all in order to capture and spread the system's visual patterns consistently. All changes to global and alias tokens will need to be performed by directly modifying the [JSON files that store them](https://github.com/wmde/wikit/tree/master/tokens/properties).
+
+Changes may have different impact on versioning depending on the the type of token being modified, and on whether these are being used by published components:
+
+| Modification  | Impact on versioning | Observations |
+|---|---|---|
+| Creating new global or alias tokens | No impact | |
+| Updating the name of a global token | No impact | |
+| Updating the name of an alias token | Impact | The value of the component-level tokens using the modified alias token will need to be updated to prevent breaking changes|
+
+
+### 1.2. Modifying component
+
+Basically going through Creation flow again
+
+## 2. Releasing changes
+
+Modifying components has different implications depending on whether they are merely published in the WiKit library, or they are in use by other applications.
+
+### 1.1. Modifying unpublished components
+
+If the component being modified is unpublished, you can submit your changes through the usual channel (GitHub) and wait for comments and approval. The new version of the component will be available in Storybook once the changes are merged and the new component version is released. >>> What is this from a semver perspective?
+
+### 1.2. Modifying published components
+
+When the component that is undergoing modifications is already used in one or more applications, the developer o developers applying those should make sure that all component instances are updated, by  to use the latest version of the Design System and component library. This is to ensure both, that the applications' visual styles match the visual style as documented in the Design System and that applications have consistent UI between them.
