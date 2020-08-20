@@ -11,7 +11,11 @@ describe( 'Button', () => {
 		} ).text() ).toBe( content );
 	} );
 
-	it.each( [ 'neutral', 'progressive' ] )( 'renders the type %s as a root node class', ( type ) => {
+	it.each( [
+		'neutral',
+		'primaryProgressive',
+		'primaryDestructive',
+	] )( 'renders the type %s as a root node class', ( type ) => {
 		expect( mount( Button, {
 			propsData: {
 				type,
