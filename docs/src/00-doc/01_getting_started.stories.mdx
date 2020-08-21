@@ -12,40 +12,43 @@ The documentation is organized into these categories:
 * How to create reusable components - if you want to create a new system-compliant component
 * Decisions and ADRs - if you want to understand technical decisions or why the process was defined as described
 
-## Working with GitHub
+## Using vue-components
 
-WiKit lives on GitHub. Anyone within the wmde GitHub org should be able to contribute to the repository.
-If you don't have write access, please reach out to a manager.
+**The library assumes the consuming application uses Vue.js v2.6+.**
 
-### Branches
+#### 1. Install via npm
 
-Name your branches using lowercase letters `[a-z]` and `-` or `_`, e.g. `improve-overview-doc`, `improve_overview_doc`.  
-This is important, because the vue storybook is built and deployed to [Chromatic](https://www.chromatic.com/builds?appId=5efdb3b5f65950002286285d&branch=master) using the branch name.  
-For example, if your branch is called `dropdown_component`, the vue storybook built on that branch will be deployed to  
-https://dropdown_component--5efdb3b5f65950002286285d.chromatic.com  
-This link is used by the cross-browser tests running on Saucelabs. If your branch name contains a character that is automatically changed by the browser (e.g. uppercase letters become lowercase letters), the tests will fail, because they won't be able to open the Chromatic link.
+`npm install @wmde/wikit-vue-components`
 
-### Checks
+#### 2. Import styles
 
-All checks configured to run on each branch need to pass in order for the PR to be merged (the merge button will be inactive).
+In your style entry point(s), e.g. `_main.scss`, add
 
- - **Test and Deploy** - runs unit tests and linters, builds Storybook, deploys to [Chromatic](https://www.chromatic.com/builds?appId=5efdb3b5f65950002286285d&branch=master) and runs cross browser tests.
- - **Storybook Publish** - leads to the Storybook built on this branch and deployed to Chromatic.
- - **UI Tests** - leads to the Visual Tests feature on Chromatic which reports if there were any visual changes between master and the respective branch.
- 
-<center>
-    <img src="./images/docs_github_checks.png" alt="Checks performed on each GitHub PR" />
-</center>
+`@import '~@wmde/wikit-vue-components/dist/wikit-vue-components.css';`
 
-### Peer Reviews
+or in your entry component, e.g `App.vue`, add
 
-At least one person (different than the author of the PR) has to approve the PR in order for the merge button to become active.
-This is true regardless of the type of change - tokens, docs or vue-components.
+`import '@wmde/wikit-vue-components/dist/wikit-vue-components.css';`
 
+#### 3. Import a component
 
-### Merging to master
+`import { Button } from '@wmde/wikit-vue-components';`
 
-The master branch is the single source of truth for all three parts of the Design System - tokens, docs and vue-components.  
-Nevertheless, when you are developing a new feature, you can safely merge to master, because the Design System does not get released automatically on push to master.
-A release happens after a developer takes several intentional actions.  
-You can read more about releases in the section [Releasing a new component](?path=/story/documentation-how-to-create-reusable-components-developing-components--page#releasing-a-new-component).
+## Using tokens
+
+The Design System tokens are packaged separately from the `vue-components`.
+You can use them in any type of front end.
+
+#### 1. Install via npm
+
+`npm install @wmde/wikit-tokens`
+
+#### 2. Import
+
+The tokens are served in three different formats:
+
+`@import '~@wmde/wikit-tokens/dist/_variables_.less';`
+
+`@import '~@wmde/wikit-tokens/dist/_variables_.scss';`
+
+`@import '~@wmde/wikit-tokens/dist/_variables_.css';`
