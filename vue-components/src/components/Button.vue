@@ -9,7 +9,7 @@ import Vue from 'vue';
 
 /* eslint-disable no-trailing-spaces */
 /**
- * A Button
+ *  An interactive element signaling a single-step action that will occur when the user clicks or taps on it.
  * 
  * Known issues:
  * 
