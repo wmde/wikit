@@ -20,7 +20,7 @@ Not all token changes may be directly triggered by component style updates. Desi
 While creating global and alias tokens and modifying their values can be done without implications for released components, renaming and deleting these can have consequences that require special care:
 
 - **Renaming**: giving global tokens a different name requires updating the values of the alias token that were using them. In the same way, if the name of an alias token being consumed by a component-level token is modified, the value of the component-level token should also be updated in the component code.
-- **Deleting**: Similarly, deleting any token that was being used as a value for a lower-level one will require replacing said value by another token.
+- **Deleting**: Similarly, deleting any global or alias tokens that were being used as a value will require replacing said value by another token, so styles are not letft undefined.
 
 
 ## 2. Fixing or adding functionality: component versioning
