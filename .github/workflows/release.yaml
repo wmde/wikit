@@ -22,4 +22,4 @@ jobs:
       - name: Publish
         run: |
           printf '//registry.npmjs.org/:_authToken=%s\n' '${{ secrets.NPM_AUTH_TOKEN }}' > ~/.npmrc
-          lerna publish --access public
+          lerna publish
