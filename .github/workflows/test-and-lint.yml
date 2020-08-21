@@ -1,0 +1,28 @@
+# This workflow will do
+# - a clean install of node dependencies
+# - run tests
+# - build and upload the storybook to a staging area
+#
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+on: 
+  push:
+    paths:
+      - 'tokens/**'
+      - 'docs/**'
+
+name: Test and lint
+jobs:
+  test-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: Install
+      run: npm ci
+    - name: Test
+      run: npm run test
