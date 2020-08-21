@@ -9,6 +9,7 @@ on:
   push:
     paths:
       - 'tokens/**'
+      - 'docs/**'
 
 name: Test and lint
 jobs:
