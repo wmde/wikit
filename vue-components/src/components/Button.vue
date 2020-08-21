@@ -7,9 +7,18 @@
 <script lang="ts">
 import Vue from 'vue';
 
+/* eslint-disable no-trailing-spaces */
 /**
  * A Button
+ * 
+ * Known issues:
+ * 
+ * * The styles defined on `:focus` do not apply in Safari and Firefox on macOS.  
+ * This seems to be a desired behavior and not a bug  
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Clicking_and_focus  
+ * https://bugzilla.mozilla.org/show_bug.cgi?id=1581369#c5
  */
+/* eslint-enable no-trailing-spaces */
 export default Vue.extend( {
 	name: 'Button',
 	props: {
