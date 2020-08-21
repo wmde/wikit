@@ -19,7 +19,7 @@ If a given visual style was left undefined while specifying/implementing a compo
 Not all token changes may be directly triggered by component style updates. Designers may detect the need to modify the existing token structure (regrouping, adding, deleting), or to correct token naming or values, all in order to capture the system's visual patterns consistently. 
 While creating global and alias tokens and modifying their values can be done without implications for released components, renaming and deleting these can have consequences that require special care:
 
-- **Renaming**: giving global tokens a different name requires updating the values of the alias token that were using them. In the same way, if the name of an alias token being consumed by a component-level token is modified, that value should also be updated in the component code.
+- **Renaming**: giving global tokens a different name requires updating the values of the alias token that were using them. In the same way, if the name of an alias token being consumed by a component-level token is modified, the value of the component-level token should also be updated in the component code.
 - **Deleting**: Similarly, deleting any token that was being used as a value for a lower-level one will require replacing said value by another token.
 
 
