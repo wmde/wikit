@@ -1,7 +1,7 @@
 {
   "name": "@wmde/wikit-tokens",
-  "version": "0.0.0",
-  "description": "Design tokens for wikit in different formats",
+  "version": "1.0.0",
+  "description": "Design tokens for WiKit in different formats",
   "author": "The Wikidata team",
   "homepage": "https://github.com/wmde/wikit/tree/master/tokens#readme",
   "license": "BSD-3-Clause",
