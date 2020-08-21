@@ -5,6 +5,9 @@
   "author": {
     "name": "The Wikidata team"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --formats commonjs --name wikit-vue-components src/main.ts --report --report-json",
