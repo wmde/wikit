@@ -17,11 +17,10 @@
     "access": "public"
   },
   "scripts": {
-    "postinstall": "node build/wikimedia-ui-base",
     "test": "npm-run-all test:*",
     "test:lint": "eslint --ext .json,.js .",
     "test:unit": "jest .",
-    "prepublish": "npm run build",
+    "prepublish": "node build/wikimedia-ui-base && npm run build",
     "build": "npm run clean && npm run build:tokens",
     "build:tokens": "style-dictionary build -c ./.style-dictionary/config.js",
     "watch": "watch 'npm run build:tokens' ./properties",
