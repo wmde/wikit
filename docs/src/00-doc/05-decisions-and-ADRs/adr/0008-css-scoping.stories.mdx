@@ -16,7 +16,7 @@ CSS authors need to take care to not cause undesired global side effects by crea
 
 Vue offers a built-in solution for this challenge called [component-scoped CSS](https://vuejs.org/v2/guide/comparison.html#Component-Scoped-CSS). It [adds a data attribute](https://vue-loader.vuejs.org/guide/scoped-css.html#scoped-css) to all component's elements and extends the CSS selectors to match them.
 
-As we are employing base CSS (see ADR #7) and - especially there - care needs to be taken to not accidentally create overly greedy selectors, we must find a solution for scoping it as well.
+As we are employing base CSS (see [ADR #7](?path=/story/documentation-decisions-and-adrs-adrs-7-css-base--page)) and - especially there - care needs to be taken to not accidentally create overly greedy selectors, we must find a solution for scoping it as well.
 
 It is also the case that the developers of this feature team are used to and convinced by the approach of class-based styling as seen in our existing applications (e.g. [termbox](https://gerrit.wikimedia.org/r/plugins/gitiles/wikibase/termbox/+/0d4af4/docs/styles.md), bridge) where we follow the [BEM](http://getbem.com/) methodology which results in a standardized naming scheme for component styles and for example helps debuggability (the classes inspectable in the web browser directly indicate the relevant component).
 

@@ -11,19 +11,19 @@ Date: 2020-06-30
 Accepted
 
 ## Context
-The Design System consists of two parts - tokens in agnostic format (see ADR #3) and Vue components (see ADR #1). The components depend on the tokens in order to consume the design system styles. The tokens are published in a separate package from the components, because they are agnostic, and therefore can be used in a non-vuejs project. The two packages can be kept either together in one repository (monorepo) or in separate repositories.
+The Design System consists of two parts - tokens in agnostic format (see [ADR #3](?path=/story/documentation-decisions-and-adrs-adrs-3-design-token-agnosticism-and-tooling--page)) and Vue components (see [ADR #1](?path=/story/documentation-decisions-and-adrs-adrs-1-use-a-non-agnostic-design-system--page)). The components depend on the tokens in order to consume the design system styles. The tokens are published in a separate package from the components, because they are agnostic, and therefore can be used in a non-vuejs project. The two packages can be kept either together in one repository (monorepo) or in separate repositories.
 
 ### Keeping them in the same repository (monorepo)
-:x: Needs documentation to ensure people do not confuse tech-agnostic & tech-specific parts  
-:heavy_check_mark: Preview token changes effects on components before releasing a new version
+❌ Needs documentation to ensure people do not confuse tech-agnostic & tech-specific parts  
+✅ Preview token changes effects on components before releasing a new version
 
 ### Keeping them in separate repositories
-:x: Cannot easily preview how token changes affect components  
-:x: Extra dependency overhead  
-:heavy_check_mark: “Clarity” (not confuse concepts)  
-:heavy_check_mark: Possible easier navigation for non-development roles
+❌ Cannot easily preview how token changes affect components  
+❌ Extra dependency overhead  
+✅ “Clarity” (not confuse concepts)  
+✅ Possible easier navigation for non-development roles
 
-:x: Downside, :heavy_check_mark: Benefit
+❌ Downside, ✅ Benefit
 
 ## Decision
 Use a monorepo for tokens and components. Manage the packages using the tool [Lerna](https://lerna.js.org/). 
