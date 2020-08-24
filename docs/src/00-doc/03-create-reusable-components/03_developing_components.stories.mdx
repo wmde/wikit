@@ -7,9 +7,16 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 Due to the decentralized nature of the design system, developers embedded in different feature teams will be accountable for creating new components to use in the feature they are building.
 
-The following is a set of instructions on different topics that might come up during the process of developing a new component.
+The following is a set of instructions on different topics that might come up during the process of developing a new component:
 
-**Step by step workflow:**
+* [Step by step workflow](#step-by-step-workflow)<br/>
+* [Working with Component-level Design Tokens](#working-with-component-level-design-tokens)<br/>
+* [Releasing a new component](#releasing-a-new-component)<br/>
+* [Testing Components](#testing-components)<br/>
+    * [Working with browser tests](#working-with-browser-tests)<br/>
+    * [Working with visual regression tests](#working-with-visual-regression-tests)<br/>
+
+## Step by step workflow
 
 0. Gather relevant global and/or alias tokens.
 0. Create component-level tokens as described below.
@@ -45,9 +52,9 @@ Once your changes are merged and you want to release a new version of the compon
  - Creating the new release will trigger a GitHub action, which will publish **both** the `tokens` and the `vue-components` packages.
  - Go to https://www.npmjs.com/ to check the newly created versions.
 
-# Testing Components
+## Testing Components
 
-## Working with browser tests
+### Working with browser tests
 
 The browser tests spec `Button.test.js` is there to give an example of how to write a browser test with Nightwatch (the browser tests framework being used).  
 Use the custom function `openComponentStory()` to load the component you want to test on Storybook, e.g. `.openComponentStory( 'button' )`.  
@@ -55,7 +62,7 @@ Do not execute `client.end()` at the end of your browser test. This is done in t
 
 If you want to read more about (cross)browser tests please refer to [ADR #10](?path=/story/documentation-decisions-and-adrs-adrs-10-browser-testing--page)
 
-## Working with visual regression tests
+### Working with visual regression tests
 
 As a developer, you don't need to write specs for the visual regression tests. Everything is done by [Chromatic](https://www.chromatic.com/library?appId=5efdb3b5f65950002286285d)'s Visual Tests feature.
 
