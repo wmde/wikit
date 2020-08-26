@@ -42,7 +42,8 @@ The recommended naming scheme for individual tokens is `wikit-<ComponentName>-[p
 ## Releasing a new component
 
 Once your changes are merged and you want to release a new version of the components library you need to take the following steps:
- - First create and push a new tag in compliance with [semantic versioning standards](https://semver.org/), e.g. `v1.2.3`. Alternatively you can use the npm provided tool [npm-version](https://docs.npmjs.com/cli/version)
+ - Bump the version number in `package.json` and `package-lock.json` (in all three packages) and commit it. Wait for the PR to be merged.
+ - After it's merged create and push a new tag, named after the version number with a "v" prefix, e.g. `v1.2.3`. Alternatively you can use the npm provided tool [npm-version](https://docs.npmjs.com/cli/version)
  - Then go to the GitHub repository and create a new release out of that tag, describing what changed, like in the image below.
 
 <center>
