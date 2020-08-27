@@ -24,8 +24,25 @@ We identified two challenges:
 
 Fortunately, both problems have solutions in the form of postcss plugins ([postcss-logical](https://www.npmjs.com/package/postcss-logical), [postcss-dir-pseudo-class](https://www.npmjs.com/package/postcss-dir-pseudo-class)) and a stylelint plugin ([stylelint-use-logical](https://www.npmjs.com/package/stylelint-use-logical)).
 
+### RTL support for icons
+Neither of the tools and solutions discussed above concern themselves with icons.
+
+#### Symmetrical icons
+Symmetrical icons don’t need to be flipped between LTR and RTL layouts.
+
+#### Non-symmetrical icons
+Non-symmetrical icons can be flipped (with css transform, e.g. [data-bridge button](https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/extensions/Wikibase/+/refs/heads/master/client/data-bridge/src/presentation/components/EventEmittingButton.vue#289)) for RTL scripts.  
+They can also be provided with two separate `svg`s - one for LTR and one for RTL. The correct `svg` should be loaded based on the `dir` attribute.  
+
+There are exceptions to the rule, like [media player icons](https://rtlstyling.com/posts/rtl-styling/#media-player-icons).
+
+The following guides might be useful when dealing with RTL support for icons:  
+- [Material Design - mirroring elements](https://material.io/design/usability/bidirectionality.html#mirroring-elements)  
+- [RTL Styling - bidirectional icons](https://rtlstyling.com/posts/rtl-styling/#bidirectional-icons)
+
 ## Decision
-Use CSS Logical Properties and Values
+Use CSS Logical Properties and Values.  
+Decide if an icon should change based on the directionality per case.
 
 ## Consequences
 Using logical properties gives us native browser support for RTL styling.
