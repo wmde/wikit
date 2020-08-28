@@ -447,15 +447,7 @@
                 }
             },
             "field": {
-                "hover": {
-                    "property": {
-                        "value": "{transition.property.border-color.value}"
-                    },
-                    "duration": {
-                        "value": "{transition.duration.medium.value}"
-                    }
-                },
-                "focus": {
+                "property": {
                     "property": {
                         "value": "{transition.property.border-color.value}, {transition.property.box-shadow.value}"
                     },
