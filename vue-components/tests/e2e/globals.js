@@ -14,6 +14,9 @@ module.exports = {
 	// expect assertions
 	waitForConditionTimeout: 20000,
 
+	connectionRetryTimeout: 90000,
+	connectionRetryCount: 3,
+
 	// Pass information about the browser tests to SauceLabs
 	afterEach( client, done ) {
 		if ( !this.isLocal ) {
