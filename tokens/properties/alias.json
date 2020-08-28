@@ -154,6 +154,12 @@
             },
             "link-visited": {
                 "value": "{color.interaction.purple.value}"
+            },
+            "error": {
+                "value": "{color.utility.red.50.value}"
+            },
+            "success": {
+                "value": "{color.utility.green.30.value}"
             }
         }
     },
