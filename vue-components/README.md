@@ -1,29 +1,30 @@
-# Wikit Vue Components
+# WiKit Vue Components
 
-## Project setup
-```
-npm install
-```
+The component implementation of [WiKit](https://github.com/wmde/wikit) in vue
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Installation
 
-### Compiles and minifies for production
-```
-npm run build
-```
+**The library assumes the consuming application uses Vue.js v2.6+.**
 
-### Run your unit tests
-```
-npm run test:unit
-```
+#### 1. Install via npm
 
-### Lints and fixes files
-```
-npm run lint
-```
+`npm install @wmde/wikit-vue-components`
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#### 2. Import styles
+
+In your style entry point(s), e.g. `_main.scss`, add
+
+`@import '~@wmde/wikit-vue-components/dist/wikit-vue-components.css';`
+
+or in your entry component, e.g `App.vue`, add
+
+`import '@wmde/wikit-vue-components/dist/wikit-vue-components.css';`
+
+#### 3. Import a component
+
+`import { Button } from '@wmde/wikit-vue-components';`
+
+
+## Development
+
+For instructions on how to contribute to the vue components, please refer to the README in the root folder of this repo or the documentation in the package `docs`.
