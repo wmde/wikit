@@ -227,7 +227,7 @@
                     "value": "{color.utility.red.50.value}"
                 }
             },
-            "message": {
+            "feedback": {
                 "notice": {
                     "value": "{color.base.90.value}"
                 },
@@ -338,7 +338,7 @@
                     "value": "{color.utility.red.50.value}"
                 }
             },
-            "message": {
+            "feedback": {
                 "notice": {
                     "value": "{color.base.70.value}"
                 },
