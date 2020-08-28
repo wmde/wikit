@@ -452,7 +452,7 @@
                         "value": "{transition.property.border-color.value}"
                     },
                     "duration": {
-                        "value": "{transition.duration.fast.value}"
+                        "value": "{transition.duration.medium.value}"
                     }
                 },
                 "focus": {
@@ -460,7 +460,7 @@
                         "value": "{transition.property.border-color.value}, {transition.property.box-shadow.value}"
                     },
                     "duration": {
-                        "value": "{transition.duration.fast.value}"
+                        "value": "{transition.duration.medium.value}"
                     }
                 }
             }
