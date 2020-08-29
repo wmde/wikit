@@ -172,6 +172,9 @@
                 "hover": {
                     "value": "{color.base.80.value}"
                 },
+                "active": {
+                    "value": "{color.accent.90.value}"
+                },
                 "transparent": {
                     "value": "transparent"
                 },
