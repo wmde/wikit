@@ -283,6 +283,9 @@
                 "hover": {
                     "value": "{color.base.30.value}"
                 },
+                "focus": {
+                    "value": "{color.accent.50.value}"
+                },
                 "transparent": {
                     "value": "transparent"
                 },
