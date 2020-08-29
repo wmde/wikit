@@ -410,7 +410,7 @@
                     "value": "{dimension.dynamic.size.75.value}"
                 },
                 "large": {
-                    "value": "{ dimension.dynamic.size.100.value}"
+                    "value": "{dimension.dynamic.size.100.value}"
                 }
             },
             "vertical": {
@@ -436,6 +436,17 @@
                     "value": "{box-shadow.inset.style.thick.value} {color.base.100.value}",
                     "comment": "Only applies to filled primary buttons"
                 }
+            }
+        },
+        "elevation": {
+            "menu": {
+                "value": "{box-shadow.elevation.2.value}"
+            },
+            "dialog": {
+                "value": "{box-shadow.elevation.2.value}"
+            },
+            "card": {
+                "value": "{box-shadow.elevation.1.value}"
             }
         }
     },
