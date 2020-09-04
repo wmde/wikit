@@ -158,6 +158,9 @@
             "error": {
                 "value": "{color.utility.red.50.value}"
             },
+            "warning": {
+                "value": "{color.utility.yellow.30.value}"
+            },
             "success": {
                 "value": "{color.utility.green.30.value}"
             }
