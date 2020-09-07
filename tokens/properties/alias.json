@@ -154,6 +154,15 @@
             },
             "link-visited": {
                 "value": "{color.interaction.purple.value}"
+            },
+            "error": {
+                "value": "{color.utility.red.50.value}"
+            },
+            "warning": {
+                "value": "{color.utility.yellow.30.value}"
+            },
+            "success": {
+                "value": "{color.utility.green.30.value}"
             }
         }
     },
@@ -165,6 +174,9 @@
                 },
                 "hover": {
                     "value": "{color.base.80.value}"
+                },
+                "active": {
+                    "value": "{color.accent.90.value}"
                 },
                 "transparent": {
                     "value": "transparent"
@@ -227,7 +239,7 @@
                     "value": "{color.utility.red.50.value}"
                 }
             },
-            "message": {
+            "feedback": {
                 "notice": {
                     "value": "{color.base.90.value}"
                 },
@@ -276,6 +288,9 @@
                 },
                 "hover": {
                     "value": "{color.base.30.value}"
+                },
+                "focus": {
+                    "value": "{color.accent.50.value}"
                 },
                 "transparent": {
                     "value": "transparent"
@@ -338,7 +353,7 @@
                     "value": "{color.utility.red.50.value}"
                 }
             },
-            "message": {
+            "feedback": {
                 "notice": {
                     "value": "{color.base.70.value}"
                 },
@@ -401,7 +416,7 @@
                     "value": "{dimension.dynamic.size.75.value}"
                 },
                 "large": {
-                    "value": "{ dimension.dynamic.size.100.value}"
+                    "value": "{dimension.dynamic.size.100.value}"
                 }
             },
             "vertical": {
@@ -428,6 +443,17 @@
                     "comment": "Only applies to filled primary buttons"
                 }
             }
+        },
+        "elevation": {
+            "menu": {
+                "value": "{box-shadow.elevation.2.value}"
+            },
+            "dialog": {
+                "value": "{box-shadow.elevation.2.value}"
+            },
+            "card": {
+                "value": "{box-shadow.elevation.1.value}"
+            }
         }
     },
     "transition": {
@@ -441,21 +467,21 @@
                 }
             },
             "field": {
-                "hover": {
-                    "property": {
-                        "value": "{transition.property.border-color.value}"
-                    },
-                    "duration": {
-                        "value": "{transition.duration.fast.value}"
-                    }
-                },
-                "focus": {
+                "property": {
                     "property": {
                         "value": "{transition.property.border-color.value}, {transition.property.box-shadow.value}"
                     },
                     "duration": {
-                        "value": "{transition.duration.fast.value}"
+                        "value": "{transition.duration.medium.value}"
                     }
+                }
+            },
+            "menu":{
+                "property":{
+                    "value": "{transition.property.color.value}, {transition.property.background-color.value}"
+                },
+                "duration": {
+                    "value": "{transition.duration.fast.value}"
                 }
             }
         }
