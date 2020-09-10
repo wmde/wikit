@@ -477,13 +477,11 @@
             },
             "field": {
                 "property": {
-                    "property": {
                         "value": "{transition.property.border-color.value}, {transition.property.box-shadow.value}"
                     },
-                    "duration": {
+                "duration": {
                         "value": "{transition.duration.medium.value}"
                     }
-                }
             },
             "menu":{
                 "property":{
