@@ -82,19 +82,17 @@
                 },
                 "base-20": {
                     "value": "#6c7378"
+                },
+                "accent-50": {
+                    "value": "#447ff5"
+                },
+                "utility-red-50": {
+                    "value": "#ff4242"
                 }
-            }
-        },
-        "interaction": {
-            "accent-50-hover": {
-                "value": "#447ff5"
-            },
-            "utility-red-50-hover": {
-                "value": "#ff4242"
             },
             "purple": {
-                "value": "#6b4ba1"
-            }
+                    "value": "#6b4ba1"
+                }
         }
     },
     "opacity": {

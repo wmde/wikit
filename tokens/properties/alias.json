@@ -141,19 +141,19 @@
                 "value": "{color.accent.50.value}"
             },
             "progressive-hover": {
-                "value": "{color.interaction.accent-50-hover.value}"
+                "value": "{color.modifier.lighten.accent-50.value}"
             },
             "destructive": {
                 "value": "{color.utility.red.50.value}"
             },
             "destructive-hover": {
-                "value": "{color.interaction.utility-red-50-hover.value}"
+                "value": "{color.modifier.lighten.utility-red-50.value}"
             },
             "link-default": {
                 "value": "{color.accent.50.value}"
             },
             "link-visited": {
-                "value": "{color.interaction.purple.value}"
+                "value": "{color.modifier.purple.value}"
             },
             "error": {
                 "value": "{color.utility.red.50.value}"
@@ -193,7 +193,7 @@
                     "value": "{color.accent.50.value}"
                 },
                 "hover": {
-                    "value": "{color.interaction.accent-50-hover.value}"
+                    "value": "{color.modifier.lighten.accent-50.value}"
                 },
                 "quiet-hover": {
                     "value": "{color.accent.90.value}"
@@ -227,7 +227,7 @@
                     "value": "{color.utility.red.50.value}"
                 },
                 "hover": {
-                    "value": "{color.interaction.utility-red-50-hover.value}"
+                    "value": "{color.modifier.lighten.utility-red-50.value}"
                 },
                 "quiet-hover": {
                     "value": "{color.utility.red.90.value}"
@@ -304,7 +304,7 @@
                     "value": "{color.accent.50.value}"
                 },
                 "hover": {
-                    "value": "{color.interaction.accent-50-hover.value}"
+                    "value": "{color.modifier.lighten.accent-50.value}"
                 },
                 "quiet-hover": {
                     "value": "{color.accent.90.value}"
@@ -341,7 +341,7 @@
                     "value": "{color.utility.red.50.value}"
                 },
                 "hover": {
-                    "value": "{color.interaction.utility-red-50-hover.value}"
+                    "value": "{color.modifier.lighten.utility-red-50.value}"
                 },
                 "quiet-hover": {
                     "value": "{color.utility.red.90.value}"
