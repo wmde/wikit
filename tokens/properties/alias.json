@@ -409,6 +409,9 @@
                 "value": "{dimension.dynamic.size.50.value}"
             },
             "horizontal": {
+                "xsmall": {
+                    "value": "{dimension.dynamic.size.25.value}"
+                },
                 "small": {
                     "value": "{dimension.dynamic.size.50.value}"
                 },
@@ -420,6 +423,12 @@
                 }
             },
             "vertical": {
+                "xsmall": {
+                    "value": "{dimension.dynamic.size.25.value}"
+                },
+                "small": {
+                    "value": "{dimension.dynamic.size.50.value}"
+                },
                 "medium": {
                     "value": "{dimension.dynamic.size.30.value}"
                 },
