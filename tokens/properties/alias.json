@@ -56,9 +56,6 @@
                 },
                 "description": {
                     "value": "{font.weight.regular.value}"
-                },
-                "link": {
-                    "value": "{font.weight.bold.value}"
                 }
             }
         },
