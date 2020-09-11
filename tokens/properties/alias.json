@@ -232,9 +232,6 @@
                 },
                 "focus": {
                     "value": "{color.base.100.value}"
-                },
-                "quiet-focus": {
-                    "value": "{color.base.100.value}"
                 }
             },
             "destructive": {
@@ -546,8 +543,14 @@
             "progressive": {
                 "value": "{color.accent.50.value}"
             },
+            "progressive-hover": {
+                "value": "{color.modifier.lighten.accent-50.value}"
+            },
             "destructive": {
                 "value": "{color.utility.red.50.value}"
+            },
+            "destructive-hover": {
+                "value": "{color.modifier.lighten.utility-red-50.value}"
             },
             "notice": {
                 "value": "{color.base.0.value}"
