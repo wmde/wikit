@@ -143,6 +143,9 @@
             "progressive-hover": {
                 "value": "{color.modifier.lighten.accent-50.value}"
             },
+            "progressive-active": {
+                "value": "{color.modifier.lighten.accent-50.value}"
+            },
             "destructive": {
                 "value": "{color.utility.red.50.value}"
             },
