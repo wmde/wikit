@@ -356,9 +356,6 @@
                 "active": {
                     "value": "{color.base.30.value}"
                 },
-                "quiet-active": {
-                    "value": "{color.base.80.value}"
-                },
                 "focus": {
                     "value": "{color.accent.50.value}"
                 }
