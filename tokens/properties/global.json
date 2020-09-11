@@ -93,6 +93,9 @@
             "purple": {
                     "value": "#6b4ba1"
                 }
+        },
+        "transparent": {
+            "value": "transparent"
         }
     },
     "opacity": {
