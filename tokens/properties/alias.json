@@ -490,7 +490,16 @@
                 "duration": {
                     "value": "{transition.duration.fast.value}"
                 }
+            },
+            "link":{
+                "property":{
+                    "value": "{transition.property.color.value}"
+                },
+                "duration": {
+                    "value": "{transition.duration.fast.value}"
+                }
             }
+            
         }
     },
     "icon": {
