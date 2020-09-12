@@ -401,6 +401,9 @@
             "small": {
                 "value": "{dimension.static.size.300.value}"
             },
+            "binary": {
+                "value": "{dimension.static.size.300.value}"
+            },
             "medium": {
                 "value": "{dimension.static.size.400.value}"
             },
@@ -409,6 +412,9 @@
             }
         },
         "width": {
+            "binary": {
+                "value": "{dimension.static.size.300.value}"
+            },
             "small": {
                 "value": "{dimension.static.size.1600.value}"
             },
