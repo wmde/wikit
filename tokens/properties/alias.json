@@ -528,6 +528,14 @@
                     "value": "{transition.duration.fast.value}"
                 }
             },
+            "binary":{
+                "property":{
+                    "value": "{transition.property.background-color.value}, {transition.property.border-color.value}, {transition.property.box-shadow.value}"
+                },
+                "duration": {
+                    "value": "{transition.duration.fast.value}"
+                }
+            },
             "link":{
                 "property":{
                     "value": "{transition.property.color.value}"
