@@ -313,7 +313,7 @@
                 "binary": {
                     "value": "{color.base.30.value}"
                 },
-                "table": {
+                "subtle": {
                     "value": "{color.base.70.value}"
                 },
                 "hover": {
