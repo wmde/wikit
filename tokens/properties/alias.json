@@ -77,7 +77,7 @@
                     "value": "{font.line-height.medium.value}"
                 },
                 "body-s": {
-                    "value": "{font.line-height.medium.value}"
+                    "value": "{font.line-height.large.value}"
                 },
                 "label": {
                     "value": "{font.line-height.small.value}"
