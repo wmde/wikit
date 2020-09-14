@@ -11,6 +11,9 @@
                 "body": {
                     "value": "{font.family.sans.value}"
                 },
+                "body-s": {
+                    "value": "{font.family.sans.value}"
+                },
                 "label": {
                     "value": "{font.family.sans.value}"
                 },
@@ -48,6 +51,9 @@
                 "body": {
                     "value": "{font.weight.regular.value}"
                 },
+                "body-s": {
+                    "value": "{font.weight.regular.value}"
+                },
                 "label": {
                     "value": "{font.weight.regular.value}"
                 },
@@ -68,6 +74,9 @@
                     "value": "{font.line-height.small.value}"
                 },
                 "body": {
+                    "value": "{font.line-height.medium.value}"
+                },
+                "body-s": {
                     "value": "{font.line-height.medium.value}"
                 },
                 "label": {
@@ -106,6 +115,9 @@
                 },
                 "body": {
                     "value": "{font.size.medium.value}"
+                },
+                "body-s": {
+                    "value": "{font.size.small.value}"
                 },
                 "label": {
                     "value": "{font.size.medium.value}"
