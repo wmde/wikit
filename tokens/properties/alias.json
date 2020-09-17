@@ -303,6 +303,9 @@
             },
             "rounder": {
                 "value": "{dimension.static.size.50.value}"
+            },
+            "circle": {
+                "value": "{dimension.dynamic.percentage.100.value}"
             }
         },
         "color": {
