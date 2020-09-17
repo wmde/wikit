@@ -436,7 +436,7 @@
             "large": {
                 "value": "{dimension.static.size.4800.value}"
             },
-            "full-width": {
+            "full": {
                 "value": "{dimension.dynamic.percentage.100.value}"
             }
         },
