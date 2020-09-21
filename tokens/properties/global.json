@@ -82,19 +82,20 @@
                 },
                 "base-20": {
                     "value": "#6c7378"
+                },
+                "accent-50": {
+                    "value": "#447ff5"
+                },
+                "utility-red-50": {
+                    "value": "#ff4242"
                 }
-            }
-        },
-        "interaction": {
-            "accent-50-hover": {
-                "value": "#447ff5"
-            },
-            "utility-red-50-hover": {
-                "value": "#ff4242"
             },
             "purple": {
-                "value": "#6b4ba1"
-            }
+                    "value": "#6b4ba1"
+                }
+        },
+        "transparent": {
+            "value": "transparent"
         }
     },
     "opacity": {
@@ -228,6 +229,14 @@
                 "250": {
                     "value": "2.500em"
                 }
+            },
+            "percentage": {
+                "50": {
+                    "value": "50%"
+                },
+                "100": {
+                    "value": "100%"
+                }
             }
         },
         "static": {
@@ -275,15 +284,7 @@
                     "value": "256px"
                 },
                 "4800": {
-                    "value": "256px"
-                }
-            },
-            "percent": {
-                "50": {
-                    "value": "50%"
-                },
-                "100": {
-                    "value": "100%"
+                    "value": "384px"
                 }
             }
         }
