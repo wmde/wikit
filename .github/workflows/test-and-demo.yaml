@@ -32,7 +32,7 @@ jobs:
       run: npm run chromatic
     - name: Extract branch name
       shell: bash
-      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/} | sed 's/[^A-Za-Z0-9_]/-/g')"
       id: extract_branch
     - name: Run e2e cross browser tests
       env:
