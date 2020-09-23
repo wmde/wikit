@@ -4,7 +4,6 @@ services:
     node:
         build:
             context: ./
-            dockerfile: ./Dockerfile
         image: wmde/wikit
         volumes:
             - '~/.npm:/.npm'
