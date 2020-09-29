@@ -370,11 +370,14 @@
         "grab": {
             "value": "grab"
         },
+        "not-allowed": {
+            "value": "not-allowed"
+        },
         "pointer": {
             "value": "pointer"
         },
-        "not-allowed": {
-            "value": "not-allowed"
+        "text": {
+            "value": "text"
         }
     }
 }
