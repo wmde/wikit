@@ -487,6 +487,23 @@
                     "value": "{dimension.dynamic.size.56.value}"
                 }
             }
+        },
+        "spacing": {
+            "xsmall": {
+                "value": "{dimension.dynamic.size.50.value}"
+            },
+            "small": {
+                "value": "{dimension.dynamic.size.100.value}"
+            },
+            "medium": {
+                "value": "{dimension.dynamic.size.150.value}"
+            },
+            "large": {
+                "value": "{dimension.dynamic.size.200.value}"
+            },
+            "xlarge": {
+                "value": "{dimension.dynamic.size.250.value}"
+            }
         }
     },
     "box-shadow": {
