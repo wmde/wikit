@@ -1,0 +1,20 @@
+{
+	"wikit-Icon": {
+		"color": {
+			"value": "{icon.color.base.value}"
+		},
+		"error-color": {
+			"value": "{icon.color.error.value}"
+		},
+		"warning-color": {
+			"value": "{icon.color.warning.value}"
+		},
+		"medium-size": {
+			"value": "{icon.size.medium.value}",
+			"comment": "icons are squares, so height and width are identical"
+		},
+		"large-size": {
+			"value": "{icon.size.large.value}"
+		}
+	}
+}
