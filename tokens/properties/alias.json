@@ -459,6 +459,9 @@
             "large": {
                 "value": "{dimension.dynamic.size.150.value}"
             },
+            "xlarge": {
+                "value": "{dimension.dynamic.size.200.value}"
+            },
             "horizontal": {
                 "xsmall": {
                     "value": "{dimension.dynamic.size.25.value}"
