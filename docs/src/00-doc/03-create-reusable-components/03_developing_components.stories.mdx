@@ -37,7 +37,17 @@ All component-level tokens must reference alias and global tokens listed in the 
 
 The name of a component-level token file should match the name of the component. For example, a component implemented in `Button.vue` should have a `Button.json` containing its tokens.
 
-The recommended naming scheme for individual tokens is `wikit-<ComponentName>-[prop-][state-]<css-property>` - increasing specificity from left to right. A token containing the background-color (CSS property) value of a hovered (state) progressive (prop) button (component name) should be called `wikit-Button-progressive-hover-background-color`. Default prop values and states can be omitted from the name. A border-radius token that applies to all button types in all states can simply be named `wikit-Button-border-radius`.
+The recommended naming scheme for individual tokens is `wikit-<ComponentName>-[prop-][element-][state-]<css-property>` - increasing specificity from left to right. The order depends on the context however; states should follow the element on which the interaction occurred.
+
+**For example**: 
+
+A "hover" on the "menu-item" impacting the "menu-item" style yields 
+
+<code>wikit-Dropdown-progressive-<strong>menu-item-hover</strong>-background-color</code>
+  
+While a "hover" on the "Dropdown" component impacting the "menu-item" style yields
+
+<code>wikit-<strong>Dropdown-progressive-hover</strong>-menu-item-background-color</code>
 
 ## Testing Components
 
