@@ -444,6 +444,24 @@
             }
         },
         "padding": {
+            "horizontal": {
+                "medium": {
+                    "value": "{dimension.dynamic.size.75.value}",
+                    "comment": "will be replaced by a spacing token in the future"
+                }
+            },
+            "vertical": {
+                "medium": {
+                    "value": "{dimension.dynamic.size.30.value}",
+                    "comment": "will be replaced by a spacing token in the future"
+                },
+                "large": {
+                    "value": "{dimension.dynamic.size.56.value}",
+                    "comment": "will be replaced by a spacing token in the future"
+                }
+            }
+        },
+        "spacing": {
             "none": {
                 "value": "{dimension.dynamic.size.0.value}"
             },
@@ -476,35 +494,21 @@
                     "value": "{dimension.dynamic.size.100.value}"
                 }
             },
-            "vertical": {
-                "xsmall": {
-                    "value": "{dimension.dynamic.size.25.value}"
-                },
-                "small": {
-                    "value": "{dimension.dynamic.size.50.value}"
-                },
-                "medium": {
-                    "value": "{dimension.dynamic.size.30.value}"
-                },
-                "large": {
-                    "value": "{dimension.dynamic.size.56.value}"
-                }
+            "xxlarge": {
+                "value": "{dimension.dynamic.size.200.value}"
             }
         },
-        "spacing": {
+        "layout": {
             "xsmall": {
-                "value": "{dimension.dynamic.size.50.value}"
-            },
-            "small": {
                 "value": "{dimension.dynamic.size.100.value}"
             },
-            "medium": {
+            "small": {
                 "value": "{dimension.dynamic.size.150.value}"
             },
-            "large": {
+            "medium": {
                 "value": "{dimension.dynamic.size.200.value}"
             },
-            "xlarge": {
+            "large": {
                 "value": "{dimension.dynamic.size.250.value}"
             }
         }

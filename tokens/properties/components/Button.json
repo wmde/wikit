@@ -35,18 +35,20 @@
         },
         "medium": {
             "padding-vertical": {
-                "value": "{dimension.padding.vertical.medium.value}"
+                "value": "{dimension.padding.vertical.medium.value}",
+                "comment": "will be replaced by a spacing token in the future"
             },
             "padding-horizontal": {
-                "value": "{dimension.padding.horizontal.medium.value}"
+                "value": "{dimension.spacing.medium.value}"
             }
         },
         "large": {
             "padding-vertical": {
-                "value": "{dimension.padding.vertical.large.value}"
+                "value": "{dimension.padding.vertical.large.value}",
+                "comment": "will be replaced by a spacing token in the future"
             },
             "padding-horizontal": {
-                "value": "{dimension.padding.horizontal.large.value}"
+                "value": "{dimension.spacing.large.value}"
             }
         },
         "neutral": {
