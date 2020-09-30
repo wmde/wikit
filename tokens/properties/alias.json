@@ -472,27 +472,13 @@
                 "value": "{dimension.dynamic.size.50.value}"
             },
             "medium": {
-                "value": "{dimension.dynamic.size.100.value}"
+                "value": "{dimension.dynamic.size.75.value}"
             },
             "large": {
-                "value": "{dimension.dynamic.size.150.value}"
+                "value": "{dimension.dynamic.size.100.value}"
             },
             "xlarge": {
-                "value": "{dimension.dynamic.size.200.value}"
-            },
-            "horizontal": {
-                "xsmall": {
-                    "value": "{dimension.dynamic.size.25.value}"
-                },
-                "small": {
-                    "value": "{dimension.dynamic.size.50.value}"
-                },
-                "medium": {
-                    "value": "{dimension.dynamic.size.75.value}"
-                },
-                "large": {
-                    "value": "{dimension.dynamic.size.100.value}"
-                }
+                "value": "{dimension.dynamic.size.150.value}"
             },
             "xxlarge": {
                 "value": "{dimension.dynamic.size.200.value}"
