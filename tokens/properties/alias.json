@@ -444,12 +444,6 @@
             }
         },
         "padding": {
-            "horizontal": {
-                "medium": {
-                    "value": "{dimension.dynamic.size.75.value}",
-                    "comment": "will be replaced by a spacing token in the future"
-                }
-            },
             "vertical": {
                 "medium": {
                     "value": "{dimension.dynamic.size.30.value}",
