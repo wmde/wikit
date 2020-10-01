@@ -143,6 +143,7 @@ $base: ".wikit-Button";
 	}
 
 	// should ideally be taken care of by the globally applied style reset (ress)
+	// https://github.com/filipelinhares/ress/pull/24
 	&:focus {
 		outline: none;
 	}
