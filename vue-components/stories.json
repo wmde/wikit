@@ -3,7 +3,11 @@
   "globalParameters": {},
   "kindParameters": {
     "Button": {
-      "fileName": 406,
+      "fileName": 411,
+      "framework": "vue"
+    },
+    "Icon": {
+      "fileName": 410,
       "framework": "vue"
     }
   },
@@ -15,6 +19,16 @@
       "story": "Normal",
       "parameters": {
         "__id": "button--normal",
+        "__isArgsStory": false
+      }
+    },
+    "icon--all": {
+      "id": "icon--all",
+      "name": "All",
+      "kind": "Icon",
+      "story": "All",
+      "parameters": {
+        "__id": "icon--all",
         "__isArgsStory": false
       }
     }
