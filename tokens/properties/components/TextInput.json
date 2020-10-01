@@ -94,18 +94,20 @@
 			},
 			"desktop": {
 				"padding-inline": {
-					"value": "{dimension.padding.horizontal.small.value}"
+					"value": "{dimension.spacing.small.value}"
 				},
 				"padding-block": {
-					"value": "{dimension.padding.vertical.medium.value}"
+					"value": "{dimension.padding.vertical.medium.value}",
+					"comment": "to be replaced by spacing token in the future"
 				}
 			},
 			"mobile": {
 				"padding-inline": {
-					"value": "{dimension.padding.horizontal.small.value}"
+					"value": "{dimension.spacing.small.value}"
 				},
 				"padding-block": {
-					"value": "{dimension.padding.vertical.large.value}"
+					"value": "{dimension.padding.vertical.large.value}",
+					"comment": "to be replaced by spacing token in the future"
 				}
 			},
 			"transition" : {
@@ -137,12 +139,12 @@
 				"value": "{font.line-height.style.label.value}"
 			},
 			"padding-block-end": {
-				"value": "{dimension.padding.vertical.xsmall.value}"
+				"value": "{dimension.spacing.xsmall.value}"
 			}
 		},
 		"error-message": {
 			"padding-block-start": {
-				"value": "{dimension.padding.vertical.xsmall.value}"
+				"value": "{dimension.spacing.xsmall.value}"
 			},
 			"font-family": {
 				"value": "{font.family.style.body.value}"
@@ -168,7 +170,7 @@
 			},
 			"icon": {
 				"margin-right": {
-					"value": "{dimension.padding.xsmall.value}"
+					"value": "{dimension.spacing.xsmall.value}"
 				}
 			}
 		}
