@@ -3,11 +3,15 @@
   "globalParameters": {},
   "kindParameters": {
     "Button": {
-      "fileName": 411,
+      "fileName": 416,
       "framework": "vue"
     },
     "Icon": {
-      "fileName": 410,
+      "fileName": 411,
+      "framework": "vue"
+    },
+    "TextInput": {
+      "fileName": 417,
       "framework": "vue"
     }
   },
@@ -29,6 +33,16 @@
       "story": "All",
       "parameters": {
         "__id": "icon--all",
+        "__isArgsStory": false
+      }
+    },
+    "textinput--normal": {
+      "id": "textinput--normal",
+      "name": "Normal",
+      "kind": "TextInput",
+      "story": "Normal",
+      "parameters": {
+        "__id": "textinput--normal",
         "__isArgsStory": false
       }
     }
