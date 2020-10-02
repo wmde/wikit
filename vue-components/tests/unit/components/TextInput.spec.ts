@@ -16,6 +16,14 @@ describe( 'TextInput', () => {
 		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( content );
 	} );
 
+	it( 'emits an input event on user input', () => {
+		const userInput = 'hello';
+		const wrapper = mount( TextInput );
+
+		wrapper.find( 'input' ).setValue( userInput );
+		expect( wrapper.emitted( 'input' )![ 0 ] ).toEqual( [ userInput ] );
+	} );
+
 	it( 'has a label', () => {
 		const label = 'a label';
 		const wrapper = mount( TextInput, {
