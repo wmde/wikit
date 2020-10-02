@@ -94,3 +94,10 @@ docker-compose run --rm node lerna run watch --stream
 ```
 
 This way you don't have to manually run the `build:tokens` command for every token change.
+
+### Releasing a new version
+
+When releasing a new version:
+
+1. Run the `lerna version` command (e.g. for a minor release `lerna version minor`). This will take care of updating version numbers across the repository, committing and pushing the changes. Check the [lerna version docs](https://github.com/lerna/lerna/tree/master/commands/version) for usage examples.
+2. Create a tag and make the release.

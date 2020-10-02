@@ -15,6 +15,10 @@ How to release a new verision is documented in the section [Developing component
 
 A version of the Design System and component library is released when the component and tokens are done and "ready" and the application wanting to use them makes use of the version in which they are contained.
 
+To release a new version run the command `lerna version [major | minor | patch | premajor | preminor | prepatch | prerelease]`. This will take of updating the version number, committing and pushing the changes.
+
+[lerna version docs](https://github.com/lerna/lerna/tree/master/commands/version). 
+
 ## Releasing changes to an existing component or tokens
 
 Design System changes are supposed to influence application styles, therefore a Design System change is not finished until it's propagated to all consuming applications.
