@@ -5,6 +5,7 @@
 			type="text"
 			class="wikit-TextInput__input"
 			:value="value"
+			@input="emitInputEvent"
 			:placeholder="placeholder"
 			:disabled="disabled"
 		>
@@ -25,7 +26,7 @@ import Vue from 'vue';
 import Icon from './Icon.vue';
 
 /**
- *  Text input fields are form elements that let users input and edit values in the form of text.
+ * Text input fields are form elements that let users input and edit values in the form of text.
  */
 export default Vue.extend( {
 	name: 'TextInput',
@@ -60,6 +61,15 @@ export default Vue.extend( {
 				return [ 'small', 'medium', 'large', 'full-width' ].includes( value );
 			},
 			default: 'medium',
+		},
+	},
+
+	methods: {
+		emitInputEvent( e: InputEvent ): void {
+			/**
+			 * contains user input, i.e. the contents of the input value
+			 */
+			this.$emit( 'input', e.target?.value );
 		},
 	},
 
