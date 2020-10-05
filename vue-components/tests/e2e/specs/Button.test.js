@@ -4,6 +4,6 @@ module.exports = {
 			.init()
 			.openComponentStory( 'button' )
 			.waitForElementPresent( '.wikit-Button' )
-			.assert.visible( '.wikit-Button' );
+			.assert.not.cssProperty( '.wikit-Button', 'display', 'none' );
 	},
 };
