@@ -27,7 +27,7 @@ It is also their responsibility to inform other relevant roles like UX and PM (i
 ## Creating a release 
 
 Once your changes are merged and you want to release a new version of the components library you need to take the following steps:
- - To release a new version run the command `lerna version [major | minor | patch | premajor | preminor | prepatch | prerelease]`. This will take of updating the version number, committing and pushing the changes.
+ - To release a new version run the command `lerna version [major | minor | patch | premajor | preminor | prepatch | prerelease]`. This will take care of updating the version number, committing and pushing the changes.
 [lerna version docs](https://github.com/lerna/lerna/tree/master/commands/version). Wait for the PR to be merged.
  - After it's merged create and push a new tag, named after the version number with a "v" prefix, e.g. `v1.2.3`. Alternatively you can use the npm provided tool [npm-version](https://docs.npmjs.com/cli/version)
  - Then go to the GitHub repository and create a new release out of that tag, describing what changed, like in the image below.
