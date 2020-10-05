@@ -39,20 +39,6 @@ The name of a component-level token file should match the name of the component.
 
 The recommended naming scheme for individual tokens is `wikit-<ComponentName>-[prop-][state-]<css-property>` - increasing specificity from left to right. A token containing the background-color (CSS property) value of a hovered (state) progressive (prop) button (component name) should be called `wikit-Button-progressive-hover-background-color`. Default prop values and states can be omitted from the name. A border-radius token that applies to all button types in all states can simply be named `wikit-Button-border-radius`.
 
-## Releasing a new component
-
-Once your changes are merged and you want to release a new version of the components library you need to take the following steps:
- - Bump the version number in `package.json` and `package-lock.json` (in all three packages) and commit it. Wait for the PR to be merged.
- - After it's merged create and push a new tag, named after the version number with a "v" prefix, e.g. `v1.2.3`. Alternatively you can use the npm provided tool [npm-version](https://docs.npmjs.com/cli/version)
- - Then go to the GitHub repository and create a new release out of that tag, describing what changed, like in the image below.
-
-<center>
-    <img src="./images/docs_release_example.png" alt="release example on github"/>
-</center>
-
- - Creating the new release will trigger a GitHub action, which will publish **both** the `tokens` and the `vue-components` packages.
- - Go to https://www.npmjs.com/ to check the newly created versions.
-
 ## Testing Components
 
 ### Working with browser tests
