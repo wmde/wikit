@@ -28,7 +28,7 @@
     "fix": "npm run test:lint -- --fix"
   },
   "bugs": {
-    "url": "https://github.com/wmde/wikit/issues"
+    "url": "https://phabricator.wikimedia.org/tag/wikidata_design_system/"
   },
   "devDependencies": {
     "eslint": "^7.3.1",
