@@ -1,5 +1,5 @@
 module.exports.command = function openComponentStory( component ) {
-	return this.waitForElementVisible( '#root' )
+	return this.waitForElementPresent( '#root' )
 		.click( `a[href="#${component}"]` )
 		.element(
 			'id',
