@@ -87,5 +87,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wmde/wikit.git"
+  },
+  "bugs": {
+    "url": "https://phabricator.wikimedia.org/tag/wikidata_design_system/"
   }
 }
