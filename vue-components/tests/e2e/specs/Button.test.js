@@ -3,7 +3,7 @@ module.exports = {
 		client
 			.init()
 			.openComponentStory( 'button' )
-			.waitForElementVisible( '.wikit-Button' )
-			.assert.elementPresent( '.wikit-Button' );
+			.waitForElementPresent( '.wikit-Button' )
+			.assert.visible( '.wikit-Button' );
 	},
 };
