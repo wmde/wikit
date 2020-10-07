@@ -33,9 +33,11 @@ export default Vue.extend( {
 	props: {
 		error: {
 			type: Object,
-			validator( error: object ): boolean {
+			validator( error: { type?: string; message?: string } ): boolean {
 				return error === null ||
-					[ 'warning', 'error' ].includes( error.type ) && typeof error.message === 'string';
+					typeof error.message === 'string' &&
+					typeof error.type === 'string' &&
+					[ 'warning', 'error' ].includes( error.type );
 			},
 			default: null,
 		},
@@ -69,7 +71,7 @@ export default Vue.extend( {
 			/**
 			 * contains user input, i.e. the contents of the input value
 			 */
-			this.$emit( 'input', e.target?.value );
+			this.$emit( 'input', ( e.target as HTMLInputElement ).value );
 		},
 	},
 
