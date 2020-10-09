@@ -1,14 +1,13 @@
 <template>
 	<label :class="classes">
 		<div class="wikit-TextInput__label">{{ label }}</div>
-		<input
-			type="text"
-			class="wikit-TextInput__input"
+		<Input
 			:value="value"
-			@input="emitInputEvent"
+			@input.native="emitInputEvent"
+			:feedback-type="feedbackType"
 			:placeholder="placeholder"
 			:disabled="disabled"
-		>
+		/>
 		<div class="wikit-TextInput__error-message" v-if="error">
 			<Icon
 				class="wikit-TextInput__error-message__icon"
@@ -24,9 +23,12 @@
 <script lang="ts">
 import Vue from 'vue';
 import Icon from './Icon.vue';
+import Input from './Input.vue';
 
 /**
  * Text input fields are form elements that let users input and edit values in the form of text.
+ *
+ * Uses the following components internally: Input, Icon
  */
 export default Vue.extend( {
 	name: 'TextInput',
@@ -79,16 +81,22 @@ export default Vue.extend( {
 		classes(): string[] {
 			const classes = [ 'wikit', 'wikit-TextInput', `wikit-TextInput--${this.width}` ];
 
+			// TODO this will no longer be needed once FeedbackMessage is extracted too
 			if ( this.error !== null ) {
 				classes.push( `wikit-TextInput--${this.error.type}` );
 			}
 
 			return classes;
 		},
+
+		feedbackType(): string|null {
+			return this.error && this.error.type || null;
+		},
 	},
 
 	components: {
 		Icon,
+		Input,
 	},
 } );
 </script>
@@ -98,61 +106,6 @@ $base: ".wikit-TextInput";
 
 #{$base} {
 	display: block;
-
-	& #{$base}__input {
-		color: $wikit-TextInput-input-color;
-		border-color: $wikit-TextInput-input-border-color;
-		border-style: $wikit-TextInput-input-border-style;
-		border-width: $wikit-TextInput-input-border-width;
-		border-radius: $wikit-TextInput-input-border-radius;
-		font-family: $wikit-TextInput-input-font-family;
-		font-size: $wikit-TextInput-input-font-size;
-		font-weight: $wikit-TextInput-input-font-weight;
-		line-height: $wikit-TextInput-input-line-height;
-		width: 100%;
-		box-sizing: border-box;
-		padding-inline: $wikit-TextInput-input-desktop-padding-inline;
-		padding-block: $wikit-TextInput-input-desktop-padding-block;
-		transition-duration: $wikit-TextInput-input-transition-duration;
-		transition-timing-function: $wikit-TextInput-input-transition-timing-function;
-		transition-property: $wikit-TextInput-input-transition-property;
-
-		// Sets a basis for the inset box-shadow transition which otherwise doesn't work in Firefox.
-		// https://stackoverflow.com/questions/25410207/css-transition-not-working-on-box-shadow-property/25410897
-		// Can this be defined in a more generic way?
-		box-shadow: inset 0 0 0 1px transparent;
-
-		@media (max-width: $width-breakpoint-mobile) {
-			padding-inline: $wikit-TextInput-input-mobile-padding-inline;
-			padding-block: $wikit-TextInput-input-mobile-padding-block;
-		}
-
-		&:disabled {
-			color: $wikit-TextInput-input-disabled-color;
-			border-color: $wikit-TextInput-input-disabled-border-color;
-			background-color: $wikit-TextInput-input-disabled-background-color;
-		}
-
-		// should ideally be taken care of by the globally applied style reset (ress)
-		// https://github.com/filipelinhares/ress/pull/24
-		&:focus {
-			outline: none;
-		}
-	}
-
-	&:not(#{$base}--error):not(#{$base}--warning) {
-		#{$base}__input:not(:disabled) {
-			&:hover {
-				border-color: $wikit-TextInput-input-hover-border-color;
-			}
-
-			&:focus,
-			&:active {
-				border-color: $wikit-TextInput-input-active-border-color;
-				box-shadow: $wikit-TextInput-input-active-box-shadow;
-			}
-		}
-	}
 
 	#{$base}__error-message {
 		font-family: $wikit-TextInput-error-message-font-family;
@@ -174,7 +127,7 @@ $base: ".wikit-TextInput";
 	}
 
 	& #{$base}__label {
-		color: $wikit-TextInput-input-color;
+		color: $wikit-TextInput-label-font-color;
 		padding-block-end: $wikit-TextInput-label-padding-block-end;
 		font-family: $wikit-TextInput-label-font-family;
 		font-size: $wikit-TextInput-label-font-size;
@@ -196,14 +149,6 @@ $base: ".wikit-TextInput";
 
 	&--full-width {
 		width: $wikit-TextInput-full-width;
-	}
-
-	&--error #{$base}__input {
-		border-color: $wikit-TextInput-input-error-border-color;
-	}
-
-	&--warning #{$base}__input {
-		border-color: $wikit-TextInput-input-warning-border-color;
 	}
 
 	&--error #{$base}__error-message {
