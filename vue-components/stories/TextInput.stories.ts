@@ -3,10 +3,10 @@ import { Component } from 'vue';
 
 export default {
 	component: TextInput,
-	title: 'TextInput',
+	title: 'Input/TextInput',
 };
 
-export function normal(): Component {
+export function all(): Component {
 	return {
 		components: { TextInput },
 		template: `
