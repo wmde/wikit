@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import TextInput from '@/components/TextInput.vue';
-import Icon from '@/components/Icon.vue';
+import ValidationMessage from '@/components/ValidationMessage.vue';
 
 describe( 'TextInput', () => {
 
@@ -110,7 +110,7 @@ describe( 'TextInput', () => {
 	it.each( [
 		'warning',
 		'error',
-	] )( 'renders the error message as a root node class', ( errorType ) => {
+	] )( 'passes the error to the ValidationMessage child component', ( errorType ) => {
 		const errorMessage = 'error!!!!';
 		const wrapper = mount( TextInput, {
 			propsData: {
@@ -120,25 +120,10 @@ describe( 'TextInput', () => {
 				},
 			},
 		} );
+		const validationMessage = wrapper.findComponent( ValidationMessage );
 
-		expect( wrapper.classes() ).toContain( `wikit-TextInput--${errorType}` );
-		expect( wrapper.find( '.wikit-TextInput__error-message' ).text() ).toBe( errorMessage );
-	} );
-
-	it.each( [
-		[ 'warning', 'alert' ],
-		[ 'error', 'error' ],
-	] )( 'renders the error message as a root node class', ( errorType, expectedIcon ) => {
-		const wrapper = mount( TextInput, {
-			propsData: {
-				error: {
-					type: errorType,
-					message: 'things went wrong',
-				},
-			},
-		} );
-
-		expect( wrapper.findComponent( Icon ).props( 'type' ) ).toBe( expectedIcon );
+		expect( validationMessage.props( 'message' ) ).toBe( errorMessage );
+		expect( validationMessage.props( 'type' ) ).toBe( errorType );
 	} );
 
 } );

@@ -14,6 +14,7 @@ export function all(): Component {
 				<p><Input placeholder="Placeholder text" /></p>
 				<p><Input feedback-type="warning" placeholder="Placeholder text" /></p>
 				<p><Input feedback-type="error" placeholder="Placeholder text" /></p>
+				<p><Input disabled="disabled" placeholder="Placeholder text (disabled)" /></p>
 			</div>
 		`,
 	};
