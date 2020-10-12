@@ -11,14 +11,6 @@ WiKit was designed in mind with enabling different roles (dev, UX, PM etc.) to c
 WiKit lives on GitHub. Anyone within the wmde GitHub org should be able to contribute to the repository.
 If you don't have write access, please reach out to a manager.
 
-### Branches
-
-Name your branches using lowercase letters `[a-z]` and `-` or `_`, e.g. `improve-overview-doc`, `improve_overview_doc`.  
-This is important, because the vue storybook is built and deployed to [Chromatic](https://www.chromatic.com/builds?appId=5efdb3b5f65950002286285d&branch=master) using the branch name.  
-For example, if your branch is called `dropdown_component`, the vue storybook built on that branch will be deployed to  
-https://dropdown_component--5efdb3b5f65950002286285d.chromatic.com  
-This link is used by the cross-browser tests running on Saucelabs. If your branch name contains a character that is automatically changed by the browser (e.g. uppercase letters become lowercase letters), the tests will fail, because they won't be able to open the Chromatic link.
-
 ### Checks
 
 All checks configured to run on each branch need to pass in order for the PR to be merged (the merge button will be inactive).

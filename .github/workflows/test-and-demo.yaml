@@ -30,7 +30,7 @@ jobs:
       run: npm run build:storybook
     - name: Deploy Storybook
       run: npm run chromatic
-    - name: Extract commmit hash
+    - name: Extract commit hash
       shell: bash
       run: echo "##[set-output name=commit;]$(git rev-parse --short ${GITHUB_SHA})"
       id: extract_commit
