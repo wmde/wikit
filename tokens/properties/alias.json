@@ -274,7 +274,7 @@
             },
             "feedback": {
                 "notice": {
-                    "value": "{color.base.90.value}"
+                    "value": "{color.base.80.value}"
                 },
                 "error": {
                     "value": "{color.utility.red.90.value}"
