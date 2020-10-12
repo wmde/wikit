@@ -33,7 +33,7 @@ module.exports = {
 			},
 		},
 		sauceLabs: {
-			launch_url: `https://${process.env.BRANCH_NAME}--5efdb3b5f65950002286285d.chromatic.com`,
+			launch_url: `https://${process.env.BRANCH_HASH}--5efdb3b5f65950002286285d.chromatic.com`,
 			isLocal: false,
 			selenium_host: 'ondemand.saucelabs.com',
 			selenium_port: 80,
