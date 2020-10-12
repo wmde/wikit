@@ -32,11 +32,11 @@ jobs:
       run: npm run chromatic
     - name: Extract branch name
       shell: bash
-      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/} | sed 's/[^A-Za-Z0-9_]/-/g')"
+      run: echo "##[set-output name=branch;]$(echo \"${GITHUB_REF#refs/heads/}\" | md5sum"
       id: extract_branch
     - name: Run e2e cross browser tests
       env:
         SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-        BRANCH_NAME: ${{ steps.extract_branch.outputs.branch }}
+        BRANCH_HASH: ${{ steps.extract_branch.outputs.branch }}
       run: npm run test:e2e
