@@ -30,13 +30,13 @@ jobs:
       run: npm run build:storybook
     - name: Deploy Storybook
       run: npm run chromatic
-    - name: Extract branch name
+    - name: Extract commmit hash
       shell: bash
-      run: echo "##[set-output name=branch;]$(echo \"${GITHUB_REF#refs/heads/}\" | md5sum"
-      id: extract_branch
+      run: echo "##[set-output name=commit;]$(git rev-parse --short ${GITHUB_SHA})"
+      id: extract_commit
     - name: Run e2e cross browser tests
       env:
         SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-        BRANCH_HASH: ${{ steps.extract_branch.outputs.branch }}
+        COMMIT_HASH: ${{ steps.extract_commit.outputs.commit }}
       run: npm run test:e2e
