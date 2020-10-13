@@ -94,51 +94,10 @@ export default Vue.extend( {
 </script>
 
 <style lang="scss">
-$base: ".wikit-TextInput";
+$base: '.wikit-TextInput';
 
 #{$base} {
 	display: block;
-
-	& #{$base}__input {
-		color: $wikit-TextInput-input-color;
-		border-color: $wikit-TextInput-input-border-color;
-		border-style: $wikit-TextInput-input-border-style;
-		border-width: $wikit-TextInput-input-border-width;
-		border-radius: $wikit-TextInput-input-border-radius;
-		font-family: $wikit-TextInput-input-font-family;
-		font-size: $wikit-TextInput-input-font-size;
-		font-weight: $wikit-TextInput-input-font-weight;
-		line-height: $wikit-TextInput-input-line-height;
-		width: 100%;
-		box-sizing: border-box;
-		padding-inline: $wikit-TextInput-input-desktop-padding-inline;
-		padding-block: $wikit-TextInput-input-desktop-padding-block;
-		transition-duration: $wikit-TextInput-input-transition-duration;
-		transition-timing-function: $wikit-TextInput-input-transition-timing-function;
-		transition-property: $wikit-TextInput-input-transition-property;
-
-		// Sets a basis for the inset box-shadow transition which otherwise doesn't work in Firefox.
-		// https://stackoverflow.com/questions/25410207/css-transition-not-working-on-box-shadow-property/25410897
-		// Can this be defined in a more generic way?
-		box-shadow: inset 0 0 0 1px transparent;
-
-		@media (max-width: $width-breakpoint-mobile) {
-			padding-inline: $wikit-TextInput-input-mobile-padding-inline;
-			padding-block: $wikit-TextInput-input-mobile-padding-block;
-		}
-
-		&:disabled {
-			color: $wikit-TextInput-input-disabled-color;
-			border-color: $wikit-TextInput-input-disabled-border-color;
-			background-color: $wikit-TextInput-input-disabled-background-color;
-		}
-
-		// should ideally be taken care of by the globally applied style reset (ress)
-		// https://github.com/filipelinhares/ress/pull/24
-		&:focus {
-			outline: none;
-		}
-	}
 
 	&:not(#{$base}--error):not(#{$base}--warning) {
 		#{$base}__input:not(:disabled) {
@@ -173,15 +132,6 @@ $base: ".wikit-TextInput";
 		}
 	}
 
-	& #{$base}__label {
-		color: $wikit-TextInput-input-color;
-		padding-block-end: $wikit-TextInput-label-padding-block-end;
-		font-family: $wikit-TextInput-label-font-family;
-		font-size: $wikit-TextInput-label-font-size;
-		font-weight: $wikit-TextInput-label-font-weight;
-		line-height: $wikit-TextInput-label-line-height;
-	}
-
 	&--small {
 		width: $wikit-TextInput-small-width;
 	}
@@ -212,6 +162,51 @@ $base: ".wikit-TextInput";
 
 	&--warning #{$base}__error-message {
 		color: $wikit-TextInput-error-message-warning-color;
+	}
+}
+
+#{$base}__label {
+	@include Label;
+}
+
+#{$base}__input {
+	color: $wikit-TextInput-input-color;
+	border-color: $wikit-TextInput-input-border-color;
+	border-style: $wikit-TextInput-input-border-style;
+	border-width: $wikit-TextInput-input-border-width;
+	border-radius: $wikit-TextInput-input-border-radius;
+	font-family: $wikit-TextInput-input-font-family;
+	font-size: $wikit-TextInput-input-font-size;
+	font-weight: $wikit-TextInput-input-font-weight;
+	line-height: $wikit-TextInput-input-line-height;
+	width: 100%;
+	box-sizing: border-box;
+	padding-inline: $wikit-TextInput-input-desktop-padding-inline;
+	padding-block: $wikit-TextInput-input-desktop-padding-block;
+	transition-duration: $wikit-TextInput-input-transition-duration;
+	transition-timing-function: $wikit-TextInput-input-transition-timing-function;
+	transition-property: $wikit-TextInput-input-transition-property;
+
+	// Sets a basis for the inset box-shadow transition which otherwise doesn't work in Firefox.
+	// https://stackoverflow.com/questions/25410207/css-transition-not-working-on-box-shadow-property/25410897
+	// Can this be defined in a more generic way?
+	box-shadow: inset 0 0 0 1px transparent;
+
+	@media (max-width: $width-breakpoint-mobile) {
+		padding-inline: $wikit-TextInput-input-mobile-padding-inline;
+		padding-block: $wikit-TextInput-input-mobile-padding-block;
+	}
+
+	&:disabled {
+		color: $wikit-TextInput-input-disabled-color;
+		border-color: $wikit-TextInput-input-disabled-border-color;
+		background-color: $wikit-TextInput-input-disabled-background-color;
+	}
+
+	// should ideally be taken care of by the globally applied style reset (ress)
+	// https://github.com/filipelinhares/ress/pull/24
+	&:focus {
+		outline: none;
 	}
 }
 </style>
