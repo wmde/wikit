@@ -1,0 +1,8 @@
+@mixin Label {
+    color: $wikit-Label-font-color;
+    padding-block-end: $wikit-Label-padding-block-end;
+    font-family: $wikit-Label-font-family;
+    font-size: $wikit-Label-font-size;
+    font-weight: $wikit-Label-font-weight;
+    line-height: $wikit-Label-line-height;
+  }

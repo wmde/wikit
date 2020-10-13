@@ -3,7 +3,7 @@ module.exports = {
 		'stylelint-config-sass-guidelines',
 	],
 	plugins: [
-		'stylelint-use-logical'
+		'stylelint-use-logical',
 	],
 	rules: {
 		'indentation': 'tab',
