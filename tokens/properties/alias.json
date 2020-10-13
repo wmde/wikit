@@ -459,6 +459,9 @@
             "none": {
                 "value": "{dimension.dynamic.size.0.value}"
             },
+            "xxsmall": {
+                "value": "{dimension.dynamic.size.12.value}"
+            },
             "xsmall": {
                 "value": "{dimension.dynamic.size.25.value}"
             },
