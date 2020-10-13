@@ -38,7 +38,7 @@ export default Vue.extend( {
 </script>
 
 <style lang="scss">
-$base: ".wikit-Button";
+$base: '.wikit-Button';
 
 #{$base} {
 	padding-inline: $wikit-Button-medium-padding-horizontal;
