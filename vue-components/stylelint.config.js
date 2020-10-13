@@ -1,6 +1,6 @@
 module.exports = {
 	extends: [
-		'stylelint-config-standard',
+		'stylelint-config-sass-guidelines',
 	],
 	plugins: [
 		'stylelint-use-logical',
