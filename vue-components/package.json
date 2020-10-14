@@ -1,6 +1,6 @@
 {
   "name": "@wmde/wikit-vue-components",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "The component implementation of WiKit in vue",
   "author": {
     "name": "The Wikidata team"
@@ -32,7 +32,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@wmde/wikit-tokens": "^1.1.1",
+    "@wmde/wikit-tokens": "^1.1.2",
     "core-js": "^3.6.5",
     "ress": "^3.0.0",
     "vue": "^2.6.11"
