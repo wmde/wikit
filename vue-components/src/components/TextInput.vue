@@ -1,5 +1,5 @@
 <template>
-	<label :class="classes">
+	<label :class="[ 'wikit', 'wikit-TextInput', `wikit-TextInput--${width}` ]">
 		<div class="wikit-TextInput__label">{{ label }}</div>
 		<Input
 			:value="value"
@@ -8,27 +8,23 @@
 			:placeholder="placeholder"
 			:disabled="disabled"
 		/>
-		<div class="wikit-TextInput__error-message" v-if="error">
-			<Icon
-				class="wikit-TextInput__error-message__icon"
-				:type="error.type === 'error' ? 'error' : 'alert'"
-				:color="error.type"
-				size="medium"
-			/>
-			{{ error.message }}
-		</div>
+		<ValidationMessage
+			v-if="error"
+			:type="error.type"
+			:message="error.message"
+		/>
 	</label>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import Icon from './Icon.vue';
+import ValidationMessage from './ValidationMessage.vue';
 import Input from './Input.vue';
 
 /**
  * Text input fields are form elements that let users input and edit values in the form of text.
  *
- * Uses the following components internally: Input, Icon
+ * Uses the following components internally: Input, ValidationMessage
  */
 export default Vue.extend( {
 	name: 'TextInput',
@@ -78,25 +74,14 @@ export default Vue.extend( {
 	},
 
 	computed: {
-		classes(): string[] {
-			const classes = [ 'wikit', 'wikit-TextInput', `wikit-TextInput--${this.width}` ];
-
-			// TODO this will no longer be needed once FeedbackMessage is extracted too
-			if ( this.error !== null ) {
-				classes.push( `wikit-TextInput--${this.error.type}` );
-			}
-
-			return classes;
-		},
-
 		feedbackType(): string|null {
 			return this.error && this.error.type || null;
 		},
 	},
 
 	components: {
-		Icon,
 		Input,
+		ValidationMessage,
 	},
 } );
 </script>
@@ -106,25 +91,6 @@ $base: '.wikit-TextInput';
 
 #{$base} {
 	display: block;
-
-	#{$base}__error-message {
-		font-family: $wikit-TextInput-error-message-font-family;
-		font-size: $wikit-TextInput-error-message-font-size;
-		font-weight: $wikit-TextInput-error-message-font-weight;
-		line-height: $wikit-TextInput-error-message-line-height;
-		padding-block-start: $wikit-TextInput-error-message-padding-block-start;
-		display: inline-flex;
-		align-items: flex-start;
-
-		#{$base}__error-message__icon {
-			// TODO: only introducing the following variable to work around exceeding stylelint max-len.
-			// `stylelint-disable` is also not working for some reason. Fixing this in a follow-up.
-			$padding-top: ( $wikit-TextInput-error-message-line-height - $wikit-TextInput-error-message-font-size ) / 2;
-
-			padding-block-start: $padding-top;
-			margin-inline-end: $wikit-TextInput-error-message-icon-margin-right;
-		}
-	}
 
 	&--small {
 		width: $wikit-TextInput-small-width;
@@ -140,14 +106,6 @@ $base: '.wikit-TextInput';
 
 	&--full-width {
 		width: $wikit-TextInput-full-width;
-	}
-
-	&--error #{$base}__error-message {
-		color: $wikit-TextInput-error-message-error-color;
-	}
-
-	&--warning #{$base}__error-message {
-		color: $wikit-TextInput-error-message-warning-color;
 	}
 }
 
