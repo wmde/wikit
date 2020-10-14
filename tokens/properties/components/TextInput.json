@@ -11,38 +11,6 @@
 		},
 		"full-width": {
 			"value": "{dimension.width.full.value}"
-		},
-		"error-message": {
-			"padding-block-start": {
-				"value": "{dimension.spacing.xsmall.value}"
-			},
-			"font-family": {
-				"value": "{font.family.style.body.value}"
-			},
-			"font-size": {
-				"value": "{font.size.style.body.value}"
-			},
-			"font-weight": {
-				"value": "{font.weight.style.body.value}"
-			},
-			"line-height": {
-				"value": "{font.line-height.small.value}"
-			},
-			"error": {
-				"color": {
-					"value": "{font.color.error.value}"
-				}
-			},
-			"warning": {
-				"color": {
-					"value": "{font.color.warning.value}"
-				}
-			},
-			"icon": {
-				"margin-right": {
-					"value": "{dimension.spacing.xsmall.value}"
-				}
-			}
 		}
 	}
 }
