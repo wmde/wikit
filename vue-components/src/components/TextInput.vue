@@ -87,9 +87,7 @@ export default Vue.extend( {
 </script>
 
 <style lang="scss">
-$base: '.wikit-TextInput';
-
-#{$base} {
+.wikit-TextInput {
 	display: block;
 
 	&--small {
@@ -107,9 +105,9 @@ $base: '.wikit-TextInput';
 	&--full-width {
 		width: $wikit-TextInput-full-width;
 	}
-}
 
-#{$base}__label {
-	@include Label;
+	&__label {
+		@include Label;
+	}
 }
 </style>
