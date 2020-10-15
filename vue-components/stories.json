@@ -10,15 +10,15 @@
       "fileName": 416,
       "framework": "vue"
     },
-    "Input/Basic": {
+    "/Input/Basic": {
       "fileName": 419,
       "framework": "vue"
     },
-    "Input/TextInput": {
+    "/Input/TextInput": {
       "fileName": 428,
       "framework": "vue"
     },
-    "Message/ValidationMessage": {
+    "/Message/ValidationMessage": {
       "fileName": 426,
       "framework": "vue"
     }
@@ -47,7 +47,7 @@
     "input-basic--all": {
       "id": "input-basic--all",
       "name": "All",
-      "kind": "Input/Basic",
+      "kind": "/Input/Basic",
       "story": "All",
       "parameters": {
         "__id": "input-basic--all",
@@ -57,7 +57,7 @@
     "input-textinput--all": {
       "id": "input-textinput--all",
       "name": "All",
-      "kind": "Input/TextInput",
+      "kind": "/Input/TextInput",
       "story": "All",
       "parameters": {
         "__id": "input-textinput--all",
@@ -67,7 +67,7 @@
     "message-validationmessage--all": {
       "id": "message-validationmessage--all",
       "name": "All",
-      "kind": "Message/ValidationMessage",
+      "kind": "/Message/ValidationMessage",
       "story": "All",
       "parameters": {
         "__id": "message-validationmessage--all",
