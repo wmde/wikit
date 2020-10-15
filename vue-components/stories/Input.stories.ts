@@ -3,7 +3,8 @@ import { Component } from 'vue';
 
 export default {
 	component: Input,
-	title: 'Input/Basic',
+	// the `/` prefix in the title is needed for "Input" to appear as a folded navigation item, and not a headline
+	title: '/Input/Basic',
 };
 
 export function all(): Component {
