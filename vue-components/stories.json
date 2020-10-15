@@ -3,15 +3,23 @@
   "globalParameters": {},
   "kindParameters": {
     "Button": {
-      "fileName": 416,
+      "fileName": 427,
       "framework": "vue"
     },
     "Icon": {
-      "fileName": 411,
+      "fileName": 416,
       "framework": "vue"
     },
-    "TextInput": {
-      "fileName": 417,
+    "Input/Basic": {
+      "fileName": 419,
+      "framework": "vue"
+    },
+    "Input/TextInput": {
+      "fileName": 428,
+      "framework": "vue"
+    },
+    "Message/ValidationMessage": {
+      "fileName": 426,
       "framework": "vue"
     }
   },
@@ -36,13 +44,33 @@
         "__isArgsStory": false
       }
     },
-    "textinput--normal": {
-      "id": "textinput--normal",
-      "name": "Normal",
-      "kind": "TextInput",
-      "story": "Normal",
+    "input-basic--all": {
+      "id": "input-basic--all",
+      "name": "All",
+      "kind": "Input/Basic",
+      "story": "All",
       "parameters": {
-        "__id": "textinput--normal",
+        "__id": "input-basic--all",
+        "__isArgsStory": false
+      }
+    },
+    "input-textinput--all": {
+      "id": "input-textinput--all",
+      "name": "All",
+      "kind": "Input/TextInput",
+      "story": "All",
+      "parameters": {
+        "__id": "input-textinput--all",
+        "__isArgsStory": false
+      }
+    },
+    "message-validationmessage--all": {
+      "id": "message-validationmessage--all",
+      "name": "All",
+      "kind": "Message/ValidationMessage",
+      "story": "All",
+      "parameters": {
+        "__id": "message-validationmessage--all",
         "__isArgsStory": false
       }
     }
