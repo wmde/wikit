@@ -3,7 +3,8 @@ import { Component } from 'vue';
 
 export default {
 	component: ValidationMessage,
-	title: 'Message/ValidationMessage',
+	// the `/` prefix in the title is needed for "Message" to appear as a folded navigation item, and not a headline
+	title: '/Message/ValidationMessage',
 };
 
 export function all(): Component {
