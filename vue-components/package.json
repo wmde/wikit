@@ -26,7 +26,7 @@
     "chromatic": "npx chromatic build --project-token=3evi132fpys --build-script-name=build:storybook",
     "prepare": "npm run build"
   },
-  "main": "dist/index.js",
+  "main": "dist/wikit-vue-components.common.js",
   "files": [
     "src/",
     "dist/"
