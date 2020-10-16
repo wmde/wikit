@@ -1,7 +1,9 @@
 <template>
+	<!-- re-emits the input event so that parent components can use `@input` instead of `@input.native` -->
 	<input
 		type="text"
 		:class="classes"
+		@input="$emit( 'input', $event.target.value )"
 	>
 </template>
 

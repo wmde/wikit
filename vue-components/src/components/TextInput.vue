@@ -3,7 +3,7 @@
 		<div class="wikit-TextInput__label">{{ label }}</div>
 		<Input
 			:value="value"
-			@input.native="emitInputEvent"
+			@input="emitInputEvent"
 			:feedback-type="feedbackType"
 			:placeholder="placeholder"
 			:disabled="disabled"
@@ -65,11 +65,11 @@ export default Vue.extend( {
 	},
 
 	methods: {
-		emitInputEvent( e: InputEvent ): void {
+		emitInputEvent( value: string ): void {
 			/**
 			 * contains user input, i.e. the contents of the input value
 			 */
-			this.$emit( 'input', ( e.target as HTMLInputElement ).value );
+			this.$emit( 'input', value );
 		},
 	},
 
