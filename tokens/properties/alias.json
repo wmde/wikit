@@ -439,6 +439,9 @@
             "large": {
                 "value": "{dimension.static.size.4800.value}"
             },
+            "xlarge": {
+                "value": "{dimension.static.size.6400.value}"
+            },
             "full": {
                 "value": "{dimension.dynamic.percentage.100.value}"
             },

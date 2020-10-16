@@ -1,0 +1,100 @@
+{
+    "wikit-Message": {
+        "font-family": {
+            "value": "{font.family.style.body.value}"
+        },
+        "font-size": {
+            "value": "{font.size.style.body.value}"
+        },
+        "font-weight": {
+            "value": "{font.weight.style.body.value}"
+        },
+        "line-height": {
+            "value": "{font.line-height.style.body.value}"
+        },
+        "spacing-vertical": {
+            "value": "{dimension.spacing.large.value}"
+        },
+        "spacing-horizontal": {
+            "value": "{dimension.spacing.xlarge.value}"
+        },
+        "default-width":{
+            "value":"{dimension.width.xlarge.value}"
+        },
+        "full-width": {
+			"value": "{dimension.width.full.value}"
+        },
+        "border-style": {
+            "value": "{border.style.base.value}"
+        },
+        "border-width": {
+            "value": "{border.width.thin.value}"
+        },
+        "border-radius": {
+            "value": "{border.radius.base.value}"
+        },
+        "icon": {
+            "gap-to-text": {
+                "value": "{dimension.spacing.small.value}"
+            },
+            "vertical-align-adjustment-top": {
+                "value": "{dimension.spacing.xxsmall.value}",
+                "documentation": {
+                    "comment": "Maybe this should rather be calculated by (line-height - icon height)/2"
+                }
+            }
+        },
+        "error": {
+            "border-color": {
+                "value": "{border.color.feedback.error.value}"
+            },
+            "background-color": {
+                "value": "{background.color.feedback.error.value}"
+            },
+            "icon": {
+                "color": {
+                    "value": "{icon.color.error.value}"
+                }
+            }
+        },
+        "warning": {
+            "border-color": {
+                "value": "{border.color.feedback.warning.value}"
+            },
+            "background-color": {
+                "value": "{background.color.feedback.warning.value}"
+            },
+            "icon": {
+                "color": {
+                    "value": "{icon.color.warning.value}"
+                }
+            }
+        },
+        "notice": {
+            "border-color": {
+                "value": "{border.color.feedback.notice.value}"
+            },
+            "background-color": {
+                "value": "{background.color.feedback.notice.value}"
+            },
+            "icon": {
+                "color": {
+                    "value": "{icon.color.notice.value}"
+                }
+            }
+        },
+        "success": {
+            "border-color": {
+                "value": "{border.color.feedback.success.value}"
+            },
+            "background-color": {
+                "value": "{background.color.feedback.success.value}"
+            },
+            "icon": {
+                "color": {
+                    "value": "{icon.color.success.value}"
+                }
+            }
+        }
+    }
+}
