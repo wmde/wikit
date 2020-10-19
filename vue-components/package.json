@@ -10,7 +10,7 @@
   },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --formats commonjs --name wikit-vue-components src/main.ts --report --report-json",
+    "build": "vue-cli-service build --target lib --formats commonjs --name wikit-vue-components src/main.ts --report --report-json && tsc --emitDeclarationOnly",
     "test:unit": "vue-cli-service test:unit",
     "e2e": "vue-cli-service test:e2e",
     "e2e:saucelabs": "env DATE=\"$(date)\" nightwatch --config nightwatch.config.js --env sauceChrome,sauceFirefox,sauceIE,sauceEdge,sauceSafari",
@@ -31,6 +31,7 @@
     "src/",
     "dist/"
   ],
+  "types": "dist/main.d.ts",
   "dependencies": {
     "@wmde/wikit-tokens": "^1.1.2",
     "core-js": "^3.6.5",
