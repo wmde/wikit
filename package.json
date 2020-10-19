@@ -16,6 +16,7 @@
     "build:storybook:extract-stories": "lerna run build:extract-stories --scope @wmde/wikit-vue-components",
     "build:storybook:compose": "cp -r vue-components/storybook-static docs/dist/vue-components",
     "chromatic": "lerna run chromatic --scope @wmde/wikit-vue-components",
+    "bump-version": "lerna version --no-git-tag-version",
     "publish-tokens-vue": "lerna publish from-package --yes"
   },
   "devDependencies": {
