@@ -1,7 +1,8 @@
 <template>
-	<label :class="[ 'wikit', 'wikit-TextInput', `wikit-TextInput--${width}` ]">
-		<div class="wikit-TextInput__label">{{ label }}</div>
+	<div :class="[ 'wikit', 'wikit-TextInput', `wikit-TextInput--${width}` ]">
+		<label class="wikit-TextInput__label" :for="id">{{ label }}</label>
 		<Input
+			:id="id"
 			:value="value"
 			@input="emitInputEvent"
 			:feedback-type="feedbackType"
@@ -13,7 +14,7 @@
 			:type="error.type"
 			:message="error.message"
 		/>
-	</label>
+	</div>
 </template>
 
 <script lang="ts">
@@ -64,6 +65,13 @@ export default Vue.extend( {
 		},
 	},
 
+	data() {
+		return {
+			// https://github.com/vuejs/vue/issues/5886
+			id: `wikit-TextInput-${Math.floor( Math.random() * 1000000 )}`,
+		};
+	},
+
 	methods: {
 		emitInputEvent( value: string ): void {
 			/**
@@ -88,8 +96,6 @@ export default Vue.extend( {
 
 <style lang="scss">
 .wikit-TextInput {
-	display: block;
-
 	&--small {
 		width: $wikit-TextInput-small-width;
 	}
@@ -108,6 +114,7 @@ export default Vue.extend( {
 
 	&__label {
 		@include Label;
+		display: block;
 	}
 }
 </style>
