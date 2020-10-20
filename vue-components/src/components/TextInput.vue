@@ -21,6 +21,7 @@
 import Vue from 'vue';
 import ValidationMessage from './ValidationMessage.vue';
 import Input from './Input.vue';
+import generateUid from '@/components/util/generateUid';
 
 /**
  * Text input fields are form elements that let users input and edit values in the form of text.
@@ -68,7 +69,7 @@ export default Vue.extend( {
 	data() {
 		return {
 			// https://github.com/vuejs/vue/issues/5886
-			id: `wikit-TextInput-${Math.floor( Math.random() * 1000000 )}`,
+			id: generateUid( 'wikit-TextInput' ),
 		};
 	},
 
