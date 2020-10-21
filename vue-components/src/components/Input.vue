@@ -4,6 +4,7 @@
 		type="text"
 		:class="classes"
 		@input="$emit( 'input', $event.target.value )"
+		:value="value"
 	>
 </template>
 
@@ -25,6 +26,10 @@ export default Vue.extend( {
 					[ 'warning', 'error' ].includes( value );
 			},
 			default: null,
+		},
+		value: {
+			type: String,
+			default: '',
 		},
 	},
 
