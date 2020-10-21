@@ -7,7 +7,7 @@ export default {
 	title: 'Icon',
 };
 
-export function all(): Component {
+export function allTypes(): Component {
 	return {
 		data(): object {
 			return { iconTypes };
@@ -18,6 +18,23 @@ export function all(): Component {
 				<div v-for="type in iconTypes" style="float: left; padding: 20px 50px; color: #555">
 					<Icon :type="type" />
 					{{ type }}
+				</div>
+			</div>
+		`,
+	};
+}
+
+export function allSizes(): Component {
+	return {
+		data(): object {
+			return { iconSizes };
+		},
+		components: { Icon },
+		template: `
+			<div>
+				<div v-for="size in iconSizes" style="float: left; padding: 20px 50px; color: #555">
+					<Icon type="info" :size="size" />
+					{{ size }}
 				</div>
 			</div>
 		`,
