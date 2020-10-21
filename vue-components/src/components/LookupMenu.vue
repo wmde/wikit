@@ -4,7 +4,7 @@
 			class="wikit-LookupMenu__item"
 			:key="index"
 			v-for="(menuItem, index) in menuItems"
-			@click="$emit( 'selected', menuItem )"
+			@click="$emit( 'select', menuItem )"
 			@mousedown.prevent
 			tabindex="0"
 		>
