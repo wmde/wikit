@@ -3,7 +3,7 @@
   "globalParameters": {},
   "kindParameters": {
     "Button": {
-      "fileName": 427,
+      "fileName": 428,
       "framework": "vue"
     },
     "Icon": {
@@ -15,7 +15,7 @@
       "framework": "vue"
     },
     "/Input/TextInput": {
-      "fileName": 428,
+      "fileName": 427,
       "framework": "vue"
     },
     "/Message/ValidationMessage": {
