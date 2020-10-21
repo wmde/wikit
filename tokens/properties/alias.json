@@ -441,6 +441,9 @@
             },
             "full": {
                 "value": "{dimension.dynamic.percentage.100.value}"
+            },
+            "double": {
+                "value": "{dimension.dynamic.percentage.200.value}"
             }
         },
         "padding": {
