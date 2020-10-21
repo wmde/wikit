@@ -3,8 +3,8 @@
 		<label class="wikit-Lookup__label" :for="inputId">{{ label }}</label>
 		<Input
 			:id="inputId"
-			v-model="inputValue"
-			@input="hasItemSelected = false"
+			:value="searchInput"
+			@input="onInput"
 			@focus.native="focused = true"
 			@blur.native="focused = false"
 			:feedback-type="feedbackType"
@@ -15,7 +15,7 @@
 			class="wikit-Lookup__menu"
 			:menu-items="menuItems"
 			v-if="showsMenu"
-			@selected="hasItemSelected = true"
+			@select="onSelect"
 		/>
 		<ValidationMessage
 			v-if="error"
@@ -31,6 +31,7 @@ import ValidationMessage from './ValidationMessage.vue';
 import Input from './Input.vue';
 import LookupMenu from './LookupMenu.vue';
 import generateUid from '@/components/util/generateUid';
+import { MenuItem } from '@/components/MenuItem';
 
 /**
  * The lookup component is a text input field that provides matching selectable suggestions as a user types into it.
@@ -44,11 +45,13 @@ export default Vue.extend( {
 		return {
 			hasItemSelected: false,
 			focused: false,
-			inputValue: '',
 			inputId: generateUid( 'wikit-Lookup' ),
 		};
 	},
 	props: {
+		/**
+		 * Array of objects that will be displayed in the lookup menu. Must contain a `label` and a `description` field.
+		 */
 		menuItems: {
 			type: Array,
 			default: (): [] => [],
@@ -75,9 +78,15 @@ export default Vue.extend( {
 			type: String,
 			default: '',
 		},
+		/**
+		 * The selected menu item, can be of type `MenuItem` or `null`.
+		 *
+		 * The data usually comes from the consumer's `v-model` annotation on the Lookup component.
+		 * Currently this prop is not used and does nothing.
+		 */
 		value: {
-			type: String,
-			default: '',
+			type: Object,
+			default: null,
 		},
 		width: {
 			type: String,
@@ -85,6 +94,41 @@ export default Vue.extend( {
 				return [ 'small', 'medium', 'large', 'full-width' ].includes( value );
 			},
 			default: 'medium',
+		},
+		/**
+		 * Sets the value of the Lookup component's inner `<input>` element. This prop can be used with the `.sync`
+		 * modifier. When bound to a field in the consuming component's data object, it can be used within a watcher or
+		 * computed property to dynamically update the Lookup's `menuItems` prop.
+		 */
+		searchInput: {
+			type: String,
+			default: '',
+		},
+	},
+
+	methods: {
+		onInput( value: string ): void {
+			this.hasItemSelected = false;
+
+			// the following comment generates the event's description for the docs tab in storybook
+			/**
+			 * Enables the `searchInput` prop to be used with the `.sync` modifier. It's used to transport the value of
+			 * the Lookup component's inner `<input>` element to the parent component.
+			 */
+			this.$emit( 'update:searchInput', value );
+		},
+
+		onSelect( menuItem: MenuItem ): void {
+			this.hasItemSelected = true;
+
+			// the following comment generates the event's description for the docs tab in storybook
+			/**
+			 * This even is emitted whenever an item is selected on the Lookup. The event payload contains the whole
+			 * MenuItem object.
+			 */
+			this.$emit( 'input', menuItem );
+			this.$el.querySelector( 'input' ).blur();
+			this.$emit( 'update:searchInput', menuItem.label );
 		},
 	},
 
@@ -94,7 +138,7 @@ export default Vue.extend( {
 		},
 
 		showsMenu(): boolean {
-			return !this.hasItemSelected && this.focused && this.inputValue.length > 0;
+			return !this.hasItemSelected && this.focused && this.searchInput.length > 0;
 		},
 	},
 
