@@ -1,9 +1,20 @@
 import Vue from 'vue';
-import { mount } from '@vue/test-utils';
+import { mount, Wrapper } from '@vue/test-utils';
 import Lookup from '@/components/Lookup.vue';
 import LookupMenu from '@/components/LookupMenu.vue';
 import Input from '@/components/Input.vue';
 import ValidationMessage from '@/components/ValidationMessage.vue';
+import { MenuItem } from '@/components/MenuItem';
+
+function createLookupWrapperWithExpandedMenu( menuItems: MenuItem[] ): Wrapper<Lookup> {
+	const wrapper = mount( Lookup, { propsData: {
+		menuItems,
+		searchInput: 'some non-empty input',
+	} } );
+	wrapper.findComponent( Input ).trigger( 'focus' );
+
+	return wrapper;
+}
 
 describe( 'Lookup', () => {
 
@@ -120,10 +131,12 @@ describe( 'Lookup', () => {
 	} );
 
 	it( 'shows the lookup menu if the input field is focused and has content', () => {
-		const wrapper = mount( Lookup );
-		const inputField = wrapper.findComponent( Input );
-		inputField.setValue( 'potato' );
-		inputField.trigger( 'focus' );
+		const wrapper = mount( Lookup, {
+			propsData: {
+				searchInput: 'some non-empty input',
+			},
+		} );
+		wrapper.findComponent( Input ).trigger( 'focus' );
 
 		return Vue.nextTick().then( () => {
 			expect( wrapper.findComponent( LookupMenu ).exists() ).toBeTruthy();
@@ -135,15 +148,50 @@ describe( 'Lookup', () => {
 			{ label: 'potato', description: 'root vegetable' },
 			{ label: 'duck', description: 'aquatic bird' },
 		];
-		const wrapper = mount( Lookup, { propsData: { menuItems } } );
-		const inputField = wrapper.findComponent( Input );
-		inputField.setValue( 'something something' );
-		inputField.trigger( 'focus' );
+		const wrapper = createLookupWrapperWithExpandedMenu( menuItems );
 
 		return Vue.nextTick().then( () => {
 			expect( wrapper.findComponent( LookupMenu ).props( 'menuItems' ) ).toBe( menuItems );
-
 		} );
+	} );
+
+	it( 'emits an `input` event containing the selected menu item upon selection', async () => {
+		const menuItems = [
+			{ label: 'potato', description: 'root vegetable' },
+			{ label: 'duck', description: 'aquatic bird' },
+		];
+		const wrapper = createLookupWrapperWithExpandedMenu( menuItems );
+
+		await Vue.nextTick();
+
+		const selectedItem = 1;
+		wrapper.findAll( '.wikit-LookupMenu__item' ).at( selectedItem ).element.click();
+
+		expect( wrapper.emitted( 'input' )![ 0 ] ).toEqual( [ menuItems[ selectedItem ] ] );
+	} );
+
+	it( "emits `update:searchInput` containing the selected item's label upon selection", async () => {
+		const menuItems = [
+			{ label: 'potato', description: 'root vegetable' },
+			{ label: 'duck', description: 'aquatic bird' },
+		];
+		const wrapper = createLookupWrapperWithExpandedMenu( menuItems );
+
+		await Vue.nextTick();
+
+		const selectedItem = 1;
+		wrapper.findAll( '.wikit-LookupMenu__item' ).at( selectedItem ).element.click();
+
+		expect( ( wrapper.emitted( 'update:searchInput' ) )![ 0 ] )
+			.toEqual( [ menuItems[ selectedItem ].label ] );
+	} );
+
+	it( 'emits `update:searchInput` when the internal input element receives input', () => {
+		const wrapper = mount( Lookup );
+		const userInput = 'potato';
+		wrapper.find( 'input' ).setValue( userInput );
+
+		expect( ( wrapper.emitted( 'update:searchInput' ) )![ 0 ] ).toEqual( [ userInput ] );
 	} );
 
 } );
