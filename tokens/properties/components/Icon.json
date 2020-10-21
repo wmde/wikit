@@ -9,6 +9,12 @@
 		"warning-color": {
 			"value": "{icon.color.warning.value}"
 		},
+		"notice-color": {
+			"value": "{icon.color.notice.value}"
+		},
+		"success-color": {
+			"value": "{icon.color.success.value}"
+		},
 		"medium-size": {
 			"value": "{icon.size.medium.value}",
 			"comment": "icons are squares, so height and width are identical"
