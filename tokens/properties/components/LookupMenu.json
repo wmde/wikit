@@ -11,11 +11,17 @@
 				"value": "{border.width.thin.value}"
 			},
 			"radius" : {
-				"value": "{border.style.base.value}"
+				"value": "{border.radius.base.value}"
 			},
 			"color" : {
 				"value": "{border.color.base.default.value}"
 			}
+		},
+		"min-width": {
+				"value": "{dimension.width.full.value}"
+			},
+		"max-width": {
+				"value": "{dimension.width.double.value}"
 		},
 		"box-shadow": {
 			"value": "{box-shadow.elevation.menu.value}"

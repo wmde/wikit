@@ -61,10 +61,11 @@ export default Vue.extend( {
 $base: '.wikit-LookupMenu';
 
 #{$base} {
-	min-width: 100%;
-	max-width: 200%;
+	min-width: $wikit-LookupMenu-min-width;
+	max-width: $wikit-LookupMenu-max-width;
 	width: max-content;
 	background-color: $wikit-LookupMenu-background-color;
+	border-radius: $wikit-LookupMenu-border-radius;
 	border: $wikit-LookupMenu-border-width $wikit-LookupMenu-border-style $wikit-LookupMenu-border-color;
 	box-shadow: $wikit-LookupMenu-box-shadow;
 	overflow-y: auto;
