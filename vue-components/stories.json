@@ -38,13 +38,23 @@
         "__isArgsStory": false
       }
     },
-    "icon--all": {
-      "id": "icon--all",
-      "name": "All",
+    "icon--all-types": {
+      "id": "icon--all-types",
+      "name": "All Types",
       "kind": "Icon",
-      "story": "All",
+      "story": "All Types",
       "parameters": {
-        "__id": "icon--all",
+        "__id": "icon--all-types",
+        "__isArgsStory": false
+      }
+    },
+    "icon--all-sizes": {
+      "id": "icon--all-sizes",
+      "name": "All Sizes",
+      "kind": "Icon",
+      "story": "All Sizes",
+      "parameters": {
+        "__id": "icon--all-sizes",
         "__isArgsStory": false
       }
     },
