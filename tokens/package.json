@@ -40,6 +40,6 @@
     "string.prototype.matchall": "^4.0.2",
     "style-dictionary": "^2.10.0",
     "watch": "^1.0.2",
-    "wikimedia-ui-base": "^0.15.0"
+    "wikimedia-ui-base": "^0.17.0"
   }
 }
