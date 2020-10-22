@@ -78,21 +78,26 @@
         "modifier": {
             "lighten": {
                 "base-10": {
-                    "value": "#404244"
+                    "value": "{wmf-wmui-color-base10--lighten.value}"
                 },
                 "base-20": {
                     "value": "#6c7378"
                 },
                 "accent-50": {
-                    "value": "#447ff5"
+                    "value": "{wmf-wmui-color-accent50--lighten.value}"
                 },
                 "utility-red-50": {
-                    "value": "#ff4242"
+                    "value": "{wmf-wmui-color-red50--lighten.value}"
                 }
             },
             "purple": {
+<<<<<<< HEAD
                 "value": "#6b4ba1"
             }
+=======
+                    "value": "{wmf-wmui-color-purple50.value}"
+                }
+>>>>>>> uptade wikimedia-ui-base dependency and global tokens
         },
         "transparent": {
             "value": "transparent"
@@ -129,20 +134,17 @@
         },
         "weight": {
             "hairline": {
-                "value": "100",
-                "comment": "To be found in wmf-font-weight-hairline in a future wikimedia-ui-base version"
+                "value": "{wmf-font-weight-hairline.value}"
             },
             "regular": {
-                "value": "400",
-                "comment": "To be found in wmf-font-weight-regular in a future wikimedia-ui-base version"
+                "value": "{wmf-font-weight-normal.value}",
+                "comment": "Opting to not modify the name of this global token. Regular is the right typographic term for this weight."
             },
             "semi-bold": {
-                "value": "600",
-                "comment": "To be found in wmf-font-weight-semi-bold in a future wikimedia-ui-base version"
+                "value": "{wmf-font-weight-semi-bold.value}"
             },
             "bold": {
-                "value": "700",
-                "comment": "To be found in wmf-font-weight-bold in a future wikimedia-ui-base version"
+                "value": "{wmf-font-weight-bold.value}"
             }
         },
         "line-height": {
