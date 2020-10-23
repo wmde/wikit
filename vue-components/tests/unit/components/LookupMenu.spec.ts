@@ -20,4 +20,34 @@ describe( 'LookupMenu', () => {
 		expect( renderedMenuItems.at( 1 ).find( '.wikit-LookupMenu__item__description' ).text() )
 			.toBe( menuItems[ 1 ].description );
 	} );
+
+	it( 'shows the "no match found" text if there are no menu items', () => {
+		const noResultsFoundText = 'no results. so sad.';
+		const wrapper = mount( LookupMenu, {
+			propsData: {
+				menuItems: [],
+			},
+			slots: {
+				'no-results': noResultsFoundText,
+			},
+		} );
+
+		expect( wrapper.text() ).toBe( noResultsFoundText );
+	} );
+
+	it( 'does not show the "no match found" text if there are menu items', () => {
+		const wrapper = mount( LookupMenu, {
+			propsData: {
+				menuItems: [
+					{ label: 'potato', description: 'root vegetable' },
+					{ label: 'duck', description: 'aquatic bird' },
+				],
+			},
+			slots: {
+				'no-results': 'no results. so sad.',
+			},
+		} );
+
+		expect( wrapper.find( '.wikit-LookupMenu__no-results' ).exists() ).toBeFalsy();
+	} );
 } );

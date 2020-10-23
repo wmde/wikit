@@ -16,7 +16,11 @@
 			:menu-items="menuItems"
 			v-if="showsMenu"
 			@select="onSelect"
-		/>
+		>
+			<template v-slot:no-results>
+				<slot name="no-results" />
+			</template>
+		</LookupMenu>
 		<ValidationMessage
 			v-if="error"
 			:type="error.type"
