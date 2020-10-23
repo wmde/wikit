@@ -194,4 +194,22 @@ describe( 'Lookup', () => {
 		expect( ( wrapper.emitted( 'update:searchInput' ) )![ 0 ] ).toEqual( [ userInput ] );
 	} );
 
+	it( 'passes the no-results slot to the lookup menu', async () => {
+		const noResultsText = 'no results :(';
+		const wrapper = mount( Lookup, {
+			propsData: {
+				menuItems: [],
+				searchInput: 'some non-empty input',
+			},
+			slots: {
+				'no-results': noResultsText,
+			},
+		} );
+		wrapper.findComponent( Input ).trigger( 'focus' );
+
+		await Vue.nextTick();
+
+		expect( wrapper.find( '.wikit-Lookup__menu' ).text() ).toBe( noResultsText );
+	} );
+
 } );

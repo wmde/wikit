@@ -15,6 +15,9 @@
 				{{ menuItem.description }}
 			</div>
 		</div>
+		<div v-if="menuItems.length === 0" class="wikit-LookupMenu__no-results">
+			<slot name="no-results" />
+		</div>
 	</div>
 </template>
 
@@ -106,6 +109,16 @@ $base: '.wikit-LookupMenu';
 			color: $wikit-LookupMenu-item-description-font-color;
 			line-height: $wikit-LookupMenu-item-description-line-height;
 		}
+	}
+
+	&__no-results {
+		font-family: $wikit-LookupMenu-no-results-font-family;
+		font-size: $wikit-LookupMenu-no-results-font-size;
+		font-weight: $wikit-LookupMenu-no-results-font-weight;
+		color: $wikit-LookupMenu-no-results-font-color;
+		line-height: $wikit-LookupMenu-no-results-line-height;
+		padding-block: $wikit-LookupMenu-no-results-padding-vertical;
+		padding-inline: $wikit-LookupMenu-no-results-padding-horizontal;
 	}
 }
 </style>

@@ -70,7 +70,11 @@ export function all(): Component {
 					:menu-items="menuItems"
 					placeholder="Placeholder"
 					width="medium"
-				/>
+				>
+					<template v-slot:no-results>
+						No match was found
+					</template>
+				</Lookup>
 				<div v-if="selectedItem" style="margin-top: 16px">
 					Selected vegetable:
 					<span class="selected-item-label">{{ selectedItem.label }}</span>

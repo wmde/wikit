@@ -92,6 +92,29 @@
 					"value": "{font.color.base.value}"
 				}
 			}
+		},
+		"no-results": {
+			"padding-vertical": {
+				"value": "{dimension.spacing.small.value}"
+			},
+			"padding-horizontal": {
+				"value": "{dimension.spacing.medium.value}"
+			},
+			"font-family": {
+				"value": "{font.family.style.label.value}"
+			},
+			"font-size": {
+				"value": "{font.size.style.label.value}"
+			},
+			"font-weight": {
+				"value": "{font.weight.style.label.value}"
+			},
+			"line-height": {
+				"value": "{font.line-height.style.label.value}"
+			},
+			"font-color": {
+				"value": "{font.color.subtle.value}"
+			}
 		}
 	}
 }
