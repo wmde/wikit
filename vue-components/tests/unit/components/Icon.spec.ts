@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Icon from '@/components/Icon.vue';
-import { iconSizes, iconColors, iconTypes } from '@/components/iconProps';
+import { iconSizes, iconColors, IconTypes } from '@/components/iconProps';
 
 describe( 'Icon', () => {
 
@@ -50,7 +50,9 @@ describe( 'Icon', () => {
 		} ) ).toThrow();
 	} );
 
-	it.each( iconTypes )( '%s: has at least one part of the SVG element that can be colored', ( iconType ) => {
+	it.each(
+		Object.values( IconTypes ),
+	)( '%s: has at least one part of the SVG element that can be colored', ( iconType ) => {
 		const wrapper = mount( Icon, {
 			propsData: {
 				type: iconType,
