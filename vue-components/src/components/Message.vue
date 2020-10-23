@@ -21,6 +21,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import Icon from './Icon.vue';
+import { IconTypes } from '@/components/iconProps';
 
 /**
  * Uses the following components internally: Icon
@@ -43,10 +44,10 @@ export default Vue.extend( {
 	computed: {
 		getIconType(): string {
 			const messageIconTypeMap = {
-				error: 'error',
-				warning: 'alert',
-				notice: 'info',
-				success: 'checkmark',
+				error: IconTypes.ERROR,
+				warning: IconTypes.ALERT,
+				notice: IconTypes.INFO,
+				success: IconTypes.CHECKMARK,
 			};
 			const messageType = this.type as 'warning'|'error'|'notice'|'success';
 			return messageIconTypeMap[ messageType ];

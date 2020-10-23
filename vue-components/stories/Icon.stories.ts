@@ -1,5 +1,5 @@
 import Icon from '@/components/Icon';
-import { iconSizes, iconColors, iconTypes } from '@/components/iconProps';
+import { iconSizes, iconColors, IconTypes } from '@/components/iconProps';
 import { Component } from 'vue';
 
 export default {
@@ -10,12 +10,12 @@ export default {
 export function allTypes(): Component {
 	return {
 		data(): object {
-			return { iconTypes };
+			return { IconTypes };
 		},
 		components: { Icon },
 		template: `
 			<div>
-				<div v-for="type in iconTypes" style="float: left; padding: 20px 50px; color: #555">
+				<div v-for="type in IconTypes" style="float: left; padding: 20px 50px; color: #555">
 					<Icon :type="type" />
 					{{ type }}
 				</div>
