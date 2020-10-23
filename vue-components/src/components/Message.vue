@@ -9,7 +9,7 @@
 		<span class="wikit-Message__content">
 			<Icon
 				class="wikit-Message__icon"
-				:type="type === 'error' ? 'error' : 'alert'"
+				:type="getIconType"
 				:color="type"
 				size="large"
 			/>
@@ -40,7 +40,18 @@ export default Vue.extend( {
 			default: false,
 		},
 	},
-
+	computed: {
+		getIconType(): string {
+			const messageIconTypeMap = {
+				error: 'error',
+				warning: 'alert',
+				notice: 'info',
+				success: 'checkmark',
+			};
+			const messageType = this.type as 'warning'|'error'|'notice'|'success';
+			return messageIconTypeMap[ messageType ];
+		},
+	},
 	components: {
 		Icon,
 	},
