@@ -10,12 +10,23 @@
 			:feedback-type="feedbackType"
 			:placeholder="placeholder"
 			:disabled="disabled"
+			@keyup.up.native="onArrowUp"
+			@keyup.down.native="onArrowDown"
+			@keydown.up.native.prevent
+			@keydown.down.native.prevent
+			@keyup.enter.native="onSelect( menuItems[ selectedItemIndex ] )"
+			@keydown.tab.native.prevent="hasActiveElement = true"
+			@keydown.enter.native.prevent="hasActiveElement = true"
+			@keyup.tab.native="onTab"
+			@keyup.esc.native="escKeyPressed = true"
 		/>
 		<LookupMenu
 			class="wikit-Lookup__menu"
 			:menu-items="menuItems"
-			v-if="showsMenu"
+			v-if="showsMenu && !escKeyPressed"
 			@select="onSelect"
+			:selected-item-index="selectedItemIndex"
+			:has-active-element="hasActiveElement"
 		/>
 		<ValidationMessage
 			v-if="error"
@@ -45,7 +56,10 @@ export default Vue.extend( {
 		return {
 			hasItemSelected: false,
 			focused: false,
+			escKeyPressed: false,
 			inputId: generateUid( 'wikit-Lookup' ),
+			selectedItemIndex: null,
+			hasActiveElement: false,
 		};
 	},
 	props: {
@@ -105,7 +119,10 @@ export default Vue.extend( {
 
 	methods: {
 		onInput( value: string ): void {
+			this.escKeyPressed = false;
 			this.hasItemSelected = false;
+			this.selectedItemIndex = null;
+			this.hasActiveElement = false;
 
 			// the following comment generates the event's description for the docs tab in storybook
 			/**
@@ -116,7 +133,9 @@ export default Vue.extend( {
 		},
 
 		onSelect( menuItem: MenuItem ): void {
+			this.selectedItemIndex = null;
 			this.hasItemSelected = true;
+			this.hasActiveElement = false;
 
 			// the following comment generates the event's description for the docs tab in storybook
 			/**
@@ -127,6 +146,26 @@ export default Vue.extend( {
 			this.$el.querySelector( 'input' ).blur();
 			this.$emit( 'update:searchInput', menuItem.label );
 		},
+
+		onArrowUp() {
+			this.selectedItemIndex = Math.max( 0, this.selectedItemIndex - 1 );
+		},
+		onArrowDown() {
+			const index = this.selectedItemIndex === null ? -1 : this.selectedItemIndex;
+			this.selectedItemIndex = Math.min( this.menuItems.length - 1, index + 1 );
+		},
+		onTab() {
+			if ( this.selectedItemIndex !== null ) {
+				this.onSelect( this.menuItems[ this.selectedItemIndex ] );
+			}
+		},
+		onEsc(): boolean {
+			return false;
+			// this.showsMenu = false;
+			// this.hasItemSelected = false;
+			// this.selectedItemIndex = null;
+			// this.hasActiveElement = false;
+		}
 	},
 
 	computed: {
