@@ -10,12 +10,16 @@
 			:feedback-type="feedbackType"
 			:placeholder="placeholder"
 			:disabled="disabled"
+			@keyup.up.native="onArrowUp"
+			@keyup.down.native="onArrowDown"
+			@keyup.enter.native="onSelect( menuItems[ selectedItemIndex ] )"
 		/>
 		<LookupMenu
 			class="wikit-Lookup__menu"
 			:menu-items="menuItems"
 			v-if="showsMenu"
 			@select="onSelect"
+			:selected-item-index="selectedItemIndex"
 		/>
 		<ValidationMessage
 			v-if="error"
@@ -46,6 +50,7 @@ export default Vue.extend( {
 			hasItemSelected: false,
 			focused: false,
 			inputId: generateUid( 'wikit-Lookup' ),
+			selectedItemIndex: 0,
 		};
 	},
 	props: {
@@ -126,6 +131,15 @@ export default Vue.extend( {
 			this.$emit( 'input', menuItem );
 			this.$el.querySelector( 'input' ).blur();
 			this.$emit( 'update:searchInput', menuItem.label );
+		},
+
+		onArrowUp() {
+			this.selectedItemIndex = Math.max( 0, this.selectedItemIndex - 1 );
+			console.log( this.selectedItemIndex )
+		},
+		onArrowDown() {
+			this.selectedItemIndex = Math.min( this.menuItems.length - 1, this.selectedItemIndex + 1 );
+			console.log( this.selectedItemIndex )
 		},
 	},
 

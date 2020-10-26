@@ -4,9 +4,11 @@
 			class="wikit-LookupMenu__item"
 			:key="index"
 			v-for="(menuItem, index) in menuItems"
+			:class="{ 'wikit-LookupMenu__item--active': index === selectedItemIndex }"
 			@click="$emit( 'select', menuItem )"
 			@mousedown.prevent
 			tabindex="0"
+			ref="lookup"
 		>
 			<div class="wikit-LookupMenu__item__label">
 				{{ menuItem.label }}
@@ -30,6 +32,10 @@ export default Vue.extend( {
 		menuItems: {
 			type: Array,
 			default: (): [] => [],
+		},
+		selectedItemIndex: {
+			type: Number,
+			default: 0,
 		},
 	},
 
@@ -82,7 +88,7 @@ $base: '.wikit-LookupMenu';
 			cursor: $wikit-LookupMenu-item-hover-cursor;
 		}
 
-		&:active {
+		&:active, &--active {
 			background-color: $wikit-LookupMenu-item-active-background-color;
 
 			#{$base}__item__label, #{$base}__item__description {
