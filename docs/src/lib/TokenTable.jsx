@@ -1,12 +1,12 @@
 import React from 'react';
 import { TokenPresenter } from './TokenPresenter';
-import { components } from '@storybook/components/dist/typography/DocumentFormatting';
-import { AnchorMdx } from '@storybook/addon-docs/dist/blocks/mdx';
+// import { components } from '@storybook/components/dist/typography/DocumentFormatting'; // TODO
+// import { AnchorMdx } from '@storybook/addon-docs/dist/blocks/mdx'; // TODO
 import './../styles/token-table.css';
 
 export function TokenTable( { tokens } ) {
 	return (
-		<components.table className='token-table' style={{ width: '100%' }}>
+		<table className='token-table' style={{ width: '100%' }}>
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -18,7 +18,7 @@ export function TokenTable( { tokens } ) {
 					tokens.map( ( token ) => (
 						<tr key={ token.name } id={ token.name }>
 							<td>
-								<AnchorMdx href={ '#' + token.name }>🔗</AnchorMdx>
+								<a href={ '#' + token.name }>🔗</a>
 							&nbsp;<strong className="token-name">{ token.name }</strong>
 								<div className="referenced-tokens" title="value influenced by">
 									{token.referencedTokens.length > 0 ?
@@ -38,6 +38,6 @@ export function TokenTable( { tokens } ) {
 					) )
 				}
 			</tbody>
-		</components.table>
+		</table>
 	);
 }
