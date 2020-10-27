@@ -488,6 +488,9 @@
             }
         },
         "layout": {
+            "xxsmall": {
+                "value": "{dimension.dynamic.size.50.value}"
+            },
             "xsmall": {
                 "value": "{dimension.dynamic.size.100.value}"
             },
