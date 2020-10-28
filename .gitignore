@@ -15,3 +15,6 @@ node_modules/
 *.log
 .env.local
 .env.*.local
+
+# OS Specific
+.DS_Store
