@@ -4,7 +4,7 @@ import { MenuItem } from '@/components/MenuItem';
 
 export default {
 	component: Lookup,
-	title: 'Lookup',
+	title: '/Lookup/Lookup',
 };
 
 const vegetableItems = [
