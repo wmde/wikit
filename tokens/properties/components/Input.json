@@ -12,6 +12,9 @@
         "border-radius": {
             "value": "{border.radius.base.value}"
         },
+        "background-color": {
+			"value": "{background.color.base.default.value}"
+        },
         "font-family": {
             "value": "{font.family.style.body.value}"
         },
