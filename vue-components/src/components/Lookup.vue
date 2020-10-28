@@ -131,8 +131,11 @@ export default Vue.extend( {
 			 * MenuItem object.
 			 */
 			this.$emit( 'input', menuItem );
-			this.$el.querySelector( 'input' ).blur();
 			this.$emit( 'update:searchInput', menuItem.label );
+
+			// We know that there is one input here because it is part of this component
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			this.$el.querySelector( 'input' )!.blur();
 		},
 	},
 
