@@ -35,12 +35,13 @@ export default Vue.extend( {
 
 	methods: {
 		resizeMenu(): void {
-			const menuItems = this.$el.querySelectorAll( '.wikit-LookupMenu__item' );
+			const rootElem = this.$el as HTMLElement;
+			const menuItems = rootElem.querySelectorAll( '.wikit-LookupMenu__item' ) as NodeListOf<HTMLElement>;
 			// the height automatically adjusts for up to 6 elements, then shows a scrollbar
 			const maxNumberOfElementsDisplayed = 6;
 			if ( menuItems.length > maxNumberOfElementsDisplayed ) {
 				const menuHeight = menuItems[ maxNumberOfElementsDisplayed ].offsetTop - menuItems[ 0 ].offsetTop;
-				this.$el.style.maxHeight = menuHeight + 'px';
+				rootElem.style.maxHeight = menuHeight + 'px';
 			}
 		},
 	},
