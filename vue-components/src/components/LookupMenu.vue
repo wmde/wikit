@@ -74,6 +74,7 @@ $base: '.wikit-LookupMenu';
 	box-shadow: $wikit-LookupMenu-box-shadow;
 	overflow-y: auto;
 	box-sizing: border-box;
+	z-index: 1;
 
 	&__item {
 		padding-block: $wikit-LookupMenu-item-padding-vertical;
