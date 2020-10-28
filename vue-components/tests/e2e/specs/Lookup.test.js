@@ -2,7 +2,8 @@ module.exports = {
 	'Lookup Menu shows on user input': ( client ) => {
 		client
 			.init()
-			.openComponentStory( 'lookup' )
+			.openComponentStoryDirectory( 'lookup' )
+			.openComponentStory( 'lookup-lookup' )
 			.waitForElementPresent( '.wikit-Lookup' )
 			.setValue( 'input', 'potato' )
 			.waitForElementPresent( '.wikit-Lookup__menu' )
@@ -11,7 +12,8 @@ module.exports = {
 	'Lookup Menu displays no-results text on no matches found': ( client ) => {
 		client
 			.init()
-			.openComponentStory( 'lookup' )
+			.openComponentStoryDirectory( 'lookup' )
+			.openComponentStory( 'lookup-lookup' )
 			.waitForElementPresent( '.wikit-Lookup' )
 			.setValue( 'input', 'whatever' )
 			.waitForElementPresent( '.wikit-Lookup__menu' )
@@ -20,7 +22,8 @@ module.exports = {
 	'Lookup Menu selects menu item when LookupMenu-Item clicked': ( client ) => {
 		client
 			.init()
-			.openComponentStory( 'lookup' )
+			.openComponentStoryDirectory( 'lookup' )
+			.openComponentStory( 'lookup-lookup' )
 			.waitForElementPresent( '.wikit-Lookup' )
 			.setValue( 'input', 'potato' )
 			.waitForElementPresent( '.wikit-Lookup__menu' )
