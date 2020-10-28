@@ -35,7 +35,7 @@ export default Vue.extend( {
 
 	methods: {
 		resizeMenu(): void {
-			const rootElem = <HTMLElement>this.$el;
+			const rootElem = this.$el;
 			const menuItems = rootElem.querySelectorAll( '.wikit-LookupMenu__item' ) as NodeListOf<HTMLElement>;
 			// the height automatically adjusts for up to 6 elements, then shows a scrollbar
 			const maxNumberOfElementsDisplayed = 6;
