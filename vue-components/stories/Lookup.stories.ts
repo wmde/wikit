@@ -63,22 +63,42 @@ export function all(): Component {
 
 		template: `
 			<div>
-				<Lookup
-					:search-input.sync="search"
+				<div style="margin-bottom: 20px">
+					<Lookup
+						:search-input.sync="search"
+						label="Label"
+						v-model="selectedItem"
+						:menu-items="menuItems"
+						placeholder="Placeholder"
+						width="medium"
+					>
+						<template v-slot:no-results>
+							No match was found
+						</template>
+					</Lookup>
+					<div v-if="selectedItem" style="margin-top: 16px">
+						Selected vegetable:
+						<span class="selected-item-label">{{ selectedItem.label }}</span>
+						(<span class="selected-item-id">{{ selectedItem.value }}</span>)
+					</div>
+				</div>
+				<div style="margin-bottom: 20px">
+					<Lookup
 					label="Label"
-					v-model="selectedItem"
-					:menu-items="menuItems"
+					:menu-items="[]"
 					placeholder="Placeholder"
 					width="medium"
-				>
-					<template v-slot:no-results>
-						No match was found
-					</template>
-				</Lookup>
-				<div v-if="selectedItem" style="margin-top: 16px">
-					Selected vegetable:
-					<span class="selected-item-label">{{ selectedItem.label }}</span>
-					(<span class="selected-item-id">{{ selectedItem.value }}</span>)
+					:error= "{ type: 'warning', message: 'Warning message' }"
+				/>
+				</div>
+				<div style="margin-bottom: 20px">
+					<Lookup
+					label="Label"
+					:menu-items="[]"
+					placeholder="Placeholder"
+					width="medium"
+					:error= "{ type: 'error', message: 'Please make a valid selection' }"
+				/>
 				</div>
 			</div>
 		`,
