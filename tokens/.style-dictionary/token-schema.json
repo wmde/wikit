@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+
+    "definitions": {
+        "tokenReference": {
+            "$comment": "The contents of definitions.tokenReference will be overridden at built time with an enum of all possible token names"
+        }
+    },
+
+    "type": "object",
+    "patternProperties": {
+        ".*": {
+            "$comment": "Recursively declaring all properties to either be a(nother) nesting level, or a token",
+            "anyOf": [
+                {
+                    "$comment": "a token with a value",
+
+                    "type": "object",
+                    "properties": {
+                        "value": {
+                            "anyOf": [
+                                { "$ref": "#/definitions/tokenReference" },
+                                {
+                                    "$comment": "Not every value is a token reference. It can also be a plain string.",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                },
+                {
+                    "$comment": "a nesting level (`#` refers to the schema itself)",
+                    "$ref": "#"
+                }
+            ]
+        }
+    }
+}

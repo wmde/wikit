@@ -49,6 +49,32 @@ While a "hover" on the "Dropdown" component impacting the "menu-item" style yiel
 
 <code>wikit-<strong>Dropdown-progressive-hover</strong>-menu-item-background-color</code>
 
+## Getting better editor support for token files
+
+By generating a JSON schema describing the structure of token files and including all token names we make it possible for text editors to provide autocompletion in token JSON files. This is especially useful for token references (e.g. `{font.line-height.style.label.value}`) which would otherwise be typed by hand.
+
+Letting the text editor know which JSON files to apply the schema to requires some configuration.
+
+### VS Code
+
+VS Code has good [documentation](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings) on getting better editor support for JSON files and working with JSON schemas. TL;DR modify and copy the following into your JSON workspace settings:
+
+```json
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "tokens/properties/**/*.json"
+            ],
+            "url": "./tokens/dist/schema.json"
+        }
+    ]
+}
+```
+
+### JetBrains products
+Go to Settings and navigate to `Languages & Frameworks` > `Schemas and DTDs` >  `JSON Schema Mappings`. There you'll be able to create a mapping for the token files with the schema pointing to `./tokens/dist/schema.json` and the directory set to `tokens/properties/`.
+
 ## Testing Components
 
 ### Working with browser tests
