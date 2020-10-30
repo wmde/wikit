@@ -50,6 +50,7 @@ export default Vue.extend( {
 <style lang="scss">
 .wikit-Input {
 	color: $wikit-Input-color;
+	background-color: $wikit-Input-background-color;
 	border-color: $wikit-Input-border-color;
 	border-style: $wikit-Input-border-style;
 	border-width: $wikit-Input-border-width;
