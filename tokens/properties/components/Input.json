@@ -12,6 +12,9 @@
         "border-radius": {
             "value": "{border.radius.base.value}"
         },
+        "width": {
+            "value":"{dimension.width.full.value}"
+        },
         "background-color": {
 			"value": "{background.color.base.default.value}"
         },

@@ -59,7 +59,7 @@ export default Vue.extend( {
 	font-size: $wikit-Input-font-size;
 	font-weight: $wikit-Input-font-weight;
 	line-height: $wikit-Input-line-height;
-	width: 100%;
+	width: $wikit-Input-width;
 	box-sizing: border-box;
 	padding-inline: $wikit-Input-desktop-padding-inline;
 	padding-block: $wikit-Input-desktop-padding-block;
