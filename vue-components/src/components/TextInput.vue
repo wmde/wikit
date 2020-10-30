@@ -62,7 +62,7 @@ export default Vue.extend( {
 			validator( value: string ): boolean {
 				return [ 'small', 'medium', 'large', 'full-width' ].includes( value );
 			},
-			default: 'medium',
+			default: 'full-width',
 		},
 	},
 
