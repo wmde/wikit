@@ -97,7 +97,7 @@ export default Vue.extend( {
 			validator( value: string ): boolean {
 				return [ 'small', 'medium', 'large', 'full-width' ].includes( value );
 			},
-			default: 'medium',
+			default: 'full-width',
 		},
 		/**
 		 * Sets the value of the Lookup component's inner `<input>` element. This prop can be used with the `.sync`
