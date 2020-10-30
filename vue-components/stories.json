@@ -3,31 +3,35 @@
   "globalParameters": {},
   "kindParameters": {
     "Button": {
-      "fileName": 438,
-      "framework": "vue"
-    },
-    "Icon": {
-      "fileName": 420,
-      "framework": "vue"
-    },
-    "/Input/Basic": {
-      "fileName": 423,
-      "framework": "vue"
-    },
-    "Lookup": {
-      "fileName": 437,
-      "framework": "vue"
-    },
-    "/Message/Message": {
       "fileName": 439,
       "framework": "vue"
     },
-    "/Input/TextInput": {
+    "Icon": {
+      "fileName": 421,
+      "framework": "vue"
+    },
+    "/Input/Basic": {
+      "fileName": 424,
+      "framework": "vue"
+    },
+    "/Lookup/Lookup": {
       "fileName": 440,
       "framework": "vue"
     },
+    "/Lookup/LookupMenu": {
+      "fileName": 433,
+      "framework": "vue"
+    },
+    "/Message/Message": {
+      "fileName": 441,
+      "framework": "vue"
+    },
+    "/Input/TextInput": {
+      "fileName": 442,
+      "framework": "vue"
+    },
     "/Message/ValidationMessage": {
-      "fileName": 436,
+      "fileName": 438,
       "framework": "vue"
     }
   },
@@ -72,13 +76,33 @@
         "__isArgsStory": false
       }
     },
-    "lookup--all": {
-      "id": "lookup--all",
+    "lookup-lookup--all": {
+      "id": "lookup-lookup--all",
       "name": "All",
-      "kind": "Lookup",
+      "kind": "/Lookup/Lookup",
       "story": "All",
       "parameters": {
-        "__id": "lookup--all",
+        "__id": "lookup-lookup--all",
+        "__isArgsStory": false
+      }
+    },
+    "lookup-lookupmenu--with-items": {
+      "id": "lookup-lookupmenu--with-items",
+      "name": "With Items",
+      "kind": "/Lookup/LookupMenu",
+      "story": "With Items",
+      "parameters": {
+        "__id": "lookup-lookupmenu--with-items",
+        "__isArgsStory": false
+      }
+    },
+    "lookup-lookupmenu--no-items": {
+      "id": "lookup-lookupmenu--no-items",
+      "name": "No Items",
+      "kind": "/Lookup/LookupMenu",
+      "story": "No Items",
+      "parameters": {
+        "__id": "lookup-lookupmenu--no-items",
         "__isArgsStory": false
       }
     },
