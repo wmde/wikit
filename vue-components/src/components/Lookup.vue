@@ -1,5 +1,5 @@
 <template>
-	<div :class="[ 'wikit', 'wikit-Lookup', `wikit-Lookup--${width}` ]">
+	<div :class="[ 'wikit', 'wikit-Lookup' ]">
 		<label class="wikit-Lookup__label" :for="inputId">{{ label }}</label>
 		<Input
 			:id="inputId"
