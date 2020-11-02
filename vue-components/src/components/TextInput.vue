@@ -84,7 +84,7 @@ export default Vue.extend( {
 	components: {
 		Input,
 		ValidationMessage,
-	},
+	}
 } );
 </script>
 
