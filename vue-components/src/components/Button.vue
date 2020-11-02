@@ -54,6 +54,7 @@ $base: '.wikit-Button';
 	transition-duration: $wikit-Button-transition-duration;
 	transition-timing-function: $wikit-Button-transition-timing-function;
 	transition-property: $wikit-Button-transition-property;
+	white-space: nowrap;
 
 	// TODO use breakpoint mixin?
 	@media (max-width: $width-breakpoint-mobile) {
