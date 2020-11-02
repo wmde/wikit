@@ -22,7 +22,7 @@ export function all(): Component {
 }
 
 
-export function controllableMessage( args: { fullwidth: boolean, content: string, type: string } ): Component {
+export function controllableMessage( args: { content: string, type: string } ): Component {
 	return {
 		data(): object {
 			return { args };
@@ -31,7 +31,7 @@ export function controllableMessage( args: { fullwidth: boolean, content: string
 		props: Object.keys( args ),
 		template: `
 			<div>
-			<p><Message :fullwidth="fullwidth" :type="type"><span v-html="content" /></Message></p>
+			<p><Message :type="type"><span v-html="content" /></Message></p>
 			</div>
 		`,
 	};
@@ -39,7 +39,6 @@ export function controllableMessage( args: { fullwidth: boolean, content: string
 
 controllableMessage.args = {
 	type: 'success',
-	fullwidth: false,
 	content: 'Here is some <em>content</em>. You can modify it in the "Controls" section.',
 };
 
