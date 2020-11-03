@@ -16,6 +16,7 @@
 			:menu-items="menuItems"
 			v-if="showsMenu"
 			@select="onSelect"
+			@scroll="onScroll"
 		>
 			<template v-slot:no-results>
 				<slot name="no-results" />
@@ -50,6 +51,8 @@ export default Vue.extend( {
 			hasItemSelected: false,
 			focused: false,
 			inputId: generateUid( 'wikit-Lookup' ),
+			scrollIndexStart: null as ( number | null ),
+			scrollIndexEnd: null as ( number | null ),
 		};
 	},
 	props: {
@@ -136,6 +139,20 @@ export default Vue.extend( {
 			// We know that there is one input here because it is part of this component
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 			this.$el.querySelector( 'input' )!.blur();
+		},
+		onScroll( firstIndex: number, lastIndex: number ): void {
+			if ( firstIndex !== this.scrollIndexStart || lastIndex !== this.scrollIndexEnd ) {
+				/**
+				 * This event is emitted whenever the first or last index of the
+				 * visible menuItems changes. If the user scrolls but the indexes remain
+				 * unchanged the event won't fire.
+				 *
+				 */
+				this.$emit( 'scroll', firstIndex, lastIndex );
+				this.scrollIndexStart = firstIndex;
+				this.scrollIndexEnd = lastIndex;
+			}
+
 		},
 	},
 
