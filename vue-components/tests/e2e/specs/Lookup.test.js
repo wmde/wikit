@@ -32,4 +32,16 @@ module.exports = {
 			.assert.containsText( '.selected-item-label', 'potato' )
 			.assert.containsText( '.selected-item-id', 'Q10998' );
 	},
+	'Lookup emits first and last index on scroll change': ( client ) => {
+		client
+			.init()
+			.openComponentStoryDirectory( 'lookup' )
+			.openComponentStory( 'lookup-lookup' )
+			.waitForElementPresent( '.wikit-Lookup' )
+			.setValue( 'input', 'a' )
+			.waitForElementPresent( '.wikit-Lookup__menu' )
+			.execute( 'document.querySelectorAll(".wikit-LookupMenu__item")[7].scrollIntoView(false)' )
+			.assert.containsText( '.first-visible-element-index', '2' )
+			.assert.containsText( '.last-visible-element-index', '7' );
+	},
 };

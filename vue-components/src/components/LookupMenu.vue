@@ -1,5 +1,9 @@
 <template>
-	<div :class="[ 'wikit', 'wikit-LookupMenu' ]">
+	<div
+		:class="[ 'wikit', 'wikit-LookupMenu' ]"
+		@scroll.passive="onScroll"
+		ref="lookup-menu"
+	>
 		<div
 			class="wikit-LookupMenu__item"
 			:key="index"
@@ -7,6 +11,7 @@
 			@click="$emit( 'select', menuItem )"
 			@mousedown.prevent
 			tabindex="0"
+			ref="menu-items"
 		>
 			<div class="wikit-LookupMenu__item__label">
 				{{ menuItem.label }}
@@ -23,6 +28,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import debounce from 'lodash/debounce';
 
 /**
  * This is an internal component which used by the Lookup component.
@@ -35,20 +41,37 @@ export default Vue.extend( {
 			default: (): [] => [],
 		},
 	},
-
 	methods: {
 		resizeMenu(): void {
-			const rootElem = this.$el as HTMLElement;
-			const menuItems = rootElem.querySelectorAll( '.wikit-LookupMenu__item' ) as NodeListOf<HTMLElement>;
+			const rootElem = this.$refs[ 'lookup-menu' ] as HTMLElement;
+			const menuItems = this.$refs[ 'menu-items' ] as HTMLElement[];
 			// the height automatically adjusts for up to 6 elements, then shows a scrollbar
 			const maxNumberOfElementsDisplayed = 6;
-			if ( menuItems.length > maxNumberOfElementsDisplayed ) {
+			if ( menuItems && menuItems.length > maxNumberOfElementsDisplayed ) {
 				const menuHeight = menuItems[ maxNumberOfElementsDisplayed ].offsetTop - menuItems[ 0 ].offsetTop;
 				rootElem.style.maxHeight = menuHeight + 'px';
 			}
 		},
-	},
+		onScroll: debounce( function ( this: Vue ) {
+			const rootElem = this.$refs[ 'lookup-menu' ] as HTMLElement;
+			const menuItems = this.$refs[ 'menu-items' ] as HTMLElement[];
+			const menuTop = rootElem.scrollTop;
+			const menuBottom = menuTop + rootElem.offsetHeight;
 
+			const visibleElems = [];
+			for ( let i = 0; i < menuItems.length; i++ ) {
+				const elementTop = menuItems[ i ].offsetTop;
+				const elementBottom = menuItems[ i ].offsetTop + menuItems[ i ].offsetHeight;
+
+				if ( elementTop <= menuBottom && elementBottom >= menuTop ) {
+					visibleElems.push( i );
+				}
+			}
+			this.$emit( 'scroll',
+				visibleElems[ 0 ],
+				visibleElems[ visibleElems.length - 1 ] );
+		}, 300 ),
+	},
 	mounted() {
 		this.resizeMenu();
 	},
@@ -77,6 +100,7 @@ $base: '.wikit-LookupMenu';
 	z-index: 1;
 
 	&__item {
+		position: relative;
 		padding-block: $wikit-LookupMenu-item-padding-vertical;
 		padding-inline: $wikit-LookupMenu-item-padding-horizontal;
 		transition-property: $wikit-LookupMenu-item-transition-property;
