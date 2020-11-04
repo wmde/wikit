@@ -6,13 +6,14 @@ import Input from '@/components/Input.vue';
 import ValidationMessage from '@/components/ValidationMessage.vue';
 import { MenuItem } from '@/components/MenuItem';
 
-function createLookupWrapperWithExpandedMenu( menuItems: MenuItem[] ): Wrapper<Lookup> {
+async function createLookupWrapperWithExpandedMenu( menuItems: MenuItem[] ): Promise<Wrapper<Lookup>> {
 	const wrapper = mount( Lookup, { propsData: {
 		menuItems,
 		searchInput: 'some non-empty input',
 	} } );
 	wrapper.findComponent( Input ).trigger( 'focus' );
 
+	await Vue.nextTick();
 	return wrapper;
 }
 
@@ -143,16 +144,14 @@ describe( 'Lookup', () => {
 		} );
 	} );
 
-	it( 'shows the menu items that are passed as props', () => {
+	it( 'shows the menu items that are passed as props', async () => {
 		const menuItems = [
 			{ label: 'potato', description: 'root vegetable' },
 			{ label: 'duck', description: 'aquatic bird' },
 		];
-		const wrapper = createLookupWrapperWithExpandedMenu( menuItems );
+		const wrapper = await createLookupWrapperWithExpandedMenu( menuItems );
 
-		return Vue.nextTick().then( () => {
-			expect( wrapper.findComponent( LookupMenu ).props( 'menuItems' ) ).toBe( menuItems );
-		} );
+		expect( wrapper.findComponent( LookupMenu ).props( 'menuItems' ) ).toBe( menuItems );
 	} );
 
 	it( 'emits an `input` event containing the selected menu item upon selection', async () => {
@@ -160,9 +159,7 @@ describe( 'Lookup', () => {
 			{ label: 'potato', description: 'root vegetable' },
 			{ label: 'duck', description: 'aquatic bird' },
 		];
-		const wrapper = createLookupWrapperWithExpandedMenu( menuItems );
-
-		await Vue.nextTick();
+		const wrapper = await createLookupWrapperWithExpandedMenu( menuItems );
 
 		const selectedItem = 1;
 		wrapper.findAll( '.wikit-LookupMenu__item' ).at( selectedItem ).element.click();
@@ -175,9 +172,7 @@ describe( 'Lookup', () => {
 			{ label: 'potato', description: 'root vegetable' },
 			{ label: 'duck', description: 'aquatic bird' },
 		];
-		const wrapper = createLookupWrapperWithExpandedMenu( menuItems );
-
-		await Vue.nextTick();
+		const wrapper = await createLookupWrapperWithExpandedMenu( menuItems );
 
 		const selectedItem = 1;
 		wrapper.findAll( '.wikit-LookupMenu__item' ).at( selectedItem ).element.click();
