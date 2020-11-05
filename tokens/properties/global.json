@@ -387,6 +387,9 @@
         "duration": {
             "medium": {
                 "value": "1600ms"
+            },
+            "slow": {
+                "value": "2000ms"
             }
         }
     },
