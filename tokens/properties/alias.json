@@ -633,5 +633,28 @@
                 "value": "{dimension.dynamic.size.125.value}"
             }
         }
+    },
+    "animation": {
+        "loader": {
+            "delay": {
+                "none": {
+                    "value": "{animation.delay.none.value}"
+                },
+                "medium": {
+                    "value": "{animation.delay.medium.value}"
+                },
+                "slow": {
+                    "value": "{animation.delay.slow.value}"
+                }
+            },
+            "duration": {
+                "medium": {
+                    "value": "{animation.duration.medium.value}"
+                },
+                "slow": {
+                    "value": "{animation.duration.slow.value}"
+                }
+            }
+        }
     }
 }
