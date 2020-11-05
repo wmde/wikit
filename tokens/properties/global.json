@@ -91,8 +91,8 @@
                 }
             },
             "purple": {
-                    "value": "#6b4ba1"
-                }
+                "value": "#6b4ba1"
+            }
         },
         "transparent": {
             "value": "transparent"
@@ -196,7 +196,7 @@
                 "0": {
                     "value": "0em"
                 },
-                "12":{
+                "12": {
                     "value": "0.125em"
                 },
                 "25": {
@@ -326,8 +326,8 @@
                 }
             }
         },
-        "elevation":{
-            "1":{
+        "elevation": {
+            "1": {
                 "value": "0 1px 1px 0 rgba(0, 0, 0, 0.15)"
             },
             "2": {
@@ -370,6 +370,24 @@
         },
         "overlay": {
             "value": "{wmf-z-index-overlay.value}"
+        }
+    },
+    "animation": {
+        "delay": {
+            "none": {
+                "value": "0ms"
+            },
+            "medium": {
+                "value": "-160ms"
+            },
+            "slow": {
+                "value": "-330ms"
+            }
+        },
+        "duration": {
+            "medium": {
+                "value": "1600ms"
+            }
         }
     },
     "cursor": {
