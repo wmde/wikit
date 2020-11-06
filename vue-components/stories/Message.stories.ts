@@ -16,7 +16,6 @@ export function all(): Component {
 				<p><Message type="warning">A warning which is not stopping whatever the user just did, but needs to clear up why things might not work as expected.</Message></p>
 				<p><Message type="notice">A neutral message which inform about general higher priority notices to the user. Stay neutral!</Message></p>
 				<p><Message type="success">A success message which means that the user did everything right and should know about it. Yay!</Message></p>
-				<p><Message fullwidth="true" type="success">A success message which means that the user did everything right and should know about it. Yay!</Message></p>
 			</div>
 		`,
 	};

@@ -3,7 +3,7 @@
 		:class="[
 			'wikit',
 			'wikit-Message',
-			`wikit-Message--${type}`, fullwidth ? '' : 'wikit-Message--default-width'
+			`wikit-Message--${type}`
 		]"
 	>
 		<span class="wikit-Message__content">
@@ -36,10 +36,6 @@ export default Vue.extend( {
 				return [ 'warning', 'error', 'notice', 'success' ].includes( value );
 			},
 		},
-		fullwidth: {
-			type: Boolean,
-			default: false,
-		},
 	},
 	computed: {
 		getIconType(): string {
@@ -70,6 +66,8 @@ export default Vue.extend( {
 	border-style: $wikit-Message-border-style;
 	border-radius: $wikit-Message-border-radius;
 
+	width: $wikit-Message-default-width;
+
 	&--error {
 		border-color: $wikit-Message-error-border-color;
 		background: $wikit-Message-error-background-color;
@@ -88,11 +86,6 @@ export default Vue.extend( {
 	&--success {
 		border-color: $wikit-Message-success-border-color;
 		background: $wikit-Message-success-background-color;
-	}
-
-	&--default-width {
-		width: $wikit-Message-default-width;
-		box-sizing: border-box;
 	}
 
 	&__icon {
