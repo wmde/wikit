@@ -1,5 +1,5 @@
 <template>
-	<div :class="[ 'wikit', 'wikit-Lookup', `wikit-Lookup--${width}` ]">
+	<div :class="[ 'wikit', 'wikit-Lookup', ]">
 		<label class="wikit-Lookup__label" :for="inputId">{{ label }}</label>
 		<Input
 			:id="inputId"
@@ -92,13 +92,6 @@ export default Vue.extend( {
 			type: Object,
 			default: null,
 		},
-		width: {
-			type: String,
-			validator( value: string ): boolean {
-				return [ 'small', 'medium', 'large', 'full-width' ].includes( value );
-			},
-			default: 'medium',
-		},
 		/**
 		 * Sets the value of the Lookup component's inner `<input>` element. This prop can be used with the `.sync`
 		 * modifier. When bound to a field in the consuming component's data object, it can be used within a watcher or
@@ -160,22 +153,6 @@ export default Vue.extend( {
 <style lang="scss">
 .wikit-Lookup {
 	position: relative;
-
-	&--small {
-		width: $wikit-Lookup-small-width;
-	}
-
-	&--medium {
-		width: $wikit-Lookup-medium-width;
-	}
-
-	&--large {
-		width: $wikit-Lookup-large-width;
-	}
-
-	&--full-width {
-		width: $wikit-Lookup-full-width;
-	}
 
 	&__menu {
 		position: absolute;

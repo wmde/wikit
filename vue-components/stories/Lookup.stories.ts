@@ -70,7 +70,6 @@ export function all(): Component {
 						v-model="selectedItem"
 						:menu-items="menuItems"
 						placeholder="Placeholder"
-						width="medium"
 					>
 						<template v-slot:no-results>
 							No match was found
@@ -87,7 +86,6 @@ export function all(): Component {
 					label="Label"
 					:menu-items="[]"
 					placeholder="Placeholder"
-					width="medium"
 					:error= "{ type: 'warning', message: 'Warning message' }"
 				/>
 				</div>
@@ -96,7 +94,6 @@ export function all(): Component {
 					label="Label"
 					:menu-items="[]"
 					placeholder="Placeholder"
-					width="medium"
 					:error= "{ type: 'error', message: 'Please make a valid selection' }"
 				/>
 				</div>
