@@ -22,7 +22,7 @@
         },
         "warning": {
             "color": {
-                "value": "{font.color.warning.value}"
+                "value": "{font.color.base.value}"
             }
         },
         "icon": {
