@@ -17,6 +17,7 @@
 			@keydown.enter.native.prevent="hasActiveElement = true"
 			@keyup.esc.native="onEsc"
 			autocomplete="off"
+			ref="input"
 		/>
 		<LookupMenu
 			class="wikit-Lookup__menu"
@@ -154,9 +155,7 @@ export default Vue.extend( {
 
 			// If a menu item is selected using the enter key, keep focus on input component
 			if ( !this.enterKeyPressed ) {
-				// We know that there is one input here because it is part of this component
-				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-				this.$el.querySelector( 'input' )!.blur();
+				( ( this.$refs.input as Vue ).$el as HTMLElement ).blur();
 			}
 		},
 
