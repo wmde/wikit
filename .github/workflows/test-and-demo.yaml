@@ -5,10 +5,7 @@
 #
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-on: 
-  push:
-    paths:
-      - 'vue-components/**'
+on: push
 name: Test and deploy
 jobs:
   test-and-demo:
@@ -18,23 +15,46 @@ jobs:
       uses: actions/checkout@v2
       with:
         fetch-depth: 0 # chromatic needs access to the history
+
+    # Changes
+    - name: Check Paths
+      uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          visual:
+            - 'tokens/**'
+            - 'vue-components/**'
+    
     - name: Set up node
       uses: actions/setup-node@v1
       with:
         node-version: '10.x'
+    
     - name: Install
       run: npm ci
+    
     - name: Test
       run: npm run test
+    
+    ## storybook
     - name: Build Storybooks
+      if: steps.filter.outputs.visual == 'true'
       run: npm run build:storybook
+    
     - name: Deploy Storybook
+      if: steps.filter.outputs.visual == 'true'
       run: npm run chromatic
+    
+    ## browser-tests
     - name: Extract commit hash
+      if: steps.filter.outputs.visual == 'true'
       shell: bash
       run: echo "##[set-output name=commit;]$(git rev-parse --short ${GITHUB_SHA})"
       id: extract_commit
+    
     - name: Run e2e cross browser tests
+      if: steps.filter.outputs.visual == 'true'
       env:
         SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
