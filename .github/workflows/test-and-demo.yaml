@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       visual: ${{ steps.filter.outputs.visual }}
+      behavioral: ${{ steps.filter.outputs.behavioral }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -26,6 +27,9 @@ jobs:
           visual:
             - 'tokens/**'
             - 'vue-components/**'
+          behavioral:
+            - 'vue-components/**'
+
 
   install:
     runs-on: ubuntu-latest
@@ -101,7 +105,8 @@ jobs:
 
   browser-tests:
     runs-on: ubuntu-latest
-    needs: deploy
+    needs: [changes, deploy]
+    if: ${{ needs.changes.outputs.behavioral == 'true' || github.ref == 'refs/heads/master' }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2
