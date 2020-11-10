@@ -45,6 +45,7 @@ jobs:
         path: |
           node_modules
           */node_modules
+          */dist
         key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
     - name: Install
       if: steps.cache.outputs.cache-hit != 'true'
@@ -91,6 +92,7 @@ jobs:
         path: |
           node_modules
           */node_modules
+          */dist
         key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
     - name: Build Storybooks
       run: npm run build:storybook
@@ -115,6 +117,7 @@ jobs:
         path: |
           node_modules
           */node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
     - name: Extract commit hash
       shell: bash
       run: echo "##[set-output name=commit;]$(git rev-parse --short ${GITHUB_SHA})"
