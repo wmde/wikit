@@ -12,9 +12,8 @@
 			:disabled="disabled"
 			@keydown.up.native.prevent="onArrowUp"
 			@keydown.down.native.prevent="onArrowDown"
-			@keyup.enter.native="onEnter(); hasActiveElement = false"
+			@keyup.enter.native="onEnter"
 			@keydown.tab.native="onTab"
-			@keydown.enter.native.prevent="hasActiveElement = true"
 			@keyup.esc.native="onEsc"
 			autocomplete="off"
 		/>
@@ -25,7 +24,6 @@
 			@select="onSelect"
 			@scroll="onScroll"
 			:selected-item-index="selectedItemIndex"
-			:has-active-element="hasActiveElement"
 		>
 			<template v-slot:no-results>
 				<slot name="no-results" />
@@ -63,7 +61,6 @@ export default Vue.extend( {
 			scrollIndexStart: null as ( number | null ),
 			scrollIndexEnd: null as ( number | null ),
 			selectedItemIndex: -1,
-			hasActiveElement: false,
 		};
 	},
 	props: {

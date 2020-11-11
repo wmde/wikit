@@ -9,8 +9,7 @@
 			:key="index"
 			v-for="(menuItem, index) in menuItems"
 			:class="{
-				'wikit-LookupMenu__item--selected': index === selectedItemIndex,
-				'wikit-LookupMenu__item--active': index === selectedItemIndex && hasActiveElement
+				'wikit-LookupMenu__item--selected': index === selectedItemIndex
 			}"
 			@click="$emit( 'select', menuItem )"
 			@mousedown.prevent
@@ -46,10 +45,6 @@ export default Vue.extend( {
 		selectedItemIndex: {
 			type: Number,
 			default: -1,
-		},
-		hasActiveElement: {
-			type: Boolean,
-			default: false,
 		},
 	},
 	methods: {
@@ -124,8 +119,7 @@ $base: '.wikit-LookupMenu';
 			cursor: $wikit-LookupMenu-item-hover-cursor;
 		}
 
-		&:active,
-		&--active {
+		&:active {
 			background-color: $wikit-LookupMenu-item-active-background-color;
 
 			#{$base}__item__label, #{$base}__item__description {
