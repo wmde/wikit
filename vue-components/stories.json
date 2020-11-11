@@ -3,35 +3,35 @@
   "globalParameters": {},
   "kindParameters": {
     "Button": {
-      "fileName": 1430,
-      "framework": "vue"
-    },
-    "Icon": {
-      "fileName": 1409,
-      "framework": "vue"
-    },
-    "/Input/Basic": {
-      "fileName": 1412,
-      "framework": "vue"
-    },
-    "/Lookup/Lookup": {
       "fileName": 1431,
       "framework": "vue"
     },
-    "/Lookup/LookupMenu": {
-      "fileName": 1421,
+    "Icon": {
+      "fileName": 1410,
       "framework": "vue"
     },
-    "/Message/Message": {
+    "/Input/Basic": {
+      "fileName": 1413,
+      "framework": "vue"
+    },
+    "/Lookup/Lookup": {
       "fileName": 1432,
       "framework": "vue"
     },
-    "/Input/TextInput": {
+    "/Lookup/LookupMenu": {
+      "fileName": 1422,
+      "framework": "vue"
+    },
+    "/Message/Message": {
       "fileName": 1433,
       "framework": "vue"
     },
+    "/Input/TextInput": {
+      "fileName": 1434,
+      "framework": "vue"
+    },
     "/Message/ValidationMessage": {
-      "fileName": 1426,
+      "fileName": 1427,
       "framework": "vue"
     }
   },
