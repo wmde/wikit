@@ -15,18 +15,18 @@ describe( 'Button', () => {
 		'neutral',
 		'primaryProgressive',
 		'primaryDestructive',
-	] )( 'renders the type %s as a root node class', ( type ) => {
+	] )( 'renders the flavor %s as a root node class', ( flavor ) => {
 		expect( mount( Button, {
 			propsData: {
-				type,
+				flavor,
 			},
-		} ).classes() ).toContain( `wikit-Button--${type}` );
+		} ).classes() ).toContain( `wikit-Button--${flavor}` );
 	} );
 
-	it( 'validates the type prop', () => {
+	it( 'validates the flavor prop', () => {
 		expect( () => mount( Button, {
 			propsData: {
-				type: 'random',
+				flavor: 'random',
 			},
 		} ) ).toThrow();
 	} );

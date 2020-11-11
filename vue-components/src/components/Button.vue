@@ -1,5 +1,5 @@
 <template>
-	<button :class="[ 'wikit', 'wikit-Button', `wikit-Button--${ type }` ]">
+	<button :class="[ 'wikit', 'wikit-Button', `wikit-Button--${ flavor }` ]">
 		<slot />
 	</button>
 </template>
@@ -23,9 +23,9 @@ export default Vue.extend( {
 	name: 'Button',
 	props: {
 		/**
-		 * The type of the button
+		 * The flavor of the button
 		 */
-		type: {
+		flavor: {
 			type: String,
 			// TODO why does the shorter version cause problems with doc-gen?
 			validator( value: string ): boolean {
