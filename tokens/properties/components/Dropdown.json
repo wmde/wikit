@@ -83,18 +83,12 @@
         "error": {
             "border-color": {
                 "value": "{border.color.feedback.error.value}"
-            },
-            "background-color": {
-                "value": "{background.color.base.default.value}"
             }
         },
         "warning": {
             "border-color": {
                 "value": "{color.utility.yellow.30.value}",
                 "comment": "We want to use an alias token here but it wasn't decided at the time we implemented this."
-            },
-            "background-color": {
-                "value": "{background.color.base.default.value}"
             }
         },
         "desktop": {
