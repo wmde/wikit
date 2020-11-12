@@ -10,10 +10,12 @@
 			:key="index"
 			v-for="(menuItem, index) in menuItems"
 			:class="{
-				'wikit-LookupMenu__item--selected': index === selectedItemIndex
+				'wikit-LookupMenu__item--selected': index === selectedItemIndex,
+				'wikit-LookupMenu__item--active': index === activeItemIndex,
 			}"
 			@click="$emit( 'select', menuItem )"
-			@mousedown.prevent
+			@mousedown.prevent="activeItemIndex = index"
+			@mouseup="activeItemIndex = -1"
 			ref="menu-items"
 		>
 			<div class="wikit-LookupMenu__item__label">
@@ -41,6 +43,7 @@ export default Vue.extend( {
 	data() {
 		return {
 			maxHeight: null as number|null,
+			activeItemIndex: -1,
 		};
 	},
 	props: {
@@ -126,6 +129,8 @@ $base: '.wikit-LookupMenu';
 			cursor: $wikit-LookupMenu-item-hover-cursor;
 		}
 
+		&--active,
+		&--active:hover,
 		&:active {
 			background-color: $wikit-LookupMenu-item-active-background-color;
 
