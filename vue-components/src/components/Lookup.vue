@@ -5,18 +5,25 @@
 			:id="inputId"
 			:value="searchInput"
 			@input="onInput"
-			@focus.native="focused = true"
-			@blur.native="focused = false"
+			@focus.native="onFocus"
+			@blur.native="showMenu = false"
 			:feedback-type="feedbackType"
 			:placeholder="placeholder"
 			:disabled="disabled"
+			@keydown.up.native.prevent="onArrowUp"
+			@keydown.down.native.prevent="onArrowDown"
+			@keyup.enter.native="onEnter"
+			@keydown.tab.native="onTab"
+			@keyup.esc.native="onEsc"
+			autocomplete="off"
 		/>
 		<LookupMenu
 			class="wikit-Lookup__menu"
 			:menu-items="menuItems"
-			v-if="showsMenu"
+			v-if="showMenu"
 			@select="onSelect"
 			@scroll="onScroll"
+			:selected-item-index="selectedItemIndex"
 		>
 			<template v-slot:no-results>
 				<slot name="no-results" />
@@ -31,7 +38,8 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
+import isEqual from 'lodash.isequal';
 import ValidationMessage from './ValidationMessage.vue';
 import Input from './Input.vue';
 import LookupMenu from './LookupMenu.vue';
@@ -48,11 +56,11 @@ export default Vue.extend( {
 	name: 'Lookup',
 	data() {
 		return {
-			hasItemSelected: false,
-			focused: false,
+			showMenu: false,
 			inputId: generateUid( 'wikit-Lookup' ),
 			scrollIndexStart: null as ( number | null ),
 			scrollIndexEnd: null as ( number | null ),
+			selectedItemIndex: -1,
 		};
 	},
 	props: {
@@ -60,7 +68,7 @@ export default Vue.extend( {
 		 * Array of objects that will be displayed in the lookup menu. Must contain a `label` and a `description` field.
 		 */
 		menuItems: {
-			type: Array,
+			type: Array as PropType<MenuItem[]>,
 			default: (): [] => [],
 		},
 		error: {
@@ -89,7 +97,6 @@ export default Vue.extend( {
 		 * The selected menu item, can be of type `MenuItem` or `null`.
 		 *
 		 * The data usually comes from the consumer's `v-model` annotation on the Lookup component.
-		 * Currently this prop is not used and does nothing.
 		 */
 		value: {
 			type: Object,
@@ -114,8 +121,12 @@ export default Vue.extend( {
 	},
 
 	methods: {
+		canShowMenu( currentSearchInput: string ): boolean {
+			return currentSearchInput.length > 0;
+		},
 		onInput( value: string ): void {
-			this.hasItemSelected = false;
+			this.selectedItemIndex = -1;
+			this.showMenu = this.canShowMenu( value );
 
 			// the following comment generates the event's description for the docs tab in storybook
 			/**
@@ -123,22 +134,54 @@ export default Vue.extend( {
 			 * the Lookup component's inner `<input>` element to the parent component.
 			 */
 			this.$emit( 'update:searchInput', value );
+			this.$emit( 'input', null );
 		},
 
 		onSelect( menuItem: MenuItem ): void {
-			this.hasItemSelected = true;
+			this.selectedItemIndex = -1;
+			this.showMenu = false;
 
 			// the following comment generates the event's description for the docs tab in storybook
 			/**
-			 * This even is emitted whenever an item is selected on the Lookup. The event payload contains the whole
-			 * MenuItem object.
+			 * This event is emitted whenever an item is selected on the Lookup. The event payload contains the whole
+			 * MenuItem object. The payload is null when no item is selected or the item is deselected.
 			 */
 			this.$emit( 'input', menuItem );
 			this.$emit( 'update:searchInput', menuItem.label );
+		},
 
-			// We know that there is one input here because it is part of this component
-			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			this.$el.querySelector( 'input' )!.blur();
+		onEnter(): void {
+			if ( this.selectedItemIndex !== -1 ) {
+				this.onSelect( this.menuItems[ this.selectedItemIndex ] );
+			}
+		},
+
+		onArrowUp(): void {
+			this.selectedItemIndex = Math.max( 0, this.selectedItemIndex - 1 );
+		},
+		onArrowDown(): void {
+			this.selectedItemIndex = Math.min( this.menuItems.length - 1, this.selectedItemIndex + 1 );
+		},
+		onTab(): void {
+			if ( this.selectedItemIndex !== -1 ) {
+				this.onSelect( this.menuItems[ this.selectedItemIndex ] );
+			}
+		},
+		onFocus(): void {
+			if ( this.canShowMenu( this.searchInput ) ) {
+				this.showMenu = true;
+			}
+
+			if ( this.value !== null && this.menuItems.length > 0 ) {
+				this.selectedItemIndex = this.menuItems.findIndex(
+					( menuItem ) => { return isEqual( menuItem, this.value ); },
+					this,
+				);
+			}
+		},
+		onEsc(): void {
+			this.showMenu = false;
+			this.selectedItemIndex = -1;
 		},
 		onScroll( firstIndex: number, lastIndex: number ): void {
 			if ( firstIndex !== this.scrollIndexStart || lastIndex !== this.scrollIndexEnd ) {
@@ -159,10 +202,6 @@ export default Vue.extend( {
 	computed: {
 		feedbackType(): string | null {
 			return this.error && this.error.type || null;
-		},
-
-		showsMenu(): boolean {
-			return !this.hasItemSelected && this.focused && this.searchInput.length > 0;
 		},
 	},
 
