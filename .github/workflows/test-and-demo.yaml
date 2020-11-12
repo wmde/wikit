@@ -40,7 +40,6 @@ jobs:
         path: |
           node_modules
           */node_modules
-          */dist
         key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
     - name: Cache artifacts
       uses: actions/cache@v2
