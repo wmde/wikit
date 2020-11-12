@@ -64,7 +64,6 @@ jobs:
         path: |
           node_modules
           */node_modules
-          */dist
         key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
     - name: Test
       run: npm run test
@@ -114,7 +113,6 @@ jobs:
         path: |
           node_modules
           */node_modules
-          */dist
         key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
     - name: Extract commit hash
       shell: bash
