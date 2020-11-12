@@ -185,6 +185,14 @@
                         "value": "{background.color.base.active.value}"
                     }
                 },
+                "selected":{
+                    "color": {
+                        "value": "{font.color.base.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.base.active.value}"
+                    }
+                }, 
                 "disabled": {
                     "color": {
                         "value": "{font.color.disabled.value}"
