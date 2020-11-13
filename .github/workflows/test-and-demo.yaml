@@ -5,14 +5,56 @@
 #
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-on: 
-  push:
-    paths:
-      - 'vue-components/**'
-name: Test and deploy
+on: push
+name: Test and Deploy
 jobs:
-  test-and-demo:
+
+  setup:
     runs-on: ubuntu-latest
+    outputs:
+      visual: ${{ steps.filter.outputs.visual }}
+      behavioral: ${{ steps.filter.outputs.behavioral }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 # chromatic needs access to the history
+    - name: Check Paths
+      uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          visual:
+            - 'tokens/**'
+            - 'vue-components/**'
+          behavioral:
+            - 'vue-components/**'
+    - name: Set up node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      id: cache
+      with:
+        path: |
+          node_modules
+          */node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+    - name: Cache artifacts
+      uses: actions/cache@v2
+      id: dist
+      with:
+        path: |
+          */dist
+        key: ${{ runner.os }}-${{ hashFiles('*/dist') }}
+    - name: Install
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm ci
+
+  test:
+    runs-on: ubuntu-latest
+    needs: setup
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -22,14 +64,67 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '10.x'
-    - name: Install
-      run: npm ci
+    - name: Restore dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          node_modules
+          */node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
     - name: Test
       run: npm run test
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: setup
+    if: ${{ needs.setup.outputs.visual == 'true' || github.ref == 'refs/heads/master' }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 # chromatic needs access to the history
+    - name: Set up node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: Restore dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          node_modules
+          */node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+    - name: Restore artifacts
+      uses: actions/cache@v2
+      with:
+        path: |
+          */dist
+        key: ${{ runner.os }}-${{ hashFiles('*/dist') }}
     - name: Build Storybooks
       run: npm run build:storybook
     - name: Deploy Storybook
       run: npm run chromatic
+
+  browser-tests:
+    runs-on: ubuntu-latest
+    needs: [setup, deploy]
+    if: ${{ needs.setup.outputs.behavioral == 'true' || github.ref == 'refs/heads/master' }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 # chromatic needs access to the history
+    - name: Set up node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: Restore dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          node_modules
+          */node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
     - name: Extract commit hash
       shell: bash
       run: echo "##[set-output name=commit;]$(git rev-parse --short ${GITHUB_SHA})"
