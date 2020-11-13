@@ -93,7 +93,7 @@ export function all(): Component {
 						label="Label"
 						v-model="selectedItem"
 						:menu-items="menuItems"
-						:placeholder="placeholder"
+						placeholder="placeholder"
 						width="medium"
 						@scroll="onScroll"
 					>
@@ -116,7 +116,7 @@ export function all(): Component {
 					<Lookup
 					label="Label"
 					:menu-items="[]"
-					:placeholder="placeholder"
+					placeholder="placeholder"
 					width="medium"
 					:error= "{ type: 'warning', message: 'Warning message' }"
 				/>
@@ -125,7 +125,7 @@ export function all(): Component {
 					<Lookup
 					label="Label"
 					:menu-items="[]"
-					:placeholder="placeholder"
+					placeholder="placeholder"
 					width="medium"
 					:error= "{ type: 'error', message: 'Please make a valid selection' }"
 				/>
