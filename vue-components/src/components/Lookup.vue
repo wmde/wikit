@@ -91,7 +91,7 @@ export default Vue.extend( {
 		},
 		placeholder: {
 			type: String,
-			default: '',
+			default: 'Type to see suggestions',
 		},
 		/**
 		 * The selected menu item, can be of type `MenuItem` or `null`.
