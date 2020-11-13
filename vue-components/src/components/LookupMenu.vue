@@ -40,7 +40,7 @@ export default Vue.extend( {
 	name: 'LookupMenu',
 	data() {
 		return {
-			maxHeight: null,
+			maxHeight: null as number|null,
 		};
 	},
 	props: {
