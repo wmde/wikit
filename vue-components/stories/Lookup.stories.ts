@@ -125,7 +125,7 @@ export function all(): Component {
 					<Lookup
 					label="Label"
 					:menu-items="[]"
-					placeholder="placeholder"
+					placeholder=""
 					width="medium"
 					:error= "{ type: 'error', message: 'Please make a valid selection' }"
 				/>
