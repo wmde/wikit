@@ -92,9 +92,12 @@
             },
             "purple": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "value": "#6b4ba1"
             }
 =======
+=======
+>>>>>>> 1677c96e55f2177ab463a2a567cf3c9bd79f7ecb
                     "value": "{wmf-wmui-color-purple50.value}"
                 }
 >>>>>>> uptade wikimedia-ui-base dependency and global tokens
