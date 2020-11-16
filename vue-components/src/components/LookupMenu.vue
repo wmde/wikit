@@ -44,6 +44,7 @@ export default Vue.extend( {
 		return {
 			maxHeight: null as number|null,
 			activeItemIndex: -1,
+			selectedItemIndex: -1,
 		};
 	},
 	props: {
@@ -51,12 +52,39 @@ export default Vue.extend( {
 			type: Array,
 			default: (): [] => [],
 		},
-		selectedItemIndex: {
-			type: Number,
-			default: -1,
-		},
 	},
 	methods: {
+		onKeyUp( event: KeyboardEvent ): void {
+			switch ( event.key ) {
+				case 'Enter':
+					if ( this.selectedItemIndex !== -1 ) {
+						this.$emit( 'select', this.menuItems[ this.selectedItemIndex ] );
+					}
+					break;
+				case 'Escape':
+					this.selectedItemIndex = -1;
+					this.$emit( 'esc' );
+					break;
+			}
+		},
+		onKeyDown( event: KeyboardEvent ): void {
+			switch ( event.key ) {
+				case 'ArrowUp':
+					this.selectedItemIndex = Math.max( 0, this.selectedItemIndex - 1 );
+					break;
+				case 'ArrowDown':
+					this.selectedItemIndex = Math.min( this.menuItems.length - 1, this.selectedItemIndex + 1 );
+					break;
+				case 'Tab':
+					if ( this.selectedItemIndex !== -1 ) {
+						this.$emit( 'select', this.menuItems[ this.selectedItemIndex ] );
+					}
+					break;
+			}
+		},
+		onFocusWithValue( indexOfMenuItemWithValue: number ): void {
+			this.selectedItemIndex = indexOfMenuItemWithValue;
+		},
 		resizeMenu(): void {
 			const menuItems = this.$refs[ 'menu-items' ] as HTMLElement[];
 			// the height automatically adjusts for up to 6 elements, then shows a scrollbar
@@ -95,6 +123,7 @@ export default Vue.extend( {
 	watch: {
 		menuItems(): void {
 			this.resizeMenu();
+			this.selectedItemIndex = -1;
 		},
 	},
 } );
