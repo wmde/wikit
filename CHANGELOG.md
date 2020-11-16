@@ -5,7 +5,7 @@ _**Important:** This file contains a draft to the official release notes, and th
 ## v2.0.0 (development)
 
 **Breaking Changes:**
-- Rename `Button` component's `type` property to `flavor`
+- Remove width properties #259 
 
 **New Features:**
 - Added Message component
