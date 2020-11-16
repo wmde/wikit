@@ -23,7 +23,7 @@ export default Vue.extend( {
 	name: 'Button',
 	props: {
 		/**
-		 * The flavor of the button
+		 * The typology of the button
 		 */
 		flavor: {
 			type: String,
