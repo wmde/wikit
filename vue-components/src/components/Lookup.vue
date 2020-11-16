@@ -10,11 +10,8 @@
 			:feedback-type="feedbackType"
 			:placeholder="placeholder"
 			:disabled="disabled"
-			@keydown.up.native.prevent="onArrowUp"
-			@keydown.down.native.prevent="onArrowDown"
-			@keyup.enter.native="onEnter"
-			@keydown.tab.native="onTab"
-			@keyup.esc.native="onEsc"
+			@keydown.native="onKeyDown"
+			@keyup.native="onKeyUp"
 			autocomplete="off"
 		/>
 		<LookupMenu
@@ -114,6 +111,34 @@ export default Vue.extend( {
 	},
 
 	methods: {
+		onKeyUp( event: KeyboardEvent ): void {
+			switch ( event.key ) {
+				case 'Enter':
+					if ( this.selectedItemIndex !== -1 ) {
+						this.onSelect( this.menuItems[ this.selectedItemIndex ] );
+					}
+					break;
+				case 'Escape':
+					this.showMenu = false;
+					this.selectedItemIndex = -1;
+					break;
+			}
+		},
+		onKeyDown( event: KeyboardEvent ): void {
+			switch ( event.key ) {
+				case 'ArrowUp':
+					this.selectedItemIndex = Math.max( 0, this.selectedItemIndex - 1 );
+					break;
+				case 'ArrowDown':
+					this.selectedItemIndex = Math.min( this.menuItems.length - 1, this.selectedItemIndex + 1 );
+					break;
+				case 'Tab':
+					if ( this.selectedItemIndex !== -1 ) {
+						this.onSelect( this.menuItems[ this.selectedItemIndex ] );
+					}
+					break;
+			}
+		},
 		canShowMenu( currentSearchInput: string ): boolean {
 			return currentSearchInput.length > 0;
 		},
@@ -143,23 +168,6 @@ export default Vue.extend( {
 			this.$emit( 'update:searchInput', menuItem.label );
 		},
 
-		onEnter(): void {
-			if ( this.selectedItemIndex !== -1 ) {
-				this.onSelect( this.menuItems[ this.selectedItemIndex ] );
-			}
-		},
-
-		onArrowUp(): void {
-			this.selectedItemIndex = Math.max( 0, this.selectedItemIndex - 1 );
-		},
-		onArrowDown(): void {
-			this.selectedItemIndex = Math.min( this.menuItems.length - 1, this.selectedItemIndex + 1 );
-		},
-		onTab(): void {
-			if ( this.selectedItemIndex !== -1 ) {
-				this.onSelect( this.menuItems[ this.selectedItemIndex ] );
-			}
-		},
 		onFocus(): void {
 			if ( this.canShowMenu( this.searchInput ) ) {
 				this.showMenu = true;
@@ -171,10 +179,6 @@ export default Vue.extend( {
 					this,
 				);
 			}
-		},
-		onEsc(): void {
-			this.showMenu = false;
-			this.selectedItemIndex = -1;
 		},
 		onScroll( firstIndex: number, lastIndex: number ): void {
 			if ( firstIndex !== this.scrollIndexStart || lastIndex !== this.scrollIndexEnd ) {
