@@ -192,6 +192,11 @@
                     "background-color": {
                         "value": "{background.color.base.active.value}"
                     }
+                },
+                "selected-hover": {
+                    "color": {
+                        "value": "{font.color.progressive.value}"
+                    }
                 }, 
                 "disabled": {
                     "color": {
