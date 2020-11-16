@@ -39,6 +39,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
+import VueCompositionAPI from '@vue/composition-api';
 import isEqual from 'lodash.isequal';
 import ValidationMessage from './ValidationMessage.vue';
 import Input from './Input.vue';
@@ -46,6 +47,7 @@ import LookupMenu from './LookupMenu.vue';
 import generateUid from '@/components/util/generateUid';
 import { MenuItem } from '@/components/MenuItem';
 
+Vue.use( VueCompositionAPI );
 const keyboardNavigatable = {
 	methods: {
 		onEnter(): void {
@@ -79,7 +81,9 @@ const keyboardNavigatable = {
  */
 export default Vue.extend( {
 	name: 'Lookup',
-	mixins: [ keyboardNavigatable ],
+	setup(): Object {
+		return keyboardNavigatable.methods;
+	},
 	data() {
 		return {
 			showMenu: false,

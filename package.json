@@ -25,5 +25,8 @@
   },
   "bugs": {
     "url": "https://phabricator.wikimedia.org/tag/wikidata_design_system/"
+  },
+  "dependencies": {
+    "@vue/composition-api": "^1.0.0-beta.19"
   }
 }
