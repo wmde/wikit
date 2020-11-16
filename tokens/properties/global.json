@@ -97,7 +97,11 @@
             }
 =======
 =======
+<<<<<<< HEAD
 >>>>>>> uptade wikimedia-ui-base dependency and global tokens
+=======
+>>>>>>> 1677c96e55f2177ab463a2a567cf3c9bd79f7ecb
+>>>>>>> c2f09febba88816441c5f470a30c758ed27659dc
                     "value": "{wmf-wmui-color-purple50.value}"
                 }
 >>>>>>> uptade wikimedia-ui-base dependency and global tokens
