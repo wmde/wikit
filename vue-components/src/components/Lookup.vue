@@ -46,6 +46,31 @@ import LookupMenu from './LookupMenu.vue';
 import generateUid from '@/components/util/generateUid';
 import { MenuItem } from '@/components/MenuItem';
 
+const keyboardNavigatable = {
+	methods: {
+		onEnter(): void {
+			if ( this.selectedItemIndex !== -1 ) {
+				this.onSelect( this.menuItems[ this.selectedItemIndex ] );
+			}
+		},
+
+		onArrowUp(): void {
+			this.selectedItemIndex = Math.max( 0, this.selectedItemIndex - 1 );
+		},
+		onArrowDown(): void {
+			this.selectedItemIndex = Math.min( this.menuItems.length - 1, this.selectedItemIndex + 1 );
+		},
+		onTab(): void {
+			if ( this.selectedItemIndex !== -1 ) {
+				this.onSelect( this.menuItems[ this.selectedItemIndex ] );
+			}
+		},
+		onEsc(): void {
+			this.showMenu = false;
+			this.selectedItemIndex = -1;
+		},
+	},
+};
 /**
  * The lookup component is a text input field that provides matching selectable suggestions as a user types into it.
  * In the context of Wikidata, they can be used as Item and Property selectors, for example.
@@ -54,6 +79,7 @@ import { MenuItem } from '@/components/MenuItem';
  */
 export default Vue.extend( {
 	name: 'Lookup',
+	mixins: [ keyboardNavigatable ],
 	data() {
 		return {
 			showMenu: false,
@@ -149,24 +175,6 @@ export default Vue.extend( {
 			this.$emit( 'input', menuItem );
 			this.$emit( 'update:searchInput', menuItem.label );
 		},
-
-		onEnter(): void {
-			if ( this.selectedItemIndex !== -1 ) {
-				this.onSelect( this.menuItems[ this.selectedItemIndex ] );
-			}
-		},
-
-		onArrowUp(): void {
-			this.selectedItemIndex = Math.max( 0, this.selectedItemIndex - 1 );
-		},
-		onArrowDown(): void {
-			this.selectedItemIndex = Math.min( this.menuItems.length - 1, this.selectedItemIndex + 1 );
-		},
-		onTab(): void {
-			if ( this.selectedItemIndex !== -1 ) {
-				this.onSelect( this.menuItems[ this.selectedItemIndex ] );
-			}
-		},
 		onFocus(): void {
 			if ( this.canShowMenu( this.searchInput ) ) {
 				this.showMenu = true;
@@ -178,10 +186,6 @@ export default Vue.extend( {
 					this,
 				);
 			}
-		},
-		onEsc(): void {
-			this.showMenu = false;
-			this.selectedItemIndex = -1;
 		},
 		onScroll( firstIndex: number, lastIndex: number ): void {
 			if ( firstIndex !== this.scrollIndexStart || lastIndex !== this.scrollIndexEnd ) {
