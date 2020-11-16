@@ -66,8 +66,6 @@ export default Vue.extend( {
 	border-style: $wikit-Message-border-style;
 	border-radius: $wikit-Message-border-radius;
 
-	width: $wikit-Message-default-width;
-
 	&--error {
 		border-color: $wikit-Message-error-border-color;
 		background: $wikit-Message-error-background-color;
