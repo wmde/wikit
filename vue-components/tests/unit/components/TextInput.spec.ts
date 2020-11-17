@@ -56,27 +56,6 @@ describe( 'TextInput', () => {
 		expect( wrapper.find( 'input' ).attributes( 'placeholder' ) ).toBe( placeholder );
 	} );
 
-	it( 'rejects invalid width props', () => {
-		expect( () => mount( TextInput, {
-			propsData: {
-				width: 'not-a-valid-width',
-			},
-		} ) ).toThrow();
-	} );
-
-	it.each( [
-		'small',
-		'medium',
-		'large',
-		'full-width',
-	] )( 'renders the width %s as a root node class', ( width ) => {
-		expect( mount( TextInput, {
-			propsData: {
-				width,
-			},
-		} ).classes() ).toContain( `wikit-TextInput--${width}` );
-	} );
-
 	it( 'rejects errors without a message', () => {
 		expect( () => mount( TextInput, {
 			propsData: {
