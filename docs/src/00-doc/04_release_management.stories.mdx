@@ -29,7 +29,7 @@ It is also their responsibility to inform other relevant roles like UX and PM (i
 Once your changes are merged and you want to release a new version of the components library you need to take the following steps:
  - To release a new version run the command `npm run bump-version -- [major | minor | patch]`. This will take care of updating the version number in all package.json files.
  - Proofread and review the `CHANGELOG.md` file to ensure all changes are included (this will be later used in the release notes).
- - Add a new heading to the chagelog with the next expected version number and mark it as the development section 
+ - Rename the "[Unreleased]" heading in the chagelog file to the current version and Add a new "[Unreleased]" heading above it.
  - Commit and push the changes you made to package files and open a PR.
  - After the PR is merged create and push a new tag, named after the version number with a "v" prefix, e.g. `v1.2.3`. Alternatively you can use the npm provided tool [npm-version](https://docs.npmjs.com/cli/version)
  - Then go to the GitHub repository and create a new release out of that tag, describing what changed, like in the image below.
