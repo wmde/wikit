@@ -7,6 +7,40 @@ export default {
 	title: '/Message/Message',
 };
 
+export function basic( args: { content: string; type: string } ): Component {
+	return {
+		data(): object {
+			return { args };
+		},
+		components: { Message },
+		props: Object.keys( args ),
+		template: `
+			<div>
+			<p><Message :type="type"><span v-html="content" /></Message></p>
+			</div>
+		`,
+	};
+}
+
+basic.args = {
+	type: 'success',
+	content: 'Here is some <em>content</em>. You can modify it in the "Controls" section.',
+};
+
+basic.argTypes = {
+	type: {
+		control: {
+			type: 'inline-radio',
+			options: [ 'warning', 'error', 'notice', 'success' ],
+		},
+	},
+	content: {
+		control: {
+			type: 'text',
+		},
+	},
+};
+
 export function all(): Component {
 	return {
 		components: { Message },
@@ -20,39 +54,6 @@ export function all(): Component {
 		`,
 	};
 }
-
-
-export function controllableMessage( args: { fullwidth: boolean, content: string, type: string } ): Component {
-	return {
-		data(): object {
-			return { args };
-		},
-		components: { Message },
-		props: Object.keys( args ),
-		template: `
-			<div>
-			<p><Message :fullwidth="fullwidth" :type="type"><span v-html="content" /></Message></p>
-			</div>
-		`,
-	};
-}
-
-controllableMessage.args = {
-	type: 'success',
-	fullwidth: false,
-	content: 'Here is some <em>content</em>. You can modify it in the "Controls" section.',
-};
-
-controllableMessage.argTypes = {
-	type: {
-		control: {
-			type: 'inline-radio',
-			options: [ 'warning', 'error', 'notice', 'success' ],
-		},
-	},
-	content: {
-		control: {
-			type: 'text',
-		}
-	},
+all.parameters = {
+	controls: { hideNoControlsWarning: true },
 };
