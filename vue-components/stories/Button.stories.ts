@@ -10,7 +10,7 @@ export function normal(): Component {
 	return {
 		components: { Button },
 		// The normal button types are all in the same story to achieve high % of visual tests coverage.
-		// Do not use knobs to change the type unless you actively decide that is better than having test coverage.
+		// Do not use controls to change the type unless you actively decide that is better than having test coverage.
 		template: `
 			<div>
 				<Button type="neutral">Neutral</Button>
