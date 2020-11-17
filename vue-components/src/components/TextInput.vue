@@ -1,5 +1,5 @@
 <template>
-	<div :class="[ 'wikit', 'wikit-TextInput', `wikit-TextInput--${width}` ]">
+	<div :class="[ 'wikit', 'wikit-TextInput' ]">
 		<label class="wikit-TextInput__label" :for="id">{{ label }}</label>
 		<Input
 			:id="id"
@@ -57,13 +57,6 @@ export default Vue.extend( {
 			type: String,
 			default: '',
 		},
-		width: {
-			type: String,
-			validator( value: string ): boolean {
-				return [ 'small', 'medium', 'large', 'full-width' ].includes( value );
-			},
-			default: 'medium',
-		},
 	},
 
 	data() {
@@ -97,22 +90,6 @@ export default Vue.extend( {
 
 <style lang="scss">
 .wikit-TextInput {
-	&--small {
-		width: $wikit-TextInput-small-width;
-	}
-
-	&--medium {
-		width: $wikit-TextInput-medium-width;
-	}
-
-	&--large {
-		width: $wikit-TextInput-large-width;
-	}
-
-	&--full-width {
-		width: $wikit-TextInput-full-width;
-	}
-
 	&__label {
 		@include Label;
 		display: block;

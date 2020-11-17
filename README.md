@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
   
 [![github](https://github.com/wmde/wikit/workflows/Build%20and%20Deploy%20documentation/badge.svg)](https://wmde.github.io/wikit/)
-[![github](https://github.com/wmde/wikit/workflows/Test%20and%20deploy/badge.svg)](https://www.chromatic.com/builds?appId=5efdb3b5f65950002286285d)
+[![github](https://github.com/wmde/wikit/workflows/Test%20and%20Deploy/badge.svg)](https://www.chromatic.com/builds?appId=5efdb3b5f65950002286285d)
 
 [![Sauce Test Status](https://app.saucelabs.com/buildstatus/wikit)](https://app.saucelabs.com/u/wikit)
 

@@ -51,27 +51,6 @@ describe( 'Lookup', () => {
 		expect( wrapper.find( 'input' ).attributes( 'placeholder' ) ).toBe( placeholder );
 	} );
 
-	it( 'rejects invalid width props', () => {
-		expect( () => mount( Lookup, {
-			propsData: {
-				width: 'not-a-valid-width',
-			},
-		} ) ).toThrow();
-	} );
-
-	it.each( [
-		'small',
-		'medium',
-		'large',
-		'full-width',
-	] )( 'renders the width %s as a root node class', ( width ) => {
-		expect( mount( Lookup, {
-			propsData: {
-				width,
-			},
-		} ).classes() ).toContain( `wikit-Lookup--${width}` );
-	} );
-
 	it( 'rejects errors without a message', () => {
 		expect( () => mount( Lookup, {
 			propsData: {

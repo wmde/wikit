@@ -3,16 +3,19 @@
 		:class="[ 'wikit', 'wikit-LookupMenu' ]"
 		@scroll.passive="onScroll"
 		ref="lookup-menu"
+		:style="{ maxHeight: maxHeight ? maxHeight + 'px' : null }"
 	>
 		<div
 			class="wikit-LookupMenu__item"
 			:key="index"
 			v-for="(menuItem, index) in menuItems"
 			:class="{
-				'wikit-LookupMenu__item--selected': index === selectedItemIndex
+				'wikit-LookupMenu__item--selected': index === selectedItemIndex,
+				'wikit-LookupMenu__item--active': index === activeItemIndex,
 			}"
 			@click="$emit( 'select', menuItem )"
-			@mousedown.prevent
+			@mousedown.prevent="activeItemIndex = index"
+			@mouseup="activeItemIndex = -1"
 			ref="menu-items"
 		>
 			<div class="wikit-LookupMenu__item__label">
@@ -37,6 +40,12 @@ import debounce from 'lodash/debounce';
  */
 export default Vue.extend( {
 	name: 'LookupMenu',
+	data() {
+		return {
+			maxHeight: null as number|null,
+			activeItemIndex: -1,
+		};
+	},
 	props: {
 		menuItems: {
 			type: Array,
@@ -49,13 +58,14 @@ export default Vue.extend( {
 	},
 	methods: {
 		resizeMenu(): void {
-			const rootElem = this.$refs[ 'lookup-menu' ] as HTMLElement;
 			const menuItems = this.$refs[ 'menu-items' ] as HTMLElement[];
 			// the height automatically adjusts for up to 6 elements, then shows a scrollbar
 			const maxNumberOfElementsDisplayed = 6;
 			if ( menuItems && menuItems.length > maxNumberOfElementsDisplayed ) {
 				const menuHeight = menuItems[ maxNumberOfElementsDisplayed ].offsetTop - menuItems[ 0 ].offsetTop;
-				rootElem.style.maxHeight = menuHeight + 'px';
+				this.maxHeight = menuHeight;
+			} else {
+				this.maxHeight = null;
 			}
 		},
 		onScroll: debounce( function ( this: Vue ) {
@@ -119,6 +129,8 @@ $base: '.wikit-LookupMenu';
 			cursor: $wikit-LookupMenu-item-hover-cursor;
 		}
 
+		&--active,
+		&--active:hover,
 		&:active {
 			background-color: $wikit-LookupMenu-item-active-background-color;
 
