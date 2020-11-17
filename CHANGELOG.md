@@ -17,4 +17,4 @@ _**Important:** This file contains a draft to the official release notes, and th
 - Re-enabled type checking
 
 **Miscellaneous:**
-- Started CHAGELOG file
+- Started CHANGELOG file
