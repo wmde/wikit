@@ -22,6 +22,7 @@ While creating global and alias tokens and modifying their values can be done wi
 - **Renaming**: giving global tokens a different name requires updating the values of the alias token that were using them. In the same way, if the name of an alias token being consumed by a component-level token is modified, the value of the component-level token should also be updated in the component code.
 - **Deleting**: Similarly, deleting any global or alias tokens that were being used as a value will require replacing said value by another token, so styles are not left undefined.
 
+In any changes to the tokens library that don't include swapping existing values (i.e. adding, renaming and removing tokens), please update the `CHANGELOG.md` file to better track changes for future release notes.
 
 ## 2. Fixing or adding functionality: creating a new component version
 
@@ -32,9 +33,10 @@ In the last case, whenever the modification of a component cannot be justified a
 You can access the existing components' source code in the [components folder](https://github.com/wmde/wikit/tree/master/vue-components/src) of the WiKit repository. Follow the predefined [component creation](/?path=/story/documentation-how-to-create-reusable-components-developing-components--page) steps to create the new component version:
 
 1. Open a PR with your changes and look at the UI Tests in Chromatic to check the results from the visual regression tests.
-2. Ask UX for a review.
-3. Ask a fellow developer for a technical review.
-4. Make a new release after the PR is merged to master.
+2. Update `CHAGELOG.md` with the changes you made, following the "[Keep a Changelog](https://keepachangelog.com/en/1.0.0/)" guidelines.  
+3. Ask UX for a review.
+4. Ask a fellow developer for a technical review.
+5. Make a new release after the PR is merged to master.
 
 
 ## 3. Releasing changes
