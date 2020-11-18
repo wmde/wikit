@@ -107,7 +107,7 @@ describe( 'Lookup', () => {
 			},
 		} );
 
-		expect( wrapper.findComponent( LookupMenu ).exists() ).toBeFalsy();
+		expect( wrapper.findComponent( LookupMenu ).isVisible() ).toBe( false );
 	} );
 
 	it( 'shows the lookup menu if the input field is focused and has content', () => {
@@ -119,7 +119,7 @@ describe( 'Lookup', () => {
 		wrapper.findComponent( Input ).trigger( 'focus' );
 
 		return Vue.nextTick().then( () => {
-			expect( wrapper.findComponent( LookupMenu ).exists() ).toBeTruthy();
+			expect( wrapper.findComponent( LookupMenu ).isVisible() ).toBe( true );
 		} );
 	} );
 
@@ -204,7 +204,7 @@ describe( 'Lookup', () => {
 
 		wrapper.findComponent( Input ).trigger( 'focus' );
 		await Vue.nextTick();
-		expect( wrapper.vm.$data.selectedItemIndex ).toBe( 1 );
+		expect( wrapper.findComponent( LookupMenu ).vm.$data.selectedItemIndex ).toBe( 1 );
 		expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'duck' );
 	} );
 
@@ -217,33 +217,35 @@ describe( 'Lookup', () => {
 		const highlightedItemLabelSelector = '.wikit-LookupMenu__item--selected .wikit-LookupMenu__item__label';
 
 		const wrapper = await createLookupWrapperWithExpandedMenu( menuItems );
-		expect( wrapper.findComponent( LookupMenu ).exists() ).toBe( true );
-		expect( wrapper.vm.$data.selectedItemIndex ).toBe( -1 );
+		const LookupMenuWrapper = wrapper.findComponent( LookupMenu );
+
+		expect( LookupMenuWrapper.isVisible() ).toBe( true );
+		expect( LookupMenuWrapper.vm.$data.selectedItemIndex ).toBe( -1 );
 		expect( wrapper.find( highlightedItemLabelSelector ).exists() ).toBe( false );
 
-		wrapper.findComponent( Input ).trigger( 'keydown.down.native' );
+		wrapper.trigger( 'keydown', { key: 'ArrowDown' } );
 		await Vue.nextTick();
-		expect( wrapper.vm.$data.selectedItemIndex ).toBe( 0 );
+		expect( LookupMenuWrapper.vm.$data.selectedItemIndex ).toBe( 0 );
 		expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'potato' );
 
-		wrapper.findComponent( Input ).trigger( 'keydown.down.native' );
+		wrapper.trigger( 'keydown', { key: 'ArrowDown' } );
 		await Vue.nextTick();
-		expect( wrapper.vm.$data.selectedItemIndex ).toBe( 1 );
+		expect( LookupMenuWrapper.vm.$data.selectedItemIndex ).toBe( 1 );
 		expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'duck' );
 
-		wrapper.findComponent( Input ).trigger( 'keydown.down.native' );
+		wrapper.trigger( 'keydown', { key: 'ArrowDown' } );
 		await Vue.nextTick();
-		expect( wrapper.vm.$data.selectedItemIndex ).toBe( 1 );
+		expect( LookupMenuWrapper.vm.$data.selectedItemIndex ).toBe( 1 );
 		expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'duck' );
 
-		wrapper.findComponent( Input ).trigger( 'keydown.up.native' );
+		wrapper.trigger( 'keydown', { key: 'ArrowUp' } );
 		await Vue.nextTick();
-		expect( wrapper.vm.$data.selectedItemIndex ).toBe( 0 );
+		expect( LookupMenuWrapper.vm.$data.selectedItemIndex ).toBe( 0 );
 		expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'potato' );
 
-		wrapper.findComponent( Input ).trigger( 'keydown.up.native' );
+		wrapper.trigger( 'keydown', { key: 'ArrowUp' } );
 		await Vue.nextTick();
-		expect( wrapper.vm.$data.selectedItemIndex ).toBe( 0 );
+		expect( LookupMenuWrapper.vm.$data.selectedItemIndex ).toBe( 0 );
 		expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'potato' );
 	} );
 
@@ -255,13 +257,13 @@ describe( 'Lookup', () => {
 
 		const wrapper = await createLookupWrapperWithExpandedMenu( menuItems );
 
-		wrapper.setData( { selectedItemIndex: 0 } );
-		wrapper.findComponent( Input ).trigger( 'keyup.esc.native' );
+		wrapper.findComponent( LookupMenu ).setData( { selectedItemIndex: 0 } );
+		wrapper.findComponent( Input ).trigger( 'keyup', { key: 'Escape' } );
 
 		await Vue.nextTick();
 
-		expect( wrapper.findComponent( LookupMenu ).exists() ).toBeFalsy();
-		expect( wrapper.vm.$data.selectedItemIndex ).toBe( -1 );
+		expect( wrapper.findComponent( LookupMenu ).isVisible() ).toBe( false );
+		expect( wrapper.findComponent( LookupMenu ).vm.$data.selectedItemIndex ).toBe( -1 );
 	} );
 
 	it( 'selects an item on Tab key', async () => {
@@ -275,11 +277,10 @@ describe( 'Lookup', () => {
 
 		const selectedItemIndex = 0;
 		wrapper.find( 'input' ).setValue( userInput );
-		wrapper.setData( { selectedItemIndex } );
+		wrapper.findComponent( LookupMenu ).setData( { selectedItemIndex } );
 
-		wrapper.findComponent( Input ).trigger( 'keydown.tab.native' );
+		wrapper.trigger( 'keydown', { key: 'Tab' } );
 
-		expect( wrapper.vm.$data.selectedItemIndex ).toBe( -1 );
 		expect( ( wrapper.emitted( 'update:searchInput' ) )![ 0 ] ).toStrictEqual( [ userInput ] );
 		expect( wrapper.emitted( 'input' )!.pop() ).toStrictEqual( [ menuItems[ selectedItemIndex ] ] );
 	} );
@@ -292,19 +293,19 @@ describe( 'Lookup', () => {
 		];
 
 		const wrapper = await createLookupWrapperWithExpandedMenu( menuItems );
+		const LookupMenuWrapper = wrapper.findComponent( LookupMenu );
 
 		wrapper.find( 'input' ).setValue( userInput );
-		wrapper.setData( { selectedItemIndex: 0 } );
+		LookupMenuWrapper.setData( { selectedItemIndex: 0 } );
 
-		wrapper.findComponent( Input ).trigger( 'keyup.enter.native' );
+		wrapper.trigger( 'keyup', { key: 'Enter' } );
 		await Vue.nextTick();
 
-		expect( wrapper.vm.$data.selectedItemIndex ).toBe( -1 );
-		expect( wrapper.findComponent( LookupMenu ).exists() ).toBe( false );
+		expect( LookupMenuWrapper.isVisible() ).toBe( false );
 
 		wrapper.findComponent( Input ).trigger( 'focus' );
 		await Vue.nextTick();
-		expect( wrapper.findComponent( LookupMenu ).exists() ).toBe( true );
+		expect( LookupMenuWrapper.isVisible() ).toBe( true );
 	} );
 
 	it( 'maintains state on enter key without any item selection', async () => {
@@ -317,14 +318,12 @@ describe( 'Lookup', () => {
 		const wrapper = await createLookupWrapperWithExpandedMenu( menuItems );
 
 		wrapper.find( 'input' ).setValue( userInput );
-		wrapper.setData( { selectedItemIndex: -1 } );
 
 		wrapper.findComponent( Input ).trigger( 'keyup.enter.native' );
 
-		expect( wrapper.vm.$data.selectedItemIndex ).toBe( -1 );
+		expect( wrapper.findComponent( LookupMenu ).vm.$data.selectedItemIndex ).toBe( -1 );
 
-		return Vue.nextTick().then( () => {
-			expect( wrapper.findComponent( LookupMenu ).exists() ).toBeTruthy();
-		} );
+		await Vue.nextTick();
+		expect( wrapper.findComponent( LookupMenu ).isVisible() ).toBe( true );
 	} );
 } );

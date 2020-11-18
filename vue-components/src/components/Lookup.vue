@@ -1,5 +1,9 @@
 <template>
-	<div :class="[ 'wikit', 'wikit-Lookup', ]">
+	<div
+		:class="[ 'wikit', 'wikit-Lookup' ]"
+		@keydown="triggerKeyDown"
+		@keyup="triggerKeyUp"
+	>
 		<label class="wikit-Lookup__label" :for="inputId">{{ label }}</label>
 		<Input
 			:id="inputId"
@@ -10,20 +14,16 @@
 			:feedback-type="feedbackType"
 			:placeholder="placeholder"
 			:disabled="disabled"
-			@keydown.up.native.prevent="onArrowUp"
-			@keydown.down.native.prevent="onArrowDown"
-			@keyup.enter.native="onEnter"
-			@keydown.tab.native="onTab"
-			@keyup.esc.native="onEsc"
 			autocomplete="off"
 		/>
 		<LookupMenu
 			class="wikit-Lookup__menu"
 			:menu-items="menuItems"
-			v-if="showMenu"
+			v-show="showMenu"
 			@select="onSelect"
 			@scroll="onScroll"
-			:selected-item-index="selectedItemIndex"
+			@esc="onEsc"
+			ref="menu"
 		>
 			<template v-slot:no-results>
 				<slot name="no-results" />
@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
+import Vue, { PropType, VueConstructor } from 'vue';
 import isEqual from 'lodash.isequal';
 import ValidationMessage from './ValidationMessage.vue';
 import Input from './Input.vue';
@@ -52,7 +52,7 @@ import { MenuItem } from '@/components/MenuItem';
  *
  * Uses the following components internally: Input, ValidationMessage and LookupMenu
  */
-export default Vue.extend( {
+export default ( Vue as VueConstructor<Vue & { $refs: { menu: InstanceType<typeof LookupMenu> } }> ).extend( {
 	name: 'Lookup',
 	data() {
 		return {
@@ -60,7 +60,6 @@ export default Vue.extend( {
 			inputId: generateUid( 'wikit-Lookup' ),
 			scrollIndexStart: null as ( number | null ),
 			scrollIndexEnd: null as ( number | null ),
-			selectedItemIndex: -1,
 		};
 	},
 	props: {
@@ -117,8 +116,13 @@ export default Vue.extend( {
 		canShowMenu( currentSearchInput: string ): boolean {
 			return currentSearchInput.length > 0;
 		},
+		triggerKeyDown( event: KeyboardEvent ): void {
+			this.$refs.menu.onKeyDown( event );
+		},
+		triggerKeyUp( event: KeyboardEvent ): void {
+			this.$refs.menu.onKeyUp( event );
+		},
 		onInput( value: string ): void {
-			this.selectedItemIndex = -1;
 			this.showMenu = this.canShowMenu( value );
 
 			// the following comment generates the event's description for the docs tab in storybook
@@ -131,7 +135,6 @@ export default Vue.extend( {
 		},
 
 		onSelect( menuItem: MenuItem ): void {
-			this.selectedItemIndex = -1;
 			this.showMenu = false;
 
 			// the following comment generates the event's description for the docs tab in storybook
@@ -142,39 +145,21 @@ export default Vue.extend( {
 			this.$emit( 'input', menuItem );
 			this.$emit( 'update:searchInput', menuItem.label );
 		},
-
-		onEnter(): void {
-			if ( this.selectedItemIndex !== -1 ) {
-				this.onSelect( this.menuItems[ this.selectedItemIndex ] );
-			}
-		},
-
-		onArrowUp(): void {
-			this.selectedItemIndex = Math.max( 0, this.selectedItemIndex - 1 );
-		},
-		onArrowDown(): void {
-			this.selectedItemIndex = Math.min( this.menuItems.length - 1, this.selectedItemIndex + 1 );
-		},
-		onTab(): void {
-			if ( this.selectedItemIndex !== -1 ) {
-				this.onSelect( this.menuItems[ this.selectedItemIndex ] );
-			}
-		},
 		onFocus(): void {
 			if ( this.canShowMenu( this.searchInput ) ) {
 				this.showMenu = true;
 			}
 
 			if ( this.value !== null && this.menuItems.length > 0 ) {
-				this.selectedItemIndex = this.menuItems.findIndex(
+				const index = this.menuItems.findIndex(
 					( menuItem ) => { return isEqual( menuItem, this.value ); },
 					this,
 				);
+				this.$refs.menu.onFocusWithValue( index );
 			}
 		},
 		onEsc(): void {
 			this.showMenu = false;
-			this.selectedItemIndex = -1;
 		},
 		onScroll( firstIndex: number, lastIndex: number ): void {
 			if ( firstIndex !== this.scrollIndexStart || lastIndex !== this.scrollIndexEnd ) {
