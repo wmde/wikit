@@ -9,4 +9,5 @@ export const parameters = {
     viewport: {
       viewports: INITIAL_VIEWPORTS,
     },
+    controls: { expanded: true },
   };
