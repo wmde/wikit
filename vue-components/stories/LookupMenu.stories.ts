@@ -29,6 +29,15 @@ const vegetableItems = [
 		value: 'Q7540',
 	},
 	{
+		label: 'tomato',
+		value: 'Q20638126',
+	},
+	{
+		label: 'potato',
+		description: '',
+		value: 'Q16587531',
+	},
+	{
 		label: 'broccoli',
 		description: 'edible green plant in the cabbage family',
 		value: 'Q47722',
@@ -45,7 +54,7 @@ const vegetableItems = [
 	},
 ];
 
-export function withItems(): Component {
+export function withItems( args: { boldLabels: boolean } ): Component {
 	return {
 		components: { LookupMenu },
 		computed: {
@@ -53,17 +62,29 @@ export function withItems(): Component {
 				return vegetableItems;
 			},
 		},
-
+		props: Object.keys( args ),
 		template: `
 			<div>
 				<LookupMenu
 					:menu-items="menuItems"
+					:bold-labels="boldLabels"
 				>
 				</LookupMenu>
 			</div>
 		`,
 	};
 }
+
+withItems.args = {
+	boldLabels: true,
+};
+withItems.argTypes = {
+	menuItems: {
+		control: {
+			disable: true,
+		},
+	},
+};
 
 export function noItems(): Component {
 	return {
