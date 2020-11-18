@@ -131,6 +131,9 @@
             "hairline": {
                 "value": "{wmf-font-weight-hairline.value}"
             },
+            "light": {
+                "value": "{wmf-font-weight-light.value}"
+            },
             "regular": {
                 "value": "{wmf-font-weight-normal.value}",
                 "comment": "Opting to not modify the name of this global token. Regular is the right typographic term for this weight."
