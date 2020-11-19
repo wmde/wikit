@@ -10,8 +10,9 @@
 			:key="index"
 			v-for="(menuItem, index) in menuItems"
 			:class="{
-				'wikit-OptionsMenu__item--selected': index === selectedItemIndex,
+				'wikit-OptionsMenu__item--hovered': index === keyboardHoveredItemIndex,
 				'wikit-OptionsMenu__item--active': index === activeItemIndex,
+				'wikit-OptionsMenu__item--selected': index === selectedItemIndex,
 			}"
 			@click="$emit( 'select', menuItem )"
 			@mousedown.prevent="activeItemIndex = index"
@@ -49,7 +50,7 @@ export default Vue.extend( {
 		return {
 			maxHeight: null as number|null,
 			activeItemIndex: -1,
-			selectedItemIndex: -1,
+			keyboardHoveredItemIndex: -1,
 		};
 	},
 	props: {
@@ -64,17 +65,24 @@ export default Vue.extend( {
 			type: Boolean,
 			default: false,
 		},
+		/**
+		 * If one of the items is selected, then this must be its index in the array of menuItems. -1 otherwise
+		 */
+		selectedItemIndex: {
+			type: Number,
+			default: -1,
+		},
 	},
 	methods: {
 		onKeyUp( event: KeyboardEvent ): void {
 			switch ( event.key ) {
 				case 'Enter':
-					if ( this.selectedItemIndex !== -1 ) {
-						this.$emit( 'select', this.menuItems[ this.selectedItemIndex ] );
+					if ( this.keyboardHoveredItemIndex !== -1 ) {
+						this.$emit( 'select', this.menuItems[ this.keyboardHoveredItemIndex ] );
 					}
 					break;
 				case 'Escape':
-					this.selectedItemIndex = -1;
+					this.keyboardHoveredItemIndex = -1;
 					this.$emit( 'esc' );
 					break;
 			}
@@ -82,20 +90,20 @@ export default Vue.extend( {
 		onKeyDown( event: KeyboardEvent ): void {
 			switch ( event.key ) {
 				case 'ArrowUp':
-					this.selectedItemIndex = Math.max( 0, this.selectedItemIndex - 1 );
+					this.keyboardHoveredItemIndex = Math.max( 0, this.keyboardHoveredItemIndex - 1 );
 					break;
 				case 'ArrowDown':
-					this.selectedItemIndex = Math.min( this.menuItems.length - 1, this.selectedItemIndex + 1 );
+					this.keyboardHoveredItemIndex = Math.min(
+						this.menuItems.length - 1,
+						this.keyboardHoveredItemIndex + 1,
+					);
 					break;
 				case 'Tab':
-					if ( this.selectedItemIndex !== -1 ) {
-						this.$emit( 'select', this.menuItems[ this.selectedItemIndex ] );
+					if ( this.keyboardHoveredItemIndex !== -1 ) {
+						this.$emit( 'select', this.menuItems[ this.keyboardHoveredItemIndex ] );
 					}
 					break;
 			}
-		},
-		onFocusWithValue( indexOfMenuItemWithValue: number ): void {
-			this.selectedItemIndex = indexOfMenuItemWithValue;
 		},
 		resizeMenu(): void {
 			const menuItems = this.$refs[ 'menu-items' ] as HTMLElement[];
@@ -135,7 +143,7 @@ export default Vue.extend( {
 	watch: {
 		menuItems(): void {
 			this.resizeMenu();
-			this.selectedItemIndex = -1;
+			this.keyboardHoveredItemIndex = -1;
 		},
 	},
 } );
@@ -165,7 +173,7 @@ $base: '.wikit-OptionsMenu';
 		transition-timing-function: $wikit-OptionsMenu-item-transition-timing-function;
 
 		&:hover,
-		&--selected {
+		&--hovered {
 			background-color: $wikit-OptionsMenu-item-hover-background-color;
 			cursor: $wikit-OptionsMenu-item-hover-cursor;
 		}
@@ -177,6 +185,25 @@ $base: '.wikit-OptionsMenu';
 
 			#{$base}__item__label, #{$base}__item__description {
 				color: $wikit-OptionsMenu-item-active-color;
+			}
+		}
+
+		&--selected {
+			#{$base}__item__label, #{$base}__item__description {
+				color: $wikit-OptionsMenu-item-selected-color;
+			}
+		}
+
+		&--selected,
+		&--selected:hover,
+		&--selected#{$base}__item--hovered, {
+			background-color: $wikit-OptionsMenu-item-selected-background-color;
+		}
+
+		&--selected:hover,
+		&--selected#{$base}__item--hovered, {
+			#{$base}__item__label, #{$base}__item__description {
+				color: $wikit-OptionsMenu-item-selected-hover-color;
 			}
 		}
 

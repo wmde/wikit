@@ -49,6 +49,27 @@
 					"value" : "{background.color.base.active.value}"
 				}
 			},
+            "selected":{
+                "color": {
+                    "value": "{font.color.base.value}"
+                },
+                "background-color": {
+                    "value": "{background.color.base.active.value}"
+                }
+            },
+            "selected-hover": {
+                "color": {
+                    "value": "{font.color.progressive.value}"
+                }
+            },
+            "disabled": {
+                "color": {
+                    "value": "{font.color.disabled.value}"
+                },
+                "background-color": {
+                    "value": "{background.color.base.default.value}"
+                }
+            },
 			"transition-duration" : {
 				"value": "{transition.interaction.menu.duration.value}"
 			},

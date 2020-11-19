@@ -20,6 +20,7 @@
 			class="wikit-Lookup__menu"
 			:menu-items="menuItems"
 			:bold-labels="true"
+			:selected-item-index="selectedItemIndex"
 			v-show="showMenu"
 			@select="onSelect"
 			@scroll="onScroll"
@@ -150,14 +151,6 @@ export default ( Vue as VueConstructor<Vue & { $refs: { menu: InstanceType<typeo
 			if ( this.canShowMenu( this.searchInput ) ) {
 				this.showMenu = true;
 			}
-
-			if ( this.value !== null && this.menuItems.length > 0 ) {
-				const index = this.menuItems.findIndex(
-					( menuItem ) => { return isEqual( menuItem, this.value ); },
-					this,
-				);
-				this.$refs.menu.onFocusWithValue( index );
-			}
 		},
 		onEsc(): void {
 			this.showMenu = false;
@@ -181,6 +174,16 @@ export default ( Vue as VueConstructor<Vue & { $refs: { menu: InstanceType<typeo
 	computed: {
 		feedbackType(): string | null {
 			return this.error && this.error.type || null;
+		},
+		selectedItemIndex(): number {
+			if ( this.value === null || this.menuItems.length === 0 ) {
+				return -1;
+			}
+
+			return this.menuItems.findIndex(
+				( menuItem ) => { return isEqual( menuItem, this.value ); },
+				this,
+			);
 		},
 	},
 
