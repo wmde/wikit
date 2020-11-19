@@ -582,6 +582,10 @@
             "base": {
                 "value": "{color.base.10.value}"
             },
+            "subtle": {
+                "value": "{color.base.20.value}",
+                "comment": "Equivalent to wikimedia-ui-base opacity-icon-accessory"
+            },
             "emphasized": {
                 "value": "{color.base.0.value}"
             },
