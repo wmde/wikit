@@ -54,7 +54,7 @@ const vegetableItems = [
 	},
 ];
 
-export function withItems( args: { boldLabels: boolean } ): Component {
+export function withItems( args: { boldLabels: boolean, selectedItemIndex: number } ): Component {
 	return {
 		components: { OptionsMenu },
 		computed: {
@@ -68,6 +68,7 @@ export function withItems( args: { boldLabels: boolean } ): Component {
 				<OptionsMenu
 					:menu-items="menuItems"
 					:bold-labels="boldLabels"
+					:selected-item-index="selectedItemIndex"
 				>
 				</OptionsMenu>
 			</div>
