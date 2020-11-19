@@ -3,35 +3,35 @@
   "globalParameters": {},
   "kindParameters": {
     "Button": {
-      "fileName": 1431,
+      "fileName": 1421,
       "framework": "vue"
     },
     "Icon": {
-      "fileName": 1410,
+      "fileName": 1398,
       "framework": "vue"
     },
     "/Input/Basic": {
-      "fileName": 1413,
+      "fileName": 1401,
       "framework": "vue"
     },
     "/Lookup/Lookup": {
-      "fileName": 1432,
-      "framework": "vue"
-    },
-    "/Lookup/LookupMenu": {
       "fileName": 1422,
       "framework": "vue"
     },
+    "/Lookup/LookupMenu": {
+      "fileName": 1412,
+      "framework": "vue"
+    },
     "/Message/Message": {
-      "fileName": 1433,
+      "fileName": 1423,
       "framework": "vue"
     },
     "/Input/TextInput": {
-      "fileName": 1434,
+      "fileName": 1424,
       "framework": "vue"
     },
     "/Message/ValidationMessage": {
-      "fileName": 1427,
+      "fileName": 1417,
       "framework": "vue"
     }
   },
@@ -106,6 +106,16 @@
         "__isArgsStory": false
       }
     },
+    "message-message--basic": {
+      "id": "message-message--basic",
+      "name": "Basic",
+      "kind": "/Message/Message",
+      "story": "Basic",
+      "parameters": {
+        "__id": "message-message--basic",
+        "__isArgsStory": true
+      }
+    },
     "message-message--all": {
       "id": "message-message--all",
       "name": "All",
@@ -114,16 +124,6 @@
       "parameters": {
         "__id": "message-message--all",
         "__isArgsStory": false
-      }
-    },
-    "message-message--controllable-message": {
-      "id": "message-message--controllable-message",
-      "name": "Controllable Message",
-      "kind": "/Message/Message",
-      "story": "Controllable Message",
-      "parameters": {
-        "__id": "message-message--controllable-message",
-        "__isArgsStory": true
       }
     },
     "input-textinput--all": {
