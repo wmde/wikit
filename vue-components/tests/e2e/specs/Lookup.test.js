@@ -18,9 +18,9 @@ module.exports = {
 			.waitForElementPresent( '.wikit-Lookup' )
 			.setValue( 'input', 'whatever' )
 			.waitForElementPresent( '.wikit-Lookup__menu' )
-			.assert.containsText( '.wikit-LookupMenu__no-results', 'No match was found' );
+			.assert.containsText( '.wikit-OptionsMenu__no-results', 'No match was found' );
 	},
-	'Lookup Menu selects menu item when LookupMenu-Item clicked': ( client ) => {
+	'Lookup Menu selects menu item when OptionsMenu-Item clicked': ( client ) => {
 		client
 			.pause( 500 )
 			.init()
@@ -29,8 +29,8 @@ module.exports = {
 			.waitForElementPresent( '.wikit-Lookup' )
 			.setValue( 'input', 'potato' )
 			.waitForElementPresent( '.wikit-Lookup__menu' )
-			.assert.visible( '.wikit-LookupMenu__item' )
-			.click( '.wikit-LookupMenu__item' )
+			.assert.visible( '.wikit-OptionsMenu__item' )
+			.click( '.wikit-OptionsMenu__item' )
 			.assert.containsText( '.selected-item-label', 'potato' )
 			.assert.containsText( '.selected-item-id', 'Q10998' );
 	},
@@ -43,7 +43,7 @@ module.exports = {
 			.waitForElementPresent( '.wikit-Lookup' )
 			.setValue( 'input', 'a' )
 			.waitForElementPresent( '.wikit-Lookup__menu' )
-			.execute( 'document.querySelectorAll(".wikit-LookupMenu__item")[7].scrollIntoView(false)' )
+			.execute( 'document.querySelectorAll(".wikit-OptionsMenu__item")[7].scrollIntoView(false)' )
 			.assert.containsText( '.first-visible-element-index', '2' )
 			.assert.containsText( '.last-visible-element-index', '7' );
 	},

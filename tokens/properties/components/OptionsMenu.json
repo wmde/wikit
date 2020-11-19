@@ -1,5 +1,5 @@
 {
-	"wikit-LookupMenu": {
+	"wikit-OptionsMenu": {
 		"background-color": {
 			"value": "{background.color.base.default.value}"
 		},

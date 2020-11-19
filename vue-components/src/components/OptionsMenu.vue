@@ -1,17 +1,17 @@
 <template>
 	<div
-		:class="[ 'wikit', 'wikit-LookupMenu' ]"
+		:class="[ 'wikit', 'wikit-OptionsMenu' ]"
 		@scroll.passive="onScroll"
 		ref="lookup-menu"
 		:style="{ maxHeight: maxHeight ? maxHeight + 'px' : null }"
 	>
 		<div
-			class="wikit-LookupMenu__item"
+			class="wikit-OptionsMenu__item"
 			:key="index"
 			v-for="(menuItem, index) in menuItems"
 			:class="{
-				'wikit-LookupMenu__item--selected': index === selectedItemIndex,
-				'wikit-LookupMenu__item--active': index === activeItemIndex,
+				'wikit-OptionsMenu__item--selected': index === selectedItemIndex,
+				'wikit-OptionsMenu__item--active': index === activeItemIndex,
 			}"
 			@click="$emit( 'select', menuItem )"
 			@mousedown.prevent="activeItemIndex = index"
@@ -20,17 +20,17 @@
 		>
 			<div
 				:class="{
-					'wikit-LookupMenu__item__label': true,
-					'wikit-LookupMenu__item__label--bold': boldLabels,
+					'wikit-OptionsMenu__item__label': true,
+					'wikit-OptionsMenu__item__label--bold': boldLabels,
 				}"
 			>
 				{{ menuItem.label }}
 			</div>
-			<div class="wikit-LookupMenu__item__description">
+			<div class="wikit-OptionsMenu__item__description">
 				{{ menuItem.description }}
 			</div>
 		</div>
-		<div v-if="menuItems.length === 0" class="wikit-LookupMenu__no-results">
+		<div v-if="menuItems.length === 0" class="wikit-OptionsMenu__no-results">
 			<slot name="no-results" />
 		</div>
 	</div>
@@ -44,7 +44,7 @@ import debounce from 'lodash/debounce';
  * This is an internal component which used by the Lookup component.
  */
 export default Vue.extend( {
-	name: 'LookupMenu',
+	name: 'OptionsMenu',
 	data() {
 		return {
 			maxHeight: null as number|null,
@@ -142,73 +142,73 @@ export default Vue.extend( {
 </script>
 
 <style lang="scss">
-$base: '.wikit-LookupMenu';
+$base: '.wikit-OptionsMenu';
 
 #{$base} {
-	min-width: $wikit-LookupMenu-min-width;
-	max-width: $wikit-LookupMenu-max-width;
+	min-width: $wikit-OptionsMenu-min-width;
+	max-width: $wikit-OptionsMenu-max-width;
 	width: max-content;
-	background-color: $wikit-LookupMenu-background-color;
-	border-radius: $wikit-LookupMenu-border-radius;
-	border: $wikit-LookupMenu-border-width $wikit-LookupMenu-border-style $wikit-LookupMenu-border-color;
-	box-shadow: $wikit-LookupMenu-box-shadow;
+	background-color: $wikit-OptionsMenu-background-color;
+	border-radius: $wikit-OptionsMenu-border-radius;
+	border: $wikit-OptionsMenu-border-width $wikit-OptionsMenu-border-style $wikit-OptionsMenu-border-color;
+	box-shadow: $wikit-OptionsMenu-box-shadow;
 	overflow-y: auto;
 	box-sizing: border-box;
 	z-index: 1;
 
 	&__item {
 		position: relative;
-		padding-block: $wikit-LookupMenu-item-padding-vertical;
-		padding-inline: $wikit-LookupMenu-item-padding-horizontal;
-		transition-property: $wikit-LookupMenu-item-transition-property;
-		transition-duration: $wikit-LookupMenu-item-transition-duration;
-		transition-timing-function: $wikit-LookupMenu-item-transition-timing-function;
+		padding-block: $wikit-OptionsMenu-item-padding-vertical;
+		padding-inline: $wikit-OptionsMenu-item-padding-horizontal;
+		transition-property: $wikit-OptionsMenu-item-transition-property;
+		transition-duration: $wikit-OptionsMenu-item-transition-duration;
+		transition-timing-function: $wikit-OptionsMenu-item-transition-timing-function;
 
 		&:hover,
 		&--selected {
-			background-color: $wikit-LookupMenu-item-hover-background-color;
-			cursor: $wikit-LookupMenu-item-hover-cursor;
+			background-color: $wikit-OptionsMenu-item-hover-background-color;
+			cursor: $wikit-OptionsMenu-item-hover-cursor;
 		}
 
 		&--active,
 		&--active:hover,
 		&:active {
-			background-color: $wikit-LookupMenu-item-active-background-color;
+			background-color: $wikit-OptionsMenu-item-active-background-color;
 
 			#{$base}__item__label, #{$base}__item__description {
-				color: $wikit-LookupMenu-item-active-color;
+				color: $wikit-OptionsMenu-item-active-color;
 			}
 		}
 
 		&__label {
-			font-family: $wikit-LookupMenu-item-label-font-family;
-			font-size: $wikit-LookupMenu-item-label-font-size;
-			font-weight: $wikit-LookupMenu-item-label-font-weight-regular;
-			color: $wikit-LookupMenu-item-label-font-color;
-			line-height: $wikit-LookupMenu-item-label-line-height;
+			font-family: $wikit-OptionsMenu-item-label-font-family;
+			font-size: $wikit-OptionsMenu-item-label-font-size;
+			font-weight: $wikit-OptionsMenu-item-label-font-weight-regular;
+			color: $wikit-OptionsMenu-item-label-font-color;
+			line-height: $wikit-OptionsMenu-item-label-line-height;
 
 			&--bold {
-				font-weight: $wikit-LookupMenu-item-label-font-weight-bold;
+				font-weight: $wikit-OptionsMenu-item-label-font-weight-bold;
 			}
 		}
 
 		&__description {
-			font-family: $wikit-LookupMenu-item-description-font-family;
-			font-size: $wikit-LookupMenu-item-description-font-size;
-			font-weight: $wikit-LookupMenu-item-description-font-weight;
-			color: $wikit-LookupMenu-item-description-font-color;
-			line-height: $wikit-LookupMenu-item-description-line-height;
+			font-family: $wikit-OptionsMenu-item-description-font-family;
+			font-size: $wikit-OptionsMenu-item-description-font-size;
+			font-weight: $wikit-OptionsMenu-item-description-font-weight;
+			color: $wikit-OptionsMenu-item-description-font-color;
+			line-height: $wikit-OptionsMenu-item-description-line-height;
 		}
 	}
 
 	&__no-results {
-		font-family: $wikit-LookupMenu-no-results-font-family;
-		font-size: $wikit-LookupMenu-no-results-font-size;
-		font-weight: $wikit-LookupMenu-no-results-font-weight;
-		color: $wikit-LookupMenu-no-results-font-color;
-		line-height: $wikit-LookupMenu-no-results-line-height;
-		padding-block: $wikit-LookupMenu-no-results-padding-vertical;
-		padding-inline: $wikit-LookupMenu-no-results-padding-horizontal;
+		font-family: $wikit-OptionsMenu-no-results-font-family;
+		font-size: $wikit-OptionsMenu-no-results-font-size;
+		font-weight: $wikit-OptionsMenu-no-results-font-weight;
+		color: $wikit-OptionsMenu-no-results-font-color;
+		line-height: $wikit-OptionsMenu-no-results-line-height;
+		padding-block: $wikit-OptionsMenu-no-results-padding-vertical;
+		padding-inline: $wikit-OptionsMenu-no-results-padding-horizontal;
 	}
 }
 </style>
