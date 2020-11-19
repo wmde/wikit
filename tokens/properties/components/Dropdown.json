@@ -49,6 +49,16 @@
                 "value": "{font.color.base.value}"
             }
         },
+        "icon-expand": {
+            "size": {
+                "value": "{icon.size.xsmall.value}",
+                "comment": "Same value for width and height"
+            },
+            "spacing-horizontal": {
+                "value": "{dimension.spacing.medium.value}",
+                "comment": "Left and right paddings"
+            }
+        },
         "disabled": {
             "color": {
                 "value": "{font.color.inverted.value}"
