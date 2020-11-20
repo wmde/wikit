@@ -95,8 +95,6 @@ jobs:
           docs/dist
           vue-components/storybook-static
         key: ${{ runner.os }}-${{ hashFiles('tokens/properties/**/*', 'vue-components/stories/**/*', 'vue-components/src/**/*') }}
-    - name: Examine env
-      run: ls vue-components -la && ls docs -la
     - name: Build Storybooks
       if: steps.storybook-cache.outputs.cache-hit != 'true'
       run: npm run build:storybook
