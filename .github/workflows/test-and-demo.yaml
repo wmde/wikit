@@ -94,7 +94,13 @@ jobs:
         path: |
           docs/dist
           vue-components/storybook-static
-        key: ${{ runner.os }}-${{ hashFiles('tokens/properties/**/*', 'vue-components/stories/**/*', 'vue-components/src/**/*') }}
+        key: >
+          ${{ runner.os }}-${{ hashFiles(
+            'tokens/properties/**/*',
+            'vue-components/stories/**/*',
+            'vue-components/src/**/*',
+            'vue-components/.storybook/**/*'
+            ) }}
     - name: Build Storybooks
       if: steps.storybook-cache.outputs.cache-hit != 'true'
       run: npm run build:storybook
