@@ -22,8 +22,8 @@ module.exports = {
 	},
 	'Lookup Menu selects menu item when LookupMenu-Item clicked': ( client ) => {
 		client
-			.init()
 			.pause( 500 )
+			.init()
 			.openComponentStoryDirectory( 'lookup' )
 			.openComponentStory( 'lookup-lookup' )
 			.waitForElementPresent( '.wikit-Lookup' )
@@ -36,8 +36,8 @@ module.exports = {
 	},
 	'Lookup emits first and last index on scroll change': ( client ) => {
 		client
-			.init()
 			.pause( 500 )
+			.init()
 			.openComponentStoryDirectory( 'lookup' )
 			.openComponentStory( 'lookup-lookup' )
 			.waitForElementPresent( '.wikit-Lookup' )
