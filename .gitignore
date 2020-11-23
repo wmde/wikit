@@ -3,6 +3,7 @@ nbproject
 .~lock.*
 .buildpath
 .idea
+*.iml
 .project
 .settings
 .vscode
