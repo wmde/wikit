@@ -11,6 +11,7 @@ module.exports = {
 	},
 	'Lookup Menu displays no-results text on no matches found': ( client ) => {
 		client
+			.pause( 500 )
 			.init()
 			.openComponentStoryDirectory( 'lookup' )
 			.openComponentStory( 'lookup-lookup' )
@@ -21,6 +22,7 @@ module.exports = {
 	},
 	'Lookup Menu selects menu item when LookupMenu-Item clicked': ( client ) => {
 		client
+			.pause( 500 )
 			.init()
 			.openComponentStoryDirectory( 'lookup' )
 			.openComponentStory( 'lookup-lookup' )
@@ -34,6 +36,7 @@ module.exports = {
 	},
 	'Lookup emits first and last index on scroll change': ( client ) => {
 		client
+			.pause( 500 )
 			.init()
 			.openComponentStoryDirectory( 'lookup' )
 			.openComponentStory( 'lookup-lookup' )
