@@ -17,6 +17,7 @@ const vegetableItems = [
 		label: 'carrot',
 		description: 'root vegetable, usually orange in color',
 		value: 'Q81',
+		tag: 'limited support',
 	},
 	{
 		label: 'zucchini',

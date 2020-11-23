@@ -19,13 +19,18 @@
 			@mouseup="activeItemIndex = -1"
 			ref="menu-items"
 		>
-			<div
-				:class="{
-					'wikit-OptionsMenu__item__label': true,
-					'wikit-OptionsMenu__item__label--bold': boldLabels,
-				}"
-			>
-				{{ menuItem.label }}
+			<div class="wikit-OptionsMenu__item__label-wrapper">
+				<div
+					:class="{
+						'wikit-OptionsMenu__item__label': true,
+						'wikit-OptionsMenu__item__label--bold': boldLabels,
+					}"
+				>
+					{{ menuItem.label }}
+				</div>
+				<div v-if="menuItem.tag" class="wikit-OptionsMenu__item__tag">
+					{{ menuItem.tag }}
+				</div>
 			</div>
 			<div class="wikit-OptionsMenu__item__description">
 				{{ menuItem.description }}
@@ -219,6 +224,11 @@ $base: '.wikit-OptionsMenu';
 			&--bold {
 				font-weight: $wikit-OptionsMenu-item-label-font-weight-bold;
 			}
+
+			&-wrapper {
+				display: flex;
+				justify-content: space-between;
+			}
 		}
 
 		&__description {
@@ -227,6 +237,18 @@ $base: '.wikit-OptionsMenu';
 			font-weight: $wikit-OptionsMenu-item-description-font-weight;
 			color: $wikit-OptionsMenu-item-description-font-color;
 			line-height: $wikit-OptionsMenu-item-description-line-height;
+		}
+
+		&__tag {
+			font-family: $wikit-OptionsMenu-item-tag-font-family;
+			font-size: $wikit-OptionsMenu-item-tag-font-size;
+			font-weight: $wikit-OptionsMenu-item-tag-font-weight;
+			color: $wikit-OptionsMenu-item-tag-font-color;
+			line-height: $wikit-OptionsMenu-item-tag-line-height;
+			font-style: italic;
+			padding-inline-start: $wikit-OptionsMenu-item-tag-left-spacing;
+			display: inline;
+			white-space: nowrap;
 		}
 	}
 
