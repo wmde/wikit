@@ -1,0 +1,25 @@
+on:
+  release:
+      types:
+      - prereleased
+
+name: Verify and pre-publish tokens and vue-components
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - name: Install
+        run: npm ci
+      - name: Test
+        run: npm run test
+      - name: Publish
+        run: |
+          printf '//registry.npmjs.org/:_authToken=%s\n' '${{ secrets.NPM_AUTH_TOKEN }}' > ~/.npmrc
+          npm run publish-tokens-vue -- --dist-tag next
