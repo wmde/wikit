@@ -196,6 +196,9 @@
                 "disabled": {
                     "value": "{color.base.70.value}"
                 },
+                "quiet-disabled": {
+                    "value": "{color.transparent.value}"
+                },
                 "field-disabled": {
                     "value": "{color.base.80.value}"
                 },
@@ -330,6 +333,9 @@
                 },
                 "disabled": {
                     "value": "{color.base.70.value}"
+                },
+                "quiet-disabled": {
+                    "value": "{color.transparent.value}"
                 }
             },
             "progressive": {
