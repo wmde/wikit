@@ -18,7 +18,12 @@
 			@mouseup="activeItemIndex = -1"
 			ref="menu-items"
 		>
-			<div class="wikit-LookupMenu__item__label">
+			<div
+				:class="{
+					'wikit-LookupMenu__item__label': true,
+					'wikit-LookupMenu__item__label--bold': boldLabels,
+				}"
+			>
 				{{ menuItem.label }}
 			</div>
 			<div class="wikit-LookupMenu__item__description">
@@ -51,6 +56,13 @@ export default Vue.extend( {
 		menuItems: {
 			type: Array,
 			default: (): [] => [],
+		},
+		/**
+		 * Whether the label of the options should be bold
+		 */
+		boldLabels: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	methods: {
@@ -171,9 +183,13 @@ $base: '.wikit-LookupMenu';
 		&__label {
 			font-family: $wikit-LookupMenu-item-label-font-family;
 			font-size: $wikit-LookupMenu-item-label-font-size;
-			font-weight: $wikit-LookupMenu-item-label-font-weight;
+			font-weight: $wikit-LookupMenu-item-label-font-weight-regular;
 			color: $wikit-LookupMenu-item-label-font-color;
 			line-height: $wikit-LookupMenu-item-label-line-height;
+
+			&--bold {
+				font-weight: $wikit-LookupMenu-item-label-font-weight-bold;
+			}
 		}
 
 		&__description {
