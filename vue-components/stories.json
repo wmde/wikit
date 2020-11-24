@@ -93,7 +93,7 @@
       "story": "With Items",
       "parameters": {
         "__id": "lookup-lookupmenu--with-items",
-        "__isArgsStory": false
+        "__isArgsStory": true
       }
     },
     "lookup-lookupmenu--no-items": {
