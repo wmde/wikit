@@ -19,6 +19,7 @@
 		<LookupMenu
 			class="wikit-Lookup__menu"
 			:menu-items="menuItems"
+			:bold-labels="true"
 			v-show="showMenu"
 			@select="onSelect"
 			@scroll="onScroll"
