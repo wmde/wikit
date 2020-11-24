@@ -22,37 +22,37 @@ Yet, some work-in-progress development in applications that rely on the design s
 
 For the purpose of enabling ongoing development with the design system, it is sufficient to have to have a partial and unstable component now rather than wait for an official release of the design system. 
 
-Conversely, making components available prior ro release can additionally help with finding incomplete requirements/design and thus help us make more robust and stable components to be release officially.
+Conversely, making components available prior to release can additionally help with finding incomplete requirements/design and thus help us make more robust and stable components to be release officially.
 
 ## Considered Approaches
 
-### Install package from git url
+### Install package from git URL
 
 It is possible for an application to use npm to "install" a package [directly from a git repository](https://www.pluralsight.com/guides/install-npm-packages-from-gitgithub) (See [npm documentation](https://docs.npmjs.com/cli/v6/configuring-npm/package-json#git-urls-as-dependencies)), which essentially clones the main branch of a library's repository into `node_modules`.
 
 The advantage of this method is that no extra steps are needed to be made in the library's repository. The consuming application simply uses the latest development version, and can be updated when required.
 
-On the other hand, the dependancy on the library becomes unversioned in this case, and issues within the library itself can unknowingly seep into the consuming application. Therefore, this kind of dependency decleration is not necessarily suitable for production use.
+On the other hand, the dependency on the library becomes unversioned in this case, and issues within the library itself can unknowingly seep into the consuming application. Therefore, this kind of dependency declaration is not necessarily suitable for production use.
 
 ### Make pre-releases available to consuming applications
 
-The practice of creating [alpha, beta and release candidate versions](https://en.wikipedia.org/wiki/Software_release_life_cycle#Stages_of_development) for testing is already fairly common in the devlopment community, and the semantic versioning (semver) standards also specify a way to [denote pre-release versions](https://semver.org/#spec-item-9). With a process to pre-release the library. By marking the pre-release with a [distribution tag in npm](https://docs.npmjs.com/cli/v6/commands/npm-dist-tag), a consuming application may then install the pre-release version of the library simply by using conventional npm commands and semver ranges to ensure proper updates.
+The practice of creating [alpha, beta and release candidate versions](https://en.wikipedia.org/wiki/Software_release_life_cycle#Stages_of_development) for testing is already fairly common in the development community, and the semantic versioning (semver) standards also specify a way to [denote pre-release versions](https://semver.org/#spec-item-9). With a process to pre-release the library. By marking the pre-release with a [distribution tag in npm](https://docs.npmjs.com/cli/v6/commands/npm-dist-tag), a consuming application may then install the pre-release version of the library simply by using conventional npm commands and semver ranges to ensure proper updates.
 
-The advantage of the pre-relese method is that - by utlizing semver - a pre-released unstable version of the library may also be automatically updated to a stable version once one is released, without requiring the invlovment of the devlopers of the library's consuming application. 
+The advantage of the pre-release method is that - by utilizing semver - a pre-released unstable version of the library may also be automatically updated to a stable version once one is released, without requiring the involvement of the developers of the library's consuming application. 
 
-This method also allows library maintainers to keep track of the number of pre-releases that were required and potentially evelove their processes furhter. However, this also requires the maintainers to adopt an additional process and a potentially seperate workflow for making pre-releases.
+This method also allows library maintainers to keep track of the number of pre-releases that were required and potentially evolve their processes further. However, this also requires the maintainers to adopt an additional process and a potentially separate workflow for making pre-releases.
 
 ## Decision
 
-Adopt a pre-release workflow to enable consuming application to use the latest features of the design system, without having to perfect their contributions and make an official release. The prerelease will have the following properties:
+Adopt a pre-release workflow to enable consuming application to use the latest features of the design system, without having to perfect their contributions and make an official release. The pre-release will have the following properties:
 
 - A pre-release will be tagged using the next appropriate conventional semver version `v<MAJOR>.<MINOR>.<PATCH>-alpha.<NUMBER>`such as the following `v3.2.1-alpha.0`. This pre-release version number represents the first pre-release (alpha-0), of the 1st patch, of the 2nd minor and 3rd major version of WiKit.
 - The pre-release suffix `alpha` was not chosen to denote any type of testing methodology, but rather to signal to any consumer of the WiKit libraries that this particular version is **NOT** stable. No other pre-release suffixes (such as `beta` or `rc`) are supported as of yet.
-- Any pre-release will be published in npm under the `next` distribution tag, to ensure that we are not accidentaly shipping code that is under active development. The tag `next` also signifies that the version of the library being used is "cutting edge" and not guarneteed to be stable.
+- Any pre-release will be published in npm under the `next` distribution tag, to ensure that we are not accidentally shipping code that is under active development. The tag `next` also signifies that the version of the library being used is "cutting edge" and not guaranteed to be stable.
 
 ## Consequences
 
-Prior to publishing this ADR a coupple of one off pre-releases have been made as a proof of concept to the pre-release startegy (See versions tab in [`@wmde/wikit-vue-components`](https://www.npmjs.com/package/@wmde/wikit-vue-components) and [`@wmde/wikit-tokens`](https://www.npmjs.com/package/@wmde/wikit-tokens)). As a result of this ADR it is expected that:
+Prior to publishing this ADR a couple of one off pre-releases have been made as a proof of concept to the pre-release strategy (See versions tab in [`@wmde/wikit-vue-components`](https://www.npmjs.com/package/@wmde/wikit-vue-components) and [`@wmde/wikit-tokens`](https://www.npmjs.com/package/@wmde/wikit-tokens)). As a result of this ADR it is expected that:
 
 - A workflow to publish pre-releases to npm is added to CI, so that pre-releases are automated rather than manual.
 
@@ -62,5 +62,5 @@ Prior to publishing this ADR a coupple of one off pre-releases have been made as
 
   SO THAT
 
-- Any developer with sufficent access rights to the WiKit repository should be able to preform a pre-release.
+- Any developer with sufficient access rights to the WiKit repository should be able to preform a pre-release.
 

@@ -7,7 +7,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 The Design System follows the [Semantic Versioning Specification](https://semver.org/spec/v2.0.0.html) (also known as semver).
 
-How to release a new version is documented in the section [Developing components](?path=/story/documentation-how-to-create-reusable-components-developing-components--page#releasing-a-new-component).
+How to release a new verision is documented in the section [Developing components](?path=/story/documentation-how-to-create-reusable-components-developing-components--page#releasing-a-new-component).
 
 ℹ️ Changes to the `docs` package **do not** get released, because `docs` contains the documentation and token visualizations.
 
@@ -26,7 +26,7 @@ It is also their responsibility to inform other relevant roles like UX and PM (i
 
 ## Creating a pre-release 
 
-If you want to be able to test components and features prior to their official release, you may create a pre-release. To make a pre-release you need to take the following steps:
+If you want to be able to test components and features prior totheir official release, you may create a pre-release. To make a pre-release you need to take the following steps:
  - To release a new version run the command `npm run bump-version -- [premajor | preminor | prepatch | prerelease]`. This will take care of updating the version number in all package.json files.
  - Commit and push the changes you made to package files and open a PR.
  - After the PR is merged create and push a new tag, named after the version number with a "v" prefix and an `alpha` suffix, e.g. `v1.2.3-alpha.0` (0 stands for the first pre-release of this version, for each consecutive pre-release this number must be incremented).
