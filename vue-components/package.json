@@ -72,6 +72,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.2",
     "eslint-plugin-vue": "^6.2.2",
+    "eslint-plugin-vue-root-class": "^0.1.0",
     "geckodriver": "^1.19.1",
     "jest-serializer-vue": "^2.0.2",
     "npm-run-all": "^4.1.5",

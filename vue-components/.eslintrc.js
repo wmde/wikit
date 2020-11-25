@@ -7,6 +7,7 @@ module.exports = {
 	],
 	plugins: [
 		'filenames',
+		'vue-root-class',
 	],
 	parser: 'vue-eslint-parser',
 	env: {
@@ -88,6 +89,7 @@ module.exports = {
 				message: 'Please use toHaveNthReturnedWith instead.',
 			},
 		],
+		'vue-root-class/vue-root-class': [ 'error', { class: 'wikit' } ],
 	},
 	overrides: [
 		{
