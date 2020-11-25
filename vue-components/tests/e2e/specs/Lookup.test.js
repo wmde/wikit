@@ -3,9 +3,7 @@ describe( 'Lookup Menu', function () {
 	beforeEach( function ( client ) {
 		client
 			.pause( 500 )
-			.init()
-			.openComponentStoryDirectory( 'lookup' )
-			.openComponentStory( 'lookup-lookup' )
+			.init( client.launch_url + '/iframe.html?id=lookup-lookup&viewMode=story' )
 			.waitForElementPresent( '.wikit-Lookup' );
 	} );
 
