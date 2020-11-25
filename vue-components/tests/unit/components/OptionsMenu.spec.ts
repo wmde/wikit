@@ -1,29 +1,29 @@
 import { mount } from '@vue/test-utils';
-import LookupMenu from '@/components/LookupMenu.vue';
+import OptionsMenu from '@/components/OptionsMenu.vue';
 
-describe( 'LookupMenu', () => {
+describe( 'OptionsMenu', () => {
 	it( 'displays the menu items', () => {
 		const menuItems = [
 			{ label: 'potato', description: 'root vegetable' },
 			{ label: 'duck', description: 'aquatic bird' },
 		];
-		const wrapper = mount( LookupMenu, { propsData: { menuItems } } );
-		const renderedMenuItems = wrapper.findAll( '.wikit-LookupMenu__item' );
+		const wrapper = mount( OptionsMenu, { propsData: { menuItems } } );
+		const renderedMenuItems = wrapper.findAll( '.wikit-OptionsMenu__item' );
 
 		expect( renderedMenuItems.length ).toBe( 2 );
-		expect( renderedMenuItems.at( 0 ).find( '.wikit-LookupMenu__item__label' ).text() )
+		expect( renderedMenuItems.at( 0 ).find( '.wikit-OptionsMenu__item__label' ).text() )
 			.toBe( menuItems[ 0 ].label );
-		expect( renderedMenuItems.at( 0 ).find( '.wikit-LookupMenu__item__description' ).text() )
+		expect( renderedMenuItems.at( 0 ).find( '.wikit-OptionsMenu__item__description' ).text() )
 			.toBe( menuItems[ 0 ].description );
-		expect( renderedMenuItems.at( 1 ).find( '.wikit-LookupMenu__item__label' ).text() )
+		expect( renderedMenuItems.at( 1 ).find( '.wikit-OptionsMenu__item__label' ).text() )
 			.toBe( menuItems[ 1 ].label );
-		expect( renderedMenuItems.at( 1 ).find( '.wikit-LookupMenu__item__description' ).text() )
+		expect( renderedMenuItems.at( 1 ).find( '.wikit-OptionsMenu__item__description' ).text() )
 			.toBe( menuItems[ 1 ].description );
 	} );
 
 	it( 'shows the "no match found" text if there are no menu items', () => {
 		const noResultsFoundText = 'no results. so sad.';
-		const wrapper = mount( LookupMenu, {
+		const wrapper = mount( OptionsMenu, {
 			propsData: {
 				menuItems: [],
 			},
@@ -36,7 +36,7 @@ describe( 'LookupMenu', () => {
 	} );
 
 	it( 'does not show the "no match found" text if there are menu items', () => {
-		const wrapper = mount( LookupMenu, {
+		const wrapper = mount( OptionsMenu, {
 			propsData: {
 				menuItems: [
 					{ label: 'potato', description: 'root vegetable' },
@@ -48,6 +48,6 @@ describe( 'LookupMenu', () => {
 			},
 		} );
 
-		expect( wrapper.find( '.wikit-LookupMenu__no-results' ).exists() ).toBeFalsy();
+		expect( wrapper.find( '.wikit-OptionsMenu__no-results' ).exists() ).toBeFalsy();
 	} );
 } );
