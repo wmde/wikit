@@ -141,9 +141,11 @@ export default Vue.extend( {
 	},
 
 	watch: {
-		menuItems(): void {
-			this.resizeMenu();
+		async menuItems(): Promise<void> {
 			this.keyboardHoveredItemIndex = -1;
+
+			await this.$nextTick();
+			this.resizeMenu();
 		},
 	},
 } );
