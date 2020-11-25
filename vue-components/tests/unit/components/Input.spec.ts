@@ -24,4 +24,14 @@ describe( 'Input', () => {
 		} ) ).toThrow();
 	} );
 
+	it( 'does not render the feedback-type as a root node class if null', () => {
+		const wrapper = shallowMount( Input, {
+			propsData: {
+				feedbackType: null,
+			},
+		} );
+
+		expect( wrapper.classes() ).not.toContain( 'wikit-Input--' );
+	} );
+
 } );
