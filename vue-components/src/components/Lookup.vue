@@ -16,9 +16,10 @@
 			:disabled="disabled"
 			autocomplete="off"
 		/>
-		<LookupMenu
+		<OptionsMenu
 			class="wikit-Lookup__menu"
 			:menu-items="menuItems"
+			:bold-labels="true"
 			v-show="showMenu"
 			@select="onSelect"
 			@scroll="onScroll"
@@ -28,7 +29,7 @@
 			<template v-slot:no-results>
 				<slot name="no-results" />
 			</template>
-		</LookupMenu>
+		</OptionsMenu>
 		<ValidationMessage
 			v-if="error"
 			:type="error.type"
@@ -42,7 +43,7 @@ import Vue, { PropType, VueConstructor } from 'vue';
 import isEqual from 'lodash.isequal';
 import ValidationMessage from './ValidationMessage.vue';
 import Input from './Input.vue';
-import LookupMenu from './LookupMenu.vue';
+import OptionsMenu from './OptionsMenu.vue';
 import generateUid from '@/components/util/generateUid';
 import { MenuItem } from '@/components/MenuItem';
 
@@ -50,9 +51,9 @@ import { MenuItem } from '@/components/MenuItem';
  * The lookup component is a text input field that provides matching selectable suggestions as a user types into it.
  * In the context of Wikidata, they can be used as Item and Property selectors, for example.
  *
- * Uses the following components internally: Input, ValidationMessage and LookupMenu
+ * Uses the following components internally: Input, ValidationMessage and OptionsMenu
  */
-export default ( Vue as VueConstructor<Vue & { $refs: { menu: InstanceType<typeof LookupMenu> } }> ).extend( {
+export default ( Vue as VueConstructor<Vue & { $refs: { menu: InstanceType<typeof OptionsMenu> } }> ).extend( {
 	name: 'Lookup',
 	data() {
 		return {
@@ -186,7 +187,7 @@ export default ( Vue as VueConstructor<Vue & { $refs: { menu: InstanceType<typeo
 	components: {
 		Input,
 		ValidationMessage,
-		LookupMenu,
+		OptionsMenu,
 	},
 } );
 </script>

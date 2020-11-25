@@ -1,10 +1,10 @@
-import LookupMenu from '@/components/LookupMenu';
+import OptionsMenu from '@/components/OptionsMenu';
 import { Component } from 'vue';
 import { MenuItem } from '@/components/MenuItem';
 
 export default {
-	component: LookupMenu,
-	title: '/Lookup/LookupMenu',
+	component: OptionsMenu,
+	title: 'OptionsMenu',
 };
 
 const vegetableItems = [
@@ -29,6 +29,15 @@ const vegetableItems = [
 		value: 'Q7540',
 	},
 	{
+		label: 'tomato',
+		value: 'Q20638126',
+	},
+	{
+		label: 'potato',
+		description: '',
+		value: 'Q16587531',
+	},
+	{
 		label: 'broccoli',
 		description: 'edible green plant in the cabbage family',
 		value: 'Q47722',
@@ -45,39 +54,51 @@ const vegetableItems = [
 	},
 ];
 
-export function withItems(): Component {
+export function withItems( args: { boldLabels: boolean } ): Component {
 	return {
-		components: { LookupMenu },
+		components: { OptionsMenu },
 		computed: {
 			menuItems(): MenuItem[] {
 				return vegetableItems;
 			},
 		},
-
+		props: Object.keys( args ),
 		template: `
 			<div>
-				<LookupMenu
+				<OptionsMenu
 					:menu-items="menuItems"
+					:bold-labels="boldLabels"
 				>
-				</LookupMenu>
+				</OptionsMenu>
 			</div>
 		`,
 	};
 }
 
+withItems.args = {
+	boldLabels: true,
+};
+withItems.argTypes = {
+	menuItems: {
+		control: {
+			disable: true,
+		},
+	},
+};
+
 export function noItems(): Component {
 	return {
-		components: { LookupMenu },
+		components: { OptionsMenu },
 
 		template: `
 			<div>
-				<LookupMenu
+				<OptionsMenu
 					:menu-items="[]"
 				>
                   <template v-slot:no-results>
                     <em>Nothing</em> was found! 😢
                   </template>
-				</LookupMenu>
+				</OptionsMenu>
 			</div>
 		`,
 	};

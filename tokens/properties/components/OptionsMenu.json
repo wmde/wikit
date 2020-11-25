@@ -1,5 +1,5 @@
 {
-	"wikit-LookupMenu": {
+	"wikit-OptionsMenu": {
 		"background-color": {
 			"value": "{background.color.base.default.value}"
 		},
@@ -66,7 +66,12 @@
 					"value": "{font.size.style.label.value}"
 				},
 				"font-weight": {
-					"value": "{font.weight.bold.value}"
+					"regular": {
+						"value": "{font.weight.style.label.value}"
+					},
+					"bold": {
+						"value": "{font.weight.bold.value}"
+					}
 				},
 				"line-height": {
 					"value": "{font.line-height.style.label.value}"
