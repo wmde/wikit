@@ -2,8 +2,7 @@ module.exports = {
 	'Lookup Menu shows on user input': ( client ) => {
 		client
 			.init()
-			.openComponentStoryDirectory( 'lookup' )
-			.openComponentStory( 'lookup-lookup' )
+			.url( client.launch_url + '/iframe.html?id=lookup-lookup&viewMode=story' )
 			.waitForElementPresent( '.wikit-Lookup' )
 			.setValue( 'input', 'potato' )
 			.waitForElementPresent( '.wikit-Lookup__menu' )
@@ -13,8 +12,7 @@ module.exports = {
 		client
 			.pause( 500 )
 			.init()
-			.openComponentStoryDirectory( 'lookup' )
-			.openComponentStory( 'lookup-lookup' )
+			.url( client.launch_url + '/iframe.html?id=lookup-lookup&viewMode=story' )
 			.waitForElementPresent( '.wikit-Lookup' )
 			.setValue( 'input', 'whatever' )
 			.waitForElementPresent( '.wikit-Lookup__menu' )
@@ -24,8 +22,7 @@ module.exports = {
 		client
 			.pause( 500 )
 			.init()
-			.openComponentStoryDirectory( 'lookup' )
-			.openComponentStory( 'lookup-lookup' )
+			.url( client.launch_url + '/iframe.html?id=lookup-lookup&viewMode=story' )
 			.waitForElementPresent( '.wikit-Lookup' )
 			.setValue( 'input', 'potato' )
 			.waitForElementPresent( '.wikit-Lookup__menu' )
@@ -38,8 +35,7 @@ module.exports = {
 		client
 			.pause( 500 )
 			.init()
-			.openComponentStoryDirectory( 'lookup' )
-			.openComponentStory( 'lookup-lookup' )
+			.url( client.launch_url + '/iframe.html?id=lookup-lookup&viewMode=story' )
 			.waitForElementPresent( '.wikit-Lookup' )
 			.setValue( 'input', 'a' )
 			.waitForElementPresent( '.wikit-Lookup__menu' )
