@@ -1,9 +1,7 @@
 module.exports = {
 	'Button is visible': ( client ) => {
 		client
-			.pause( 500 )
-			.init()
-			.openComponentStory( 'button' )
+			.url( client.launch_url + '/iframe.html?id=button--normal&viewMode=story' )
 			.waitForElementPresent( '.wikit-Button' )
 			.assert.visible( '.wikit-Button' );
 	},
