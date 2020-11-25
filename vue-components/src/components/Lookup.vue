@@ -2,7 +2,6 @@
 	<div
 		:class="[ 'wikit', 'wikit-Lookup' ]"
 		@keydown="triggerKeyDown"
-		@keyup="triggerKeyUp"
 	>
 		<label class="wikit-Lookup__label" :for="inputId">{{ label }}</label>
 		<Input
@@ -120,9 +119,6 @@ export default ( Vue as VueConstructor<Vue & { $refs: { menu: InstanceType<typeo
 		},
 		triggerKeyDown( event: KeyboardEvent ): void {
 			this.$refs.menu.onKeyDown( event );
-		},
-		triggerKeyUp( event: KeyboardEvent ): void {
-			this.$refs.menu.onKeyUp( event );
 		},
 		onInput( value: string ): void {
 			this.showMenu = this.canShowMenu( value );

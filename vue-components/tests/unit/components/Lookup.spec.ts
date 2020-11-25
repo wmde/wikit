@@ -258,7 +258,7 @@ describe( 'Lookup', () => {
 		const wrapper = await createLookupWrapperWithExpandedMenu( menuItems );
 
 		wrapper.findComponent( OptionsMenu ).setData( { keyboardHoveredItemIndex: 0 } );
-		wrapper.findComponent( Input ).trigger( 'keyup', { key: 'Escape' } );
+		wrapper.findComponent( Input ).trigger( 'keydown', { key: 'Escape' } );
 
 		await Vue.nextTick();
 
@@ -298,7 +298,7 @@ describe( 'Lookup', () => {
 		wrapper.find( 'input' ).setValue( userInput );
 		OptionsMenuWrapper.setData( { keyboardHoveredItemIndex: 0 } );
 
-		wrapper.trigger( 'keyup', { key: 'Enter' } );
+		wrapper.trigger( 'keydown', { key: 'Enter' } );
 		await Vue.nextTick();
 
 		expect( OptionsMenuWrapper.isVisible() ).toBe( false );
@@ -319,7 +319,7 @@ describe( 'Lookup', () => {
 
 		wrapper.find( 'input' ).setValue( userInput );
 
-		wrapper.findComponent( Input ).trigger( 'keyup.enter.native' );
+		wrapper.trigger( 'keydown', { key: 'Enter' } );
 
 		expect( wrapper.findComponent( OptionsMenu ).vm.$data.keyboardHoveredItemIndex ).toBe( -1 );
 
