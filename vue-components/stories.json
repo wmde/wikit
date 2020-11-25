@@ -18,12 +18,12 @@
       "fileName": 1422,
       "framework": "vue"
     },
-    "/Lookup/LookupMenu": {
-      "fileName": 1412,
-      "framework": "vue"
-    },
     "/Message/Message": {
       "fileName": 1423,
+      "framework": "vue"
+    },
+    "OptionsMenu": {
+      "fileName": 1414,
       "framework": "vue"
     },
     "/Input/TextInput": {
@@ -86,26 +86,6 @@
         "__isArgsStory": false
       }
     },
-    "lookup-lookupmenu--with-items": {
-      "id": "lookup-lookupmenu--with-items",
-      "name": "With Items",
-      "kind": "/Lookup/LookupMenu",
-      "story": "With Items",
-      "parameters": {
-        "__id": "lookup-lookupmenu--with-items",
-        "__isArgsStory": true
-      }
-    },
-    "lookup-lookupmenu--no-items": {
-      "id": "lookup-lookupmenu--no-items",
-      "name": "No Items",
-      "kind": "/Lookup/LookupMenu",
-      "story": "No Items",
-      "parameters": {
-        "__id": "lookup-lookupmenu--no-items",
-        "__isArgsStory": false
-      }
-    },
     "message-message--basic": {
       "id": "message-message--basic",
       "name": "Basic",
@@ -123,6 +103,26 @@
       "story": "All",
       "parameters": {
         "__id": "message-message--all",
+        "__isArgsStory": false
+      }
+    },
+    "optionsmenu--with-items": {
+      "id": "optionsmenu--with-items",
+      "name": "With Items",
+      "kind": "OptionsMenu",
+      "story": "With Items",
+      "parameters": {
+        "__id": "optionsmenu--with-items",
+        "__isArgsStory": true
+      }
+    },
+    "optionsmenu--no-items": {
+      "id": "optionsmenu--no-items",
+      "name": "No Items",
+      "kind": "OptionsMenu",
+      "story": "No Items",
+      "parameters": {
+        "__id": "optionsmenu--no-items",
         "__isArgsStory": false
       }
     },
