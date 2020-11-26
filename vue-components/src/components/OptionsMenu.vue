@@ -79,7 +79,7 @@ export default Vue.extend( {
 		},
 	},
 	methods: {
-		onKeyUp( event: KeyboardEvent ): void {
+		onKeyDown( event: KeyboardEvent ): void {
 			switch ( event.key ) {
 				case 'Enter':
 					if ( this.keyboardHoveredItemIndex !== -1 ) {
@@ -90,10 +90,6 @@ export default Vue.extend( {
 					this.keyboardHoveredItemIndex = -1;
 					this.$emit( 'esc' );
 					break;
-			}
-		},
-		onKeyDown( event: KeyboardEvent ): void {
-			switch ( event.key ) {
 				case 'ArrowUp':
 					this.keyboardHoveredItemIndex = Math.max( 0, this.keyboardHoveredItemIndex - 1 );
 					break;
@@ -147,9 +143,8 @@ export default Vue.extend( {
 
 	watch: {
 		async menuItems(): Promise<void> {
-			this.keyboardHoveredItemIndex = -1;
-
 			await this.$nextTick();
+			this.keyboardHoveredItemIndex = this.selectedItemIndex;
 			this.resizeMenu();
 		},
 	},
