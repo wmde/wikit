@@ -50,4 +50,17 @@ describe( 'OptionsMenu', () => {
 
 		expect( wrapper.find( '.wikit-OptionsMenu__no-results' ).exists() ).toBeFalsy();
 	} );
+
+	it( 'displays the menu item tag in a menuItem', () => {
+		const menuItems = [
+			{ label: 'potato', description: 'root vegetable', tag: 'i am a tag' },
+			{ label: 'duck', description: 'aquatic bird' },
+		];
+		const wrapper = mount( OptionsMenu, { propsData: { menuItems } } );
+		const renderedMenuItems = wrapper.findAll( '.wikit-OptionsMenu__item' );
+
+		expect( renderedMenuItems.at( 0 ).find( '.wikit-OptionsMenu__item__tag' ).text() )
+			.toBe( menuItems[ 0 ].tag );
+
+	} );
 } );
