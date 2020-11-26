@@ -3,35 +3,39 @@
   "globalParameters": {},
   "kindParameters": {
     "Button": {
-      "fileName": 1421,
-      "framework": "vue"
-    },
-    "Icon": {
-      "fileName": 1398,
-      "framework": "vue"
-    },
-    "/Input/Basic": {
-      "fileName": 1401,
-      "framework": "vue"
-    },
-    "/Lookup/Lookup": {
-      "fileName": 1422,
-      "framework": "vue"
-    },
-    "/Message/Message": {
-      "fileName": 1423,
-      "framework": "vue"
-    },
-    "OptionsMenu": {
-      "fileName": 1414,
-      "framework": "vue"
-    },
-    "/Input/TextInput": {
       "fileName": 1424,
       "framework": "vue"
     },
-    "/Message/ValidationMessage": {
+    "Dropdown": {
+      "fileName": 1425,
+      "framework": "vue"
+    },
+    "Icon": {
+      "fileName": 1405,
+      "framework": "vue"
+    },
+    "/Input/Basic": {
+      "fileName": 1408,
+      "framework": "vue"
+    },
+    "/Lookup/Lookup": {
+      "fileName": 1426,
+      "framework": "vue"
+    },
+    "/Message/Message": {
+      "fileName": 1427,
+      "framework": "vue"
+    },
+    "OptionsMenu": {
       "fileName": 1417,
+      "framework": "vue"
+    },
+    "/Input/TextInput": {
+      "fileName": 1428,
+      "framework": "vue"
+    },
+    "/Message/ValidationMessage": {
+      "fileName": 1420,
       "framework": "vue"
     }
   },
@@ -44,6 +48,16 @@
       "parameters": {
         "__id": "button--normal",
         "__isArgsStory": false
+      }
+    },
+    "dropdown--basic": {
+      "id": "dropdown--basic",
+      "name": "Basic",
+      "kind": "Dropdown",
+      "story": "Basic",
+      "parameters": {
+        "__id": "dropdown--basic",
+        "__isArgsStory": true
       }
     },
     "icon--all-types": {
