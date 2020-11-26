@@ -55,14 +55,9 @@ const vegetableItems = [
 	},
 ];
 
-export function withItems( args: { boldLabels: boolean, selectedItemIndex: number } ): Component {
+export function withItems( args: { boldLabels: boolean; selectedItemIndex: number; menuItems: object } ): Component {
 	return {
 		components: { OptionsMenu },
-		computed: {
-			menuItems(): MenuItem[] {
-				return vegetableItems;
-			},
-		},
 		props: Object.keys( args ),
 		template: `
 			<div>
@@ -79,12 +74,11 @@ export function withItems( args: { boldLabels: boolean, selectedItemIndex: numbe
 
 withItems.args = {
 	boldLabels: true,
+	menuItems: vegetableItems,
 };
 withItems.argTypes = {
 	menuItems: {
-		control: {
-			disable: true,
-		},
+		control: { type: 'object' },
 	},
 };
 
