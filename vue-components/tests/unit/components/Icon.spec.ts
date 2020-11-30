@@ -24,6 +24,16 @@ describe( 'Icon', () => {
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 
+	it( 'renders a clear icon given type "clear"', () => {
+		const wrapper = mount( Icon, {
+			propsData: {
+				type: 'clear',
+			},
+		} );
+
+		expect( wrapper.element ).toMatchSnapshot();
+	} );
+
 	it( 'validates the type prop', () => {
 		expect( () => mount( Icon, {
 			propsData: {

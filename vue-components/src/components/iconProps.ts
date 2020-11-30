@@ -3,6 +3,7 @@ export enum IconTypes {
 	ERROR = 'error',
 	INFO = 'info',
 	CHECKMARK = 'checkmark',
+	CLEAR = 'clear',
 }
 
 export const iconColors = [ 'base', 'warning', 'error', 'notice', 'success' ];
