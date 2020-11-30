@@ -1,5 +1,5 @@
 {
-    "wikit-Button": {
+    "wikit-Button" : {
         "font-family": {
             "value": "{font.family.style.label.value}"
         },
