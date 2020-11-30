@@ -49,6 +49,18 @@
 		>
 			<path fill="currentColor" d="M6.34812 14.6259L1.6041 9.65425L0 11.3353L6.34812 18L20 3.693L18.3959 2L6.34812 14.6259Z" />
 		</svg>
+
+		<!-- clear icon -->
+		<svg
+			class="wikit-Icon__svg"
+			viewBox="0 0 20 20"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			v-else-if="type === IconTypes.CLEAR"
+		>
+			<path fill="currentColor" d="M10 0a10 10 0 1010 10A10 10 0 0010 0zm5.66 14.24l-1.41 1.41L10 11.41l-4.24 4.25-1.42-1.42L8.59 10 4.34 5.76l1.42-1.42L10 8.59l4.24-4.24 1.41 1.41L11.41 10z"/>
+		</svg>
+
 	</span>
 	<!-- eslint-enable max-len -->
 </template>
