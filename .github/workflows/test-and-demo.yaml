@@ -40,7 +40,7 @@ jobs:
         path: |
           node_modules
           */node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json', '**/package.json') }}
     - name: Cache artifacts
       uses: actions/cache@v2
       id: dist
@@ -70,7 +70,7 @@ jobs:
         path: |
           node_modules
           */node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json', '**/package.json') }}
     - name: Test
       run: npm run test
 
@@ -93,7 +93,7 @@ jobs:
         path: |
           node_modules
           */node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json', '**/package.json') }}
     - name: Restore artifacts
       uses: actions/cache@v2
       with:
@@ -124,7 +124,7 @@ jobs:
         path: |
           node_modules
           */node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json', '**/package.json') }}
     - name: Extract commit hash
       shell: bash
       run: echo "##[set-output name=commit;]$(git rev-parse --short ${GITHUB_SHA})"
