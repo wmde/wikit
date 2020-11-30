@@ -20,6 +20,8 @@ development)_
 - Initial version of the Lookup component
 - Additional icons to the Icon component
 - New tokens based on wikimedia-ui-base v 0.18.0
+- New Dropdown Component
+- New "clear" Icon type
 
 ### Removed
 
