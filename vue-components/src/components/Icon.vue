@@ -62,7 +62,7 @@
 		</svg>
 
 	</span>
-	<!-- eslint-disable max-len -->
+	<!-- eslint-enable max-len -->
 </template>
 
 <script lang="ts">
