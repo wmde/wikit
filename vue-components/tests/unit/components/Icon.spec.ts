@@ -24,6 +24,16 @@ describe( 'Icon', () => {
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 
+	it( 'renders an edit icon given type "edit"', () => {
+		const wrapper = mount( Icon, {
+			propsData: {
+				type: 'edit',
+			},
+		} );
+
+		expect( wrapper.element ).toMatchSnapshot();
+	} );
+
 	it( 'renders a clear icon given type "clear"', () => {
 		const wrapper = mount( Icon, {
 			propsData: {

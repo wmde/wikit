@@ -36,6 +36,24 @@ exports[`Icon renders an alert icon given type "alert" 1`] = `
 </span>
 `;
 
+exports[`Icon renders an edit icon given type "edit" 1`] = `
+<span
+  class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
+>
+  <svg
+    class="wikit-Icon__svg"
+    fill="none"
+    viewBox="0 0 20 20"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M16.77 8l1.94-2a1 1 0 000-1.41l-3.34-3.3a1 1 0 00-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z"
+      fill="currentColor"
+    />
+  </svg>
+</span>
+`;
+
 exports[`Icon renders an error icon given type "error" 1`] = `
 <span
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
@@ -48,8 +66,8 @@ exports[`Icon renders an error icon given type "error" 1`] = `
   >
     <path
       d="M11.4939 0H4.50612L0 4.50612V11.5102L4.50612 16H11.5102L16 11.4939V4.50612L11.4939 0Z
-				M8.8 11.9938H7.2V10.3999H8.8V11.9938Z
-				M8.8 9.6H7.2V4H8.8V9.6Z"
+					M8.8 11.9938H7.2V10.3999H8.8V11.9938Z
+					M8.8 9.6H7.2V4H8.8V9.6Z"
       fill="currentColor"
     />
   </svg>
