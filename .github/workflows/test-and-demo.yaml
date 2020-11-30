@@ -14,7 +14,6 @@ jobs:
     outputs:
       visual: ${{ steps.filter.outputs.visual }}
       behavioral: ${{ steps.filter.outputs.behavioral }}
-      cache-hit: ${{ steps.cache.outputs.cache-hit }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -100,7 +99,9 @@ jobs:
             'tokens/properties/**/*',
             'vue-components/stories/**/*',
             'vue-components/src/**/*',
-            'vue-components/.storybook/**/*'
+            'vue-components/.storybook/**/*',
+            '**/package-lock.json',
+            '**/package.json'
             ) }}
     - name: Build Storybooks
       if: steps.storybook-cache.outputs.cache-hit != 'true'
