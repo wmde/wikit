@@ -50,7 +50,7 @@
 			<path fill="currentColor" d="M6.34812 14.6259L1.6041 9.65425L0 11.3353L6.34812 18L20 3.693L18.3959 2L6.34812 14.6259Z" />
 		</svg>
 	</span>
-	<!-- eslint-disable max-len -->
+	<!-- eslint-enable max-len -->
 </template>
 
 <script lang="ts">
