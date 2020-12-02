@@ -22,6 +22,7 @@ development)_
 - New tokens based on wikimedia-ui-base v 0.18.0
 - New Dropdown Component
 - New "clear" Icon type
+- Additional icon called edit
 
 ### Removed
 

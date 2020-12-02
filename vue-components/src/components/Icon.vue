@@ -58,9 +58,19 @@
 			xmlns="http://www.w3.org/2000/svg"
 			v-else-if="type === IconTypes.CLEAR"
 		>
-			<path fill="currentColor" d="M10 0a10 10 0 1010 10A10 10 0 0010 0zm5.66 14.24l-1.41 1.41L10 11.41l-4.24 4.25-1.42-1.42L8.59 10 4.34 5.76l1.42-1.42L10 8.59l4.24-4.24 1.41 1.41L11.41 10z"/>
+			<path fill="currentColor" d="M10 0a10 10 0 1010 10A10 10 0 0010 0zm5.66 14.24l-1.41 1.41L10 11.41l-4.24 4.25-1.42-1.42L8.59 10 4.34 5.76l1.42-1.42L10 8.59l4.24-4.24 1.41 1.41L11.41 10z" />
 		</svg>
 
+		<!-- edit icon -->
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 20 20"
+			class="wikit-Icon__svg"
+			fill="none"
+			v-else-if="type === IconTypes.EDIT"
+		>
+			<path fill="currentColor" d="M16.77 8l1.94-2a1 1 0 000-1.41l-3.34-3.3a1 1 0 00-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z" />
+		</svg>
 	</span>
 	<!-- eslint-enable max-len -->
 </template>
