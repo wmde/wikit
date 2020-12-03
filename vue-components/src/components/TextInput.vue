@@ -19,28 +19,28 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import VueCompositionAPI, { defineComponent, computed } from '@vue/composition-api';
 import ValidationMessage from './ValidationMessage.vue';
 import Input from './Input.vue';
 import generateUid from '@/components/util/generateUid';
+import { errorProp, ErrorProp, getFeedbackTypeFromProps } from '@/compositions/validatable';
+
+Vue.use( VueCompositionAPI );
 
 /**
  * Text input fields are form elements that let users input and edit values in the form of text.
  *
  * Uses the following components internally: Input, ValidationMessage
  */
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'TextInput',
+	setup( props: { error: ErrorProp } ) {
+		return {
+			feedbackType: computed( getFeedbackTypeFromProps( props ) ),
+		};
+	},
 	props: {
-		error: {
-			type: Object,
-			validator( error: { type?: string; message?: string } ): boolean {
-				return error === null ||
-					typeof error.message === 'string' &&
-					typeof error.type === 'string' &&
-					[ 'warning', 'error' ].includes( error.type );
-			},
-			default: null,
-		},
+		error: errorProp,
 		disabled: {
 			type: Boolean,
 			default: false,
@@ -72,12 +72,6 @@ export default Vue.extend( {
 			 * contains user input, i.e. the contents of the input value
 			 */
 			this.$emit( 'input', value );
-		},
-	},
-
-	computed: {
-		feedbackType(): string|null {
-			return this.error && this.error.type || null;
 		},
 	},
 

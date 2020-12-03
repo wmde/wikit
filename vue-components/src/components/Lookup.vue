@@ -39,13 +39,17 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType, VueConstructor } from 'vue';
+import Vue from 'vue';
+import VueCompositionAPI, { defineComponent, computed, PropType, ref } from '@vue/composition-api';
 import isEqual from 'lodash.isequal';
 import ValidationMessage from './ValidationMessage.vue';
 import Input from './Input.vue';
 import OptionsMenu from './OptionsMenu.vue';
 import generateUid from '@/components/util/generateUid';
 import { MenuItem } from '@/components/MenuItem';
+import { getFeedbackTypeFromProps, errorProp, ErrorProp } from '@/compositions/validatable';
+
+Vue.use( VueCompositionAPI );
 
 /**
  * The lookup component is a text input field that provides matching selectable suggestions as a user types into it.
@@ -53,8 +57,21 @@ import { MenuItem } from '@/components/MenuItem';
  *
  * Uses the following components internally: Input, ValidationMessage and OptionsMenu
  */
-export default ( Vue as VueConstructor<Vue & { $refs: { menu: InstanceType<typeof OptionsMenu> } }> ).extend( {
+export default defineComponent( {
 	name: 'Lookup',
+	setup( props: { error: ErrorProp } ) {
+		const menu = ref<InstanceType<typeof OptionsMenu>|null>( null );
+
+		function triggerKeyDown( event: KeyboardEvent ): void {
+			menu.value?.onKeyDown( event );
+		}
+
+		return {
+			feedbackType: computed( getFeedbackTypeFromProps( props ) ),
+			triggerKeyDown,
+			menu,
+		};
+	},
 	data() {
 		return {
 			showMenu: false,
@@ -64,22 +81,13 @@ export default ( Vue as VueConstructor<Vue & { $refs: { menu: InstanceType<typeo
 		};
 	},
 	props: {
+		error: errorProp,
 		/**
 		 * Array of objects that will be displayed in the lookup menu. Must contain a `label` and a `description` field.
 		 */
 		menuItems: {
 			type: Array as PropType<MenuItem[]>,
 			default: (): [] => [],
-		},
-		error: {
-			type: Object,
-			validator( error: { type?: string; message?: string } ): boolean {
-				return error === null ||
-					typeof error.message === 'string' &&
-					typeof error.type === 'string' &&
-					[ 'warning', 'error' ].includes( error.type );
-			},
-			default: null,
 		},
 		disabled: {
 			type: Boolean,
@@ -116,9 +124,6 @@ export default ( Vue as VueConstructor<Vue & { $refs: { menu: InstanceType<typeo
 	methods: {
 		canShowMenu( currentSearchInput: string ): boolean {
 			return currentSearchInput.length > 0;
-		},
-		triggerKeyDown( event: KeyboardEvent ): void {
-			this.$refs.menu.onKeyDown( event );
 		},
 		onInput( value: string ): void {
 			this.showMenu = this.canShowMenu( value );
@@ -168,9 +173,6 @@ export default ( Vue as VueConstructor<Vue & { $refs: { menu: InstanceType<typeo
 	},
 
 	computed: {
-		feedbackType(): string | null {
-			return this.error && this.error.type || null;
-		},
 		selectedItemIndex(): number {
 			if ( this.value === null || this.menuItems.length === 0 ) {
 				return -1;

@@ -33,6 +33,7 @@
   ],
   "types": "dist/main.d.ts",
   "dependencies": {
+    "@vue/composition-api": "^1.0.0-beta.20",
     "@wmde/wikit-tokens": "^2.0.0-alpha.0",
     "core-js": "^3.7.0",
     "lodash.debounce": "^4.0.8",
