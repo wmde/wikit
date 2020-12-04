@@ -71,6 +71,16 @@
 		>
 			<path fill="currentColor" d="M16.77 8l1.94-2a1 1 0 000-1.41l-3.34-3.3a1 1 0 00-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z" />
 		</svg>
+		<!-- trash icon -->
+		<svg
+			class="wikit-Icon__svg"
+			viewBox="0 0 20 20"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			v-else-if="type === IconTypes.TRASH"
+		>
+			<path d="M17 2H13.5L12.5 1H7.5L6.5 2H3V4H17V2ZM4 17C4 17.5304 4.21071 18.0391 4.58579 18.4142C4.96086 18.7893 5.46957 19 6 19H14C14.5304 19 15.0391 18.7893 15.4142 18.4142C15.7893 18.0391 16 17.5304 16 17V5H4V17Z" fill="currentColor"/>
+		</svg>
 	</span>
 	<!-- eslint-enable max-len -->
 </template>

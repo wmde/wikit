@@ -34,6 +34,17 @@ describe( 'Icon', () => {
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 
+	it( 'renders an error icon given type "trash"', () => {
+		const wrapper = mount( Icon, {
+			propsData: {
+				type: 'trash',
+			},
+		} );
+
+		expect( wrapper.element ).toMatchSnapshot();
+	} );
+
+
 	it( 'renders a clear icon given type "clear"', () => {
 		const wrapper = mount( Icon, {
 			propsData: {
