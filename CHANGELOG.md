@@ -5,8 +5,8 @@ All notable changes to this project (as of v2.0.0 onwards) will be documented in
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-_**Important:** This file contains a draft to the official release notes, and is therefore 
-not a stable documentation of the upcoming version (as it will frequently change during 
+_**Important:** This file contains a draft to the official release notes, and is therefore
+not a stable documentation of the upcoming version (as it will frequently change during
 development)_
 
 ## [Unreleased]
@@ -23,6 +23,7 @@ development)_
 - New Dropdown Component
 - New "clear" Icon type
 - Additional icon called edit
+- New icon called trash
 
 ### Removed
 
