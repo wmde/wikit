@@ -54,6 +54,16 @@ describe( 'Icon', () => {
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 
+	it( 'renders an outlined info icon given type "info-outlined"', () => {
+		const wrapper = mount( Icon, {
+			propsData: {
+				type: 'info-outlined',
+			},
+		} );
+
+		expect( wrapper.element ).toMatchSnapshot();
+	} );
+
 	it( 'validates the type prop', () => {
 		expect( () => mount( Icon, {
 			propsData: {

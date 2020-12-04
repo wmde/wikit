@@ -24,6 +24,7 @@ development)_
 - New "clear" Icon type
 - Additional icon called edit
 - New icon called trash
+- New info-outline Icon type
 
 ### Removed
 
