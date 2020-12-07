@@ -198,7 +198,7 @@ $base: '.wikit-Dropdown';
 
 	&__arrow {
 		height: $wikit-Dropdown-icon-expand-size;
-		margin-left: $wikit-Dropdown-icon-expand-spacing-horizontal;
+		margin-inline-start: $wikit-Dropdown-icon-expand-spacing-horizontal;
 	}
 
 	&__selectedOption {
