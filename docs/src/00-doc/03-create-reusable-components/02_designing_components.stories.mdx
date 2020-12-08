@@ -23,18 +23,19 @@ This section provides UX designers with predictive instructions on how to design
 
 ## 1. Designing new system components
 
-Due to the decentralized nature of our system, designers embedded in the different feature teams will be accountable for creating the final designs and specs for new system components. The dedicated system designer (Sarai) will provide as much support as possible throughout the design process, which consists of the following recommended steps:
+Due to the decentralized nature of our system, designers embedded in the different feature teams will be accountable for creating the final designs and specifications for new system components. The dedicated system designer (Sarai) will provide as much support as possible throughout the design process, which consists of the following recommended steps:
 
 ### 1.1. Discover
 
-The designer in charge of the creation of the new system component should start by checking the [WiKit symbol library](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=166%3A2), to see if the new needed component has already been designed or can be designed based on any of the existing WiKit symbols.
+The designer in charge of the creation of the new system component should start by checking the [WiKit component library](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit?node-id=166%3A2), to see if the needed component has already been designed or can be designed based on any of the existing WiKit symbols.
 
-It is advised that the designer performs an interface inventory by inspecting and capturing existing instances of the component in multiple sources: production (particularly Wikidata), OOUI and the Wikimedia Foundation UI (Wikimedia Design Style Guide). Screenshots and specs of said instances should be collected in a central art board within the [Component Inventory](https://www.figma.com/file/QHIKwqfmSERr2fTqRj5UYM/Pattern%2FComponent-Inventory?node-id=0%3A1) in Figma. The purpose of the inventory is to achieve behavior parity, by making sure that all the specific interactive features of a given component are included in its new system-compliant version.
+It is advised that the designer performs an interface inventory by inspecting and capturing existing instances of the component in multiple sources: production (particularly Wikidata), OOUI and Wikimedia Foundation's [Design Style Guide](https://design.wikimedia.org/style-guide/components/links.html). Screenshots and specs of said instances should be collected in a central art board within the [Component Inventory](https://www.figma.com/file/QHIKwqfmSERr2fTqRj5UYM/Pattern%2FComponent-Inventory?node-id=0%3A1) in Figma. The purpose of the inventory is to achieve behavior parity, by making sure that all the specific interactive features of a given component are considered when creating a new system-compliant version.
 
 ### 1.2. Design
 
-All new components should follow the [system’s visual guidelines](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2510%3A3540), which are captured by the [color palette](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2510%3A3725), [typographic styles](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2510%3A3550) and premade [sizing and spacing](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2696%3A0).
-These guidelines are for now available only in Figma, but will also have their dedicated section in this Storybook.
+#### Visual style
+
+All new components should follow the [system’s visual guidelines](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2510%3A3540), which are captured by the [color palette](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2510%3A3725), [typographic styles](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2510%3A3550) and premade [sizing and spacing](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2696%3A0).These guidelines are for now available only in Figma, but will also have their dedicated section in this Storybook.
 
 While designing new system components, bear in mind to:
 
@@ -46,13 +47,27 @@ While designing new system components, bear in mind to:
 
 - Whenever possible, base **spacing** (horizontal and vertical margins) on the 8px unit. Paddings may require smaller values: it’s ok to adjust them in order to preserve the right component sizing (height).
 
-- **Interaction patterns** can be based on the existing components’ documentation templates ([See 1.4](#14-document)) and their displayed behavior at the Storybook stories. Existing patterns (the behavior of the current version of the component in production) will also be evaluated and applied to the new component version in case that doesn’t contradict the system ([See 1.1](#11-discover)).
+#### Interaction
 
-If you still hesitate about the appropriateness of certain color or size after checking the visual guidelines and existing designs, you could find guidance in alias tokens. These tokens encapsulate the shared styling patterns of the system: their names express the intended use of any given visual value ([See 2](#2-using-design-tokens)). They can also help you make accessible design decisions.
+Base component **interaction patterns** on the behaviour described in the [components’ documentation](https://docs.google.com/presentation/d/1GB9WcQDQDYaf_kr0RvuaAuadKLPRytdcZ1vL78N2vx0/edit#slide=id.p)([See 1.4](#14-document)) in order to provide a consistent experience. Existing patterns (the behavior of the current version of the component in production) should also be evaluated and applied to the new component version in case that doesn’t contradict the system ([See 1.1](#11-discover)).
+
+While defining the behaviour of new system components, bear in mind to:
+
+- Consider **internazionalization needs** and make sure that the component is optimized for the various language sizes, display styles and orientations.
+
+- Follow **accessibility best practices** throughout the design process. You can check existing accessibility specs (e.g. keyboard navigation specifications) in the [components’ documentation](https://docs.google.com/presentation/d/1GB9WcQDQDYaf_kr0RvuaAuadKLPRytdcZ1vL78N2vx0/edit#slide=id.p). We recommend observing the recommendations offered by the following resources and aiming at providing at least an AA level of conformance:
+
+   - [WAI-ARIA Authoring practices 1.1](https://www.w3.org/TR/2019/NOTE-wai-aria-practices-1.1-20190814/), by the W3C Working Group: Provides accessibility recomendations at a component level with links to examples created by the W3C in most cases.
+   - [The A11Y Project Checklist](https://www.a11yproject.com/checklist/)
+   - [WCAG guidelines 2.1](https://www.w3.org/WAI/WCAG21/quickref/): Quick reference version of the extensive WCAG guidelines, with filtering options. 
+
+- Make sure to define the **responsive** behaviour of the component and provide examples of its adaptation to different devices. 
 
 ### 1.3. Decide
 
 The system designer will make herself available as needed to support you while making system-related decisions. Nevertheless, it is important that, at any step of the design process, and necessarily before handover, the UX design team is involved in the definition and the review of the new system component. This is in order to align on the design decisions made, catch potential systemic inconsistencies or improvements, and refine the whole component design process.
+
+A determining deciding factor in design decision-making can be user feedback >>>>> CONTINUE HERE
 
 ### 1.4. Document
 
