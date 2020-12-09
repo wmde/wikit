@@ -48,7 +48,7 @@
             "icon": {
                 "color": {
                     "value": "{icon.color.base.value}",
-                    "comment": "How can we take a given icon component at style it at the same time?"
+                    "comment": "How can we take a given icon component and style it at the same time?"
                 }
             },
             "border-color": {
@@ -103,7 +103,7 @@
         "primaryProgressive": {
             "icon": {
                 "color": {
-                    "value": "{icon.color.inverted.value}"
+                    "value": "{icon.color.progressive.value}"
                 }
             },
             "border-color": {
@@ -141,14 +141,14 @@
             "focus": {
                 "icon": {
                     "color": {
-                        "value": "{icon.color.inverted.value}"
+                        "value": "{icon.color.progressive.value}"
                     }
                 },
                 "border-color": {
                     "value": "{border.color.progressive.focus.value}"
                 },
                 "background-color": {
-                    "value": "{background.color.progressive.focus.value}"
+                    "value": "{background.color.progressive.quiet-focus.value}"
                 },
                 "box-shadow": {
                     "value": "{box-shadow.inset.focus.progressive.value}"
@@ -158,11 +158,11 @@
         "primaryDestructive": {
             "icon": {
                 "color": {
-                    "value": "{icon.color.inverted.value}"
+                    "value": "{icon.color.destructive.value}"
                 }
             },
             "border-color": {
-                "value": "{border.color.destructive.default.value}"
+                "value": "{border.color.destructive.quiet-default.value}"
             },
             "background-color": {
                 "value": "{background.color.destructive.quiet-default.value}"
