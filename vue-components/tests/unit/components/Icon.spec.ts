@@ -24,6 +24,46 @@ describe( 'Icon', () => {
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 
+	it( 'renders an edit icon given type "edit"', () => {
+		const wrapper = mount( Icon, {
+			propsData: {
+				type: 'edit',
+			},
+		} );
+
+		expect( wrapper.element ).toMatchSnapshot();
+	} );
+
+	it( 'renders an error icon given type "trash"', () => {
+		const wrapper = mount( Icon, {
+			propsData: {
+				type: 'trash',
+			},
+		} );
+
+		expect( wrapper.element ).toMatchSnapshot();
+	} );
+
+	it( 'renders a clear icon given type "clear"', () => {
+		const wrapper = mount( Icon, {
+			propsData: {
+				type: 'clear',
+			},
+		} );
+
+		expect( wrapper.element ).toMatchSnapshot();
+	} );
+
+	it( 'renders an outlined info icon given type "info-outlined"', () => {
+		const wrapper = mount( Icon, {
+			propsData: {
+				type: 'info-outlined',
+			},
+		} );
+
+		expect( wrapper.element ).toMatchSnapshot();
+	} );
+
 	it( 'validates the type prop', () => {
 		expect( () => mount( Icon, {
 			propsData: {

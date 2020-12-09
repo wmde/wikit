@@ -2,7 +2,6 @@
 	<div
 		:class="[ 'wikit', 'wikit-Lookup' ]"
 		@keydown="triggerKeyDown"
-		@keyup="triggerKeyUp"
 	>
 		<label class="wikit-Lookup__label" :for="inputId">{{ label }}</label>
 		<Input
@@ -16,10 +15,11 @@
 			:disabled="disabled"
 			autocomplete="off"
 		/>
-		<LookupMenu
+		<OptionsMenu
 			class="wikit-Lookup__menu"
 			:menu-items="menuItems"
 			:bold-labels="true"
+			:selected-item-index="selectedItemIndex"
 			v-show="showMenu"
 			@select="onSelect"
 			@scroll="onScroll"
@@ -29,7 +29,7 @@
 			<template v-slot:no-results>
 				<slot name="no-results" />
 			</template>
-		</LookupMenu>
+		</OptionsMenu>
 		<ValidationMessage
 			v-if="error"
 			:type="error.type"
@@ -39,22 +39,39 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType, VueConstructor } from 'vue';
+import Vue from 'vue';
+import VueCompositionAPI, { defineComponent, computed, PropType, ref } from '@vue/composition-api';
 import isEqual from 'lodash.isequal';
 import ValidationMessage from './ValidationMessage.vue';
 import Input from './Input.vue';
-import LookupMenu from './LookupMenu.vue';
+import OptionsMenu from './OptionsMenu.vue';
 import generateUid from '@/components/util/generateUid';
 import { MenuItem } from '@/components/MenuItem';
+import { getFeedbackTypeFromProps, errorProp, ErrorProp } from '@/compositions/validatable';
+
+Vue.use( VueCompositionAPI );
 
 /**
  * The lookup component is a text input field that provides matching selectable suggestions as a user types into it.
  * In the context of Wikidata, they can be used as Item and Property selectors, for example.
  *
- * Uses the following components internally: Input, ValidationMessage and LookupMenu
+ * Uses the following components internally: Input, ValidationMessage and OptionsMenu
  */
-export default ( Vue as VueConstructor<Vue & { $refs: { menu: InstanceType<typeof LookupMenu> } }> ).extend( {
+export default defineComponent( {
 	name: 'Lookup',
+	setup( props: { error: ErrorProp } ) {
+		const menu = ref<InstanceType<typeof OptionsMenu>|null>( null );
+
+		function triggerKeyDown( event: KeyboardEvent ): void {
+			menu.value?.onKeyDown( event );
+		}
+
+		return {
+			feedbackType: computed( getFeedbackTypeFromProps( props ) ),
+			triggerKeyDown,
+			menu,
+		};
+	},
 	data() {
 		return {
 			showMenu: false,
@@ -64,22 +81,13 @@ export default ( Vue as VueConstructor<Vue & { $refs: { menu: InstanceType<typeo
 		};
 	},
 	props: {
+		error: errorProp,
 		/**
 		 * Array of objects that will be displayed in the lookup menu. Must contain a `label` and a `description` field.
 		 */
 		menuItems: {
 			type: Array as PropType<MenuItem[]>,
 			default: (): [] => [],
-		},
-		error: {
-			type: Object,
-			validator( error: { type?: string; message?: string } ): boolean {
-				return error === null ||
-					typeof error.message === 'string' &&
-					typeof error.type === 'string' &&
-					[ 'warning', 'error' ].includes( error.type );
-			},
-			default: null,
 		},
 		disabled: {
 			type: Boolean,
@@ -117,12 +125,6 @@ export default ( Vue as VueConstructor<Vue & { $refs: { menu: InstanceType<typeo
 		canShowMenu( currentSearchInput: string ): boolean {
 			return currentSearchInput.length > 0;
 		},
-		triggerKeyDown( event: KeyboardEvent ): void {
-			this.$refs.menu.onKeyDown( event );
-		},
-		triggerKeyUp( event: KeyboardEvent ): void {
-			this.$refs.menu.onKeyUp( event );
-		},
 		onInput( value: string ): void {
 			this.showMenu = this.canShowMenu( value );
 
@@ -150,14 +152,6 @@ export default ( Vue as VueConstructor<Vue & { $refs: { menu: InstanceType<typeo
 			if ( this.canShowMenu( this.searchInput ) ) {
 				this.showMenu = true;
 			}
-
-			if ( this.value !== null && this.menuItems.length > 0 ) {
-				const index = this.menuItems.findIndex(
-					( menuItem ) => { return isEqual( menuItem, this.value ); },
-					this,
-				);
-				this.$refs.menu.onFocusWithValue( index );
-			}
 		},
 		onEsc(): void {
 			this.showMenu = false;
@@ -179,15 +173,22 @@ export default ( Vue as VueConstructor<Vue & { $refs: { menu: InstanceType<typeo
 	},
 
 	computed: {
-		feedbackType(): string | null {
-			return this.error && this.error.type || null;
+		selectedItemIndex(): number {
+			if ( this.value === null || this.menuItems.length === 0 ) {
+				return -1;
+			}
+
+			return this.menuItems.findIndex(
+				( menuItem ) => { return isEqual( menuItem, this.value ); },
+				this,
+			);
 		},
 	},
 
 	components: {
 		Input,
 		ValidationMessage,
-		LookupMenu,
+		OptionsMenu,
 	},
 } );
 </script>
