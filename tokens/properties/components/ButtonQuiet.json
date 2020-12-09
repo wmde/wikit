@@ -191,7 +191,7 @@
                     "value": "{background.color.destructive.quiet-focus.value}"
                 },
                 "box-shadow": {
-                    "value": "{box-shadow.inset.focus.button-primary.value}"
+                    "value": "{box-shadow.inset.focus.destructive.value}"
                 }
             }
         },
