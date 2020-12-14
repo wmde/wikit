@@ -196,9 +196,6 @@
                 "disabled": {
                     "value": "{color.base.70.value}"
                 },
-                "quiet-disabled": {
-                    "value": "{color.transparent.value}"
-                },
                 "field-disabled": {
                     "value": "{color.base.80.value}"
                 },
@@ -209,9 +206,6 @@
             "progressive": {
                 "default": {
                     "value": "{color.accent.50.value}"
-                },
-                "quiet-default": {
-                    "value": "{color.transparent.value}"
                 },
                 "hover": {
                     "value": "{color.modifier.lighten.accent-50.value}"
@@ -233,9 +227,6 @@
                 "default": {
                     "value": "{color.base.90.value}"
                 },
-                "quiet-default": {
-                    "value": "{color.transparent.value}"
-                },
                 "hover": {
                     "value": "{color.base.100.value}"
                 },
@@ -252,9 +243,6 @@
             "destructive": {
                 "default": {
                     "value": "{color.utility.red.50.value}"
-                },
-                "quiet-default": {
-                    "value": "{color.transparent.value}"
                 },
                 "hover": {
                     "value": "{color.modifier.lighten.utility-red-50.value}"
@@ -333,17 +321,11 @@
                 },
                 "disabled": {
                     "value": "{color.base.70.value}"
-                },
-                "quiet-disabled": {
-                    "value": "{color.transparent.value}"
                 }
             },
             "progressive": {
                 "default": {
                     "value": "{color.accent.50.value}"
-                },
-                "quiet-default": {
-                    "value": "{color.transparent.value}"
                 },
                 "hover": {
                     "value": "{color.modifier.lighten.accent-50.value}"
@@ -362,9 +344,6 @@
                 "default": {
                     "value": "{color.base.50.value}"
                 },
-                "quiet-default": {
-                    "value": "{color.transparent.value}"
-                },
                 "hover": {
                     "value": "{color.base.50.value}"
                 },
@@ -381,9 +360,6 @@
             "destructive": {
                 "default": {
                     "value": "{color.utility.red.50.value}"
-                },
-                "quiet-default": {
-                    "value": "{color.transparent.value}"
                 },
                 "hover": {
                     "value": "{color.modifier.lighten.utility-red-50.value}"
