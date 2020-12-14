@@ -47,7 +47,7 @@ $base: '.wikit-Button';
 	font-weight: $wikit-Button-font-weight;
 	font-size: $wikit-Button-font-size; // unit? px vs em vs rem
 	line-height: $wikit-Button-line-height;
-	cursor: $wikit-Button-cursor;
+	cursor: pointer;
 	border-width: $wikit-Button-border-width;
 	border-style: $wikit-Button-border-style;
 	border-radius: $wikit-Button-border-radius;
@@ -140,7 +140,7 @@ $base: '.wikit-Button';
 		color: $wikit-Button-disabled-color;
 		background-color: $wikit-Button-disabled-background-color;
 		border-color: $wikit-Button-disabled-border-color;
-		cursor: $wikit-Button-disabled-cursor;
+		cursor: default;
 	}
 
 	// should ideally be taken care of by the globally applied style reset (ress)
