@@ -19,22 +19,23 @@ This section provides UX designers with predictive instructions on how to design
   
 **[3. Design handover](#3-design-handover)**<br/>
 
-******
+
 
 ## 1. Designing new system components
 
-Due to the decentralized nature of our system, designers embedded in the different feature teams will be accountable for creating the final designs and specs for new system components. The dedicated system designer (Sarai) will provide as much support as possible throughout the design process, which consists of the following recommended steps:
+Due to the decentralized nature of our system, designers embedded in the different feature teams will be accountable for creating the final designs and specifications for new system components. The dedicated system designer (Sarai) will provide as much support as possible throughout the design process, which consists of the following recommended steps:
 
 ### 1.1. Discover
 
-The designer in charge of the creation of the new system component should start by checking the [WiKit symbol library](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=166%3A2), to see if the new needed component has already been designed or can be designed based on any of the existing WiKit symbols.
+The designer in charge of the creation of the new system component should start by checking the [WiKit component library](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit?node-id=166%3A2), to see if the needed component has already been designed or can be designed based on any of the existing WiKit symbols.
 
-It is advised that the designer performs an interface inventory by inspecting and capturing existing instances of the component in multiple sources: production (particularly Wikidata), OOUI and the Wikimedia Foundation UI (Wikimedia Design Style Guide). Screenshots and specs of said instances should be collected in a central art board within the [Component Inventory](https://www.figma.com/file/QHIKwqfmSERr2fTqRj5UYM/Pattern%2FComponent-Inventory?node-id=0%3A1) in Figma. The purpose of the inventory is to achieve behavior parity, by making sure that all the specific interactive features of a given component are included in its new system-compliant version.
+It is advised that the designer performs an interface inventory by inspecting and capturing existing instances of the component in multiple sources: production (particularly Wikidata), OOUI and Wikimedia Foundation's [Design Style Guide](https://design.wikimedia.org/style-guide/components/links.html). Screenshots and specs of said instances should be collected in a central art board within the [Component Inventory](https://www.figma.com/file/QHIKwqfmSERr2fTqRj5UYM/Pattern%2FComponent-Inventory?node-id=0%3A1) in Figma. The purpose of the inventory is to achieve behavior parity, by making sure that all the specific interactive features of a given component are considered when creating a new system-compliant version.
 
 ### 1.2. Design
 
-All new components should follow the [system’s visual guidelines](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2510%3A3540), which are captured by the [color palette](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2510%3A3725), [typographic styles](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2510%3A3550) and premade [sizing and spacing](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2696%3A0).
-These guidelines are for now available only in Figma, but will also have their dedicated section in this Storybook.
+#### Visual style
+
+All new components should follow the [system’s visual guidelines](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2510%3A3540), which are captured by the [color palette](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2510%3A3725), [typographic styles](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2510%3A3550) and premade [sizing and spacing](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2696%3A0).These guidelines are for now available only in Figma, but will also have their dedicated section in this Storybook.
 
 While designing new system components, bear in mind to:
 
@@ -42,17 +43,32 @@ While designing new system components, bear in mind to:
 
 - Only use pre-made **font styles**
 
-- Apply pre-made widths and heights to define the **size** components (e.g. height) and their elements (e.g. border widths)
+- Apply pre-made widths and heights to define the **size** of components (e.g. height) and their elements (e.g. border widths)
 
-- Whenever possible, base **spacing** (horizontal and vertical margins) on the 8px unit. Paddings may require smaller values: it’s ok to adjust them in order to preserve the right component sizing (height).
+- Whenever possible, base **spacing** (horizontal and vertical margins) on the 8px unit. Paddings may require smaller values: it’s ok to adjust them in order to preserve the right component sizing (e.g. height).
 
-- **Interaction patterns** can be based on the existing components’ documentation templates ([See 1.4](#14-document)) and their displayed behavior at the Storybook stories. Existing patterns (the behavior of the current version of the component in production) will also be evaluated and applied to the new component version in case that doesn’t contradict the system ([See 1.1](#11-discover)).
+#### Interaction
 
-If you still hesitate about the appropriateness of certain color or size after checking the visual guidelines and existing designs, you could find guidance in alias tokens. These tokens encapsulate the shared styling patterns of the system: their names express the intended use of any given visual value ([See 2](#2-using-design-tokens)). They can also help you make accessible design decisions.
+Base component **interaction patterns** on the behaviour described in the [components’ documentation](https://docs.google.com/presentation/d/1GB9WcQDQDYaf_kr0RvuaAuadKLPRytdcZ1vL78N2vx0/edit#slide=id.p)([See 1.4](#14-document)) in order to provide a consistent experience. Existing patterns (the behavior of the current version of the component in production) should also be evaluated and matched by the new version of the component in case they don’t contradict the system ([See 1.1](#11-discover)).
+
+While defining the behaviour of new system components, bear in mind to:
+
+- Consider **internazionalization needs** and make sure that the component is optimized for the various language sizes, display styles and orientations.
+
+- Make sure to define the **responsive behaviour** of the component and to provide examples of its adaptation to different devices. 
+
+- Follow **accessibility best practices** throughout the design process. You can check existing accessibility specs (e.g. keyboard navigation specifications) in the [components’ documentation](https://docs.google.com/presentation/d/1GB9WcQDQDYaf_kr0RvuaAuadKLPRytdcZ1vL78N2vx0/edit#slide=id.p). We recommend observing the recommendations offered by the following resources as we should aim at providing at least an AA level of conformance:
+
+   - [WAI-ARIA Authoring practices 1.1](https://www.w3.org/TR/2019/NOTE-wai-aria-practices-1.1-20190814/), by the W3C Working Group: Provides accessibility recomendations at a component level with links to examples created by the W3C in most cases.
+   - [The A11Y Project Checklist](https://www.a11yproject.com/checklist/)
+   - [WCAG guidelines 2.1](https://www.w3.org/WAI/WCAG21/quickref/): Quick reference version of the extensive WCAG guidelines, with filtering options. 
+
 
 ### 1.3. Decide
 
-The system designer will make herself available as needed to support you while making system-related decisions. Nevertheless, it is important that, at any step of the design process, and necessarily before handover, the UX design team is involved in the definition and the review of the new system component. This is in order to align on the design decisions made, catch potential systemic inconsistencies or improvements, and refine the whole component design process.
+The system designer will make herself available as needed to support you while making system-related design decisions. Nevertheless, it is important that, at any step of the design process, and necessarily before handover, the UX design team is involved in the definition and the review of the new system component. This is in order to align on the design decisions made, catch potential inconsistencies or improvements, and refine the whole component design process.
+
+A crucial guiding factor in every design process is, of course, user feedback. Designers should assess the need to perform usability testing before and/or after the implementation of new components. They can opt for the most convenient testing modality in each case (moderated, unmoderated, attitudinal, behavioral), depending on the time and resources available.
 
 ### 1.4. Document
 
@@ -67,14 +83,15 @@ Example: _“A notification is a one-way dialogue triggered instantly by a user 
 
 - Outline **visual specifications** (sizes, paddings, typographic styles, colors) of both the default and all component states. It should be possible to translate all these specifications using design tokens during handover ([See 3](#3-design-handover)).
 
-- Define the **interactive features** that are essential to fully understand the component's behavior (this is specially required for non single-step components such as dropdowns). In both cases, the user action leading to each state should also be specified.
+- Define the **interactive features** that are essential to fully understand the component's behavior. In both cases, the user action leading to each state should also be specified.
 
 - Include **responsive** behavior specifications
 
-Although providing more extended documentation about a component (anatomy, usage, good/bad practices, etc) is not a prerequisite for handover, it is advised to collect this information whenever possible following the component’s [documentation template](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=3652%3A59). More detailed behavior descriptions and good practices can be key to inform future design decisions ([See 1.2](#12-design)), and to help keeping the system’s interaction patterns consistent.
+Designers should also provide more extended documentation about a component (anatomy, usage, interaction workflows, accessibility specs, etc) in the component’s [documentation file](https://docs.google.com/presentation/d/1GB9WcQDQDYaf_kr0RvuaAuadKLPRytdcZ1vL78N2vx0/edit?usp=sharing). More detailed behavior descriptions and good practices can be key to inform future design decisions ([See 1.2](#12-design)), and to help keeping the system’s interaction patterns consistent.
 
-Again, you can count on the system designer to help with, or even take over, component documentation (both essential and/or extended).
-Once a final version of the new design is agreed upon, the system designer will be responsible for the creation of a reusable, symbolized version of the component in the WiKit’s UI Kit page in Figma.
+Again, you can count on the system designer to help with, or take over, component documentation.
+
+Once a final version of the new design is agreed upon, the system designer will be responsible for the creation of a reusable, symbolized version of the component in the WiKit’s [UI Kit page](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit?node-id=166%3A2) in Figma.
 
 ### 1.5. The design definition of done
 
@@ -100,15 +117,15 @@ All the items on the previous list are a prerequisite to consider the component 
 
 Design tokens have two main applications. They can mainly help designers to:
 
-- **Define the style of a component**: Since tokens capture the system’s styling patterns and premade decisions ([See 2.1](#21-introduction-what-are-design-tokens-in-the-context-of-the-wikidata-design-system)), they can provide guidance to designers working to define the styles of new system components from scratch.
+- **Define the visual style of components**: Since tokens capture the system’s styling patterns and premade decisions ([See 2.1](#21-introduction-what-are-design-tokens-in-the-context-of-the-wikidata-design-system)), they can provide guidance to designers working to define the styles (border and background colors, text styles, sizes, spacing) of new system components from scratch.
 
 - **Create specs**: Once the design of the new component is ready, its styles will be outlined using design tokens ([See 2.2](#22-using-tokens-to-specify-a-new-component)). This is a necessary step of the handover process ([See 3](3-design-handover)).
 
 ### 2.1. Introduction: Design tokens in the context of the Wikidata/Wikibase design system
 
-Design tokens are atoms that store the visual foundations of our design system. They exhaustively codify colors, spacing, typographic styles, and even transitions in an agnostic and scalable way. The whole purpose of using tokens is to replace concrete values or single-use variables at a component level. They prevent deviations from the system’s visual and interactive properties, and make style modifications possible at scale and from a single source of truth.
+Design tokens are atoms that store the visual foundations of our design system. They codify colors, spacing, typographic styles, and even transitions in an agnostic and scalable way. The whole purpose of using tokens is to replace concrete values or single-use variables at a component level. They prevent deviations from the system’s visual and interactive properties, and make style modifications possible at scale and from a single source of truth.
 
-In the context of the Wikidata design system (WiKit), tokens are stored using [JSON](https://github.com/wmde/wikit/tree/master/tokens/properties), and converted into actionable CSS variables that can be used to style components (via Style dictionary). Tokens are structured following three levels of granularity that reflect the chain of systematic decisions made: from high-level visual styles to specific component properties:
+In the context of the Wikidata design system (WiKit), tokens are stored using [JSON](https://github.com/wmde/wikit/tree/master/tokens/properties), and converted into actionable CSS variables that can be used to style components (via Style dictionary). Tokens are structured following three levels of granularity that reflect the chain of systematic decisions made, from high-level visual styles to specific component properties:
 
 ___Global tokens___ reflect the elementary visual foundations of the system. They are context agnostic (e.g. "accent-30").
 
@@ -134,7 +151,7 @@ A list of all the currently available global and alias design tokens can be foun
 
 #### Selecting  tokens to define component specs
 
-Throughout the specs' creation process,  all the component’s styling properties will need to be exhaustively defined. Make sure to align with developers before handover in order to make sure that no property is left unspecified.
+Throughout the specs' creation process,  all the component’s styling properties will need to be exhaustively defined. Designers should align with developers before handover in order to make sure that none of the component's properties is left unspecified.
 
 **Example**
 
@@ -183,7 +200,7 @@ It is important to bear in mind that not all patterns could be detected or all d
 
 #### Suggesting the creation of new tokens
 
-As mentioned, if none of the existing alias tokens can provide the right value for a given style, designers can, as an exception, use global tokens instead. Nevertheless, in case a visual pattern is detected (i.e. a given global token is used or will be used from now on to define a particular style that is shared by at least two components), the recommendation would be to create a new alias token that reflects that systemic decision, so it can be used from now on.
+As mentioned, if none of the existing alias tokens can provide the right value for a given style, designers can exceptionally use global tokens instead. Nevertheless, in case a visual pattern is detected (i.e. a given global token is used or will be used from now on to define a particular style that is shared by at least two components), the recommendation would be to create a new alias token that reflects that systemic decision, so it can be used from now on.
 
 When suggesting the creation of missing tokens, the following process is advised:
 
@@ -191,7 +208,7 @@ When suggesting the creation of missing tokens, the following process is advised
 - The proposal will be shared with the UX team for review and alignment
 - Once the new token is introduced in the system, you and the rest of the design team will be notified
 
-Although unlikely, it may happen that the newly needed alias token does not yet have a global representation. In that case, a new global token would be created together with its alias. New global tokens will also be introduced in case a major redesign or style change is imposed by the WMF.
+Although unlikely, it may happen that the newly needed alias token does not yet have a global representation. In that case, a new global token would be created together with its alias. New global tokens will also be introduced in case a major redesign or style change is imposed by the Wikimedia Foundation.
 
 ******
 
@@ -206,15 +223,19 @@ Many of the handover items should already be covered if the design process has b
   - **States**’ specifications (e.g. default, hover, active, focus, error, disabled) and **interactive behavior** are defined and fully specified. In both cases, the user actions leading to each state should also be indicated.
   - **Responsive** behavior specifications are also outlined <br/>
 <br/>
+
+👉🏻 The system designer will be in charge of creating and making available, before development, the component-level token files based on the design specifications.
+
 - Basic component documentation (as defined in 1.4):<br/>
   - A distinctive **name** for the component and its relevant typologies
   - A **short description** of the overall purpose of the component<br/>
+  - **Accessibility** specifications, such as keyboard navigation, are defined<br/>
   <br/>
 - Storybook indications:<br/>
-  - Specify where, within the current **Storybook structure**, the component should  be classified (new dedicated section or subsection), based on the relationship to its component family (this relationship should also be expressed by the name).
-  - Indicate the required Storybook **knobs**, if needed: these are sets of modifiers that allow users to check the visual and interactive properties of a component.<br/>
+  - Specify where, within the current **Storybook structure**, the component should be classified (new dedicated section or subsection), based on the relationship to its component family (this relationship should also be expressed by the name).
+  - Indicate the required Storybook **controls**, if needed: these allow users to modify some properties of a component in real time.<br/>
   <br/>
-- **Assets** used by components (e.g. icons) should be included in Figma, but ideally these could be exported in an svg format and attached to the component story in Phabricator, to make them directly available for download. <br/>
+- **Assets** used by components (e.g. icons) should be included in Figma, but ideally these should be exported in an svg format and attached to the component story in Phabricator, to make them directly available for download. <br/>
 
 👉🏻  Designers should dedicate time to go through handover files with the developers in their hike in order to make sure that the documentation is intelligible and well structured for everyone, and to detect potential missing requirements before moving into implementation.
 
