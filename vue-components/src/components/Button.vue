@@ -1,6 +1,11 @@
 <template>
-	<button :class="[ 'wikit', 'wikit-Button', `wikit-Button--${ type }` ]">
-		<slot />
+	<button :class="[ 'wikit', 'wikit-Button', `wikit-Button--${ type }`, iconOnly ? `wikit-Button--iconOnly` : '' ]">
+		<span v-if="$slots.icon" class="wikit-Button__icon">
+			<slot name="icon" />
+		</span><!--
+		--><span class="wikit-Button__label">
+			<slot />
+		</span>
 	</button>
 </template>
 
@@ -33,6 +38,10 @@ export default Vue.extend( {
 			},
 			default: 'neutral',
 		},
+		iconOnly: {
+			type: Boolean,
+			default: false,
+		},
 	},
 } );
 </script>
@@ -60,6 +69,12 @@ $base: '.wikit-Button';
 	@media (max-width: $width-breakpoint-mobile) {
 		padding-inline: $wikit-Button-large-padding-horizontal;
 		padding-block: $wikit-Button-large-padding-vertical;
+	}
+
+	&:not( #{$base}--iconOnly) &__icon {
+		padding-inline-end: $dimension-spacing-small;
+		//TODO: replace later with $wikit-Button-icon-gap;
+		//when https://github.com/wmde/wikit/pull/321 is merged
 	}
 
 	&:not(:disabled) {
