@@ -12,9 +12,6 @@
         "line-height": {
             "value": "{font.line-height.style.label.value}"
         },
-        "cursor": {
-            "value": "{cursor.pointer.value}"
-        },
         "border-width": {
             "value": "{border.width.thin.value}"
         },
@@ -175,9 +172,6 @@
             }
         },
         "disabled": {
-            "cursor": {
-                "value": "{cursor.default.value}"
-            },
             "color": {
                 "value": "{font.color.inverted.value}"
             },

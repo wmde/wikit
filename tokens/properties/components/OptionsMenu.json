@@ -36,9 +36,6 @@
 			"hover": {
 				"background-color": {
 					"value": "{background.color.base.hover.value}"
-				},
-				"cursor": {
-					"value": "{cursor.pointer.value}"
 				}
 			},
 			"active": {
