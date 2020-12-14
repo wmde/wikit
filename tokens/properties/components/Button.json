@@ -51,6 +51,9 @@
                 "value": "{dimension.spacing.large.value}"
             }
         },
+        "icon-gap": {
+            "value": "{dimension.spacing.small.value}"
+        },
         "normal": {
             "neutral": {
                 "color": {
