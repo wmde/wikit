@@ -392,22 +392,5 @@
                 "value": "2000ms"
             }
         }
-    },
-    "cursor": {
-        "default": {
-            "value": "default"
-        },
-        "grab": {
-            "value": "grab"
-        },
-        "not-allowed": {
-            "value": "not-allowed"
-        },
-        "pointer": {
-            "value": "pointer"
-        },
-        "text": {
-            "value": "text"
-        }
     }
 }
