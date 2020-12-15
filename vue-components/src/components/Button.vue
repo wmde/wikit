@@ -1,5 +1,12 @@
 <template>
-	<button :class="[ 'wikit', 'wikit-Button', `wikit-Button--${ type }` ]">
+	<button
+		:class="[
+			'wikit',
+			'wikit-Button',
+			(quiet === true) ? `wikit-Button--quiet` : '',
+			(quiet === false) ? `wikit-Button--${type}` : `wikit-Button--quiet--${type}`
+		]"
+	>
 		<slot />
 	</button>
 </template>
@@ -32,6 +39,10 @@ export default Vue.extend( {
 				return [ 'neutral', 'primaryProgressive', 'primaryDestructive' ].includes( value );
 			},
 			default: 'neutral',
+		},
+		quiet: {
+			type: Boolean,
+			default: false,
 		},
 	},
 } );
@@ -89,6 +100,32 @@ $base: '.wikit-Button';
 			}
 		}
 
+		&#{$base}--quiet--neutral {
+			color: $wikit-Button-quiet-neutral-color;
+			background-color: $wikit-Button-quiet-background-color;
+			border-color: $wikit-Button-quiet-border-color;
+
+			&:hover {
+				color: $wikit-Button-quiet-neutral-hover-color;
+				background-color: $wikit-Button-quiet-neutral-hover-background-color;
+				border-color: $wikit-Button-quiet-neutral-hover-border-color;
+			}
+
+			&:active {
+				color: $wikit-Button-quiet-neutral-active-color;
+				background-color: $wikit-Button-quiet-neutral-active-background-color;
+				border-color: $wikit-Button-quiet-neutral-active-border-color;
+			}
+
+			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
+			&:focus:not(:active) {
+				color: $wikit-Button-quiet-neutral-focus-color;
+				background-color: $wikit-Button-quiet-neutral-focus-background-color;
+				border-color: $wikit-Button-quiet-neutral-focus-border-color;
+				box-shadow: $wikit-Button-quiet-neutral-focus-box-shadow;
+			}
+		}
+
 		&#{$base}--primaryProgressive {
 			color: $wikit-Button-primary-color;
 			background-color: $wikit-Button-primary-progressive-background-color;
@@ -109,6 +146,32 @@ $base: '.wikit-Button';
 				background-color: $wikit-Button-primary-progressive-focus-background-color;
 				border-color: $wikit-Button-primary-progressive-focus-border-color;
 				box-shadow: $wikit-Button-primary-progressive-focus-box-shadow;
+			}
+		}
+
+		&#{$base}--quiet--primaryProgressive {
+			color: $wikit-Button-quiet-progressive-color;
+			background-color: $wikit-Button-quiet-background-color;
+			border-color: $wikit-Button-quiet-border-color;
+
+			&:hover {
+				color: $wikit-Button-quiet-progressive-hover-color;
+				background-color: $wikit-Button-quiet-progressive-hover-background-color;
+				border-color: $wikit-Button-quiet-progressive-hover-border-color;
+			}
+
+			&:active {
+				color: $wikit-Button-quiet-progressive-active-color;
+				background-color: $wikit-Button-quiet-progressive-active-background-color;
+				border-color: $wikit-Button-quiet-progressive-active-border-color;
+			}
+
+			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
+			&:focus:not(:active) {
+				color: $wikit-Button-quiet-progressive-focus-color;
+				background-color: $wikit-Button-quiet-progressive-focus-background-color;
+				border-color: $wikit-Button-quiet-progressive-focus-border-color;
+				box-shadow: $wikit-Button-quiet-progressive-focus-box-shadow;
 			}
 		}
 
@@ -134,12 +197,46 @@ $base: '.wikit-Button';
 				box-shadow: $wikit-Button-primary-destructive-focus-box-shadow;
 			}
 		}
+
+		&#{$base}--quiet--primaryDestructive {
+			color: $wikit-Button-quiet-destructive-color;
+			background-color: $wikit-Button-quiet-background-color;
+			border-color: $wikit-Button-quiet-border-color;
+
+			&:hover {
+				color: $wikit-Button-quiet-destructive-hover-color;
+				background-color: $wikit-Button-quiet-destructive-hover-background-color;
+				border-color: $wikit-Button-quiet-destructive-hover-border-color;
+			}
+
+			&:active {
+				color: $wikit-Button-quiet-destructive-active-color;
+				background-color: $wikit-Button-quiet-destructive-active-background-color;
+				border-color: $wikit-Button-quiet-destructive-active-border-color;
+			}
+
+			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
+			&:focus:not(:active) {
+				color: $wikit-Button-quiet-destructive-focus-color;
+				background-color: $wikit-Button-quiet-destructive-focus-background-color;
+				border-color: $wikit-Button-quiet-destructive-focus-border-color;
+				box-shadow: $wikit-Button-quiet-destructive-focus-box-shadow;
+			}
+		}
 	}
 
-	&:disabled {
+	&:not(&--quiet):disabled {
 		color: $wikit-Button-framed-disabled-color;
 		background-color: $wikit-Button-framed-disabled-background-color;
 		border-color: $wikit-Button-framed-disabled-border-color;
+		cursor: default;
+	}
+
+	&--quiet:disabled {
+		color: $wikit-Button-quiet-disabled-color;
+		// TODO: Tokens are missing
+		background-color: transparent;
+		border-color: transparent;
 		cursor: default;
 	}
 

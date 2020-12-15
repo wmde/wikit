@@ -21,3 +21,17 @@ export function normal(): Component {
 		`,
 	};
 }
+
+export function quiet(): Component {
+	return {
+		components: { Button },
+		template: `
+			<div>
+				<Button quiet type="neutral">Neutral</Button>
+				<Button quiet type="primaryProgressive">Progressive</Button>
+				<Button quiet type="primaryDestructive">Destructive</Button>
+				<Button quiet disabled="true">Disabled</Button>
+			</div>
+		`,
+	};
+}
