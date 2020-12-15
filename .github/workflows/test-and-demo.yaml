@@ -108,6 +108,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: setup
+    outputs:
+      deploy_url: ${{ steps.netlify_deploy.outputs.url }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -125,22 +127,21 @@ jobs:
     - name: Build Project
       run: npm run build:storybook
     - name: Deploy to netlify
-      run: echo "DEPLOY_URL=$(npx -p netlify-cli netlify deploy --dir=docs/dist --json | jq '.deploy_url' --raw-output)" >> $GITHUB_ENV
+      id: netlify_deploy
+      run: echo "::set-output name=url::$(npx -p netlify-cli netlify deploy --dir=docs/dist --json | jq '.deploy_url' --raw-output)"
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
     - name: Print deploy URL
-      run: echo $DEPLOY_URL
+      run: echo ${{ steps.netlify_deploy.outputs.url }}
 
   browser-tests:
     runs-on: ubuntu-latest
-    needs: [setup, ui-review]
+    needs: [setup, deploy]
     if: ${{ needs.setup.outputs.behavioral == 'true' || github.ref == 'refs/heads/master' }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-      with:
-        fetch-depth: 0 # chromatic needs access to the history
     - name: Set up node
       uses: actions/setup-node@v1
       with:
@@ -152,13 +153,9 @@ jobs:
           node_modules
           */node_modules
         key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json', '**/package.json') }}
-    - name: Extract commit hash
-      shell: bash
-      run: echo "##[set-output name=commit;]$(git rev-parse --short ${GITHUB_SHA})"
-      id: extract_commit
     - name: Run e2e cross browser tests
       env:
         SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-        COMMIT_HASH: ${{ steps.extract_commit.outputs.commit }}
+        DEPLOY_URL: ${{ needs.deploy.outputs.deploy_url }}
       run: npm run test:e2e
