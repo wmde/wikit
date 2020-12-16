@@ -2,6 +2,7 @@ import Vue from 'vue';
 import { mount, Wrapper } from '@vue/test-utils';
 import Dropdown from '@/components/Dropdown.vue';
 import OptionsMenu from '@/components/OptionsMenu.vue';
+import ValidationMessage from '@/components/ValidationMessage.vue';
 import { MenuItem } from '@/components/MenuItem';
 
 async function createDropdownWrapperWithExpandedMenu( menuItems: MenuItem[] ): Promise<Wrapper<Dropdown>> {
@@ -233,6 +234,60 @@ describe( 'Dropdown', () => {
 
 			await Vue.nextTick();
 			expect( wrapper.findComponent( OptionsMenu ).isVisible() ).toBe( true );
+		} );
+	} );
+
+	describe( 'with Errors', () => {
+
+		it( 'rejects errors without a message', () => {
+			expect( () => mount( Dropdown, {
+				propsData: {
+					error: {
+						type: 'warning',
+					},
+				},
+			} ) ).toThrow();
+		} );
+
+		it( 'rejects errors without a type', () => {
+			expect( () => mount( Dropdown, {
+				propsData: {
+					error: {
+						message: 'things went wrong',
+					},
+				},
+			} ) ).toThrow();
+		} );
+
+		it( 'rejects invalid error types', () => {
+			expect( () => mount( Dropdown, {
+				propsData: {
+					error: {
+						type: 'not-that-bad',
+						message: 'a valid message',
+					},
+				},
+			} ) ).toThrow();
+		} );
+
+		it.each( [
+			'warning',
+			'error',
+		] )( 'passes the error to the ValidationMessage child component', ( errorType ) => {
+			const errorMessage = 'error!!!!';
+			const wrapper = mount( Dropdown, {
+				propsData: {
+					error: {
+						type: errorType,
+						message: errorMessage,
+					},
+				},
+			} );
+			const validationMessage = wrapper.findComponent( ValidationMessage );
+
+			expect( validationMessage.props( 'message' ) ).toBe( errorMessage );
+			expect( validationMessage.props( 'type' ) ).toBe( errorType );
+			expect( validationMessage.isVisible() ).toBe( true );
 		} );
 	} );
 } );
