@@ -27,7 +27,6 @@ export default Vue.extend( {
 		 */
 		type: {
 			type: String,
-			// TODO why does the shorter version cause problems with doc-gen?
 			validator( value: string ): boolean {
 				return [ 'neutral', 'primaryProgressive', 'primaryDestructive' ].includes( value );
 			},
