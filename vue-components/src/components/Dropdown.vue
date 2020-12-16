@@ -8,7 +8,7 @@
 			@click="$refs.select.focus()"
 		>{{ label }}</label>
 		<div
-			class="wikit-Dropdown__select"
+			:class="classesForSelect"
 			:tabindex="!disabled && '0'"
 			:disabled="disabled"
 			@click="onClick"
@@ -39,28 +39,43 @@
 			@esc="onEsc"
 			ref="menu"
 		/>
+		<ValidationMessage
+			v-if="error"
+			:type="error.type"
+			:message="error.message"
+		/>
 	</div>
 </template>
 
 <script lang="ts">
-import Vue, { PropType, VueConstructor } from 'vue';
+import Vue from 'vue';
+import VueCompositionAPI, { defineComponent, computed, ref } from '@vue/composition-api';
 import { MenuItem } from '@/components/MenuItem';
 import OptionsMenu from '@/components/OptionsMenu.vue';
+import { getFeedbackTypeFromProps, errorProp, ErrorProp } from '@/compositions/validatable';
 import isEqual from 'lodash.isequal';
+import ValidationMessage from '@/components/ValidationMessage.vue';
 
-export default ( Vue as VueConstructor<Vue & { $refs: {
-	menu: InstanceType<typeof OptionsMenu>;
-	select: HTMLElement;
-}; }> ).extend( {
+Vue.use( VueCompositionAPI );
+
+export default defineComponent( {
 	name: 'Dropdown',
-	data() {
+	setup( props: { error: ErrorProp; menuItems: MenuItem[]; value: MenuItem|null } ) {
+		const menu = ref<InstanceType<typeof OptionsMenu>|null>( null );
+		const showMenu = ref( false );
+
+		const feedbackType = computed( getFeedbackTypeFromProps( props ) );
+
 		return {
-			showMenu: false,
+			showMenu,
+			feedbackType,
+			menu,
 		};
 	},
 	props: {
+		error: errorProp,
 		menuItems: {
-			type: Array as PropType<MenuItem[]>,
+			type: Array,
 			default: (): [] => [],
 		},
 		disabled: {
@@ -96,6 +111,13 @@ export default ( Vue as VueConstructor<Vue & { $refs: {
 				this,
 			);
 		},
+		classesForSelect(): string[] {
+			const classes = [ 'wikit-Dropdown__select' ];
+			if ( this.feedbackType ) {
+				classes.push( `wikit-Dropdown__select--${this.feedbackType}` );
+			}
+			return classes;
+		},
 	},
 	methods: {
 		triggerKeyDown( event: KeyboardEvent ): void {
@@ -109,12 +131,12 @@ export default ( Vue as VueConstructor<Vue & { $refs: {
 				case 'ArrowDown':
 					this.startShowingTheMenu();
 			}
-			this.$refs.menu.onKeyDown( event );
+			this.menu?.onKeyDown( event );
 		},
 		async startShowingTheMenu(): Promise<void> {
 			this.showMenu = true;
 			await this.$nextTick();
-			this.$refs.menu.resizeMenu();
+			this.menu?.resizeMenu();
 		},
 		onEsc(): void {
 			this.showMenu = false;
@@ -138,6 +160,7 @@ export default ( Vue as VueConstructor<Vue & { $refs: {
 	},
 	components: {
 		OptionsMenu,
+		ValidationMessage,
 	},
 } );
 </script>
@@ -181,6 +204,14 @@ $base: '.wikit-Dropdown';
 			#{$base}__arrow {
 				color: $wikit-Dropdown-disabled-color;
 			}
+		}
+
+		&--warning {
+			border-color: $wikit-Dropdown-warning-border-color;
+		}
+
+		&--error {
+			border-color: $wikit-Dropdown-error-border-color;
 		}
 
 		&:hover {
