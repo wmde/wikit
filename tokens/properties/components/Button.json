@@ -51,7 +51,7 @@
                 "value": "{dimension.spacing.large.value}"
             }
         },
-        "icon-gap": {
+        "icon-horizontal-spacing": {
             "value": "{dimension.spacing.small.value}"
         },
         "framed": {
