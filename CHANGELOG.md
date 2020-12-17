@@ -25,6 +25,7 @@ development)_
 - Additional icon called edit
 - New icon called trash
 - New info-outline Icon type
+- Quiet button variant
 
 ### Removed
 
