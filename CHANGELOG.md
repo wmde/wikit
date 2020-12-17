@@ -26,6 +26,9 @@ development)_
 - New icon called trash
 - New info-outline Icon type
 
+### Changed
+- _**(Breaking)**_ the prop of the Button has been split into two: `type` and `variant`
+
 ### Removed
 
 - _**(Breaking)**_ Width property is removed from all components
