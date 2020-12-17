@@ -198,7 +198,7 @@ $base: '.wikit-Button';
 			}
 		}
 
-		&#{$base}--quiet--primaryDestructive {
+		&#{$base}--quiet--destructive {
 			color: $wikit-Button-quiet-destructive-color;
 			background-color: $wikit-Button-quiet-background-color;
 			border-color: $wikit-Button-quiet-border-color;
