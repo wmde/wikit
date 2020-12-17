@@ -31,10 +31,12 @@ const menuItems: MenuItem[] = [
 	{
 		label: 'earlier than',
 		value: 'earlier',
+		tag: 'has error',
 	},
 	{
 		label: 'later than',
 		value: 'later',
+		tag: 'has warning',
 	},
 ];
 
@@ -46,6 +48,17 @@ export function basic( args ): Component {
 				selectedItem: null,
 			};
 		},
+		computed: {
+			error(): any {
+				if ( this.selectedItem?.value === 'later' ) {
+					return { type: 'warning', message: 'Warning to be careful 🚧' };
+				}
+				if ( this.selectedItem?.value === 'earlier' ) {
+					return { type: 'error', message: 'There was an error 😕' };
+				}
+				return null;
+			},
+		},
 		props: Object.keys( args ),
 		template: `
 			<div><div style="max-width: 512px">
@@ -55,6 +68,7 @@ export function basic( args ): Component {
 					v-model="selectedItem"
 					:placeholder="placeholder"
 					:disabled="disabled"
+					:error="error"
 				/>
 				<div v-if="selectedItem" style="margin-top: 16px">
 					Selected Option:

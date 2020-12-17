@@ -12,9 +12,6 @@
         "line-height": {
             "value": "{font.line-height.style.label.value}"
         },
-        "cursor": {
-            "value": "{cursor.pointer.value}"
-        },
         "border-width": {
             "value": "{border.width.thin.value}"
         },
@@ -51,10 +48,15 @@
                 "value": "{dimension.spacing.large.value}"
             }
         },
-        "icon-gap": {
-            "value": "{dimension.spacing.small.value}"
+        "icon": {
+            "size": {
+                "value": "{icon.size.large.value}"
+            },
+            "horizontal-spacing": {
+                "value": "{dimension.spacing.small.value}"
+            }
         },
-        "framed": {
+        "normal": {
             "neutral": {
                 "color": {
                     "value": "{font.color.base.value}"
@@ -344,11 +346,6 @@
             "large": {
                 "padding-horizontal": {
                     "value": "{dimension.spacing.medium.value}"
-                }
-            },
-            "icon": {
-                "size": {
-                    "value": "{icon.size.large.value}"
                 }
             }
         }

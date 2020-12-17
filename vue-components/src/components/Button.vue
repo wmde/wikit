@@ -34,7 +34,6 @@ export default Vue.extend( {
 		 */
 		type: {
 			type: String,
-			// TODO why does the shorter version cause problems with doc-gen?
 			validator( value: string ): boolean {
 				return [ 'neutral', 'primaryProgressive', 'primaryDestructive' ].includes( value );
 			},
@@ -58,7 +57,7 @@ $base: '.wikit-Button';
 	font-weight: $wikit-Button-font-weight;
 	font-size: $wikit-Button-font-size; // unit? px vs em vs rem
 	line-height: $wikit-Button-line-height;
-	cursor: $wikit-Button-cursor;
+	cursor: pointer;
 	border-width: $wikit-Button-border-width;
 	border-style: $wikit-Button-border-style;
 	border-radius: $wikit-Button-border-radius;
@@ -75,28 +74,28 @@ $base: '.wikit-Button';
 
 	&:not(:disabled) {
 		&#{$base}--neutral {
-			color: $wikit-Button-framed-neutral-color;
-			background-color: $wikit-Button-framed-neutral-background-color;
-			border-color: $wikit-Button-framed-neutral-border-color;
+			color: $wikit-Button-normal-neutral-color;
+			background-color: $wikit-Button-normal-neutral-background-color;
+			border-color: $wikit-Button-normal-neutral-border-color;
 
 			&:hover {
-				color: $wikit-Button-framed-neutral-hover-color;
-				background-color: $wikit-Button-framed-neutral-hover-background-color;
-				border-color: $wikit-Button-framed-neutral-hover-border-color;
+				color: $wikit-Button-normal-neutral-hover-color;
+				background-color: $wikit-Button-normal-neutral-hover-background-color;
+				border-color: $wikit-Button-normal-neutral-hover-border-color;
 			}
 
 			&:active {
-				color: $wikit-Button-framed-neutral-active-color;
-				background-color: $wikit-Button-framed-neutral-active-background-color;
-				border-color: $wikit-Button-framed-neutral-active-border-color;
+				color: $wikit-Button-normal-neutral-active-color;
+				background-color: $wikit-Button-normal-neutral-active-background-color;
+				border-color: $wikit-Button-normal-neutral-active-border-color;
 			}
 
 			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
 			&:focus:not(:active) {
-				color: $wikit-Button-framed-neutral-focus-color;
-				background-color: $wikit-Button-framed-neutral-focus-background-color;
-				border-color: $wikit-Button-framed-neutral-focus-border-color;
-				box-shadow: $wikit-Button-framed-neutral-focus-box-shadow;
+				color: $wikit-Button-normal-neutral-focus-color;
+				background-color: $wikit-Button-normal-neutral-focus-background-color;
+				border-color: $wikit-Button-normal-neutral-focus-border-color;
+				box-shadow: $wikit-Button-normal-neutral-focus-box-shadow;
 			}
 		}
 
