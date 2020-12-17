@@ -25,6 +25,7 @@ development)_
 - Additional icon called edit
 - New icon called trash
 - New info-outline Icon type
+- New icon color `inherit` reuses the css `color` of the parent for the icon
 
 ### Removed
 
