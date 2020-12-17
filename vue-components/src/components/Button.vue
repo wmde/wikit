@@ -236,7 +236,7 @@ $base: '.wikit-Button';
 		color: $wikit-Button-quiet-disabled-color;
 		// TODO: Tokens are missing
 		background-color: transparent;
-		border-color: transparent;
+		border-color: $wikit-Button-quiet-border-color;
 		cursor: default;
 	}
 
