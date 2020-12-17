@@ -1,5 +1,13 @@
 <template>
-	<button :class="[ 'wikit', 'wikit-Button', `wikit-Button--${ type }`, `wikit-Button--${ variant }` ]">
+	<button
+		:class="[
+			'wikit',
+			'wikit-Button',
+			`wikit-Button--${ type }`,
+			`wikit-Button--${ variant }`,
+			iconOnly ? `wikit-Button--iconOnly` : '',
+		]"
+	>
 		<slot />
 	</button>
 </template>
@@ -13,12 +21,12 @@ Vue.use( VueCompositionAPI );
 /* eslint-disable no-trailing-spaces */
 /**
  *  An interactive element signaling a single-step action that will occur when the user clicks or taps on it.
- * 
+ *
  * Known issues:
- * 
- * * The styles defined on `:focus` do not apply in Safari and Firefox on macOS.  
- * This seems to be a desired behavior and not a bug  
- * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Clicking_and_focus  
+ *
+ * * The styles defined on `:focus` do not apply in Safari and Firefox on macOS.
+ * This seems to be a desired behavior and not a bug
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Clicking_and_focus
  * https://bugzilla.mozilla.org/show_bug.cgi?id=1581369#c5
  */
 /* eslint-enable no-trailing-spaces */
@@ -48,6 +56,10 @@ export default defineComponent( {
 				return [ 'normal', 'primary' ].includes( value );
 			},
 			default: 'normal',
+		},
+		iconOnly: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	setup( props: {
@@ -176,6 +188,14 @@ $base: '.wikit-Button';
 		border-color: $wikit-Button-normal-disabled-border-color;
 		cursor: default;
 		pointer-events: none;
+	}
+
+	&#{$base}--iconOnly {
+		padding-inline: $wikit-Button-icon-only-medium-padding-horizontal;
+
+		@media (max-width: $width-breakpoint-mobile) {
+			padding-inline: $wikit-Button-icon-only-large-padding-horizontal;
+		}
 	}
 
 	// should ideally be taken care of by the globally applied style reset (ress)

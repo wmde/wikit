@@ -1,4 +1,5 @@
 import Button from '@/components/Button';
+import Icon from '@/components/Icon';
 import { Component } from 'vue';
 
 export default {
@@ -30,6 +31,30 @@ export function primary(): Component {
 				<Button type="progressive" variant="primary">Primary progressive</Button>
 				<Button type="destructive" variant="primary">Primary destructive</Button>
 				<Button type="progressive" variant="primary" disabled="true">Disabled</Button>
+			</div>
+		`,
+	};
+}
+
+export function iconOnly(): Component {
+	return {
+		components: { Button, Icon },
+		template: `
+			<div>
+				<div>
+					<Button variant="normal" type="neutral" iconOnly>
+						<Icon type="info" size="large" color="inherit" />
+					</Button>
+					<Button variant="primary" type="progressive" iconOnly>
+						<Icon type="edit" size="large" color="inherit" />
+					</Button>
+					<Button variant="primary"  type="destructive" iconOnly>
+						<Icon type="clear" size="large" color="inherit" />
+					</Button>
+					<Button disabled="true" iconOnly>
+						<Icon type="trash" size="large" color="inherit" />
+					</Button>
+				</div>
 			</div>
 		`,
 	};
