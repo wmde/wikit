@@ -28,7 +28,7 @@ export function quiet(): Component {
 		template: `
 			<div>
 				<Button quiet type="neutral">Neutral</Button>
-				<Button quiet type="primaryProgressive">Progressive</Button>
+				<Button quiet type="progressive">Progressive</Button>
 				<Button quiet type="destructive">Destructive</Button>
 				<Button quiet disabled="true">Disabled</Button>
 			</div>
