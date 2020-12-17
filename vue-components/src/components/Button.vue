@@ -226,7 +226,7 @@ $base: '.wikit-Button';
 
 	&:not(&--quiet):disabled {
 		color: $wikit-Button-normal-disabled-color;
-		background-color: $wikit-Button-framed-disabled-background-color;
+		background-color: $wikit-Button-normal-disabled-background-color;
 		border-color: $wikit-Button-framed-disabled-border-color;
 		cursor: default;
 	}
