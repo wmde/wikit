@@ -225,7 +225,7 @@ $base: '.wikit-Button';
 	}
 
 	&:not(&--quiet):disabled {
-		color: $wikit-Button-framed-disabled-color;
+		color: $wikit-Button-normal-disabled-color;
 		background-color: $wikit-Button-framed-disabled-background-color;
 		border-color: $wikit-Button-framed-disabled-border-color;
 		cursor: default;
