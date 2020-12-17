@@ -149,7 +149,7 @@ $base: '.wikit-Button';
 			}
 		}
 
-		&#{$base}--quiet--primaryProgressive {
+		&#{$base}--quiet--progressive {
 			color: $wikit-Button-quiet-progressive-color;
 			background-color: $wikit-Button-quiet-background-color;
 			border-color: $wikit-Button-quiet-border-color;
