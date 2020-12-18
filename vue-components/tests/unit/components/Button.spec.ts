@@ -12,12 +12,13 @@ describe( 'Button', () => {
 	} );
 
 	it.each( [
-		'neutral',
-		'primaryProgressive',
-		'primaryDestructive',
-	] )( 'renders the type %s as a root node class', ( type ) => {
+		[ 'normal', 'neutral' ],
+		[ 'primary', 'progressive' ],
+		[ 'primary', 'destructive' ],
+	] )( 'renders the variant %s and type %s as a root node classes', ( variant, type ) => {
 		expect( mount( Button, {
 			propsData: {
+				variant,
 				type,
 			},
 		} ).classes() ).toContain( `wikit-Button--${type}` );
@@ -27,6 +28,23 @@ describe( 'Button', () => {
 		expect( () => mount( Button, {
 			propsData: {
 				type: 'random',
+			},
+		} ) ).toThrow();
+	} );
+
+	it( 'validates the variant prop', () => {
+		expect( () => mount( Button, {
+			propsData: {
+				variant: 'random',
+			},
+		} ) ).toThrow();
+	} );
+
+	it( 'throws for invalid combinations', () => {
+		expect( () => mount( Button, {
+			propsData: {
+				variant: 'primary',
+				type: 'neutral',
 			},
 		} ) ).toThrow();
 	} );
