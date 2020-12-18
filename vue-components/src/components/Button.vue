@@ -1,37 +1,80 @@
 <template>
-	<button :class="[ 'wikit', 'wikit-Button', `wikit-Button--${ type }` ]">
+	<button
+		:class="[
+			'wikit',
+			'wikit-Button',
+			`wikit-Button--${ type }`,
+			`wikit-Button--${ variant }`,
+			iconOnly ? `wikit-Button--iconOnly` : '',
+		]"
+	>
 		<slot />
 	</button>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import VueCompositionAPI, { defineComponent, onMounted } from '@vue/composition-api';
 
-/* eslint-disable no-trailing-spaces */
+Vue.use( VueCompositionAPI );
+
 /**
  *  An interactive element signaling a single-step action that will occur when the user clicks or taps on it.
- * 
+ *
  * Known issues:
- * 
- * * The styles defined on `:focus` do not apply in Safari and Firefox on macOS.  
- * This seems to be a desired behavior and not a bug  
- * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Clicking_and_focus  
+ *
+ * * The styles defined on `:focus` do not apply in Safari and Firefox on macOS.<br>
+ * This seems to be a desired behavior and not a bug<br>
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Clicking_and_focus<br>
  * https://bugzilla.mozilla.org/show_bug.cgi?id=1581369#c5
  */
-/* eslint-enable no-trailing-spaces */
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'Button',
 	props: {
 		/**
 		 * The type of the button
+		 *
+		 * Allowed values: `neutral`, `progressive`, `destructive`
 		 */
 		type: {
 			type: String,
 			validator( value: string ): boolean {
-				return [ 'neutral', 'primaryProgressive', 'primaryDestructive' ].includes( value );
+				return [ 'neutral', 'progressive', 'destructive' ].includes( value );
 			},
 			default: 'neutral',
 		},
+		/**
+		 * The variant of the button
+		 *
+		 * Allowed values: `normal`, `primary`
+		 */
+		variant: {
+			type: String,
+			validator( value: string ): boolean {
+				return [ 'normal', 'primary' ].includes( value );
+			},
+			default: 'normal',
+		},
+		iconOnly: {
+			type: Boolean,
+			default: false,
+		},
+	},
+	setup( props: {
+		type: 'neutral'|'progressive'|'destructive';
+		variant: 'normal'|'primary';
+	} ) {
+		onMounted( () => {
+			const supportedCombinations = {
+				normal: [ 'neutral' ],
+				primary: [ 'progressive', 'destructive' ],
+			};
+			if ( !supportedCombinations[ props.variant ].includes( props.type ) ) {
+				throw new Error(
+					`The combination of variant "${props.variant}" and type "${props.type}" is not yet supported!`,
+				);
+			}
+		} );
 	},
 } );
 </script>
@@ -61,7 +104,7 @@ $base: '.wikit-Button';
 		padding-block: $wikit-Button-large-padding-vertical;
 	}
 
-	&:not(:disabled) {
+	&#{$base}--normal {
 		&#{$base}--neutral {
 			color: $wikit-Button-normal-neutral-color;
 			background-color: $wikit-Button-normal-neutral-background-color;
@@ -78,7 +121,6 @@ $base: '.wikit-Button';
 				background-color: $wikit-Button-normal-neutral-active-background-color;
 				border-color: $wikit-Button-normal-neutral-active-border-color;
 			}
-
 			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
 			&:focus:not(:active) {
 				color: $wikit-Button-normal-neutral-focus-color;
@@ -87,8 +129,10 @@ $base: '.wikit-Button';
 				box-shadow: $wikit-Button-normal-neutral-focus-box-shadow;
 			}
 		}
+	}
 
-		&#{$base}--primaryProgressive {
+	&#{$base}--primary {
+		&#{$base}--progressive {
 			color: $wikit-Button-primary-color;
 			background-color: $wikit-Button-primary-progressive-background-color;
 			border-color: $wikit-Button-primary-progressive-border-color;
@@ -111,7 +155,7 @@ $base: '.wikit-Button';
 			}
 		}
 
-		&#{$base}--primaryDestructive {
+		&#{$base}--destructive {
 			color: $wikit-Button-primary-color;
 			background-color: $wikit-Button-primary-destructive-background-color;
 			border-color: $wikit-Button-primary-destructive-border-color;
@@ -135,11 +179,21 @@ $base: '.wikit-Button';
 		}
 	}
 
-	&:disabled {
+	&#{$base}--normal:disabled,
+	&#{$base}--primary:disabled {
 		color: $wikit-Button-normal-disabled-color;
 		background-color: $wikit-Button-normal-disabled-background-color;
 		border-color: $wikit-Button-normal-disabled-border-color;
 		cursor: default;
+		pointer-events: none;
+	}
+
+	&#{$base}--iconOnly {
+		padding-inline: $wikit-Button-icon-only-medium-padding-horizontal;
+
+		@media (max-width: $width-breakpoint-mobile) {
+			padding-inline: $wikit-Button-icon-only-large-padding-horizontal;
+		}
 	}
 
 	// should ideally be taken care of by the globally applied style reset (ress)
