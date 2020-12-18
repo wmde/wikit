@@ -275,6 +275,7 @@ $base: '.wikit-Button';
 		background-color: $wikit-Button-quiet-background-color;
 		border-color: $wikit-Button-quiet-border-color;
 		cursor: default;
+		pointer-events: none;
 	}
 
 	&#{$base}--iconOnly {
