@@ -55,7 +55,7 @@ export default defineComponent( {
 		variant: {
 			type: String,
 			validator( value: string ): boolean {
-				return [ 'normal', 'primary' ].includes( value );
+				return [ 'normal', 'primary', 'quiet' ].includes( value );
 			},
 			default: 'normal',
 		},
