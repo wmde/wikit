@@ -1,25 +1,25 @@
 <template>
-  <button
-    :class="[
-      'wikit',
-      'wikit-Button',
-      `wikit-Button--${type}`,
-      `wikit-Button--${variant}`,
-      iconOnly ? `wikit-Button--iconOnly` : '',
-    ]"
-  >
-    <slot />
-  </button>
+	<button
+		:class="[
+			'wikit',
+			'wikit-Button',
+			`wikit-Button--${type}`,
+			`wikit-Button--${variant}`,
+			iconOnly ? `wikit-Button--iconOnly` : '',
+		]"
+	>
+		<slot />
+	</button>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 import VueCompositionAPI, {
-  defineComponent,
-  onMounted,
-} from "@vue/composition-api";
+	defineComponent,
+	onMounted,
+} from '@vue/composition-api';
 
-Vue.use(VueCompositionAPI);
+Vue.use( VueCompositionAPI );
 
 /**
  *  An interactive element signaling a single-step action that will occur when the user clicks or taps on it.
@@ -32,56 +32,56 @@ Vue.use(VueCompositionAPI);
  * https://bugzilla.mozilla.org/show_bug.cgi?id=1581369#c5
  */
 /* eslint-enable no-trailing-spaces */
-export default defineComponent({
-  name: "Button",
-  props: {
-    /**
-     * The type of the button
-     *
-     * Allowed values: `neutral`, `progressive`, `destructive`
-     */
-    type: {
-      type: String,
-      validator(value: string): boolean {
-        return ["neutral", "progressive", "destructive"].includes(value);
-      },
-      default: "neutral",
-    },
-    /**
-     * The variant of the button
-     *
-     * Allowed values: `normal`, `primary`, `quiet`
-     */
-    variant: {
-      type: String,
-      validator(value: string): boolean {
-        return ["normal", "primary"].includes(value);
-      },
-      default: "normal",
-    },
-    iconOnly: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  setup(props: {
-    type: "neutral" | "progressive" | "destructive";
-    variant: "normal" | "primary" | "quiet";
-  }) {
-    onMounted(() => {
-      const supportedCombinations = {
-        normal: ["neutral"],
-        primary: ["progressive", "destructive"],
-        quiet: ["neutral","progressive", "destructive"],
-      };
-      if (!supportedCombinations[props.variant].includes(props.type)) {
-        throw new Error(
-          `The combination of variant "${props.variant}" and type "${props.type}" is not yet supported!`
-        );
-      }
-    });
-  },
-});
+export default defineComponent( {
+	name: 'Button',
+	props: {
+		/**
+		 * The type of the button
+		 *
+		 * Allowed values: `neutral`, `progressive`, `destructive`
+		 */
+		type: {
+			type: String,
+			validator( value: string ): boolean {
+				return [ 'neutral', 'progressive', 'destructive' ].includes( value );
+			},
+			default: 'neutral',
+		},
+		/**
+		 * The variant of the button
+		 *
+		 * Allowed values: `normal`, `primary`, `quiet`
+		 */
+		variant: {
+			type: String,
+			validator( value: string ): boolean {
+				return [ 'normal', 'primary' ].includes( value );
+			},
+			default: 'normal',
+		},
+		iconOnly: {
+			type: Boolean,
+			default: false,
+		},
+	},
+	setup( props: {
+		type: 'neutral' | 'progressive' | 'destructive';
+		variant: 'normal' | 'primary' | 'quiet';
+	} ) {
+		onMounted( () => {
+			const supportedCombinations = {
+				normal: [ 'neutral' ],
+				primary: [ 'progressive', 'destructive' ],
+				quiet: [ 'neutral', 'progressive', 'destructive' ],
+			};
+			if ( !supportedCombinations[ props.variant ].includes( props.type ) ) {
+				throw new Error(
+					`The combination of variant "${props.variant}" and type "${props.type}" is not yet supported!`,
+				);
+			}
+		} );
+	},
+} );
 </script>
 
 <style lang="scss">
