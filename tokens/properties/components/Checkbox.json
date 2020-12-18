@@ -1,0 +1,130 @@
+{
+    "wikit-Checkbox": {
+        "label": {
+            "font-family": {
+                "value": "{font.family.style.label.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.style.label.value}"
+            },
+            "font-size": {
+                "value": "{font.size.style.label.value}"
+            },
+            "color": {
+                "value": "{font.size.style.label.value}"
+            },
+            "line-height": {
+                "value": "{font.color.base.value}"
+            },
+            "disabled": {
+                "color": {
+                    "value": "{font.color.disabled.value}"
+                }
+            }
+        },
+
+        "control": {
+            "border-width": {
+                "value": "{border.width.thin.value}"
+            },
+            "border-style": {
+                "value": "{border.style.base.value}"
+            },
+            "border-radius": {
+                "value": "{border.radius.base.value}"
+            },
+            "background-color": {
+                "value": "{background.color.base.default.value}"
+            },
+            "height": {
+                "value": "{dimension.min-height.small.value}"
+            },
+            "width": {
+                "value": "{dimension.min-height.small.value}"
+            },
+            "right-spacing": {
+                "value": "{dimension.spacing.small.value}"
+            },
+            "transition-timing-function": {
+                "value": "{transition.timing-function.ease.value}"
+            },
+            "transition-property": {
+                "value": "{transition.interaction.binary.property.value}"
+            },
+            "transition-duration": {
+                "value": "{transition.interaction.binary.duration.value}"
+            },
+            "unchecked": {
+                "hover": {
+                    "border-color": {
+                        "value": "{border.color.progressive.hover.value}"
+                    }
+                },
+                "active": {
+                    "border-color": {
+                        "value": "{border.color.progressive.active.value}"
+                    },
+                    "background-color": {
+                        "value": "{border.color.progressive.active.value}"
+                    }
+                },
+                "focus": {
+                    "border-color": {
+                        "value": "{border.color.progressive.active.value}"
+                    },
+                    "box-shadow": {
+                        "value": "{box-shadow.inset.focus.progressive.value}"
+                    }
+                }
+            },
+            "checked": {
+                "color": {
+                    "value": "{font.color.inverted.value}"
+                },
+                "border-color": {
+                    "value": "{border.color.progressive.default.value}"
+                },
+                "background-color": {
+                    "value": "{background.color.progressive.default.value}"
+                },
+                "hover": {
+                    "border-color": {
+                        "value": "{border.color.progressive.hover.value}"
+                    },
+                    "background-color": {
+                        "value": "{backgroud.color.progressive.hover.value}"
+                    }
+                },
+                "active": {
+                    "border-color": {
+                        "value": "{border.color.progressive.active.value}"
+                    },
+                    "background-color": {
+                        "value": "{border.color.progressive.active.value}"
+                    }
+                },
+                "focus": {
+                    "border-color": {
+                        "value": "{border.color.progressive.default.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.progressive.default.value}"
+                    },
+                    "box-shadow": {
+                        "value": "{box-shadow.inset.focus.inverted.value}"
+                    }
+                }
+            },
+            "disabled": {
+                "disabled": {
+                    "border-color": {
+                        "value": "{border.color.base.disabled.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.base.disabled.value}"
+                    }
+                }
+            }
+        }
+    }
+}
