@@ -31,7 +31,6 @@ Vue.use( VueCompositionAPI );
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Clicking_and_focus<br>
  * https://bugzilla.mozilla.org/show_bug.cgi?id=1581369#c5
  */
-/* eslint-enable no-trailing-spaces */
 export default defineComponent( {
 	name: 'Button',
 	props: {
