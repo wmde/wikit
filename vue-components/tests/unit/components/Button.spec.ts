@@ -15,6 +15,9 @@ describe( 'Button', () => {
 		[ 'normal', 'neutral' ],
 		[ 'primary', 'progressive' ],
 		[ 'primary', 'destructive' ],
+		[ 'quiet', 'neutral' ],
+		[ 'quiet', 'progressive' ],
+		[ 'quiet', 'destructive' ],
 	] )( 'renders the variant %s and type %s as a root node classes', ( variant, type ) => {
 		expect( mount( Button, {
 			propsData: {
