@@ -128,7 +128,10 @@ jobs:
       run: npm run build:storybook
     - name: Deploy to netlify
       id: netlify_deploy
-      run: echo "::set-output name=url::$(npx -p netlify-cli netlify deploy --dir=docs/dist --json | jq '.deploy_url' --raw-output)"
+      run: echo "::set-output name=url::$(npx -p netlify-cli
+        netlify deploy --dir=docs/dist --json
+        --alias $(echo '${{ github.ref }}' | shasum | awk '{print $1}')
+        | jq '.deploy_url' --raw-output)"
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
