@@ -50,6 +50,16 @@
         "__isArgsStory": false
       }
     },
+    "button--primary": {
+      "id": "button--primary",
+      "name": "Primary",
+      "kind": "Button",
+      "story": "Primary",
+      "parameters": {
+        "__id": "button--primary",
+        "__isArgsStory": false
+      }
+    },
     "dropdown--basic": {
       "id": "dropdown--basic",
       "name": "Basic",
