@@ -11,18 +11,15 @@
                 "value": "{font.size.style.label.value}"
             },
             "color": {
-                "value": "{font.size.style.label.value}"
-            },
-            "line-height": {
                 "value": "{font.color.base.value}"
             },
-            "disabled": {
-                "color": {
-                    "value": "{font.color.disabled.value}"
-                }
+            "color-disabled": {
+                "value": "{font.color.disabled.value}"
+            },
+            "line-height": {
+                "value": "{font.line-height.style.label.value}"
             }
         },
-
         "control": {
             "border-width": {
                 "value": "{border.width.thin.value}"
@@ -40,7 +37,7 @@
                 "value": "{dimension.min-height.small.value}"
             },
             "width": {
-                "value": "{dimension.min-height.small.value}"
+                "value": "{dimension.width.small.value}"
             },
             "right-spacing": {
                 "value": "{dimension.spacing.small.value}"
@@ -70,7 +67,7 @@
                 },
                 "focus": {
                     "border-color": {
-                        "value": "{border.color.progressive.active.value}"
+                        "value": "{border.color.base.focus.value}"
                     },
                     "box-shadow": {
                         "value": "{box-shadow.inset.focus.progressive.value}"
@@ -78,8 +75,8 @@
                 }
             },
             "checked": {
-                "color": {
-                    "value": "{font.color.inverted.value}"
+                "icon-color": {
+                    "value": "{icon.color.inverted.value}"
                 },
                 "border-color": {
                     "value": "{border.color.progressive.default.value}"
@@ -100,7 +97,7 @@
                         "value": "{border.color.progressive.active.value}"
                     },
                     "background-color": {
-                        "value": "{border.color.progressive.active.value}"
+                        "value": "{background.color.progressive.active.value}"
                     }
                 },
                 "focus": {
