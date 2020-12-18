@@ -60,6 +60,16 @@
         "__isArgsStory": false
       }
     },
+    "button--quiet": {
+      "id": "button--quiet",
+      "name": "Quiet",
+      "kind": "Button",
+      "story": "Quiet",
+      "parameters": {
+        "__id": "button--quiet",
+        "__isArgsStory": false
+      }
+    },
     "button--icon-only": {
       "id": "button--icon-only",
       "name": "Icon Only",
