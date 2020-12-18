@@ -3,8 +3,8 @@
 		:class="[
 			'wikit',
 			'wikit-Button',
-			`wikit-Button--${ type }`,
-			`wikit-Button--${ variant }`,
+			`wikit-Button--${type}`,
+			`wikit-Button--${variant}`,
 			iconOnly ? `wikit-Button--iconOnly` : '',
 		]"
 	>
@@ -14,7 +14,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VueCompositionAPI, { defineComponent, onMounted } from '@vue/composition-api';
+import VueCompositionAPI, {
+	defineComponent,
+	onMounted,
+} from '@vue/composition-api';
 
 Vue.use( VueCompositionAPI );
 
@@ -46,12 +49,12 @@ export default defineComponent( {
 		/**
 		 * The variant of the button
 		 *
-		 * Allowed values: `normal`, `primary`
+		 * Allowed values: `normal`, `primary`, `quiet`
 		 */
 		variant: {
 			type: String,
 			validator( value: string ): boolean {
-				return [ 'normal', 'primary' ].includes( value );
+				return [ 'normal', 'primary', 'quiet' ].includes( value );
 			},
 			default: 'normal',
 		},
@@ -61,13 +64,14 @@ export default defineComponent( {
 		},
 	},
 	setup( props: {
-		type: 'neutral'|'progressive'|'destructive';
-		variant: 'normal'|'primary';
+		type: 'neutral' | 'progressive' | 'destructive';
+		variant: 'normal' | 'primary' | 'quiet';
 	} ) {
 		onMounted( () => {
 			const supportedCombinations = {
 				normal: [ 'neutral' ],
 				primary: [ 'progressive', 'destructive' ],
+				quiet: [ 'neutral', 'progressive', 'destructive' ],
 			};
 			if ( !supportedCombinations[ props.variant ].includes( props.type ) ) {
 				throw new Error(
@@ -184,6 +188,91 @@ $base: '.wikit-Button';
 		color: $wikit-Button-normal-disabled-color;
 		background-color: $wikit-Button-normal-disabled-background-color;
 		border-color: $wikit-Button-normal-disabled-border-color;
+		cursor: default;
+		pointer-events: none;
+	}
+
+	&#{$base}--quiet {
+		&#{$base}--neutral {
+			color: $wikit-Button-quiet-neutral-color;
+			background-color: $wikit-Button-quiet-background-color;
+			border-color: $wikit-Button-quiet-border-color;
+
+			&:hover {
+				color: $wikit-Button-quiet-neutral-hover-color;
+				background-color: $wikit-Button-quiet-neutral-hover-background-color;
+				border-color: $wikit-Button-quiet-neutral-hover-border-color;
+			}
+
+			&:active {
+				color: $wikit-Button-quiet-neutral-active-color;
+				background-color: $wikit-Button-quiet-neutral-active-background-color;
+				border-color: $wikit-Button-quiet-neutral-active-border-color;
+			}
+
+			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
+			&:focus:not(:active) {
+				color: $wikit-Button-quiet-neutral-focus-color;
+				background-color: $wikit-Button-quiet-neutral-focus-background-color;
+				border-color: $wikit-Button-quiet-neutral-focus-border-color;
+				box-shadow: $wikit-Button-quiet-neutral-focus-box-shadow;
+			}
+		}
+		&#{$base}--progressive {
+			color: $wikit-Button-quiet-progressive-color;
+			background-color: $wikit-Button-quiet-background-color;
+			border-color: $wikit-Button-quiet-border-color;
+
+			&:hover {
+				color: $wikit-Button-quiet-progressive-hover-color;
+				background-color: $wikit-Button-quiet-progressive-hover-background-color;
+				border-color: $wikit-Button-quiet-progressive-hover-border-color;
+			}
+
+			&:active {
+				color: $wikit-Button-quiet-progressive-active-color;
+				background-color: $wikit-Button-quiet-progressive-active-background-color;
+				border-color: $wikit-Button-quiet-progressive-active-border-color;
+			}
+
+			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
+			&:focus:not(:active) {
+				color: $wikit-Button-quiet-progressive-focus-color;
+				background-color: $wikit-Button-quiet-progressive-focus-background-color;
+				border-color: $wikit-Button-quiet-progressive-focus-border-color;
+				box-shadow: $wikit-Button-quiet-progressive-focus-box-shadow;
+			}
+		}
+		&#{$base}--destructive {
+			color: $wikit-Button-quiet-destructive-color;
+			background-color: $wikit-Button-quiet-background-color;
+			border-color: $wikit-Button-quiet-border-color;
+
+			&:hover {
+				color: $wikit-Button-quiet-destructive-hover-color;
+				background-color: $wikit-Button-quiet-destructive-hover-background-color;
+				border-color: $wikit-Button-quiet-destructive-hover-border-color;
+			}
+
+			&:active {
+				color: $wikit-Button-quiet-destructive-active-color;
+				background-color: $wikit-Button-quiet-destructive-active-background-color;
+				border-color: $wikit-Button-quiet-destructive-active-border-color;
+			}
+
+			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
+			&:focus:not(:active) {
+				color: $wikit-Button-quiet-destructive-focus-color;
+				background-color: $wikit-Button-quiet-destructive-focus-background-color;
+				border-color: $wikit-Button-quiet-destructive-focus-border-color;
+				box-shadow: $wikit-Button-quiet-destructive-focus-box-shadow;
+			}
+		}
+	}
+	&#{$base}--quiet:disabled {
+		color: $wikit-Button-quiet-disabled-color;
+		background-color: $wikit-Button-quiet-background-color;
+		border-color: $wikit-Button-quiet-border-color;
 		cursor: default;
 		pointer-events: none;
 	}
