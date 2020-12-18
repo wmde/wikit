@@ -9,6 +9,6 @@ export enum IconTypes {
 	INFOOUTLINED = 'info-outlined',
 }
 
-export const iconColors = [ 'base', 'warning', 'error', 'notice', 'success' ];
+export const iconColors = [ 'base', 'warning', 'error', 'notice', 'success', 'inherit' ];
 
 export const iconSizes = [ 'medium', 'large' ];
