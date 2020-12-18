@@ -27,6 +27,9 @@ development)_
 - New info-outline Icon type
 - New icon color `inherit` reuses the css `color` of the parent for the icon
 
+### Changed
+- _**(Breaking)**_ the prop of the Button has been split into two: `type` and `variant`
+
 ### Removed
 
 - _**(Breaking)**_ Width property is removed from all components

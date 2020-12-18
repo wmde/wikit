@@ -13,10 +13,23 @@ export function normal(): Component {
 		// Do not use controls to change the type unless you actively decide that is better than having test coverage.
 		template: `
 			<div>
-				<Button type="neutral">Neutral</Button>
-				<Button type="primaryProgressive">Primary progressive</Button>
-				<Button type="primaryDestructive">Primary destructive</Button>
-				<Button disabled="true">Disabled</Button>
+				<Button type="neutral" variant="normal">Neutral</Button>
+				<Button type="neutral" variant="normal" disabled="true">Disabled</Button>
+			</div>
+		`,
+	};
+}
+
+export function primary(): Component {
+	return {
+		components: { Button },
+		// The normal button types are all in the same story to achieve high % of visual tests coverage.
+		// Do not use controls to change the type unless you actively decide that is better than having test coverage.
+		template: `
+			<div>
+				<Button type="progressive" variant="primary">Primary progressive</Button>
+				<Button type="destructive" variant="primary">Primary destructive</Button>
+				<Button type="progressive" variant="primary" disabled="true">Disabled</Button>
 			</div>
 		`,
 	};
