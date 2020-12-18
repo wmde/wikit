@@ -177,7 +177,7 @@ $base: '.wikit-OptionsMenu';
 		&:hover,
 		&--hovered {
 			background-color: $wikit-OptionsMenu-item-hover-background-color;
-			cursor: $wikit-OptionsMenu-item-hover-cursor;
+			cursor: pointer;
 		}
 
 		&--active,

@@ -33,6 +33,7 @@ development)_
 ### Removed
 
 - _**(Breaking)**_ Width property is removed from all components
+- Cursor tokens
 
 ### Fixed
 
