@@ -21,7 +21,6 @@ import VueCompositionAPI, {
 
 Vue.use(VueCompositionAPI);
 
-/* eslint-disable no-trailing-spaces */
 /**
  *  An interactive element signaling a single-step action that will occur when the user clicks or taps on it.
  *
@@ -51,7 +50,7 @@ export default defineComponent({
     /**
      * The variant of the button
      *
-     * Allowed values: `normal`, `primary`
+     * Allowed values: `normal`, `primary`, `quiet`
      */
     variant: {
       type: String,
@@ -67,12 +66,13 @@ export default defineComponent({
   },
   setup(props: {
     type: "neutral" | "progressive" | "destructive";
-    variant: "normal" | "primary";
+    variant: "normal" | "primary" | "quiet";
   }) {
     onMounted(() => {
       const supportedCombinations = {
         normal: ["neutral"],
         primary: ["progressive", "destructive"],
+        quiet: ["neutral","progressive", "destructive"],
       };
       if (!supportedCombinations[props.variant].includes(props.type)) {
         throw new Error(
