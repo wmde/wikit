@@ -89,7 +89,7 @@
                         "value": "{border.color.progressive.hover.value}"
                     },
                     "background-color": {
-                        "value": "{backgroud.color.progressive.hover.value}"
+                        "value": "{background.color.progressive.hover.value}"
                     }
                 },
                 "active": {
