@@ -4,7 +4,7 @@ import { Component } from 'vue';
 
 export default {
 	component: Button,
-	title: 'Button',
+	title: '/Button',
 };
 
 export function normal(): Component {
@@ -31,22 +31,6 @@ export function primary(): Component {
 				<Button variant="primary" type="progressive">Primary progressive</Button>
 				<Button variant="primary" type="destructive">Primary destructive</Button>
 				<Button variant="primary" type="progressive" disabled="true">Disabled</Button>
-			</div>
-		`,
-	};
-}
-
-export function quiet(): Component {
-	return {
-		components: { Button },
-		// The quiet button types are all in the same story to achieve high % of visual tests coverage.
-		// Do not use controls to change the type unless you actively decide that is better than having test coverage.
-		template: `
-			<div>
-				<Button variant="quiet" type="neutral">Neutral</Button>
-				<Button variant="quiet" type="progressive">Progressive</Button>
-				<Button variant="quiet" type="destructive">Destructive</Button>
-				<Button variant="quiet" type="neutral" disabled="true">Disabled</Button>
 			</div>
 		`,
 	};
