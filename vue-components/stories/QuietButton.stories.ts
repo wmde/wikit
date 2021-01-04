@@ -28,17 +28,22 @@ export function iconOnly(): Component {
 		components: { Button, Icon },
 		template: `
 			<div>
+				<p>
+				  Please be aware that even buttons that contain only an icon as a visual label still require
+				  a textual label for screen readers. This can for example be implemented by using the
+				  <a href="https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html"><code>aria-label</code></a> attribute.
+				</p>
 				<div>
-					<Button variant="quiet" type="neutral" iconOnly>
+					<Button variant="quiet" type="neutral" iconOnly aria-label="More Information">
 						<Icon type="info" size="large" color="inherit" />
 					</Button>
-					<Button variant="quiet" type="progressive" iconOnly>
+					<Button variant="quiet" type="progressive" iconOnly aria-label="Edit">
 						<Icon type="edit" size="large" color="inherit" />
 					</Button>
-					<Button variant="quiet"  type="destructive" iconOnly>
+					<Button variant="quiet"  type="destructive" iconOnly aria-label="Clear input">
 						<Icon type="clear" size="large" color="inherit" />
 					</Button>
-					<Button variant="quiet" disabled="true" iconOnly>
+					<Button variant="quiet" disabled="true" iconOnly aria-label="Remove row">
 						<Icon type="trash" size="large" color="inherit" />
 					</Button>
 				</div>
