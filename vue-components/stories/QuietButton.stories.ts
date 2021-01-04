@@ -38,7 +38,7 @@ export function iconOnly(): Component {
 					<Button variant="quiet"  type="destructive" iconOnly>
 						<Icon type="clear" size="large" color="inherit" />
 					</Button>
-					<Button disabled="true" iconOnly>
+					<Button variant="quiet" disabled="true" iconOnly>
 						<Icon type="trash" size="large" color="inherit" />
 					</Button>
 				</div>
