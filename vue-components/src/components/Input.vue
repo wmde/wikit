@@ -54,6 +54,7 @@ export default Vue.extend( {
 	transition-duration: $wikit-Input-transition-duration;
 	transition-timing-function: $wikit-Input-transition-timing-function;
 	transition-property: $wikit-Input-transition-property;
+	display: block;
 
 	// Sets a basis for the inset box-shadow transition which otherwise doesn't work in Firefox.
 	// https://stackoverflow.com/questions/25410207/css-transition-not-working-on-box-shadow-property/25410897
