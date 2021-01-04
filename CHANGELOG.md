@@ -25,6 +25,7 @@ development)_
 - Additional icon called edit
 - New icon called trash
 - New info-outline Icon type
+- Quiet button variant
 - New icon color `inherit` reuses the css `color` of the parent for the icon
 
 ### Changed
@@ -33,6 +34,7 @@ development)_
 ### Removed
 
 - _**(Breaking)**_ Width property is removed from all components
+- Cursor tokens
 
 ### Fixed
 
