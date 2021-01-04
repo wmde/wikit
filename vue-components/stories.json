@@ -2,40 +2,44 @@
   "v": 2,
   "globalParameters": {},
   "kindParameters": {
-    "Button": {
-      "fileName": 1707,
+    "/Button": {
+      "fileName": 1681,
       "framework": "vue"
     },
     "Dropdown": {
-      "fileName": 1708,
-      "framework": "vue"
-    },
-    "Icon": {
-      "fileName": 1692,
-      "framework": "vue"
-    },
-    "/Input/Basic": {
-      "fileName": 1693,
-      "framework": "vue"
-    },
-    "/Lookup/Lookup": {
-      "fileName": 1709,
-      "framework": "vue"
-    },
-    "/Message/Message": {
       "fileName": 1710,
       "framework": "vue"
     },
-    "OptionsMenu": {
-      "fileName": 1700,
+    "Icon": {
+      "fileName": 1694,
       "framework": "vue"
     },
-    "/Input/TextInput": {
+    "/Input/Basic": {
+      "fileName": 1695,
+      "framework": "vue"
+    },
+    "/Lookup/Lookup": {
       "fileName": 1711,
       "framework": "vue"
     },
-    "/Message/ValidationMessage": {
+    "/Message/Message": {
+      "fileName": 1712,
+      "framework": "vue"
+    },
+    "OptionsMenu": {
+      "fileName": 1702,
+      "framework": "vue"
+    },
+    "/Button/Quiet": {
       "fileName": 1703,
+      "framework": "vue"
+    },
+    "/Input/TextInput": {
+      "fileName": 1713,
+      "framework": "vue"
+    },
+    "/Message/ValidationMessage": {
+      "fileName": 1706,
       "framework": "vue"
     }
   },
@@ -43,7 +47,7 @@
     "button--normal": {
       "id": "button--normal",
       "name": "Normal",
-      "kind": "Button",
+      "kind": "/Button",
       "story": "Normal",
       "parameters": {
         "__id": "button--normal",
@@ -53,27 +57,17 @@
     "button--primary": {
       "id": "button--primary",
       "name": "Primary",
-      "kind": "Button",
+      "kind": "/Button",
       "story": "Primary",
       "parameters": {
         "__id": "button--primary",
         "__isArgsStory": false
       }
     },
-    "button--quiet": {
-      "id": "button--quiet",
-      "name": "Quiet",
-      "kind": "Button",
-      "story": "Quiet",
-      "parameters": {
-        "__id": "button--quiet",
-        "__isArgsStory": false
-      }
-    },
     "button--icon-only": {
       "id": "button--icon-only",
       "name": "Icon Only",
-      "kind": "Button",
+      "kind": "/Button",
       "story": "Icon Only",
       "parameters": {
         "__id": "button--icon-only",
@@ -167,6 +161,26 @@
       "story": "No Items",
       "parameters": {
         "__id": "optionsmenu--no-items",
+        "__isArgsStory": false
+      }
+    },
+    "button-quiet--text-only": {
+      "id": "button-quiet--text-only",
+      "name": "Text Only",
+      "kind": "/Button/Quiet",
+      "story": "Text Only",
+      "parameters": {
+        "__id": "button-quiet--text-only",
+        "__isArgsStory": false
+      }
+    },
+    "button-quiet--icon-only": {
+      "id": "button-quiet--icon-only",
+      "name": "Icon Only",
+      "kind": "/Button/Quiet",
+      "story": "Icon Only",
+      "parameters": {
+        "__id": "button-quiet--icon-only",
         "__isArgsStory": false
       }
     },
