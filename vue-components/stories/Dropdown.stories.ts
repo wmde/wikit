@@ -70,7 +70,7 @@ export function basic( args ): Component {
 					:disabled="disabled"
 					:error="error"
 				/>
-				<div v-if="selectedItem" style="margin-top: 16px">
+				<div v-if="selectedItem" style="margin-top: 16px; font-family: sans-serif; color: #202122">
 					Selected Option:
 					<span class="selected-item-label">{{ selectedItem.label }}</span>
 					(<span class="selected-item-id">{{ selectedItem.value }}</span>)
@@ -111,11 +111,6 @@ export function all( ): Component {
 					:disabled="disabled"
 					:error="error"
 				/>
-				<div v-if="selectedItem" style="margin-top: 16px">
-					Selected Option:
-					<span class="selected-item-label">{{ selectedItem.label }}</span>
-					(<span class="selected-item-id">{{ selectedItem.value }}</span>)
-				</div>
 
 				<p><Dropdown
 				:label="label"
@@ -123,12 +118,7 @@ export function all( ): Component {
 				v-model="selectedItem"
 				placeholder="Select an option"
 				:disabled="true"
-			/>
-			<div v-if="selectedItem" style="margin-top: 16px">
-				Selected Option:
-				<span class="selected-item-label">{{ selectedItem.label }}</span>
-				(<span class="selected-item-id">{{ selectedItem.value }}</span>)
-			</div></p>
+			/></p>
 
 			<p><Dropdown
 			:label="label"
@@ -137,12 +127,7 @@ export function all( ): Component {
 			placeholder="Select an option"
 			:disabled="disabled"
 			:error="{ type: 'error', message: 'There was an error 😕' }"
-		/>
-		<div v-if="selectedItem" style="margin-top: 16px">
-			Selected Option:
-			<span class="selected-item-label">{{ selectedItem.label }}</span>
-			(<span class="selected-item-id">{{ selectedItem.value }}</span>)
-		</div></p>
+		/></p>
 
 			<p><Dropdown
 			:label="label"
@@ -151,12 +136,7 @@ export function all( ): Component {
 			placeholder="Select an option"
 			:disabled="disabled"
 			:error="{ type: 'warning', message: 'Warning to be careful 🚧' }"
-		/>
-		<div v-if="selectedItem" style="margin-top: 16px">
-			Selected Option:
-			<span class="selected-item-label">{{ selectedItem.label }}</span>
-			(<span class="selected-item-id">{{ selectedItem.value }}</span>)
-		</div></p>
+		/></p>
 			</div></div>
 		`,
 	};
