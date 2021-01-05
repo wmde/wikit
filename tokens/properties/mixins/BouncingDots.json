@@ -38,7 +38,7 @@
                     "value": "{animation.loader.delay.slow.value}",
                 },
                 "after": {
-                    "value": "{animation.loader.delay.none.value}",
+                    "value": "{animation.loader.delay.none.value}"
                 }
             }
         }
