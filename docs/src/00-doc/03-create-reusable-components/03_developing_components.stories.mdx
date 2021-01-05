@@ -11,7 +11,7 @@ The following is a set of instructions on different topics that might come up du
 
 * [Step by step workflow](#step-by-step-workflow)<br/>
 * [Working with Component-level Design Tokens](#working-with-component-level-design-tokens)<br/>
-* [Releasing a new component](#releasing-a-new-component)<br/>
+    * [Getting better editor support for token files](#getting-better-editor-support-for-token-files)<br />
 * [Testing Components](#testing-components)<br/>
     * [Working with browser tests](#working-with-browser-tests)<br/>
     * [Working with visual regression tests](#working-with-visual-regression-tests)<br/>
@@ -44,18 +44,18 @@ The recommended naming scheme for individual tokens is `wikit-<ComponentName>-[p
 A "hover" on the "menu-item" impacting the "menu-item" style yields 
 
 <code>wikit-Dropdown-progressive-<strong>menu-item-hover</strong>-background-color</code>
-  
+
 While a "hover" on the "Dropdown" component impacting the "menu-item" style yields
 
 <code>wikit-<strong>Dropdown-progressive-hover</strong>-menu-item-background-color</code>
 
-## Getting better editor support for token files
+### Getting better editor support for token files
 
 By generating a JSON schema describing the structure of token files and including all token names we make it possible for text editors to provide autocompletion in token JSON files. This is especially useful for token references (e.g. `{font.line-height.style.label.value}`) which would otherwise be typed by hand.
 
 Letting the text editor know which JSON files to apply the schema to requires some configuration.
 
-### VS Code
+#### VS Code
 
 VS Code has good [documentation](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings) on getting better editor support for JSON files and working with JSON schemas. TL;DR modify and copy the following into your JSON workspace settings:
 
@@ -72,7 +72,7 @@ VS Code has good [documentation](https://code.visualstudio.com/docs/languages/js
 }
 ```
 
-### JetBrains products
+#### JetBrains products
 Go to Settings and navigate to `Languages & Frameworks` > `Schemas and DTDs` >  `JSON Schema Mappings`. There you'll be able to create a mapping for the token files with the schema pointing to `./tokens/dist/schema.json` and the directory set to `tokens/properties/`.
 
 ## Testing Components

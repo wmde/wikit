@@ -18,12 +18,6 @@
         "spacing-horizontal": {
             "value": "{dimension.spacing.xlarge.value}"
         },
-        "default-width":{
-            "value":"{dimension.width.xlarge.value}"
-        },
-        "full-width": {
-			"value": "{dimension.width.full.value}"
-        },
         "border-style": {
             "value": "{border.style.base.value}"
         },

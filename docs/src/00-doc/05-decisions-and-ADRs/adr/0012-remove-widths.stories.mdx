@@ -1,0 +1,38 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation/Decisions and ADRs/ADRs/12) Remove predefined widths" />
+
+# 12) Remove predefined component widths
+
+Date: 2020-11-10
+
+## Status
+
+Proposed
+
+## Context
+
+Originally, block-level system components – those which size is not defined by their content (e.g. input field) – were designed and implemented following a set of predefined default widths based on the system's spacing unit (the most common size being 256px, for example). 
+These components were also designed and implemented to take a "full-width" value as a prop, intended to make them responsive and adjustable to their context via their containers.
+
+While these predefined widths were purely provided as orientation, we inferred that they might be unused after all due to the variability of contexts in which components can be implemented. 
+Making components full-width by default would simplify things: making them more versatile, responsive and adjustable to the layout of their application. 
+
+## Considered actions
+
+### 1. Keep predefined widths, but make "full-width" the default value.
+
+This conservative approach would make block-level components "full-width" by default via prop. Predefined width values are still available to be applied.
+
+### 2. Get rid of widths entirely and make components' sizes to be limited to the full width of their parent element.
+
+This involves removing all predefined widths and width props. As long as they're block-level, components will take the width of their container.
+
+## Decision
+
+Remove width props and make component widths 100% by default, so their final width is defined in context, by their layout elements. 
+Implementers will still be able to use system dimension tokens to size the containers in their application.
+
+## Consequences
+
+At this initial state, WiKit doesn't provide a layout or grid system. This means that the decision regarding the specific width of components is delegated to the designers and the developers implementing the WiKit Design system.

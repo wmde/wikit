@@ -1,5 +1,5 @@
 <template>
-	<div :class="[ 'wikit', 'wikit-TextInput', `wikit-TextInput--${width}` ]">
+	<div :class="[ 'wikit', 'wikit-TextInput' ]">
 		<label class="wikit-TextInput__label" :for="id">{{ label }}</label>
 		<Input
 			:id="id"
@@ -19,28 +19,28 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import VueCompositionAPI, { defineComponent, computed } from '@vue/composition-api';
 import ValidationMessage from './ValidationMessage.vue';
 import Input from './Input.vue';
 import generateUid from '@/components/util/generateUid';
+import { errorProp, ErrorProp, getFeedbackTypeFromProps } from '@/compositions/validatable';
+
+Vue.use( VueCompositionAPI );
 
 /**
  * Text input fields are form elements that let users input and edit values in the form of text.
  *
  * Uses the following components internally: Input, ValidationMessage
  */
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'TextInput',
+	setup( props: { error: ErrorProp } ) {
+		return {
+			feedbackType: computed( getFeedbackTypeFromProps( props ) ),
+		};
+	},
 	props: {
-		error: {
-			type: Object,
-			validator( error: { type?: string; message?: string } ): boolean {
-				return error === null ||
-					typeof error.message === 'string' &&
-					typeof error.type === 'string' &&
-					[ 'warning', 'error' ].includes( error.type );
-			},
-			default: null,
-		},
+		error: errorProp,
 		disabled: {
 			type: Boolean,
 			default: false,
@@ -56,13 +56,6 @@ export default Vue.extend( {
 		value: {
 			type: String,
 			default: '',
-		},
-		width: {
-			type: String,
-			validator( value: string ): boolean {
-				return [ 'small', 'medium', 'large', 'full-width' ].includes( value );
-			},
-			default: 'medium',
 		},
 	},
 
@@ -82,12 +75,6 @@ export default Vue.extend( {
 		},
 	},
 
-	computed: {
-		feedbackType(): string|null {
-			return this.error && this.error.type || null;
-		},
-	},
-
 	components: {
 		Input,
 		ValidationMessage,
@@ -97,22 +84,6 @@ export default Vue.extend( {
 
 <style lang="scss">
 .wikit-TextInput {
-	&--small {
-		width: $wikit-TextInput-small-width;
-	}
-
-	&--medium {
-		width: $wikit-TextInput-medium-width;
-	}
-
-	&--large {
-		width: $wikit-TextInput-large-width;
-	}
-
-	&--full-width {
-		width: $wikit-TextInput-full-width;
-	}
-
 	&__label {
 		@include Label;
 		display: block;

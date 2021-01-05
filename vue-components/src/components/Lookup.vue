@@ -1,5 +1,8 @@
 <template>
-	<div :class="[ 'wikit', 'wikit-Lookup', `wikit-Lookup--${width}` ]">
+	<div
+		:class="[ 'wikit', 'wikit-Lookup' ]"
+		@keydown="triggerKeyDown"
+	>
 		<label class="wikit-Lookup__label" :for="inputId">{{ label }}</label>
 		<Input
 			:id="inputId"
@@ -10,25 +13,23 @@
 			:feedback-type="feedbackType"
 			:placeholder="placeholder"
 			:disabled="disabled"
-			@keydown.up.native.prevent="onArrowUp"
-			@keydown.down.native.prevent="onArrowDown"
-			@keyup.enter.native="onEnter"
-			@keydown.tab.native="onTab"
-			@keyup.esc.native="onEsc"
 			autocomplete="off"
 		/>
-		<LookupMenu
+		<OptionsMenu
 			class="wikit-Lookup__menu"
 			:menu-items="menuItems"
-			v-if="showMenu"
+			:bold-labels="true"
+			:selected-item-index="selectedItemIndex"
+			v-show="showMenu"
 			@select="onSelect"
 			@scroll="onScroll"
-			:selected-item-index="selectedItemIndex"
+			@esc="onEsc"
+			ref="menu"
 		>
 			<template v-slot:no-results>
 				<slot name="no-results" />
 			</template>
-		</LookupMenu>
+		</OptionsMenu>
 		<ValidationMessage
 			v-if="error"
 			:type="error.type"
@@ -38,48 +39,55 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
+import Vue from 'vue';
+import VueCompositionAPI, { defineComponent, computed, PropType, ref } from '@vue/composition-api';
 import isEqual from 'lodash.isequal';
 import ValidationMessage from './ValidationMessage.vue';
 import Input from './Input.vue';
-import LookupMenu from './LookupMenu.vue';
+import OptionsMenu from './OptionsMenu.vue';
 import generateUid from '@/components/util/generateUid';
 import { MenuItem } from '@/components/MenuItem';
+import { getFeedbackTypeFromProps, errorProp, ErrorProp } from '@/compositions/validatable';
+
+Vue.use( VueCompositionAPI );
 
 /**
  * The lookup component is a text input field that provides matching selectable suggestions as a user types into it.
  * In the context of Wikidata, they can be used as Item and Property selectors, for example.
  *
- * Uses the following components internally: Input, ValidationMessage and LookupMenu
+ * Uses the following components internally: Input, ValidationMessage and OptionsMenu
  */
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'Lookup',
+	setup( props: { error: ErrorProp } ) {
+		const menu = ref<InstanceType<typeof OptionsMenu>|null>( null );
+
+		function triggerKeyDown( event: KeyboardEvent ): void {
+			menu.value?.onKeyDown( event );
+		}
+
+		return {
+			feedbackType: computed( getFeedbackTypeFromProps( props ) ),
+			triggerKeyDown,
+			menu,
+		};
+	},
 	data() {
 		return {
 			showMenu: false,
 			inputId: generateUid( 'wikit-Lookup' ),
 			scrollIndexStart: null as ( number | null ),
 			scrollIndexEnd: null as ( number | null ),
-			selectedItemIndex: -1,
 		};
 	},
 	props: {
+		error: errorProp,
 		/**
 		 * Array of objects that will be displayed in the lookup menu. Must contain a `label` and a `description` field.
 		 */
 		menuItems: {
 			type: Array as PropType<MenuItem[]>,
 			default: (): [] => [],
-		},
-		error: {
-			type: Object,
-			validator( error: { type?: string; message?: string } ): boolean {
-				return error === null ||
-					typeof error.message === 'string' &&
-					typeof error.type === 'string' &&
-					[ 'warning', 'error' ].includes( error.type );
-			},
-			default: null,
 		},
 		disabled: {
 			type: Boolean,
@@ -102,13 +110,6 @@ export default Vue.extend( {
 			type: Object,
 			default: null,
 		},
-		width: {
-			type: String,
-			validator( value: string ): boolean {
-				return [ 'small', 'medium', 'large', 'full-width' ].includes( value );
-			},
-			default: 'medium',
-		},
 		/**
 		 * Sets the value of the Lookup component's inner `<input>` element. This prop can be used with the `.sync`
 		 * modifier. When bound to a field in the consuming component's data object, it can be used within a watcher or
@@ -125,7 +126,6 @@ export default Vue.extend( {
 			return currentSearchInput.length > 0;
 		},
 		onInput( value: string ): void {
-			this.selectedItemIndex = -1;
 			this.showMenu = this.canShowMenu( value );
 
 			// the following comment generates the event's description for the docs tab in storybook
@@ -138,7 +138,6 @@ export default Vue.extend( {
 		},
 
 		onSelect( menuItem: MenuItem ): void {
-			this.selectedItemIndex = -1;
 			this.showMenu = false;
 
 			// the following comment generates the event's description for the docs tab in storybook
@@ -149,39 +148,13 @@ export default Vue.extend( {
 			this.$emit( 'input', menuItem );
 			this.$emit( 'update:searchInput', menuItem.label );
 		},
-
-		onEnter(): void {
-			if ( this.selectedItemIndex !== -1 ) {
-				this.onSelect( this.menuItems[ this.selectedItemIndex ] );
-			}
-		},
-
-		onArrowUp(): void {
-			this.selectedItemIndex = Math.max( 0, this.selectedItemIndex - 1 );
-		},
-		onArrowDown(): void {
-			this.selectedItemIndex = Math.min( this.menuItems.length - 1, this.selectedItemIndex + 1 );
-		},
-		onTab(): void {
-			if ( this.selectedItemIndex !== -1 ) {
-				this.onSelect( this.menuItems[ this.selectedItemIndex ] );
-			}
-		},
 		onFocus(): void {
 			if ( this.canShowMenu( this.searchInput ) ) {
 				this.showMenu = true;
 			}
-
-			if ( this.value !== null && this.menuItems.length > 0 ) {
-				this.selectedItemIndex = this.menuItems.findIndex(
-					( menuItem ) => { return isEqual( menuItem, this.value ); },
-					this,
-				);
-			}
 		},
 		onEsc(): void {
 			this.showMenu = false;
-			this.selectedItemIndex = -1;
 		},
 		onScroll( firstIndex: number, lastIndex: number ): void {
 			if ( firstIndex !== this.scrollIndexStart || lastIndex !== this.scrollIndexEnd ) {
@@ -200,15 +173,22 @@ export default Vue.extend( {
 	},
 
 	computed: {
-		feedbackType(): string | null {
-			return this.error && this.error.type || null;
+		selectedItemIndex(): number {
+			if ( this.value === null || this.menuItems.length === 0 ) {
+				return -1;
+			}
+
+			return this.menuItems.findIndex(
+				( menuItem ) => { return isEqual( menuItem, this.value ); },
+				this,
+			);
 		},
 	},
 
 	components: {
 		Input,
 		ValidationMessage,
-		LookupMenu,
+		OptionsMenu,
 	},
 } );
 </script>
@@ -216,22 +196,6 @@ export default Vue.extend( {
 <style lang="scss">
 .wikit-Lookup {
 	position: relative;
-
-	&--small {
-		width: $wikit-Lookup-small-width;
-	}
-
-	&--medium {
-		width: $wikit-Lookup-medium-width;
-	}
-
-	&--large {
-		width: $wikit-Lookup-large-width;
-	}
-
-	&--full-width {
-		width: $wikit-Lookup-full-width;
-	}
 
 	&__menu {
 		position: absolute;

@@ -17,6 +17,7 @@ const vegetableItems = [
 		label: 'carrot',
 		description: 'root vegetable, usually orange in color',
 		value: 'Q81',
+		tag: 'limited support',
 	},
 	{
 		label: 'zucchini',
@@ -94,7 +95,6 @@ export function all(): Component {
 						v-model="selectedItem"
 						:menu-items="menuItems"
 						placeholder="Placeholder"
-						width="medium"
 						@scroll="onScroll"
 					>
 						<template v-slot:no-results>
@@ -117,7 +117,6 @@ export function all(): Component {
 					label="Label"
 					:menu-items="[]"
 					placeholder="Placeholder"
-					width="medium"
 					:error= "{ type: 'warning', message: 'Warning message' }"
 				/>
 				</div>
@@ -126,7 +125,6 @@ export function all(): Component {
 					label="Label"
 					:menu-items="[]"
 					placeholder="Placeholder"
-					width="medium"
 					:error= "{ type: 'error', message: 'Please make a valid selection' }"
 				/>
 				</div>

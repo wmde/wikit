@@ -156,7 +156,7 @@
                 "value": "{color.modifier.lighten.accent-50.value}"
             },
             "progressive-active": {
-                "value": "{color.modifier.lighten.accent-50.value}"
+                "value": "{color.accent.30.value}"
             },
             "destructive": {
                 "value": "{color.utility.red.50.value}"
@@ -207,9 +207,6 @@
                 "default": {
                     "value": "{color.accent.50.value}"
                 },
-                "quiet-default": {
-                    "value": "{color.transparent.value}"
-                },
                 "hover": {
                     "value": "{color.modifier.lighten.accent-50.value}"
                 },
@@ -230,9 +227,6 @@
                 "default": {
                     "value": "{color.base.90.value}"
                 },
-                "quiet-default": {
-                    "value": "{color.transparent.value}"
-                },
                 "hover": {
                     "value": "{color.base.100.value}"
                 },
@@ -249,9 +243,6 @@
             "destructive": {
                 "default": {
                     "value": "{color.utility.red.50.value}"
-                },
-                "quiet-default": {
-                    "value": "{color.transparent.value}"
                 },
                 "hover": {
                     "value": "{color.modifier.lighten.utility-red-50.value}"
@@ -336,9 +327,6 @@
                 "default": {
                     "value": "{color.accent.50.value}"
                 },
-                "quiet-default": {
-                    "value": "{color.transparent.value}"
-                },
                 "hover": {
                     "value": "{color.modifier.lighten.accent-50.value}"
                 },
@@ -356,9 +344,6 @@
                 "default": {
                     "value": "{color.base.50.value}"
                 },
-                "quiet-default": {
-                    "value": "{color.transparent.value}"
-                },
                 "hover": {
                     "value": "{color.base.50.value}"
                 },
@@ -375,9 +360,6 @@
             "destructive": {
                 "default": {
                     "value": "{color.utility.red.50.value}"
-                },
-                "quiet-default": {
-                    "value": "{color.transparent.value}"
                 },
                 "hover": {
                     "value": "{color.modifier.lighten.utility-red-50.value}"
@@ -581,6 +563,10 @@
         "color": {
             "base": {
                 "value": "{color.base.10.value}"
+            },
+            "subtle": {
+                "value": "{color.base.20.value}",
+                "comment": "Equivalent to wikimedia-ui-base opacity-icon-accessory"
             },
             "emphasized": {
                 "value": "{color.base.0.value}"

@@ -50,21 +50,6 @@ describe( 'Message', () => {
 		expect( wrapper.classes() ).toContain( `wikit-Message--${type}` );
 	} );
 
-	it( 'does not limit the message to the default width if the fullwidth prop is true', () => {
-		const message = 'hello, things went wrong.';
-		const wrapper = shallowMount( Message, {
-			propsData: {
-				type: 'error',
-				fullwidth: true,
-			},
-			slots: {
-				default: message,
-			},
-		} );
-
-		expect( wrapper.classes() ).not.toContain( 'wikit-Message--default-width' );
-	} );
-
 	it( 'validates the `type` prop', () => {
 		expect( () => shallowMount( Message, {
 			propsData: {

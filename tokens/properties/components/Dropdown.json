@@ -1,0 +1,144 @@
+{
+    "wikit-Dropdown": {
+        "border-color": {
+            "value": "{border.color.base.default.value}"
+        },
+        "border-style": {
+            "value": "{border.style.base.value}"
+        },
+        "border-width": {
+            "value": "{border.width.thin.value}"
+        },
+        "border-radius": {
+            "value": "{border.radius.base.value}"
+        },
+        "background-color": {
+            "value": "{background.color.neutral.default.value}"
+        },
+        "selected-option": {
+            "font-family": {
+                "value": "{font.family.style.label.value}"
+            },
+            "font-size": {
+                "value": "{font.size.style.label.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.bold.value}"
+            },
+            "line-height": {
+                "value": "{font.line-height.style.label.value}"
+            },
+            "color": {
+                "value": "{font.color.base.value}"
+            }
+        },
+        "placeholder": {
+            "font-family": {
+                "value": "{font.family.style.label.value}"
+            },
+            "font-size": {
+                "value": "{font.size.style.label.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.bold.value}"
+            },
+            "line-height": {
+                "value": "{font.line-height.style.label.value}"
+            },
+            "color": {
+                "value": "{font.color.base.value}"
+            }
+        },
+        "icon-expand": {
+            "size": {
+                "value": "{icon.size.xsmall.value}",
+                "comment": "Same value for width and height"
+            },
+            "spacing-horizontal": {
+                "value": "{dimension.spacing.medium.value}",
+                "comment": "Left and right paddings"
+            }
+        },
+        "disabled": {
+            "color": {
+                "value": "{font.color.inverted.value}"
+            },
+            "border-color": {
+                "value": "{border.color.base.disabled.value}"
+            },
+            "background-color": {
+                "value": "{background.color.base.disabled.value}"
+            }
+        },
+        "hover": {
+            "border-color": {
+                "value": "{border.color.base.hover.value}"
+            },
+            "background-color": {
+                "value": "{background.color.base.default.value}"
+            }
+        },
+        "focus": {
+            "border-color": {
+                "value": "{border.color.base.focus.value}"
+            },
+            "background-color": {
+                "value": "{background.color.base.default.value}"
+            },
+            "box-shadow": {
+                "value": "{box-shadow.inset.focus.progressive.value}"
+            }
+        },
+        "active": {
+            "border-color": {
+                "value": "{border.color.base.focus.value}"
+            },
+            "background-color": {
+                "value": "{background.color.base.default.value}"
+            },
+            "box-shadow": {
+                "value": "{box-shadow.inset.focus.progressive.value}"
+            }
+        },
+        "error": {
+            "border-color": {
+                "value": "{border.color.feedback.error.value}"
+            }
+        },
+        "warning": {
+            "border-color": {
+                "value": "{color.utility.yellow.30.value}",
+                "comment": "We want to use an alias token here but it wasn't decided at the time we implemented this."
+            }
+        },
+        "desktop": {
+            "padding-inline": {
+                "value": "{dimension.spacing.medium.value}"
+            },
+            "padding-block": {
+                "value": "{dimension.padding.vertical.medium.value}",
+                "comment": "to be replaced by spacing token in the future"
+            }
+        },
+        "mobile": {
+            "padding-inline": {
+                "value": "{dimension.spacing.medium.value}"
+            },
+            "padding-block": {
+                "value": "{dimension.padding.vertical.large.value}",
+                "comment": "to be replaced by spacing token in the future"
+            }
+        },
+        "transition": {
+            "duration": {
+                "value": "{transition.interaction.field.duration.value}"
+            },
+            "property": {
+                "value": "{transition.interaction.field.property.value}"
+            },
+            "timing-function": {
+                "value": "{transition.timing-function.ease.value}"
+            }
+        }
+    }
+}

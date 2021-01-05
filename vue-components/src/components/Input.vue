@@ -2,7 +2,7 @@
 	<!-- re-emits the input event so that parent components can use `@input` instead of `@input.native` -->
 	<input
 		type="text"
-		:class="classes"
+		:class="[ 'wikit', 'wikit-Input', { [ `wikit-Input--${this.feedbackType}` ]: this.feedbackType !== null } ]"
 		@input="$emit( 'input', $event.target.value )"
 		:value="value"
 	>
@@ -30,18 +30,6 @@ export default Vue.extend( {
 		value: {
 			type: String,
 			default: '',
-		},
-	},
-
-	computed: {
-		classes(): string[] {
-			const classes = [ 'wikit', 'wikit-Input' ];
-
-			if ( this.feedbackType ) {
-				classes.push( `wikit-Input--${this.feedbackType}` );
-			}
-
-			return classes;
 		},
 	},
 } );
