@@ -39,7 +39,6 @@
                 },
                 "after": {
                     "value": "{animation.loader.delay.none.value}",
-                    "comment": "or none?"
                 }
             }
         }
