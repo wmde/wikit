@@ -19,14 +19,6 @@ export function normal(): Component {
 			</div>
 		`,
 	};
-	{
-		docs: {
-			storyDescription: `
-My button description
-			`,
-		},
-	}
-	
 }
 
 export function primary(): Component {
