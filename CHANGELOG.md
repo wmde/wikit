@@ -27,6 +27,7 @@ development)_
 - New info-outline Icon type
 - Quiet button variant
 - New icon color `inherit` reuses the css `color` of the parent for the icon
+- New nativeType prop to the Button component
 
 ### Changed
 - _**(Breaking)**_ the prop of the Button has been split into two: `type` and `variant`
@@ -38,4 +39,4 @@ development)_
 
 ### Fixed
 
-- Exports of type declerations
+- Exports of type declarations
