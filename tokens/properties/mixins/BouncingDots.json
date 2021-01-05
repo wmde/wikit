@@ -36,7 +36,6 @@
                 },
                 "before": {
                     "value": "{animation.loader.delay.slow.value}",
-                    "comment": "or slow?"
                 },
                 "after": {
                     "value": "{animation.loader.delay.none.value}",
