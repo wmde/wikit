@@ -30,11 +30,6 @@ Vue.use( VueCompositionAPI );
  * This seems to be a desired behavior and not a bug<br>
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Clicking_and_focus<br>
  * https://bugzilla.mozilla.org/show_bug.cgi?id=1581369#c5
- * 
- *:warning: Note on Icon only buttons:
- * 
- * Please be aware that buttons that contain only an icon as a visual label require a textual label for screen readers. 
- * This can for example be implemented by using the <a href="https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html"><code>aria-label</code> attribute</a>.
  */
 export default defineComponent( {
 	name: 'Button',

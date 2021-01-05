@@ -87,3 +87,7 @@ export function iconOnly(): Component {
 		`,
 	};
 }
+iconOnly.parameters = { docs: { storyDescription: `
+Please be aware that buttons that contain only an icon as a visual label require a textual label for screen readers.
+This can for example be implemented by using the [aria-label attribute](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
+` } };
