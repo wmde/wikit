@@ -27,6 +27,7 @@ development)_
 - New info-outline Icon type
 - Quiet button variant
 - New icon color `inherit` reuses the css `color` of the parent for the icon
+- Bouncing dots loader tokens file
 
 ### Changed
 - _**(Breaking)**_ the prop of the Button has been split into two: `type` and `variant`
