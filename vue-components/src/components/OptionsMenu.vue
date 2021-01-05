@@ -19,13 +19,18 @@
 			@mouseup="activeItemIndex = -1"
 			ref="menu-items"
 		>
-			<div
-				:class="{
-					'wikit-OptionsMenu__item__label': true,
-					'wikit-OptionsMenu__item__label--bold': boldLabels,
-				}"
-			>
-				{{ menuItem.label }}
+			<div class="wikit-OptionsMenu__item__label-wrapper">
+				<div
+					:class="{
+						'wikit-OptionsMenu__item__label': true,
+						'wikit-OptionsMenu__item__label--bold': boldLabels,
+					}"
+				>
+					{{ menuItem.label }}
+				</div>
+				<div v-if="menuItem.tag" class="wikit-OptionsMenu__item__tag">
+					{{ menuItem.tag }}
+				</div>
 			</div>
 			<div class="wikit-OptionsMenu__item__description">
 				{{ menuItem.description }}
@@ -74,7 +79,7 @@ export default Vue.extend( {
 		},
 	},
 	methods: {
-		onKeyUp( event: KeyboardEvent ): void {
+		onKeyDown( event: KeyboardEvent ): void {
 			switch ( event.key ) {
 				case 'Enter':
 					if ( this.keyboardHoveredItemIndex !== -1 ) {
@@ -85,10 +90,6 @@ export default Vue.extend( {
 					this.keyboardHoveredItemIndex = -1;
 					this.$emit( 'esc' );
 					break;
-			}
-		},
-		onKeyDown( event: KeyboardEvent ): void {
-			switch ( event.key ) {
 				case 'ArrowUp':
 					this.keyboardHoveredItemIndex = Math.max( 0, this.keyboardHoveredItemIndex - 1 );
 					break;
@@ -141,9 +142,10 @@ export default Vue.extend( {
 	},
 
 	watch: {
-		menuItems(): void {
+		async menuItems(): Promise<void> {
+			await this.$nextTick();
+			this.keyboardHoveredItemIndex = this.selectedItemIndex;
 			this.resizeMenu();
-			this.keyboardHoveredItemIndex = -1;
 		},
 	},
 } );
@@ -175,7 +177,7 @@ $base: '.wikit-OptionsMenu';
 		&:hover,
 		&--hovered {
 			background-color: $wikit-OptionsMenu-item-hover-background-color;
-			cursor: $wikit-OptionsMenu-item-hover-cursor;
+			cursor: pointer;
 		}
 
 		&--active,
@@ -217,6 +219,11 @@ $base: '.wikit-OptionsMenu';
 			&--bold {
 				font-weight: $wikit-OptionsMenu-item-label-font-weight-bold;
 			}
+
+			&-wrapper {
+				display: flex;
+				justify-content: space-between;
+			}
 		}
 
 		&__description {
@@ -225,6 +232,18 @@ $base: '.wikit-OptionsMenu';
 			font-weight: $wikit-OptionsMenu-item-description-font-weight;
 			color: $wikit-OptionsMenu-item-description-font-color;
 			line-height: $wikit-OptionsMenu-item-description-line-height;
+		}
+
+		&__tag {
+			font-family: $wikit-OptionsMenu-item-tag-font-family;
+			font-size: $wikit-OptionsMenu-item-tag-font-size;
+			font-weight: $wikit-OptionsMenu-item-tag-font-weight;
+			color: $wikit-OptionsMenu-item-tag-font-color;
+			line-height: $wikit-OptionsMenu-item-tag-line-height;
+			font-style: italic;
+			padding-inline-start: $wikit-OptionsMenu-item-tag-left-spacing;
+			display: inline;
+			white-space: nowrap;
 		}
 	}
 

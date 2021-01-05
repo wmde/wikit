@@ -12,6 +12,7 @@ const vegetableItems = [
 		label: 'potato',
 		description: 'root vegetable',
 		value: 'Q10998',
+		tag: 'limited support'
 	},
 	{
 		label: 'carrot',

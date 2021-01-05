@@ -28,7 +28,7 @@ module.exports = {
 			},
 		},
 		sauceLabs: {
-			launch_url: `https://${process.env.COMMIT_HASH}--5efdb3b5f65950002286285d.chromatic.com`,
+			launch_url: `${process.env.DEPLOY_URL}/vue-components/`, // DEPLOY_URL is set by a github action
 			isLocal: false,
 			selenium_host: 'ondemand.saucelabs.com',
 			selenium_port: 80,

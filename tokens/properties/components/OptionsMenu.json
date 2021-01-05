@@ -36,9 +36,6 @@
 			"hover": {
 				"background-color": {
 					"value": "{background.color.base.hover.value}"
-				},
-				"cursor": {
-					"value": "{cursor.pointer.value}"
 				}
 			},
 			"active": {
@@ -116,6 +113,26 @@
 				},
 				"font-color": {
 					"value": "{font.color.base.value}"
+				}
+			},
+			"tag": {
+				"font-family": {
+					"value": "{font.family.style.label.value}"
+				},
+				"font-size": {
+					"value": "{font.size.style.label.value}"
+				},
+				"font-weight": {
+					"value": "{font.weight.style.label.value}"
+				},
+				"line-height": {
+					"value": "{font.line-height.style.label.value}"
+				},
+				"font-color": {
+					"value": "{font.color.base.value}"
+				},
+				"left-spacing": {
+					"value": "{dimension.spacing.small.value}"
 				}
 			}
 		},
