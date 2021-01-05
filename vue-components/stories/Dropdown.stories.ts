@@ -80,6 +80,88 @@ export function basic( args ): Component {
 	};
 }
 
+export function all( ): Component {
+	return {
+		components: { Dropdown },
+		data(): unknown {
+			return {
+				menuItems:menuItems,
+				label: 'Label',
+				selectedItem: null,
+			};
+		},
+		computed: {
+			error(): any {
+				if ( this.selectedItem?.value === 'later' ) {
+					return { type: 'warning', message: 'Warning to be careful 🚧' };
+				}
+				if ( this.selectedItem?.value === 'earlier' ) {
+					return { type: 'error', message: 'There was an error 😕' };
+				}
+				return null;
+			},
+		},
+		template: `
+			<div><div style="max-width: 512px">
+				<Dropdown
+					:label="label"
+					:menu-items="menuItems"
+					v-model="selectedItem"
+					placeholder="Select an option"
+					:disabled="disabled"
+					:error="error"
+				/>
+				<div v-if="selectedItem" style="margin-top: 16px">
+					Selected Option:
+					<span class="selected-item-label">{{ selectedItem.label }}</span>
+					(<span class="selected-item-id">{{ selectedItem.value }}</span>)
+				</div>
+
+				<p><Dropdown
+				:label="label"
+				:menu-items="menuItems"
+				v-model="selectedItem"
+				placeholder="Select an option"
+				:disabled="true"
+			/>
+			<div v-if="selectedItem" style="margin-top: 16px">
+				Selected Option:
+				<span class="selected-item-label">{{ selectedItem.label }}</span>
+				(<span class="selected-item-id">{{ selectedItem.value }}</span>)
+			</div></p>
+
+			<p><Dropdown
+			:label="label"
+			:menu-items="menuItems"
+			v-model="selectedItem"
+			placeholder="Select an option"
+			:disabled="disabled"
+			:error="{ type: 'error', message: 'There was an error 😕' }"
+		/>
+		<div v-if="selectedItem" style="margin-top: 16px">
+			Selected Option:
+			<span class="selected-item-label">{{ selectedItem.label }}</span>
+			(<span class="selected-item-id">{{ selectedItem.value }}</span>)
+		</div></p>
+
+			<p><Dropdown
+			:label="label"
+			:menu-items="menuItems"
+			v-model="selectedItem"
+			placeholder="Select an option"
+			:disabled="disabled"
+			:error="{ type: 'warning', message: 'Warning to be careful 🚧' }"
+		/>
+		<div v-if="selectedItem" style="margin-top: 16px">
+			Selected Option:
+			<span class="selected-item-label">{{ selectedItem.label }}</span>
+			(<span class="selected-item-id">{{ selectedItem.value }}</span>)
+		</div></p>
+			</div></div>
+		`,
+	};
+}
+
 basic.args = {
 	disabled: false,
 	label: 'Label',
