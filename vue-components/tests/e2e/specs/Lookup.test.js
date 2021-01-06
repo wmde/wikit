@@ -7,6 +7,12 @@ describe( 'Lookup Menu', function () {
 			.waitForElementPresent( '.wikit-Lookup' );
 	} );
 
+	afterEach( function ( client, done ) {
+		client.sauceEnd();// custom command used to finish the test if running in SauceLabs
+		client.end();
+		done();
+	} );
+
 	it( 'shows on user input', function ( client ) {
 		client
 			.setValue( 'input', 'potato' )
