@@ -1,0 +1,46 @@
+{
+    "wikit-BouncingDots": {
+        "background-color": {
+            "value": "{background.color.base.loader.value}"
+        },
+        "border-radius": {
+            "value": "{border.radius.circle.value}"
+        },
+        "margin-left": {
+            "value": "{dimension.dynamic.size.100.value}/4",
+            "comment": "not sure the operation is going to work"
+        },
+        "margin-right": {
+            "value": "{dimension.dynamic.size.100.value}/4",
+            "comment": "not sure the operation is going to work"
+        },
+        "width-small": {
+            "value": "{dimension.dynamic.size.75.value}"
+        },
+        "height-small": {
+            "value": "{dimension.dynamic.size.75.value}"
+        },
+        "width-medium": {
+            "value": "{dimension.dynamic.size.100.value}"
+        },
+        "height-medium": {
+            "value": "{dimension.dynamic.size.100.value}"
+        },
+        "animation": {
+            "duration": {
+                "value": "{animation.loader.duration.medium.value}"
+            },
+            "delay": {
+                "default": {
+                    "value": "{animation.loader.delay.medium.value}"
+                },
+                "before": {
+                    "value": "{animation.loader.delay.slow.value}"
+                },
+                "after": {
+                    "value": "{animation.loader.delay.none.value}"
+                }
+            }
+        }
+    }
+}

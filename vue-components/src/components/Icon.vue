@@ -160,33 +160,33 @@ export default Vue.extend( {
 	align-items: center;
 
 	&--base {
-		color: $wikit-Icon-color;
+		color: $wikit-Icon-color-base;
 	}
 
 	&--error {
-		color: $wikit-Icon-error-color;
+		color: $wikit-Icon-color-error;
 	}
 
 	&--warning {
-		color: $wikit-Icon-warning-color;
+		color: $wikit-Icon-color-warning;
 	}
 
 	&--notice {
-		color: $wikit-Icon-notice-color;
+		color: $wikit-Icon-color-notice;
 	}
 
 	&--success {
-		color: $wikit-Icon-success-color;
+		color: $wikit-Icon-color-success;
 	}
 
 	&--large &__svg {
-		width: $wikit-Icon-large-size;
-		height: $wikit-Icon-large-size;
+		width: $wikit-Icon-size-large;
+		height: $wikit-Icon-size-large;
 	}
 
 	&--medium &__svg {
-		width: $wikit-Icon-medium-size;
-		height: $wikit-Icon-medium-size;
+		width: $wikit-Icon-size-medium;
+		height: $wikit-Icon-size-medium;
 	}
 }
 </style>
