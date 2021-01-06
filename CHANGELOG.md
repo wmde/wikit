@@ -31,6 +31,7 @@ development)_
 
 ### Changed
 - _**(Breaking)**_ the prop of the Button has been split into two: `type` and `variant`
+- Icon.json was restructured to include all icon styles and Icon.vue was subsequently updated
 
 ### Removed
 
