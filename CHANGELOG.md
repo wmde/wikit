@@ -21,15 +21,17 @@ development)_
 - Additional icons to the Icon component
 - New tokens based on wikimedia-ui-base v 0.18.0
 - New Dropdown Component
-- New "clear" Icon type
-- Additional icon called edit
-- New icon called trash
-- New info-outline Icon type
 - Quiet button variant
+- Icon only button variant
 - New icon color `inherit` reuses the css `color` of the parent for the icon
+- Bouncing dots loader tokens file
 
 ### Changed
+
 - _**(Breaking)**_ the prop of the Button has been split into two: `type` and `variant`
+- _**(Breaking)**_ Icon.json was restructured to include all icon styles and Icon.vue was subsequently updated
+- Vue composition API
+- Icon component can be imported
 
 ### Removed
 
@@ -38,4 +40,4 @@ development)_
 
 ### Fixed
 
-- Exports of type declerations
+- Exports of type declarations
