@@ -84,6 +84,16 @@
         "__isArgsStory": true
       }
     },
+    "dropdown--all": {
+      "id": "dropdown--all",
+      "name": "All",
+      "kind": "Dropdown",
+      "story": "All",
+      "parameters": {
+        "__id": "dropdown--all",
+        "__isArgsStory": false
+      }
+    },
     "icon--all-types": {
       "id": "icon--all-types",
       "name": "All Types",
