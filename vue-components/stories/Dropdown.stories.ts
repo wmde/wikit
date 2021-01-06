@@ -80,14 +80,20 @@ export function basic( args ): Component {
 	};
 }
 
-export function all( ): Component {
+export function all(): Component {
 	return {
 		components: { Dropdown },
 		data(): unknown {
 			return {
-				menuItems:menuItems,
 				label: 'Label',
 				selectedItem: null,
+				menuItems: [
+					{
+						label: 'carrot',
+						description: 'root vegetable, usually orange in color',
+						value: 'Q81',
+					},
+				]
 			};
 		},
 		computed: {
@@ -102,45 +108,51 @@ export function all( ): Component {
 			},
 		},
 		template: `
-			<div><div style="max-width: 512px">
-				<Dropdown
+			<div style="max-width: 512px">
+				<p>
+					<Dropdown
+						:label="label"
+						:menu-items="menuItems"
+						v-model="selectedItem"
+						placeholder="Select an option"
+						:error="error"
+					/>
+				</p>
+				<p>
+					<Dropdown
+						:label="label"
+						:menu-items="menuItems"
+						v-model="selectedItem"
+						placeholder="Select an option"
+						disabled="true"
+					/>
+				</p>
+				<p>
+					<Dropdown
 					:label="label"
 					:menu-items="menuItems"
 					v-model="selectedItem"
 					placeholder="Select an option"
-					:disabled="disabled"
-					:error="error"
-				/>
-
-				<p><Dropdown
-				:label="label"
-				:menu-items="menuItems"
-				v-model="selectedItem"
-				placeholder="Select an option"
-				:disabled=true
-			/></p>
-
-			<p><Dropdown
-			:label="label"
-			:menu-items="menuItems"
-			v-model="selectedItem"
-			placeholder="Select an option"
-			:disabled="disabled"
-			:error="{ type: 'error', message: 'There was an error 😕' }"
-		/></p>
-
-			<p><Dropdown
-			:label="label"
-			:menu-items="menuItems"
-			v-model="selectedItem"
-			placeholder="Select an option"
-			:disabled="disabled"
-			:error="{ type: 'warning', message: 'Warning to be careful 🚧' }"
-		/></p>
-			</div></div>
+					:error="{ type: 'error', message: 'There was an error 😕' }"
+					/>
+				</p>
+				<p>
+					<Dropdown
+					:label="label"
+					:menu-items="menuItems"
+					v-model="selectedItem"
+					placeholder="Select an option"
+					:error="{ type: 'warning', message: 'Warning to be careful 🚧' }"
+					/>
+				</p>
+			</div>
 		`,
 	};
 }
+
+all.parameters = {
+	controls: { hideNoControlsWarning: true },
+};
 
 basic.args = {
 	disabled: false,
