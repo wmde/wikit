@@ -20,7 +20,7 @@
   "scripts": {
     "storybook": "start-storybook -s src/00-doc/static",
     "test": "npm-run-all test:*",
-    "test:lint": "eslint . --ext .js --ext .jsx",
+    "test:lint": "eslint . --ext .js --ext .jsx --max-warnings 0",
     "fix": "npm run test:lint -- --fix",
     "build": "build-storybook -o dist -s src/00-doc/static"
   },
