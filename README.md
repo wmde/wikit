@@ -65,7 +65,7 @@ STORYBOOK_URL=localhost:6005 npm run e2e
 
 The cross browser tests for the `vue-components` package run on [Saucelabs](https://saucelabs.com/). To see the test results on Saucelabs you need an account. If you don't have one, please contact your manager.
 
-The cross browser tests run in CI against the vue storybook built on that branch and deployed on Chromatic. 
+The cross browser tests run in CI against the vue storybook built on that branch and deployed to Netlify.
 The url is dynamic and changes for each branch. That's why you cannot run Saucelabs tests from your machine.
 
 ### Running Storybook
