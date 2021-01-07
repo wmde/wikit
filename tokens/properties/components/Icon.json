@@ -1,26 +1,62 @@
 {
-	"wikit-Icon": {
-		"color": {
-			"value": "{icon.color.base.value}"
-		},
-		"error-color": {
-			"value": "{icon.color.error.value}"
-		},
-		"warning-color": {
-			"value": "{icon.color.warning.value}"
-		},
-		"notice-color": {
-			"value": "{icon.color.notice.value}"
-		},
-		"success-color": {
-			"value": "{icon.color.success.value}"
-		},
-		"medium-size": {
-			"value": "{icon.size.medium.value}",
-			"comment": "icons are squares, so height and width are identical"
-		},
-		"large-size": {
-			"value": "{icon.size.large.value}"
-		}
-	}
+    "wikit-Icon": {
+        "color": {
+            "base": {
+                "value": "{icon.color.base.value}"
+            },
+            "subtle": {
+                "value": "{icon.color.subtle.value}"
+            },
+            "emphasized": {
+                "value": "{icon.color.emphasized.value}"
+            },
+            "inverted": {
+                "value": "{icon.color.inverted.value}"
+            },
+            "disabled": {
+                "value": "{icon.color.disabled.value}"
+            },
+            "progressive": {
+                "value": "{icon.color.progressive.value}"
+            },
+            "progressive-hover": {
+                "value": "{icon.color.progressive-hover.value}"
+            },
+            "destructive": {
+                "value": "{icon.color.progressive.value}"
+            },
+            "destructive-hover": {
+                "value": "{icon.color.progressive-hover.value}"
+            },
+            "notice": {
+                "value": "{icon.color.notice.value}"
+            },
+            "error": {
+                "value": "{icon.color.error.value}"
+            },
+            "warning": {
+                "value": "{icon.color.warning.value}"
+            },
+            "success": {
+                "value": "{icon.color.success.value}"
+            }
+        },
+        "size": {
+            "xsmall": {
+                "value": "{icon.size.xsmall.value}",
+                "comment": "icons are squares, so height and width are identical"
+            },
+            "small": {
+                "value": "{icon.size.small.value}",
+                "comment": "icons are squares, so height and width are identical"
+            },
+            "medium": {
+                "value": "{icon.size.medium.value}",
+                "comment": "icons are squares, so height and width are identical"
+            },
+            "large": {
+                "value": "{icon.size.large.value}"
+            }
+        }
+    }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@wmde/wikit-tokens",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "description": "Design tokens for WiKit in different formats",
   "author": "The Wikidata team",
   "homepage": "https://github.com/wmde/wikit/tree/master/tokens#readme",
@@ -18,7 +18,7 @@
   },
   "scripts": {
     "test": "npm-run-all test:*",
-    "test:lint": "eslint --ext .json,.js .",
+    "test:lint": "eslint --max-warnings 0 --ext .json,.js .",
     "test:unit": "jest .",
     "prepublish": "node build/wikimedia-ui-base && npm run build",
     "build": "npm run clean && npm run build:tokens",
