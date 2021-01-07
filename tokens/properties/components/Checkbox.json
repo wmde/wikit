@@ -72,7 +72,7 @@
                     "value": "{box-shadow.inset.focus.progressive.value}"
                 }
             },
-            "checked": {
+            "selected": {
                 "icon-color": {
                     "value": "{icon.color.inverted.value}"
                 },
