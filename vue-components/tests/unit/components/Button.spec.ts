@@ -51,4 +51,12 @@ describe( 'Button', () => {
 			},
 		} ) ).toThrow();
 	} );
+
+	it( 'validates the native type prop', () => {
+		expect( () => mount( Button, {
+			propsData: {
+				nativeType: 'random',
+			},
+		} ) ).toThrow();
+	} );
 } );
