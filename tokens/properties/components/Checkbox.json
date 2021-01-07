@@ -51,27 +51,25 @@
             "transition-duration": {
                 "value": "{transition.interaction.binary.duration.value}"
             },
-            "unchecked": {
-                "hover": {
-                    "border-color": {
-                        "value": "{border.color.progressive.hover.value}"
-                    }
+            "hover": {
+                "border-color": {
+                    "value": "{border.color.progressive.hover.value}"
+                }
+            },
+            "active": {
+                "border-color": {
+                    "value": "{border.color.progressive.active.value}"
                 },
-                "active": {
-                    "border-color": {
-                        "value": "{border.color.progressive.active.value}"
-                    },
-                    "background-color": {
-                        "value": "{border.color.progressive.active.value}"
-                    }
+                "background-color": {
+                    "value": "{border.color.progressive.active.value}"
+                }
+            },
+            "focus": {
+                "border-color": {
+                    "value": "{border.color.base.focus.value}"
                 },
-                "focus": {
-                    "border-color": {
-                        "value": "{border.color.base.focus.value}"
-                    },
-                    "box-shadow": {
-                        "value": "{box-shadow.inset.focus.progressive.value}"
-                    }
+                "box-shadow": {
+                    "value": "{box-shadow.inset.focus.progressive.value}"
                 }
             },
             "checked": {
