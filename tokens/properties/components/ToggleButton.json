@@ -1,0 +1,127 @@
+{
+    "wikit-ToggleButton": {
+        "font-family": {
+            "value": "{font.family.style.label.value}"
+        },
+        "font-weight": {
+            "value": "{font.weight.bold.value}"
+        },
+        "font-size": {
+            "value": "{font.size.style.label.value}"
+        },
+        "line-height": {
+            "value": "{font.line-height.style.label.value}"
+        },
+        "border-width": {
+            "value": "{border.width.thin.value}"
+        },
+        "border-style": {
+            "value": "{border.style.base.value}"
+        },
+        "border-radius": {
+            "value": "{border.radius.base.value}"
+        },
+        "transition-timing-function": {
+            "value": "{transition.timing-function.ease.value}"
+        },
+        "transition-property": {
+            "value": "{transition.interaction.button.property.value}"
+        },
+        "transition-duration": {
+            "value": "{transition.interaction.button.duration.value}"
+        },
+        "medium": {
+            "padding-vertical": {
+                "value": "{dimension.padding.vertical.medium.value}",
+                "comment": "will be replaced by a spacing token in the future"
+            },
+            "padding-horizontal": {
+                "value": "{dimension.spacing.medium.value}"
+            }
+        },
+        "large": {
+            "padding-vertical": {
+                "value": "{dimension.padding.vertical.large.value}",
+                "comment": "will be replaced by a spacing token in the future"
+            },
+            "padding-horizontal": {
+                "value": "{dimension.spacing.large.value}"
+            }
+        },
+        "icon": {
+            "size": {
+                "value": "{icon.size.large.value}"
+            },
+            "horizontal-spacing": {
+                "value": "{dimension.spacing.small.value}"
+            }
+        },
+        "hover": {
+            "color": {
+                "value": "{color.modifier.lighten.base-10.value}"
+            },
+            "border-color": {
+                "value": "{border.color.neutral.hover.value}"
+            },
+            "background-color": {
+                "value": "{background.color.neutral.hover.value}"
+            }
+        },
+        "active": {
+            "color": {
+                "value": "{font.color.emphasized.value}"
+            },
+            "border-color": {
+                "value": "{border.color.neutral.active.value}"
+            },
+            "background-color": {
+                "value": "{background.color.neutral.active.value}"
+            }
+        },
+        "focus": {
+            "color": {
+                "value": "{font.color.base.value}"
+            },
+            "border-color": {
+                "value": "{border.color.neutral.focus.value}"
+            },
+            "background-color": {
+                "value": "{background.color.neutral.hover.value}"
+            },
+            "box-shadow": {
+                "value": "{box-shadow.inset.focus.progressive.value}"
+            }
+        },
+        "grouped": {
+            "left": {
+                "border-radius": {
+                    "value": "{border.radius.base.value},{border.radius.none.value},{border.radius.none.value}, {border.radius.base.value}"
+                }
+            },
+            "center": {
+                "border-radius": {
+                    "value": "{border.radius.none.value}"
+                }
+            },
+            "right": {
+                "border-radius": {
+                    "value": "{border.radius.none.value},{border.radius.base.value},{border.radius.base.value}, {border.radius.none.value}"
+                },
+                "comment": {
+                    "value": "TBD: find less clumsy way of specifying border-radius?"
+                }
+            }
+        },
+        "disabled": {
+            "color": {
+                "value": "{font.color.inverted.value}"
+            },
+            "border-color": {
+                "value": "{border.color.base.disabled.value}"
+            },
+            "background-color": {
+                "value": "{background.color.base.disabled.value}"
+            }
+        }
+    }
+}
