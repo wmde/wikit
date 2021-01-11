@@ -1,0 +1,106 @@
+{
+    "wikit-Checkbox": {
+        "input": {
+            "border-width": {
+                "value": "{border.width.thin.value}"
+            },
+            "border-style": {
+                "value": "{border.style.base.value}"
+            },
+            "border-color": {
+                "value": "{border.color.base.binary.value}"
+            },
+            "border-radius": {
+                "value": "{border.radius.base.value}"
+            },
+            "background-color": {
+                "value": "{background.color.base.default.value}"
+            },
+            "size": {
+                "value": "{dimension.static.size.300.value}",
+                "comment": "Set as a reminder to rethink dimension alias tokens"
+            },
+            "right-spacing": {
+                "value": "{dimension.spacing.small.value}"
+            },
+            "transition-timing-function": {
+                "value": "{transition.timing-function.ease.value}"
+            },
+            "transition-property": {
+                "value": "{transition.interaction.binary.property.value}"
+            },
+            "transition-duration": {
+                "value": "{transition.interaction.binary.duration.value}"
+            },
+            "hover": {
+                "border-color": {
+                    "value": "{border.color.progressive.hover.value}"
+                }
+            },
+            "active": {
+                "border-color": {
+                    "value": "{border.color.progressive.active.value}"
+                },
+                "background-color": {
+                    "value": "{border.color.progressive.active.value}"
+                }
+            },
+            "focus": {
+                "border-color": {
+                    "value": "{border.color.base.focus.value}"
+                },
+                "box-shadow": {
+                    "value": "{box-shadow.inset.focus.progressive.value}"
+                }
+            },
+            "selected": {
+                "icon-color": {
+                    "value": "{icon.color.inverted.value}"
+                },
+                "border-color": {
+                    "value": "{border.color.progressive.default.value}"
+                },
+                "background-color": {
+                    "value": "{background.color.progressive.default.value}"
+                },
+                "hover": {
+                    "border-color": {
+                        "value": "{border.color.progressive.hover.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.progressive.hover.value}"
+                    }
+                },
+                "active": {
+                    "border-color": {
+                        "value": "{border.color.progressive.active.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.progressive.active.value}"
+                    }
+                },
+                "focus": {
+                    "border-color": {
+                        "value": "{border.color.progressive.default.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.progressive.default.value}"
+                    },
+                    "box-shadow": {
+                        "value": "{box-shadow.inset.focus.inverted.value}"
+                    }
+                }
+            },
+            "disabled": {
+                "disabled": {
+                    "border-color": {
+                        "value": "{border.color.base.disabled.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.base.disabled.value}"
+                    }
+                }
+            }
+        }
+    }
+}
