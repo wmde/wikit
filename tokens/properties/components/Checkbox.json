@@ -27,6 +27,9 @@
             "border-style": {
                 "value": "{border.style.base.value}"
             },
+            "border-color": {
+                "value": "{border.color.base.binary.value}"
+            },
             "border-radius": {
                 "value": "{border.radius.base.value}"
             },
