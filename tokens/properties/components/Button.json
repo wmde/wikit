@@ -12,9 +12,6 @@
         "line-height": {
             "value": "{font.line-height.style.label.value}"
         },
-        "cursor": {
-            "value": "{cursor.pointer.value}"
-        },
         "border-width": {
             "value": "{border.width.thin.value}"
         },
@@ -51,143 +48,306 @@
                 "value": "{dimension.spacing.large.value}"
             }
         },
-        "neutral": {
-            "color": {
-                "value": "{font.color.base.value}"
+        "icon": {
+            "size": {
+                "value": "{icon.size.large.value}"
             },
-            "border-color": {
-                "value": "{border.color.neutral.default.value}"
-            },
-            "background-color": {
-                "value": "{background.color.neutral.default.value}"
-            },
-            "hover": {
-                "color": {
-                    "value": "{color.modifier.lighten.base-10.value}"
-                },
-                "border-color": {
-                    "value": "{border.color.neutral.hover.value}"
-                },
-                "background-color": {
-                    "value": "{background.color.neutral.hover.value}"
-                }
-            },
-            "active": {
-                "color": {
-                    "value": "{font.color.emphasized.value}"
-                },
-                "border-color": {
-                    "value": "{border.color.neutral.active.value}"
-                },
-                "background-color": {
-                    "value": "{background.color.neutral.active.value}"
-                }
-            },
-            "focus": {
+            "horizontal-spacing": {
+                "value": "{dimension.spacing.small.value}"
+            }
+        },
+        "normal": {
+            "neutral": {
                 "color": {
                     "value": "{font.color.base.value}"
                 },
                 "border-color": {
-                    "value": "{border.color.neutral.focus.value}"
+                    "value": "{border.color.neutral.default.value}"
                 },
                 "background-color": {
-                    "value": "{background.color.neutral.hover.value}"
+                    "value": "{background.color.neutral.default.value}"
                 },
-                "box-shadow": {
-                    "value": "{box-shadow.inset.focus.progressive.value}"
+                "hover": {
+                    "color": {
+                        "value": "{color.modifier.lighten.base-10.value}"
+                    },
+                    "border-color": {
+                        "value": "{border.color.neutral.hover.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.neutral.hover.value}"
+                    }
+                },
+                "active": {
+                    "color": {
+                        "value": "{font.color.emphasized.value}"
+                    },
+                    "border-color": {
+                        "value": "{border.color.neutral.active.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.neutral.active.value}"
+                    }
+                },
+                "focus": {
+                    "color": {
+                        "value": "{font.color.base.value}"
+                    },
+                    "border-color": {
+                        "value": "{border.color.neutral.focus.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.neutral.hover.value}"
+                    },
+                    "box-shadow": {
+                        "value": "{box-shadow.inset.focus.progressive.value}"
+                    }
+                }
+            },
+            "disabled": {
+                "color": {
+                    "value": "{font.color.inverted.value}"
+                },
+                "border-color": {
+                    "value": "{border.color.base.disabled.value}"
+                },
+                "background-color": {
+                    "value": "{background.color.base.disabled.value}"
                 }
             }
         },
-        "primaryProgressive": {
-            "color": {
-                "value": "{font.color.inverted.value}"
+        "quiet": {
+            "background-color": {
+                "value": "{background.color.base.transparent.value}"
             },
             "border-color": {
-                "value": "{border.color.progressive.default.value}"
+                "value": "{background.color.base.transparent.value}"
             },
-            "background-color": {
-                "value": "{background.color.progressive.default.value}"
-            },
-            "hover": {
-                "border-color": {
-                    "value": "{border.color.progressive.hover.value}"
+            "neutral": {
+                "color": {
+                    "value": "{font.color.base.value}"
                 },
-                "background-color": {
-                    "value": "{background.color.progressive.hover.value}"
+                "hover": {
+                    "color": {
+                        "value": "{font.color.base.value}"
+                    },
+                    "border-color": {
+                        "value": "{border.color.neutral.quiet-hover.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.neutral.quiet-hover.value}"
+                    }
+                },
+                "active": {
+                    "color": {
+                        "value": "{font.color.emphasized.value}"
+                    },
+                    "border-color": {
+                        "value": "{border.color.neutral.active.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.neutral.active.value}"
+                    }
+                },
+                "focus": {
+                    "color": {
+                        "value": "{font.color.base.value}"
+                    },
+                    "border-color": {
+                        "value": "{border.color.neutral.focus.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.neutral.focus.value}"
+                    },
+                    "box-shadow": {
+                        "value": "{box-shadow.inset.focus.progressive.value}",
+                        "comment": "this could be changed to focus.default"
+                    }
                 }
             },
-            "active": {
-                "border-color": {
-                    "value": "{border.color.progressive.active.value}"
+            "progressive": {
+                "color": {
+                    "value": "{font.color.progressive.value}"
                 },
-                "background-color": {
-                    "value": "{background.color.progressive.active.value}"
+                "hover": {
+                    "color": {
+                        "value": "{font.color.progressive-hover.value}"
+                    },
+                    "border-color": {
+                        "value": "{border.color.progressive.quiet-hover.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.progressive.quiet-hover.value}"
+                    }
+                },
+                "active": {
+                    "color": {
+                        "value": "{font.color.inverted.value}"
+                    },
+                    "border-color": {
+                        "value": "{border.color.progressive.active.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.progressive.active.value}"
+                    }
+                },
+                "focus": {
+                    "color": {
+                        "value": "{font.color.progressive.value}"
+                    },
+                    "border-color": {
+                        "value": "{border.color.progressive.focus.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.progressive.quiet-focus.value}"
+                    },
+                    "box-shadow": {
+                        "value": "{box-shadow.inset.focus.progressive.value}"
+                    }
                 }
             },
-            "focus": {
-                "border-color": {
-                    "value": "{border.color.progressive.focus.value}"
+            "destructive": {
+                "color": {
+                    "value": "{font.color.destructive.value}"
                 },
-                "background-color": {
-                    "value": "{background.color.progressive.focus.value}"
+                "hover": {
+                    "color": {
+                        "value": "{font.color.destructive-hover.value}"
+                    },
+                    "border-color": {
+                        "value": "{border.color.destructive.quiet-hover.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.destructive.quiet-hover.value}"
+                    }
                 },
-                "box-shadow": {
-                    "value": "{box-shadow.inset.focus.button-primary.value}"
+                "active": {
+                    "color": {
+                        "value": "{font.color.inverted.value}"
+                    },
+                    "border-color": {
+                        "value": "{border.color.destructive.active.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.destructive.active.value}"
+                    }
+                },
+                "focus": {
+                    "color": {
+                        "value": "{font.color.destructive.value}"
+                    },
+                    "border-color": {
+                        "value": "{border.color.destructive.focus.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.destructive.quiet-focus.value}"
+                    },
+                    "box-shadow": {
+                        "value": "{box-shadow.inset.focus.destructive.value}"
+                    }
+                }
+            },
+            "disabled": {
+                "color": {
+                    "value": "{font.color.disabled.value}"
                 }
             }
         },
-        "primaryDestructive": {
+
+        "primary": {
             "color": {
                 "value": "{font.color.inverted.value}"
             },
-            "border-color": {
-                "value": "{border.color.destructive.default.value}"
-            },
-            "background-color": {
-                "value": "{background.color.destructive.default.value}"
-            },
-            "hover": {
+            "progressive": {
                 "border-color": {
-                    "value": "{border.color.destructive.hover.value}"
+                    "value": "{border.color.progressive.default.value}"
                 },
                 "background-color": {
-                    "value": "{background.color.destructive.hover.value}"
+                    "value": "{background.color.progressive.default.value}"
+                },
+                "hover": {
+                    "border-color": {
+                        "value": "{border.color.progressive.hover.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.progressive.hover.value}"
+                    }
+                },
+                "active": {
+                    "border-color": {
+                        "value": "{border.color.progressive.active.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.progressive.active.value}"
+                    }
+                },
+                "focus": {
+                    "border-color": {
+                        "value": "{border.color.progressive.focus.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.progressive.focus.value}"
+                    },
+                    "box-shadow": {
+                        "value": "{box-shadow.inset.focus.button-primary.value}"
+                    }
                 }
             },
-            "active": {
+            "destructive": {
                 "border-color": {
-                    "value": "{border.color.destructive.active.value}"
+                    "value": "{border.color.destructive.default.value}"
                 },
                 "background-color": {
-                    "value": "{background.color.destructive.active.value}"
+                    "value": "{background.color.destructive.default.value}"
+                },
+                "hover": {
+                    "border-color": {
+                        "value": "{border.color.destructive.hover.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.destructive.hover.value}"
+                    }
+                },
+                "active": {
+                    "border-color": {
+                        "value": "{border.color.destructive.active.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.destructive.active.value}"
+                    }
+                },
+                "focus": {
+                    "border-color": {
+                        "value": "{border.color.destructive.focus.value}"
+                    },
+                    "background-color": {
+                        "value": "{background.color.destructive.focus.value}"
+                    },
+                    "box-shadow": {
+                        "value": "{box-shadow.inset.focus.button-primary.value}"
+                    }
                 }
             },
-            "focus": {
+            "disabled": {
                 "border-color": {
-                    "value": "{border.color.destructive.focus.value}"
+                    "value": "{border.color.base.disabled.value}"
                 },
                 "background-color": {
-                    "value": "{background.color.destructive.focus.value}"
-                },
-                "box-shadow": {
-                    "value": "{box-shadow.inset.focus.button-primary.value}"
+                    "value": "{background.color.base.disabled.value}"
                 }
             }
         },
-        "disabled": {
-            "cursor": {
-                "value": "{cursor.default.value}"
+        "icon-only": {
+            "medium": {
+                "padding-horizontal": {
+                    "value": "{dimension.spacing.small.value}"
+                }
             },
-            "color": {
-                "value": "{font.color.inverted.value}"
-            },
-            "border-color": {
-                "value": "{border.color.base.disabled.value}"
-            },
-            "background-color": {
-                "value": "{background.color.base.disabled.value}"
+            "large": {
+                "padding-horizontal": {
+                    "value": "{dimension.spacing.medium.value}"
+                }
             }
         }
     }
 }
-
