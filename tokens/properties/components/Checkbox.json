@@ -1,28 +1,14 @@
 {
     "wikit-Checkbox": {
-        "label": {
-            "font-family": {
-                "value": "{font.family.style.label.value}"
-            },
-            "font-weight": {
-                "value": "{font.weight.style.label.value}"
-            },
-            "font-size": {
-                "value": "{font.size.style.label.value}"
-            },
-            "color": {
-                "value": "{font.color.base.value}"
-            },
-            "color-disabled": {
-                "value": "{font.color.disabled.value}"
-            },
-            "line-height": {
-                "value": "{font.line-height.style.label.value}"
-            }
-        },
         "input": {
-            "border":{
-                "value":"{border.width.thin.value}, {border.style.base.value}, {border.color.base.binary.value}"
+            "border-width":{
+                "value":"{border.width.thin.value}"
+            },
+            "border-style":{
+                "value":"{border.style.base.value}"
+            },
+            "border-color":{
+                "value":"{border.color.base.binary.value}"
             },
             "border-radius": {
                 "value": "{border.radius.base.value}"
@@ -30,11 +16,9 @@
             "background-color": {
                 "value": "{background.color.base.default.value}"
             },
-            "height": {
-                "value": "{dimension.min-height.small.value}"
-            },
-            "width": {
-                "value": "{dimension.width.small.value}"
+            "size": {
+                "value": "{dimension.static.size.300.value}",
+                "comment": "Set as a reminder to rethink dimension alias tokens"
             },
             "right-spacing": {
                 "value": "{dimension.spacing.small.value}"
