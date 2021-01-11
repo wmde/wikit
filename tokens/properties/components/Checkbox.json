@@ -1,5 +1,12 @@
 {
     "wikit-Checkbox": {
+        "label": {
+            "disabled":{
+                "color": {
+                    "value":"{font.color.disabled.value}"
+                }
+            }
+        },
         "input": {
             "size": {
                 "value": "{dimension.static.size.300.value}",
@@ -97,9 +104,6 @@
                 },
                 "background-color": {
                     "value": "{background.color.base.disabled.value}"
-                },
-                "color": {
-                    "value": "{font.color.disabled.value}"
                 }
             }
         }
