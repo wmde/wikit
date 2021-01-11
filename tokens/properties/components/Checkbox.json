@@ -1,6 +1,13 @@
 {
     "wikit-Checkbox": {
         "input": {
+            "size": {
+                "value": "{dimension.static.size.300.value}",
+                "comment": "Set as a reminder to rethink dimension alias tokens"
+            },
+            "right-spacing": {
+                "value": "{dimension.spacing.small.value}"
+            },
             "border-width": {
                 "value": "{border.width.thin.value}"
             },
@@ -15,13 +22,6 @@
             },
             "background-color": {
                 "value": "{background.color.base.default.value}"
-            },
-            "size": {
-                "value": "{dimension.static.size.300.value}",
-                "comment": "Set as a reminder to rethink dimension alias tokens"
-            },
-            "right-spacing": {
-                "value": "{dimension.spacing.small.value}"
             },
             "transition-timing-function": {
                 "value": "{transition.timing-function.ease.value}"
@@ -92,13 +92,14 @@
                 }
             },
             "disabled": {
-                "disabled": {
-                    "border-color": {
-                        "value": "{border.color.base.disabled.value}"
-                    },
-                    "background-color": {
-                        "value": "{background.color.base.disabled.value}"
-                    }
+                "border-color": {
+                    "value": "{border.color.base.disabled.value}"
+                },
+                "background-color": {
+                    "value": "{background.color.base.disabled.value}"
+                },
+                "color": {
+                    "value": "{font.color.disabled.value}"
                 }
             }
         }
