@@ -20,7 +20,7 @@
                 "value": "{font.line-height.style.label.value}"
             }
         },
-        "control": {
+        "input": {
             "border":{
                 "value":"{border.width.thin.value}, {border.style.base.value}, {border.color.base.binary.value}"
             },
