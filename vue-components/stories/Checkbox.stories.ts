@@ -7,6 +7,41 @@ export default {
 	title: 'Checkbox',
 };
 
+export function basic( args ): Component {
+	return {
+		data(): object {
+			return { args };
+		},
+		components: { Checkbox },
+		props: Object.keys( args ),
+		template: `
+			<div>
+			<div><Checkbox 
+			:label="label" 
+			:value="false" 
+			:disabled="disabled"/></div>
+			</div>
+		`,
+	};
+}
+
+basic.args = {
+	disabled: false,
+	label: 'Label',
+};
+basic.argTypes = {
+	disabled: {
+		control: {
+			type: 'boolean',
+		},
+	},
+	label: {
+		control: {
+			type: 'text',
+		},
+	},
+};
+
 export function all(): Component {
 	return {
 		components: { Checkbox },
