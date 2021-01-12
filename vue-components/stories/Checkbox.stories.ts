@@ -25,23 +25,6 @@ export function basic( args ): Component {
 	};
 }
 
-basic.args = {
-	disabled: false,
-	label: 'Label',
-};
-basic.argTypes = {
-	disabled: {
-		control: {
-			type: 'boolean',
-		},
-	},
-	label: {
-		control: {
-			type: 'text',
-		},
-	},
-};
-
 export function all(): Component {
 	return {
 		components: { Checkbox },
@@ -58,3 +41,30 @@ export function all(): Component {
 		`,
 	};
 }
+
+basic.args = {
+	disabled: false,
+	label: 'Label',
+};
+basic.argTypes = {
+	disabled: {
+		control: {
+			type: 'boolean',
+		},
+	},
+	label: {
+		control: {
+			type: 'text',
+		},
+	},
+	value: {
+		control:{
+			disable:true,
+		}
+	},
+	nativeValue: {
+		control:{
+			disable:true,
+		}
+	}
+};
