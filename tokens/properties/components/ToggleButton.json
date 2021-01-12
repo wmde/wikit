@@ -1,5 +1,8 @@
 {
     "wikit-ToggleButton": {
+        "color": {
+            "value": "{font.color.base.value}"
+        },
         "font-family": {
             "value": "{font.family.style.label.value}"
         },
@@ -20,6 +23,12 @@
         },
         "border-radius": {
             "value": "{border.radius.base.value}"
+        },
+        "border-color": {
+            "value": "{border.color.neutral.default.value}"
+        },
+        "background-color": {
+            "value": "{background.color.neutral.default.value}"
         },
         "transition-timing-function": {
             "value": "{transition.timing-function.ease.value}"
@@ -92,23 +101,19 @@
                 "value": "{box-shadow.inset.focus.progressive.value}"
             }
         },
-        "grouped": {
-            "left": {
-                "border-radius": {
-                    "value": "{border.radius.base.value},{border.radius.none.value},{border.radius.none.value}, {border.radius.base.value}"
-                }
+        "selected": {
+            "color": {
+                "value": "{font.color.inverted.value}"
             },
-            "center": {
-                "border-radius": {
-                    "value": "{border.radius.none.value}"
-                }
+            "border-color": {
+                "value": "{border.color.progressive.active.value}"
             },
-            "right": {
-                "border-radius": {
-                    "value": "{border.radius.none.value},{border.radius.base.value},{border.radius.base.value}, {border.radius.none.value}"
-                },
-                "comment": {
-                    "value": "TBD: find less clumsy way of specifying border-radius?"
+            "background-color": {
+                "value": "{background.color.progressive.active.value}"
+            },
+            "focus": {
+                "box-shadow": {
+                    "value": "{box-shadow.inset.focus.button-primary.value}"
                 }
             }
         },
