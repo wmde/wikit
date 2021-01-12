@@ -64,6 +64,9 @@
                 "icon-color": {
                     "value": "{icon.color.inverted.value}"
                 },
+                "icon-size": {
+                    "value": "{icon.size.xsmall.value}"
+                },
                 "border-color": {
                     "value": "{border.color.progressive.default.value}"
                 },

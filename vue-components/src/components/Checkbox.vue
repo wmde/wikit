@@ -3,7 +3,7 @@
 		<input
 			type="checkbox"
 			:id="id"
-			class="wikit-checkbox__box"
+			class="wikit-checkbox__input"
 			@change="$emit( 'input', $event.target.checked )"
 			:value="nativeValue"
 			:checked="value"
@@ -67,6 +67,7 @@ $label: '.wikit-checkbox__label';
 		&::before {
 			width: $wikit-Checkbox-input-size;
 			height: $wikit-Checkbox-input-size;
+			box-sizing: border-box;
 
 			border-width: $wikit-Checkbox-input-border-width;
 			border-color: $wikit-Checkbox-input-border-color;
@@ -96,7 +97,7 @@ $label: '.wikit-checkbox__label';
 		}
 	}
 
-	&__box {/* see: https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */
+	&__input {/* see: https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */
 		width: 0;
 		height: 0;
 		opacity: 0;
@@ -127,6 +128,7 @@ $label: '.wikit-checkbox__label';
 				background-image: svg-load('check.svg', fill=$wikit-Checkbox-input-selected-icon-color);
 				background-position: 50% 50%;
 				background-repeat: no-repeat;
+				background-size: $wikit-Checkbox-input-selected-icon-size;
 			}
 
 			&:hover::before {
