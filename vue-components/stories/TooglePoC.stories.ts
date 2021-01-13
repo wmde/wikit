@@ -10,22 +10,18 @@ const options = [
 	{
 		label: 'Pineapple',
 		value: 'pineapple',
-		checked: true,
 	},
 	{
 		label: 'Mushrooms',
 		value: 'mushrooms',
-		checked: false,
 	},
 	{
 		label: 'Spinach',
 		value: 'spinach',
-		checked: false,
 	},
 	{
 		label: 'Artichoke',
 		value: 'artichoke',
-		checked: false,
 	},
 ];
 export function ProofOfConcept(): Component {
