@@ -113,7 +113,7 @@
             },
             "focus": {
                 "box-shadow": {
-                    "value": "{box-shadow.inset.inverted.value}"
+                    "value": "{box-shadow.inset.focus.inverted.value}"
                 }
             }
         },
