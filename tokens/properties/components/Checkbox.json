@@ -9,7 +9,8 @@
         },
         "input": {
             "size": {
-                "value": "{dimension.static.size.300.value}",
+                "value": "{dimension.min-height.small.value}",
+                "comment": "Not the ideal value, but all these min-height tokens already in use could be renamed as 'size' in a coordinated way"
             },
             "right-spacing": {
                 "value": "{dimension.spacing.small.value}"
