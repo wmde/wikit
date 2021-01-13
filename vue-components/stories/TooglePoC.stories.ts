@@ -51,6 +51,11 @@ export function ProofOfConcept(): Component {
 					Best topping on Pizza:
 					<span v-if="selectedOption" class="selected-item-label">{{ selectedOption }}</span>
 				</div>
+				<br>
+				<TogglePoC
+				  :options="[{label: 'single option', value: 'unclear if needed here'}]"
+				  :value="false"
+				/>
 			</div>
 		`,
 	};

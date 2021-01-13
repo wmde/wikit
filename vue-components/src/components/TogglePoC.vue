@@ -1,6 +1,12 @@
 <template>
 	<span class="wikit wikit-TogglePoC">
-		<span class="singleOption" v-if="options.length===1"></span>
+		<span class="singleOption" v-if="options.length===1">
+			<input
+				class="option-input"
+				type="checkbox"
+				:id="id"
+			><label class="option-label" :for="id">{{ options[0].label }}</label>
+		</span>
 		<span class="multipleButtons" v-else>
 			<span class="option" v-for="option in options" :key="option.value">
 				<input
@@ -80,6 +86,7 @@ export default Vue.extend( {
 	}
 
 }
+
 .option-input {
 	width: 0;
 	height: 0;
