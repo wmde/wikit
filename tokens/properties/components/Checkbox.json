@@ -10,7 +10,6 @@
         "input": {
             "size": {
                 "value": "{dimension.static.size.300.value}",
-                "comment": "Set as a reminder to rethink dimension alias tokens"
             },
             "right-spacing": {
                 "value": "{dimension.spacing.small.value}"
