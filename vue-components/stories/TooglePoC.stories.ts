@@ -1,6 +1,5 @@
 import TogglePoC from '@/components/TogglePoC';
 import { Component } from 'vue';
-import { MenuItem } from '../src/components/MenuItem';
 
 export default {
 	component: TogglePoC,
@@ -29,7 +28,7 @@ export function ProofOfConcept(): Component {
 		components: { TogglePoC },
 		data(): unknown {
 			return {
-				selectedOption: null,
+				selectedOption: '',
 			};
 		},
 		computed: {
@@ -49,8 +48,8 @@ export function ProofOfConcept(): Component {
 				</div>
 				<br>
 				<TogglePoC
-				  :options="[{label: 'single option', value: 'unclear if needed here'}]"
-				  :value="false"
+				  :options="[{label: 'single option', value: 'this is a bit cumbersome'}]"
+				  value="this is a bit cumbersome"
 				/>
 			</div>
 		`,

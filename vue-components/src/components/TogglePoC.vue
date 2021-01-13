@@ -19,7 +19,7 @@ import Vue from 'vue';
 import generateUid from '@/components/util/generateUid';
 
 export default Vue.extend( {
-	name: 'TogglePoC', // Name not yet decided!
+	name: 'TogglePoC', // Name idea: ButtonToggle
 	props: {
 		options: { // option.value needs to be unique!
 			required: true,
@@ -85,17 +85,18 @@ export default Vue.extend( {
 	inset-inline-start: 0;/* we move it out of our way */
 	position: absolute;
 
-	&:checked + .option-label {
-		color: $wikit-ToggleButton-selected-color;
-		border-color: $wikit-ToggleButton-selected-border-color;
-		background-color: $wikit-ToggleButton-selected-background-color;
-	}
-
+	// IMPORTANT: :focus has to come before :checked!
 	&:focus + .option-label {
 		color: $wikit-ToggleButton-focus-color;
 		border-color: $wikit-ToggleButton-focus-border-color;
 		background-color: $wikit-ToggleButton-focus-background-color;
 		box-shadow: $wikit-ToggleButton-focus-box-shadow;
+	}
+
+	&:checked + .option-label {
+		color: $wikit-ToggleButton-selected-color;
+		border-color: $wikit-ToggleButton-selected-border-color;
+		background-color: $wikit-ToggleButton-selected-background-color;
 	}
 
 	&:checked:focus + .option-label {
