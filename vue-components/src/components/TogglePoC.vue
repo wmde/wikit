@@ -1,24 +1,15 @@
 <template>
-	<span class="wikit wikit-TogglePoC">
-		<span class="singleOption" v-if="options.length===1">
+	<span :class="['wikit', 'wikit-TogglePoC', options.length > 1 ? 'multipleButtons' : null]">
+		<span class="option" v-for="option in options" :key="option.value">
 			<input
 				class="option-input"
-				type="checkbox"
-				:id="id"
-			><label class="option-label" :for="id">{{ options[0].label }}</label>
-		</span>
-		<span class="multipleButtons" v-else>
-			<span class="option" v-for="option in options" :key="option.value">
-				<input
-					class="option-input"
-					@change="change"
-					type="radio"
-					:id="id + option.value"
-					:checked="option.value === value"
-					:name="id"
-					:value="option.value"
-				><label class="option-label" :for="id + option.value">{{ option.label }}</label>
-			</span>
+				@change="change"
+				:type="options.length === 1 ? 'checkbox' : 'radio'"
+				:id="id + option.value"
+				:checked="option.value === value"
+				:name="id"
+				:value="option.value"
+			><label class="option-label" :for="id + option.value">{{ option.label }}</label>
 		</span>
 	</span>
 </template>
