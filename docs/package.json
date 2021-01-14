@@ -1,7 +1,7 @@
 {
   "name": "@wmde/wikit-docs",
   "private": true,
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "description": "Storybook for illustrating design tokens and components",
   "keywords": [
     "wikit",
@@ -20,13 +20,13 @@
   "scripts": {
     "storybook": "start-storybook -s src/00-doc/static",
     "test": "npm-run-all test:*",
-    "test:lint": "eslint . --ext .js --ext .jsx",
+    "test:lint": "eslint . --ext .js --ext .jsx --max-warnings 0",
     "fix": "npm run test:lint -- --fix",
     "build": "build-storybook -o dist -s src/00-doc/static"
   },
   "dependencies": {
-    "@wmde/wikit-tokens": "^2.0.0-alpha.1",
-    "@wmde/wikit-vue-components": "^2.0.0-alpha.1",
+    "@wmde/wikit-tokens": "^2.0.0-alpha.2",
+    "@wmde/wikit-vue-components": "^2.0.0-alpha.2",
     "traverse": "^0.6.6"
   },
   "bugs": {

@@ -7,6 +7,7 @@
 			`wikit-Button--${variant}`,
 			iconOnly ? `wikit-Button--iconOnly` : '',
 		]"
+		:type="nativeType"
 	>
 		<slot />
 	</button>
@@ -61,6 +62,18 @@ export default defineComponent( {
 		iconOnly: {
 			type: Boolean,
 			default: false,
+		},
+		/**
+		 * The default behavior of the button
+		 *
+		 * Allowed values: `submit`, `reset`, `button`
+		 */
+		nativeType: {
+			type: String,
+			validator( value: string ): boolean {
+				return [ 'submit', 'reset', 'button' ].includes( value );
+			},
+			default: 'button',
 		},
 	},
 	setup( props: {
