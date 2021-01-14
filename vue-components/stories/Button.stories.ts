@@ -58,7 +58,7 @@ export function iconOnly(): Component {
 		components: { Button, Icon },
 		template: `
 				<div>
-					<div>
+					<div style="margin-bottom:16px;">
 						<Button variant="normal" type="neutral" iconOnly aria-label="More Information">
 							<Icon type="info" size="large" color="inherit" />
 						</Button>
@@ -72,7 +72,6 @@ export function iconOnly(): Component {
 							<Icon type="trash" size="large" color="inherit" />
 						</Button>
 					</div>
-					</br>
 					<div>
 						<Button variant="quiet" type="neutral" iconOnly aria-label="More Information">
 							<Icon type="info" size="large" color="inherit" />
