@@ -70,7 +70,7 @@ export function basic( args ): Component {
 					:disabled="disabled"
 					:error="error"
 				/>
-				<div v-if="selectedItem" style="margin-top: 16px">
+				<div v-if="selectedItem" style="margin-top: 16px; font-family: sans-serif; color: #202122">
 					Selected Option:
 					<span class="selected-item-label">{{ selectedItem.label }}</span>
 					(<span class="selected-item-id">{{ selectedItem.value }}</span>)
@@ -79,6 +79,80 @@ export function basic( args ): Component {
 		`,
 	};
 }
+
+export function all(): Component {
+	return {
+		components: { Dropdown },
+		data(): unknown {
+			return {
+				label: 'Label',
+				selectedItem: null,
+				menuItems: [
+					{
+						label: 'carrot',
+						description: 'root vegetable, usually orange in color',
+						value: 'Q81',
+					},
+				]
+			};
+		},
+		computed: {
+			error(): any {
+				if ( this.selectedItem?.value === 'later' ) {
+					return { type: 'warning', message: 'Warning to be careful 🚧' };
+				}
+				if ( this.selectedItem?.value === 'earlier' ) {
+					return { type: 'error', message: 'There was an error 😕' };
+				}
+				return null;
+			},
+		},
+		template: `
+			<div style="max-width: 512px">
+				<p>
+					<Dropdown
+						:label="label"
+						:menu-items="menuItems"
+						v-model="selectedItem"
+						placeholder="Select an option"
+						:error="error"
+					/>
+				</p>
+				<p>
+					<Dropdown
+						:label="label"
+						:menu-items="menuItems"
+						v-model="selectedItem"
+						placeholder="Select an option"
+						disabled="true"
+					/>
+				</p>
+				<p>
+					<Dropdown
+					:label="label"
+					:menu-items="menuItems"
+					v-model="selectedItem"
+					placeholder="Select an option"
+					:error="{ type: 'error', message: 'There was an error 😕' }"
+					/>
+				</p>
+				<p>
+					<Dropdown
+					:label="label"
+					:menu-items="menuItems"
+					v-model="selectedItem"
+					placeholder="Select an option"
+					:error="{ type: 'warning', message: 'Warning to be careful 🚧' }"
+					/>
+				</p>
+			</div>
+		`,
+	};
+}
+
+all.parameters = {
+	controls: { hideNoControlsWarning: true },
+};
 
 basic.args = {
 	disabled: false,

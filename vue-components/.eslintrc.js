@@ -41,6 +41,9 @@ module.exports = {
 			},
 		} ],
 
+		// duplicate with @typescript-eslint/indent
+		'indent': 'off',
+
 		// required
 		'@typescript-eslint/no-require-imports': 'off',
 		'@typescript-eslint/no-var-requires': 'off',
