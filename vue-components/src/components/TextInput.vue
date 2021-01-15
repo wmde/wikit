@@ -85,8 +85,7 @@ export default defineComponent( {
 <style lang="scss">
 .wikit-TextInput {
 	&__label {
-		@include Label;
-		display: block;
+		@include Label( block );
 	}
 }
 </style>
