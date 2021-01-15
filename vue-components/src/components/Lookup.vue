@@ -202,7 +202,7 @@ export default defineComponent( {
 	}
 
 	&__label {
-		@include BlockLabel;
+		@include Label( block );
 	}
 }
 </style>

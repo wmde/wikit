@@ -1,5 +1,0 @@
-@mixin BlockLabel {
-  @include Label;
-  display: block;
-  padding-block-end: $wikit-Label-padding-block-end;
-}
