@@ -3,43 +3,39 @@
   "globalParameters": {},
   "kindParameters": {
     "/Button": {
-      "fileName": 1681,
+      "fileName": 1707,
       "framework": "vue"
     },
     "Dropdown": {
-      "fileName": 1710,
+      "fileName": 1708,
       "framework": "vue"
     },
     "Icon": {
-      "fileName": 1694,
+      "fileName": 1692,
       "framework": "vue"
     },
     "/Input/Basic": {
-      "fileName": 1695,
+      "fileName": 1693,
       "framework": "vue"
     },
     "/Lookup/Lookup": {
-      "fileName": 1711,
+      "fileName": 1709,
       "framework": "vue"
     },
     "/Message/Message": {
-      "fileName": 1712,
+      "fileName": 1710,
       "framework": "vue"
     },
     "OptionsMenu": {
-      "fileName": 1702,
-      "framework": "vue"
-    },
-    "/Button/Quiet": {
-      "fileName": 1703,
+      "fileName": 1700,
       "framework": "vue"
     },
     "/Input/TextInput": {
-      "fileName": 1713,
+      "fileName": 1711,
       "framework": "vue"
     },
     "/Message/ValidationMessage": {
-      "fileName": 1706,
+      "fileName": 1703,
       "framework": "vue"
     }
   },
@@ -61,6 +57,16 @@
       "story": "Primary",
       "parameters": {
         "__id": "button--primary",
+        "__isArgsStory": false
+      }
+    },
+    "button--quiet": {
+      "id": "button--quiet",
+      "name": "Quiet",
+      "kind": "/Button",
+      "story": "Quiet",
+      "parameters": {
+        "__id": "button--quiet",
         "__isArgsStory": false
       }
     },
@@ -171,26 +177,6 @@
       "story": "No Items",
       "parameters": {
         "__id": "optionsmenu--no-items",
-        "__isArgsStory": false
-      }
-    },
-    "button-quiet--text-only": {
-      "id": "button-quiet--text-only",
-      "name": "Text Only",
-      "kind": "/Button/Quiet",
-      "story": "Text Only",
-      "parameters": {
-        "__id": "button-quiet--text-only",
-        "__isArgsStory": false
-      }
-    },
-    "button-quiet--icon-only": {
-      "id": "button-quiet--icon-only",
-      "name": "Icon Only",
-      "kind": "/Button/Quiet",
-      "story": "Icon Only",
-      "parameters": {
-        "__id": "button-quiet--icon-only",
         "__isArgsStory": false
       }
     },
