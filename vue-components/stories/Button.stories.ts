@@ -14,8 +14,8 @@ export function normal(): Component {
 		// Do not use controls to change the type unless you actively decide that is better than having test coverage.
 		template: `
 			<div>
-				<Button variant="normal" type="neutral">Neutral</Button>
-				<Button variant="normal" type="neutral" disabled="true">Disabled</Button>
+				<Button>Neutral</Button>
+				<Button disabled>Disabled</Button>
 			</div>
 		`,
 	};
