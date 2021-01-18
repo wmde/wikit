@@ -4,9 +4,9 @@
 			type="checkbox"
 			:id="id"
 			class="wikit-checkbox__input"
-			@change="$emit( 'input', $event.target.checked )"
-			:value="nativeValue"
-			:checked="value"
+			@change="$emit( 'update:checked', $event.target.checked )"
+			:value="value"
+			:checked="checked"
 			:disabled="disabled"
 		>
 		<label
@@ -23,11 +23,11 @@ import generateUid from '@/components/util/generateUid';
 export default Vue.extend( {
 	name: 'Checkbox',
 	props: {
-		value: {
+		checked: {
 			required: true,
 			type: Boolean,
 		},
-		nativeValue: {
+		value: {
 			default: null,
 			type: String,
 		},

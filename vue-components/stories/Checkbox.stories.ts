@@ -9,16 +9,22 @@ export default {
 export function basic( args ): Component {
 	return {
 		data(): object {
-			return { args };
+			return { checked: false, };
 		},
 		components: { Checkbox },
 		props: Object.keys( args ),
 		template: `
 			<div>
-			<div><Checkbox 
-			:label="label" 
-			:value="false" 
-			:disabled="disabled"/></div>
+				<div>
+					<Checkbox
+						:label="label"
+						:checked.sync="checked"
+						:disabled="disabled"
+					/>
+				</div>
+				<p>
+					The checkbox is checked: {{ checked ? 'true' : 'false' }}
+				</p>
 			</div>
 		`,
 	};
@@ -29,13 +35,13 @@ export function all(): Component {
 		components: { Checkbox },
 		template: `
 			<div>
-				<div><Checkbox label="Checked" :value="true" /></div>
+				<div><Checkbox label="Checked" :checked="true" /></div>
 				<br>
-				<div><Checkbox label="Unchecked" :value="false" /></div>
+				<div><Checkbox label="Unchecked" :checked="false" /></div>
 				<br>
-				<div><Checkbox label="Checked disabled" :value="true" disabled="disabled"/></div>
+				<div><Checkbox label="Checked disabled" :checked="true" disabled="disabled"/></div>
 				<br>
-				<div><Checkbox label="Unchecked disabled" :value="false" disabled="disabled"/></div>
+				<div><Checkbox label="Unchecked disabled" :checked="false" disabled="disabled"/></div>
 			</div>
 		`,
 	};
@@ -57,13 +63,13 @@ basic.argTypes = {
 		},
 	},
 	value: {
-		control:{
-			disable:true,
-		}
+		control: {
+			disable: true,
+		},
 	},
-	nativeValue: {
-		control:{
-			disable:true,
-		}
-	}
+	checked: {
+		control: {
+			disable: true,
+		},
+	},
 };
