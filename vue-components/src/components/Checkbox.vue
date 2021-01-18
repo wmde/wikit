@@ -54,15 +54,10 @@ $label: '.wikit-checkbox__label';
 
 .wikit-checkbox {
 	&__label {
+		@include Label;
+
 		display: flex;
 		align-items: center;
-
-		// TODO: replace with Label mixin
-		color: $wikit-Label-font-color;
-		font-family: $wikit-Label-font-family;
-		font-size: $wikit-Label-font-size;
-		font-weight: $wikit-Label-font-weight;
-		line-height: $wikit-Label-line-height;
 
 		&::before {
 			width: $wikit-Checkbox-input-size;
