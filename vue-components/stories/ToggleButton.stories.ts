@@ -47,13 +47,11 @@ export function ProofOfConcept(): Component {
 				<ToggleButtonGroup
 					v-model="selectedOption"
 				>
-				  <template v-slot:default="slotProps">
+				  <template v-slot:default>
 					<ToggleButton
 					  v-for="option in options"
 					  :label="option.label"
 					  :value="option.value"
-					  :is-active="slotProps.selectedItem === option.value"
-					  @click="slotProps.listener"
 					/>
 				  </template>
 				</ToggleButtonGroup>

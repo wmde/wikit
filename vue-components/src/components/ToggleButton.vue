@@ -1,7 +1,7 @@
 <template>
 	<button
 		:class="['wikit', 'wikit-ToggleButton', isActive ? 'wikit-ToggleButton--isActive' : null]"
-		@click="$emit('click', value)"
+		@click="onClick"
 	>
 		{{ label }}
 	</button>
@@ -12,7 +12,19 @@ import Vue from 'vue';
 
 export default Vue.extend( {
 	name: 'ToggleButton',
+	methods: {
+		onClick(): void {
+			if ( this.listener ) {
+				this.listener( this.value );
+			}
+			this.$emit( 'click', this.value );
+		},
+	},
 	props: {
+		listener: {
+			type: Function,
+			default: null,
+		},
 		label: {
 			required: true,
 			type: String,
@@ -22,7 +34,7 @@ export default Vue.extend( {
 			type: String,
 		},
 		isActive: {
-			required: true,
+			default: false,
 			type: Boolean,
 		},
 	},
