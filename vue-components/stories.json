@@ -3,39 +3,43 @@
   "globalParameters": {},
   "kindParameters": {
     "/Button": {
-      "fileName": 1707,
-      "framework": "vue"
-    },
-    "Dropdown": {
-      "fileName": 1708,
-      "framework": "vue"
-    },
-    "Icon": {
-      "fileName": 1692,
-      "framework": "vue"
-    },
-    "/Input/Basic": {
-      "fileName": 1693,
-      "framework": "vue"
-    },
-    "/Lookup/Lookup": {
-      "fileName": 1709,
-      "framework": "vue"
-    },
-    "/Message/Message": {
       "fileName": 1710,
       "framework": "vue"
     },
-    "OptionsMenu": {
-      "fileName": 1700,
-      "framework": "vue"
-    },
-    "/Input/TextInput": {
+    "Checkbox": {
       "fileName": 1711,
       "framework": "vue"
     },
-    "/Message/ValidationMessage": {
+    "Dropdown": {
+      "fileName": 1712,
+      "framework": "vue"
+    },
+    "Icon": {
+      "fileName": 1695,
+      "framework": "vue"
+    },
+    "/Input/Basic": {
+      "fileName": 1696,
+      "framework": "vue"
+    },
+    "/Lookup/Lookup": {
+      "fileName": 1713,
+      "framework": "vue"
+    },
+    "/Message/Message": {
+      "fileName": 1714,
+      "framework": "vue"
+    },
+    "OptionsMenu": {
       "fileName": 1703,
+      "framework": "vue"
+    },
+    "/Input/TextInput": {
+      "fileName": 1715,
+      "framework": "vue"
+    },
+    "/Message/ValidationMessage": {
+      "fileName": 1706,
       "framework": "vue"
     }
   },
@@ -77,6 +81,26 @@
       "story": "Icon Only",
       "parameters": {
         "__id": "button--icon-only",
+        "__isArgsStory": false
+      }
+    },
+    "checkbox--basic": {
+      "id": "checkbox--basic",
+      "name": "Basic",
+      "kind": "Checkbox",
+      "story": "Basic",
+      "parameters": {
+        "__id": "checkbox--basic",
+        "__isArgsStory": true
+      }
+    },
+    "checkbox--all": {
+      "id": "checkbox--all",
+      "name": "All",
+      "kind": "Checkbox",
+      "story": "All",
+      "parameters": {
+        "__id": "checkbox--all",
         "__isArgsStory": false
       }
     },
