@@ -1,9 +1,9 @@
 <template>
 	<button
-		:class="['wikit', 'wikit-ToggleButton', isActive ? 'wikit-ToggleButton--isActive' : null]"
+		:class="['wikit', 'wikit-ToggleButton', buttonIsActive ? 'wikit-ToggleButton--isActive' : null]"
 		@click="onClick"
 	>
-		{{ label }}
+		<slot />
 	</button>
 </template>
 
@@ -14,20 +14,28 @@ export default Vue.extend( {
 	name: 'ToggleButton',
 	methods: {
 		onClick(): void {
-			if ( this.listener ) {
-				this.listener( this.value );
+			if ( this.toggleListener !== null ) {
+				this.toggleListener( this.value );
 			}
 			this.$emit( 'click', this.value );
+		},
+	},
+	inject: {
+		groupValue: { default: null },
+		toggleListener: { default: null },
+	},
+	computed: {
+		buttonIsActive(): boolean {
+			if ( this.groupValue !== null ) {
+				return this.groupValue() === this.value;
+			}
+			return this.isActive;
 		},
 	},
 	props: {
 		listener: {
 			type: Function,
 			default: null,
-		},
-		label: {
-			required: true,
-			type: String,
 		},
 		value: {
 			required: true,

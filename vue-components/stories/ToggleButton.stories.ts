@@ -50,9 +50,9 @@ export function ProofOfConcept(): Component {
 				  <template v-slot:default>
 					<ToggleButton
 					  v-for="option in options"
-					  :label="option.label"
 					  :value="option.value"
-					/>
+					  :key="option.value"
+					>{{ option.label }}</ToggleButton>
 				  </template>
 				</ToggleButtonGroup>
 			</div>
