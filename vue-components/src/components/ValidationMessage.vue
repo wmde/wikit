@@ -64,7 +64,6 @@ export default Vue.extend( {
 		//TODO: only introducing the following variable to work around exceeding stylelint max-len.
 		//`stylelint-disable` is also not working for some reason. Fixing this in a follow-up.
 		$padding-top: ( $wikit-ValidationMessage-line-height - $wikit-ValidationMessage-font-size ) / 2;
-		
 		padding-block-start: $padding-top;
 		margin-inline-end: $wikit-ValidationMessage-icon-margin-right;
 	}
