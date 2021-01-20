@@ -3,6 +3,7 @@
 		:class="['wikit', 'wikit-ToggleButton', buttonIsActive ? 'wikit-ToggleButton--isActive' : null]"
 		@click="onClick"
 	>
+		<!-- @slot required. add the content of the button here (label, icon, etc.) -->
 		<slot />
 	</button>
 </template>
@@ -17,8 +18,12 @@ export default ( Vue as VueConstructor<Vue & ToggleButtonGroupInjection> ).exten
 		onClick(): void {
 			if ( this.toggleListener !== null ) {
 				this.toggleListener( this.value );
+				return;
 			}
-			this.$emit( 'click', this.value );
+			/**
+			 * only emitted when not use as part of a ToggleButtonGroup
+			 */
+			this.$emit( 'click' );
 		},
 	},
 	inject: {
@@ -34,10 +39,17 @@ export default ( Vue as VueConstructor<Vue & ToggleButtonGroupInjection> ).exten
 		},
 	},
 	props: {
+		/**
+		 * required when the ToggleButton is used as part of a ToggleButtonGroup.
+		 */
 		value: {
 			default: null,
 			type: String,
 		},
+		/**
+		 * required when the ToggleButton is used as a standalone component.
+		 * Ignored when used as part of a ToggleButtonGroup
+		 */
 		isActive: {
 			default: false,
 			type: Boolean,
