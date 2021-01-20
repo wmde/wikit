@@ -7,9 +7,14 @@
 <script lang="ts">
 import Vue from 'vue';
 
+export interface ToggleButtonGroupInjection {
+	groupValue: ( () => string ) | null;
+	toggleListener: ( ( value: string ) => void ) | null;
+}
+
 export default Vue.extend( {
 	name: 'ToggleButtonGroup',
-	provide() {
+	provide(): ToggleButtonGroupInjection {
 		return {
 			groupValue: (): string => this.value,
 			toggleListener: ( event: string ): void => {

@@ -8,9 +8,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { VueConstructor } from 'vue';
+import { ToggleButtonGroupInjection } from '@/components/ToggleButtonGroup.vue';
 
-export default Vue.extend( {
+export default ( Vue as VueConstructor<Vue & ToggleButtonGroupInjection> ).extend( {
 	name: 'ToggleButton',
 	methods: {
 		onClick(): void {
@@ -23,7 +24,7 @@ export default Vue.extend( {
 	inject: {
 		groupValue: { default: null },
 		toggleListener: { default: null },
-	},
+	} as Record<keyof ToggleButtonGroupInjection, object>,
 	computed: {
 		buttonIsActive(): boolean {
 			if ( this.groupValue !== null ) {
@@ -33,12 +34,8 @@ export default Vue.extend( {
 		},
 	},
 	props: {
-		listener: {
-			type: Function,
-			default: null,
-		},
 		value: {
-			required: true,
+			default: null,
 			type: String,
 		},
 		isActive: {

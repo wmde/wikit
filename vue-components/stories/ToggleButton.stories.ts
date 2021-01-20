@@ -30,6 +30,7 @@ export function ProofOfConcept(): Component {
 		data(): unknown {
 			return {
 				selectedOption: '',
+				singleButtonIsActive: false,
 			};
 		},
 		computed: {
@@ -55,6 +56,12 @@ export function ProofOfConcept(): Component {
 					>{{ option.label }}</ToggleButton>
 				  </template>
 				</ToggleButtonGroup>
+				<br>
+				<br>
+				<ToggleButton
+				  :is-active="singleButtonIsActive"
+				  @click="() => singleButtonIsActive = !singleButtonIsActive"
+				>Single ToggleButton</ToggleButton>
 			</div>
 		`,
 	};
