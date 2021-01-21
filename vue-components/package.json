@@ -1,6 +1,6 @@
 {
   "name": "@wmde/wikit-vue-components",
-  "version": "2.0.0-alpha.2",
+  "version": "2.0.0-alpha.4",
   "description": "The component implementation of WiKit in vue",
   "author": {
     "name": "The Wikidata team"
@@ -34,7 +34,7 @@
   "types": "dist/main.d.ts",
   "dependencies": {
     "@vue/composition-api": "^1.0.0-beta.20",
-    "@wmde/wikit-tokens": "^2.0.0-alpha.2",
+    "@wmde/wikit-tokens": "^2.0.0-alpha.4",
     "core-js": "^3.7.0",
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
@@ -79,6 +79,7 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^7.0.35",
     "postcss-dir-pseudo-class": "^5.0.0",
+    "postcss-inline-svg": "^4.1.0",
     "postcss-logical": "^4.0.2",
     "postcss-selector-parser": "^6.0.4",
     "sass": "^1.29.0",

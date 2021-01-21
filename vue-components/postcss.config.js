@@ -6,5 +6,6 @@ module.exports = {
 		wikitScope,
 		require( 'postcss-logical' )( { preserve: true } ),
 		require( 'postcss-dir-pseudo-class' ),
+		require( 'postcss-inline-svg' )( { paths: [ 'src/assets/' ] } ),
 	],
 };

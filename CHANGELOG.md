@@ -26,6 +26,7 @@ development)_
 - New icon color `inherit` reuses the css `color` of the parent for the icon
 - Bouncing dots loader tokens file
 - New nativeType prop to the Button component
+- New Checkbox Component
 
 
 ### Changed
