@@ -60,8 +60,8 @@ $label: '.wikit-checkbox__label';
 		align-items: center;
 
 		&::before {
-			width: $wikit-Checkbox-input-size;
-			height: $wikit-Checkbox-input-size;
+			min-width: $wikit-Checkbox-input-size;
+			min-height: $wikit-Checkbox-input-size;
 			box-sizing: border-box;
 
 			border-width: $wikit-Checkbox-input-border-width;
