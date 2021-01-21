@@ -15,8 +15,8 @@ export function allTypes(): Component {
 		components: { Icon },
 		template: `
 			<div>
-				<div v-for="type in IconTypes" style="float: left; padding: 20px 50px; color: #555">
-					<Icon :type="type" />
+				<div v-for="type in IconTypes" style="float: left; padding: 20px 50px; color: #54595d; font-family: sans-serif">
+					<Icon :type="type" style="vertical-align: top;"  />
 					{{ type }}
 				</div>
 			</div>
@@ -32,8 +32,8 @@ export function allSizes(): Component {
 		components: { Icon },
 		template: `
 			<div>
-				<div v-for="size in iconSizes" style="float: left; padding: 20px 50px; color: #555">
-					<Icon type="info" :size="size" />
+				<div v-for="size in iconSizes" style="float: left; padding: 20px 50px; color: #54595d; font-family: sans-serif">
+					<Icon type="info" :size="size" style="vertical-align: top;" />
 					{{ size }}
 				</div>
 			</div>

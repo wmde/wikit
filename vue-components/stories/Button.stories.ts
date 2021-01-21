@@ -60,30 +60,30 @@ export function iconOnly(): Component {
 				<div>
 					<div style="margin-bottom:16px;">
 						<Button variant="normal" type="neutral" iconOnly aria-label="More Information">
-							<Icon type="info" size="large" color="inherit" />
+							<Icon type="info" size="large" color="inherit" style="vertical-align: top;" />
 						</Button>
 						<Button variant="primary" type="progressive" iconOnly aria-label="Edit">
-							<Icon type="edit" size="large" color="inherit" />
+							<Icon type="edit" size="large" color="inherit" style="vertical-align: top;" />
 						</Button>
 						<Button variant="primary"  type="destructive" iconOnly aria-label="Clear input">
-							<Icon type="clear" size="large" color="inherit" />
+							<Icon type="clear" size="large" color="inherit" style="vertical-align: top;" />
 						</Button>
 						<Button disabled="true" iconOnly aria-label="Remove row">
-							<Icon type="trash" size="large" color="inherit" />
+							<Icon type="trash" size="large" color="inherit" style="vertical-align: top;" />
 						</Button>
 					</div>
 					<div>
 						<Button variant="quiet" type="neutral" iconOnly aria-label="More Information">
-							<Icon type="info" size="large" color="inherit" />
+							<Icon type="info" size="large" color="inherit" style="vertical-align: top;" />
 						</Button>
 						<Button variant="quiet" type="progressive" iconOnly aria-label="Edit">
-							<Icon type="edit" size="large" color="inherit" />
+							<Icon type="edit" size="large" color="inherit" style="vertical-align: top;" />
 						</Button>
 						<Button variant="quiet"  type="destructive" iconOnly aria-label="Clear input">
-							<Icon type="clear" size="large" color="inherit" />
+							<Icon type="clear" size="large" color="inherit" style="vertical-align: top;" />
 						</Button>
 						<Button variant="quiet" disabled="true" iconOnly aria-label="Remove row">
-							<Icon type="trash" size="large" color="inherit" />
+							<Icon type="trash" size="large" color="inherit" style="vertical-align: top;" />
 						</Button>
 					</div>
 				</div>
