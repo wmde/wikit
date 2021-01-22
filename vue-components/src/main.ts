@@ -1,5 +1,7 @@
 import Button from './components/Button.vue';
 import TextInput from './components/TextInput.vue';
+import ToggleButton from './components/ToggleButton.vue';
+import ToggleButtonGroup from './components/ToggleButtonGroup.vue';
 import Lookup from './components/Lookup.vue';
 import Dropdown from './components/Dropdown.vue';
 import Message from './components/Message.vue';
@@ -9,6 +11,8 @@ export {
 	Button,
 	Dropdown,
 	TextInput,
+	ToggleButton,
+	ToggleButtonGroup,
 	Lookup,
 	Message,
 	Icon,

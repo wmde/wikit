@@ -65,6 +65,7 @@ export default ( Vue as VueConstructor<Vue & ToggleButtonGroupInjection> ).exten
 	font-weight: $wikit-ToggleButton-font-weight;
 	font-size: $wikit-ToggleButton-font-size;
 	line-height: $wikit-ToggleButton-line-height;
+	box-sizing: border-box;
 	border-width: $wikit-ToggleButton-border-width;
 	border-style: $wikit-ToggleButton-border-style;
 	border-radius: $wikit-ToggleButton-border-radius;
@@ -93,6 +94,17 @@ export default ( Vue as VueConstructor<Vue & ToggleButtonGroupInjection> ).exten
 		border-color: $wikit-ToggleButton-focus-border-color;
 		background-color: $wikit-ToggleButton-focus-background-color;
 		box-shadow: $wikit-ToggleButton-focus-box-shadow;
+	}
+
+	&:disabled {
+		color: $wikit-ToggleButton-disabled-color;
+		border-color: $wikit-ToggleButton-disabled-border-color;
+		background-color: $wikit-ToggleButton-disabled-background-color;
+	}
+
+	@media (max-width: $width-breakpoint-mobile) {
+		padding-inline: $wikit-ToggleButton-large-padding-horizontal;
+		padding-block: $wikit-ToggleButton-large-padding-vertical;
 	}
 }
 
