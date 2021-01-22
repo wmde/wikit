@@ -92,18 +92,33 @@ export default Vue.extend( {
 					break;
 				case 'ArrowUp':
 					this.keyboardHoveredItemIndex = Math.max( 0, this.keyboardHoveredItemIndex - 1 );
+
+					this.keyboardScroll();
 					break;
 				case 'ArrowDown':
 					this.keyboardHoveredItemIndex = Math.min(
 						this.menuItems.length - 1,
 						this.keyboardHoveredItemIndex + 1,
 					);
+
+					this.keyboardScroll();
 					break;
 				case 'Tab':
 					if ( this.keyboardHoveredItemIndex !== -1 ) {
 						this.$emit( 'select', this.menuItems[ this.keyboardHoveredItemIndex ] );
 					}
 					break;
+			}
+		},
+		keyboardScroll(): void {
+			const element = this.$refs[ 'menu-items' ] as HTMLElement[];
+
+			if ( this.keyboardHoveredItemIndex !== -1 ) {
+				element[ this.keyboardHoveredItemIndex ].scrollIntoView( {
+					behavior: 'smooth',
+					block: 'end',
+					inline: 'nearest',
+				} );
 			}
 		},
 		resizeMenu(): void {
