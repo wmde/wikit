@@ -223,27 +223,35 @@ describe( 'Lookup', () => {
 		expect( OptionsMenuWrapper.vm.$data.keyboardHoveredItemIndex ).toBe( -1 );
 		expect( wrapper.find( highlightedItemLabelSelector ).exists() ).toBe( false );
 
+		const scrollIntoViewMock = jest.fn();
+		Element.prototype.scrollIntoView = scrollIntoViewMock;
+
 		wrapper.trigger( 'keydown', { key: 'ArrowDown' } );
+		expect( scrollIntoViewMock ).toHaveBeenCalled();
 		await Vue.nextTick();
 		expect( OptionsMenuWrapper.vm.$data.keyboardHoveredItemIndex ).toBe( 0 );
 		expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'potato' );
 
 		wrapper.trigger( 'keydown', { key: 'ArrowDown' } );
+		expect( scrollIntoViewMock ).toHaveBeenCalled();
 		await Vue.nextTick();
 		expect( OptionsMenuWrapper.vm.$data.keyboardHoveredItemIndex ).toBe( 1 );
 		expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'duck' );
 
 		wrapper.trigger( 'keydown', { key: 'ArrowDown' } );
+		expect( scrollIntoViewMock ).toHaveBeenCalled();
 		await Vue.nextTick();
 		expect( OptionsMenuWrapper.vm.$data.keyboardHoveredItemIndex ).toBe( 1 );
 		expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'duck' );
 
 		wrapper.trigger( 'keydown', { key: 'ArrowUp' } );
+		expect( scrollIntoViewMock ).toHaveBeenCalled();
 		await Vue.nextTick();
 		expect( OptionsMenuWrapper.vm.$data.keyboardHoveredItemIndex ).toBe( 0 );
 		expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'potato' );
 
 		wrapper.trigger( 'keydown', { key: 'ArrowUp' } );
+		expect( scrollIntoViewMock ).toHaveBeenCalled();
 		await Vue.nextTick();
 		expect( OptionsMenuWrapper.vm.$data.keyboardHoveredItemIndex ).toBe( 0 );
 		expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'potato' );
