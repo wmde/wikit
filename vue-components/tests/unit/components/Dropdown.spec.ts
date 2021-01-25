@@ -76,10 +76,24 @@ describe( 'Dropdown', () => {
 	} );
 
 	it( 'shows the Dropdown menu on pressing Arrow-down', async () => {
-		const wrapper = mount( Dropdown );
-		wrapper.trigger( 'keydown', { key: 'ArrowDown' } );
+		const menuItems = [
+			{ label: 'potato', description: 'root vegetable' },
+		];
 
+		const wrapper = mount( Dropdown, {
+			propsData: {
+				value: { label: 'duck', description: 'aquatic bird' },
+				allowLooping: true,
+				menuItems,
+			},
+		} );
+
+		const scrollIntoViewMock = jest.fn();
+		Element.prototype.scrollIntoView = scrollIntoViewMock;
+
+		wrapper.trigger( 'keydown', { key: 'ArrowDown' } );
 		await Vue.nextTick();
+
 		expect( wrapper.findComponent( OptionsMenu ).isVisible() ).toBe( true );
 	} );
 
@@ -161,14 +175,14 @@ describe( 'Dropdown', () => {
 			wrapper.trigger( 'keydown', { key: 'ArrowDown' } );
 			expect( scrollIntoViewMock ).toHaveBeenCalled();
 			await Vue.nextTick();
-			expect( OptionsMenuWrapper.vm.$data.keyboardHoveredItemIndex ).toBe( 1 );
-			expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'duck' );
+			expect( OptionsMenuWrapper.vm.$data.keyboardHoveredItemIndex ).toBe( 0 );
+			expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'potato' );
 
 			wrapper.trigger( 'keydown', { key: 'ArrowUp' } );
 			expect( scrollIntoViewMock ).toHaveBeenCalled();
 			await Vue.nextTick();
-			expect( OptionsMenuWrapper.vm.$data.keyboardHoveredItemIndex ).toBe( 0 );
-			expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'potato' );
+			expect( OptionsMenuWrapper.vm.$data.keyboardHoveredItemIndex ).toBe( 1 );
+			expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'duck' );
 
 			wrapper.trigger( 'keydown', { key: 'ArrowUp' } );
 			expect( scrollIntoViewMock ).toHaveBeenCalled();

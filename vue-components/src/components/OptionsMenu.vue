@@ -77,6 +77,13 @@ export default Vue.extend( {
 			type: Number,
 			default: -1,
 		},
+		/* If set to true, it wiil allow the user to loop through the menu using keyboard.
+		 * i.e, when the user presses the arrow down key on the last menu item, it jumps back to top and vise versa
+		 */
+		allowLooping: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	methods: {
 		onKeyDown( event: KeyboardEvent ): void {
@@ -91,16 +98,25 @@ export default Vue.extend( {
 					this.$emit( 'esc' );
 					break;
 				case 'ArrowUp':
-					this.keyboardHoveredItemIndex = Math.max( 0, this.keyboardHoveredItemIndex - 1 );
+					if ( this.allowLooping && this.keyboardHoveredItemIndex === 0 ) {
+						// loop to the bottom of the menu
+						this.keyboardHoveredItemIndex = this.menuItems.length - 1;
+					} else {
+						this.keyboardHoveredItemIndex = Math.max( 0, this.keyboardHoveredItemIndex - 1 );
+					}
 
 					this.keyboardScroll();
 					break;
 				case 'ArrowDown':
-					this.keyboardHoveredItemIndex = Math.min(
-						this.menuItems.length - 1,
-						this.keyboardHoveredItemIndex + 1,
-					);
-
+					if ( this.allowLooping && this.keyboardHoveredItemIndex === this.menuItems.length - 1 ) {
+						// go back to the top of the menu
+						this.keyboardHoveredItemIndex = 0;
+					} else {
+						this.keyboardHoveredItemIndex = Math.min(
+							this.menuItems.length - 1,
+							this.keyboardHoveredItemIndex + 1,
+						);
+					}
 					this.keyboardScroll();
 					break;
 				case 'Tab':
