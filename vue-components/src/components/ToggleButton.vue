@@ -94,6 +94,7 @@ export default ( Vue as VueConstructor<Vue & ToggleButtonGroupInjection> ).exten
 		border-color: $wikit-ToggleButton-focus-border-color;
 		background-color: $wikit-ToggleButton-focus-background-color;
 		box-shadow: $wikit-ToggleButton-focus-box-shadow;
+		outline: none;
 	}
 
 	&:disabled {
