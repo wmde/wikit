@@ -1,4 +1,5 @@
 import Button from './components/Button.vue';
+import Checkbox from './components/Checkbox.vue';
 import TextInput from './components/TextInput.vue';
 import ToggleButton from './components/ToggleButton.vue';
 import ToggleButtonGroup from './components/ToggleButtonGroup.vue';
@@ -9,6 +10,7 @@ import Icon from './components/Icon.vue';
 
 export {
 	Button,
+	Checkbox,
 	Dropdown,
 	TextInput,
 	ToggleButton,

@@ -156,7 +156,6 @@ export default Vue.extend( {
 <style lang="scss">
 .wikit-Icon {
 	display: inline-flex;
-	vertical-align: middle;
 	align-items: center;
 
 	&--base {

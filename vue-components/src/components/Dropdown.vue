@@ -34,6 +34,7 @@
 			class="wikit-Dropdown__menu"
 			:menu-items="menuItems"
 			:selected-item-index="selectedItemIndex"
+			:allow-looping="true"
 			v-show="showMenu"
 			@select="onSelect"
 			@esc="onEsc"
@@ -253,8 +254,7 @@ $base: '.wikit-Dropdown';
 	}
 
 	&__label {
-		@include Label;
-		display: block;
+		@include Label( block );
 	}
 }
 </style>
