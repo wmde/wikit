@@ -116,6 +116,7 @@ export default ( Vue as VueConstructor<Vue & ToggleButtonGroupInjection> ).exten
 
 	&:focus {
 		box-shadow: $wikit-ToggleButton-selected-focus-box-shadow;
+		outline: none;
 	}
 }
 
