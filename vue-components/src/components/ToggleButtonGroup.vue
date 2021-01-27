@@ -31,53 +31,33 @@ export default Vue.extend( {
 } );
 </script>
 <style lang="scss">
-.wikit-ToggleButtonGroup :not(:last-child) {
-	border-inline-end: none;
-	border-start-end-radius: 0;
-	border-end-end-radius: 0;
-}
-
-.wikit-ToggleButtonGroup :not(:first-child) {
-	border-start-start-radius: 0;
-	border-end-start-radius: 0;
-}
-
-.wikit-ToggleButtonGroup :not(:first-child) {
-	border-start-start-radius: 0;
-	border-end-start-radius: 0;
-}
-
-.wikit-ToggleButtonGroup :disabled {
-	border-block: none;
-}
-
-.wikit-ToggleButtonGroup :focus {
-	outline: none;
-}
-
-.wikit-ToggleButtonGroup :not(:first-child):disabled {
-	border-inline-start-color: $color-base-100;
-}
-
 .wikit-ToggleButtonGroup {
-	[dir='ltr'] & :not(:first-child) {
-		border-top-left-radius: 0;
-		border-bottom-left-radius: 0;
+	:not(:last-child) {
+		border-inline-end: none;
+		border-start-end-radius: 0;
+		border-end-end-radius: 0;
 	}
 
-	[dir='rtl'] & :not(:first-child) {
-		border-top-right-radius: 0;
-		border-bottom-right-radius: 0;
+	:not(:first-child) {
+		border-start-start-radius: 0;
+		border-end-start-radius: 0;
 	}
 
-	[dir='ltr'] & :not(:last-child) {
-		border-top-right-radius: 0;
-		border-bottom-right-radius: 0;
+	:not(:first-child) {
+		border-start-start-radius: 0;
+		border-end-start-radius: 0;
 	}
 
-	[dir='rtl'] & :not(:last-child) {
-		border-top-left-radius: 0;
-		border-bottom-left-radius: 0;
+	:disabled {
+		border-block: none;
+	}
+
+	:focus {
+		outline: none;
+	}
+
+	:not(:first-child):disabled {
+		border-inline-start-color: $color-base-100;
 	}
 }
 
