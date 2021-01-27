@@ -2,6 +2,7 @@ export enum IconTypes {
 	ALERT = 'alert',
 	ERROR = 'error',
 	INFO = 'info',
+	NEWWINDOW = 'newwindow',
 	CHECKMARK = 'checkmark',
 	CLEAR = 'clear',
 	EDIT = 'edit',
