@@ -27,7 +27,7 @@ development)_
 - Bouncing dots loader tokens file
 - New nativeType prop to the Button component
 - New Checkbox Component
-
+- New ToggleButton and ToggleButtonGroup components
 
 ### Changed
 
