@@ -3,43 +3,47 @@
   "globalParameters": {},
   "kindParameters": {
     "/Button": {
-      "fileName": 1710,
+      "fileName": 1717,
       "framework": "vue"
     },
     "Checkbox": {
-      "fileName": 1711,
+      "fileName": 1718,
       "framework": "vue"
     },
     "Dropdown": {
-      "fileName": 1712,
+      "fileName": 1719,
       "framework": "vue"
     },
     "Icon": {
-      "fileName": 1695,
+      "fileName": 1697,
       "framework": "vue"
     },
     "/Input/Basic": {
-      "fileName": 1696,
+      "fileName": 1698,
       "framework": "vue"
     },
     "/Lookup/Lookup": {
-      "fileName": 1713,
+      "fileName": 1720,
       "framework": "vue"
     },
     "/Message/Message": {
-      "fileName": 1714,
+      "fileName": 1721,
       "framework": "vue"
     },
     "OptionsMenu": {
-      "fileName": 1703,
+      "fileName": 1705,
       "framework": "vue"
     },
     "/Input/TextInput": {
+      "fileName": 1722,
+      "framework": "vue"
+    },
+    "ToggleButton": {
       "fileName": 1715,
       "framework": "vue"
     },
     "/Message/ValidationMessage": {
-      "fileName": 1706,
+      "fileName": 1712,
       "framework": "vue"
     }
   },
@@ -211,6 +215,36 @@
       "story": "All",
       "parameters": {
         "__id": "input-textinput--all",
+        "__isArgsStory": false
+      }
+    },
+    "togglebutton--basic": {
+      "id": "togglebutton--basic",
+      "name": "Basic",
+      "kind": "ToggleButton",
+      "story": "Basic",
+      "parameters": {
+        "__id": "togglebutton--basic",
+        "__isArgsStory": true
+      }
+    },
+    "togglebutton--all": {
+      "id": "togglebutton--all",
+      "name": "All",
+      "kind": "ToggleButton",
+      "story": "All",
+      "parameters": {
+        "__id": "togglebutton--all",
+        "__isArgsStory": false
+      }
+    },
+    "togglebutton--group": {
+      "id": "togglebutton--group",
+      "name": "Group",
+      "kind": "ToggleButton",
+      "story": "Group",
+      "parameters": {
+        "__id": "togglebutton--group",
         "__isArgsStory": false
       }
     },
