@@ -1,0 +1,69 @@
+{
+    "wikit-Popover": {
+        "color": {
+            "value": "{font.color.base.value}"
+        },
+        "font-family": {
+            "value": "{font.family.style.body.value}"
+        },
+        "font-size": {
+            "value": "{font.size.style.body-s.value}"
+        },
+        "font-weight": {
+            "value": "{font.weight.style.body.value}"
+        },
+        "line-height": {
+            "value": "{font.line-height.style.body-s.value}"
+        },
+        "spacing": {
+            "value": "{dimension.spacing.medium.value}"
+        },
+        "border-style": {
+            "value": "{border.style.base.value}"
+        },
+        "border-width": {
+            "value": "{border.width.thin.value}"
+        },
+        "border-color": {
+            "value": "{border.color.base.subtle.value}"
+        },
+        "border-radius": {
+            "value": "{border.radius.base.value}"
+        },
+        "background-color": {
+            "value": "{background.color.base.default.value}"
+        },
+        "max-width": {
+            "value": "{dimension.width.large.value}"
+        },
+        "elevation": {
+            "value": "{box-shadow.elevation.dialog.value}"
+        },
+        "transition": {
+            "delay": {
+                "value":"{transition.duration.fast.value}",
+                "comment": "Show and hide delays"
+            }
+        },
+        "margin": {
+            "value": "{dimension.spacing.small.value}",
+            "comment": "Space between popover and trigger: Unsure of whether this should be named offset, and how to proceed in case negative values are needed depending on the popover position"
+        },
+        "pointer":  {
+            "width": {
+                "value": "{dimension.spacing.xxlarge.value}"
+            },
+            "height": {
+                "value": "{dimension.spacing.small.value}"
+            },
+            "margin": {
+                "horizontal": {
+                    "value": "{dimension.spacing.medium.value}"
+                },
+                "vertical": {
+                    "value": "{dimension.spacing.small.value}"
+                }
+            }
+        }
+    }
+}
