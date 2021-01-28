@@ -29,6 +29,7 @@ development)_
 - New Checkbox Component
 - New ToggleButton and ToggleButtonGroup components
 - Added new icon type for new window
+- Add new icon type for link 
 
 ### Changed
 
