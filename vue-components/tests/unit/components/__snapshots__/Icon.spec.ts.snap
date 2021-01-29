@@ -18,7 +18,7 @@ exports[`Icon renders a clear icon given type "clear" 1`] = `
 </span>
 `;
 
-exports[`Icon renders a clear icon given type "link" 1`] = `
+exports[`Icon renders a link icon given type "link" 1`] = `
 <span
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >
