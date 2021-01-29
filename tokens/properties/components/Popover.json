@@ -15,7 +15,7 @@
         "line-height": {
             "value": "{font.line-height.style.body-s.value}"
         },
-        "spacing": {
+        "padding": {
             "value": "{dimension.spacing.medium.value}"
         },
         "border-style": {
@@ -46,7 +46,7 @@
             }
         },
         "margin": {
-            "value": "{dimension.spacing.small.value}",
+            "value": "{dimension.spacing.xsmall.value}",
             "comment": "Space between popover and trigger: Unsure of whether this should be named offset, and how to proceed in case negative values are needed depending on the popover position"
         },
         "pointer":  {
