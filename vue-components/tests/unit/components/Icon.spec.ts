@@ -54,12 +54,11 @@ describe( 'Icon', () => {
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 
-
 	it( 'renders a newwindow icon given type "newwindow"', () => {
 		const wrapper = mount( Icon, {
 			propsData: {
 				type: 'newwindow',
-        			},
+			},
 		} );
 
 		expect( wrapper.element ).toMatchSnapshot();
