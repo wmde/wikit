@@ -54,6 +54,16 @@ describe( 'Icon', () => {
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 
+	it( 'renders a clear icon given type "link"', () => {
+		const wrapper = mount( Icon, {
+			propsData: {
+				type: 'link',
+			},
+		} );
+
+		expect( wrapper.element ).toMatchSnapshot();
+	} );
+
 	it( 'renders an outlined info icon given type "info-outlined"', () => {
 		const wrapper = mount( Icon, {
 			propsData: {
