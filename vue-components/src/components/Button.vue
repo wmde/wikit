@@ -127,6 +127,13 @@ $base: '.wikit-Button';
 			background-color: $wikit-Button-normal-neutral-background-color;
 			border-color: $wikit-Button-normal-neutral-border-color;
 
+			&:focus {
+				color: $wikit-Button-normal-neutral-focus-color;
+				background-color: $wikit-Button-normal-neutral-focus-background-color;
+				border-color: $wikit-Button-normal-neutral-focus-border-color;
+				box-shadow: $wikit-Button-normal-neutral-focus-box-shadow;
+			}
+
 			&:hover {
 				color: $wikit-Button-normal-neutral-hover-color;
 				background-color: $wikit-Button-normal-neutral-hover-background-color;
@@ -137,13 +144,7 @@ $base: '.wikit-Button';
 				color: $wikit-Button-normal-neutral-active-color;
 				background-color: $wikit-Button-normal-neutral-active-background-color;
 				border-color: $wikit-Button-normal-neutral-active-border-color;
-			}
-			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
-			&:focus:not(:active) {
-				color: $wikit-Button-normal-neutral-focus-color;
-				background-color: $wikit-Button-normal-neutral-focus-background-color;
-				border-color: $wikit-Button-normal-neutral-focus-border-color;
-				box-shadow: $wikit-Button-normal-neutral-focus-box-shadow;
+				box-shadow: none;
 			}
 		}
 	}
@@ -154,6 +155,12 @@ $base: '.wikit-Button';
 			background-color: $wikit-Button-primary-progressive-background-color;
 			border-color: $wikit-Button-primary-progressive-border-color;
 
+			&:focus {
+				background-color: $wikit-Button-primary-progressive-focus-background-color;
+				border-color: $wikit-Button-primary-progressive-focus-border-color;
+				box-shadow: $wikit-Button-primary-progressive-focus-box-shadow;
+			}
+
 			&:hover {
 				background-color: $wikit-Button-primary-progressive-hover-background-color;
 				border-color: $wikit-Button-primary-progressive-hover-border-color;
@@ -162,13 +169,7 @@ $base: '.wikit-Button';
 			&:active {
 				background-color: $wikit-Button-primary-progressive-active-background-color;
 				border-color: $wikit-Button-primary-progressive-active-border-color;
-			}
-
-			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
-			&:focus:not(:active) {
-				background-color: $wikit-Button-primary-progressive-focus-background-color;
-				border-color: $wikit-Button-primary-progressive-focus-border-color;
-				box-shadow: $wikit-Button-primary-progressive-focus-box-shadow;
+				box-shadow: none;
 			}
 		}
 
@@ -176,6 +177,12 @@ $base: '.wikit-Button';
 			color: $wikit-Button-primary-color;
 			background-color: $wikit-Button-primary-destructive-background-color;
 			border-color: $wikit-Button-primary-destructive-border-color;
+
+			&:focus {
+				background-color: $wikit-Button-primary-destructive-focus-background-color;
+				border-color: $wikit-Button-primary-destructive-focus-border-color;
+				box-shadow: $wikit-Button-primary-destructive-focus-box-shadow;
+			}
 
 			&:hover {
 				background-color: $wikit-Button-primary-destructive-hover-background-color;
@@ -185,13 +192,7 @@ $base: '.wikit-Button';
 			&:active {
 				background-color: $wikit-Button-primary-destructive-active-background-color;
 				border-color: $wikit-Button-primary-destructive-active-border-color;
-			}
-
-			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
-			&:focus:not(:active) {
-				background-color: $wikit-Button-primary-destructive-focus-background-color;
-				border-color: $wikit-Button-primary-destructive-focus-border-color;
-				box-shadow: $wikit-Button-primary-destructive-focus-box-shadow;
+				box-shadow: none;
 			}
 		}
 	}
@@ -211,6 +212,13 @@ $base: '.wikit-Button';
 			background-color: $wikit-Button-quiet-background-color;
 			border-color: $wikit-Button-quiet-border-color;
 
+			&:focus {
+				color: $wikit-Button-quiet-neutral-focus-color;
+				background-color: $wikit-Button-quiet-neutral-focus-background-color;
+				border-color: $wikit-Button-quiet-neutral-focus-border-color;
+				box-shadow: $wikit-Button-quiet-neutral-focus-box-shadow;
+			}
+
 			&:hover {
 				color: $wikit-Button-quiet-neutral-hover-color;
 				background-color: $wikit-Button-quiet-neutral-hover-background-color;
@@ -221,20 +229,21 @@ $base: '.wikit-Button';
 				color: $wikit-Button-quiet-neutral-active-color;
 				background-color: $wikit-Button-quiet-neutral-active-background-color;
 				border-color: $wikit-Button-quiet-neutral-active-border-color;
-			}
-
-			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
-			&:focus:not(:active) {
-				color: $wikit-Button-quiet-neutral-focus-color;
-				background-color: $wikit-Button-quiet-neutral-focus-background-color;
-				border-color: $wikit-Button-quiet-neutral-focus-border-color;
-				box-shadow: $wikit-Button-quiet-neutral-focus-box-shadow;
+				box-shadow: none;
 			}
 		}
+
 		&#{$base}--progressive {
 			color: $wikit-Button-quiet-progressive-color;
 			background-color: $wikit-Button-quiet-background-color;
 			border-color: $wikit-Button-quiet-border-color;
+
+			&:focus {
+				color: $wikit-Button-quiet-progressive-focus-color;
+				background-color: $wikit-Button-quiet-progressive-focus-background-color;
+				border-color: $wikit-Button-quiet-progressive-focus-border-color;
+				box-shadow: $wikit-Button-quiet-progressive-focus-box-shadow;
+			}
 
 			&:hover {
 				color: $wikit-Button-quiet-progressive-hover-color;
@@ -246,20 +255,21 @@ $base: '.wikit-Button';
 				color: $wikit-Button-quiet-progressive-active-color;
 				background-color: $wikit-Button-quiet-progressive-active-background-color;
 				border-color: $wikit-Button-quiet-progressive-active-border-color;
-			}
-
-			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
-			&:focus:not(:active) {
-				color: $wikit-Button-quiet-progressive-focus-color;
-				background-color: $wikit-Button-quiet-progressive-focus-background-color;
-				border-color: $wikit-Button-quiet-progressive-focus-border-color;
-				box-shadow: $wikit-Button-quiet-progressive-focus-box-shadow;
+				box-shadow: none;
 			}
 		}
+
 		&#{$base}--destructive {
 			color: $wikit-Button-quiet-destructive-color;
 			background-color: $wikit-Button-quiet-background-color;
 			border-color: $wikit-Button-quiet-border-color;
+
+			&:focus {
+				color: $wikit-Button-quiet-destructive-focus-color;
+				background-color: $wikit-Button-quiet-destructive-focus-background-color;
+				border-color: $wikit-Button-quiet-destructive-focus-border-color;
+				box-shadow: $wikit-Button-quiet-destructive-focus-box-shadow;
+			}
 
 			&:hover {
 				color: $wikit-Button-quiet-destructive-hover-color;
@@ -271,14 +281,7 @@ $base: '.wikit-Button';
 				color: $wikit-Button-quiet-destructive-active-color;
 				background-color: $wikit-Button-quiet-destructive-active-background-color;
 				border-color: $wikit-Button-quiet-destructive-active-border-color;
-			}
-
-			// A clicked button is both :active and :focused. Using :not(:active) to avoid mixing the two.
-			&:focus:not(:active) {
-				color: $wikit-Button-quiet-destructive-focus-color;
-				background-color: $wikit-Button-quiet-destructive-focus-background-color;
-				border-color: $wikit-Button-quiet-destructive-focus-border-color;
-				box-shadow: $wikit-Button-quiet-destructive-focus-box-shadow;
+				box-shadow: none;
 			}
 		}
 	}
