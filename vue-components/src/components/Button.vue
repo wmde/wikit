@@ -137,7 +137,10 @@ $base: '.wikit-Button';
 			&:hover {
 				color: $wikit-Button-normal-neutral-hover-color;
 				background-color: $wikit-Button-normal-neutral-hover-background-color;
-				border-color: $wikit-Button-normal-neutral-hover-border-color;
+
+				&:not(:focus) {
+					border-color: $wikit-Button-normal-neutral-hover-border-color;
+				}
 			}
 
 			&:active {
@@ -163,7 +166,10 @@ $base: '.wikit-Button';
 
 			&:hover {
 				background-color: $wikit-Button-primary-progressive-hover-background-color;
-				border-color: $wikit-Button-primary-progressive-hover-border-color;
+
+				&:not(:focus) {
+					border-color: $wikit-Button-primary-progressive-hover-border-color;
+				}
 			}
 
 			&:active {
@@ -186,7 +192,10 @@ $base: '.wikit-Button';
 
 			&:hover {
 				background-color: $wikit-Button-primary-destructive-hover-background-color;
-				border-color: $wikit-Button-primary-destructive-hover-border-color;
+
+				&:not(:focus){
+					border-color: $wikit-Button-primary-destructive-hover-border-color;
+				}
 			}
 
 			&:active {
@@ -222,7 +231,10 @@ $base: '.wikit-Button';
 			&:hover {
 				color: $wikit-Button-quiet-neutral-hover-color;
 				background-color: $wikit-Button-quiet-neutral-hover-background-color;
-				border-color: $wikit-Button-quiet-neutral-hover-border-color;
+
+				&:not(:focus){
+					border-color: $wikit-Button-quiet-neutral-hover-border-color;
+				}
 			}
 
 			&:active {
@@ -248,7 +260,10 @@ $base: '.wikit-Button';
 			&:hover {
 				color: $wikit-Button-quiet-progressive-hover-color;
 				background-color: $wikit-Button-quiet-progressive-hover-background-color;
-				border-color: $wikit-Button-quiet-progressive-hover-border-color;
+
+				&:not(:focus){
+					border-color: $wikit-Button-quiet-progressive-hover-border-color;
+				}
 			}
 
 			&:active {
@@ -274,7 +289,10 @@ $base: '.wikit-Button';
 			&:hover {
 				color: $wikit-Button-quiet-destructive-hover-color;
 				background-color: $wikit-Button-quiet-destructive-hover-background-color;
-				border-color: $wikit-Button-quiet-destructive-hover-border-color;
+
+				&:not(:focus){
+					border-color: $wikit-Button-quiet-destructive-hover-border-color;
+				}
 			}
 
 			&:active {
