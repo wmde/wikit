@@ -187,7 +187,8 @@ $base: '.wikit-OptionsMenu';
 
 #{$base} {
 	min-width: $wikit-OptionsMenu-min-width;
-	max-width: $wikit-OptionsMenu-max-width;
+	/* Uses CSS min, Falls back on 95vw when max-width > viewport width */
+	max-width: #{min}($wikit-OptionsMenu-max-width, 95vw);
 	width: max-content;
 	background-color: $wikit-OptionsMenu-background-color;
 	border-radius: $wikit-OptionsMenu-border-radius;
