@@ -15,16 +15,18 @@ The Wikibase Design System and home of WMDE-supported component implementations.
 
 This project uses [lerna](https://lerna.js.org/) to orchestrate multiple packages.
 
+The following examples use `docker` and `docker-compose` to ease creating a level playing field for development but they are not essential to this project.
+
 ### Installation
 
 ```sh
-npm install
+docker-compose run --rm --user=$(id -u):$(id -g) node npm install
 ```
 
 ### Running tests
 
 ```sh
-npm run test
+docker-compose run --rm --user=$(id -u):$(id -g) node npm run test
 ```
 
 ### Running browser tests
@@ -78,7 +80,7 @@ As usual, docker-compose also allows for those services to be started independen
 Run the following command to automatically rebuild the tokens in all output formats during development when changing one of the json source files:
 
 ```sh
-npm run -- lerna run watch --stream
+docker-compose run --rm --user=$(id -u):$(id -g) node npm run -- lerna run watch --stream
 ```
 
 This way you don't have to manually run the `build:tokens` command for every token change.
