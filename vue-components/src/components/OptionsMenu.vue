@@ -77,6 +77,13 @@ export default Vue.extend( {
 			type: Number,
 			default: -1,
 		},
+		/* If set to true, it wiil allow the user to loop through the menu using keyboard.
+		 * i.e, when the user presses the arrow down key on the last menu item, it jumps back to top and vise versa
+		 */
+		allowLooping: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	methods: {
 		onKeyDown( event: KeyboardEvent ): void {
@@ -91,19 +98,43 @@ export default Vue.extend( {
 					this.$emit( 'esc' );
 					break;
 				case 'ArrowUp':
-					this.keyboardHoveredItemIndex = Math.max( 0, this.keyboardHoveredItemIndex - 1 );
+					if ( this.allowLooping && this.keyboardHoveredItemIndex === 0 ) {
+						// loop to the bottom of the menu
+						this.keyboardHoveredItemIndex = this.menuItems.length - 1;
+					} else {
+						this.keyboardHoveredItemIndex = Math.max( 0, this.keyboardHoveredItemIndex - 1 );
+					}
+
+					this.keyboardScroll();
 					break;
 				case 'ArrowDown':
-					this.keyboardHoveredItemIndex = Math.min(
-						this.menuItems.length - 1,
-						this.keyboardHoveredItemIndex + 1,
-					);
+					if ( this.allowLooping && this.keyboardHoveredItemIndex === this.menuItems.length - 1 ) {
+						// go back to the top of the menu
+						this.keyboardHoveredItemIndex = 0;
+					} else {
+						this.keyboardHoveredItemIndex = Math.min(
+							this.menuItems.length - 1,
+							this.keyboardHoveredItemIndex + 1,
+						);
+					}
+					this.keyboardScroll();
 					break;
 				case 'Tab':
 					if ( this.keyboardHoveredItemIndex !== -1 ) {
 						this.$emit( 'select', this.menuItems[ this.keyboardHoveredItemIndex ] );
 					}
 					break;
+			}
+		},
+		keyboardScroll(): void {
+			const element = this.$refs[ 'menu-items' ] as HTMLElement[];
+
+			if ( this.keyboardHoveredItemIndex !== -1 ) {
+				element[ this.keyboardHoveredItemIndex ].scrollIntoView( {
+					behavior: 'smooth',
+					block: 'end',
+					inline: 'nearest',
+				} );
 			}
 		},
 		resizeMenu(): void {
@@ -156,7 +187,8 @@ $base: '.wikit-OptionsMenu';
 
 #{$base} {
 	min-width: $wikit-OptionsMenu-min-width;
-	max-width: $wikit-OptionsMenu-max-width;
+	/* Uses CSS min, Falls back on 95vw when max-width > viewport width */
+	max-width: #{min}($wikit-OptionsMenu-max-width, 95vw);
 	width: max-content;
 	background-color: $wikit-OptionsMenu-background-color;
 	border-radius: $wikit-OptionsMenu-border-radius;
