@@ -57,6 +57,29 @@ exports[`Icon renders a clear icon given type "link" 1`] = `
 </span>
 `;
 
+exports[`Icon renders a newwindow icon given type "newwindow" 1`] = `
+<span
+  class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
+>
+  <svg
+    class="wikit-Icon__svg"
+    fill="none"
+    viewBox="0 0 20 20"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M17 17H3V3H8V1H3C2.46957 1 1.96086 1.21071 1.58579 1.58579C1.21071 1.96086 1 2.46957 1 3V17C1 17.5304 1.21071 18.0391 1.58579 18.4142C1.96086 18.7893 2.46957 19 3 19H17C17.5304 19 18.0391 18.7893 18.4142 18.4142C18.7893 18.0391 19 17.5304 19 17V12H17V17Z"
+      fill="currentColor"
+    />
+     
+    <path
+      d="M11 1L14.29 4.29L8.56 10.02L9.98 11.44L15.71 5.71L19 9V1H11Z"
+      fill="currentColor"
+    />
+  </svg>
+</span>
+`;
+
 exports[`Icon renders an alert icon given type "alert" 1`] = `
 <span
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
