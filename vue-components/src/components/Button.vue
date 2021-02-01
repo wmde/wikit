@@ -137,10 +137,6 @@ $base: '.wikit-Button';
 			&:hover {
 				color: $wikit-Button-normal-neutral-hover-color;
 				background-color: $wikit-Button-normal-neutral-hover-background-color;
-
-				&:not(:focus) {
-					border-color: $wikit-Button-normal-neutral-hover-border-color;
-				}
 			}
 
 			&:active {
@@ -148,6 +144,10 @@ $base: '.wikit-Button';
 				background-color: $wikit-Button-normal-neutral-active-background-color;
 				border-color: $wikit-Button-normal-neutral-active-border-color;
 				box-shadow: none;
+			}
+
+			&:hover:not(:focus) {
+				border-color: $wikit-Button-normal-neutral-hover-border-color;
 			}
 		}
 	}
@@ -166,16 +166,16 @@ $base: '.wikit-Button';
 
 			&:hover {
 				background-color: $wikit-Button-primary-progressive-hover-background-color;
-
-				&:not(:focus) {
-					border-color: $wikit-Button-primary-progressive-hover-border-color;
-				}
 			}
 
 			&:active {
 				background-color: $wikit-Button-primary-progressive-active-background-color;
 				border-color: $wikit-Button-primary-progressive-active-border-color;
 				box-shadow: none;
+			}
+
+			&:hover:not(:focus) {
+				border-color: $wikit-Button-primary-progressive-hover-border-color;
 			}
 		}
 
@@ -192,16 +192,16 @@ $base: '.wikit-Button';
 
 			&:hover {
 				background-color: $wikit-Button-primary-destructive-hover-background-color;
-
-				&:not(:focus){
-					border-color: $wikit-Button-primary-destructive-hover-border-color;
-				}
 			}
 
 			&:active {
 				background-color: $wikit-Button-primary-destructive-active-background-color;
 				border-color: $wikit-Button-primary-destructive-active-border-color;
 				box-shadow: none;
+			}
+
+			&:hover:not(:focus) {
+				border-color: $wikit-Button-primary-destructive-hover-border-color;
 			}
 		}
 	}
@@ -231,10 +231,6 @@ $base: '.wikit-Button';
 			&:hover {
 				color: $wikit-Button-quiet-neutral-hover-color;
 				background-color: $wikit-Button-quiet-neutral-hover-background-color;
-
-				&:not(:focus){
-					border-color: $wikit-Button-quiet-neutral-hover-border-color;
-				}
 			}
 
 			&:active {
@@ -242,6 +238,10 @@ $base: '.wikit-Button';
 				background-color: $wikit-Button-quiet-neutral-active-background-color;
 				border-color: $wikit-Button-quiet-neutral-active-border-color;
 				box-shadow: none;
+			}
+
+			&:hover:not(:focus) {
+				border-color: $wikit-Button-quiet-neutral-hover-border-color;
 			}
 		}
 
@@ -260,10 +260,6 @@ $base: '.wikit-Button';
 			&:hover {
 				color: $wikit-Button-quiet-progressive-hover-color;
 				background-color: $wikit-Button-quiet-progressive-hover-background-color;
-
-				&:not(:focus){
-					border-color: $wikit-Button-quiet-progressive-hover-border-color;
-				}
 			}
 
 			&:active {
@@ -271,6 +267,10 @@ $base: '.wikit-Button';
 				background-color: $wikit-Button-quiet-progressive-active-background-color;
 				border-color: $wikit-Button-quiet-progressive-active-border-color;
 				box-shadow: none;
+			}
+
+			&:hover:not(:focus) {
+				border-color: $wikit-Button-quiet-progressive-hover-border-color;
 			}
 		}
 
@@ -289,10 +289,6 @@ $base: '.wikit-Button';
 			&:hover {
 				color: $wikit-Button-quiet-destructive-hover-color;
 				background-color: $wikit-Button-quiet-destructive-hover-background-color;
-
-				&:not(:focus){
-					border-color: $wikit-Button-quiet-destructive-hover-border-color;
-				}
 			}
 
 			&:active {
@@ -300,6 +296,10 @@ $base: '.wikit-Button';
 				background-color: $wikit-Button-quiet-destructive-active-background-color;
 				border-color: $wikit-Button-quiet-destructive-active-border-color;
 				box-shadow: none;
+			}
+
+			&:hover:not(:focus) {
+				border-color: $wikit-Button-quiet-destructive-hover-border-color;
 			}
 		}
 	}
