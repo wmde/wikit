@@ -40,11 +40,11 @@
             }
         },
         "icon": {
-            "size":{
+            "size": {
                 "value": "{icon.size.large.value}"
             },
             "color": {
-                "value":"{icon.color.progressive.value}"
+                "value": "{icon.color.progressive.value}"
             },
             "spacing": {
                 "value": "{dimension.spacing.xsmall.value}"
