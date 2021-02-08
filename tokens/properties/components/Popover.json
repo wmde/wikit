@@ -36,7 +36,7 @@
         "max-width": {
             "value": "{dimension.width.large.value}"
         },
-        "elevation": {
+        "box-shadow": {
             "value": "{box-shadow.elevation.dialog.value}"
         },
         "transition": {
@@ -45,9 +45,8 @@
                 "comment": "Show and hide delays"
             }
         },
-        "margin": {
-            "value": "{dimension.spacing.xsmall.value}",
-            "comment": "Space between popover and trigger: Unsure of whether this should be named offset, and how to proceed in case negative values are needed depending on the popover position"
+        "distance": {
+            "value": "{dimension.spacing.xsmall.value}"
         },
         "pointer":  {
             "width": {
