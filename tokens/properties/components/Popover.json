@@ -46,7 +46,8 @@
             }
         },
         "distance": {
-            "value": "{dimension.spacing.xsmall.value}"
+            "value": "{dimension.spacing.xsmall.value}",
+            "comment": "this reffers to the space between the trigger and the popover arrow. Better names welcome"
         },
         "pointer":  {
             "width": {
