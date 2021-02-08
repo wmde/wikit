@@ -140,6 +140,17 @@
 			</defs>
 		</svg>
 
+		<!-- add icon -->
+		<svg
+			viewBox="0 0 21 20"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			class="wikit-Icon__svg"
+			v-else-if="type === IconTypes.ADD"
+		>
+			<path d="M19.5444 8.5H12.0444V1H9.04443V8.5H1.54443V11.5H9.04443V19H12.0444V11.5H19.5444V8.5Z" fill="currentColor" />
+		</svg>
+
 	</span>
 	<!-- eslint-enable max-len -->
 </template>
