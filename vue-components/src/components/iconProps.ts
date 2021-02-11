@@ -9,7 +9,7 @@ export enum IconTypes {
 	TRASH = 'trash',
 	INFOOUTLINED = 'info-outlined',
 	LINK = 'link',
-	ADD = 'add'
+	ADD = 'add',
 	SEARCH = 'search'
 }
 
