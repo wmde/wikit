@@ -1,6 +1,6 @@
 <template>
-	<div class="wikit wikit-Popover">
-		<div class="wikit-Popover__content" v-if="isShownData">
+	<div class="wikit wikit-Popover" @mouseenter="startHover" @mouseleave="endHover">
+		<div class="wikit-Popover__content" v-if="isContentShown">
 			<!-- @slot The content of the Popover goes into the default slot. -->
 			<slot />
 		</div>
@@ -14,11 +14,15 @@
 <script lang="ts">
 import Vue from 'vue';
 
+const HOVER_SHOW_HIDE_DELAY_IN_MS = 100;
+
 export default Vue.extend( {
 	name: 'Popover',
 	data() {
 		return {
-			isShownData: false,
+			isContentShown: false,
+			showContentTimeoutID: null as number | null,
+			hideContentTimeoutID: null as number | null,
 		};
 	},
 	props: {
@@ -30,12 +34,42 @@ export default Vue.extend( {
 			default: false,
 		},
 	},
+	methods: {
+		changeContentVisibility( isVisible: boolean ): void {
+			this.isContentShown = isVisible;
+			this.$emit( 'update:isShown', isVisible );
+		},
+		startHover(): void {
+			if ( this.isContentShown && this.hideContentTimeoutID !== null ) {
+				clearTimeout( this.hideContentTimeoutID );
+				this.hideContentTimeoutID = null;
+				return;
+			}
+			this.showContentTimeoutID = setTimeout(
+				this.changeContentVisibility,
+				HOVER_SHOW_HIDE_DELAY_IN_MS,
+				true,
+			);
+		},
+		endHover(): void {
+			if ( !this.isContentShown && this.showContentTimeoutID !== null ) {
+				clearTimeout( this.showContentTimeoutID );
+				this.showContentTimeoutID = null;
+				return;
+			}
+			this.hideContentTimeoutID = setTimeout(
+				this.changeContentVisibility,
+				HOVER_SHOW_HIDE_DELAY_IN_MS,
+				false,
+			);
+		},
+	},
 	mounted() {
-		this.isShownData = this.isShown;
+		this.isContentShown = this.isShown;
 	},
 	watch: {
 		isShown( newShowProp: boolean ): void {
-			this.isShownData = newShowProp;
+			this.isContentShown = newShowProp;
 		},
 	},
 } );
@@ -52,12 +86,13 @@ export default Vue.extend( {
 
 	&__content {
 		width: max-content;
-		left: 50%;
+		inset-inline-start: 50%;
 		transform: translateX(-50%);
 		position: absolute;
-		top: 100%;
+		inset-block-start: 100%;
 		display: block;
-		padding: $wikit-Popover-padding;
+		padding-inline: $wikit-Popover-padding;
+		padding-block: $wikit-Popover-padding;
 		border-color: $wikit-Popover-border-color;
 		border-width: $wikit-Popover-border-width;
 		border-style: $wikit-Popover-border-style;
@@ -70,8 +105,6 @@ export default Vue.extend( {
 		color: $wikit-Popover-color;
 		background-color: $wikit-Popover-background-color;
 		box-shadow: $wikit-Popover-box-shadow;
-		// FIXME: which property? which timing function?
-		transition: $wikit-Popover-transition-delay;
 	}
 }
 </style>

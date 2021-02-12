@@ -26,4 +26,63 @@ describe( 'Popover', () => {
 
 		expect( wrapper.find( '.wikit-Popover__content' ).isVisible() ).toBe( true );
 	} );
+
+	it( 'shows and hides on hover', async () => {
+		const wrapper = shallowMount( Popover, {
+			slots: {
+				default: 'some content',
+				target: '<button>some text</button>',
+			},
+		} );
+		jest.useFakeTimers();
+
+		wrapper.trigger( 'mouseenter' );
+		jest.runAllTimers();
+		await localVue.nextTick();
+
+		expect( wrapper.find( '.wikit-Popover__content' ).exists() ).toBe( true );
+
+		wrapper.trigger( 'mouseleave' );
+		jest.runAllTimers();
+		await localVue.nextTick();
+
+		expect( wrapper.find( '.wikit-Popover__content' ).exists() ).toBe( false );
+	} );
+
+	it( 'doesn\'t start showing if only hovered for a very short time', async () => {
+		const wrapper = shallowMount( Popover, {
+			slots: {
+				default: 'some content',
+				target: '<button>some text</button>',
+			},
+		} );
+		jest.useFakeTimers();
+
+		wrapper.trigger( 'mouseenter' );
+		wrapper.trigger( 'mouseleave' );
+		jest.runAllTimers();
+		await localVue.nextTick();
+
+		expect( wrapper.find( '.wikit-Popover__content' ).exists() ).toBe( false );
+	} );
+
+	it( 'doesn\'t stop showing if only not hovered for a very short time', async () => {
+		const wrapper = shallowMount( Popover, {
+			propsData: {
+				isShown: true,
+			},
+			slots: {
+				default: 'some content',
+				target: '<button>some text</button>',
+			},
+		} );
+		jest.useFakeTimers();
+
+		wrapper.trigger( 'mouseleave' );
+		wrapper.trigger( 'mouseenter' );
+		jest.runAllTimers();
+		await localVue.nextTick();
+
+		expect( wrapper.find( '.wikit-Popover__content' ).exists() ).toBe( true );
+	} );
 } );
