@@ -127,10 +127,10 @@ export default Vue.extend( {
 			}
 		},
 		keyboardScroll(): void {
-			const element = this.$refs[ 'menu-items' ] as HTMLElement[];
+			const currentElement = ( this.$refs[ 'menu-items' ] as HTMLElement[] )[ this.keyboardHoveredItemIndex ];
 
-			if ( this.keyboardHoveredItemIndex !== -1 ) {
-				element[ this.keyboardHoveredItemIndex ].scrollIntoView( false );
+			if ( this.keyboardHoveredItemIndex !== -1 && !this.isElementVisible( currentElement ) ) {
+				currentElement.scrollIntoView( false );
 			}
 		},
 		resizeMenu(): void {
@@ -144,18 +144,21 @@ export default Vue.extend( {
 				this.maxHeight = null;
 			}
 		},
-		onScroll: debounce( function ( this: Vue ) {
+		isElementVisible( menuItem: HTMLElement ): boolean {
 			const rootElem = this.$refs[ 'lookup-menu' ] as HTMLElement;
-			const menuItems = this.$refs[ 'menu-items' ] as HTMLElement[];
 			const menuTop = rootElem.scrollTop;
 			const menuBottom = menuTop + rootElem.offsetHeight;
 
+			const elementTop = menuItem.offsetTop;
+			const elementBottom = menuItem.offsetTop + menuItem.offsetHeight;
+
+			return elementBottom <= menuBottom && elementTop >= menuTop;
+		},
+		onScroll: debounce( function ( this: Vue & { isElementVisible: ( menuItem: HTMLElement ) => boolean } ) {
+			const menuItems = this.$refs[ 'menu-items' ] as HTMLElement[];
 			const visibleElems = [];
 			for ( let i = 0; i < menuItems.length; i++ ) {
-				const elementTop = menuItems[ i ].offsetTop;
-				const elementBottom = menuItems[ i ].offsetTop + menuItems[ i ].offsetHeight;
-
-				if ( elementTop <= menuBottom && elementBottom >= menuTop ) {
+				if ( this.isElementVisible( menuItems[ i ] ) ) {
 					visibleElems.push( i );
 				}
 			}
