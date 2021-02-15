@@ -130,11 +130,7 @@ export default Vue.extend( {
 			const element = this.$refs[ 'menu-items' ] as HTMLElement[];
 
 			if ( this.keyboardHoveredItemIndex !== -1 ) {
-				element[ this.keyboardHoveredItemIndex ].scrollIntoView( {
-					behavior: 'smooth',
-					block: 'end',
-					inline: 'nearest',
-				} );
+				element[ this.keyboardHoveredItemIndex ].scrollIntoView( false );
 			}
 		},
 		resizeMenu(): void {
