@@ -130,10 +130,14 @@ export default Vue.extend( {
 			const element = this.$refs[ 'menu-items' ] as HTMLElement[];
 
 			if ( this.keyboardHoveredItemIndex !== -1 ) {
-				element[ this.keyboardHoveredItemIndex ].scrollIntoView( {
-					behavior: 'smooth',
-					block: 'end',
-					inline: 'nearest',
+				/**
+				 * This setTimeout shouldn't be needed, but it is a workaround to make scrollIntoView with options
+				 * work in Chrome 88, but that problem likely existed on older Chrome versions as well.
+				 *
+				 * TODO: With newer versions of Chrome, try removing the setTimeout and see if it works.
+				 */
+				setTimeout( () => {
+					element[ this.keyboardHoveredItemIndex ].scrollIntoView( { behavior: 'smooth', block: 'nearest' } );
 				} );
 			}
 		},
