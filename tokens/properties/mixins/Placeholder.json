@@ -1,0 +1,19 @@
+{
+    "wikit-Placeholder": {
+        "font-color": {
+            "value": "{font.color.base.value}"
+        },
+        "font-family": {
+            "value": "{font.family.style.placeholder.value}"
+        },
+        "font-size": {
+            "value": "{font.size.style.placeholder.value}"
+        },
+        "font-weight": {
+            "value": "{font.weight.style.placeholder.value}"
+        },
+        "line-height": {
+            "value": "{font.line-height.style.placeholder.value}"
+        }
+    }
+}

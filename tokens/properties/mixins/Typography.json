@@ -1,0 +1,145 @@
+{
+    "wikit-h1": {
+        "font-color": {
+            "value": "{font.color.base.value}"
+        },
+        "font-family": {
+            "value": "{font.family.style.heading-sans.value}"
+        },
+        "font-size": {
+            "value": "{font.size.style.h1.value}"
+        },
+        "font-weight": {
+            "value": "{font.weight.style.h1.value}"
+        },
+        "line-height": {
+            "value": "{font.line-height.style.heading.value}"
+        }
+    },
+
+    "wikit-h2": {
+        "font-color": {
+            "value": "{font.color.base.value}"
+        },
+        "font-family": {
+            "value": "{font.family.style.heading-sans.value}"
+        },
+        "font-size": {
+            "value": "{font.size.style.h2.value}"
+        },
+        "font-weight": {
+            "value": "{font.weight.style.h2.value}"
+        },
+        "line-height": {
+            "value": "{font.line-height.style.heading.value}"
+        }
+    },
+
+    "wikit-h3": {
+        "font-color": {
+            "value": "{font.color.base.value}"
+        },
+        "font-family": {
+            "value": "{font.family.style.heading-sans.value}"
+        },
+        "font-size": {
+            "value": "{font.size.style.h3.value}"
+        },
+        "font-weight": {
+            "value": "{font.weight.style.h3.value}"
+        },
+        "line-height": {
+            "value": "{font.line-height.style.heading.value}"
+        }
+    },
+
+    "wikit-h4": {
+        "font-color": {
+            "value": "{font.color.base.value}"
+        },
+        "font-family": {
+            "value": "{font.family.style.heading-sans.value}"
+        },
+        "font-size": {
+            "value": "{font.size.style.h4.value}"
+        },
+        "font-weight": {
+            "value": "{font.weight.style.h4.value}"
+        },
+        "line-height": {
+            "value": "{font.line-height.style.heading.value}"
+        }
+    },
+
+    "wikit-h5": {
+        "font-color": {
+            "value": "{font.color.base.value}"
+        },
+        "font-family": {
+            "value": "{font.family.style.heading-sans.value}"
+        },
+        "font-size": {
+            "value": "{font.size.style.h5.value}"
+        },
+        "font-weight": {
+            "value": "{font.weight.style.h5.value}"
+        },
+        "line-height": {
+            "value": "{font.line-height.style.heading.value}"
+        }
+    },
+
+    "wikit-h6": {
+        "font-color": {
+            "value": "{font.color.base.value}"
+        },
+        "font-family": {
+            "value": "{font.family.style.heading-sans.value}"
+        },
+        "font-size": {
+            "value": "{font.size.style.h6.value}"
+        },
+        "font-weight": {
+            "value": "{font.weight.style.h6.value}"
+        },
+        "line-height": {
+            "value": "{font.line-height.style.heading.value}"
+        }
+    },
+
+    "wikit-Body": {
+        "font-color": {
+            "value": "{font.color.base.value}"
+        },
+        "font-family": {
+            "value": "{font.family.style.body.value}"
+        },
+        "font-size": {
+            "value": "{font.size.style.body.value}"
+        },
+        "font-weight": {
+            "value": "{font.weight.style.body.value}"
+        },
+        "line-height": {
+            "value": "{font.line-height.style.body.value}"
+        }
+    },
+
+    "wikit-Body-s": {
+        "font-color": {
+            "value": "{font.color.base.value}"
+        },
+        "font-family": {
+            "value": "{font.family.style.body-s.value}"
+        },
+        "font-size": {
+            "value": "{font.size.style.body-s.value}"
+        },
+        "font-weight": {
+            "value": "{font.weight.style.body-s.value}"
+        },
+        "line-height": {
+            "value": "{font.line-height.style.body-s.value}"
+        }
+    }
+}

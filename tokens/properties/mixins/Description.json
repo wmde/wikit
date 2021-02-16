@@ -1,0 +1,19 @@
+{
+    "wikit-Description": {
+        "font-color": {
+            "value": "{font.color.subtle.value}"
+        },
+        "font-family": {
+            "value": "{font.family.style.description.value}"
+        },
+        "font-size": {
+            "value": "{font.size.style.description.value}"
+        },
+        "font-weight": {
+            "value": "{font.weight.style.description.value}"
+        },
+        "line-height": {
+            "value": "{font.line-height.style.description.value}"
+        }
+    }
+}
