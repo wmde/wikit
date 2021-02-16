@@ -33,13 +33,26 @@ export default Vue.extend( {
 			type: Boolean,
 			default: false,
 		},
+		/**
+		 * Set to false if the Popover should not be shown (or hidden) by (not) hovering over the target
+		 */
+		reactToHover: {
+			type: Boolean,
+			default: true,
+		},
 	},
 	methods: {
 		changeContentVisibility( isVisible: boolean ): void {
 			this.isContentShown = isVisible;
+			/**
+			 * This can optionally be used with the `.sync` modifier on the `isShown` prop
+			 */
 			this.$emit( 'update:isShown', isVisible );
 		},
 		startHover(): void {
+			if ( !this.reactToHover ) {
+				return;
+			}
 			if ( this.isContentShown && this.hideContentTimeoutID !== null ) {
 				clearTimeout( this.hideContentTimeoutID );
 				this.hideContentTimeoutID = null;
@@ -52,6 +65,9 @@ export default Vue.extend( {
 			);
 		},
 		endHover(): void {
+			if ( !this.reactToHover ) {
+				return;
+			}
 			if ( !this.isContentShown && this.showContentTimeoutID !== null ) {
 				clearTimeout( this.showContentTimeoutID );
 				this.showContentTimeoutID = null;

@@ -85,4 +85,41 @@ describe( 'Popover', () => {
 
 		expect( wrapper.find( '.wikit-Popover__content' ).exists() ).toBe( true );
 	} );
+
+	it( 'won\'t become visible on hover, if `reactToHover` prop is false', async () => {
+		const wrapper = shallowMount( Popover, {
+			propsData: {
+				reactToHover: false,
+			},
+			slots: {
+				default: 'some content',
+			},
+		} );
+		jest.useFakeTimers();
+
+		wrapper.trigger( 'mouseenter' );
+		jest.runAllTimers();
+		await localVue.nextTick();
+
+		expect( wrapper.find( '.wikit-Popover__content' ).exists() ).toBe( false );
+	} );
+
+	it( 'won\'t disappear on stopping to hover, if `reactToHover` prop is false', async () => {
+		const wrapper = shallowMount( Popover, {
+			propsData: {
+				reactToHover: false,
+				isShown: true,
+			},
+			slots: {
+				default: 'some content',
+			},
+		} );
+		jest.useFakeTimers();
+
+		wrapper.trigger( 'mouseleave' );
+		jest.runAllTimers();
+		await localVue.nextTick();
+
+		expect( wrapper.find( '.wikit-Popover__content' ).exists() ).toBe( true );
+	} );
 } );

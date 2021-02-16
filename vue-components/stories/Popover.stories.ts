@@ -15,7 +15,7 @@ export function basic( args ): Component {
 		template: `
 					<div>
 					<div style="height: 80vh; display: flex; justify-content: space-around; align-items: center;">
-						<Popover :is-shown="isShown">
+						<Popover :is-shown="isShown" :react-to-hover="reactToHover">
 							<template v-slot:target>
 								<Button :iconOnly="true" aria-label="show hint">
 									<Icon type="info-outlined" size="medium" style="vertical-align: top;"/>
@@ -33,6 +33,7 @@ export function basic( args ): Component {
 
 basic.args = {
 	isShown: false,
+	reactToHover: true,
 	content: 'Here is some <em>content</em>. You can modify it in the "Controls" section.',
 };
 
