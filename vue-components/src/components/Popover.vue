@@ -1,10 +1,15 @@
 <template>
-	<div class="wikit wikit-Popover" @mouseenter="startHover" @mouseleave="endHover">
+	<div
+		class="wikit wikit-Popover"
+		@mouseenter="startHover"
+		@mouseleave="endHover"
+		v-detect-click-outside="clickOutsideHandler"
+	>
 		<div class="wikit-Popover__content" v-if="isContentShown">
 			<!-- @slot The content of the Popover goes into the default slot. -->
 			<slot />
 		</div>
-		<span class="wikit-Popover__target">
+		<span class="wikit-Popover__target" @click="onTargetClick">
 			<!-- @slot Target should always be a button, as we will listen to its click and hover events -->
 			<slot name="target" />
 		</span>
@@ -13,6 +18,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import detectClickOutside from '@/directives/detectClickOutside';
 
 const HOVER_SHOW_HIDE_DELAY_IN_MS = 100;
 
@@ -24,6 +30,9 @@ export default Vue.extend( {
 			showContentTimeoutID: null as number | null,
 			hideContentTimeoutID: null as number | null,
 		};
+	},
+	directives: {
+		detectClickOutside,
 	},
 	props: {
 		/**
@@ -42,12 +51,18 @@ export default Vue.extend( {
 		},
 	},
 	methods: {
+		clickOutsideHandler(): void {
+			this.changeContentVisibility( false );
+		},
 		changeContentVisibility( isVisible: boolean ): void {
 			this.isContentShown = isVisible;
 			/**
 			 * This can optionally be used with the `.sync` modifier on the `isShown` prop
 			 */
 			this.$emit( 'update:isShown', isVisible );
+		},
+		onTargetClick(): void {
+			this.changeContentVisibility( true );
 		},
 		startHover(): void {
 			if ( !this.reactToHover ) {

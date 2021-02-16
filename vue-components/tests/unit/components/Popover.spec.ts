@@ -122,4 +122,35 @@ describe( 'Popover', () => {
 
 		expect( wrapper.find( '.wikit-Popover__content' ).exists() ).toBe( true );
 	} );
+
+	it( 'is shown upon clicking the target', async () => {
+		const wrapper = shallowMount( Popover, {
+			slots: {
+				default: 'some content',
+				target: '<button>click me!</button>',
+			},
+		} );
+
+		wrapper.find( 'button' ).trigger( 'click' );
+		await localVue.nextTick();
+
+		expect( wrapper.find( '.wikit-Popover__content' ).exists() ).toBe( true );
+	} );
+
+	it( 'disappears after clicking somewhere else', async () => {
+		const div = document.createElement( 'div' );
+		document.body.appendChild( div );
+		const ContextComponent = {
+			components: { Popover },
+			template: '<div><button></button><Popover :isShown="true">some Content</Popover></div>',
+		};
+		const wrapper = shallowMount( ContextComponent, {
+			attachTo: div,
+		} );
+
+		wrapper.get( 'button' ).trigger( 'click' );
+
+		expect( wrapper.find( '.wikit-Popover__content' ).exists() ).toBe( false );
+		wrapper.destroy();
+	} );
 } );
