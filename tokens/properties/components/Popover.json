@@ -45,7 +45,7 @@
                 "comment": "Show and hide delays"
             }
         },
-        "distance": {
+        "gap": {
             "value": "{dimension.spacing.xsmall.value}",
             "comment": "this reffers to the space between the trigger and the popover arrow. Better names welcome"
         },
