@@ -51,7 +51,7 @@ export function all(): Component {
 		template: `
 					<div>
 					<div style="margin-left: 40vw; margin-top: 30vh;">
-						<Popover :is-shown="true">
+						<Popover :is-shown="true" :react-to-hover="false">
 							<template v-slot:target>
 								<Button :iconOnly="true" aria-label="show hint">
 									<Icon type="info-outlined" size="medium" style="vertical-align: top;"/>

@@ -1,18 +1,21 @@
 <template>
 	<div
-		class="wikit wikit-Popover"
+		class="wikit wikit-Popover wikit-Popover--bottom"
 		@mouseenter="startHover"
 		@mouseleave="endHover"
 		v-detect-click-outside="clickOutsideHandler"
 	>
-		<div class="wikit-Popover__content" v-if="isContentShown">
-			<!-- @slot The content of the Popover goes into the default slot. -->
-			<slot />
-		</div>
 		<span class="wikit-Popover__target" @click="onTargetClick">
 			<!-- @slot Target should always be a button, as we will listen to its click and hover events -->
 			<slot name="target" />
 		</span>
+		<div class="wikit-Popover__content-wrapper" v-if="isContentShown">
+			<div class="wikit-Popover__pointer" />
+			<div class="wikit-Popover__content">
+				<!-- @slot The content of the Popover goes into the default slot. -->
+				<slot />
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -107,7 +110,9 @@ export default Vue.extend( {
 </script>
 
 <style lang="scss">
-.wikit-Popover {
+$base: '.wikit-Popover';
+
+#{$base} {
 	display: inline-block;
 	position: relative;
 
@@ -115,27 +120,64 @@ export default Vue.extend( {
 		display: inline-block;
 	}
 
-	&__content {
-		width: max-content;
-		inset-inline-start: 50%;
-		transform: translateX(-50%);
-		position: absolute;
-		inset-block-start: 100%;
-		display: block;
-		padding-inline: $wikit-Popover-padding;
-		padding-block: $wikit-Popover-padding;
+	&__content-wrapper {
 		border-color: $wikit-Popover-border-color;
 		border-width: $wikit-Popover-border-width;
 		border-style: $wikit-Popover-border-style;
 		border-radius: $wikit-Popover-border-radius;
+		width: max-content;
+		position: absolute;
+		display: block;
+		box-shadow: $wikit-Popover-box-shadow;
+		background-color: $wikit-Popover-background-color;
 		max-width: $wikit-Popover-max-width;
+	}
+
+	&__content {
+		padding-inline: $wikit-Popover-padding;
+		padding-block: $wikit-Popover-padding;
 		line-height: $wikit-Popover-line-height;
 		font-family: $wikit-Popover-font-family;
 		font-size: $wikit-Popover-font-size;
 		font-weight: $wikit-Popover-font-weight;
 		color: $wikit-Popover-color;
-		background-color: $wikit-Popover-background-color;
-		box-shadow: $wikit-Popover-box-shadow;
+	}
+
+	&__pointer {
+		position: absolute;
+		overflow: hidden;
+	}
+
+	&__pointer::before {
+		content: '';
+		position: absolute;
+		width: math.hypot($wikit-Popover-pointer-width/2, $wikit-Popover-pointer-height);
+		height: math.hypot($wikit-Popover-pointer-width/2, $wikit-Popover-pointer-height);
+		transform: rotate(45deg);
+		border: $wikit-Popover-border-width $wikit-Popover-border-style $wikit-Popover-border-color;
+		background: $wikit-Popover-background-color;
+		box-sizing: border-box;
+	}
+
+	&--bottom {
+		#{$base}__content-wrapper {
+			margin-block-start: $wikit-Popover-distance + $wikit-Popover-pointer-height;
+			inset-inline-start: 50%;
+			transform: translateX(-50%);
+			inset-block-start: 100%;
+		}
+
+		#{$base}__pointer {
+			width: $wikit-Popover-pointer-width;
+			height: $wikit-Popover-pointer-height;
+			inset-block-start: -$wikit-Popover-pointer-height;
+			inset-inline-start: calc(50% - #{$wikit-Popover-pointer-width} / 2);
+		}
+
+		#{$base}__pointer::before {
+			inset-block-end: 0;
+			transform-origin: bottom left;
+		}
 	}
 }
 </style>
