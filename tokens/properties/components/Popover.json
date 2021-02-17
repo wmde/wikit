@@ -47,7 +47,7 @@
         },
         "gap": {
             "value": "{dimension.spacing.xsmall.value}",
-            "comment": "this reffers to the space between the target and the popover pointer. Better names welcome"
+            "comment": "Aka distance. This reffers to the space between the target and the popover pointer. Better names welcome"
         },
         "pointer":  {
             "width": {
