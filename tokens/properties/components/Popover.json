@@ -51,7 +51,7 @@
         },
         "pointer":  {
             "width": {
-                "value": "{dimension.spacing.xxlarge.value}"
+                "value": "{dimension.spacing.large.value}"
             },
             "height": {
                 "value": "{dimension.spacing.small.value}"
