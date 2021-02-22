@@ -1,35 +1,24 @@
 <template>
 	<div
 		:class="[ 'wikit', 'wikit-Lookup' ]"
-		@keydown="triggerKeyDown"
 	>
 		<label class="wikit-Lookup__label" :for="inputId">{{ label }}</label>
-		<Input
+		<LookupCore
 			:id="inputId"
-			:value="searchInput"
-			@input="onInput"
-			@focus.native="onFocus"
-			@blur.native="showMenu = false"
 			:feedback-type="feedbackType"
-			:placeholder="placeholder"
-			:disabled="disabled"
-			autocomplete="off"
-		/>
-		<OptionsMenu
-			class="wikit-Lookup__menu"
 			:menu-items="menuItems"
-			:bold-labels="true"
-			:selected-item-index="selectedItemIndex"
-			v-show="showMenu"
-			@select="onSelect"
-			@scroll="onScroll"
-			@esc="onEsc"
-			ref="menu"
+			:disabled="disabled"
+			:placeholder="placeholder"
+			:value="value"
+			:search-input="searchInput"
+			@update:searchInput="$emit('update:searchInput', $event)"
+			@input="$emit('input', $event)"
+			@scroll="(firstIndex, lastIndex) => $emit('scroll', firstIndex, lastIndex)"
 		>
 			<template v-slot:no-results>
 				<slot name="no-results" />
 			</template>
-		</OptionsMenu>
+		</LookupCore>
 		<ValidationMessage
 			v-if="error"
 			:type="error.type"
@@ -40,14 +29,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VueCompositionAPI, { defineComponent, computed, PropType, ref } from '@vue/composition-api';
-import isEqual from 'lodash.isequal';
+import VueCompositionAPI, { defineComponent, computed, PropType } from '@vue/composition-api';
 import ValidationMessage from './ValidationMessage.vue';
-import Input from './Input.vue';
-import OptionsMenu from './OptionsMenu.vue';
 import generateUid from '@/components/util/generateUid';
 import { MenuItem } from '@/components/MenuItem';
 import { getFeedbackTypeFromProps, errorProp, ErrorProp } from '@/compositions/validatable';
+import LookupCore from '@/components/LookupCore.vue';
 
 Vue.use( VueCompositionAPI );
 
@@ -60,24 +47,13 @@ Vue.use( VueCompositionAPI );
 export default defineComponent( {
 	name: 'Lookup',
 	setup( props: { error: ErrorProp } ) {
-		const menu = ref<InstanceType<typeof OptionsMenu>|null>( null );
-
-		function triggerKeyDown( event: KeyboardEvent ): void {
-			menu.value?.onKeyDown( event );
-		}
-
 		return {
 			feedbackType: computed( getFeedbackTypeFromProps( props ) ),
-			triggerKeyDown,
-			menu,
 		};
 	},
 	data() {
 		return {
-			showMenu: false,
 			inputId: generateUid( 'wikit-Lookup' ),
-			scrollIndexStart: null as ( number | null ),
-			scrollIndexEnd: null as ( number | null ),
 		};
 	},
 	props: {
@@ -120,87 +96,15 @@ export default defineComponent( {
 			default: '',
 		},
 	},
-
-	methods: {
-		canShowMenu( currentSearchInput: string ): boolean {
-			return currentSearchInput.length > 0;
-		},
-		onInput( value: string ): void {
-			this.showMenu = this.canShowMenu( value );
-
-			// the following comment generates the event's description for the docs tab in storybook
-			/**
-			 * Enables the `searchInput` prop to be used with the `.sync` modifier. It's used to transport the value of
-			 * the Lookup component's inner `<input>` element to the parent component.
-			 */
-			this.$emit( 'update:searchInput', value );
-			this.$emit( 'input', null );
-		},
-
-		onSelect( menuItem: MenuItem ): void {
-			this.showMenu = false;
-
-			// the following comment generates the event's description for the docs tab in storybook
-			/**
-			 * This event is emitted whenever an item is selected on the Lookup. The event payload contains the whole
-			 * MenuItem object. The payload is null when no item is selected or the item is deselected.
-			 */
-			this.$emit( 'input', menuItem );
-			this.$emit( 'update:searchInput', menuItem.label );
-		},
-		onFocus(): void {
-			if ( this.canShowMenu( this.searchInput ) ) {
-				this.showMenu = true;
-			}
-		},
-		onEsc(): void {
-			this.showMenu = false;
-		},
-		onScroll( firstIndex: number, lastIndex: number ): void {
-			if ( firstIndex !== this.scrollIndexStart || lastIndex !== this.scrollIndexEnd ) {
-				/**
-				 * This event is emitted whenever the first or last index of the
-				 * visible menuItems changes. If the user scrolls but the indexes remain
-				 * unchanged the event won't fire.
-				 *
-				 */
-				this.$emit( 'scroll', firstIndex, lastIndex );
-				this.scrollIndexStart = firstIndex;
-				this.scrollIndexEnd = lastIndex;
-			}
-
-		},
-	},
-
-	computed: {
-		selectedItemIndex(): number {
-			if ( this.value === null || this.menuItems.length === 0 ) {
-				return -1;
-			}
-
-			return this.menuItems.findIndex(
-				( menuItem ) => { return isEqual( menuItem, this.value ); },
-				this,
-			);
-		},
-	},
-
 	components: {
-		Input,
+		LookupCore,
 		ValidationMessage,
-		OptionsMenu,
 	},
 } );
 </script>
 
 <style lang="scss">
 .wikit-Lookup {
-	position: relative;
-
-	&__menu {
-		position: absolute;
-	}
-
 	&__label {
 		@include Label( block );
 	}
