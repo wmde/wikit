@@ -1,6 +1,7 @@
 import Popover from '@/components/Popover';
 import Icon from '@/components/Icon';
 import Button from '@/components/Button';
+import { PopoverPositions } from '@/components/PopoverProps';
 import { Component } from 'vue';
 
 export default {
@@ -15,7 +16,7 @@ export function basic( args ): Component {
 		template: `
 					<div>
 					<div style="height: 80vh; display: flex; justify-content: space-around; align-items: center;">
-						<Popover :is-shown="isShown" :react-to-hover="reactToHover">
+						<Popover :is-shown="isShown" :react-to-hover="reactToHover" :position="position">
 							<template v-slot:target>
 								<Button :iconOnly="true" aria-label="show hint">
 									<Icon type="info-outlined" size="medium" style="vertical-align: top;"/>
@@ -34,10 +35,17 @@ export function basic( args ): Component {
 basic.args = {
 	isShown: false,
 	reactToHover: true,
+	position: 'bottom',
 	content: 'Here is some <em>content</em>. You can modify it in the "Controls" section.',
 };
 
 basic.argTypes = {
+	position: {
+		control: {
+			type: 'inline-radio',
+			options: PopoverPositions,
+		},
+	},
 	content: {
 		control: {
 			type: 'text',
@@ -48,10 +56,13 @@ basic.argTypes = {
 export function all(): Component {
 	return {
 		components: { Popover, Icon, Button },
+		data() {
+			return { PopoverPositions };
+		},
 		template: `
 					<div>
-					<div style="margin-left: 40vw; margin-top: 30vh;">
-						<Popover :is-shown="true" :react-to-hover="false">
+					<div style="margin-left: 40vw; margin-top: 30vh;" v-for="value in PopoverPositions">
+						<Popover :is-shown="true" :react-to-hover="false" :position="value">
 							<template v-slot:target>
 								<Button :iconOnly="true" aria-label="show hint">
 									<Icon type="info-outlined" size="medium" style="vertical-align: top;"/>
@@ -59,15 +70,8 @@ export function all(): Component {
 							</template>
 							<template v-slot:default>
 								<div>
-									Foo bar
+								current position: <b><em>{{ value }}</em></b>.
 								</div>
-								<div style="display: block;">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-									ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-							laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-							voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
-						  	cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-						</div>
 					</template>
 				</Popover>
 			</div>

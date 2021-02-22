@@ -153,4 +153,21 @@ describe( 'Popover', () => {
 		expect( wrapper.find( '.wikit-Popover__content' ).exists() ).toBe( false );
 		wrapper.destroy();
 	} );
+
+	it( 'sets position of popover based on prop value', async () => {
+		const wrapper = shallowMount( Popover, {
+			propsData: {
+				reactToHover: false,
+				isShown: true,
+			},
+			slots: {
+				default: 'some content',
+			},
+		} );
+
+		expect( wrapper.classes() ).toContain( 'wikit-Popover--top' );
+
+		await wrapper.setProps( { position: 'bottom-right' } );
+		expect( wrapper.classes() ).toContain( 'wikit-Popover--bottom-right' );
+	} );
 } );
