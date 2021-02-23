@@ -25,7 +25,7 @@ export function basic( args: { label: string, placeholder: string } ): Component
               :error="error"
               v-model="value"
               @input="() => error = null"
-              @invalid-input="() => error = {type: 'error', message: 'bad value'}"
+              @invalid-input="() => error = {type: 'error', message: 'Please enter a valid number'}"
           /></p>
           </div>
         `,
