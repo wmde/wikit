@@ -3,7 +3,7 @@
 		<label class="wikit-ExtendedNumberInput__label" :for="id">{{ label }}</label>
 		<Input
 			:id="id"
-			:value="value"
+			v-model="textValue"
 			@input="emitInputEvent"
 			:feedback-type="feedbackType"
 			:placeholder="placeholder"
@@ -19,12 +19,16 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VueCompositionAPI, { defineComponent, computed } from '@vue/composition-api';
+import VueCompositionAPI, { defineComponent, computed, PropType } from '@vue/composition-api';
 import ValidationMessage from './ValidationMessage.vue';
 import Input from './Input.vue';
 import generateUid from '@/components/util/generateUid';
 import { errorProp, ErrorProp, getFeedbackTypeFromProps } from '@/compositions/validatable';
-import validateExtendedNumberInput from '@/components/util/validateExtendedNumberInput';
+import {
+	parseExtendedNumber,
+	PreciseNumber,
+	validateExtendedNumberInput,
+} from '@/components/util/validateExtendedNumberInput';
 
 Vue.use( VueCompositionAPI );
 
@@ -56,28 +60,66 @@ export default defineComponent( {
 			default: '',
 		},
 		value: {
-			type: String,
-			default: '',
+			type: Object as PropType<PreciseNumber | null>,
+			default: null,
 		},
 	},
-
 	data() {
 		return {
 			// https://github.com/vuejs/vue/issues/5886
 			id: generateUid( 'wikit-ExtendedNumberInput' ),
+			textValue: '',
 		};
 	},
 
 	methods: {
-		emitInputEvent( value: string ): void {
+		emitInputEvent( input: string ): void {
+			if ( !validateExtendedNumberInput( input ) ) {
+				this.$emit( 'input', null );
+				/**
+				 * Is emitted when the user types invalid or empty input and contains the input string
+				 */
+				this.$emit( 'invalid-input', input );
+				return;
+			}
+
 			/**
-			 * contains user input, i.e. the contents of the input value
+			 * emits an object containing the user input,
+			 *
+			 * * if the user input is valid, it will be parsed into the key `number`
+			 * * if the user gave some precision, that be in the key `precision`, otherwise it will be `null`
+			 * * if the user input is invalid or empty, `null` will be emitted
 			 */
-			this.$emit( 'input', value );
-			if ( value && !validateExtendedNumberInput( value ) ) {
-				this.$emit( 'invalid-input', value );
+			this.$emit( 'input', parseExtendedNumber( input ) );
+		},
+		setTextValueFromNumbers( value: PreciseNumber ): void {
+			this.textValue = `${value.number}`;
+			if ( value.precision !== null ) {
+				this.textValue += `+-${value.precision}`;
 			}
 		},
+	},
+	watch: {
+		value( newValue: PreciseNumber | null ): void {
+			if ( newValue === null ) {
+				return;
+			}
+			if ( !validateExtendedNumberInput( this.textValue ) ) {
+				this.setTextValueFromNumbers( newValue );
+				return;
+			}
+			const parsedTextValue = parseExtendedNumber( this.textValue );
+			if ( parsedTextValue.number !== newValue.number || parsedTextValue.precision !== newValue.precision ) {
+				this.setTextValueFromNumbers( newValue );
+			}
+		},
+	},
+	mounted() {
+		if ( this.value === null ) {
+			return;
+		}
+
+		this.setTextValueFromNumbers( this.value );
 	},
 
 	components: {

@@ -1,19 +1,100 @@
 import { mount } from '@vue/test-utils';
 import ExtendedNumberInput from '@/components/ExtendedNumberInput.vue';
 import ValidationMessage from '@/components/ValidationMessage.vue';
+import Vue from 'vue';
 
 describe( 'ExtendedNumberInput', () => {
 
-	it( 'takes an input', () => {
-		const content = '123';
+	it( 'reconstructs its content from the value prop', async () => {
+		const content = { number: 123, precision: 0.5 };
 		const wrapper = mount( ExtendedNumberInput, {
 			propsData: {
 				value: content,
 			},
 		} );
+		await Vue.nextTick();
+
 		const inputElement = wrapper.find( 'input' );
 
-		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( content );
+		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '123+-0.5' );
+	} );
+
+	it( 'mount with value null means empty string as initial input', async () => {
+		const wrapper = mount( ExtendedNumberInput, {
+			propsData: {
+				value: null,
+			},
+		} );
+		await Vue.nextTick();
+
+		const inputElement = wrapper.find( 'input' );
+
+		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '' );
+	} );
+
+	it( 'set different value after mount', async () => {
+		const wrapper = mount( ExtendedNumberInput );
+
+		const inputElement = wrapper.find( 'input' );
+		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '' );
+
+		wrapper.setProps( { value: { number: 123, precision: 0.5 } } );
+		await Vue.nextTick();
+
+		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '123+-0.5' );
+	} );
+
+	it( 'set same value after mount -> doesn\'t change current text', async () => {
+		const wrapper = mount( ExtendedNumberInput, {
+			data() {
+				return {
+					textValue: '123 ± 1e1',
+				};
+			},
+		} );
+
+		const inputElement = wrapper.find( 'input' );
+		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '123 ± 1e1' );
+
+		wrapper.setProps( { value: { number: 123, precision: 10 } } );
+		await Vue.nextTick();
+
+		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '123 ± 1e1' );
+	} );
+
+	it( 'changes the input string if changed value differs from current valid parsed value', async () => {
+		const wrapper = mount( ExtendedNumberInput, {
+			data() {
+				return {
+					textValue: '123 ± 1e1',
+				};
+			},
+		} );
+
+		const inputElement = wrapper.find( 'input' );
+		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '123 ± 1e1' );
+
+		wrapper.setProps( { value: { number: 12, precision: null } } );
+		await Vue.nextTick();
+
+		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '12' );
+	} );
+
+	it( 'doesn\'t affect the input string if the changed value is `null`', async () => {
+		const wrapper = mount( ExtendedNumberInput, {
+			propsData: {
+				value: { number: 123, precision: 10 },
+			},
+		} );
+		await Vue.nextTick();
+
+		const inputElement = wrapper.find( 'input' );
+		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '123+-10' );
+
+		wrapper.setProps( { value: null } );
+		await Vue.nextTick();
+
+		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '123+-10' );
 	} );
 
 	it( 'emits events on invalid user input', () => {
@@ -21,16 +102,18 @@ describe( 'ExtendedNumberInput', () => {
 		const wrapper = mount( ExtendedNumberInput );
 
 		wrapper.find( 'input' ).setValue( userInput );
-		expect( wrapper.emitted( 'input' )![ 0 ] ).toEqual( [ userInput ] );
+		expect( wrapper.emitted( 'input' )![ 0 ] ).toEqual( [ null ] );
 		expect( wrapper.emitted( 'invalid-input' )![ 0 ] ).toEqual( [ userInput ] );
 	} );
 
 	it( 'emits an input event on valid user input', () => {
-		const userInput = '123';
+		const number = 123;
+		const precision = 2;
+		const userInput = `${number}+-${precision}`;
 		const wrapper = mount( ExtendedNumberInput );
 
 		wrapper.find( 'input' ).setValue( userInput );
-		expect( wrapper.emitted( 'input' )![ 0 ] ).toEqual( [ userInput ] );
+		expect( wrapper.emitted( 'input' )![ 0 ] ).toEqual( [ { number, precision } ] );
 		expect( wrapper.emitted( 'invalid-input' ) ).toBeFalsy();
 	} );
 

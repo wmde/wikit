@@ -12,22 +12,28 @@ export function basic( args: { label: string, placeholder: string } ): Component
         components: { ExtendedNumberInput },
         data(): unknown {
             return {
-                error: null as ErrorProp|null,
-                value: ''
+                error: null as ErrorProp | null,
+                value: null,
             };
         },
         props: Object.keys( args ),
         template: `
-          <div>
-          <p><ExtendedNumberInput
-              :label="label"
-              :placeholder="placeholder"
-              :error="error"
-              v-model="value"
-              @input="() => error = null"
-              @invalid-input="() => error = {type: 'error', message: 'Please enter a valid number'}"
-          /></p>
-          </div>
+            <div>
+            <ul>
+                <li>Number: <span v-if="value && value.number !== null">{{ value.number }}</span></li>
+                <li>Precision: <span v-if="value && value.precision !== null">{{ value.precision }}</span></li>
+            </ul>
+            <p>
+                <ExtendedNumberInput
+                  :label="label"
+                  :placeholder="placeholder"
+                  :error="error"
+                  v-model="value"
+                  @input="() => error = null"
+                  @invalid-input="() => error = {type: 'error', message: 'Please enter a valid number'}"
+                />
+            </p>
+            </div>
         `,
     };
 }
