@@ -3,47 +3,51 @@
   "globalParameters": {},
   "kindParameters": {
     "/Button": {
-      "fileName": 1717,
+      "fileName": 1721,
       "framework": "vue"
     },
     "Checkbox": {
-      "fileName": 1718,
+      "fileName": 1722,
       "framework": "vue"
     },
     "Dropdown": {
+      "fileName": 1723,
+      "framework": "vue"
+    },
+    "Wikibase Components/ExtendedNumberInput": {
       "fileName": 1719,
       "framework": "vue"
     },
     "Icon": {
-      "fileName": 1697,
+      "fileName": 1702,
       "framework": "vue"
     },
     "/Input/Basic": {
-      "fileName": 1698,
+      "fileName": 1703,
       "framework": "vue"
     },
     "/Lookup/Lookup": {
-      "fileName": 1720,
+      "fileName": 1724,
       "framework": "vue"
     },
     "/Message/Message": {
-      "fileName": 1721,
+      "fileName": 1725,
       "framework": "vue"
     },
     "OptionsMenu": {
-      "fileName": 1705,
+      "fileName": 1708,
       "framework": "vue"
     },
     "/Input/TextInput": {
-      "fileName": 1722,
+      "fileName": 1726,
       "framework": "vue"
     },
     "ToggleButton": {
-      "fileName": 1715,
+      "fileName": 1718,
       "framework": "vue"
     },
     "/Message/ValidationMessage": {
-      "fileName": 1712,
+      "fileName": 1715,
       "framework": "vue"
     }
   },
@@ -125,6 +129,26 @@
       "story": "All",
       "parameters": {
         "__id": "dropdown--all",
+        "__isArgsStory": false
+      }
+    },
+    "wikibase-components-extendednumberinput--basic": {
+      "id": "wikibase-components-extendednumberinput--basic",
+      "name": "Basic",
+      "kind": "Wikibase Components/ExtendedNumberInput",
+      "story": "Basic",
+      "parameters": {
+        "__id": "wikibase-components-extendednumberinput--basic",
+        "__isArgsStory": true
+      }
+    },
+    "wikibase-components-extendednumberinput--all": {
+      "id": "wikibase-components-extendednumberinput--all",
+      "name": "All",
+      "kind": "Wikibase Components/ExtendedNumberInput",
+      "story": "All",
+      "parameters": {
+        "__id": "wikibase-components-extendednumberinput--all",
         "__isArgsStory": false
       }
     },
