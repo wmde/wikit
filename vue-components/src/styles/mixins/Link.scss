@@ -1,0 +1,26 @@
+@mixin Link {
+  font-family: $wikit-Link-font-family;
+  font-size: $wikit-Link-font-size;
+  font-weight: $wikit-Link-font-weight;
+  color: $wikit-Link-font-color;
+  line-height: $wikit-Link-line-height;
+  transition-property: $wikit-Link-transition-property;
+  transition-duration: $wikit-Link-transition-duration;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  &:active {
+    color: $wikit-Link-active-font-color;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  &:focus {
+    outline-color: $wikit-Link-focus-outline-color;
+  }
+  &:visited {
+    color: $wikit-Link-visited-font-color;
+    transition-property: color;
+    transition-duration: $wikit-Link-transition-duration;
+  }
+}

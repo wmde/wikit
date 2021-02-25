@@ -1,0 +1,79 @@
+<template>
+	<span
+		:class="[
+			'wikit',
+			'wikit-Link',
+			(underlined == true) ? `wikit-Link--underlined` : ''
+		]"
+	>
+		<Icon
+			v-if="icon === 'before'"
+			class="wikit-Link__icon wikit-Link__icon--before"
+			type="link"
+			color="progressive"
+			size="large"
+		/>
+		<span class="wikit-Link__content"><slot /></span>
+		<Icon
+			v-if="icon === 'after'"
+			class="wikit-Link__icon wikit-Link__icon--after"
+			type="newwindow"
+			color="progressive"
+			size="large"
+		/>
+	</span>
+</template>
+
+<script lang="ts">
+import Vue from 'vue';
+import Icon from './Icon.vue';
+
+/**
+ * Uses the following components internally: Icon
+ */
+export default Vue.extend( {
+	name: 'Link',
+	props: {
+		icon: {
+			type: String,
+			default: 'none',
+			validator( value: string ): boolean {
+				return [ 'before', 'after', 'none' ].includes( value );
+			},
+		},
+		underlined: {
+			type: Boolean,
+			default: false,
+		},
+	},
+	components: {
+		Icon,
+	},
+} );
+</script>
+
+<style lang="scss">
+.wikit-Link {
+	@include Link();
+
+	display: flex;
+	align-items: center;
+	width: max-content;
+
+	&--underlined {
+		text-decoration: underline;
+	}
+
+	&__icon {
+		color: $wikit-Link-icon-color;
+
+		&--before {
+			padding-inline-end: $wikit-Link-icon-spacing;
+		}
+
+		&--after {
+			padding-inline-start: $wikit-Link-icon-spacing;
+		}
+	}
+}
+</style>
