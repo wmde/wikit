@@ -24,7 +24,7 @@ export function basic( args: { content: string; underlined: boolean } ): Compone
 
 basic.args = {
     underlined: false,
-    content: 'Controllable link.',
+    content: 'Controllable link',
 };
 
 basic.argTypes = {
