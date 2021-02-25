@@ -124,7 +124,7 @@ export function all(): Component {
 						:menu-items="menuItems"
 						v-model="selectedItem"
 						placeholder="Select an option"
-						disabled="true"
+						:disabled="true"
 					/>
 				</p>
 				<p>
