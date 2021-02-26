@@ -15,4 +15,4 @@ export enum IconTypes {
 
 export const iconColors = [ 'base', 'warning', 'error', 'notice', 'success', 'inherit' ];
 
-export const iconSizes = [ 'medium', 'large' ];
+export const iconSizes = [ 'xsmall', 'small', 'medium', 'large' ];

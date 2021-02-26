@@ -237,11 +237,21 @@ export default Vue.extend( {
 	&--large &__svg {
 		width: $wikit-Icon-size-large;
 		height: $wikit-Icon-size-large;
-	}
+	}	
 
 	&--medium &__svg {
 		width: $wikit-Icon-size-medium;
 		height: $wikit-Icon-size-medium;
+	}
+
+	&--small &__svg {
+		width: $wikit-Icon-size-small;
+		height: $wikit-Icon-size-small;
+	}
+
+	&--xsmall &__svg {
+		width: $wikit-Icon-size-xsmall;
+		height: $wikit-Icon-size-xsmall;
 	}
 }
 </style>

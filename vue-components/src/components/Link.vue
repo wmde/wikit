@@ -19,7 +19,7 @@
 			class="wikit-Link__icon wikit-Link__icon--after"
 			type="newwindow"
 			color="progressive"
-			size="large"
+			size="xsmall"
 		/>
 	</span>
 </template>

@@ -40,14 +40,21 @@
             }
         },
         "icon": {
-            "size": {
-                "value": "{icon.size.large.value}"
-            },
             "color": {
                 "value": "{icon.color.progressive.value}"
             },
             "spacing": {
                 "value": "{dimension.spacing.xsmall.value}"
+            },
+            "prefix": {
+                "size": {
+                    "value": "{icon.size.large.value}"
+                }
+            },
+            "suffix": {
+                "size": {
+                    "value": "{icon.size.xsmall.value}"
+                }
             }
         }
     }
