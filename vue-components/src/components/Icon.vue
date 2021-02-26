@@ -237,7 +237,7 @@ export default Vue.extend( {
 	&--large &__svg {
 		width: $wikit-Icon-size-large;
 		height: $wikit-Icon-size-large;
-	}	
+	}
 
 	&--medium &__svg {
 		width: $wikit-Icon-size-medium;
