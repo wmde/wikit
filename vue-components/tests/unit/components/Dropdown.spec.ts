@@ -159,10 +159,12 @@ describe( 'Dropdown', () => {
 
 			const scrollIntoViewMock = jest.fn();
 			Element.prototype.scrollIntoView = scrollIntoViewMock;
+			jest.useFakeTimers();
 
 			wrapper.trigger( 'keydown', { key: 'ArrowDown' } );
-			expect( scrollIntoViewMock ).toHaveBeenCalled();
 			await Vue.nextTick();
+			jest.runAllTimers();
+			expect( scrollIntoViewMock ).toHaveBeenCalled();
 			expect( OptionsMenuWrapper.vm.$data.keyboardHoveredItemIndex ).toBe( 0 );
 			expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'potato' );
 

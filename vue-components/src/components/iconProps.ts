@@ -8,7 +8,9 @@ export enum IconTypes {
 	EDIT = 'edit',
 	TRASH = 'trash',
 	INFOOUTLINED = 'info-outlined',
-	LINK = 'link'
+	LINK = 'link',
+	ADD = 'add',
+	SEARCH = 'search'
 }
 
 export const iconColors = [ 'base', 'warning', 'error', 'notice', 'success', 'inherit' ];
