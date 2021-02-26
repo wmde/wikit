@@ -1,40 +1,38 @@
 {
-	"wikit-InputExtender": {
-		"extender": {
-			"background-color": {
-				"value": "{background.color.base.default.value}"
-			},
-			"border": {
-				"style": {
-					"value": "{border.style.base.value}"
-				},
-				"width": {
-					"value": "{border.width.thin.value}"
-				},
-				"radius": {
-					"value": "{border.radius.base.value}"
-				},
-				"color": {
-					"value": "{border.color.base.default.value}"
-				}
-			},
-			"padding": {
-				"vertical": {
-					"value": "{dimension.spacing.small.value}"
-				},
-				"horizontal": {
-					"value": "{dimension.spacing.medium.value}"
-				}
-			},
-			"min-width": {
-				"value": "{dimension.width.full.value}"
-			},
-			"max-width": {
-				"value": "{dimension.width.double.value}"
-			},
-			"box-shadow": {
-				"value": "{box-shadow.elevation.menu.value}"
-			}
-		}
-	}
+    "wikit-InputExtender": {
+        "background-color": {
+            "value": "{background.color.base.default.value}"
+        },
+        "border": {
+            "style": {
+                "value": "{border.style.base.value}"
+            },
+            "width": {
+                "value": "{border.width.thin.value}"
+            },
+            "radius": {
+                "value": "{border.radius.base.value}"
+            },
+            "color": {
+                "value": "{border.color.base.default.value}"
+            }
+        },
+        "padding": {
+            "vertical": {
+                "value": "{dimension.spacing.small.value}"
+            },
+            "horizontal": {
+                "value": "{dimension.spacing.medium.value}"
+            }
+        },
+        "min-width": {
+            "value": "{dimension.width.full.value}"
+        },
+        "max-width": {
+            "value": "{dimension.width.double.value}"
+        },
+        "box-shadow": {
+            "value": "{box-shadow.elevation.menu.value}"
+        }
+    }
 }
