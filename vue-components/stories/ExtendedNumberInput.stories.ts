@@ -19,10 +19,6 @@ export function basic( args: { label: string, placeholder: string } ): Component
         props: Object.keys( args ),
         template: `
             <div>
-            <ul>
-                <li>Number: <span v-if="value && value.number !== null">{{ value.number }}</span></li>
-                <li>Precision: <span v-if="value && value.precision !== null">{{ value.precision }}</span></li>
-            </ul>
             <p>
                 <ExtendedNumberInput
                   :label="label"
@@ -33,6 +29,10 @@ export function basic( args: { label: string, placeholder: string } ): Component
                   @invalid-input="() => error = {type: 'error', message: 'Please enter a valid number'}"
                 />
             </p>
+            <ul style="margin-top: 16px; font-family: sans-serif; color: #202122">
+            <li>Number: <span v-if="value && value.number !== null">{{ value.number }}</span></li>
+            <li style="margin-top: 8px">Precision: <span v-if="value && value.precision !== null">{{ value.precision }}</span></li>
+            </ul>
             </div>
         `,
     };
