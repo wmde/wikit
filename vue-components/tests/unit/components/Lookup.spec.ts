@@ -3,7 +3,7 @@ import { mount, shallowMount } from '@vue/test-utils';
 import Lookup from '@/components/Lookup.vue';
 import Input from '@/components/Input.vue';
 import ValidationMessage from '@/components/ValidationMessage.vue';
-import LookupCore from '@/components/LookupCore.vue';
+import LookupInput from '@/components/LookupInput.vue';
 import OptionsMenu from '@/components/OptionsMenu.vue';
 
 describe( 'Lookup', () => {
@@ -48,14 +48,14 @@ describe( 'Lookup', () => {
 			expect( wrapper.findComponent( OptionsMenu ).props( 'menuItems' ) ).toBe( menuItems );
 		} );
 
-		it( ':value - is the selected MenuItem, passed down to the LookupCore', async () => {
+		it( ':value - is the selected MenuItem, passed down to the LookupInput', async () => {
 			const testValue = { label: 'duck', description: 'aquatic bird' };
 			const wrapper = shallowMount( Lookup );
 
 			wrapper.setProps( { value: testValue } );
 			await Vue.nextTick();
 
-			expect( wrapper.findComponent( LookupCore ).props( 'value' ) ).toBe( testValue );
+			expect( wrapper.findComponent( LookupInput ).props( 'value' ) ).toBe( testValue );
 		} );
 
 		it( ':searchInput - is the text of the input', async () => {
@@ -154,11 +154,11 @@ describe( 'Lookup', () => {
 				value: 'Q7533',
 			};
 
-			wrapper.findComponent( LookupCore ).vm.$emit( 'input', testValue );
+			wrapper.findComponent( LookupInput ).vm.$emit( 'input', testValue );
 
 			expect( wrapper.emitted( 'input' ) ).toStrictEqual( [ [ testValue ] ] );
 
-			wrapper.findComponent( LookupCore ).vm.$emit( 'input', null );
+			wrapper.findComponent( LookupInput ).vm.$emit( 'input', null );
 
 			expect( wrapper.emitted( 'input' ) ).toStrictEqual( [ [ testValue ], [ null ] ] );
 		} );
@@ -167,14 +167,14 @@ describe( 'Lookup', () => {
 			const wrapper = shallowMount( Lookup );
 			const testSearchInput = 'lorem ipsum';
 
-			wrapper.findComponent( LookupCore ).vm.$emit( 'update:searchInput', testSearchInput );
+			wrapper.findComponent( LookupInput ).vm.$emit( 'update:searchInput', testSearchInput );
 
 			expect( wrapper.emitted( 'update:searchInput' ) ).toStrictEqual( [ [ testSearchInput ] ] );
 		} );
 		it( '@scroll - bubbles the scroll event containing the currently visible indexes when they changed', () => {
 			const wrapper = shallowMount( Lookup );
 
-			wrapper.findComponent( LookupCore ).vm.$emit( 'scroll', 1, 5 );
+			wrapper.findComponent( LookupInput ).vm.$emit( 'scroll', 1, 5 );
 
 			expect( wrapper.emitted( 'scroll' ) ).toStrictEqual( [ [ 1, 5 ] ] );
 		} );

@@ -3,10 +3,10 @@ import Input from '@/components/Input.vue';
 import Vue from 'vue';
 import OptionsMenu from '@/components/OptionsMenu.vue';
 import { MenuItem } from '@/components/MenuItem';
-import LookupCore from '@/components/LookupCore.vue';
+import LookupInput from '@/components/LookupInput.vue';
 
-async function createLookupCoreWrapperWithExpandedMenu( menuItems: MenuItem[] ): Promise<Wrapper<LookupCore>> {
-	const wrapper = mount( LookupCore, {
+async function createLookupInputWrapperWithExpandedMenu( menuItems: MenuItem[] ): Promise<Wrapper<LookupInput>> {
+	const wrapper = mount( LookupInput, {
 		propsData: {
 			menuItems,
 			searchInput: 'some non-empty input',
@@ -18,7 +18,7 @@ async function createLookupCoreWrapperWithExpandedMenu( menuItems: MenuItem[] ):
 	return wrapper;
 }
 
-describe( 'LookupCore', () => {
+describe( 'LookupInput', () => {
 
 	it( 'shows the previously selected menu item after regaining focus, if available', async () => {
 		const menuItems = [
@@ -28,7 +28,7 @@ describe( 'LookupCore', () => {
 
 		const selectedItemLabelSelector = '.wikit-OptionsMenu__item--selected .wikit-OptionsMenu__item__label';
 
-		const wrapper = mount( LookupCore, {
+		const wrapper = mount( LookupInput, {
 			propsData: {
 				value: { label: 'duck', description: 'aquatic bird' },
 				menuItems,
@@ -43,7 +43,7 @@ describe( 'LookupCore', () => {
 	} );
 
 	it( 'does not show the lookup menu if the input field is not focused', () => {
-		const wrapper = mount( LookupCore, {
+		const wrapper = mount( LookupInput, {
 			propsData: {
 				menuItems: [ { label: 'potato', description: 'root vegetable' } ],
 			},
@@ -53,7 +53,7 @@ describe( 'LookupCore', () => {
 	} );
 
 	it( 'shows the lookup menu if the input field is focused and has content', () => {
-		const wrapper = mount( LookupCore, {
+		const wrapper = mount( LookupInput, {
 			propsData: {
 				searchInput: 'some non-empty input',
 			},
@@ -67,7 +67,7 @@ describe( 'LookupCore', () => {
 
 	it( 'passes the no-results slot to the lookup menu', async () => {
 		const noResultsText = 'no results :(';
-		const wrapper = mount( LookupCore, {
+		const wrapper = mount( LookupInput, {
 			propsData: {
 				menuItems: [],
 				searchInput: 'some non-empty input',
@@ -80,7 +80,7 @@ describe( 'LookupCore', () => {
 
 		await Vue.nextTick();
 
-		expect( wrapper.find( '.wikit-LookupCore__menu' ).text() ).toBe( noResultsText );
+		expect( wrapper.find( '.wikit-LookupInput__menu' ).text() ).toBe( noResultsText );
 	} );
 
 	describe( ':props', () => {
@@ -89,13 +89,13 @@ describe( 'LookupCore', () => {
 				{ label: 'potato', description: 'root vegetable' },
 				{ label: 'duck', description: 'aquatic bird' },
 			];
-			const wrapper = await createLookupCoreWrapperWithExpandedMenu( menuItems );
+			const wrapper = await createLookupInputWrapperWithExpandedMenu( menuItems );
 
 			expect( wrapper.findComponent( OptionsMenu ).props( 'menuItems' ) ).toBe( menuItems );
 		} );
 
 		it( ':disabled - can be disabled', () => {
-			const wrapper = mount( LookupCore, {
+			const wrapper = mount( LookupInput, {
 				propsData: {
 					disabled: true,
 				},
@@ -106,7 +106,7 @@ describe( 'LookupCore', () => {
 
 		it( ':placeholder - shows the placeholder in the input', () => {
 			const placeholder = 'a placeholder';
-			const wrapper = mount( LookupCore, {
+			const wrapper = mount( LookupInput, {
 				propsData: {
 					placeholder,
 				},
@@ -117,7 +117,7 @@ describe( 'LookupCore', () => {
 
 		it( ':feedbackType - passes the feedback type to the Input', () => {
 			const feedbackType = 'error';
-			const wrapper = mount( LookupCore, {
+			const wrapper = mount( LookupInput, {
 				propsData: {
 					feedbackType,
 				},
@@ -128,7 +128,7 @@ describe( 'LookupCore', () => {
 
 		it( ':searchInput - is the value of the input', async () => {
 			const testSearchInput = 'Lorem Ipsum';
-			const wrapper = mount( LookupCore );
+			const wrapper = mount( LookupInput );
 
 			expect( wrapper.find( 'input' ).props( 'value' ) ).toBe( '' );
 
@@ -163,7 +163,7 @@ describe( 'LookupCore', () => {
 				value: 'Q81',
 				tag: 'limited support',
 			};
-			const wrapper = mount( LookupCore, {
+			const wrapper = mount( LookupInput, {
 				propsData: {
 					menuItems,
 				},
@@ -185,7 +185,7 @@ describe( 'LookupCore', () => {
 				{ label: 'potato', description: 'root vegetable' },
 				{ label: 'duck', description: 'aquatic bird' },
 			];
-			const wrapper = await createLookupCoreWrapperWithExpandedMenu( menuItems );
+			const wrapper = await createLookupInputWrapperWithExpandedMenu( menuItems );
 
 			const selectedItem = 1;
 			wrapper.findAll( '.wikit-OptionsMenu__item' ).at( selectedItem ).element.click();
@@ -200,7 +200,7 @@ describe( 'LookupCore', () => {
 					{ label: 'potato', description: 'root vegetable' },
 					{ label: 'duck', description: 'aquatic bird' },
 				];
-				const wrapper = await createLookupCoreWrapperWithExpandedMenu( menuItems );
+				const wrapper = await createLookupInputWrapperWithExpandedMenu( menuItems );
 
 				wrapper.find( 'input' ).setValue( 'potato' );
 
@@ -215,7 +215,7 @@ describe( 'LookupCore', () => {
 					{ label: 'potato', description: 'root vegetable' },
 					{ label: 'duck', description: 'aquatic bird' },
 				];
-				const wrapper = await createLookupCoreWrapperWithExpandedMenu( menuItems );
+				const wrapper = await createLookupInputWrapperWithExpandedMenu( menuItems );
 
 				const selectedItem = 1;
 				wrapper.findAll( '.wikit-OptionsMenu__item' ).at( selectedItem ).element.click();
@@ -226,7 +226,7 @@ describe( 'LookupCore', () => {
 		);
 
 		it( '@update:searchInput - emits `update:searchInput` when the internal input element receives input', () => {
-			const wrapper = mount( LookupCore );
+			const wrapper = mount( LookupInput );
 			const userInput = 'potato';
 			wrapper.find( 'input' ).setValue( userInput );
 
@@ -236,7 +236,7 @@ describe( 'LookupCore', () => {
 		it(
 			'@scroll - it emits the currently visible first and last option index on scroll, but only if they changed',
 			() => {
-				const wrapper = mount( LookupCore );
+				const wrapper = mount( LookupInput );
 				const optionsMenuWrapper = wrapper.findComponent( OptionsMenu );
 
 				optionsMenuWrapper.vm.$emit( 'scroll', 1, 5 );
@@ -272,7 +272,7 @@ describe( 'LookupCore', () => {
 
 			const highlightedItemLabelSelector = '.wikit-OptionsMenu__item--hovered .wikit-OptionsMenu__item__label';
 
-			const wrapper = await createLookupCoreWrapperWithExpandedMenu( menuItems );
+			const wrapper = await createLookupInputWrapperWithExpandedMenu( menuItems );
 			const OptionsMenuWrapper = wrapper.findComponent( OptionsMenu );
 			const inputWrapper = wrapper.find( 'input' );
 
@@ -322,7 +322,7 @@ describe( 'LookupCore', () => {
 				{ label: 'duck', description: 'aquatic bird' },
 			];
 
-			const wrapper = await createLookupCoreWrapperWithExpandedMenu( menuItems );
+			const wrapper = await createLookupInputWrapperWithExpandedMenu( menuItems );
 
 			wrapper.findComponent( OptionsMenu ).setData( { keyboardHoveredItemIndex: 0 } );
 			wrapper.findComponent( Input ).trigger( 'keydown', { key: 'Escape' } );
@@ -340,7 +340,7 @@ describe( 'LookupCore', () => {
 				{ label: 'duck', description: 'aquatic bird' },
 			];
 
-			const wrapper = await createLookupCoreWrapperWithExpandedMenu( menuItems );
+			const wrapper = await createLookupInputWrapperWithExpandedMenu( menuItems );
 			const inputWrapper = wrapper.find( 'input' );
 
 			const keyboardHoveredItemIndex = 0;
@@ -360,7 +360,7 @@ describe( 'LookupCore', () => {
 				{ label: 'duck', description: 'aquatic bird' },
 			];
 
-			const wrapper = await createLookupCoreWrapperWithExpandedMenu( menuItems );
+			const wrapper = await createLookupInputWrapperWithExpandedMenu( menuItems );
 			const OptionsMenuWrapper = wrapper.findComponent( OptionsMenu );
 
 			const inputWrapper = wrapper.find( 'input' );
@@ -384,7 +384,7 @@ describe( 'LookupCore', () => {
 				{ label: 'duck', description: 'aquatic bird' },
 			];
 
-			const wrapper = await createLookupCoreWrapperWithExpandedMenu( menuItems );
+			const wrapper = await createLookupInputWrapperWithExpandedMenu( menuItems );
 
 			wrapper.find( 'input' ).setValue( userInput );
 

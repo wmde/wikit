@@ -3,7 +3,7 @@
 		:class="[ 'wikit', 'wikit-Lookup' ]"
 	>
 		<label class="wikit-Lookup__label" :for="inputId">{{ label }}</label>
-		<LookupCore
+		<LookupInput
 			:id="inputId"
 			:feedback-type="feedbackType"
 			:menu-items="menuItems"
@@ -18,7 +18,7 @@
 			<template v-slot:no-results>
 				<slot name="no-results" />
 			</template>
-		</LookupCore>
+		</LookupInput>
 		<ValidationMessage
 			v-if="error"
 			:type="error.type"
@@ -34,7 +34,7 @@ import ValidationMessage from './ValidationMessage.vue';
 import generateUid from '@/components/util/generateUid';
 import { MenuItem } from '@/components/MenuItem';
 import { getFeedbackTypeFromProps, errorProp, ErrorProp } from '@/compositions/validatable';
-import LookupCore from '@/components/LookupCore.vue';
+import LookupInput from '@/components/LookupInput.vue';
 
 Vue.use( VueCompositionAPI );
 
@@ -97,7 +97,7 @@ export default defineComponent( {
 		},
 	},
 	components: {
-		LookupCore,
+		LookupInput,
 		ValidationMessage,
 	},
 } );

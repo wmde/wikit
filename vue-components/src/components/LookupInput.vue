@@ -1,6 +1,6 @@
 <template>
 	<div
-		:class="[ 'wikit', 'wikit-LookupCore' ]"
+		:class="[ 'wikit', 'wikit-LookupInput' ]"
 		@keydown="triggerKeyDown"
 	>
 		<Input
@@ -15,7 +15,7 @@
 			v-bind="$attrs"
 		/>
 		<OptionsMenu
-			class="wikit-LookupCore__menu"
+			class="wikit-LookupInput__menu"
 			:menu-items="menuItems"
 			:bold-labels="true"
 			:selected-item-index="selectedItemIndex"
@@ -43,7 +43,7 @@ import { MenuItem } from '@/components/MenuItem';
 Vue.use( VueCompositionAPI );
 
 export default defineComponent( {
-	name: 'LookupCore',
+	name: 'LookupInput',
 	inheritAttrs: false,
 	components: {
 		Input,
@@ -178,7 +178,7 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
-.wikit-LookupCore {
+.wikit-LookupInput {
 	position: relative;
 
 	&__menu {
