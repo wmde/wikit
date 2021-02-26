@@ -42,8 +42,8 @@ basic.args = {
 basic.argTypes = {
 	position: {
 		control: {
-			type: 'inline-radio',
-			options: PopoverPositions,
+			type: 'select',
+			options: Object.values( PopoverPositions ),
 		},
 	},
 	content: {

@@ -172,245 +172,196 @@ $base: '.wikit-Popover';
 		box-sizing: border-box;
 	}
 
-	&--bottom {
+	@mixin bottom {
 		#{$base}__content-wrapper {
 			margin-block-start: $wikit-Popover-distance + $wikit-Popover-pointer-height;
-			inset-inline-start: 50%;
-			transform: translateX(-50%);
-			inset-block-start: 100%;
 		}
 
 		#{$base}__pointer {
-			width: $wikit-Popover-pointer-width;
-			height: $wikit-Popover-pointer-height;
 			inset-block-start: -$wikit-Popover-pointer-height;
-			inset-inline-start: calc(50% - #{$wikit-Popover-pointer-width} / 2);
 		}
 
 		#{$base}__pointer::before {
 			inset-block-end: 0;
 		}
+	}
+
+	@mixin top {
+		#{$base}__content-wrapper {
+			inset-block-end: 100%;
+			margin-block-end: $wikit-Popover-distance + $wikit-Popover-pointer-height;
+
+		}
+
+		#{$base}__pointer {
+			width: $wikit-Popover-pointer-width;
+			height: $wikit-Popover-pointer-height;
+			inset-block-start: 100%;
+		}
+
+		#{$base}__pointer::before {
+			inset-block-start: calc(-1 * (50% + #{$wikit-Popover-pointer-width} / 2));
+		}
+	}
+
+	@mixin right {
+		#{$base}__content-wrapper {
+			margin-inline-start: $wikit-Popover-distance + $wikit-Popover-pointer-height;
+			inset-inline-start: 100%;
+		}
+
+		#{$base}__pointer {
+			width: $wikit-Popover-pointer-height;
+			height: $wikit-Popover-pointer-width;
+			inset-inline-start: -$wikit-Popover-pointer-height;
+		}
+
+		#{$base}__pointer::before {
+			transform-origin: bottom center;
+		}
+	}
+
+	@mixin left {
+		#{$base}__content-wrapper {
+			margin-inline-end: 0.75em;
+			inset-inline-end: 100%;
+		}
+
+		#{$base}__pointer {
+			width: $wikit-Popover-pointer-width;
+			height: $wikit-Popover-pointer-width;
+			inset-inline-start: 100%;
+		}
+
+		#{$base}__pointer::before {
+			transform-origin: bottom left;
+			inset-block-end: $wikit-Popover-pointer-width / 2;
+			inset-inline-start: -$wikit-Popover-pointer-width / 2;
+		}
+	}
+
+	@mixin horizontal( $subposition ) {
+		#{$base}__content-wrapper {
+			@if $subposition == center {
+				inset-inline-start: 50%;
+				transform: translateX(-50%);
+			}
+
+			@if $subposition == left {
+				inset-inline-end: 0;
+			}
+		}
+
+		#{$base}__pointer {
+			width: $wikit-Popover-pointer-width;
+			height: $wikit-Popover-pointer-height;
+
+			@if $subposition == center {
+				inset-inline-start: calc(50% - #{$wikit-Popover-pointer-width} / 2);
+			}
+
+			@if $subposition == right {
+				inset-inline-start: $wikit-Popover-pointer-margin-horizontal;
+			}
+
+			@if $subposition == left {
+				inset-inline-end: $wikit-Popover-pointer-margin-horizontal;
+			}
+		}
+	}
+
+	@mixin vertical( $subposition ) {
+		#{$base}__content-wrapper {
+			@if $subposition == center {
+				transform: translateY(-50%);
+				inset-block-start: 50%;
+			}
+
+			@if $subposition == top {
+				inset-block-end: calc(50% - #{$wikit-Popover-pointer-width} / 2 -
+				#{$wikit-Popover-pointer-margin-vertical});
+			}
+
+			@if $subposition == bottom {
+				inset-block-start: 0;
+			}
+		}
+
+		#{$base}__pointer {
+			@if $subposition == center {
+				transform: translate(0, -50%);
+				inset-block-start: 50%;
+			}
+
+			@if $subposition == top {
+				inset-block-end: 0;
+				margin-block-end: $wikit-Popover-pointer-margin-vertical;
+			}
+
+			@if $subposition == bottom {
+				inset-block-start: $wikit-Popover-pointer-margin-vertical;
+			}
+		}
+	}
+
+	&--bottom {
+		@include bottom;
+		@include horizontal(center);
 	}
 
 	&--bottom-right {
-		#{$base}__content-wrapper {
-			margin-block-start: $wikit-Popover-distance + $wikit-Popover-pointer-height;
-			inset-inline-start: 50%;
-			transform: translateX(-($wikit-Popover-pointer-width + $wikit-Popover-pointer-width / 2));
-			inset-block-start: 100%;
-		}
-
-		#{$base}__pointer {
-			width: $wikit-Popover-pointer-width;
-			height: $wikit-Popover-pointer-height;
-			inset-block-start: -$wikit-Popover-pointer-height;
-			inset-inline-start: $wikit-Popover-pointer-width;
-		}
-
-		#{$base}__pointer::before {
-			inset-block-end: 0;
-		}
+		@include bottom;
+		@include horizontal(right);
 	}
 
 	&--bottom-left {
-		#{$base}__content-wrapper {
-			margin-block-start: $wikit-Popover-distance + $wikit-Popover-pointer-height;
-			inset-inline-start: 50%;
-			transform: translateX(calc(-100% + (#{$wikit-Popover-pointer-width} + #{$wikit-Popover-pointer-width}/2)));
-			inset-block-start: 100%;
-		}
-
-		#{$base}__pointer {
-			width: $wikit-Popover-pointer-width;
-			height: $wikit-Popover-pointer-height;
-			inset-block-start: -$wikit-Popover-pointer-height;
-			inset-inline-start: calc(100% - (2 * #{$wikit-Popover-pointer-width}));
-		}
-
-		#{$base}__pointer::before {
-			inset-block-end: 0;
-		}
+		@include bottom;
+		@include horizontal(left);
 	}
 
 	&--top {
-		#{$base}__content-wrapper {
-			margin-block-start: -($wikit-Popover-distance + $wikit-Popover-pointer-height);
-			inset-inline-start: 50%;
-			transform: translate(-50%, -100%);
-			inset-block-start: 0;
-		}
-
-		#{$base}__pointer {
-			width: $wikit-Popover-pointer-width;
-			height: $wikit-Popover-pointer-height;
-			inset-block-start: 100%;
-			inset-inline-start: calc(50% - #{$wikit-Popover-pointer-width} / 2);
-		}
-
-		#{$base}__pointer::before {
-			inset-block-end: 0;
-			inset-block-start: calc(-1 * (50% + #{$wikit-Popover-pointer-width} / 2));
-		}
+		@include top;
+		@include horizontal(center);
 	}
 
 	&--top-right {
-		#{$base}__content-wrapper {
-			margin-block-start: -($wikit-Popover-distance + $wikit-Popover-pointer-height);
-			inset-inline-start: 50%;
-			transform: translate(-($wikit-Popover-pointer-width + $wikit-Popover-pointer-width / 2), -100%);
-			inset-block-start: 0;
-		}
-
-		#{$base}__pointer {
-			width: $wikit-Popover-pointer-width;
-			height: $wikit-Popover-pointer-height;
-			inset-block-start: 100%;
-			inset-inline-start: $wikit-Popover-pointer-width;
-		}
-
-		#{$base}__pointer::before {
-			inset-block-end: 0;
-			inset-block-start: calc(-1 * (50% + #{$wikit-Popover-pointer-width} / 2));
-		}
+		@include top;
+		@include horizontal(right);
 	}
 
 	&--top-left {
-		#{$base}__content-wrapper {
-			margin-block-start: -($wikit-Popover-distance + $wikit-Popover-pointer-height);
-			inset-inline-start: 50%;
-			transform: translate(calc(-100% + (#{$wikit-Popover-pointer-width} +
-			#{$wikit-Popover-pointer-width} / 2)), -100%);
-			inset-block-start: 0;
-		}
-
-		#{$base}__pointer {
-			width: $wikit-Popover-pointer-width;
-			height: $wikit-Popover-pointer-height;
-			inset-block-start: 100%;
-			inset-inline-start: calc(100% - (2 * #{$wikit-Popover-pointer-width}));
-		}
-
-		#{$base}__pointer::before {
-			inset-block-end: 0;
-			inset-block-start: calc(-1 * (50% + #{$wikit-Popover-pointer-width} / 2));
-		}
+		@include top;
+		@include horizontal(left);
 	}
 
 	&--right {
-		#{$base}__content-wrapper {
-			transform: translateY(-50%);
-			margin-inline-start: $wikit-Popover-distance + ($wikit-Popover-pointer-width / 2);
-			inset-block-start: 50%;
-			inset-inline-start: 100%;
-		}
-
-		#{$base}__pointer {
-			width: $wikit-Popover-pointer-height;
-			height: $wikit-Popover-pointer-width;
-			transform: translate(0, -50%);
-			inset-block-start: 50%;
-			inset-inline-start: -$wikit-Popover-pointer-height;
-		}
-
-		#{$base}__pointer::before {
-			inset-block-end: $wikit-Popover-pointer-height;
-		}
+		@include right;
+		@include vertical(center);
 	}
 
 	&--right-bottom {
-		#{$base}__content-wrapper {
-			inset-block-start: calc(50% - #{$wikit-Popover-pointer-width});
-			margin-inline-start: $wikit-Popover-distance + ($wikit-Popover-pointer-height);
-			inset-inline-start: 100%;
-		}
-
-		#{$base}__pointer {
-			width: $wikit-Popover-pointer-height;
-			height: $wikit-Popover-pointer-width;
-			margin-block-start: $wikit-Popover-pointer-height;
-			inset-inline-start: -$wikit-Popover-pointer-height;
-		}
-
-		#{$base}__pointer::before {
-			inset-block-end: $wikit-Popover-pointer-height;
-		}
+		@include right;
+		@include vertical(bottom);
 	}
 
 	&--right-top {
-		#{$base}__content-wrapper {
-			margin-inline-start: $wikit-Popover-distance + ($wikit-Popover-pointer-height);
-			inset-inline-start: 100%;
-			inset-block-start: calc(50% - 2 * #{$wikit-Popover-pointer-width});
-		}
-
-		#{$base}__pointer {
-			width: $wikit-Popover-pointer-height;
-			height: $wikit-Popover-pointer-width + $wikit-Popover-distance;
-			inset-inline-start: -$wikit-Popover-pointer-height;
-			margin-block-start: $wikit-Popover-pointer-width;
-		}
+		@include right;
+		@include vertical(top);
 	}
 
 	&--left {
-		#{$base}__content-wrapper {
-			transform: translate(-100%, -50%);
-			margin-inline-start: -($wikit-Popover-distance + ($wikit-Popover-pointer-width / 2));
-			inset-block-start: 50%;
-		}
-
-		#{$base}__pointer {
-			width: $wikit-Popover-pointer-width;
-			height: $wikit-Popover-pointer-width;
-			inset-block-start: calc(50% - (#{$wikit-Popover-pointer-width} / 2));
-			inset-inline-start: 100%;
-		}
-
-		#{$base}__pointer::before {
-			inset-block-end: $wikit-Popover-pointer-height;
-			inset-inline-end: $wikit-Popover-pointer-height + $wikit-Popover-distance;
-		}
+		@include left;
+		@include vertical(center);
 	}
 
 	&--left-bottom {
-		#{$base}__content-wrapper {
-			transform: translate(-100%, -50%);
-			margin-inline-start: -($wikit-Popover-distance + $wikit-Popover-pointer-height);
-			inset-block-start: calc(50% + #{$wikit-Popover-pointer-height});
-		}
-
-		#{$base}__pointer {
-			width: $wikit-Popover-pointer-width;
-			height: $wikit-Popover-pointer-width;
-			margin-block-start: -$wikit-Popover-pointer-height;
-			inset-block-start: calc(50% - #{$wikit-Popover-distance});
-			inset-inline-start: 100%;
-		}
-
-		#{$base}__pointer::before {
-			inset-block-end: $wikit-Popover-pointer-height;
-			inset-inline-end: $wikit-Popover-pointer-height + $wikit-Popover-distance;
-		}
+		@include left;
+		@include vertical(bottom);
 	}
 
 	&--left-top {
-		#{$base}__content-wrapper {
-			transform: translate(-100%, -50%);
-			margin-inline-start: -($wikit-Popover-distance + $wikit-Popover-pointer-height);
-			inset-block-start: calc(50% - #{$wikit-Popover-pointer-height});
-		}
-
-		#{$base}__pointer {
-			width: $wikit-Popover-pointer-width;
-			height: $wikit-Popover-pointer-width;
-			margin-block-start: $wikit-Popover-pointer-width / 2;
-			inset-inline-start: 100%;
-			inset-block-start: calc(50% -((#{$wikit-Popover-pointer-width} / 2) + #{$wikit-Popover-distance}));
-		}
-
-		#{$base}__pointer::before {
-			inset-block-end: $wikit-Popover-pointer-height;
-			inset-inline-end: $wikit-Popover-pointer-height + $wikit-Popover-distance;
-		}
+		@include left;
+		@include vertical(top);
 	}
 }
 </style>
