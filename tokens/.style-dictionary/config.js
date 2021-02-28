@@ -54,6 +54,9 @@ const StyleDictionary = require( 'style-dictionary' ),
 					destination: 'index.json',
 					format: 'json',
 					filter: removeWikimediaUiBaseVars,
+				}, {
+					destination: 'all.json',
+					format: 'json',
 				} ],
 			},
 			jsonSchema: {

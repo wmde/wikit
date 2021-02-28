@@ -12,7 +12,7 @@ function getReferencedTokens( prop ) {
 
 	return {
 		tokens: [ ...prop.original.value.matchAll( variablePattern ) ]
-			.map( ( match ) => match.groups.token ),
+			.map( ( match ) => match.groups.token.replace( /\./g, '-' ) ),
 	};
 }
 
