@@ -123,6 +123,7 @@ export default Vue.extend( {
 
 <style lang="scss">
 $base: '.wikit-Popover';
+$pointer-edge-length: math.hypot($wikit-Popover-pointer-width/2, $wikit-Popover-pointer-height);
 
 #{$base} {
 	display: inline-block;
@@ -158,15 +159,18 @@ $base: '.wikit-Popover';
 	&__pointer {
 		position: absolute;
 		overflow: hidden;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	&__pointer::before {
 		content: '';
 		position: absolute;
-		width: math.hypot($wikit-Popover-pointer-width/2, $wikit-Popover-pointer-height);
-		height: math.hypot($wikit-Popover-pointer-width/2, $wikit-Popover-pointer-height);
+		width: $pointer-edge-length;
+		height: $pointer-edge-length;
 		transform: rotate(45deg);
-		transform-origin: bottom left;
+		transform-origin: center;
 		border: $wikit-Popover-border-width $wikit-Popover-border-style $wikit-Popover-border-color;
 		background: $wikit-Popover-background-color;
 		box-sizing: border-box;
@@ -182,7 +186,7 @@ $base: '.wikit-Popover';
 		}
 
 		#{$base}__pointer::before {
-			inset-block-end: 0;
+			inset-block-end: calc(-1 * #{$pointer-edge-length} / 2);
 		}
 	}
 
@@ -200,7 +204,7 @@ $base: '.wikit-Popover';
 		}
 
 		#{$base}__pointer::before {
-			inset-block-start: calc(-1 * (50% + #{$wikit-Popover-pointer-width} / 2));
+			inset-block-start: calc(-1 * #{$pointer-edge-length} / 2);
 		}
 	}
 
@@ -217,7 +221,7 @@ $base: '.wikit-Popover';
 		}
 
 		#{$base}__pointer::before {
-			transform-origin: bottom center;
+			inset-inline-end: calc(-1 * #{$pointer-edge-length} / 2);
 		}
 	}
 
@@ -234,9 +238,7 @@ $base: '.wikit-Popover';
 		}
 
 		#{$base}__pointer::before {
-			transform-origin: bottom left;
-			inset-block-end: $wikit-Popover-pointer-width / 2;
-			inset-inline-start: -$wikit-Popover-pointer-width / 2;
+			inset-inline-start: calc(-1 * #{$pointer-edge-length} / 2);
 		}
 	}
 

@@ -60,7 +60,12 @@ export function all(): Component {
 			return { PopoverPositions };
 		},
 		template: `
-			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(30em, 1fr)); grid-gap: 1em;">
+			<div>
+			<div
+				style="display: grid; grid-template-columns: repeat(auto-fit, minmax(30em, 1fr)); grid-gap: 1em;"
+				v-for="direction in ['rtl','ltr']" :dir="direction"
+			>
+				<h2>Text direction: <span>{{ direction }}</span></h2>
 			<div
 				style="
 						min-height: 10em;
@@ -72,16 +77,20 @@ export function all(): Component {
 			>
 				<Popover :is-shown="true" :react-to-hover="false" :position="value">
 					<template v-slot:target>
-						<Button :iconOnly="true" aria-label="show hint" style="min-height: 3em;">
+						<Button
+							:iconOnly="true"
+							style="min-height: 3em; background: linear-gradient(90deg, white 0 50%, grey 50% 100%); ">
 							{{ value }}
 						</Button>
 					</template>
 					<template v-slot:default>
 						<div>
-							current position: <b><em>{{ value }}</em></b>.
+							<span v-if="direction === 'ltr'">current position: <b><em>{{ value }}</em></b>.</span>
+							<bdi v-if="direction === 'rtl'"><b><em>{{ value }}</em></b> :מיקום נוכחי</bdi> 
 						</div>
 					</template>
 				</Popover>
+			</div>
 			</div>
 			</div>
 		`,
