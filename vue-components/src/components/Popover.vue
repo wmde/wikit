@@ -208,7 +208,7 @@ $pointer-edge-length: math.hypot($wikit-Popover-pointer-width/2, $wikit-Popover-
 		}
 	}
 
-	@mixin right {
+	@mixin end {
 		#{$base}__content-wrapper {
 			margin-inline-start: $wikit-Popover-gap + $wikit-Popover-pointer-height;
 			inset-inline-start: 100%;
@@ -225,7 +225,7 @@ $pointer-edge-length: math.hypot($wikit-Popover-pointer-width/2, $wikit-Popover-
 		}
 	}
 
-	@mixin left {
+	@mixin start {
 		#{$base}__content-wrapper {
 			margin-inline-end: 0.75em;
 			inset-inline-end: 100%;
@@ -250,12 +250,12 @@ $pointer-edge-length: math.hypot($wikit-Popover-pointer-width/2, $wikit-Popover-
 
 		#{$base}__content-wrapper {
 
-			@if $subposition == left {
+			@if $subposition == start {
 				inset-inline-end: calc(50% - #{$wikit-Popover-pointer-width} / 2 -
 				#{$wikit-Popover-pointer-margin-horizontal});
 			}
 
-			@if $subposition == right {
+			@if $subposition == end {
 				inset-inline-start: calc(50% - #{$wikit-Popover-pointer-width} / 2 -
 				#{$wikit-Popover-pointer-margin-horizontal});
 			}
@@ -269,11 +269,11 @@ $pointer-edge-length: math.hypot($wikit-Popover-pointer-width/2, $wikit-Popover-
 				inset-inline-start: calc(50% - #{$wikit-Popover-pointer-width} / 2);
 			}
 
-			@if $subposition == right {
+			@if $subposition == end {
 				inset-inline-start: $wikit-Popover-pointer-margin-horizontal;
 			}
 
-			@if $subposition == left {
+			@if $subposition == start {
 				inset-inline-end: $wikit-Popover-pointer-margin-horizontal;
 			}
 		}
@@ -319,14 +319,14 @@ $pointer-edge-length: math.hypot($wikit-Popover-pointer-width/2, $wikit-Popover-
 		@include horizontal(center);
 	}
 
-	&--bottom-right {
+	&--bottom-end {
 		@include bottom;
-		@include horizontal(right);
+		@include horizontal(end);
 	}
 
-	&--bottom-left {
+	&--bottom-start {
 		@include bottom;
-		@include horizontal(left);
+		@include horizontal(start);
 	}
 
 	&--top {
@@ -334,43 +334,43 @@ $pointer-edge-length: math.hypot($wikit-Popover-pointer-width/2, $wikit-Popover-
 		@include horizontal(center);
 	}
 
-	&--top-right {
+	&--top-end {
 		@include top;
-		@include horizontal(right);
+		@include horizontal(end);
 	}
 
-	&--top-left {
+	&--top-start {
 		@include top;
-		@include horizontal(left);
+		@include horizontal(start);
 	}
 
-	&--right {
-		@include right;
+	&--end {
+		@include end;
 		@include vertical(center);
 	}
 
-	&--right-bottom {
-		@include right;
+	&--end-bottom {
+		@include end;
 		@include vertical(bottom);
 	}
 
-	&--right-top {
-		@include right;
+	&--end-top {
+		@include end;
 		@include vertical(top);
 	}
 
-	&--left {
-		@include left;
+	&--start {
+		@include start;
 		@include vertical(center);
 	}
 
-	&--left-bottom {
-		@include left;
+	&--start-bottom {
+		@include start;
 		@include vertical(bottom);
 	}
 
-	&--left-top {
-		@include left;
+	&--start-top {
+		@include start;
 		@include vertical(top);
 	}
 }
