@@ -63,9 +63,9 @@ export function all(): Component {
 			<div>
 			<div
 				style="display: grid; grid-template-columns: repeat(auto-fit, minmax(30em, 1fr)); grid-gap: 1em;"
-				v-for="direction in ['rtl','ltr']" :dir="direction"
+				v-for="direction in ['ltr','rtl']" :dir="direction"
 			>
-				<h2>Text direction: <span>{{ direction }}</span></h2>
+				<h2 style="grid-column: 1/-1; text-align: center;">Text direction: <span>{{ direction }}</span></h2>
 			<div
 				style="
 						min-height: 10em;
@@ -79,7 +79,7 @@ export function all(): Component {
 					<template v-slot:target>
 						<Button
 							:iconOnly="true"
-							style="min-height: 3em; background: linear-gradient(90deg, white 0 50%, grey 50% 100%); ">
+							style="min-height: 3em;">
 							{{ value }}
 						</Button>
 					</template>
