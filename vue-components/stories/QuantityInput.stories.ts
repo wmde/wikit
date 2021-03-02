@@ -66,9 +66,10 @@ export default {
 	title: 'Wikibase Components/QuantityInput',
 };
 
-export function basic(): Component {
+export function basic( args ): Component {
 	return {
 		components: { QuantityInput },
+		props: Object.keys( args ),
 		data() {
 			return {
 				search: '',
@@ -95,20 +96,43 @@ export function basic(): Component {
       	</p>
 				<p>
 					<QuantityInput 
-						label="Value and Unit (optional)"
-						numberInputPlaceholder="Enter a number"
+						:label="label"
+						:numberInputPlaceholder="numberInputPlaceholder"
 						:number-input-value.sync="enteredNumber"
-            unit-lookup-label="Unit (optional)"
-						unitLookupPlaceholder="Enter a unit"
+            :unit-lookup-label="unitLookupLabel"
+						:unitLookupPlaceholder="unitLookupPlaceholder"
 						:unit-lookup-menu-items="menuItems"
             :unit-lookup-search-input.sync="search"
 						:unit-lookup-value.sync="selectedUnit"
-					/>
+						:disabled="disabled"
+						:errorCause="null"
+					>
+            <template v-slot:no-results>
+              No match was found
+            </template>
+					</QuantityInput>
 				</p>
 			</div>
 		`,
 	};
 }
+
+basic.args = {
+	label: 'Value and Unit (optional)',
+	numberInputPlaceholder: 'Enter a number',
+	unitLookupLabel: 'Unit (optional)',
+	unitLookupPlaceholder: 'Enter a unit',
+	disabled: false,
+};
+
+basic.argTypes = {
+	error: { control: 'disabled' },
+	errorCause: { control: 'disabled' },
+	numberInputValue: { control: 'disabled' },
+	unitLookupMenuItems: { control: 'disabled' },
+	unitLookupSearchInput: { control: 'disabled' },
+	unitLookupValue: { control: 'disabled' },
+};
 
 export function all(): Component {
 	return {
@@ -123,10 +147,39 @@ export function all(): Component {
 						unitLookupPlaceholder="Enter a unit"
 					  :unit-lookup-menu-items="[]"
 					 	unit-lookup-search-input=""
-						:error="{type: 'error', message: 'message'}"
+						:error="{type: 'error', message: 'a problem with the number input'}"
+						errorCause="number"
 					/>
 				</p>
+        <p>
+          <QuantityInput
+            label="Value and Unit (optional)"
+            numberInputPlaceholder="Enter a number"
+            unit-lookup-label="Unit (optional)"
+            unitLookupPlaceholder="Enter a unit"
+            :unit-lookup-menu-items="[]"
+            unit-lookup-search-input=""
+            :error="{type: 'error', message: 'a problem with the unit input'}"
+            errorCause="unit"
+          />
+        </p>
+        <p>
+          <QuantityInput
+            label="Value and Unit (optional)"
+            numberInputPlaceholder="Enter a number"
+            unit-lookup-label="Unit (optional)"
+            unitLookupPlaceholder="Enter a unit"
+            :unit-lookup-menu-items="[]"
+            unit-lookup-search-input=""
+            :error="{type: 'error', message: 'a problem with both inputs 😱'}"
+            errorCause="both"
+          />
+        </p>
 			</div>
 		`,
 	};
 }
+
+all.parameters = {
+	controls: { hideNoControlsWarning: true },
+};

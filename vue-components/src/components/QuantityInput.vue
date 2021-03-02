@@ -13,7 +13,7 @@
 			/>
 			<LookupInput
 				class="wikit-QuantityInput__unit-lookup"
-				:label="unitLookupLabel"
+				:aria-label="unitLookupLabel"
 				:placeholder="unitLookupPlaceholder"
 				:disabled="disabled"
 				:menu-items="unitLookupMenuItems"
@@ -22,7 +22,11 @@
 				@input="onUnitLookupValue"
 				:value="unitLookupValue"
 				:feedback-type="errorCause === 'unit' || errorCause === 'both' ? feedbackType : null"
-			/>
+			>
+				<template v-slot:no-results>
+					<slot name="no-results" />
+				</template>
+			</LookupInput>
 		</div>
 		<ValidationMessage
 			v-if="error"
@@ -54,7 +58,7 @@ export default defineComponent( {
 		 */
 		errorCause: {
 			type: String as PropType<'number' | 'unit' | 'both' | null>,
-			default: false,
+			default: null,
 			validator: ( prop: string | null ): boolean => {
 				return [ 'number', 'unit', 'both', null ].includes( prop );
 			},
