@@ -11,7 +11,7 @@
 				:disabled="disabled"
 				:feedback-type="feedbackType"
 			/>
-			<Lookup
+			<LookupInput
 				class="wikit-QuantityInput__unit-lookup"
 				:label="unitLookupLabel"
 				:placeholder="unitLookupPlaceholder"
@@ -21,6 +21,7 @@
 				:search-input="unitLookupSearchInput"
 				@input="onUnitLookupValue"
 				:value="unitLookupValue"
+				:feedback-type="feedbackType"
 			/>
 		</div>
 		<ValidationMessage
@@ -35,7 +36,7 @@
 import Vue from 'vue';
 import VueCompositionAPI, { defineComponent, computed, PropType } from '@vue/composition-api';
 import Input from '@/components/Input.vue';
-import Lookup from '@/components/Lookup.vue';
+import LookupInput from '@/components/LookupInput.vue';
 import ValidationMessage from '@/components/ValidationMessage.vue';
 import generateUid from '@/components/util/generateUid';
 import { ErrorProp, errorProp, getFeedbackTypeFromProps } from '@/compositions/validatable';
@@ -135,7 +136,7 @@ export default defineComponent( {
 	name: 'QuantityInput',
 	components: {
 		Input, // TODO: add validation
-		Lookup,
+		LookupInput,
 		ValidationMessage,
 	},
 } );
