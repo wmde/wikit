@@ -77,6 +77,14 @@ export default ( Vue as VueConstructor<Vue & ToggleButtonGroupInjection> ).exten
 	transition-duration: $wikit-ToggleButton-transition-duration;
 	transition-timing-function: $wikit-ToggleButton-transition-timing-function;
 
+	&:focus {
+		color: $wikit-ToggleButton-focus-color;
+		border-color: $wikit-ToggleButton-focus-border-color;
+		background-color: $wikit-ToggleButton-focus-background-color;
+		box-shadow: $wikit-ToggleButton-focus-box-shadow;
+		outline: none;
+	}
+
 	&:hover {
 		color: $wikit-ToggleButton-hover-color;
 		border-color: $wikit-ToggleButton-hover-border-color;
@@ -89,12 +97,8 @@ export default ( Vue as VueConstructor<Vue & ToggleButtonGroupInjection> ).exten
 		background-color: $wikit-ToggleButton-active-background-color;
 	}
 
-	&:focus {
-		color: $wikit-ToggleButton-focus-color;
+	&:focus:hover {
 		border-color: $wikit-ToggleButton-focus-border-color;
-		background-color: $wikit-ToggleButton-focus-background-color;
-		box-shadow: $wikit-ToggleButton-focus-box-shadow;
-		outline: none;
 	}
 
 	&:disabled {

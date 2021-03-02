@@ -29,7 +29,10 @@ development)_
 - New Checkbox Component
 - New ToggleButton and ToggleButtonGroup components
 - Add Popover component
+- Added new icon type for new window
 - Add new icon type for link 
+- Add new icon type for additions
+- Add new icon type for search 
 
 ### Changed
 

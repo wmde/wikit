@@ -39,6 +39,18 @@
 			<path fill="currentColor" d="M10 0C4.477 0 0 4.477 0 10C0 15.523 4.477 20 10 20C15.523 20 20 15.523 20 10C20 4.477 15.523 0 10 0ZM9 5H11V7H9V5ZM9 9H11V15H9V9Z" />
 		</svg>
 
+		<!-- new window icon -->
+		<svg
+			class="wikit-Icon__svg"
+			viewBox="0 0 20 20"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			v-else-if="type === IconTypes.NEWWINDOW"
+		>
+			<path fill="currentColor" d="M17 17H3V3H8V1H3C2.46957 1 1.96086 1.21071 1.58579 1.58579C1.21071 1.96086 1 2.46957 1 3V17C1 17.5304 1.21071 18.0391 1.58579 18.4142C1.96086 18.7893 2.46957 19 3 19H17C17.5304 19 18.0391 18.7893 18.4142 18.4142C18.7893 18.0391 19 17.5304 19 17V12H17V17Z" />
+			<path fill="currentColor" d="M11 1L14.29 4.29L8.56 10.02L9.98 11.44L15.71 5.71L19 9V1H11Z" />
+		</svg>
+
 		<!-- checkmark icon -->
 		<svg
 			class="wikit-Icon__svg"
@@ -126,6 +138,27 @@
 					/>
 				</clipPath>
 			</defs>
+		</svg>
+
+		<!-- add icon -->
+		<svg
+			viewBox="0 0 21 20"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			class="wikit-Icon__svg"
+			v-else-if="type === IconTypes.ADD"
+		>
+			<path d="M19.5444 8.5H12.0444V1H9.04443V8.5H1.54443V11.5H9.04443V19H12.0444V11.5H19.5444V8.5Z" fill="currentColor" />
+		</svg>
+
+		<!-- search icon -->
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 20 20"
+			class="wikit-Icon__svg"
+			v-else-if="type === IconTypes.SEARCH"
+		>
+			<path d="M7.5 13c3.04 0 5.5-2.46 5.5-5.5S10.54 2 7.5 2 2 4.46 2 7.5 4.46 13 7.5 13zm4.55.46A7.432 7.432 0 017.5 15C3.36 15 0 11.64 0 7.5S3.36 0 7.5 0C11.64 0 15 3.36 15 7.5c0 1.71-.57 3.29-1.54 4.55l6.49 6.49-1.41 1.41-6.49-6.49z" fill="currentColor" />
 		</svg>
 
 	</span>
