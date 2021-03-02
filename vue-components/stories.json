@@ -3,51 +3,55 @@
   "globalParameters": {},
   "kindParameters": {
     "/Button": {
-      "fileName": 1725,
-      "framework": "vue"
-    },
-    "Checkbox": {
-      "fileName": 1726,
-      "framework": "vue"
-    },
-    "Dropdown": {
-      "fileName": 1727,
-      "framework": "vue"
-    },
-    "Wikibase Components/ExtendedNumberInput": {
-      "fileName": 1723,
-      "framework": "vue"
-    },
-    "Icon": {
-      "fileName": 1703,
-      "framework": "vue"
-    },
-    "/Input/Basic": {
-      "fileName": 1704,
-      "framework": "vue"
-    },
-    "/Lookup/Lookup": {
-      "fileName": 1721,
-      "framework": "vue"
-    },
-    "/Message/Message": {
       "fileName": 1728,
       "framework": "vue"
     },
-    "OptionsMenu": {
-      "fileName": 1711,
-      "framework": "vue"
-    },
-    "/Input/TextInput": {
+    "Checkbox": {
       "fileName": 1729,
       "framework": "vue"
     },
+    "Dropdown": {
+      "fileName": 1730,
+      "framework": "vue"
+    },
+    "Wikibase Components/ExtendedNumberInput": {
+      "fileName": 1726,
+      "framework": "vue"
+    },
+    "Icon": {
+      "fileName": 1704,
+      "framework": "vue"
+    },
+    "/Input/Basic": {
+      "fileName": 1705,
+      "framework": "vue"
+    },
+    "/Link": {
+      "fileName": 1731,
+      "framework": "vue"
+    },
+    "/Lookup/Lookup": {
+      "fileName": 1724,
+      "framework": "vue"
+    },
+    "/Message/Message": {
+      "fileName": 1732,
+      "framework": "vue"
+    },
+    "OptionsMenu": {
+      "fileName": 1714,
+      "framework": "vue"
+    },
+    "/Input/TextInput": {
+      "fileName": 1733,
+      "framework": "vue"
+    },
     "ToggleButton": {
-      "fileName": 1722,
+      "fileName": 1725,
       "framework": "vue"
     },
     "/Message/ValidationMessage": {
-      "fileName": 1718,
+      "fileName": 1721,
       "framework": "vue"
     }
   },
@@ -179,6 +183,26 @@
       "story": "All",
       "parameters": {
         "__id": "input-basic--all",
+        "__isArgsStory": false
+      }
+    },
+    "link--basic": {
+      "id": "link--basic",
+      "name": "Basic",
+      "kind": "/Link",
+      "story": "Basic",
+      "parameters": {
+        "__id": "link--basic",
+        "__isArgsStory": true
+      }
+    },
+    "link--all": {
+      "id": "link--all",
+      "name": "All",
+      "kind": "/Link",
+      "story": "All",
+      "parameters": {
+        "__id": "link--all",
         "__isArgsStory": false
       }
     },
