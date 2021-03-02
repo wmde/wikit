@@ -16,7 +16,10 @@ export function basic( args: { content: string; underlined: boolean } ): Compone
         props: Object.keys( args ),
         template: `
 			<div>
-			<p><Link :underlined="underlined"><span v-html="content" /></Link></p>
+			<p><Link
+                :underlined="underlined"
+                :href="'#' + Math.random()"
+            ><span v-html="content" /></Link></p>
 			</div>
 		`,
     };
@@ -45,10 +48,10 @@ export function all(): Component {
         components: { Link },
         template: `
 			<div>
-            <p><Link>Click here</Link></p>
-            <p><Link underlined>Click here</Link></p>
-            <p><Link icon="before">About Wikidata</Link></p>
-            <p><Link icon="after">About Wikidata</Link></p>
+            <p><Link :href="'#' + Math.random()">Click here</Link></p>
+            <p><Link :href="'#' + Math.random()" underlined>Click here</Link></p>
+            <p><Link :href="'#' + Math.random()" icon="before">About Wikidata</Link></p>
+            <p><Link :href="'#' + Math.random()" icon="after">About Wikidata</Link></p>
             </div>
 		`,
     };

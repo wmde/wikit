@@ -1,10 +1,12 @@
 <template>
-	<span
+	<a
 		:class="[
 			'wikit',
 			'wikit-Link',
 			(underlined == true) ? `wikit-Link--underlined` : ''
 		]"
+		:href="href"
+		:target="target"
 	>
 		<Icon
 			v-if="icon === 'before'"
@@ -21,7 +23,7 @@
 			color="progressive"
 			size="xsmall"
 		/>
-	</span>
+	</a>
 </template>
 
 <script lang="ts">
@@ -45,6 +47,14 @@ export default Vue.extend( {
 			type: Boolean,
 			default: false,
 		},
+		href: {
+			type: String,
+			default: '',
+		},
+		target: {
+			type: String,
+			default: '_self',
+		},
 	},
 	components: {
 		Icon,
@@ -57,6 +67,7 @@ export default Vue.extend( {
 	@include Link();
 
 	display: flex;
+	text-decoration: none;
 	align-items: center;
 	width: max-content;
 
