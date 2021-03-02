@@ -15,7 +15,7 @@ export function basic( args ): Component {
 		props: Object.keys( args ),
 		template: `
 			<div>
-			<div style="height: 80vh; display: flex; justify-content: space-around; align-items: center;">
+			<div :dir="direction" style="height: 80vh; display: flex; justify-content: space-around; align-items: center;">
 				<Popover :is-shown="isShown" :react-to-hover="reactToHover" :position="position">
 					<template v-slot:target>
 						<Button :iconOnly="true" aria-label="show hint">
@@ -37,9 +37,17 @@ basic.args = {
 	reactToHover: true,
 	position: 'bottom',
 	content: 'Here is some <em>content</em>. You can modify it in the "Controls" section.',
+	direction: 'ltr',
 };
 
 basic.argTypes = {
+	direction: {
+		control: {
+			type: 'radio',
+			options: [ 'ltr', 'rtl' ],
+		},
+		description: 'Simulate the text-direction of the surrounding document. Either left-to-right or right-to-left.',
+	},
 	position: {
 		control: {
 			type: 'select',
@@ -96,3 +104,7 @@ export function all(): Component {
 		`,
 	};
 }
+
+all.parameters = {
+	controls: { hideNoControlsWarning: true },
+};
