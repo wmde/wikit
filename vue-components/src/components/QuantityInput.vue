@@ -9,7 +9,7 @@
 				:id="id"
 				@input="onNumberInput"
 				:disabled="disabled"
-				:feedback-type="feedbackType"
+				:feedback-type="errorCause === 'number' || errorCause === 'both' ? feedbackType : null"
 			/>
 			<LookupInput
 				class="wikit-QuantityInput__unit-lookup"
@@ -21,7 +21,7 @@
 				:search-input="unitLookupSearchInput"
 				@input="onUnitLookupValue"
 				:value="unitLookupValue"
-				:feedback-type="feedbackType"
+				:feedback-type="errorCause === 'unit' || errorCause === 'both' ? feedbackType : null"
 			/>
 		</div>
 		<ValidationMessage
@@ -47,6 +47,18 @@ Vue.use( VueCompositionAPI );
 export default defineComponent( {
 	props: {
 		error: errorProp,
+		/**
+		 * Use this prop to define the cause of the error
+		 *
+		 * type: 'number' | 'unit' | 'both' | null
+		 */
+		errorCause: {
+			type: String as PropType<'number' | 'unit' | 'both' | null>,
+			default: false,
+			validator: ( prop: string | null ): boolean => {
+				return [ 'number', 'unit', 'both', null ].includes( prop );
+			},
+		},
 		/**
 		 * visual label for the entire component, linked to the number input
 		 */
