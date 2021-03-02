@@ -67,6 +67,7 @@ export default Vue.extend( {
 	@include Link();
 
 	display: flex;
+	text-decoration: none;
 	align-items: center;
 	width: max-content;
 
