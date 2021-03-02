@@ -3,10 +3,13 @@
 		:class="[ 'wikit', 'wikit-Dropdown' ]"
 		@keydown="triggerKeyDown"
 	>
+		<slot v-if="this.textDirection == 'rtl'" name="suffix" />
 		<label
 			class="wikit-Dropdown__label"
+			:class="[ `wikit-Dropdown__label`, `wikit-Dropdown__label--${textDirection}` ]"
 			@click="$refs.select.focus()"
 		>{{ label }}</label>
+		<slot v-if="this.textDirection == 'ltr'" name="suffix" />
 		<div
 			:class="classesForSelect"
 			:tabindex="!disabled && '0'"
@@ -99,6 +102,14 @@ export default defineComponent( {
 		placeholder: {
 			type: String,
 			default: '',
+		},
+		/**
+		 * Sets the position of the icon depending on the text direction of the document.
+		 * i.e ltr or rtl
+		 */
+		textDirection: {
+			type: String,
+			default: 'ltr',
 		},
 	},
 	computed: {
@@ -255,6 +266,15 @@ $base: '.wikit-Dropdown';
 
 	&__label {
 		@include Label( block );
+
+		&--rtl,
+		&--ltr {
+			@include Label( inline-flex );
+		}
+	}
+
+	.wikit-Icon {
+		vertical-align: middle;
 	}
 }
 </style>

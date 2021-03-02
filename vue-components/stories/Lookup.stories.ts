@@ -1,4 +1,5 @@
 import Lookup from '@/components/Lookup';
+import Icon from '@/components/Icon';
 import { Component } from 'vue';
 import { MenuItem } from '@/components/MenuItem';
 
@@ -68,7 +69,7 @@ const vegetableItems = [
 
 export function all(): Component {
 	return {
-		components: { Lookup },
+		components: { Lookup, Icon },
 		data() {
 			return {
 				search: '',
@@ -127,6 +128,33 @@ export function all(): Component {
 					placeholder="Placeholder"
 					:error= "{ type: 'error', message: 'Please make a valid selection' }"
 				/>
+				</div>
+				<div style="margin-bottom: 20px">
+					<Lookup
+						:search-input.sync="search"
+						label="Label with suffix icon"
+						v-model="selectedItem"
+						:menu-items="menuItems"
+						placeholder="Placeholder"
+						@scroll="onScroll"
+					>
+						<template v-slot:suffix>
+							<Icon type="info-outlined" size="small" color="base"/>
+						</template>
+						<template v-slot:no-results>
+							No match was found
+						</template>
+					</Lookup>
+					<div v-if="selectedItem" style="margin-top: 16px">
+						Selected vegetable:
+						<span class="selected-item-label">{{ selectedItem.label }}</span>
+						(<span class="selected-item-id">{{ selectedItem.value }}</span>)
+					</div>
+					<div v-if="visibleItems" style="margin-top: 16px">
+						Visible elements on scroll:
+						<div class="first-visible-element-index">First index: {{ visibleItems.firstIndex }}</div>
+						<div class="last-visible-element-index">Last index: {{ visibleItems.lastIndex }}</div>
+					</div>
 				</div>
 			</div>
 		`,

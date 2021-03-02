@@ -1,6 +1,12 @@
 <template>
 	<div :class="[ 'wikit', 'wikit-TextInput' ]">
-		<label class="wikit-TextInput__label" :for="id">{{ label }}</label>
+		<slot v-if="this.textDirection == 'rtl'" name="suffix" />
+		<label
+			class="wikit-TextInput__label"
+			:class="[ `wikit-TextInput__label`, `wikit-TextInput__label--${textDirection}` ]"
+			:for="id"
+		>{{ label }}</label>
+		<slot v-if="this.textDirection == 'ltr'" name="suffix" />
 		<Input
 			:id="id"
 			:value="value"
@@ -57,6 +63,14 @@ export default defineComponent( {
 			type: String,
 			default: '',
 		},
+		/**
+		 * Sets the position of the icon depending on the text direction of the document.
+		 * i.e ltr or rtl
+		 */
+		textDirection: {
+			type: String,
+			default: 'ltr',
+		},
 	},
 
 	data() {
@@ -86,6 +100,15 @@ export default defineComponent( {
 .wikit-TextInput {
 	&__label {
 		@include Label( block );
+
+		&--rtl,
+		&--ltr {
+			@include Label( inline-flex );
+		}
+	}
+
+	.wikit-Icon {
+		vertical-align: middle;
 	}
 }
 </style>
