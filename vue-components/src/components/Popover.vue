@@ -178,6 +178,7 @@ $pointer-edge-length: math.hypot($wikit-Popover-pointer-width/2, $wikit-Popover-
 
 	@mixin bottom {
 		#{$base}__content-wrapper {
+			inset-block-start: 100%;
 			margin-block-start: $wikit-Popover-gap + $wikit-Popover-pointer-height;
 		}
 
@@ -194,7 +195,6 @@ $pointer-edge-length: math.hypot($wikit-Popover-pointer-width/2, $wikit-Popover-
 		#{$base}__content-wrapper {
 			inset-block-end: 100%;
 			margin-block-end: $wikit-Popover-gap + $wikit-Popover-pointer-height;
-
 		}
 
 		#{$base}__pointer {
@@ -243,11 +243,12 @@ $pointer-edge-length: math.hypot($wikit-Popover-pointer-width/2, $wikit-Popover-
 	}
 
 	@mixin horizontal( $subposition ) {
+		@if $subposition == center {
+			display: inline-flex;
+			justify-content: center;
+		}
+
 		#{$base}__content-wrapper {
-			@if $subposition == center {
-				inset-inline-start: 50%;
-				transform: translateX(-50%);
-			}
 
 			@if $subposition == left {
 				inset-inline-end: calc(50% - #{$wikit-Popover-pointer-width} / 2 -
