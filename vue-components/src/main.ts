@@ -6,6 +6,7 @@ import ToggleButtonGroup from './components/ToggleButtonGroup.vue';
 import Lookup from './components/Lookup.vue';
 import Dropdown from './components/Dropdown.vue';
 import Message from './components/Message.vue';
+import Popover from './components/Popover.vue';
 import Icon from './components/Icon.vue';
 
 export {
@@ -17,5 +18,6 @@ export {
 	ToggleButtonGroup,
 	Lookup,
 	Message,
+	Popover,
 	Icon,
 };
