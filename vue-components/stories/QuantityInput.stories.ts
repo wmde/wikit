@@ -98,30 +98,30 @@ export function basic( args ): Component {
 				<p>
 					Number entered: {{ enteredNumber }}
 				</p>
-	      <p style="margin-top: 16px">
-    	    Selected Unit:
+				<p style="margin-top: 16px">
+					Selected Unit:
 					<span v-if="selectedUnit">
-  	      <span class="selected-item-label">{{ selectedUnit.label }}</span>
-	        (<span class="selected-item-id">{{ selectedUnit.value }}</span>)
+					<span class="selected-item-label">{{ selectedUnit.label }}</span>
+					(<span class="selected-item-id">{{ selectedUnit.value }}</span>)
 						</span>
-      	</p>
+				</p>
 				<p>
 					<QuantityInput 
 						:label="label"
 						:numberInputPlaceholder="numberInputPlaceholder"
 						:number-input-value.sync="enteredNumber"
-            :unit-lookup-label="unitLookupLabel"
+						:unit-lookup-label="unitLookupLabel"
 						:unitLookupPlaceholder="unitLookupPlaceholder"
 						:unit-lookup-menu-items="menuItems"
-            :unit-lookup-search-input.sync="search"
+						:unit-lookup-search-input.sync="search"
 						:unit-lookup-value.sync="selectedUnit"
 						:disabled="disabled"
 						:errorCause="error ? 'number' : null"
 						:error="error"
 					>
-            <template v-slot:no-results>
-              No match was found
-            </template>
+						<template v-slot:no-results>
+							No match was found
+						</template>
 					</QuantityInput>
 				</p>
 			</div>
@@ -155,38 +155,38 @@ export function all(): Component {
 					<QuantityInput 
 						label="Value and Unit (optional)"
 						numberInputPlaceholder="Enter a number"
-            unit-lookup-label="Unit (optional)"
+						unit-lookup-label="Unit (optional)"
 						unitLookupPlaceholder="Enter a unit"
-					  :unit-lookup-menu-items="[]"
+						:unit-lookup-menu-items="[]"
 					 	unit-lookup-search-input=""
 						:error="{type: 'error', message: 'a problem with the number input'}"
 						errorCause="number"
 					/>
 				</p>
-        <p>
-          <QuantityInput
-            label="Value and Unit (optional)"
-            numberInputPlaceholder="Enter a number"
-            unit-lookup-label="Unit (optional)"
-            unitLookupPlaceholder="Enter a unit"
-            :unit-lookup-menu-items="[]"
-            unit-lookup-search-input=""
-            :error="{type: 'error', message: 'a problem with the unit input'}"
-            errorCause="unit"
-          />
-        </p>
-        <p>
-          <QuantityInput
-            label="Value and Unit (optional)"
-            numberInputPlaceholder="Enter a number"
-            unit-lookup-label="Unit (optional)"
-            unitLookupPlaceholder="Enter a unit"
-            :unit-lookup-menu-items="[]"
-            unit-lookup-search-input=""
-            :error="{type: 'error', message: 'a problem with both inputs 😱'}"
-            errorCause="both"
-          />
-        </p>
+				<p>
+					<QuantityInput
+						label="Value and Unit (optional)"
+						numberInputPlaceholder="Enter a number"
+						unit-lookup-label="Unit (optional)"
+						unitLookupPlaceholder="Enter a unit"
+						:unit-lookup-menu-items="[]"
+						unit-lookup-search-input=""
+						:error="{type: 'error', message: 'a problem with the unit input'}"
+						errorCause="unit"
+					/>
+				</p>
+				<p>
+					<QuantityInput
+						label="Value and Unit (optional)"
+						numberInputPlaceholder="Enter a number"
+						unit-lookup-label="Unit (optional)"
+						unitLookupPlaceholder="Enter a unit"
+						:unit-lookup-menu-items="[]"
+						unit-lookup-search-input=""
+						:error="{type: 'error', message: 'a problem with both inputs 😱'}"
+						errorCause="both"
+					/>
+				</p>
 			</div>
 		`,
 	};
