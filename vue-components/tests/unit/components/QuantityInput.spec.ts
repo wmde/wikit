@@ -323,7 +323,8 @@ describe( 'QuantityInput', () => {
 				await wrapper.vm.$nextTick();
 
 				expect( wrapper.emitted( 'update:numberInputValue' )![ 0 ] ).toStrictEqual( [ enteredNumberText ] );
-			} );
+			},
+		);
 
 	} );
 } );

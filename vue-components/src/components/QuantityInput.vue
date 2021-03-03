@@ -56,8 +56,6 @@ export default defineComponent( {
 		error: errorProp,
 		/**
 		 * Use this prop to define the cause of the error
-		 *
-		 * type: 'number' | 'unit' | 'both' | null
 		 */
 		errorCause: {
 			type: String as PropType<'number' | 'unit' | 'both' | null>,
@@ -88,10 +86,10 @@ export default defineComponent( {
 			required: true,
 		},
 		/**
-		 * FIXME: document
+		 * This is the plain value in the number input. Note that it is a string
 		 */
 		numberInputValue: {
-			type: String, // FIXME: decide if this actually should be a string?
+			type: String,
 			default: null,
 		},
 		/**
@@ -109,17 +107,20 @@ export default defineComponent( {
 			required: true,
 		},
 		/**
-		 * FIXME: document
+		 * Analogous to the `searchInput` prop on the Lookup component. Can be used with the .sync modifier
 		 */
 		unitLookupSearchInput: {
 			type: String,
 			required: true,
 		},
 		/**
-		 * FIXME: document
+		 * Analogous to the `value` prop on the Lookup component.
+		 * The selected menu item, can be of type `MenuItem` or `null`.
+		 *
+		 * Can be used with the .sync modifier.
 		 */
 		unitLookupValue: {
-			type: Object,
+			type: Object as PropType<MenuItem | null>,
 			default: null,
 		},
 		disabled: {
@@ -140,15 +141,21 @@ export default defineComponent( {
 	},
 	methods: {
 		onNumberInput( number: number ): void {
-			// FIXME: document
+			/**
+			 * The plain text in the number input as string
+			 */
 			this.$emit( 'update:numberInputValue', number );
 		},
 		onUnitLookupSearchInput( search: string ): void {
-			// FIXME: document
+			/**
+			 * The search text for the unit Lookup
+			 */
 			this.$emit( 'update:unitLookupSearchInput', search );
 		},
 		onUnitLookupValue( value: null | MenuItem ): void {
-			// FIXME: document
+			/**
+			 * The selected menu item for the unit Lookup
+			 */
 			this.$emit( 'update:unitLookupValue', value );
 		},
 	},
