@@ -94,7 +94,7 @@ export function basic( args ): Component {
 			},
 		},
 		template: `
-			<div>
+			<div dir="ltr">
 				<p>
 					Number entered: {{ enteredNumber }}
 				</p>
@@ -150,7 +150,7 @@ export function all(): Component {
 	return {
 		components: { QuantityInput },
 		template: `
-			<div>
+			<div dir="ltr">
 				<p>
 					<QuantityInput 
 						label="Value and Unit (optional)"
@@ -173,7 +173,11 @@ export function all(): Component {
 						unit-lookup-search-input=""
 						:error="{type: 'error', message: 'a problem with the unit input'}"
 						errorCause="unit"
-					/>
+					>
+						<template v-slot:suffix>
+							ℹ
+						</template>
+					</QuantityInput>
 				</p>
 				<p>
 					<QuantityInput

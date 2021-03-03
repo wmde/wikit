@@ -1,6 +1,9 @@
 <template>
 	<div class="wikit wikit-QuantityInput">
-		<label class="wikit-QuantityInput__label" :for="id">{{ label }}</label>
+		<span class="wikit-QuantityInput__label-wrapper">
+			<label class="wikit-QuantityInput__label" :for="id">{{ label }}</label>
+			<span><slot name="suffix" /></span>
+		</span>
 		<div class="wikit-QuantityInput__input-wrapper">
 			<Input
 				class="wikit-QuantityInput__number-input"
@@ -198,8 +201,14 @@ export default defineComponent( {
 		}
 	}
 
+	&__label-wrapper {
+		display: flex;
+		gap: $dimension-layout-xxsmall;
+	}
+
 	&__label {
 		@include Label(block);
+		display: inline;
 	}
 }
 </style>
