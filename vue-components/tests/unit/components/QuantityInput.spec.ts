@@ -2,6 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 import QuantityInput from '@/components/QuantityInput.vue';
 import Input from '@/components/Input.vue';
 import LookupInput from '@/components/LookupInput.vue';
+import ValidationMessage from '@/components/ValidationMessage.vue';
 
 describe( 'QuantityInput', () => {
 	describe( ':props', () => {
@@ -62,7 +63,7 @@ describe( 'QuantityInput', () => {
 			expect( wrapper.findComponent( Input ).attributes( 'placeholder' ) ).toBe( testPlaceholder );
 		} );
 
-		it( ':unitLookupLabel - passes the given label down to the LookupInput', () => {
+		it( ':unitLookupLabel - passes the given label down to the LookupInput as aria-label', () => {
 			const testLabel = 'Lorem Ipsum';
 			const wrapper = shallowMount( QuantityInput, {
 				propsData: {
@@ -130,6 +131,112 @@ describe( 'QuantityInput', () => {
 
 			expect( wrapper.findComponent( LookupInput ).props( 'searchInput' ) ).toBe( testSearchInput );
 		} );
+
+		it( ':unitLookupValue - passes the selected MenuItem back down to the LookupInput', () => {
+			const testMenuItems = [ {
+				label: 'Kilogram',
+				id: 'Q789',
+				description: 'SI-Unit of weight',
+			}, {
+				label: 'Meter',
+				id: 'Q4321',
+				description: 'SI-Unit of length',
+			} ];
+			const testUnitValue = {
+				label: 'Kilogram',
+				id: 'Q789',
+				description: 'SI-Unit of weight',
+			};
+			const wrapper = shallowMount( QuantityInput, {
+				propsData: {
+					label: '',
+					numberInputPlaceholder: '',
+					unitLookupLabel: '',
+					unitLookupPlaceholder: '',
+					unitLookupValue: testUnitValue,
+					unitLookupMenuItems: testMenuItems,
+					unitLookupSearchInput: '',
+				},
+			} );
+
+			expect( wrapper.findComponent( LookupInput ).props( 'value' ) ).toBe( testUnitValue );
+		} );
+
+		it( ':numberInputValue - passes the entered text back down to the Input', () => {
+			const testNumberInputValue = '123';
+			const wrapper = shallowMount( QuantityInput, {
+				propsData: {
+					label: '',
+					numberInputPlaceholder: '',
+					numberInputValue: testNumberInputValue,
+					unitLookupLabel: '',
+					unitLookupPlaceholder: '',
+					unitLookupMenuItems: [],
+					unitLookupSearchInput: '',
+				},
+			} );
+
+			expect( wrapper.findComponent( Input ).attributes( 'value' ) ).toBe( testNumberInputValue );
+		} );
+
+		it( ':error - shows the error in the ValidationMessage', async () => {
+			const wrapper = shallowMount( QuantityInput, {
+				propsData: {
+					label: '',
+					numberInputPlaceholder: '',
+					unitLookupLabel: '',
+					unitLookupPlaceholder: '',
+					unitLookupMenuItems: [],
+					unitLookupSearchInput: '',
+				},
+			} );
+			const testError = { type: 'error', message: 'Something went wrong!' };
+
+			expect( wrapper.findComponent( ValidationMessage ).exists() ).toBe( false );
+
+			wrapper.setProps( { error: testError } );
+			await wrapper.vm.$nextTick();
+
+			expect( wrapper.findComponent( ValidationMessage ).exists() ).toBe( true );
+			expect( wrapper.findComponent( ValidationMessage ).props( 'type' ) ).toBe( testError.type );
+			expect( wrapper.findComponent( ValidationMessage ).props( 'message' ) ).toBe( testError.message );
+		} );
+
+		it( ':errorCause - passes the error type to the respective input', async () => {
+			const testError = { type: 'error', message: 'Something went wrong!' };
+			const wrapper = shallowMount( QuantityInput, {
+				propsData: {
+					error: testError,
+					label: '',
+					numberInputPlaceholder: '',
+					unitLookupLabel: '',
+					unitLookupPlaceholder: '',
+					unitLookupMenuItems: [],
+					unitLookupSearchInput: '',
+				},
+			} );
+
+			expect( wrapper.findComponent( Input ).props( 'feedbackType' ) ).toBe( null );
+			expect( wrapper.findComponent( LookupInput ).props( 'feedbackType' ) ).toBe( null );
+
+			wrapper.setProps( { errorCause: 'number' } );
+			await wrapper.vm.$nextTick();
+
+			expect( wrapper.findComponent( Input ).props( 'feedbackType' ) ).toBe( testError.type );
+			expect( wrapper.findComponent( LookupInput ).props( 'feedbackType' ) ).toBe( null );
+
+			wrapper.setProps( { errorCause: 'unit' } );
+			await wrapper.vm.$nextTick();
+
+			expect( wrapper.findComponent( Input ).props( 'feedbackType' ) ).toBe( null );
+			expect( wrapper.findComponent( LookupInput ).props( 'feedbackType' ) ).toBe( testError.type );
+
+			wrapper.setProps( { errorCause: 'both' } );
+			await wrapper.vm.$nextTick();
+
+			expect( wrapper.findComponent( Input ).props( 'feedbackType' ) ).toBe( testError.type );
+			expect( wrapper.findComponent( LookupInput ).props( 'feedbackType' ) ).toBe( testError.type );
+		} );
 	} );
 
 	describe( '@events', () => {
@@ -196,6 +303,27 @@ describe( 'QuantityInput', () => {
 				expect( wrapper.emitted( 'update:unitLookupSearchInput' )![ 0 ] ).toStrictEqual( [ searchInput ] );
 			},
 		);
+
+		it(
+			'@update:numberInputValue - bubbles the `input` event with the number as string from the Input',
+			async () => {
+				const wrapper = shallowMount( QuantityInput, {
+					propsData: {
+						label: '',
+						numberInputPlaceholder: '',
+						unitLookupLabel: '',
+						unitLookupPlaceholder: '',
+						unitLookupMenuItems: [],
+						unitLookupSearchInput: '',
+					},
+				} );
+				const enteredNumberText = '123';
+
+				wrapper.findComponent( Input ).vm.$emit( 'input', enteredNumberText );
+				await wrapper.vm.$nextTick();
+
+				expect( wrapper.emitted( 'update:numberInputValue' )![ 0 ] ).toStrictEqual( [ enteredNumberText ] );
+			} );
 
 	} );
 } );
