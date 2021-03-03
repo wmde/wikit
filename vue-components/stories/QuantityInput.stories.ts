@@ -1,6 +1,7 @@
 import QuantityInput from '@/components/QuantityInput';
 import { Component } from 'vue';
 import { MenuItem } from '../src/components/MenuItem';
+import validateExtendedNumberInput from '@/components/util/validateExtendedNumberInput';
 
 const vegetableItems = [
 	{
@@ -75,11 +76,21 @@ export function basic( args ): Component {
 				search: '',
 				selectedUnit: null,
 				enteredNumber: null,
+				errorCause: null,
 			};
 		},
 		computed: {
 			menuItems(): MenuItem[] {
 				return vegetableItems.filter( ( item ) => item.label.includes( this.search ) );
+			},
+			error(): { type: string; message: string; } | null {
+				if ( !this.enteredNumber ) {
+					return null;
+				}
+				if ( validateExtendedNumberInput( this.enteredNumber ) ) {
+					return null;
+				}
+				return { type: 'error', message: 'Please enter a valid number.' };
 			},
 		},
 		template: `
@@ -105,7 +116,8 @@ export function basic( args ): Component {
             :unit-lookup-search-input.sync="search"
 						:unit-lookup-value.sync="selectedUnit"
 						:disabled="disabled"
-						:errorCause="null"
+						:errorCause="error ? 'number' : null"
+						:error="error"
 					>
             <template v-slot:no-results>
               No match was found
