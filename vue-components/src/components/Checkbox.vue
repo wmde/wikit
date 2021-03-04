@@ -9,13 +9,8 @@
 			:checked="checked"
 			:disabled="disabled"
 		>
-		<slot v-if="this.textDirection == 'rtl'" name="suffix" />
-		<label
-			class="wikit-checkbox__label"
-			:class="[ `wikit-checkbox__label`, `wikit-checkbox__label--${textDirection}` ]"
-			:for="id"
-		>{{ label }}</label>
-		<slot v-if="this.textDirection == 'ltr'" name="suffix" />
+		<label class="wikit-checkbox__label" :for="id">{{ label }}</label>
+		<slot name="suffix" />
 	</span>
 </template>
 
@@ -42,14 +37,6 @@ export default Vue.extend( {
 			type: Boolean,
 			default: false,
 		},
-		/**
-		 * Sets the position of the icon depending on the text direction of the document.
-		 * i.e ltr or rtl
-		 */
-		textDirection: {
-			type: String,
-			default: 'ltr',
-		},
 	},
 	data() {
 		return {
@@ -68,20 +55,10 @@ $label: '.wikit-checkbox__label';
 
 	&__label {
 		@include Label;
-
-		&--rtl,
-		&--ltr {
-			@include Label( flex );
-			align-items: center;
-		}
-
-		&--ltr {
-			margin-inline-end: $dimension-layout-xxsmall;
-		}
-
-		&--rtl {
-			margin-inline-start: $dimension-layout-xxsmall;
-		}
+		display: flex;
+		align-items: center;
+		word-break: break-all;
+		margin-inline-end: $dimension-layout-xxsmall;
 
 		&::before {
 			min-width: $wikit-Checkbox-input-size;
@@ -114,10 +91,6 @@ $label: '.wikit-checkbox__label';
 				background-color: $wikit-Checkbox-input-active-background-color;
 			}
 		}
-	}
-
-	.wikit-Icon {
-		align-self: center;
 	}
 
 	&__input {/* see: https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */

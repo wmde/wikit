@@ -2,13 +2,11 @@
 	<div
 		:class="[ 'wikit', 'wikit-Lookup' ]"
 	>
-		<slot v-if="this.textDirection == 'rtl'" name="suffix" />
-		<label
-			class="wikit-Lookup__label"
-			:class="[ `wikit-Lookup__label`, `wikit-Lookup__label--${textDirection}` ]"
-			:for="inputId"
-		>{{ label }}</label>
-		<slot v-if="this.textDirection == 'ltr'" name="suffix" />
+		<span class="wikit-Lookup__label-wrapper">
+			<label class="wikit-Lookup__label" :for="inputId">{{ label }}</label>
+			<span><slot name="suffix" /></span>
+		</span>
+
 		<LookupInput
 			:id="inputId"
 			:feedback-type="feedbackType"
@@ -101,15 +99,6 @@ export default defineComponent( {
 			type: String,
 			default: '',
 		},
-
-		/**
-		 * Sets the position of the icon depending on the text direction of the document.
-		 * i.e ltr or rtl
-		 */
-		textDirection: {
-			type: String,
-			default: 'ltr',
-		},
 	},
 	components: {
 		LookupInput,
@@ -120,17 +109,15 @@ export default defineComponent( {
 
 <style lang="scss">
 .wikit-Lookup {
-	&__label {
-		@include Label( block );
-
-		&--rtl,
-		&--ltr {
-			@include Label( inline-flex );
-		}
+	&__label-wrapper {
+		display: flex;
+		align-items: center;
+		gap: $dimension-layout-xxsmall;
 	}
 
-	.wikit-Icon {
-		vertical-align: middle;
+	&__label {
+		@include Label( block );
+		display: inine;
 	}
 }
 </style>

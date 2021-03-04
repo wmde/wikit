@@ -151,7 +151,7 @@ export function all(): Component {
 					>
 					</Dropdown>
 				</p>
-				<p>
+				<p dir="ltr">
 					<Dropdown
 						label="Label with suffix icon"
 						:menu-items="menuItems"

@@ -25,7 +25,7 @@ export function all(): Component {
 				<p>
 					<TextInput label="Label" :error="{ type: 'warning', message: 'Warning message' }" placeholder="Placeholder"></TextInput>
 				</p>
-				<p>
+				<p dir="ltr">
 					<TextInput label="Label with icon suffix" placeholder="Placeholder">
 						<template v-slot:suffix>
 							<Icon type="info-outlined" size="small" color="base"/>

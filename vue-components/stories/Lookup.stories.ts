@@ -129,7 +129,7 @@ export function all(): Component {
 					:error= "{ type: 'error', message: 'Please make a valid selection' }"
 				/>
 				</div>
-				<div style="margin-bottom: 20px">
+				<div style="margin-bottom: 20px" dir="ltr">
 					<Lookup
 						:search-input.sync="search"
 						label="Label with suffix icon"
