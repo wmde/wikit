@@ -96,16 +96,6 @@ export function basic( args ): Component {
 		template: `
 			<div dir="ltr">
 				<p>
-					Number entered: {{ enteredNumber }}
-				</p>
-				<p style="margin-top: 16px">
-					Selected Unit:
-					<span v-if="selectedUnit">
-					<span class="selected-item-label">{{ selectedUnit.label }}</span>
-					(<span class="selected-item-id">{{ selectedUnit.value }}</span>)
-						</span>
-				</p>
-				<p>
 					<QuantityInput 
 						:label="label"
 						:numberInputPlaceholder="numberInputPlaceholder"
@@ -124,6 +114,16 @@ export function basic( args ): Component {
 						</template>
 					</QuantityInput>
 				</p>
+				<p style="margin-top: 16px; font-family: sans-serif; color: #202122">
+				Number entered: {{ enteredNumber }}
+			</p>
+			<p style="margin-top: 16px; font-family: sans-serif; color: #202122">
+				Selected Unit:
+				<span v-if="selectedUnit">
+				<span class="selected-item-label">{{ selectedUnit.label }}</span>
+				(<span class="selected-item-id">{{ selectedUnit.value }}</span>)
+					</span>
+			</p>
 			</div>
 		`,
 	};
@@ -159,7 +159,7 @@ export function all(): Component {
 						unitLookupPlaceholder="Enter a unit"
 						:unit-lookup-menu-items="[]"
 					 	unit-lookup-search-input=""
-						:error="{type: 'error', message: 'a problem with the number input'}"
+						:error="{type: 'error', message: 'Please enter a value'}"
 						errorCause="number"
 					/>
 				</p>
@@ -171,7 +171,7 @@ export function all(): Component {
 						unitLookupPlaceholder="Enter a unit"
 						:unit-lookup-menu-items="[]"
 						unit-lookup-search-input=""
-						:error="{type: 'error', message: 'a problem with the unit input'}"
+						:error="{type: 'error', message: 'Select a valid unit or leave empty'}"
 						errorCause="unit"
 					>
 						<template v-slot:suffix>
@@ -187,7 +187,7 @@ export function all(): Component {
 						unitLookupPlaceholder="Enter a unit"
 						:unit-lookup-menu-items="[]"
 						unit-lookup-search-input=""
-						:error="{type: 'error', message: 'a problem with both inputs 😱'}"
+						:error="{type: 'error', message: 'Enter a value and select a valid unit'}"
 						errorCause="both"
 					/>
 				</p>
