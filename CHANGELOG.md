@@ -19,6 +19,7 @@ development)_
 - New Message Component
 - Initial version of the Lookup component
 - Additional icons to the Icon component
+- Additional sizes to the Icon component
 - New tokens based on wikimedia-ui-base v 0.18.0
 - New Dropdown Component
 - Quiet button variant
@@ -28,10 +29,13 @@ development)_
 - New nativeType prop to the Button component
 - New Checkbox Component
 - New ToggleButton and ToggleButtonGroup components
+- Add Popover component
 - Added new icon type for new window
 - Add new icon type for link 
 - Add new icon type for additions
 - Add new icon type for search 
+- New Link component
+- New Link mixin
 
 ### Changed
 

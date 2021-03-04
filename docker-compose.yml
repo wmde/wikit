@@ -2,9 +2,7 @@ version: '2'
 
 services:
     node:
-        build:
-            context: ./
-        image: wmde/wikit
+        image: docker-registry.wikimedia.org/nodejs10-devel
         volumes:
             - '~/.npm:/.npm'
             - './:/app'
@@ -14,10 +12,10 @@ services:
             service: node
         ports:
             - '${DOCS_STORYBOOK_PORT}:${DOCS_STORYBOOK_PORT}'
-        command: 'lerna run storybook --stream --scope @wmde/wikit-docs -- -- -p ${DOCS_STORYBOOK_PORT} --ci'
+        command: 'npm run -- lerna run storybook --stream --scope @wmde/wikit-docs -- -- -p ${DOCS_STORYBOOK_PORT} --ci'
     storybook-vue:
         extends:
             service: node
         ports:
             - '${VUECOMPONENTS_STORYBOOK_PORT}:${VUECOMPONENTS_STORYBOOK_PORT}'
-        command: 'lerna run storybook --stream --scope @wmde/wikit-vue-components -- -- -p ${VUECOMPONENTS_STORYBOOK_PORT} --ci'
+        command: 'npm run -- lerna run storybook --stream --scope @wmde/wikit-vue-components -- -- -p ${VUECOMPONENTS_STORYBOOK_PORT} --ci'

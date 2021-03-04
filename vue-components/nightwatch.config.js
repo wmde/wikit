@@ -8,6 +8,10 @@ module.exports = {
 	custom_commands_path: 'tests/e2e/custom-commands',
 	globals_path: 'tests/e2e/globals.js',
 
+	webdriver: {
+		start_process: ( process.env.NIGHTWATCH_START_DRIVER === 'true' ),
+	},
+
 	test_settings: {
 		// full default config at
 		// https://github.com/vuejs/vue-cli/blob/dev/packages/%40vue/cli-plugin-e2e-nightwatch/nightwatch.config.js

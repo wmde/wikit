@@ -22,9 +22,6 @@
                 },
                 "description": {
                     "value": "{font.family.sans.value}"
-                },
-                "link": {
-                    "value": "{font.family.sans.value}"
                 }
             }
         },
@@ -62,9 +59,6 @@
                 },
                 "description": {
                     "value": "{font.weight.regular.value}"
-                },
-                "link": {
-                    "value": "{font.weight.regular.value}"
                 }
             }
         },
@@ -87,9 +81,6 @@
                 },
                 "description": {
                     "value": "{font.line-height.large.value}"
-                },
-                "link": {
-                    "value": "{font.line-height.medium.value}"
                 }
             }
         },
@@ -127,9 +118,6 @@
                 },
                 "description": {
                     "value": "{font.size.small.value}"
-                },
-                "link": {
-                    "value": "{font.size.medium.value}"
                 }
             }
         },
@@ -163,12 +151,6 @@
             },
             "destructive-hover": {
                 "value": "{color.modifier.lighten.utility-red-50.value}"
-            },
-            "link-default": {
-                "value": "{color.accent.50.value}"
-            },
-            "link-visited": {
-                "value": "{color.modifier.purple.value}"
             },
             "error": {
                 "value": "{color.utility.red.50.value}"
