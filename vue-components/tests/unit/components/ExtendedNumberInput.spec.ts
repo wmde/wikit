@@ -7,25 +7,23 @@ describe( 'ExtendedNumberInput', () => {
 
 	it( 'reconstructs its content from the value prop', async () => {
 		const content = { number: 123, precision: 0.5 };
-		const wrapper = mount( ExtendedNumberInput, {
+		const wrapper = await mount( ExtendedNumberInput, {
 			propsData: {
 				value: content,
 			},
 		} );
-		await Vue.nextTick();
 
 		const inputElement = wrapper.find( 'input' );
 
 		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '123+-0.5' );
 	} );
 
-	it( 'mount with value null means empty string as initial input', async () => {
+	it( 'mount with value null means empty string as initial input', () => {
 		const wrapper = mount( ExtendedNumberInput, {
 			propsData: {
 				value: null,
 			},
 		} );
-		await Vue.nextTick();
 
 		const inputElement = wrapper.find( 'input' );
 
@@ -38,8 +36,7 @@ describe( 'ExtendedNumberInput', () => {
 		const inputElement = wrapper.find( 'input' );
 		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '' );
 
-		wrapper.setProps( { value: { number: 123, precision: 0.5 } } );
-		await Vue.nextTick();
+		await wrapper.setProps( { value: { number: 123, precision: 0.5 } } );
 
 		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '123+-0.5' );
 	} );
@@ -56,8 +53,7 @@ describe( 'ExtendedNumberInput', () => {
 		const inputElement = wrapper.find( 'input' );
 		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '123 ± 1e1' );
 
-		wrapper.setProps( { value: { number: 123, precision: 10 } } );
-		await Vue.nextTick();
+		await wrapper.setProps( { value: { number: 123, precision: 10 } } );
 
 		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '123 ± 1e1' );
 	} );
@@ -74,25 +70,22 @@ describe( 'ExtendedNumberInput', () => {
 		const inputElement = wrapper.find( 'input' );
 		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '123 ± 1e1' );
 
-		wrapper.setProps( { value: { number: 12, precision: null } } );
-		await Vue.nextTick();
+		await wrapper.setProps( { value: { number: 12, precision: null } } );
 
 		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '12' );
 	} );
 
 	it( 'doesn\'t affect the input string if the changed value is `null`', async () => {
-		const wrapper = mount( ExtendedNumberInput, {
+		const wrapper = await mount( ExtendedNumberInput, {
 			propsData: {
 				value: { number: 123, precision: 10 },
 			},
 		} );
-		await Vue.nextTick();
 
 		const inputElement = wrapper.find( 'input' );
 		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '123+-10' );
 
-		wrapper.setProps( { value: null } );
-		await Vue.nextTick();
+		await wrapper.setProps( { value: null } );
 
 		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( '123+-10' );
 	} );
