@@ -13,8 +13,8 @@ export function basic(): Component {
         template: `
 			<div>
 				<LookupWithExtender label="Label" placeholder="Placeholder">
-                  <div style="font-family: Lato; font-style: normal; font-weight: normal; font-size: 16px; line-height: 20px; color: #72777D;">
-                    Menu content placeholder. Any text or component can be displayed here
+                  <div style="font-family: sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 20px; color: #72777D;">
+                    Menu content placeholder. Any text or component can be displayed here.
                   </div>
                 </LookupWithExtender>
 			</div>
