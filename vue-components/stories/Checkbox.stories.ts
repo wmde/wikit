@@ -56,7 +56,7 @@ export function all(): Component {
 				<div dir="ltr">
 					<Checkbox label="Unchecked with suffix icon" :checked="false">
 						<template v-slot:suffix>
-							<Icon type="info-outlined" size="small" color="base"/>
+							<Icon type="info-outlined" size="medium" color="base"/>
 						</template>
 				</Checkbox>
 				</div>
