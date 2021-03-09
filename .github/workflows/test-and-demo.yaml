@@ -20,7 +20,7 @@ jobs:
       with:
         fetch-depth: 0 # chromatic needs access to the history
     - name: Check Paths
-      uses: dorny/paths-filter@v2
+      uses: dorny/paths-filter@v2.9.0
       id: filter
       with:
         filters: |
