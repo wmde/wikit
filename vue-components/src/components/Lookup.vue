@@ -117,7 +117,6 @@ export default defineComponent( {
 
 	&__label {
 		@include Label( block );
-		display: inine;
 	}
 }
 </style>
