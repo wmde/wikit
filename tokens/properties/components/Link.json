@@ -1,0 +1,61 @@
+{
+    "wikit-Link": {
+        "font-color": {
+            "value": "{font.color.progressive.value}"
+        },
+        "font-family": {
+            "value": "{font.family.sans.value}"
+        },
+        "font-size": {
+            "value": "{font.size.medium.value}"
+        },
+        "font-weight": {
+            "value": "{font.weight.regular.value}"
+        },
+        "line-height": {
+            "value": "{font.line-height.medium.value}"
+        },
+        "transition-duration": {
+            "value": "{transition.interaction.link.duration.value}"
+        },
+        "transition-timing-function": {
+            "value": "{transition.timing-function.ease.value}"
+        },
+        "transition-property": {
+            "value": "{transition.interaction.link.property.value}"
+        },
+        "active": {
+            "font-color": {
+                "value": "{font.color.progressive-active.value}"
+            }
+        },
+        "focus": {
+            "outline-color": {
+                "value": "{border.color.progressive.focus.value}"
+            }
+        },
+        "visited": {
+            "font-color": {
+                "value": "{color.modifier.purple.value}"
+            }
+        },
+        "icon": {
+            "color": {
+                "value": "{icon.color.progressive.value}"
+            },
+            "spacing": {
+                "value": "{dimension.spacing.xsmall.value}"
+            },
+            "prefix": {
+                "size": {
+                    "value": "{icon.size.large.value}"
+                }
+            },
+            "suffix": {
+                "size": {
+                    "value": "{icon.size.xsmall.value}"
+                }
+            }
+        }
+    }
+}

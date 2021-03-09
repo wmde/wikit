@@ -8,6 +8,7 @@
   },
   "scripts": {
     "postinstall": "lerna bootstrap",
+    "lerna": "lerna",
     "test": "lerna run test",
     "test:e2e": "lerna run e2e:saucelabs --scope @wmde/wikit-vue-components",
     "build:storybook": "lerna run build --scope @wmde/wikit-tokens && npm-run-all build:storybook:*",

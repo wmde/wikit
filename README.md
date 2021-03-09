@@ -13,33 +13,20 @@ The Wikibase Design System and home of WMDE-supported component implementations.
 
 ## Development
 
+This project uses [lerna](https://lerna.js.org/) to orchestrate multiple packages.
+
 The following examples use `docker` and `docker-compose` to ease creating a level playing field for development but they are not essential to this project.
-
-### Building the Docker image
-
-```sh
-# ensure the node user uses your user id, so you own created files
-docker-compose build --build-arg UID=$(id -u) --build-arg GID=$(id -g) node
-```
-
-### Running npm
-
-```sh
-docker-compose run --rm node npm
-```
 
 ### Installation
 
-This project uses [lerna](https://lerna.js.org/) to orchestrate multiple packages.
-
 ```sh
-docker-compose run --rm node lerna bootstrap
+docker-compose run --rm --user=$(id -u):$(id -g) node npm install
 ```
 
 ### Running tests
 
 ```sh
-docker-compose run --rm node lerna run test
+docker-compose run --rm --user=$(id -u):$(id -g) node npm run test
 ```
 
 ### Running browser tests
@@ -54,9 +41,12 @@ To run browser tests locally make sure `storybook-vue` is up and running.
 docker-compose -f docker-compose.yml -f docker-compose.browsertests.yml up browsertests
 ```
 
+Note: If you were not already running the main docker-compose services your tests may fail their first run as things are still being built.
+
 ##### On the host machine
 
-Navigate to `vue-components` subdirectory and run it with your storybook URL specified, e.g.
+Navigate to `vue-components` subdirectory and run it with your storybook URL specified:
+
 ```sh
 STORYBOOK_URL=localhost:6005 npm run e2e
 ```
@@ -90,7 +80,7 @@ As usual, docker-compose also allows for those services to be started independen
 Run the following command to automatically rebuild the tokens in all output formats during development when changing one of the json source files:
 
 ```sh
-docker-compose run --rm node lerna run watch --stream
+docker-compose run --rm --user=$(id -u):$(id -g) node npm run -- lerna run watch --stream
 ```
 
 This way you don't have to manually run the `build:tokens` command for every token change.
