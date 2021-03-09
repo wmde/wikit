@@ -181,10 +181,6 @@ export default defineComponent( {
 		&.wikit-Input {
 			border-start-end-radius: 0;
 			border-end-end-radius: 0;
-
-			&:not(.wikit-Input--error) {
-				border-inline-end-color: transparent;
-			}
 		}
 	}
 
