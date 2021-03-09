@@ -40,8 +40,7 @@ describe( 'QuantityInput', () => {
 			expect( wrapper.findComponent( Input ).attributes( 'disabled' ) ).toBe( undefined );
 			expect( wrapper.findComponent( LookupInput ).props( 'disabled' ) ).toBe( false );
 
-			wrapper.setProps( { disabled: true } );
-			await wrapper.vm.$nextTick();
+			await wrapper.setProps( { disabled: true } );
 
 			expect( wrapper.findComponent( Input ).attributes( 'disabled' ) ).toBe( 'true' );
 			expect( wrapper.findComponent( LookupInput ).props( 'disabled' ) ).toBe( true );
@@ -194,8 +193,7 @@ describe( 'QuantityInput', () => {
 
 			expect( wrapper.findComponent( ValidationMessage ).exists() ).toBe( false );
 
-			wrapper.setProps( { error: testError } );
-			await wrapper.vm.$nextTick();
+			await wrapper.setProps( { error: testError } );
 
 			expect( wrapper.findComponent( ValidationMessage ).exists() ).toBe( true );
 			expect( wrapper.findComponent( ValidationMessage ).props( 'type' ) ).toBe( testError.type );
@@ -219,28 +217,24 @@ describe( 'QuantityInput', () => {
 			expect( wrapper.findComponent( Input ).props( 'feedbackType' ) ).toBe( null );
 			expect( wrapper.findComponent( LookupInput ).props( 'feedbackType' ) ).toBe( null );
 
-			wrapper.setProps( { errorCause: 'number' } );
-			await wrapper.vm.$nextTick();
+			await wrapper.setProps( { errorCause: 'number' } );
 
 			expect( wrapper.findComponent( Input ).props( 'feedbackType' ) ).toBe( testError.type );
 			expect( wrapper.findComponent( LookupInput ).props( 'feedbackType' ) ).toBe( null );
 
-			wrapper.setProps( { errorCause: 'unit' } );
-			await wrapper.vm.$nextTick();
+			await wrapper.setProps( { errorCause: 'unit' } );
 
 			expect( wrapper.findComponent( Input ).props( 'feedbackType' ) ).toBe( null );
 			expect( wrapper.findComponent( LookupInput ).props( 'feedbackType' ) ).toBe( testError.type );
 
-			wrapper.setProps( { errorCause: 'both' } );
-			await wrapper.vm.$nextTick();
-
+			await wrapper.setProps( { errorCause: 'both' } );
 			expect( wrapper.findComponent( Input ).props( 'feedbackType' ) ).toBe( testError.type );
 			expect( wrapper.findComponent( LookupInput ).props( 'feedbackType' ) ).toBe( testError.type );
 		} );
 	} );
 
 	describe( '@events', () => {
-		it( '@update:unitLookupValue - bubbles the `input` event with an Item-value from the LookupInput', async () => {
+		it( '@update:unitLookupValue - bubbles the `input` event with an Item-value from the LookupInput', () => {
 			const wrapper = shallowMount( QuantityInput, {
 				propsData: {
 					label: '',
@@ -258,12 +252,11 @@ describe( 'QuantityInput', () => {
 			};
 
 			wrapper.findComponent( LookupInput ).vm.$emit( 'input', selectedUnitItem );
-			await wrapper.vm.$nextTick();
 
 			expect( wrapper.emitted( 'update:unitLookupValue' )![ 0 ] ).toStrictEqual( [ selectedUnitItem ] );
 		} );
 
-		it( '@update:unitLookupValue - bubbles the `input` event with a null-value from the LookupInput', async () => {
+		it( '@update:unitLookupValue - bubbles the `input` event with a null-value from the LookupInput', () => {
 			const wrapper = shallowMount( QuantityInput, {
 				propsData: {
 					label: '',
@@ -277,14 +270,13 @@ describe( 'QuantityInput', () => {
 			const selectedUnitItem = null;
 
 			wrapper.findComponent( LookupInput ).vm.$emit( 'input', selectedUnitItem );
-			await wrapper.vm.$nextTick();
 
 			expect( wrapper.emitted( 'update:unitLookupValue' )![ 0 ] ).toStrictEqual( [ selectedUnitItem ] );
 		} );
 
 		it(
 			'@update:unitLookupSearchInput - bubbles the "update:searchInput"-event from the LookupInput',
-			async () => {
+			() => {
 				const wrapper = shallowMount( QuantityInput, {
 					propsData: {
 						label: '',
@@ -298,7 +290,6 @@ describe( 'QuantityInput', () => {
 				const searchInput = 'LoremIpsum';
 
 				wrapper.findComponent( LookupInput ).vm.$emit( 'update:searchInput', searchInput );
-				await wrapper.vm.$nextTick();
 
 				expect( wrapper.emitted( 'update:unitLookupSearchInput' )![ 0 ] ).toStrictEqual( [ searchInput ] );
 			},
@@ -306,7 +297,7 @@ describe( 'QuantityInput', () => {
 
 		it(
 			'@update:numberInputValue - bubbles the `input` event with the number as string from the Input',
-			async () => {
+			() => {
 				const wrapper = shallowMount( QuantityInput, {
 					propsData: {
 						label: '',
@@ -320,7 +311,6 @@ describe( 'QuantityInput', () => {
 				const enteredNumberText = '123';
 
 				wrapper.findComponent( Input ).vm.$emit( 'input', enteredNumberText );
-				await wrapper.vm.$nextTick();
 
 				expect( wrapper.emitted( 'update:numberInputValue' )![ 0 ] ).toStrictEqual( [ enteredNumberText ] );
 			},
