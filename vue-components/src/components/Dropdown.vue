@@ -262,7 +262,6 @@ $base: '.wikit-Dropdown';
 
 	&__label {
 		@include Label( block );
-		display: inine;
 	}
 }
 </style>

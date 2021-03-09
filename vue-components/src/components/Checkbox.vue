@@ -58,7 +58,7 @@ $label: '.wikit-checkbox__label';
 		display: flex;
 		align-items: center;
 		word-break: break-all;
-		margin-inline-end: $dimension-<span class="x x-first x-last">spacing-small</span>;
+		margin-inline-end: $dimension-spacing-small;
 
 		&::before {
 			min-width: $wikit-Checkbox-input-size;
