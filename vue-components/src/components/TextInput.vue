@@ -90,7 +90,7 @@ export default defineComponent( {
 	&__label-wrapper {
 		display: flex;
 		align-items: center;
-		gap: $dimension-layout-xxsmall;
+		gap: $dimension-spacing-small;
 	}
 
 	&__label {
