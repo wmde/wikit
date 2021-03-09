@@ -139,7 +139,7 @@ export function all(): Component {
 						@scroll="onScroll"
 					>
 						<template v-slot:suffix>
-							<Icon type="info-outlined" size="small" color="base"/>
+							<Icon type="info-outlined" size="medium" color="base"/>
 						</template>
 						<template v-slot:no-results>
 							No match was found
