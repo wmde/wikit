@@ -195,17 +195,6 @@ export default defineComponent( {
 			border-start-start-radius: 0;
 			border-end-start-radius: 0;
 		}
-
-		.wikit-Lookup__label {
-			position: absolute;
-			width: 1px;
-			height: 1px;
-			overflow: hidden;
-			clip: rect(0, 0, 0, 0);
-			white-space: nowrap;
-			clip-path: inset(50%);
-			border: 0;
-		}
 	}
 
 	&__label-wrapper {
