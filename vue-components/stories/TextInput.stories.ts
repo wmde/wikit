@@ -28,7 +28,7 @@ export function all(): Component {
 				<p dir="ltr">
 					<TextInput label="Label with icon suffix" placeholder="Placeholder">
 						<template v-slot:suffix>
-							<Icon type="info-outlined" size="small" color="base"/>
+							<Icon type="info-outlined" size="medium" color="base"/>
 						</template>
 					</TextInput>
 				</p>
