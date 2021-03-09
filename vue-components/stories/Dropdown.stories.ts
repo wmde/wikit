@@ -160,7 +160,7 @@ export function all(): Component {
 						:error="error"
 					>
 					<template v-slot:suffix>
-						<Icon type="info-outlined" size="small" color="base"/>
+						<Icon type="info-outlined" size="medium" color="base"/>
 					</template>
 					</Dropdown>
 				</p>
