@@ -161,7 +161,7 @@ export default defineComponent( {
 	},
 	name: 'QuantityInput',
 	components: {
-		Input, // TODO: add validation
+		Input,
 		LookupInput,
 		ValidationMessage,
 	},
@@ -200,7 +200,6 @@ export default defineComponent( {
 
 	&__label {
 		@include Label(block);
-		display: inline;
 	}
 }
 </style>
