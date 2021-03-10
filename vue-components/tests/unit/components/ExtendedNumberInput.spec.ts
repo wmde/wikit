@@ -1,7 +1,6 @@
 import { mount } from '@vue/test-utils';
 import ExtendedNumberInput from '@/components/ExtendedNumberInput.vue';
 import ValidationMessage from '@/components/ValidationMessage.vue';
-import Vue from 'vue';
 
 describe( 'ExtendedNumberInput', () => {
 
