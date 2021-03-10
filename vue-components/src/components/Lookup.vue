@@ -2,7 +2,11 @@
 	<div
 		:class="[ 'wikit', 'wikit-Lookup' ]"
 	>
-		<label class="wikit-Lookup__label" :for="inputId">{{ label }}</label>
+		<span class="wikit-Lookup__label-wrapper">
+			<label class="wikit-Lookup__label" :for="inputId">{{ label }}</label>
+			<span><slot name="suffix" /></span>
+		</span>
+
 		<LookupInput
 			:id="inputId"
 			:feedback-type="feedbackType"
@@ -105,6 +109,12 @@ export default defineComponent( {
 
 <style lang="scss">
 .wikit-Lookup {
+	&__label-wrapper {
+		display: flex;
+		align-items: center;
+		gap: $dimension-spacing-small;
+	}
+
 	&__label {
 		@include Label( block );
 	}

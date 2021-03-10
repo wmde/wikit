@@ -3,10 +3,11 @@
 		:class="[ 'wikit', 'wikit-Dropdown' ]"
 		@keydown="triggerKeyDown"
 	>
-		<label
-			class="wikit-Dropdown__label"
-			@click="$refs.select.focus()"
-		>{{ label }}</label>
+		<span class="wikit-Dropdown__label-wrapper">
+			<label class="wikit-Dropdown__label" @click="$refs.select.focus()">{{ label }}</label>
+			<span><slot name="suffix" /></span>
+		</span>
+
 		<div
 			:class="classesForSelect"
 			:tabindex="!disabled && '0'"
@@ -251,6 +252,12 @@ $base: '.wikit-Dropdown';
 
 	&__menu {
 		position: absolute;
+	}
+
+	&__label-wrapper {
+		display: flex;
+		align-items: center;
+		gap: $dimension-spacing-small;
 	}
 
 	&__label {
