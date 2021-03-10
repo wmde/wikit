@@ -1,4 +1,5 @@
 import Dropdown from '@/components/Dropdown';
+import Icon from '@/components/Icon';
 import { Component } from 'vue';
 import { MenuItem } from '@/components/MenuItem';
 
@@ -42,7 +43,7 @@ const menuItems: MenuItem[] = [
 
 export function basic( args ): Component {
 	return {
-		components: { Dropdown },
+		components: { Dropdown, Icon },
 		data(): unknown {
 			return {
 				selectedItem: null,
@@ -69,7 +70,8 @@ export function basic( args ): Component {
 					:placeholder="placeholder"
 					:disabled="disabled"
 					:error="error"
-				/>
+				>
+				</Dropdown>
 				<div v-if="selectedItem" style="margin-top: 16px; font-family: sans-serif; color: #202122">
 					Selected Option:
 					<span class="selected-item-label">{{ selectedItem.label }}</span>
@@ -82,7 +84,7 @@ export function basic( args ): Component {
 
 export function all(): Component {
 	return {
-		components: { Dropdown },
+		components: { Dropdown, Icon },
 		data(): unknown {
 			return {
 				label: 'Label',
@@ -116,7 +118,8 @@ export function all(): Component {
 						v-model="selectedItem"
 						placeholder="Select an option"
 						:error="error"
-					/>
+					>
+					</Dropdown>
 				</p>
 				<p>
 					<Dropdown
@@ -125,7 +128,8 @@ export function all(): Component {
 						v-model="selectedItem"
 						placeholder="Select an option"
 						:disabled="true"
-					/>
+					>
+					</Dropdown>
 				</p>
 				<p>
 					<Dropdown
@@ -134,7 +138,8 @@ export function all(): Component {
 					v-model="selectedItem"
 					placeholder="Select an option"
 					:error="{ type: 'error', message: 'There was an error 😕' }"
-					/>
+					>
+					</Dropdown>
 				</p>
 				<p>
 					<Dropdown
@@ -143,7 +148,21 @@ export function all(): Component {
 					v-model="selectedItem"
 					placeholder="Select an option"
 					:error="{ type: 'warning', message: 'Warning to be careful 🚧' }"
-					/>
+					>
+					</Dropdown>
+				</p>
+				<p dir="ltr">
+					<Dropdown
+						label="Label with suffix icon"
+						:menu-items="menuItems"
+						v-model="selectedItem"
+						placeholder="Select an option"
+						:error="error"
+					>
+					<template v-slot:suffix>
+						<Icon type="info-outlined" size="medium" color="base"/>
+					</template>
+					</Dropdown>
 				</p>
 			</div>
 		`,

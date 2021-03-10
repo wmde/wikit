@@ -9,10 +9,8 @@
 			:checked="checked"
 			:disabled="disabled"
 		>
-		<label
-			class="wikit-checkbox__label"
-			:for="id"
-		>{{ label }}</label>
+		<label class="wikit-checkbox__label" :for="id">{{ label }}</label>
+		<slot name="suffix" />
 	</span>
 </template>
 
@@ -53,11 +51,14 @@ export default Vue.extend( {
 $label: '.wikit-checkbox__label';
 
 .wikit-checkbox {
+	display: flex;
+
 	&__label {
 		@include Label;
-
 		display: flex;
 		align-items: center;
+		word-break: break-all;
+		margin-inline-end: $dimension-spacing-small;
 
 		&::before {
 			min-width: $wikit-Checkbox-input-size;

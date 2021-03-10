@@ -1,4 +1,5 @@
 import Checkbox from '@/components/Checkbox';
+import Icon from '@/components/Icon';
 import { Component } from 'vue';
 
 export default {
@@ -11,7 +12,7 @@ export function basic( args ): Component {
 		data(): object {
 			return { checked: false, };
 		},
-		components: { Checkbox },
+		components: { Checkbox, Icon },
 		props: Object.keys( args ),
 		template: `
 			<div>
@@ -20,7 +21,8 @@ export function basic( args ): Component {
 						:label="label"
 						:checked.sync="checked"
 						:disabled="disabled"
-					/>
+					>
+					</Checkbox>
 				</div>
 				<p>
 					The checkbox is checked: {{ checked ? 'true' : 'false' }}
@@ -32,16 +34,32 @@ export function basic( args ): Component {
 
 export function all(): Component {
 	return {
-		components: { Checkbox },
+		components: { Checkbox, Icon },
 		template: `
 			<div>
-				<div><Checkbox label="Checked" :checked="true" /></div>
+				<div>
+					<Checkbox label="Checked" :checked="true"></Checkbox>
+				</div>
 				<br>
-				<div><Checkbox label="Unchecked" :checked="false" /></div>
+				<div>
+					<Checkbox label="Unchecked" :checked="false"></Checkbox>
+				</div>
 				<br>
-				<div><Checkbox label="Checked disabled" :checked="true" disabled="disabled"/></div>
+				<div>
+					<Checkbox label="Checked disabled" :checked="true" disabled="disabled"></Checkbox>
+				</div>
 				<br>
-				<div><Checkbox label="Unchecked disabled" :checked="false" disabled="disabled"/></div>
+				<div>
+					<Checkbox label="Unchecked disabled" :checked="false" disabled="disabled"></Checkbox>
+				</div>
+				<br>
+				<div dir="ltr">
+					<Checkbox label="Unchecked with suffix icon" :checked="false">
+						<template v-slot:suffix>
+							<Icon type="info-outlined" size="medium" color="base"/>
+						</template>
+				</Checkbox>
+				</div>
 			</div>
 		`,
 	};
