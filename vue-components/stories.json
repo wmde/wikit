@@ -2,68 +2,82 @@
   "v": 2,
   "globalParameters": {},
   "kindParameters": {
-    "/Button": {
-      "fileName": 1691,
-      "framework": "vue"
-    },
-    "Checkbox": {
-      "fileName": 1737,
-      "framework": "vue"
-    },
-    "Dropdown": {
-      "fileName": 1738,
-      "framework": "vue"
-    },
-    "Wikibase Components/ExtendedNumberInput": {
+    "/Loader/BouncingDots": {
       "fileName": 1739,
       "framework": "vue"
     },
-    "Icon": {
-      "fileName": 1710,
+    "/Button": {
+      "fileName": 1694,
       "framework": "vue"
     },
-    "/Input/Basic": {
-      "fileName": 1711,
-      "framework": "vue"
-    },
-    "/Link": {
-      "fileName": 1740,
-      "framework": "vue"
-    },
-    "/Lookup/Lookup": {
+    "Checkbox": {
       "fileName": 1741,
       "framework": "vue"
     },
-    "/Message/Message": {
+    "Dropdown": {
       "fileName": 1742,
       "framework": "vue"
     },
-    "OptionsMenu": {
-      "fileName": 1720,
-      "framework": "vue"
-    },
-    "Popover": {
-      "fileName": 1735,
-      "framework": "vue"
-    },
-    "Wikibase Components/QuantityInput": {
+    "Wikibase Components/ExtendedNumberInput": {
       "fileName": 1743,
       "framework": "vue"
     },
-    "/Input/TextInput": {
+    "Icon": {
+      "fileName": 1713,
+      "framework": "vue"
+    },
+    "/Input/Basic": {
+      "fileName": 1714,
+      "framework": "vue"
+    },
+    "/Link": {
       "fileName": 1744,
       "framework": "vue"
     },
+    "/Lookup/Lookup": {
+      "fileName": 1745,
+      "framework": "vue"
+    },
+    "/Message/Message": {
+      "fileName": 1746,
+      "framework": "vue"
+    },
+    "OptionsMenu": {
+      "fileName": 1723,
+      "framework": "vue"
+    },
+    "Popover": {
+      "fileName": 1738,
+      "framework": "vue"
+    },
+    "Wikibase Components/QuantityInput": {
+      "fileName": 1747,
+      "framework": "vue"
+    },
+    "/Input/TextInput": {
+      "fileName": 1748,
+      "framework": "vue"
+    },
     "ToggleButton": {
-      "fileName": 1734,
+      "fileName": 1737,
       "framework": "vue"
     },
     "/Message/ValidationMessage": {
-      "fileName": 1731,
+      "fileName": 1734,
       "framework": "vue"
     }
   },
   "stories": {
+    "loader-bouncingdots--all": {
+      "id": "loader-bouncingdots--all",
+      "name": "All",
+      "kind": "/Loader/BouncingDots",
+      "story": "All",
+      "parameters": {
+        "__id": "loader-bouncingdots--all",
+        "__isArgsStory": false
+      }
+    },
     "button--normal": {
       "id": "button--normal",
       "name": "Normal",
