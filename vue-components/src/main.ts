@@ -10,6 +10,7 @@ import Dropdown from './components/Dropdown.vue';
 import Message from './components/Message.vue';
 import Popover from './components/Popover.vue';
 import Icon from './components/Icon.vue';
+import BouncingDots from './components/BouncingDots.vue';
 
 export {
 	Button,
@@ -24,4 +25,5 @@ export {
 	Message,
 	Popover,
 	Icon,
+	BouncingDots,
 };
