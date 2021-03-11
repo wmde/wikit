@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { bouncingDotsSizes } from './bouncingDots';
+import { bouncingDotsSizes } from './bouncingDotsProps';
 
 export default Vue.extend( {
 	name: 'BouncingDots',

@@ -1,5 +1,5 @@
 import BouncingDots from '@/components/BouncingDots';
-import { bouncingDotsSizes } from '@/components/bouncingDots';
+import { bouncingDotsSizes } from '@/components/bouncingDotsProps';
 import { Component } from 'vue';
 
 export default {
@@ -7,13 +7,12 @@ export default {
     title: '/Loader/BouncingDots',
 };
 
-export function basic( args: { content: string; underlined: boolean } ): Component {
+export function all(): Component {
     return {
         data(): object {
-            return { args, bouncingDotsSizes };
+            return { bouncingDotsSizes };
         },
         components: { BouncingDots },
-        props: Object.keys( args ),
         template: `
 			<div>
 				<div v-for="size in bouncingDotsSizes" style="font-family: sans-serif; color: #202122">
@@ -25,15 +24,6 @@ export function basic( args: { content: string; underlined: boolean } ): Compone
     };
 }
 
-basic.args = {
-    size: 'small',
-};
-
-basic.argTypes = {
-    position: {
-		control: {
-			type: 'select',
-			options: ['small', 'medium'],
-		},
-	},
+all.parameters = {
+    controls: { hideNoControlsWarning: true },
 };
