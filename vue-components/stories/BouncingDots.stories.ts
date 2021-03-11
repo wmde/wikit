@@ -16,7 +16,7 @@ export function basic( args: { content: string; underlined: boolean } ): Compone
         props: Object.keys( args ),
         template: `
 			<div>
-				<div v-for="size in bouncingDotsSizes">
+				<div v-for="size in bouncingDotsSizes" style="font-family: sans-serif; color: #202122">
                     {{ size }}<br><br>
                     <BouncingDots :size="size"></BouncingDots><br><br>
 				</div>
