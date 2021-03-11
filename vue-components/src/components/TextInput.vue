@@ -1,6 +1,9 @@
 <template>
 	<div :class="[ 'wikit', 'wikit-TextInput' ]">
-		<label class="wikit-TextInput__label" :for="id">{{ label }}</label>
+		<span class="wikit-TextInput__label-wrapper">
+			<label class="wikit-TextInput__label" :for="id">{{ label }}</label>
+			<span><slot name="suffix" /></span>
+		</span>
 		<Input
 			:id="id"
 			:value="value"
@@ -84,6 +87,12 @@ export default defineComponent( {
 
 <style lang="scss">
 .wikit-TextInput {
+	&__label-wrapper {
+		display: flex;
+		align-items: center;
+		gap: $dimension-spacing-small;
+	}
+
 	&__label {
 		@include Label( block );
 	}
