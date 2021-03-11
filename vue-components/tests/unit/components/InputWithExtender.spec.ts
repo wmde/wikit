@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import InputWithExtender from '@/components/InputWithExtender.vue';
-import TextInput from '@/components/TextInput.vue';
+import Input from '@/components/Input.vue';
 import ValidationMessage from '@/components/ValidationMessage.vue';
 
 describe( 'InputWithExtender', () => {
@@ -33,7 +33,7 @@ describe( 'InputWithExtender', () => {
 			},
 		} );
 
-		expect( wrapper.find( '.wikit-TextInput__label' ).text() ).toBe( label );
+		expect( wrapper.find( '.wikit-InputWithExtender__label' ).text() ).toBe( label );
 	} );
 
 	it( 'can be disabled', () => {
@@ -60,7 +60,7 @@ describe( 'InputWithExtender', () => {
 	it( 'shows the extender on focus', async () => {
 		const wrapper = mount( InputWithExtender, {} );
 
-		await wrapper.findComponent( TextInput ).vm.$emit( 'focus' );
+		await wrapper.findComponent( Input ).trigger( 'focus' );
 
 		expect( wrapper.findAll( '.wikit-InputWithExtender__extension' ) ).toHaveLength( 1 );
 	} );
@@ -68,7 +68,7 @@ describe( 'InputWithExtender', () => {
 	it( 'shows the extender on input', async () => {
 		const wrapper = mount( InputWithExtender, {} );
 
-		await wrapper.findComponent( TextInput ).vm.$emit( 'input', 'foo' );
+		await wrapper.findComponent( Input ).vm.$emit( 'input', 'foo' );
 
 		expect( wrapper.findAll( '.wikit-InputWithExtender__extension' ) ).toHaveLength( 1 );
 	} );
@@ -76,8 +76,8 @@ describe( 'InputWithExtender', () => {
 	it( 'hides the extender on blur', async () => {
 		const wrapper = mount( InputWithExtender, {} );
 
-		await wrapper.findComponent( TextInput ).vm.$emit( 'focus' );
-		await wrapper.findComponent( TextInput ).vm.$emit( 'blur' );
+		await wrapper.findComponent( Input ).trigger( 'focus' );
+		await wrapper.findComponent( Input ).trigger( 'blur' );
 
 		expect( wrapper.findAll( '.wikit-InputWithExtender__extension' ) ).toHaveLength( 0 );
 	} );

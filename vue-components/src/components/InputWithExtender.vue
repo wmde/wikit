@@ -2,28 +2,39 @@
 	<div
 		:class="[ 'wikit', 'wikit-InputWithExtender' ]"
 	>
-		<TextInput
+		<span class="wikit-InputWithExtender__label-wrapper">
+			<label class="wikit-InputWithExtender__label" @click="$refs.select.focus()">{{ label }}</label>
+			<span><slot name="suffix" /></span>
+		</span>
+		<Input
+			:id="id"
 			:value="value"
+			@focus.native="showExtension = true"
+			@blur.native="showExtension = false"
+			@keydown.native.esc="showExtension = false"
+			:feedback-type="feedbackType"
 			@input="onInput"
-			:label="label"
-			@focus="showExtension = true"
-			@blur="showExtension = false"
-			@esc="showExtension = false"
-			:error="error"
 			:placeholder="placeholder"
 			:disabled="disabled"
 		/>
 		<div v-if="showExtension" class="wikit-InputWithExtender__extension">
 			<slot />
 		</div>
+		<ValidationMessage
+			v-if="error"
+			:type="error.type"
+			:message="error.message"
+		/>
 	</div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import VueCompositionAPI, { defineComponent } from '@vue/composition-api';
-import TextInput from '@/components/TextInput.vue';
-import { errorProp } from '@/compositions/validatable';
+import VueCompositionAPI, { computed, defineComponent } from '@vue/composition-api';
+import Input from '@/components/Input.vue';
+import ValidationMessage from '@/components/ValidationMessage.vue';
+import { ErrorProp, errorProp, getFeedbackTypeFromProps } from '@/compositions/validatable';
+import generateUid from '@/components/util/generateUid';
 
 Vue.use( VueCompositionAPI );
 
@@ -31,11 +42,18 @@ export default defineComponent( {
 	name: 'InputWithExtender',
 	inheritAttrs: false,
 	components: {
-		TextInput,
+		Input,
+		ValidationMessage,
+	},
+	setup( props: { error: ErrorProp } ) {
+		return {
+			feedbackType: computed( getFeedbackTypeFromProps( props ) ),
+		};
 	},
 	data() {
 		return {
 			showExtension: false,
+			id: generateUid( 'wikit-InputWithExtender' ),
 		};
 	},
 	props: {
@@ -70,6 +88,12 @@ export default defineComponent( {
 .wikit-InputWithExtender {
 	position: relative;
 
+	&__label-wrapper {
+		display: flex;
+		align-items: center;
+		gap: $dimension-spacing-small;
+	}
+
 	&__extension {
 		padding-inline: $wikit-InputExtender-padding-horizontal;
 		padding-block: $wikit-InputExtender-padding-vertical;
@@ -85,5 +109,13 @@ export default defineComponent( {
 		border-radius: $wikit-InputExtender-border-radius;
 	}
 
+}
+</style>
+
+<style lang="scss">
+.wikit-InputWithExtender {
+	&__label {
+		@include Label( block );
+	}
 }
 </style>
