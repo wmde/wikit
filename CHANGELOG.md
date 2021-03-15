@@ -37,6 +37,7 @@ development)_
 - New Link component
 - New Link mixin
 - Add BouncingDots Component
+- Add QuantityInput component
 
 ### Changed
 
