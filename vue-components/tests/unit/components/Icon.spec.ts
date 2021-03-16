@@ -2,6 +2,10 @@ import { mount } from '@vue/test-utils';
 import Icon from '@/components/Icon.vue';
 import { iconSizes, iconColors, IconTypes } from '@/components/iconProps';
 
+jest.mock( '@/components/util/generateUid', () => {
+	return () => 'mockedID';
+} );
+
 describe( 'Icon', () => {
 
 	it( 'renders an error icon given type "error"', () => {

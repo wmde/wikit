@@ -1,7 +1,7 @@
 {
   "name": "@wmde/wikit-docs",
   "private": true,
-  "version": "2.0.0-alpha.7",
+  "version": "2.0.0-alpha.9",
   "description": "Storybook for illustrating design tokens and components",
   "keywords": [
     "wikit",
@@ -25,8 +25,8 @@
     "build": "build-storybook -o dist -s src/00-doc/static"
   },
   "dependencies": {
-    "@wmde/wikit-tokens": "^2.0.0-alpha.7",
-    "@wmde/wikit-vue-components": "^2.0.0-alpha.7",
+    "@wmde/wikit-tokens": "^2.0.0-alpha.9",
+    "@wmde/wikit-vue-components": "^2.0.0-alpha.9",
     "traverse": "^0.6.6"
   },
   "bugs": {

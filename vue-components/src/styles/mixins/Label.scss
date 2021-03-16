@@ -5,7 +5,7 @@
     font-weight: $wikit-Label-font-weight;
     line-height: $wikit-Label-line-height;
     display: $displayType;
-     
+
     @if $displayType == block {
         padding-block-end: $wikit-Label-padding-block-end;
     }

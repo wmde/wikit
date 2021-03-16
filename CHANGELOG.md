@@ -31,11 +31,13 @@ development)_
 - New ToggleButton and ToggleButtonGroup components
 - Add Popover component
 - Added new icon type for new window
-- Add new icon type for link 
+- Add new icon type for link
 - Add new icon type for additions
-- Add new icon type for search 
+- Add new icon type for search
 - New Link component
 - New Link mixin
+- Add BouncingDots Component
+- Add QuantityInput component
 
 ### Changed
 
