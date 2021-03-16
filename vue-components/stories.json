@@ -3,67 +3,71 @@
   "globalParameters": {},
   "kindParameters": {
     "/Loader/BouncingDots": {
-      "fileName": 1739,
-      "framework": "vue"
-    },
-    "/Button": {
-      "fileName": 1694,
-      "framework": "vue"
-    },
-    "Checkbox": {
-      "fileName": 1741,
-      "framework": "vue"
-    },
-    "Dropdown": {
-      "fileName": 1742,
-      "framework": "vue"
-    },
-    "Wikibase Components/ExtendedNumberInput": {
-      "fileName": 1743,
-      "framework": "vue"
-    },
-    "Icon": {
-      "fileName": 1713,
-      "framework": "vue"
-    },
-    "/Input/Basic": {
-      "fileName": 1714,
-      "framework": "vue"
-    },
-    "/Link": {
-      "fileName": 1744,
-      "framework": "vue"
-    },
-    "/Lookup/Lookup": {
       "fileName": 1745,
       "framework": "vue"
     },
-    "/Message/Message": {
-      "fileName": 1746,
+    "/Button": {
+      "fileName": 1696,
       "framework": "vue"
     },
-    "OptionsMenu": {
-      "fileName": 1723,
-      "framework": "vue"
-    },
-    "Popover": {
-      "fileName": 1738,
-      "framework": "vue"
-    },
-    "Wikibase Components/QuantityInput": {
+    "Checkbox": {
       "fileName": 1747,
       "framework": "vue"
     },
-    "/Input/TextInput": {
+    "Dropdown": {
       "fileName": 1748,
       "framework": "vue"
     },
+    "Wikibase Components/ExtendedNumberInput": {
+      "fileName": 1749,
+      "framework": "vue"
+    },
+    "Icon": {
+      "fileName": 1715,
+      "framework": "vue"
+    },
+    "/Input/Basic": {
+      "fileName": 1716,
+      "framework": "vue"
+    },
+    "/Input/InputWithExtender": {
+      "fileName": 1750,
+      "framework": "vue"
+    },
+    "/Link": {
+      "fileName": 1751,
+      "framework": "vue"
+    },
+    "/Lookup/Lookup": {
+      "fileName": 1752,
+      "framework": "vue"
+    },
+    "/Message/Message": {
+      "fileName": 1753,
+      "framework": "vue"
+    },
+    "OptionsMenu": {
+      "fileName": 1729,
+      "framework": "vue"
+    },
+    "Popover": {
+      "fileName": 1744,
+      "framework": "vue"
+    },
+    "Wikibase Components/QuantityInput": {
+      "fileName": 1754,
+      "framework": "vue"
+    },
+    "/Input/TextInput": {
+      "fileName": 1755,
+      "framework": "vue"
+    },
     "ToggleButton": {
-      "fileName": 1737,
+      "fileName": 1743,
       "framework": "vue"
     },
     "/Message/ValidationMessage": {
-      "fileName": 1734,
+      "fileName": 1740,
       "framework": "vue"
     }
   },
@@ -205,6 +209,26 @@
       "story": "All",
       "parameters": {
         "__id": "input-basic--all",
+        "__isArgsStory": false
+      }
+    },
+    "input-inputwithextender--basic": {
+      "id": "input-inputwithextender--basic",
+      "name": "Basic",
+      "kind": "/Input/InputWithExtender",
+      "story": "Basic",
+      "parameters": {
+        "__id": "input-inputwithextender--basic",
+        "__isArgsStory": true
+      }
+    },
+    "input-inputwithextender--all": {
+      "id": "input-inputwithextender--all",
+      "name": "All",
+      "kind": "/Input/InputWithExtender",
+      "story": "All",
+      "parameters": {
+        "__id": "input-inputwithextender--all",
         "__isArgsStory": false
       }
     },
