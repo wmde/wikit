@@ -23,6 +23,7 @@
 				@update:searchInput="onUnitLookupSearchInput"
 				:search-input="unitLookupSearchInput"
 				@input="onUnitLookupValue"
+				@scroll="onScroll"
 				:value="unitLookupValue"
 				:feedback-type="errorCause === 'unit' || errorCause === 'both' ? feedbackType : null"
 			>
@@ -140,6 +141,12 @@ export default defineComponent( {
 		};
 	},
 	methods: {
+		onScroll( firstIndex: number, lastIndex: number ): void {
+			/**
+			 * The indexes of the first and last visible elements
+			 */
+			this.$emit( 'scroll', firstIndex, lastIndex );
+		},
 		onNumberInput( number: number ): void {
 			/**
 			 * The plain text in the number input as string
