@@ -20,7 +20,7 @@
 				<slot v-if="!value" name="prompt" />
 				<BouncingDots v-if="!parsedValue && value" type="small" />
 				<div class="wikit-DateInput__CalendarNotice" v-if="calendarNotice && parsedValue">
-					<Icon type="info" size="small" />
+					<Icon color="inherit" type="info" size="small" />
 					{{ calendarNotice }}
 				</div>
 			</template>
@@ -85,6 +85,7 @@ export default defineComponent( {
 <style lang="scss">
 .wikit-DateInput {
 	&__IntroText {
+		padding-block-end: $wikit-InputExtender-content-padding-vertical;
 		font-family: $font-family-style-label;
 		font-weight: $font-weight-style-label;
 		font-size: $font-size-style-label;
@@ -93,6 +94,7 @@ export default defineComponent( {
 	}
 
 	&__ParsedValue {
+		padding-block: $wikit-InputExtender-content-padding-vertical;
 		font-family: $font-family-style-label;
 		font-weight: $font-weight-bold;
 		font-size: $font-size-style-label;
@@ -101,6 +103,7 @@ export default defineComponent( {
 	}
 
 	&__CalendarNotice {
+		padding-block-start: $wikit-InputExtender-content-padding-vertical;
 		font-family: $font-family-style-description;
 		font-weight: $font-weight-style-description;
 		font-size: $font-size-style-description;
