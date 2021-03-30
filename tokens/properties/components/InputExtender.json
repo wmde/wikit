@@ -33,6 +33,13 @@
         },
         "box-shadow": {
             "value": "{box-shadow.elevation.menu.value}"
+        },
+        "content": {
+            "padding": {
+                "vertical": {
+                    "value": "{dimension.spacing.xsmall.value}"
+                }
+            }
         }
     }
 }
