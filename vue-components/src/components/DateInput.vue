@@ -20,7 +20,7 @@
 				<slot v-if="!value" name="prompt" />
 				<BouncingDots v-if="!parsedValue && value" type="small" />
 				<div class="wikit-DateInput__CalendarNotice" v-if="calendarNotice && parsedValue">
-					<Icon type="info-filled" size="small" />
+					<Icon type="info" size="small" />
 					{{ calendarNotice }}
 				</div>
 			</template>
