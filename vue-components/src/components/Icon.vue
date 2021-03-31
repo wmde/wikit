@@ -224,6 +224,18 @@ export default Vue.extend( {
 	&--base {
 		color: $wikit-Icon-color-base;
 	}
+	
+	&--subtle {
+		color: $wikit-Icon-color-subtle;
+	}
+	
+	&--emphasized {
+		color: $wikit-Icon-color-emphasized;
+	}
+	
+	&--inverted {
+		color: $wikit-Icon-color-inverted;
+	}
 
 	&--error {
 		color: $wikit-Icon-color-error;
