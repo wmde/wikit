@@ -1,5 +1,6 @@
 import Button from './components/Button.vue';
 import Checkbox from './components/Checkbox.vue';
+import DateInput from './components/DateInput.vue';
 import ExtendedNumberInput from './components/ExtendedNumberInput.vue';
 import TextInput from './components/TextInput.vue';
 import ToggleButton from './components/ToggleButton.vue';
@@ -16,6 +17,7 @@ import QuantityInput from './components/QuantityInput.vue';
 export {
 	Button,
 	Checkbox,
+	DateInput,
 	Dropdown,
 	ExtendedNumberInput,
 	TextInput,
