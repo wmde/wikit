@@ -18,7 +18,7 @@ export function basic( args: { content: string; underlined: boolean } ): Compone
         template: `
 			<div>
 				<InputWithExtender :label="label" :disabled="disabled" placeholder="Placeholder" style="width: 300px;">
-                  <div style="font-family: sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 20px; color: #72777D;">
+                  <div>
                     Menu content placeholder. Any text or component can be displayed here.
                   </div>
                 </InputWithExtender>

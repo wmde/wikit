@@ -39,6 +39,23 @@
                 "vertical": {
                     "value": "{dimension.spacing.xsmall.value}"
                 }
+            },
+            "placeholder": {
+                "font-family": {
+                    "value": "{font.family.style.placeholder.value}"
+                },
+                "font-size": {
+                    "value": "{font.size.style.placeholder.value}"
+                },
+                "font-weight": {
+                    "value": "{font.weight.style.placeholder.value}"
+                },
+                "line-height": {
+                    "value": "{font.line-height.style.placeholder.value}"
+                },
+                "color": {
+                    "value": "{font.color.subtle.value}"
+                }
             }
         }
     }
