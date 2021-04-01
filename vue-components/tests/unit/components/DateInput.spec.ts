@@ -60,8 +60,8 @@ describe( 'DateInput', () => {
 
 	it( 'show intro when focused', async () => {
 		const wrapper = mount( DateInput, {
-			slots: {
-				prompt: 'Set the date please!',
+			propsData: {
+				promptText: 'Set the date please!',
 			},
 		} );
 

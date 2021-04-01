@@ -17,7 +17,9 @@
 				<p class="wikit-DateInput__ParsedValue" v-if="parsedValue">
 					<b>{{ parsedValue }}</b>
 				</p>
-				<slot v-if="!value" name="prompt" />
+				<p class="wikit-DateInput__Prompt" v-if="promptText && !value">
+					{{ promptText }}
+				</p>
 				<BouncingDots v-if="!parsedValue && value" type="small" />
 				<div class="wikit-DateInput__CalendarNotice" v-if="calendarNotice && parsedValue">
 					<Icon color="inherit" type="info" size="small" />
@@ -70,6 +72,10 @@ export default defineComponent( {
 			type: String,
 			default: null,
 		},
+		promptText: {
+			type: String,
+			default: null,
+		},
 		value: {
 			type: String,
 			default: null,
@@ -108,6 +114,14 @@ export default defineComponent( {
 		font-weight: $font-weight-style-description;
 		font-size: $font-size-style-description;
 		line-height: $font-line-height-style-description;
+		color: $font-color-subtle;
+	}
+
+	&__Prompt {
+		font-family: $font-family-style-placeholder;
+		font-size: $font-size-style-placeholder;
+		font-weight: $font-weight-style-placeholder;
+		line-height: $font-line-height-style-placeholder;
 		color: $font-color-subtle;
 	}
 }

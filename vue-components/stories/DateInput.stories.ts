@@ -26,17 +26,12 @@ export function basic( args: { label: string, placeholder: string, disabled: boo
               resultsIntroText="Will be interpreted as:"
               v-model="value"
               :parsedValue="parsedValue"
+              :prompt-text="promptText"
               @input="onInput"
               :disabled="disabled"
               style="width: 300px;"
               calendarNotice="All dates are interpreted as Gregorian dates"
-          >
-            <template v-slot:prompt>
-              <p style="color: #72777D;">
-              Please enter a date
-              </p>
-            </template>
-          </DateInput>
+          />
           </div>
         `,
         methods: {
@@ -53,6 +48,7 @@ export function basic( args: { label: string, placeholder: string, disabled: boo
 basic.args = {
     label: 'Label',
     placeholder: 'Placeholder',
+    promptText: 'Please enter a date',
     disabled: false,
     error: null,
 };
@@ -63,6 +59,11 @@ basic.argTypes = {
         },
     },
     placeholder: {
+        control: {
+            type: 'text',
+        },
+    },
+    promptText: {
         control: {
             type: 'text',
         },
@@ -107,6 +108,7 @@ export function all(): Component {
           <DateInput
               label="Label"
               placeholder="Placeholder"
+              prompt-text="Please enter a date"
               :value="value1"
               resultsIntroText="Will be interpreted as:"
               v-model="value1"
@@ -114,13 +116,7 @@ export function all(): Component {
               @input="onInput1"
               style="width: 300px;"
               calendarNotice="All dates are interpreted as Gregorian dates"
-          >
-            <template v-slot:prompt>
-              <p style="color: #72777D;">
-              Please enter a date
-              </p>
-            </template>
-          </DateInput>
+          />
           <br>
           <DateInput
               label="Label"
@@ -129,17 +125,12 @@ export function all(): Component {
               :disabled="true"
               style="width: 300px;"
               calendarNotice="All dates are interpreted as Gregorian dates"
-          >
-            <template v-slot:prompt>
-              <p style="color: #72777D;">
-                Please enter a date
-              </p>
-            </template>
-          </DateInput>
+          />
           <br>
           <DateInput
               label="Label"
               placeholder="Placeholder"
+              prompt-text="Please enter a date"
               :value="value2"
               resultsIntroText="Will be interpreted as:"
               v-model="value2"
@@ -148,17 +139,12 @@ export function all(): Component {
               @input="onInput2"
               style="width: 300px;"
               calendarNotice="All dates are interpreted as Gregorian dates"
-          >
-            <template v-slot:prompt>
-              <p style="color: #72777D;">
-                Please enter a date
-              </p>
-            </template>
-          </DateInput>
+          />
           <br>
           <DateInput
               label="Label"
               placeholder="Placeholder"
+              prompt-text="Please enter a date"
               :value="value3"
               resultsIntroText="Will be interpreted as:"
               v-model="value3"
@@ -167,13 +153,7 @@ export function all(): Component {
               :error="{message:'Error message', type:'error'}"
               style="width: 300px;"
               calendarNotice="All dates are interpreted as Gregorian dates"
-          >
-            <template v-slot:prompt>
-              <p style="color: #72777D;">
-                Please enter a date
-              </p>
-            </template>
-          </DateInput>
+          />
           </div>
         `,
         methods: {
