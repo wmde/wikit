@@ -109,7 +109,7 @@ export default defineComponent( {
 		border-radius: $wikit-InputExtender-border-radius;
 	}
 
-	&__placeholder {
+	&__content-placeholder {
 		font-family: $wikit-InputExtender-content-placeholder-font-family;
 		font-size: $wikit-InputExtender-content-placeholder-font-size;
 		font-weight: $wikit-InputExtender-content-placeholder-font-weight;
