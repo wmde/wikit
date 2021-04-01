@@ -17,7 +17,7 @@
 			:placeholder="placeholder"
 			:disabled="disabled"
 		/>
-		<div v-if="showExtension" class="wikit-InputWithExtender__extension wikit-InputWithExtender__placeholder">
+		<div v-if="showExtension" class="wikit-InputWithExtender__extension wikit-InputWithExtender__content-placeholder">
 			<slot />
 		</div>
 		<ValidationMessage
