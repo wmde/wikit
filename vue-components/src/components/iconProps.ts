@@ -22,7 +22,7 @@ export const iconColors = [
 	'error',
 	'notice',
 	'success',
-	'inherit'
+	'inherit',
 ];
 
 export const iconSizes = [ 'xsmall', 'small', 'medium', 'large' ];
