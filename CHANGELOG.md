@@ -38,6 +38,8 @@ development)_
 - New Link mixin
 - Add BouncingDots Component
 - Add QuantityInput component
+- New InputWithExtender component
+- New DateInput component
 
 ### Changed
 

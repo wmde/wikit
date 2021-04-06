@@ -97,7 +97,7 @@
                         "value": "{border.color.neutral.focus.value}"
                     },
                     "background-color": {
-                        "value": "{background.color.neutral.hover.value}"
+                        "value": "{background.color.neutral.focus.value}"
                     },
                     "box-shadow": {
                         "value": "{box-shadow.inset.focus.progressive.value}"
