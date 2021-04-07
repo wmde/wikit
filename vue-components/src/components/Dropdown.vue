@@ -4,7 +4,10 @@
 		@keydown="triggerKeyDown"
 	>
 		<span class="wikit-Dropdown__label-wrapper">
-			<label class="wikit-Dropdown__label" @click="$refs.select.focus()">{{ label }}</label>
+			<label
+				:class="{ 'wikit-Dropdown__label': true, 'wikit-Dropdown__label--disabled': disabled }"
+				@click="$refs.select.focus()"
+			>{{ label }}</label>
 			<span><slot name="suffix" /></span>
 		</span>
 
@@ -272,6 +275,11 @@ $base: '.wikit-Dropdown';
 
 	&__label {
 		@include Label( block );
+
+		// FIXME: is there a way to do this more reusable/dry?
+		&--disabled {
+			color: $font-color-disabled;
+		}
 	}
 }
 </style>
