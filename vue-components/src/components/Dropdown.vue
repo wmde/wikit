@@ -222,7 +222,7 @@ $base: '.wikit-Dropdown';
 
 		&--warning {
 			border-color: $wikit-Dropdown-warning-border-color;
-			
+
 			&:hover {
 				border-color: $wikit-Dropdown-warning-border-color;
 				background-color: $wikit-Dropdown-hover-background-color;
