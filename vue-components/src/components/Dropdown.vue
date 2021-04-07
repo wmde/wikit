@@ -208,14 +208,6 @@ $base: '.wikit-Dropdown';
 			}
 		}
 
-		&--warning {
-			border-color: $wikit-Dropdown-warning-border-color;
-		}
-
-		&--error {
-			border-color: $wikit-Dropdown-error-border-color;
-		}
-
 		&:hover {
 			border-color: $wikit-Dropdown-hover-border-color;
 			background-color: $wikit-Dropdown-hover-background-color;
@@ -226,6 +218,24 @@ $base: '.wikit-Dropdown';
 			border-color: $wikit-Dropdown-active-border-color;
 			background-color: $wikit-Dropdown-active-background-color;
 			box-shadow: $wikit-Dropdown-active-box-shadow;
+		}
+
+		&--warning {
+			border-color: $wikit-Dropdown-warning-border-color;
+
+			&:focus,
+			&:active {
+				box-shadow: 0 0 2px 2px $wikit-Dropdown-warning-border-color;
+			}
+		}
+
+		&--error {
+			border-color: $wikit-Dropdown-error-border-color;
+
+			&:focus,
+			&:active {
+				box-shadow: 0 0 2px 2px $wikit-Dropdown-error-border-color;
+			}
 		}
 	}
 
