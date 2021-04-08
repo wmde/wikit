@@ -475,6 +475,12 @@
                 "destructive": {
                     "value": "{box-shadow.inset.style.thin.value} {color.utility.red.50.value}"
                 },
+                "error": {
+                    "value": "{box-shadow.inset.style.thin.value} {color.utility.red.50.value}"
+                },
+                "warning": {
+                    "value": "{box-shadow.inset.style.thin.value} {color.utility.yellow.30.value}"
+                },
                 "inverted": {
                     "value": "{box-shadow.inset.style.thin.value} {color.base.100.value}",
                     "comment": "Binary inputs"
