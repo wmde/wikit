@@ -131,6 +131,7 @@ export default defineComponent( {
 					}
 					break;
 				case 'ArrowDown':
+					event.preventDefault();
 					this.startShowingTheMenu();
 			}
 			this.menu?.onKeyDown( event );
