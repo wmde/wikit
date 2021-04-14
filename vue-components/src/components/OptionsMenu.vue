@@ -98,6 +98,7 @@ export default Vue.extend( {
 					this.$emit( 'esc' );
 					break;
 				case 'ArrowUp':
+					event.preventDefault();
 					if ( this.allowLooping && this.keyboardHoveredItemIndex === 0 ) {
 						// loop to the bottom of the menu
 						this.keyboardHoveredItemIndex = this.menuItems.length - 1;
@@ -108,6 +109,7 @@ export default Vue.extend( {
 					this.keyboardScroll();
 					break;
 				case 'ArrowDown':
+					event.preventDefault();
 					if ( this.allowLooping && this.keyboardHoveredItemIndex === this.menuItems.length - 1 ) {
 						// go back to the top of the menu
 						this.keyboardHoveredItemIndex = 0;
