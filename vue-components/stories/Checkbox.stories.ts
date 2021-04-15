@@ -60,6 +60,11 @@ export function all(): Component {
 						</template>
 				</Checkbox>
 				</div>
+				<br>
+				<div dir="ltr" style="max-width: 320px">
+					<Checkbox label="This checkbox has a longer label to demonstrate the vertical alignment of the input at the top" :checked="false"></Checkbox>
+				</Checkbox>
+				</div>
 			</div>
 		`,
 	};
