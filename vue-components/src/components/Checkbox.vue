@@ -57,7 +57,6 @@ $label: '.wikit-checkbox__label';
 		@include Label;
 		display: flex;
 		align-items: center;
-		word-break: break-all;
 		margin-inline-end: $dimension-spacing-small;
 
 		&::before {
