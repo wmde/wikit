@@ -74,6 +74,7 @@ $label: '.wikit-checkbox__label';
 			content: ' ';
 			margin-inline-end: $wikit-Checkbox-input-right-spacing;
 			display: flex;
+			align-self: flex-start;
 			transition-property: $wikit-Checkbox-input-transition-property;
 			transition-duration: $wikit-Checkbox-input-transition-duration;
 			transition-timing-function: $wikit-Checkbox-input-transition-timing-function;
