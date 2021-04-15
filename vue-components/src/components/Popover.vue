@@ -70,6 +70,9 @@ export default Vue.extend( {
 			this.changeContentVisibility( false );
 		},
 		changeContentVisibility( isVisible: boolean ): void {
+			if ( isVisible === this.isContentShown ) {
+				return;
+			}
 			this.isContentShown = isVisible;
 			/**
 			 * This can optionally be used with the `.sync` modifier on the `isShown` prop

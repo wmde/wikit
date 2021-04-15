@@ -13,7 +13,7 @@
             "value": "{border.radius.base.value}"
         },
         "background-color": {
-			"value": "{background.color.base.default.value}"
+            "value": "{background.color.base.default.value}"
         },
         "font-family": {
             "value": "{font.family.style.body.value}"
@@ -74,12 +74,22 @@
         "error": {
             "border-color": {
                 "value": "{border.color.feedback.error.value}"
+            },
+            "active": {
+                "box-shadow": {
+                    "value": "{box-shadow.inset.focus.error.value}"
+                }
             }
         },
         "warning": {
             "border-color": {
                 "value": "{color.utility.yellow.30.value}",
                 "comment": "We want to use an alias token here but it wasn't decided at the time we implemented this."
+            },
+            "active": {
+                "box-shadow": {
+                    "value": "{box-shadow.inset.focus.warning.value}"
+                }
             }
         },
         "desktop": {
