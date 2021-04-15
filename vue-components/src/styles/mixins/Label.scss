@@ -1,12 +1,14 @@
-@mixin Label( $displayType: 'inline' ) {
-    color: $wikit-Label-font-color;
-    font-family: $wikit-Label-font-family;
-    font-size: $wikit-Label-font-size;
-    font-weight: $wikit-Label-font-weight;
-    line-height: $wikit-Label-line-height;
-    display: $displayType;
+@mixin Label($displayType: "inline") {
+  color: $wikit-Label-font-color;
+  font-family: $wikit-Label-font-family;
+  font-size: $wikit-Label-font-size;
+  font-weight: $wikit-Label-font-weight;
+  line-height: $wikit-Label-line-height;
+  display: $displayType;
+  overflow-wrap: break-word;
+  hyphens: auto;
 
-    @if $displayType == block {
-        padding-block-end: $wikit-Label-padding-block-end;
-    }
+  @if $displayType == block {
+    padding-block-end: $wikit-Label-padding-block-end;
+  }
 }
