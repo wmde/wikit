@@ -17,7 +17,7 @@
 			:placeholder="placeholder"
 			:disabled="disabled"
 		/>
-		<div v-if="showExtension" class="wikit-InputWithExtender__extension wikit-InputWithExtender__content-default">
+		<div v-if="showExtension" class="wikit-InputWithExtender__extension">
 			<slot />
 		</div>
 		<ValidationMessage
@@ -107,9 +107,7 @@ export default defineComponent( {
 		border: $wikit-InputExtender-border-width $wikit-InputExtender-border-style $wikit-InputExtender-border-color;
 		box-shadow: $wikit-InputExtender-box-shadow;
 		border-radius: $wikit-InputExtender-border-radius;
-	}
 
-	&__content-default {
 		font-family: $wikit-InputExtender-content-placeholder-font-family;
 		font-size: $wikit-InputExtender-content-placeholder-font-size;
 		font-weight: $wikit-InputExtender-content-placeholder-font-weight;
