@@ -40,22 +40,20 @@
                     "value": "{dimension.spacing.xsmall.value}"
                 }
             },
-            "placeholder": {
-                "font-family": {
-                    "value": "{font.family.style.placeholder.value}"
-                },
-                "font-size": {
-                    "value": "{font.size.style.placeholder.value}"
-                },
-                "font-weight": {
-                    "value": "{font.weight.style.placeholder.value}"
-                },
-                "line-height": {
-                    "value": "{font.line-height.style.placeholder.value}"
-                },
-                "color": {
-                    "value": "{font.color.subtle.value}"
-                }
+            "font-family": {
+                "value": "{font.family.style.label.value}"
+            },
+            "font-size": {
+                "value": "{font.size.style.label.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.style.label.value}"
+            },
+            "line-height": {
+                "value": "{font.line-height.style.label.value}"
+            },
+            "color": {
+                "value": "{font.color.base.value}"
             }
         }
     }

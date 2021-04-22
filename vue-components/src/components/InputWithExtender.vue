@@ -108,11 +108,11 @@ export default defineComponent( {
 		box-shadow: $wikit-InputExtender-box-shadow;
 		border-radius: $wikit-InputExtender-border-radius;
 
-		font-family: $wikit-InputExtender-content-placeholder-font-family;
-		font-size: $wikit-InputExtender-content-placeholder-font-size;
-		font-weight: $wikit-InputExtender-content-placeholder-font-weight;
-		line-height: $wikit-InputExtender-content-placeholder-line-height;
-		color: $wikit-InputExtender-content-placeholder-color;
+		font-family: $wikit-InputExtender-content-font-family;
+		font-size: $wikit-InputExtender-content-font-size;
+		font-weight: $wikit-InputExtender-content-font-weight;
+		line-height: $wikit-InputExtender-content-line-height;
+		color: $wikit-InputExtender-content-color;
 	}
 
 }

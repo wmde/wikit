@@ -19,7 +19,7 @@ export function basic( args: { content: string; underlined: boolean } ): Compone
 			<div>
 				<InputWithExtender :label="label" :disabled="disabled" placeholder="Placeholder" style="width: 300px;">
                   <div>
-                    Menu content placeholder. Any text or component can be displayed here.
+                    This is the extender menu. Any text or component can be included here.
                   </div>
                 </InputWithExtender>
 			</div>
