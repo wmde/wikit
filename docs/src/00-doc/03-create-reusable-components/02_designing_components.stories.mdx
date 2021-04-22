@@ -27,9 +27,9 @@ Due to the decentralized nature of our system, designers embedded in the differe
 
 ### 1.1. Discover
 
-The designer in charge of the creation of the new system component should start by checking the [WiKit component library](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit?node-id=166%3A2), to see if the needed component has already been designed or can be designed based on any of the existing WiKit symbols.
+The designer in charge of the creation of the new system component should start by checking the [WiKit component library](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit?node-id=166%3A2), to see if the needed component has already been designed or can be designed based on, or as acombination of, any of the existing WiKit symbols.
 
-It is advised that the designer performs an interface inventory by inspecting and capturing existing instances of the component in multiple sources: production (particularly Wikidata), OOUI and Wikimedia Foundation's [Design Style Guide](https://design.wikimedia.org/style-guide/components/links.html). Screenshots and specs of said instances should be collected in a central art board within the [Component Inventory](https://www.figma.com/file/QHIKwqfmSERr2fTqRj5UYM/Pattern%2FComponent-Inventory?node-id=0%3A1) in Figma. The purpose of the inventory is to achieve behavior parity, by making sure that all the specific interactive features of a given component are considered when creating a new system-compliant version.
+It is advised that the designer performs an interface inventory by inspecting and capturing existing instances of the component in two main sources: production (particularly Wikidata) and the Wikimedia Foundation's [Design Style Guide](https://design.wikimedia.org/style-guide/components/links.html). Screenshots and specs of said instances should be collected in a central art board within the [Component Inventory](https://www.figma.com/file/QHIKwqfmSERr2fTqRj5UYM/Pattern%2FComponent-Inventory?node-id=0%3A1) in Figma. The purpose of the inventory is to achieve behavior parity, by making sure that all the specific interactive features of a given component are considered when creating a new system-compliant version.
 
 ### 1.2. Design
 
@@ -49,19 +49,19 @@ While designing new system components, bear in mind to:
 
 #### Interaction
 
-Base component **interaction patterns** on the behaviour described in the [components’ documentation](https://docs.google.com/presentation/d/1GB9WcQDQDYaf_kr0RvuaAuadKLPRytdcZ1vL78N2vx0/edit#slide=id.p)([See 1.4](#14-document)) in order to provide a consistent experience. Existing patterns (the behavior of the current version of the component in production) should also be evaluated and matched by the new version of the component in case they don’t contradict the system ([See 1.1](#11-discover)).
+In order to provide a consistent experience, the component's behaviour should reflect the **interaction patterns** described in the [components’ documentation](https://docs.google.com/presentation/d/1GB9WcQDQDYaf_kr0RvuaAuadKLPRytdcZ1vL78N2vx0/edit#slide=id.p) when applicable([See 1.4](#14-document)). Existing patterns (the behavior of the current version of the component in production) should also be evaluated, and matched by the new version of the component in a way that doesn't contradict the system ([See 1.1](#11-discover)).
 
 While defining the behaviour of new system components, bear in mind to:
 
-- Consider **internazionalization needs** and make sure that the component is optimized for the various language sizes, display styles and orientations.
+- Consider **internationalization needs** and make sure that the component is optimized for the various language sizes, display styles and orientations.
 
 - Make sure to define the **responsive behaviour** of the component and to provide examples of its adaptation to different devices. 
 
-- Follow **accessibility best practices** throughout the design process. You can check existing accessibility specs (e.g. keyboard navigation specifications) in the [components’ documentation](https://docs.google.com/presentation/d/1GB9WcQDQDYaf_kr0RvuaAuadKLPRytdcZ1vL78N2vx0/edit#slide=id.p). We recommend observing the recommendations offered by the following resources as we should aim at providing at least an AA level of conformance:
+- Follow **accessibility best practices** throughout the design process. You can check existing accessibility specs (e.g. keyboard navigation specifications) in the [components’ documentation](https://docs.google.com/presentation/d/1GB9WcQDQDYaf_kr0RvuaAuadKLPRytdcZ1vL78N2vx0/edit#slide=id.p). We recommend observing the WCAG recommendations offered by the following resources, and always aim at providing at least an AA level of conformance:
 
+   - [WCAG guidelines 2.1](https://www.w3.org/WAI/WCAG21/quickref/): Quick reference version of the extensive WCAG guidelines, with filtering options.
    - [WAI-ARIA Authoring practices 1.1](https://www.w3.org/TR/2019/NOTE-wai-aria-practices-1.1-20190814/), by the W3C Working Group: Provides accessibility recomendations at a component level with links to examples created by the W3C in most cases.
-   - [The A11Y Project Checklist](https://www.a11yproject.com/checklist/)
-   - [WCAG guidelines 2.1](https://www.w3.org/WAI/WCAG21/quickref/): Quick reference version of the extensive WCAG guidelines, with filtering options. 
+   - [The A11Y Project Checklist](https://www.a11yproject.com/checklist/) 
 
 
 ### 1.3. Decide
@@ -81,17 +81,17 @@ Example: _“A notification is a one-way dialogue triggered instantly by a user 
 
 - Capture the component interactive **states** (e.g. default, hover, active, focus, error, disabled), together with the user action that triggered them.
 
-- Outline **visual specifications** (sizes, paddings, typographic styles, colors) of both the default and all component states. It should be possible to translate all these specifications using design tokens during handover ([See 3](#3-design-handover)).
+- Outline **visual specifications** (sizes, paddings, typographic styles, colors) of both the default and all component states. Please note that all the specifications use design tokens as values as a prerequisite for handover ([See 3](#3-design-handover)).
 
-- Define the **interactive features** that are essential to fully understand the component's behavior. In both cases, the user action leading to each state should also be specified.
+- Define the **interactive features** that are essential to fully understand the component's behavior. Again, pair specifications with the user action leading to each state.
 
 - Include **responsive** behavior specifications
 
 Designers should also provide more extended documentation about a component (anatomy, usage, interaction workflows, accessibility specs, etc) in the component’s [documentation file](https://docs.google.com/presentation/d/1GB9WcQDQDYaf_kr0RvuaAuadKLPRytdcZ1vL78N2vx0/edit?usp=sharing). More detailed behavior descriptions and good practices can be key to inform future design decisions ([See 1.2](#12-design)), and to help keeping the system’s interaction patterns consistent.
 
-Again, you can count on the system designer to help with, or take over, component documentation.
+You can count on the system designer here too, to help with, or take over, component documentation.
 
-Once a final version of the new design is agreed upon, the system designer will be responsible for the creation of a reusable, symbolized version of the component in the WiKit’s [UI Kit page](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit?node-id=166%3A2) in Figma.
+Once a final version of the new design is agreed upon, the system designer will be responsible for the creation of a symbolized, reusable version of the component and all its variants in the [WiKit’s library](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit?node-id=166%3A2).
 
 ### 1.5. The design definition of done
 
@@ -103,7 +103,7 @@ As it can be inferred from the previous sections, the design of new system compo
 
 - [**Accessibility** guidelines](https://design.wikimedia.org/style-guide/design-principles_accessibility.html) have been considered
 
-- **Responsive** behavior has been defined
+- The **responsive** behavior of the component has been defined
 
 - The final version of the component has been shared and **reviewed by other members of the design team**
 
