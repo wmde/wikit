@@ -107,6 +107,12 @@ export default defineComponent( {
 		border: $wikit-InputExtender-border-width $wikit-InputExtender-border-style $wikit-InputExtender-border-color;
 		box-shadow: $wikit-InputExtender-box-shadow;
 		border-radius: $wikit-InputExtender-border-radius;
+
+		font-family: $wikit-InputExtender-content-font-family;
+		font-size: $wikit-InputExtender-content-font-size;
+		font-weight: $wikit-InputExtender-content-font-weight;
+		line-height: $wikit-InputExtender-content-line-height;
+		color: $wikit-InputExtender-content-color;
 	}
 
 }
