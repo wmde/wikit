@@ -52,7 +52,7 @@ development)_
 
 - _**(Breaking)**_ Width property is removed from all components
 - Cursor tokens
-- The token "box-shadow-button-primary" 
+- The token "box-shadow-inset-focus-button-primary" 
 
 ### Fixed
 
