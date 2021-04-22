@@ -39,6 +39,21 @@
                 "vertical": {
                     "value": "{dimension.spacing.xsmall.value}"
                 }
+            },
+            "font-family": {
+                "value": "{font.family.style.label.value}"
+            },
+            "font-size": {
+                "value": "{font.size.style.label.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.style.label.value}"
+            },
+            "line-height": {
+                "value": "{font.line-height.style.label.value}"
+            },
+            "color": {
+                "value": "{font.color.base.value}"
             }
         }
     }
