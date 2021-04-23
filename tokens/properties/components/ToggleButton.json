@@ -113,7 +113,10 @@
             },
             "focus": {
                 "box-shadow": {
-                    "value": "{box-shadow.inset.focus.inverted.value}"
+                    "value": "{box-shadow.inset.focus.progressive.value}, {box-shadow.inset.focus.inverted.value}"
+                },
+                "border-color": {
+                    "value": "{border.color.progressive.focus.value}"
                 }
             }
         },

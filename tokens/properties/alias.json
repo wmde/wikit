@@ -482,12 +482,7 @@
                     "value": "{box-shadow.inset.style.thin.value} {color.utility.yellow.30.value}"
                 },
                 "inverted": {
-                    "value": "{box-shadow.inset.style.thin.value} {color.base.100.value}",
-                    "comment": "Binary inputs"
-                },
-                "button-primary": {
-                    "value": "{box-shadow.inset.style.thick.value} {color.base.100.value}",
-                    "comment": "Only applies to filled primary buttons"
+                    "value": "{box-shadow.inset.style.thick.value} {color.base.100.value}"
                 }
             }
         },
