@@ -3,7 +3,7 @@
 		:class="[ 'wikit', 'wikit-InputWithExtender' ]"
 	>
 		<span class="wikit-InputWithExtender__label-wrapper">
-			<label class="wikit-InputWithExtender__label" @click="$refs.select.focus()">{{ label }}</label>
+			<label class="wikit-InputWithExtender__label" :for="id" @click="$refs.select.focus()">{{ label }}</label>
 			<span><slot name="suffix" /></span>
 		</span>
 		<Input
