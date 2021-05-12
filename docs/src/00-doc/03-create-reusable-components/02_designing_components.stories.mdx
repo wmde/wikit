@@ -4,14 +4,13 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Designing Components
 
-This section provides UX designers with predictive instructions on how to design and specify new design system components for handover. Specifically, the following topics are covered:
+This section provides UX designers with predictive instructions on how to design new design system components from scratch, and how to specify them for handover using design tokens. Specifically, the following topics are covered:
 
 **[1. Designing new system components](#1-designing-new-system-components)** <br/>
  [1.1. Discover](#11-discover)<br/>
  [1.2. Design](#12-design)<br/>
- [1.3. Decide](#13-decide)<br/>
- [1.4. Document](#14-document)<br/>
- [1.5. The design definition of done](#15-the-design-definition-of-done) <br/>
+ [1.3. Document](#13-document)<br/>
+ [1.4. The design definition of done](#14-the-design-definition-of-done) <br/>
 
 **[2. Using design tokens](#2-using-design-tokens)** <br/>
   [2.1. Introduction: Design tokens in the context of the Wikidata/Wikibase design system](#21-introduction-design-tokens-in-the-context-of-the-wikidatawikibase-design-system)<br/>
@@ -20,18 +19,19 @@ This section provides UX designers with predictive instructions on how to design
 **[3. Design handover](#3-design-handover)**<br/>
 
 
-
 ## 1. Designing new system components
 
 Due to the decentralized nature of our system, designers embedded in the different feature teams will be accountable for creating the final designs and specifications for new system components. The dedicated system designer (Sarai) will provide as much support as possible throughout the design process, which consists of the following recommended steps:
 
 ### 1.1. Discover
 
-The designer in charge of the creation of the new system component should start by checking the [WiKit component library](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit?node-id=166%3A2), to see if the needed component has already been designed or can be designed based on, or as acombination of, any of the existing WiKit symbols.
+The designer in charge of the creation of the new system component should start by checking the [WiKit component library](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit?node-id=166%3A2), to see if the needed component has already been designed or can be designed based on, or as a combination of, any of the existing WiKit symbols.
 
 It is advised that the designer performs an interface inventory by inspecting and capturing existing instances of the component in two main sources: production (particularly Wikidata) and the Wikimedia Foundation's [Design Style Guide](https://design.wikimedia.org/style-guide/components/links.html). Screenshots and specs of said instances should be collected in a central art board within the [Component Inventory](https://www.figma.com/file/QHIKwqfmSERr2fTqRj5UYM/Pattern%2FComponent-Inventory?node-id=0%3A1) in Figma. The purpose of the inventory is to achieve behavior parity, by making sure that all the specific interactive features of a given component are considered when creating a new system-compliant version.
 
 ### 1.2. Design
+
+At this phase, designers should use all the previously collected information to identify the component’s behaviour and building blocks, and describe their visual and interactive characteristics with the help of the system's foundational styles and documentation.
 
 #### Visual style
 
@@ -63,14 +63,19 @@ While defining the behaviour of new system components, bear in mind to:
    - [WAI-ARIA Authoring practices 1.1](https://www.w3.org/TR/2019/NOTE-wai-aria-practices-1.1-20190814/), by the W3C Working Group: Provides accessibility recomendations at a component level with links to examples created by the W3C in most cases.
    - [The A11Y Project Checklist](https://www.a11yproject.com/checklist/) 
 
+##### Collecting feedback
 
-### 1.3. Decide
+**The UX team owns the design of the system**
 
 The system designer will make herself available as needed to support you while making system-related design decisions. Nevertheless, it is important that, at any step of the design process, and necessarily before handover, the UX design team is involved in the definition and the review of the new system component. This is in order to align on the design decisions made, catch potential inconsistencies or improvements, and refine the whole component design process.
 
-A crucial guiding factor in every design process is, of course, user feedback. Designers should assess the need to perform usability testing before and/or after the implementation of new components. They can opt for the most convenient testing modality in each case (moderated, unmoderated, attitudinal, behavioral), depending on the time and resources available.
+**Involving users in the component design process**
 
-### 1.4. Document
+Designers should assess the need to test components with the help of users before and/or after their implementation. 
+They can opt for the most convenient testing modality in each case (moderated, unmoderated, attitudinal, behavioral), depending on the time and resources available.
+
+
+### 1.3. Document
 
 Throughout the design process, design decisions should be captured in the [_Specs and Documentation_](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit-%F0%9F%94%A5?node-id=2967%3A8) page in WiKit. The following essential documentation should be provided for every new system component in Figma:
 
@@ -93,7 +98,7 @@ You can count on the system designer here too, to help with, or take over, compo
 
 Once a final version of the new design is agreed upon, the system designer will be responsible for the creation of a symbolized, reusable version of the component and all its variants in the [WiKit’s library](https://www.figma.com/file/gi3JYwSUQYhKS0mHwK25cQwi/WiKit?node-id=166%3A2).
 
-### 1.5. The design definition of done
+### 1.4. The design definition of done
 
 As it can be inferred from the previous sections, the design of new system components must comply with the following requirements in order to be considered done:
 
