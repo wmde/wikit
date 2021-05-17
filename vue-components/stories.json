@@ -11,67 +11,67 @@
       "framework": "vue"
     },
     "Checkbox": {
-      "fileName": 1754,
-      "framework": "vue"
-    },
-    "Wikibase Components/DateInput": {
-      "fileName": 1755,
-      "framework": "vue"
-    },
-    "Dropdown": {
       "fileName": 1756,
       "framework": "vue"
     },
-    "Wikibase Components/ExtendedNumberInput": {
+    "Wikibase Components/DateInput": {
       "fileName": 1757,
       "framework": "vue"
     },
-    "Icon": {
-      "fileName": 1726,
-      "framework": "vue"
-    },
-    "/Input/Basic": {
-      "fileName": 1727,
-      "framework": "vue"
-    },
-    "/Input/InputWithExtender": {
-      "fileName": 1728,
-      "framework": "vue"
-    },
-    "/Link": {
+    "Dropdown": {
       "fileName": 1758,
       "framework": "vue"
     },
-    "/Lookup/Lookup": {
+    "Wikibase Components/ExtendedNumberInput": {
       "fileName": 1759,
       "framework": "vue"
     },
-    "/Message/Message": {
+    "Icon": {
+      "fileName": 1728,
+      "framework": "vue"
+    },
+    "/Input/Basic": {
+      "fileName": 1729,
+      "framework": "vue"
+    },
+    "/Input/InputWithExtender": {
+      "fileName": 1730,
+      "framework": "vue"
+    },
+    "/Link": {
       "fileName": 1760,
       "framework": "vue"
     },
-    "OptionsMenu": {
-      "fileName": 1737,
-      "framework": "vue"
-    },
-    "Popover": {
-      "fileName": 1752,
-      "framework": "vue"
-    },
-    "Wikibase Components/QuantityInput": {
+    "/Lookup/Lookup": {
       "fileName": 1761,
       "framework": "vue"
     },
-    "/Input/TextInput": {
+    "/Message/Message": {
       "fileName": 1762,
       "framework": "vue"
     },
+    "OptionsMenu": {
+      "fileName": 1739,
+      "framework": "vue"
+    },
+    "Popover": {
+      "fileName": 1754,
+      "framework": "vue"
+    },
+    "Wikibase Components/QuantityInput": {
+      "fileName": 1763,
+      "framework": "vue"
+    },
+    "/Input/TextInput": {
+      "fileName": 1764,
+      "framework": "vue"
+    },
     "ToggleButton": {
-      "fileName": 1751,
+      "fileName": 1753,
       "framework": "vue"
     },
     "/Message/ValidationMessage": {
-      "fileName": 1748,
+      "fileName": 1750,
       "framework": "vue"
     }
   },
