@@ -1,9 +1,9 @@
 {
     "wikit-Checkbox": {
         "label": {
-            "disabled":{
+            "disabled": {
                 "color": {
-                    "value":"{font.color.disabled.value}"
+                    "value": "{font.color.disabled.value}"
                 }
             }
         },
@@ -97,7 +97,7 @@
                         "value": "{background.color.progressive.default.value}"
                     },
                     "box-shadow": {
-                        "value": "{box-shadow.inset.focus.inverted.value}"
+                        "value": "{box-shadow.inset.focus.progressive.value}, {box-shadow.inset.focus.inverted.value}"
                     }
                 }
             },
