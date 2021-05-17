@@ -233,6 +233,7 @@ $base: '.wikit-Dropdown';
 			&:active {
 				border-color: $wikit-Dropdown-warning-border-color;
 				box-shadow: $wikit-Dropdown-warning-active-box-shadow;
+				outline: none;
 			}
 		}
 
@@ -248,6 +249,7 @@ $base: '.wikit-Dropdown';
 			&:active {
 				border-color: $wikit-Dropdown-error-border-color;
 				box-shadow: $wikit-Dropdown-error-active-box-shadow;
+				outline: none;
 			}
 		}
 	}
