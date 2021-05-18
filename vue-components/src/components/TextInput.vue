@@ -1,7 +1,15 @@
 <template>
 	<div :class="[ 'wikit', 'wikit-TextInput' ]">
 		<span class="wikit-TextInput__label-wrapper">
-			<label class="wikit-TextInput__label" :for="id">{{ label }}</label>
+			<label
+				:class="[
+					'wikit-TextInput__label',
+					disabled ? `wikit-TextInput__label--disabled` : ''
+				]"
+				:for="id"
+			>
+				{{ label }}
+			</label>
 			<span><slot name="suffix" /></span>
 		</span>
 		<Input
