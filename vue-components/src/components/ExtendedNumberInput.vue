@@ -1,6 +1,15 @@
 <template>
 	<div :class="[ 'wikit', 'wikit-ExtendedNumberInput' ]">
-		<label class="wikit-ExtendedNumberInput__label" :for="id">{{ label }}</label>
+		<label
+			:class="[
+				'wikit',
+				'wikit-ExtendedNumberInput__label',
+				disabled ? `wikit-ExtendedNumberInput__label--disabled` : ''
+			]"
+			:for="id"
+		>
+			{{ label }}
+		</label>
 		<Input
 			:id="id"
 			:value="value"

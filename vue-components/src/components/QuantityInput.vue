@@ -1,7 +1,15 @@
 <template>
 	<div class="wikit wikit-QuantityInput">
 		<span class="wikit-QuantityInput__label-wrapper">
-			<label class="wikit-QuantityInput__label" :for="id">{{ label }}</label>
+			<label
+				:class="[
+					'wikit-QuantityInput__label',
+					disabled ? `wikit-QuantityInput__label--disabled` : ''
+				]"
+				:for="id"
+			>
+				{{ label }}
+			</label>
 			<span><slot name="suffix" /></span>
 		</span>
 		<div class="wikit-QuantityInput__input-wrapper">
