@@ -150,6 +150,7 @@ $label: '.wikit-checkbox__label';
 				border-color: $wikit-Checkbox-input-disabled-border-color;
 				background-color: $wikit-Checkbox-input-disabled-background-color;
 			}
+
 			&:checked::before {
 				border-color: $wikit-Checkbox-input-disabled-border-color;
 				background-color: $wikit-Checkbox-input-disabled-background-color;
