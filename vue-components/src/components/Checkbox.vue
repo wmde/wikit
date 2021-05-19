@@ -9,7 +9,15 @@
 			:checked="checked"
 			:disabled="disabled"
 		>
-		<label class="wikit-checkbox__label" :for="id">{{ label }}</label>
+		<label
+			:class="[
+				'wikit-checkbox__label',
+				disabled ? `wikit-checkbox__label--disabled` : ''
+			]"
+			:for="id"
+		>
+			{{ label }}
+		</label>
 		<slot name="suffix" />
 	</span>
 </template>

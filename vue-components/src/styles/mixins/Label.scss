@@ -8,6 +8,10 @@
   overflow-wrap: break-word;
   hyphens: auto;
 
+  &--disabled {
+    color: $wikit-Label-font-color-disabled;
+  }
+
   @if $displayType == block {
     padding-block-end: $wikit-Label-padding-block-end;
   }

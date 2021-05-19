@@ -4,7 +4,15 @@
 		@keydown="triggerKeyDown"
 	>
 		<span class="wikit-Dropdown__label-wrapper">
-			<label class="wikit-Dropdown__label" @click="$refs.select.focus()">{{ label }}</label>
+			<label
+				:class="[
+					'wikit-Dropdown__label',
+					disabled ? `wikit-Dropdown__label--disabled` : ''
+				]"
+				@click="$refs.select.focus()"
+			>
+				{{ label }}
+			</label>
 			<span><slot name="suffix" /></span>
 		</span>
 

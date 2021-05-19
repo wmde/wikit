@@ -3,7 +3,15 @@
 		:class="[ 'wikit', 'wikit-Lookup' ]"
 	>
 		<span class="wikit-Lookup__label-wrapper">
-			<label class="wikit-Lookup__label" :for="inputId">{{ label }}</label>
+			<label
+				:class="[
+					'wikit-Lookup__label',
+					disabled ? `wikit-Lookup__label--disabled` : ''
+				]"
+				:for="inputId"
+			>
+				{{ label }}
+			</label>
 			<span><slot name="suffix" /></span>
 		</span>
 

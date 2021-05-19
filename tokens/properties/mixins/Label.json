@@ -3,6 +3,9 @@
         "font-color": {
             "value": "{font.color.base.value}"
         },
+        "font-color-disabled": {
+            "value": "{font.color.disabled.value}"
+        },
         "font-family": {
             "value": "{font.family.style.label.value}"
         },
