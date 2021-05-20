@@ -146,7 +146,8 @@ $label: '.wikit-checkbox__label';
 			color: $wikit-Checkbox-label-disabled-color;
 			pointer-events: none;
 
-			&::before, &:checked::before {
+			&::before,
+			&:checked::before {
 				border-color: $wikit-Checkbox-input-disabled-border-color;
 				background-color: $wikit-Checkbox-input-disabled-background-color;
 			}
