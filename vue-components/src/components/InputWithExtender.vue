@@ -3,7 +3,16 @@
 		:class="[ 'wikit', 'wikit-InputWithExtender' ]"
 	>
 		<span class="wikit-InputWithExtender__label-wrapper">
-			<label class="wikit-InputWithExtender__label" @click="$refs.select.focus()">{{ label }}</label>
+			<label
+				:class="[
+					'wikit-InputWithExtender__label',
+					disabled ? `wikit-InputWithExtender__label--disabled` : ''
+				]"
+				:for="id"
+				@click="$refs.select.focus()"
+			>
+				{{ label }}
+			</label>
 			<span><slot name="suffix" /></span>
 		</span>
 		<Input
@@ -107,6 +116,12 @@ export default defineComponent( {
 		border: $wikit-InputExtender-border-width $wikit-InputExtender-border-style $wikit-InputExtender-border-color;
 		box-shadow: $wikit-InputExtender-box-shadow;
 		border-radius: $wikit-InputExtender-border-radius;
+
+		font-family: $wikit-InputExtender-content-font-family;
+		font-size: $wikit-InputExtender-content-font-size;
+		font-weight: $wikit-InputExtender-content-font-weight;
+		line-height: $wikit-InputExtender-content-line-height;
+		color: $wikit-InputExtender-content-color;
 	}
 
 }

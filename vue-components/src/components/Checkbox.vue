@@ -9,7 +9,15 @@
 			:checked="checked"
 			:disabled="disabled"
 		>
-		<label class="wikit-checkbox__label" :for="id">{{ label }}</label>
+		<label
+			:class="[
+				'wikit-checkbox__label',
+				disabled ? `wikit-checkbox__label--disabled` : ''
+			]"
+			:for="id"
+		>
+			{{ label }}
+		</label>
 		<slot name="suffix" />
 	</span>
 </template>
@@ -106,17 +114,6 @@ $label: '.wikit-checkbox__label';
 			}
 		}
 
-		&:disabled {
-			+ #{$label} {
-				color: $wikit-Checkbox-label-disabled-color;
-				pointer-events: none;
-			}
-			&:checked + #{$label}::before {
-				border-color: $wikit-Checkbox-input-disabled-border-color;
-				background-color: $wikit-Checkbox-input-disabled-background-color;
-			}
-		}
-
 		&:checked + #{$label} {
 			&::before {
 				border-color: $wikit-Checkbox-input-selected-border-color;
@@ -142,6 +139,17 @@ $label: '.wikit-checkbox__label';
 				box-shadow: $wikit-Checkbox-input-selected-focus-box-shadow;
 				background-color: $wikit-Checkbox-input-selected-focus-background-color;
 				border-color: $wikit-Checkbox-input-selected-focus-border-color;
+			}
+		}
+
+		&:disabled + #{$label} {
+			color: $wikit-Checkbox-label-disabled-color;
+			pointer-events: none;
+
+			&::before,
+			&:checked::before {
+				border-color: $wikit-Checkbox-input-disabled-border-color;
+				background-color: $wikit-Checkbox-input-disabled-background-color;
 			}
 		}
 	}

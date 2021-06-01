@@ -4,7 +4,15 @@
 		@keydown="triggerKeyDown"
 	>
 		<span class="wikit-Dropdown__label-wrapper">
-			<label class="wikit-Dropdown__label" @click="$refs.select.focus()">{{ label }}</label>
+			<label
+				:class="[
+					'wikit-Dropdown__label',
+					disabled ? `wikit-Dropdown__label--disabled` : ''
+				]"
+				@click="$refs.select.focus()"
+			>
+				{{ label }}
+			</label>
 			<span><slot name="suffix" /></span>
 		</span>
 
@@ -209,14 +217,6 @@ $base: '.wikit-Dropdown';
 			}
 		}
 
-		&--warning {
-			border-color: $wikit-Dropdown-warning-border-color;
-		}
-
-		&--error {
-			border-color: $wikit-Dropdown-error-border-color;
-		}
-
 		&:hover {
 			border-color: $wikit-Dropdown-hover-border-color;
 			background-color: $wikit-Dropdown-hover-background-color;
@@ -227,6 +227,38 @@ $base: '.wikit-Dropdown';
 			border-color: $wikit-Dropdown-active-border-color;
 			background-color: $wikit-Dropdown-active-background-color;
 			box-shadow: $wikit-Dropdown-active-box-shadow;
+		}
+
+		&--warning {
+			border-color: $wikit-Dropdown-warning-border-color;
+
+			&:hover {
+				border-color: $wikit-Dropdown-warning-border-color;
+				background-color: $wikit-Dropdown-hover-background-color;
+			}
+
+			&:focus,
+			&:active {
+				border-color: $wikit-Dropdown-warning-border-color;
+				box-shadow: $wikit-Dropdown-warning-active-box-shadow;
+				outline: none;
+			}
+		}
+
+		&--error {
+			border-color: $wikit-Dropdown-error-border-color;
+
+			&:hover {
+				border-color: $wikit-Dropdown-error-border-color;
+				background-color: $wikit-Dropdown-hover-background-color;
+			}
+
+			&:focus,
+			&:active {
+				border-color: $wikit-Dropdown-error-border-color;
+				box-shadow: $wikit-Dropdown-error-active-box-shadow;
+				outline: none;
+			}
 		}
 	}
 

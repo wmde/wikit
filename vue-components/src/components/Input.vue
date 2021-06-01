@@ -93,10 +93,20 @@ export default Vue.extend( {
 
 	&--error {
 		border-color: $wikit-Input-error-border-color;
+
+		&:focus,
+		&:active {
+			box-shadow: $wikit-Input-error-active-box-shadow;
+		}
 	}
 
 	&--warning {
 		border-color: $wikit-Input-warning-border-color;
+
+		&:focus,
+		&:active {
+			box-shadow: $wikit-Input-warning-active-box-shadow;
+		}
 	}
 }
 </style>
