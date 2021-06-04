@@ -150,7 +150,8 @@
                 "value": "none"
             },
             "small": {
-                "value": "{wmf-line-height-heading.value}"
+                "value": "1.25",
+                "comment": "The decision to stop cherry-picking this value will be revised once there's a uniform approach to typography by WMF"
             },
             "medium": {
                 "value": "1.5"
