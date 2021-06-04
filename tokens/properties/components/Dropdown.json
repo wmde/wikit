@@ -34,16 +34,16 @@
         },
         "placeholder": {
             "font-family": {
-                "value": "{font.family.style.placeholder.value}"
+                "value": "{font.family.style.label.value}"
             },
             "font-size": {
-                "value": "{font.size.style.placeholder.value}"
+                "value": "{font.size.style.label.value}"
             },
             "font-weight": {
-                "value": "{font.weight.style.placeholder.value}"
+                "value": "{font.weight.style.label-bold.value}"
             },
             "line-height": {
-                "value": "{font.line-height.style.placeholder.value}"
+                "value": "{font.line-height.style.label.value}"
             },
             "color": {
                 "value": "{font.color.base.value}"
