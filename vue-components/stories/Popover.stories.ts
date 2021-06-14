@@ -16,7 +16,7 @@ export function basic( args ): Component {
 		template: `
 			<div>
 			<div :dir="direction" style="height: 80vh; display: flex; justify-content: space-around; align-items: center;">
-				<Popover :is-shown="isShown" :react-to-hover="reactToHover" :position="position">
+				<Popover :is-shown="isShown" :react-to-hover="reactToHover" :position="position" :force-position="forcePosition">
 					<template v-slot:target>
 						<Button :iconOnly="true" aria-label="show hint">
 							Popover trigger
@@ -38,6 +38,7 @@ basic.args = {
 	position: 'bottom',
 	content: 'Here is some <em>content</em>. You can modify it in the "Controls" section.',
 	direction: 'ltr',
+	forcePosition: false,
 };
 
 basic.argTypes = {
@@ -58,6 +59,12 @@ basic.argTypes = {
 		control: {
 			type: 'text',
 		},
+	},
+	forcePosition: {
+		control: {
+			type: 'boolean',
+		},
+		description: 'Force the selected position (disable adjustment on overflow).',
 	},
 };
 
@@ -83,7 +90,7 @@ export function all(): Component {
 					"
 				v-for="value in PopoverPositions"
 			>
-				<Popover :is-shown="true" :react-to-hover="false" :position="value">
+				<Popover :is-shown="true" :react-to-hover="false" :position="value" :force-position="true">
 					<template v-slot:target>
 						<Button
 							:iconOnly="true"
