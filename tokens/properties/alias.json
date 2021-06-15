@@ -30,23 +30,11 @@
         },
         "weight": {
             "style": {
-                "h1": {
+                "heading-regular": {
                     "value": "{font.weight.regular.value}"
                 },
-                "h2": {
+                "heading-bold": {
                     "value": "{font.weight.bold.value}"
-                },
-                "h3": {
-                    "value": "{font.weight.bold.value}"
-                },
-                "h4": {
-                    "value": "{font.weight.bold.value}"
-                },
-                "h5": {
-                    "value": "{font.weight.bold.value}"
-                },
-                "h6": {
-                    "value": "{font.weight.regular.value}"
                 },
                 "body": {
                     "value": "{font.weight.regular.value}"
