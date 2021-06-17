@@ -227,7 +227,7 @@ $base: '.wikit-Dropdown';
 			border-color: $wikit-Dropdown-active-border-color;
 			background-color: $wikit-Dropdown-active-background-color;
 			box-shadow: $wikit-Dropdown-active-box-shadow;
-			outline: none;
+			outline: none; // this removes an unwanted outline added by Safari on focus
 		}
 
 		&--warning {
