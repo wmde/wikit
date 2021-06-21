@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="wikit wikit-Popover"
-		:class="[ `wikit-Popover`, `wikit-Popover--${position}` ]"
+		:class="[ `wikit-Popover--${adjustedPosition || position}`, { 'wikit-Popover--flush-edges': flushEdges } ]"
 		@mouseenter="startHover"
 		@mouseleave="endHover"
 		v-detect-click-outside="clickOutsideHandler"
@@ -10,7 +10,7 @@
 			<!-- @slot Target should always be a button, as we will listen to its click and hover events -->
 			<slot name="target" />
 		</span>
-		<div class="wikit-Popover__content-wrapper" v-if="isContentShown">
+		<div class="wikit-Popover__content-wrapper" v-if="isContentShown" ref="wrapper">
 			<div class="wikit-Popover__pointer" />
 			<div class="wikit-Popover__content">
 				<!-- @slot The content of the Popover goes into the default slot. -->
@@ -32,8 +32,11 @@ export default Vue.extend( {
 	data() {
 		return {
 			isContentShown: false,
+			adjustedPosition: null as string | null,
+			flushEdges: false,
 			showContentTimeoutID: null as number | null,
 			hideContentTimeoutID: null as number | null,
+			windowResizeEventHandler: null as ( () => void ) | null,
 		};
 	},
 	directives: {
@@ -55,7 +58,10 @@ export default Vue.extend( {
 			default: true,
 		},
 		/**
-		 * Use this prop to set position of the popover in relation to the element that triggers it
+		 * Use this prop to set position of the popover in relation to the element that triggers it.
+		 *
+		 * Note that the actual/effective position of the popover might be different,
+		 * unless forcePosition is also set.
 		 */
 		position: {
 			type: String,
@@ -63,6 +69,15 @@ export default Vue.extend( {
 				return Object.values( PopoverPositions ).includes( value as PopoverPositions );
 			},
 			default: 'top',
+		},
+		/**
+		 * Set to true to force the Popover to use the position specified by the position prop.
+		 *
+		 * By default (false), the Popover may choose a different position to avoid overflow.
+		 */
+		forcePosition: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	methods: {
@@ -78,6 +93,8 @@ export default Vue.extend( {
 			 * This can optionally be used with the `.sync` modifier on the `isShown` prop
 			 */
 			this.$emit( 'update:isShown', isVisible );
+
+			this.avoidOverflow();
 		},
 		onTargetClick(): void {
 			this.changeContentVisibility( true );
@@ -112,14 +129,173 @@ export default Vue.extend( {
 				false,
 			);
 		},
+		/**
+		 * @return {number} The amount by which the popover overflows the viewport, in pixels.
+		 */
+		getOverflow(): number {
+			const wrapper = this.$refs.wrapper as HTMLElement | null;
+			if ( !wrapper ) {
+				return 0;
+			}
+			const wrapperRect = wrapper.getBoundingClientRect();
+			const viewportWidth = document.documentElement.clientWidth;
+			let overflow = 0;
+			if ( wrapperRect.left < 0 ) {
+				overflow += -wrapperRect.left;
+			}
+			if ( wrapperRect.right > viewportWidth ) {
+				overflow += wrapperRect.right - viewportWidth;
+			}
+			return overflow;
+		},
+		/**
+		 * Try to avoid having the popover overflow the viewport, by various means.
+		 */
+		async avoidOverflow(): Promise<void> {
+			if ( !this.isContentShown ) {
+				return;
+			}
+			this.adjustedPosition = null;
+			this.flushEdges = false;
+
+			await this.$nextTick();
+			const wrapper = this.$refs.wrapper as HTMLElement;
+			delete wrapper.style.maxWidth;
+
+			if ( !this.forcePosition ) {
+				await this.avoidOverflowBySwappingAxes();
+				await this.avoidOverflowByAdjustingHorizontalSubposition();
+			}
+			await this.avoidOverflowByMakingEdgesFlush();
+			await this.avoidOverflowBySettingMaxWidth();
+			if ( !this.forcePosition ) {
+				await this.avoidOverflowByAdjustingHorizontalSubposition();
+				await this.avoidOverflowBySettingMaxWidth();
+			}
+		},
+		/**
+		 * Try to avoid having the popover overflow the viewport,
+		 * by swapping the horizontal and vertical subposition.
+		 *
+		 * This only applies to positions where the horizontal subposition comes first.
+		 * For positions without a vertical subposition (e.g. PopoverPositions.END),
+		 * we arbitrarily choose to move them to the top rather than the bottom.
+		 */
+		async avoidOverflowBySwappingAxes(): Promise<void> {
+			if ( !this.getOverflow() ) {
+				return;
+			}
+
+			const swappedPositions: Partial<Record<string, string>> = {
+				[ PopoverPositions.START ]: PopoverPositions.TOPSTART,
+				[ PopoverPositions.STARTTOP ]: PopoverPositions.TOPSTART,
+				[ PopoverPositions.STARTBOTTOM ]: PopoverPositions.BOTTOMSTART,
+				[ PopoverPositions.END ]: PopoverPositions.TOPEND,
+				[ PopoverPositions.ENDTOP ]: PopoverPositions.TOPEND,
+				[ PopoverPositions.ENDBOTTOM ]: PopoverPositions.BOTTOMEND,
+			};
+			this.adjustedPosition = swappedPositions[ this.position ] || null;
+
+			await this.$nextTick();
+		},
+		/**
+		 * Try to avoid having the popover overflow the viewport,
+		 * by adjusting the horizontal subposition (start/center/end).
+		 *
+		 * For each horizontal subposition, this tries the other two options,
+		 * and picks the one out of the three with the least overflow.
+		 */
+		async avoidOverflowByAdjustingHorizontalSubposition(): Promise<void> {
+			const initialOverflow = this.getOverflow();
+			if ( !initialOverflow ) {
+				return;
+			}
+
+			let lowestOverflow = initialOverflow;
+			let bestAdjustedPosition = this.adjustedPosition;
+			const otherPositions: Partial<Record<string, string[]>> = {
+				[ PopoverPositions.TOPSTART ]: [ PopoverPositions.TOP, PopoverPositions.TOPEND ],
+				[ PopoverPositions.TOP ]: [ PopoverPositions.TOPSTART, PopoverPositions.TOPEND ],
+				[ PopoverPositions.TOPEND ]: [ PopoverPositions.TOP, PopoverPositions.TOPSTART ],
+				[ PopoverPositions.BOTTOMSTART ]: [ PopoverPositions.BOTTOM, PopoverPositions.BOTTOMEND ],
+				[ PopoverPositions.BOTTOM ]: [ PopoverPositions.BOTTOMSTART, PopoverPositions.BOTTOMEND ],
+				[ PopoverPositions.BOTTOMEND ]: [ PopoverPositions.BOTTOM, PopoverPositions.BOTTOMSTART ],
+			};
+			for ( const otherPosition of otherPositions[ this.adjustedPosition || this.position ] || [] ) {
+				this.adjustedPosition = otherPosition;
+				await this.$nextTick();
+				const overflowAfterAdjustment = this.getOverflow();
+				if ( overflowAfterAdjustment < lowestOverflow ) {
+					lowestOverflow = overflowAfterAdjustment;
+					bestAdjustedPosition = otherPosition;
+				}
+			}
+
+			if ( bestAdjustedPosition !== this.adjustedPosition ) {
+				this.adjustedPosition = bestAdjustedPosition;
+				await this.$nextTick();
+			}
+		},
+		/**
+		 * Try to avoid having the popover overflow the viewport,
+		 * by making its edges flush with those of the target button.
+		 *
+		 * By default, for the non-center horizontal subpositions,
+		 * both the pointer and the edge of the popover are close to the center of the button.
+		 * We can gain some space by moving the edge of the popover to the edge of the button
+		 * (assuming that the button has some substantial width:
+		 * for small buttons, especially icon buttons, this makes no difference),
+		 * at the cost of also moving the pointer along with it.
+		 * The movement of the pointer away from the button’s center is unwanted,
+		 * but unavoidable given the current DOM structure
+		 * (where it’s positioned relative to the popover, not the button).
+		 */
+		async avoidOverflowByMakingEdgesFlush(): Promise<void> {
+			if ( !this.getOverflow() ) {
+				return;
+			}
+			this.flushEdges = true;
+		},
+		/**
+		 * Try to avoid having the popover overflow the viewport,
+		 * by setting a max-width on it.
+		 *
+		 * The max-width is chosen such that the end edge of the popover
+		 * stays 5vw away from the edge of the viewport,
+		 * as long as this can be done without letting the width drop below 256px.
+		 */
+		async avoidOverflowBySettingMaxWidth(): Promise<void> {
+			if ( !this.getOverflow() ) {
+				return;
+			}
+			const wrapper = this.$refs.wrapper as HTMLElement;
+			const wrapperRect = wrapper.getBoundingClientRect();
+			const dir = getComputedStyle( wrapper ).direction;
+			if ( dir === 'ltr' ) {
+				wrapper.style.maxWidth = `max( 256px, 95vw - max( 5vw, ${wrapperRect.left}px ) )`;
+			} else {
+				wrapper.style.maxWidth = `max( 256px, max( 95vw, ${wrapperRect.right}px ) - 5vw )`;
+			}
+		},
 	},
 	mounted() {
 		this.isContentShown = this.isShown;
+		this.avoidOverflow();
+		this.windowResizeEventHandler = this.avoidOverflow.bind( this );
+		window.addEventListener( 'resize', this.windowResizeEventHandler );
+	},
+	beforeDestroy() {
+		if ( this.windowResizeEventHandler ) {
+			window.removeEventListener( 'resize', this.windowResizeEventHandler );
+		}
 	},
 	watch: {
 		isShown( newShowProp: boolean ): void {
 			this.isContentShown = newShowProp;
+			this.avoidOverflow();
 		},
+		position: 'avoidOverflow',
+		forcePosition: 'avoidOverflow',
 	},
 } );
 </script>
@@ -261,6 +437,19 @@ $pointer-edge-length: math.hypot($wikit-Popover-pointer-width/2, $wikit-Popover-
 			@if $subposition == end {
 				inset-inline-start: calc(50% - #{$wikit-Popover-pointer-width} / 2 -
 				#{$wikit-Popover-pointer-margin-horizontal});
+			}
+		}
+
+		&#{$base}--flush-edges #{$base}__content-wrapper {
+
+			@if $subposition == start {
+				inset-inline-end: min(50% - #{$wikit-Popover-pointer-width} / 2 -
+				#{$wikit-Popover-pointer-margin-horizontal}, 0px);
+			}
+
+			@if $subposition == end {
+				inset-inline-start: min(50% - #{$wikit-Popover-pointer-width} / 2 -
+				#{$wikit-Popover-pointer-margin-horizontal}, 0px);
 			}
 		}
 

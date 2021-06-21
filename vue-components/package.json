@@ -88,7 +88,7 @@
     "sass": "^1.29.0",
     "sass-loader": "^9.0.3",
     "saucelabs": "^4.5.2",
-    "stylelint": "^13.8.0",
+    "stylelint": "^13.13.1",
     "stylelint-config-sass-guidelines": "^7.1.0",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-use-logical": "^1.1.0",
