@@ -69,7 +69,7 @@ describe( 'Dropdown', () => {
 
 	it( 'shows the Dropdown menu on pressing Enter', async () => {
 		const wrapper = mount( Dropdown );
-		wrapper.trigger( 'keydown', { key: 'Enter' } );
+		wrapper.find( '.wikit-Dropdown__select' ).trigger( 'keydown', { key: 'Enter' } );
 
 		await Vue.nextTick();
 		expect( wrapper.findComponent( OptionsMenu ).isVisible() ).toBe( true );
@@ -91,7 +91,7 @@ describe( 'Dropdown', () => {
 		const scrollIntoViewMock = jest.fn();
 		Element.prototype.scrollIntoView = scrollIntoViewMock;
 
-		wrapper.trigger( 'keydown', { key: 'ArrowDown' } );
+		wrapper.find( '.wikit-Dropdown__select' ).trigger( 'keydown', { key: 'ArrowDown' } );
 		await Vue.nextTick();
 
 		expect( wrapper.findComponent( OptionsMenu ).isVisible() ).toBe( true );
@@ -151,6 +151,7 @@ describe( 'Dropdown', () => {
 			const highlightedItemLabelSelector = '.wikit-OptionsMenu__item--hovered .wikit-OptionsMenu__item__label';
 
 			const wrapper = await createDropdownWrapperWithExpandedMenu( menuItems );
+			const selectWrapper = wrapper.find( '.wikit-Dropdown__select' );
 			const OptionsMenuWrapper = wrapper.findComponent( OptionsMenu );
 
 			expect( OptionsMenuWrapper.isVisible() ).toBe( true );
@@ -161,32 +162,32 @@ describe( 'Dropdown', () => {
 			Element.prototype.scrollIntoView = scrollIntoViewMock;
 			jest.useFakeTimers();
 
-			wrapper.trigger( 'keydown', { key: 'ArrowDown' } );
+			selectWrapper.trigger( 'keydown', { key: 'ArrowDown' } );
 			await Vue.nextTick();
 			jest.runAllTimers();
 			expect( scrollIntoViewMock ).toHaveBeenCalled();
 			expect( OptionsMenuWrapper.vm.$data.keyboardHoveredItemIndex ).toBe( 0 );
 			expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'potato' );
 
-			wrapper.trigger( 'keydown', { key: 'ArrowDown' } );
+			selectWrapper.trigger( 'keydown', { key: 'ArrowDown' } );
 			expect( scrollIntoViewMock ).toHaveBeenCalled();
 			await Vue.nextTick();
 			expect( OptionsMenuWrapper.vm.$data.keyboardHoveredItemIndex ).toBe( 1 );
 			expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'duck' );
 
-			wrapper.trigger( 'keydown', { key: 'ArrowDown' } );
+			selectWrapper.trigger( 'keydown', { key: 'ArrowDown' } );
 			expect( scrollIntoViewMock ).toHaveBeenCalled();
 			await Vue.nextTick();
 			expect( OptionsMenuWrapper.vm.$data.keyboardHoveredItemIndex ).toBe( 0 );
 			expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'potato' );
 
-			wrapper.trigger( 'keydown', { key: 'ArrowUp' } );
+			selectWrapper.trigger( 'keydown', { key: 'ArrowUp' } );
 			expect( scrollIntoViewMock ).toHaveBeenCalled();
 			await Vue.nextTick();
 			expect( OptionsMenuWrapper.vm.$data.keyboardHoveredItemIndex ).toBe( 1 );
 			expect( wrapper.find( highlightedItemLabelSelector ).text() ).toBe( 'duck' );
 
-			wrapper.trigger( 'keydown', { key: 'ArrowUp' } );
+			selectWrapper.trigger( 'keydown', { key: 'ArrowUp' } );
 			expect( scrollIntoViewMock ).toHaveBeenCalled();
 			await Vue.nextTick();
 			expect( OptionsMenuWrapper.vm.$data.keyboardHoveredItemIndex ).toBe( 0 );
@@ -202,7 +203,7 @@ describe( 'Dropdown', () => {
 			const wrapper = await createDropdownWrapperWithExpandedMenu( menuItems );
 
 			wrapper.findComponent( OptionsMenu ).setData( { keyboardHoveredItemIndex: 0 } );
-			wrapper.trigger( 'keydown', { key: 'Escape' } );
+			wrapper.find( '.wikit-Dropdown__select' ).trigger( 'keydown', { key: 'Escape' } );
 
 			await Vue.nextTick();
 
@@ -221,7 +222,7 @@ describe( 'Dropdown', () => {
 			const keyboardHoveredItemIndex = 0;
 			wrapper.findComponent( OptionsMenu ).setData( { keyboardHoveredItemIndex } );
 
-			wrapper.trigger( 'keydown', { key: 'Tab' } );
+			wrapper.find( '.wikit-Dropdown__select' ).trigger( 'keydown', { key: 'Tab' } );
 
 			expect( wrapper.emitted( 'input' )!.pop() ).toStrictEqual( [ menuItems[ keyboardHoveredItemIndex ] ] );
 		} );
@@ -238,7 +239,7 @@ describe( 'Dropdown', () => {
 			const keyboardHoveredItemIndex = 0;
 			OptionsMenuWrapper.setData( { keyboardHoveredItemIndex } );
 
-			wrapper.trigger( 'keydown', { key: 'Enter' } );
+			wrapper.find( '.wikit-Dropdown__select' ).trigger( 'keydown', { key: 'Enter' } );
 			await Vue.nextTick();
 
 			expect( OptionsMenuWrapper.isVisible() ).toBe( false );
@@ -252,7 +253,7 @@ describe( 'Dropdown', () => {
 			];
 
 			const wrapper = await createDropdownWrapperWithExpandedMenu( menuItems );
-			wrapper.trigger( 'keydown', { key: 'Enter' } );
+			wrapper.find( '.wikit-Dropdown__select' ).trigger( 'keydown', { key: 'Enter' } );
 
 			expect( wrapper.findComponent( OptionsMenu ).vm.$data.keyboardHoveredItemIndex ).toBe( -1 );
 
