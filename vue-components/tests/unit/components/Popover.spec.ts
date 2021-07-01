@@ -49,6 +49,31 @@ describe( 'Popover', () => {
 		expect( wrapper.find( '.wikit-Popover__content' ).exists() ).toBe( false );
 	} );
 
+	it.each( [
+		'Enter',
+		' ',
+		'Escape',
+		'Tab',
+	] )( 'hides on several key events', async ( key ) => {
+		const wrapper = shallowMount( Popover, {
+			propsData: {
+				isShown: true,
+			},
+			slots: {
+				default: 'some content',
+			},
+		} );
+		await localVue.nextTick();
+		expect( wrapper.find( '.wikit-Popover__content' ).exists() ).toBe( true );
+
+		jest.useFakeTimers();
+		wrapper.trigger( 'keydown', { key } );
+		jest.runAllTimers();
+		await localVue.nextTick();
+
+		expect( wrapper.find( '.wikit-Popover__content' ).exists() ).toBe( false );
+	} );
+
 	it( 'doesn\'t start showing if only hovered for a very short time', async () => {
 		const wrapper = shallowMount( Popover, {
 			slots: {
