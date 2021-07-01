@@ -4,6 +4,10 @@ import Popover from '@/components/Popover.vue';
 const localVue = createLocalVue();
 
 describe( 'Popover', () => {
+	afterEach( () => {
+		jest.useRealTimers();
+	} );
+
 	it( 'shows and hides in accordance with isShown prop', async () => {
 		const wrapper = shallowMount( Popover, {
 			propsData: {

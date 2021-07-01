@@ -19,6 +19,9 @@ async function createLookupInputWrapperWithExpandedMenu( menuItems: MenuItem[] )
 }
 
 describe( 'LookupInput', () => {
+	afterEach( () => {
+		jest.useRealTimers();
+	} );
 
 	it( 'shows the previously selected menu item after regaining focus, if available', async () => {
 		const menuItems = [
