@@ -20,13 +20,13 @@ The following examples use `docker` and `docker-compose` to ease creating a leve
 ### Installation
 
 ```sh
-docker-compose run --rm --user=$(id -u):$(id -g) node npm install
+docker-compose run --rm --user=$(id -u):$(id -g) --entrypoint "npm install" node
 ```
 
 ### Running tests
 
 ```sh
-docker-compose run --rm --user=$(id -u):$(id -g) node npm run test
+docker-compose run --rm --user=$(id -u):$(id -g) --entrypoint "npm run test" node
 ```
 
 ### Running browser tests
