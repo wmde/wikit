@@ -16,6 +16,9 @@ async function createDropdownWrapperWithExpandedMenu( menuItems: MenuItem[] ): P
 }
 
 describe( 'Dropdown', () => {
+	afterEach( () => {
+		jest.useRealTimers();
+	} );
 
 	it( 'has a label', () => {
 		const label = 'a label';
