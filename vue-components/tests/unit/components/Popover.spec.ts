@@ -4,6 +4,10 @@ import Popover from '@/components/Popover.vue';
 const localVue = createLocalVue();
 
 describe( 'Popover', () => {
+	afterEach( () => {
+		jest.useRealTimers();
+	} );
+
 	it( 'shows and hides in accordance with isShown prop', async () => {
 		const wrapper = shallowMount( Popover, {
 			propsData: {
@@ -43,6 +47,31 @@ describe( 'Popover', () => {
 		expect( wrapper.find( '.wikit-Popover__content' ).exists() ).toBe( true );
 
 		wrapper.trigger( 'mouseleave' );
+		jest.runAllTimers();
+		await localVue.nextTick();
+
+		expect( wrapper.find( '.wikit-Popover__content' ).exists() ).toBe( false );
+	} );
+
+	it.each( [
+		'Enter',
+		' ',
+		'Escape',
+		'Tab',
+	] )( 'hides on several key events', async ( key ) => {
+		const wrapper = shallowMount( Popover, {
+			propsData: {
+				isShown: true,
+			},
+			slots: {
+				default: 'some content',
+			},
+		} );
+		await localVue.nextTick();
+		expect( wrapper.find( '.wikit-Popover__content' ).exists() ).toBe( true );
+
+		jest.useFakeTimers();
+		wrapper.trigger( 'keydown', { key } );
 		jest.runAllTimers();
 		await localVue.nextTick();
 

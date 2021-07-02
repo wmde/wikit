@@ -4,7 +4,8 @@
 		:class="[ `wikit-Popover--${adjustedPosition || position}`, { 'wikit-Popover--flush-edges': flushEdges } ]"
 		@mouseenter="startHover"
 		@mouseleave="endHover"
-		v-detect-click-outside="clickOutsideHandler"
+		@keydown="triggerKeyDown"
+		v-detect-click-outside="hideContent"
 	>
 		<span class="wikit-Popover__target" @click="onTargetClick">
 			<!-- @slot Target should always be a button, as we will listen to its click and hover events -->
@@ -81,7 +82,7 @@ export default Vue.extend( {
 		},
 	},
 	methods: {
-		clickOutsideHandler(): void {
+		hideContent(): void {
 			this.changeContentVisibility( false );
 		},
 		changeContentVisibility( isVisible: boolean ): void {
@@ -128,6 +129,29 @@ export default Vue.extend( {
 				HOVER_SHOW_HIDE_DELAY_IN_MS,
 				false,
 			);
+		},
+		triggerKeyDown( event: KeyboardEvent ): void {
+			switch ( event.key ) {
+				case 'Enter':
+					if ( this.isContentShown ) {
+						event.preventDefault();
+						this.hideContent();
+					}
+					break;
+				case ' ':
+					if ( this.isContentShown ) {
+						event.preventDefault();
+						this.hideContent();
+					}
+					break;
+				case 'Escape':
+					event.preventDefault();
+					this.hideContent();
+					break;
+				case 'Tab':
+					this.hideContent();
+					break;
+			}
 		},
 		/**
 		 * @return {number} The amount by which the popover overflows the viewport, in pixels.
