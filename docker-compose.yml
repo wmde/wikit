@@ -2,7 +2,8 @@ version: '2'
 
 services:
     node:
-        image: docker-registry.wikimedia.org/releng/node12
+        # Once Wikimedia has node12 in production docker-registry, use that.
+        image: node:12
         volumes:
             - '~/.npm:/.npm'
             - './:/app'
@@ -12,10 +13,10 @@ services:
             service: node
         ports:
             - '${DOCS_STORYBOOK_PORT}:${DOCS_STORYBOOK_PORT}'
-        entrypoint: 'npm run -- lerna run storybook --stream --scope @wmde/wikit-docs -- -- -p ${DOCS_STORYBOOK_PORT} --ci'
+        command: 'npm run -- lerna run storybook --stream --scope @wmde/wikit-docs -- -- -p ${DOCS_STORYBOOK_PORT} --ci'
     storybook-vue:
         extends:
             service: node
         ports:
             - '${VUECOMPONENTS_STORYBOOK_PORT}:${VUECOMPONENTS_STORYBOOK_PORT}'
-        entrypoint: 'npm run -- lerna run storybook --stream --scope @wmde/wikit-vue-components -- -- -p ${VUECOMPONENTS_STORYBOOK_PORT} --ci'
+        command: 'npm run -- lerna run storybook --stream --scope @wmde/wikit-vue-components -- -- -p ${VUECOMPONENTS_STORYBOOK_PORT} --ci'

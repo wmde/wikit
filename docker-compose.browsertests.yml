@@ -4,7 +4,7 @@ services:
     browsertests:
         extends:
             service: node
-        entrypoint: 'npm run -- lerna run e2e --scope @wmde/wikit-vue-components -- -- --config nightwatch.config.js --env docker'
+        command: 'npm run -- lerna run e2e --scope @wmde/wikit-vue-components -- -- --config nightwatch.config.js --env docker'
         environment:
             - VUECOMPONENTS_STORYBOOK_PORT
             - NIGHTWATCH_START_DRIVER=false
