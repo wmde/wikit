@@ -2,7 +2,8 @@ version: '2'
 
 services:
     node:
-        image: docker-registry.wikimedia.org/nodejs10-devel
+        # Once Wikimedia has node12 in production docker-registry, use that.
+        image: node:12
         volumes:
             - '~/.npm:/.npm'
             - './:/app'
