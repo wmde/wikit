@@ -112,7 +112,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: setup
-    if: ${{ github.repository_owner == 'wikit' }}
+    if: ${{ github.repository_owner == 'wmde' }}
     outputs:
       deploy_url: ${{ steps.netlify_deploy.outputs.url }}
     steps:
