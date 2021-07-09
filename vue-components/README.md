@@ -27,4 +27,4 @@ or in your entry component, e.g `App.vue`, add
 
 ## Development
 
-For instructions on how to contribute to the vue components, please refer to the README in the root folder of this repo or the documentation in the package `docs`.
+For instructions on how to contribute to the vue components, please refer to the README.md file in the root folder of this repo or the documentation in the package `docs`.
