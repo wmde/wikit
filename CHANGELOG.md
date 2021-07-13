@@ -20,7 +20,7 @@ development)_
 - Initial version of the Lookup component
 - Additional icons to the Icon component
 - Additional sizes to the Icon component
-- New tokens based on wikimedia-ui-base v 0.19.0
+- New tokens based on wikimedia-ui-base v0.19.0
 - New Dropdown Component
 - Quiet button variant
 - Icon only button variant
