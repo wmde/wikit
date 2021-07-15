@@ -2,7 +2,7 @@ version: '2'
 
 services:
     node:
-        image: docker-registry.wikimedia.org/nodejs10-devel
+        image: node:14
         volumes:
             - '~/.npm:/.npm'
             - './:/app'
