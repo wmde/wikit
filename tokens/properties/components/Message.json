@@ -25,7 +25,7 @@
             "value": "{border.width.thin.value}"
         },
         "border-radius": {
-            "value": "{border.radius.base.value}"
+            "value": "{border.radius.none.value}"
         },
         "icon": {
             "gap-to-text": {
