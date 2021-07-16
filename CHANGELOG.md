@@ -11,7 +11,7 @@ development)_
 
 ## [Unreleased]
 
-**Expected next version:** 2.0.0
+## [2.0.0] - 19.07.2021
 
 ### Added
 
@@ -40,6 +40,7 @@ development)_
 - Add QuantityInput component
 - New InputWithExtender component
 - New DateInput component
+- Keyboard navigation events to popover component
 
 ### Changed
 
@@ -47,6 +48,10 @@ development)_
 - _**(Breaking)**_ Icon.json was restructured to include all icon styles and Icon.vue was subsequently updated
 - Vue composition API
 - Icon component can be imported
+- Popover component is more responsive to prevent overflow
+- Disabled components will display disabled labels to make it more clear to users
+- Dropdown will not be activated when toggling the tooltip via enter
+- Keyboard-focusable components display a focused error and warning states
 
 ### Removed
 
@@ -57,3 +62,4 @@ development)_
 ### Fixed
 
 - Exports of type declarations
+- Correct inset style of filled elements on focus
