@@ -1,4 +1,7 @@
 # WiKit
+
+[![wikit-vue-components](https://img.shields.io/npm/v/@wmde/wikit-vue-components?label=wikit-vue-components)](https://www.npmjs.com/package/@wmde/wikit-vue-components)
+[![wikit-tokens](https://img.shields.io/npm/v/@wmde/wikit-tokens?label=wikit-tokens)](https://www.npmjs.com/package/@wmde/wikit-tokens)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
   
