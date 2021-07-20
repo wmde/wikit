@@ -23,7 +23,7 @@
                 "value": "{font.size.style.label.value}"
             },
             "font-weight": {
-                "value": "{font.weight.bold.value}"
+                "value": "{font.weight.style.label-bold.value}"
             },
             "line-height": {
                 "value": "{font.line-height.style.label.value}"
@@ -40,7 +40,7 @@
                 "value": "{font.size.style.label.value}"
             },
             "font-weight": {
-                "value": "{font.weight.bold.value}"
+                "value": "{font.weight.style.label-bold.value}"
             },
             "line-height": {
                 "value": "{font.line-height.style.label.value}"
@@ -56,7 +56,7 @@
             },
             "spacing-horizontal": {
                 "value": "{dimension.spacing.medium.value}",
-                "comment": "Left and right paddings"
+                "comment": "Padding to the left and right of the icon"
             }
         },
         "disabled": {

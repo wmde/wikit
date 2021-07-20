@@ -17,6 +17,9 @@
                 "label": {
                     "value": "{font.family.sans.value}"
                 },
+                "ui-text": {
+                    "value": "{font.family.sans.value}"
+                },
                 "placeholder": {
                     "value": "{font.family.sans.value}"
                 },
@@ -27,23 +30,11 @@
         },
         "weight": {
             "style": {
-                "h1": {
+                "heading-regular": {
                     "value": "{font.weight.regular.value}"
                 },
-                "h2": {
+                "heading-bold": {
                     "value": "{font.weight.bold.value}"
-                },
-                "h3": {
-                    "value": "{font.weight.bold.value}"
-                },
-                "h4": {
-                    "value": "{font.weight.bold.value}"
-                },
-                "h5": {
-                    "value": "{font.weight.bold.value}"
-                },
-                "h6": {
-                    "value": "{font.weight.regular.value}"
                 },
                 "body": {
                     "value": "{font.weight.regular.value}"
@@ -53,6 +44,15 @@
                 },
                 "label": {
                     "value": "{font.weight.regular.value}"
+                },
+                "label-bold": {
+                    "value": "{font.weight.bold.value}"
+                },
+                "ui-text": {
+                    "value": "{font.weight.regular.value}"
+                },
+                "ui-text-bold": {
+                    "value": "{font.weight.bold.value}"
                 },
                 "placeholder": {
                     "value": "{font.weight.regular.value}"
@@ -76,8 +76,11 @@
                 "label": {
                     "value": "{font.line-height.small.value}"
                 },
+                "ui-text": {
+                    "value": "{font.line-height.small.value}"
+                },
                 "placeholder": {
-                    "value": "{font.line-height.medium.value}"
+                    "value": "{font.line-height.small.value}"
                 },
                 "description": {
                     "value": "{font.line-height.large.value}"
@@ -111,6 +114,9 @@
                     "value": "{font.size.small.value}"
                 },
                 "label": {
+                    "value": "{font.size.medium.value}"
+                },
+                "ui-text": {
                     "value": "{font.size.medium.value}"
                 },
                 "placeholder": {

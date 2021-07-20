@@ -19,13 +19,13 @@
             "value": "{font.family.style.body.value}"
         },
         "font-size": {
-            "value": "{font.size.style.body.value}"
+            "value": "{font.size.style.ui-text.value}"
         },
         "font-weight": {
-            "value": "{font.weight.style.body.value}"
+            "value": "{font.weight.style.ui-text.value}"
         },
         "line-height": {
-            "value": "{font.line-height.small.value}"
+            "value": "{font.line-height.style.ui-text.value}"
         },
         "color": {
             "value": "{font.color.base.value}"
