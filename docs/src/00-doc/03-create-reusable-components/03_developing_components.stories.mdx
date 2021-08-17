@@ -79,7 +79,7 @@ Go to Settings and navigate to `Languages & Frameworks` > `Schemas and DTDs` >  
 
 ### Working with browser tests
 
-The browser tests spec `Button.test.js` is there to give an example of how to write a browser test with Nightwatch (the browser tests framework being used).  
+The browser tests framework being used is [Nightwatch](https://nightwatchjs.org/).
 Use the custom function `openComponentStory()` to load the component you want to test on Storybook, e.g. `.openComponentStory( 'button' )`.  
 Do not execute `client.end()` at the end of your browser test. This is done in the `afterEach` hook defined in `globals.js`. If you do that, Saucelabs will not get the correct status of the tests and will show `failed` in the README badges.
 
