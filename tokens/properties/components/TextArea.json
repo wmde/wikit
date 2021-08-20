@@ -100,7 +100,7 @@
         },
         "readOnly": {
             "background-color": {
-                "value": "{background.color.field.readonly.value}"
+                "value": "{background.color.field.readOnly.value}"
             }
         },
         "transition": {
