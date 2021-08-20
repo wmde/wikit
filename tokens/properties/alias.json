@@ -180,9 +180,6 @@
                 },
                 "field-disabled": {
                     "value": "{color.base.80.value}"
-                },
-                "loader": {
-                    "value": "{color.base.30.value}"
                 }
             },
             "progressive": {
