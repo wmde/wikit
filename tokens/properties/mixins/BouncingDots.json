@@ -1,8 +1,7 @@
 {
     "wikit-BouncingDots": {
         "background-color": {
-            "value": "{background.color.base.loader.value}",
-            "comment": "The name of this alias should be reconsidered: it looks like it's not going to be used by other loaders"
+            "value": "{background.color.progressive.default.value}"
         },
         "border-radius": {
             "value": "{border.radius.circle.value}"
