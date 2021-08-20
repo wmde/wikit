@@ -186,7 +186,7 @@
                 "disabled": {
                     "value": "{color.base.80.value}"
                 },
-                "reaOnly": {
+                "readOnly": {
                     "value": "{color.base.90.value}"
                 }
             },
