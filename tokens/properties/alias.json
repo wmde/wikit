@@ -178,11 +178,16 @@
                 "disabled": {
                     "value": "{color.base.70.value}"
                 },
-                "field-disabled": {
-                    "value": "{color.base.80.value}"
-                },
                 "loader": {
                     "value": "{color.base.30.value}"
+                }
+            },
+            "field": {
+                "disabled": {
+                    "value": "{color.base.80.value}"
+                },
+                "readonly": {
+                    "value": "{color.base.90.value}"
                 }
             },
             "progressive": {
@@ -365,6 +370,9 @@
                 },
                 "warning": {
                     "value": "{color.utility.yellow.50.value}"
+                },
+                "warning-field": {
+                    "value": "{color.utility.yellow.30.value}"
                 },
                 "success": {
                     "value": "{color.utility.green.50.value}"

@@ -1,18 +1,17 @@
 {
     "wikit-BouncingDots": {
         "background-color": {
-            "value": "{background.color.base.loader.value}"
+            "value": "{background.color.base.loader.value}",
+            "comment": "The name of this alias should be reconsidered: it looks like it's not going to be used by other loaders"
         },
         "border-radius": {
             "value": "{border.radius.circle.value}"
         },
         "margin-left": {
-            "value": "{dimension.dynamic.size.25.value}",
-            "comment": "Encoding this value as 100/4 = 25"
+            "value": "{dimension.dynamic.size.25.value}"
         },
         "margin-right": {
-            "value": "{dimension.dynamic.size.25.value}",
-            "comment": "Encoding this value as 100/4 = 25"
+            "value": "{dimension.dynamic.size.25.value}"
         },
         "width-small": {
             "value": "{dimension.dynamic.size.75.value}"

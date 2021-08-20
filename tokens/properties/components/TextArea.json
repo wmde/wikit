@@ -1,5 +1,5 @@
 {
-    "wikit-Input": {
+    "wikit-TextArea": {
         "border-color": {
             "value": "{border.color.base.default.value}"
         },
@@ -25,10 +25,17 @@
             "value": "{font.weight.style.body.value}"
         },
         "line-height": {
-            "value": "{font.line-height.small.value}"
+            "value": "{font.line-height.style.body.value}"
         },
         "color": {
             "value": "{font.color.base.value}"
+        },
+        "padding-inline": {
+            "value": "{dimension.spacing.small.value}"
+        },
+        "padding-block": {
+            "value": "{dimension.padding.vertical.medium.value}",
+            "comment": "to be replaced by spacing token in the future"
         },
         "placeholder": {
             "font-family": {
@@ -91,22 +98,9 @@
                 }
             }
         },
-        "desktop": {
-            "padding-inline": {
-                "value": "{dimension.spacing.small.value}"
-            },
-            "padding-block": {
-                "value": "{dimension.padding.vertical.medium.value}",
-                "comment": "to be replaced by spacing token in the future"
-            }
-        },
-        "mobile": {
-            "padding-inline": {
-                "value": "{dimension.spacing.small.value}"
-            },
-            "padding-block": {
-                "value": "{dimension.padding.vertical.large.value}",
-                "comment": "to be replaced by spacing token in the future"
+        "readOnly": {
+            "background-color": {
+                "value": "{background.color.field.readonly.value}"
             }
         },
         "transition": {
