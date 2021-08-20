@@ -7,10 +7,12 @@
             "value": "{border.radius.circle.value}"
         },
         "margin-left": {
-            "value": "{dimension.dynamic.size.25.value}"
+            "value": "{dimension.dynamic.size.25.value}",
+            "comment": "Encoding this value as 100/4 = 25"
         },
         "margin-right": {
-            "value": "{dimension.dynamic.size.25.value}"
+            "value": "{dimension.dynamic.size.25.value}",
+            "comment": "Encoding this value as 100/4 = 25"
         },
         "width-small": {
             "value": "{dimension.dynamic.size.75.value}"
