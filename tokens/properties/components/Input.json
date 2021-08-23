@@ -71,9 +71,9 @@
                 "value": "{box-shadow.inset.focus.progressive.value}"
             }
         },
-        "readOnly": {
+        "read-only": {
             "background-color": {
-                "value": "{background.color.field.readOnly.value}"
+                "value": "{background.color.field.read-only.value}"
             }
         },
         "error": {
