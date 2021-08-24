@@ -15,6 +15,7 @@
 				'wikit-TextArea__textarea',
 				`wikit-TextArea__textarea--${resizeType}`
 			]"
+			:value="value"
 			:rows="rows"
 			:placeholder="placeholder"
 			label=""
@@ -33,6 +34,13 @@ import { ResizeLimit, validateLimit } from '@/components/ResizeLimit';
  */
 export default Vue.extend( {
 	props: {
+		/**
+		 * An initial value for the textarea
+		 */
+		value: {
+			type: String,
+			default: '',
+		},
 		/**
 		 * The text area label
 		 */

@@ -32,6 +32,9 @@ basic.args = {
 };
 
 basic.argTypes = {
+    value: {
+        control: false
+    },
     label: {
         control: {
             type: 'text',

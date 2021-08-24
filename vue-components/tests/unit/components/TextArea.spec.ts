@@ -27,6 +27,17 @@ describe( 'TextArea.vue', () => {
 		} ) ).toThrow( 'Invalid prop: custom validator check failed for prop "resize"' );
 	} );
 
+	it( 'accepts a textarea value', () => {
+		const value = 'Some beautiful value!';
+		const wrapper = mount( TextArea, {
+			propsData: { value },
+		} );
+		const element = wrapper.find( 'textarea' ).element as HTMLFormElement;
+
+		expect( wrapper.props().value ).toBe( value );
+		expect( element.value ).toBe( value );
+	} );
+
 	it( 'accepts label property', () => {
 		const label = 'da Label';
 		const wrapper = mount( TextArea, {
