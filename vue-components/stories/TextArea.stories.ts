@@ -28,8 +28,7 @@ export function basic( args: object ): Component {
 
 basic.args = {
     label: 'Label',
-    placeholder: 'Placeholder',
-    resize: 'vertical' 
+    placeholder: 'Placeholder'
 };
 
 basic.argTypes = {
@@ -49,12 +48,25 @@ basic.argTypes = {
         },
     },
     resize: {
+        table: {
+            defaultValue: {
+                summary: 'vertical'
+            }
+        },
         control: {
             type: 'select',
             options: ['vertical', 'horizontal', 'none'],
             default: 'vertical'
         },
     },
+    input : {
+        description: 'Emitted on each character input to the textarea, contains the entire string value of the textarea itself.',
+        table: {
+            type: {
+                summary: 'string'
+            }
+        }
+    }
 };
 
 export function all(): Component {
