@@ -11,6 +11,7 @@
 			</label>
 		</span>
 		<textarea
+			:id="id"
 			:class="[
 				'wikit-TextArea__textarea',
 				`wikit-TextArea__textarea--${resizeType}`
