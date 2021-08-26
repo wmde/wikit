@@ -11,10 +11,12 @@
 			</label>
 		</span>
 		<textarea
+			:id="id"
 			:class="[
 				'wikit-TextArea__textarea',
 				`wikit-TextArea__textarea--${resizeType}`
 			]"
+			:value="value"
 			:rows="rows"
 			:placeholder="placeholder"
 			label=""
@@ -28,20 +30,48 @@ import Vue from 'vue';
 import generateId from '@/components/util/generateUid';
 import { ResizeLimit, validateLimit } from '@/components/ResizeLimit';
 
+/**
+ * Text areas are multi-line, non auto-sizing input fields that allow manual resizing by users.
+ */
 export default Vue.extend( {
 	props: {
+		/**
+		 * An initial value for the textarea
+		 */
+		value: {
+			type: String,
+			default: '',
+		},
+		/**
+		 * The text area label
+		 */
 		label: {
 			type: String,
 			default: '',
 		},
+		/**
+		 * The text area placeholder
+		 */
 		placeholder: {
 			type: String,
 			default: '',
 		},
+		/**
+		 * Defines the amount of lines of text that the text area can take by
+		 * default before scroll is triggered, therefore influencing the height
+		 * of the component.
+		 */
 		rows: {
 			type: Number,
 			default: 2,
 		},
+		/**
+		 * Allows users to expand the component horizontally or vertically
+		 * using the expand handler. It can be used to entirely disable manual
+		 * resizing.
+		 *
+		 * Allowed values: `vertical`, `horizontal`,  `none`
+		 */
 		resize: {
 			type: String,
 			validator( value: ResizeLimit ): boolean {
