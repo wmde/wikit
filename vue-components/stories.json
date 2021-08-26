@@ -3,75 +3,79 @@
   "globalParameters": {},
   "kindParameters": {
     "/Loader/BouncingDots": {
-      "fileName": 1698,
+      "fileName": 1699,
       "framework": "vue"
     },
     "/Button": {
-      "fileName": 1701,
+      "fileName": 1702,
       "framework": "vue"
     },
     "Checkbox": {
-      "fileName": 1756,
-      "framework": "vue"
-    },
-    "Wikibase Components/DateInput": {
-      "fileName": 1757,
-      "framework": "vue"
-    },
-    "Dropdown": {
-      "fileName": 1758,
-      "framework": "vue"
-    },
-    "Wikibase Components/ExtendedNumberInput": {
-      "fileName": 1759,
-      "framework": "vue"
-    },
-    "Icon": {
-      "fileName": 1728,
-      "framework": "vue"
-    },
-    "/Input/Basic": {
-      "fileName": 1729,
-      "framework": "vue"
-    },
-    "/Input/InputWithExtender": {
-      "fileName": 1730,
-      "framework": "vue"
-    },
-    "/Link": {
       "fileName": 1760,
       "framework": "vue"
     },
-    "/Lookup/Lookup": {
+    "Wikibase Components/DateInput": {
       "fileName": 1761,
       "framework": "vue"
     },
-    "/Message/Message": {
+    "Dropdown": {
       "fileName": 1762,
       "framework": "vue"
     },
-    "OptionsMenu": {
-      "fileName": 1739,
-      "framework": "vue"
-    },
-    "Popover": {
-      "fileName": 1754,
-      "framework": "vue"
-    },
-    "Wikibase Components/QuantityInput": {
+    "Wikibase Components/ExtendedNumberInput": {
       "fileName": 1763,
       "framework": "vue"
     },
-    "/Input/TextInput": {
+    "Icon": {
+      "fileName": 1729,
+      "framework": "vue"
+    },
+    "/Input/Basic": {
+      "fileName": 1730,
+      "framework": "vue"
+    },
+    "/Input/InputWithExtender": {
+      "fileName": 1731,
+      "framework": "vue"
+    },
+    "/Link": {
       "fileName": 1764,
       "framework": "vue"
     },
+    "/Lookup/Lookup": {
+      "fileName": 1765,
+      "framework": "vue"
+    },
+    "/Message/Message": {
+      "fileName": 1766,
+      "framework": "vue"
+    },
+    "OptionsMenu": {
+      "fileName": 1740,
+      "framework": "vue"
+    },
+    "Popover": {
+      "fileName": 1757,
+      "framework": "vue"
+    },
+    "Wikibase Components/QuantityInput": {
+      "fileName": 1767,
+      "framework": "vue"
+    },
+    "TextArea": {
+      "fileName": 1758,
+      "framework": "vue"
+    },
+    "/Input/TextInput": {
+      "fileName": 1768,
+      "framework": "vue"
+    },
     "ToggleButton": {
-      "fileName": 1753,
+      "fileName": 1756,
       "framework": "vue"
     },
     "/Message/ValidationMessage": {
-      "fileName": 1750,
+      "fileName": 1753,
       "framework": "vue"
     }
   },
@@ -363,6 +367,26 @@
       "story": "All",
       "parameters": {
         "__id": "wikibase-components-quantityinput--all",
+        "__isArgsStory": false
+      }
+    },
+    "textarea--basic": {
+      "id": "textarea--basic",
+      "name": "Basic",
+      "kind": "TextArea",
+      "story": "Basic",
+      "parameters": {
+        "__id": "textarea--basic",
+        "__isArgsStory": true
+      }
+    },
+    "textarea--all": {
+      "id": "textarea--all",
+      "name": "All",
+      "kind": "TextArea",
+      "story": "All",
+      "parameters": {
+        "__id": "textarea--all",
         "__isArgsStory": false
       }
     },
