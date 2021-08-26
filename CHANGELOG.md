@@ -11,6 +11,8 @@ development)_
 
 ## [Unreleased]
 
+- New TextArea Component
+
 ## [2.0.0] - 19.07.2021
 
 ### Added
