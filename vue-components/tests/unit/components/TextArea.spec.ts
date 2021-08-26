@@ -20,11 +20,13 @@ describe( 'TextArea.vue', () => {
 		expect( wrapper.props().resize ).toBe( ResizeLimit.Horizontal );
 		expect( wrapper.find( 'textarea' ).classes() ).toContain( 'wikit-TextArea__textarea--horizontal' );
 	} );
+
 	it( 'uses default resize value', () => {
-		const wrapper = mount( TextArea, { } );
+		const wrapper = mount( TextArea );
 
 		expect( wrapper.find( 'textarea' ).classes() ).toContain( 'wikit-TextArea__textarea--vertical' );
 	} );
+
 	it( 'throws on invalid resize values', () => {
 		expect( () => mount( TextArea, {
 			propsData: { resize: 'nonsense' },
