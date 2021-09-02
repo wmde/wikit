@@ -95,7 +95,7 @@ export function all(): Component {
                     <TextArea label="Default" placeholder="Placeholder" />
                 </div>
                 <div style="max-width: 95%; margin-top: 1em;">
-                    <TextArea label="Read Only" placeholder="Placeholder" :read-only="true" value="Potatoes\nArtichokes" />
+                    <TextArea label="Read Only" placeholder="Placeholder" :read-only="true" value="Content within a read-only text area can be selected, but it cannot be edited." />
                 </div>
             </div>
         `,
