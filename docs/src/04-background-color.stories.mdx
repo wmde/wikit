@@ -1,22 +1,31 @@
-import { Meta } from '@storybook/addon-docs/blocks';
-import { TokenSection } from './lib/TokenSection';
-import { background } from '@wmde/wikit-tokens';
+import { Meta } from "@storybook/addon-docs/blocks";
+import { TokenSection } from "./lib/TokenSection";
+import { background } from "@wmde/wikit-tokens";
 
 <Meta title="Design Tokens/Background color" />
 
 ## Background color
 
 ### Base
+
 <TokenSection tokens={background.color.base} />
 
+### Field
+
+<TokenSection tokens={background.color.field} />
+
 ### Progressive
+
 <TokenSection tokens={background.color.progressive} />
 
 ### Neutral
+
 <TokenSection tokens={background.color.neutral} />
 
 ### Destructive
+
 <TokenSection tokens={background.color.destructive} />
 
 ### Feedback
+
 <TokenSection tokens={background.color.feedback} />
