@@ -55,7 +55,7 @@
                 "value": "{border.color.base.disabled.value}"
             },
             "background-color": {
-                "value": "{background.color.base.field-disabled.value}"
+                "value": "{background.color.field.disabled.value}"
             }
         },
         "hover": {
@@ -71,6 +71,11 @@
                 "value": "{box-shadow.inset.focus.progressive.value}"
             }
         },
+        "read-only": {
+            "background-color": {
+                "value": "{background.color.field.read-only.value}"
+            }
+        },
         "error": {
             "border-color": {
                 "value": "{border.color.feedback.error.value}"
@@ -83,8 +88,7 @@
         },
         "warning": {
             "border-color": {
-                "value": "{color.utility.yellow.30.value}",
-                "comment": "We want to use an alias token here but it wasn't decided at the time we implemented this."
+                "value": "{border.color.feedback.warning-field.value}"
             },
             "active": {
                 "box-shadow": {

@@ -112,8 +112,7 @@
         },
         "warning": {
             "border-color": {
-                "value": "{color.utility.yellow.30.value}",
-                "comment": "We want to use an alias token here but it wasn't decided at the time we implemented this."
+                "value": "{border.color.feedback.warning-field.value}"
             },
             "active": {
                 "box-shadow": {
