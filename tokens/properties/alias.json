@@ -177,9 +177,14 @@
                 },
                 "disabled": {
                     "value": "{color.base.70.value}"
-                },
-                "field-disabled": {
+                }
+            },
+            "field": {
+                "disabled": {
                     "value": "{color.base.80.value}"
+                },
+                "read-only": {
+                    "value": "{color.base.90.value}"
                 }
             },
             "progressive": {
@@ -362,6 +367,9 @@
                 },
                 "warning": {
                     "value": "{color.utility.yellow.50.value}"
+                },
+                "warning-field": {
+                    "value": "{color.utility.yellow.30.value}"
                 },
                 "success": {
                     "value": "{color.utility.green.50.value}"
