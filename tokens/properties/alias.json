@@ -14,7 +14,7 @@
                 "body-s": {
                     "value": "{font.family.sans.value}"
                 },
-                "label": {
+                "ui-text": {
                     "value": "{font.family.sans.value}"
                 },
                 "placeholder": {
@@ -51,8 +51,11 @@
                 "body-s": {
                     "value": "{font.weight.regular.value}"
                 },
-                "label": {
+                "ui-text": {
                     "value": "{font.weight.regular.value}"
+                },
+                "ui-text-bold": {
+                    "value": "{font.weight.bold.value}"
                 },
                 "placeholder": {
                     "value": "{font.weight.regular.value}"
@@ -73,11 +76,11 @@
                 "body-s": {
                     "value": "{font.line-height.large.value}"
                 },
-                "label": {
+                "ui-text": {
                     "value": "{font.line-height.small.value}"
                 },
                 "placeholder": {
-                    "value": "{font.line-height.medium.value}"
+                    "value": "{font.line-height.small.value}"
                 },
                 "description": {
                     "value": "{font.line-height.large.value}"
@@ -110,7 +113,7 @@
                 "body-s": {
                     "value": "{font.size.small.value}"
                 },
-                "label": {
+                "ui-text": {
                     "value": "{font.size.medium.value}"
                 },
                 "placeholder": {
