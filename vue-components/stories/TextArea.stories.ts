@@ -9,7 +9,12 @@ export default {
 export function basic( args: object ): Component {
     return {
         data(): object {
-            return { args };
+            return {
+                // Binding to the currentValue prevents the value from resetting
+                // on the re-render when changing the read-only control from
+                // false to true
+                currentValue: ''
+            };
         },
         components: { TextArea },
         props: Object.keys( args ),
@@ -20,6 +25,8 @@ export function basic( args: object ): Component {
                     :placeholder="placeholder"
                     :rows="rows"
                     :resize="resize"
+                    :read-only="readOnly"
+                    v-model="currentValue"
                 />
 			</div>
 		`,
@@ -28,7 +35,9 @@ export function basic( args: object ): Component {
 
 basic.args = {
     label: 'Label',
-    placeholder: 'Placeholder'
+    placeholder: 'Placeholder',
+    resize: 'vertical',
+    readOnly: false
 };
 
 basic.argTypes = {
@@ -48,6 +57,11 @@ basic.argTypes = {
     rows: {
         control: {
             type: 'number',
+        },
+    },
+    readOnly: {
+        control: {
+            type: 'boolean',
         },
     },
     resize: {
@@ -73,12 +87,17 @@ basic.argTypes = {
 };
 
 export function all(): Component {
-	return {
-		components: { TextArea },
-		template: `
-			<div style="max-width: 95%">
-				<TextArea label="Label" placeholder="Placeholder" />
-			</div>
-		`,
-	};
+    return {
+        components: { TextArea },
+        template: `
+            <div>
+                <div style="max-width: 95%;">
+                    <TextArea label="Default" placeholder="Placeholder" />
+                </div>
+                <div style="max-width: 95%; margin-top: 1em;">
+                    <TextArea label="Read Only" placeholder="Placeholder" :read-only="true" value="Content within a read-only text area can be selected, but it cannot be edited." />
+                </div>
+            </div>
+        `,
+    };
 }
