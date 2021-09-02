@@ -17,16 +17,16 @@
         },
         "selected-option": {
             "font-family": {
-                "value": "{font.family.style.label.value}"
+                "value": "{font.family.style.body.value}"
             },
             "font-size": {
-                "value": "{font.size.style.label.value}"
+                "value": "{font.size.style.body.value}"
             },
             "font-weight": {
-                "value": "{font.weight.bold.value}"
+                "value": "{font.weight.style.body-bold.value}"
             },
             "line-height": {
-                "value": "{font.line-height.style.label.value}"
+                "value": "{font.line-height.style.body-component.value}"
             },
             "color": {
                 "value": "{font.color.base.value}"
@@ -34,16 +34,16 @@
         },
         "placeholder": {
             "font-family": {
-                "value": "{font.family.style.label.value}"
+                "value": "{font.family.style.body.value}"
             },
             "font-size": {
-                "value": "{font.size.style.label.value}"
+                "value": "{font.size.style.body.value}"
             },
             "font-weight": {
-                "value": "{font.weight.bold.value}"
+                "value": "{font.weight.style.body-bold.value}"
             },
             "line-height": {
-                "value": "{font.line-height.style.label.value}"
+                "value": "{font.line-height.style.body-component.value}"
             },
             "color": {
                 "value": "{font.color.base.value}"

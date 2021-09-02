@@ -25,7 +25,7 @@
             "value": "{font.weight.style.body.value}"
         },
         "line-height": {
-            "value": "{font.line-height.small.value}"
+            "value": "{font.line-height.style.body-component.value}"
         },
         "color": {
             "value": "{font.color.base.value}"
