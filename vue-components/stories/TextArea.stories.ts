@@ -9,12 +9,16 @@ export default {
 export function basic( args: object ): Component {
     return {
         data(): object {
+
             return {
                 // Binding to the currentValue prevents the value from resetting
                 // on the re-render when changing the read-only control from
                 // false to true
                 currentValue: ''
             };
+
+            return { args };
+
         },
         components: { TextArea },
         props: Object.keys( args ),
@@ -37,7 +41,8 @@ basic.args = {
     label: 'Label',
     placeholder: 'Placeholder',
     resize: 'vertical',
-    readOnly: false
+    readOnly: false,
+    placeholder: 'Placeholder'
 };
 
 basic.argTypes = {
@@ -59,11 +64,13 @@ basic.argTypes = {
             type: 'number',
         },
     },
+
     readOnly: {
         control: {
             type: 'boolean',
         },
     },
+
     resize: {
         table: {
             defaultValue: {

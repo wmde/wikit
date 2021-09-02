@@ -175,6 +175,7 @@ export default Vue.extend( {
 		/**
 		* State overrides
 		*/
+
 		&[readonly] {
 			background-color: $wikit-Input-read-only-background-color;
 		}
