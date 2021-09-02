@@ -7,7 +7,7 @@
             "value": "{font.family.style.body.value}"
         },
         "font-weight": {
-            "value": "{font.weight.bold.value}"
+            "value": "{font.weight.style.body-bold.value}"
         },
         "font-size": {
             "value": "{font.size.style.body.value}"
