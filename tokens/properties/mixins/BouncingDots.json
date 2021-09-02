@@ -1,7 +1,7 @@
 {
     "wikit-BouncingDots": {
         "background-color": {
-            "value": "{background.color.base.loader.value}"
+            "value": "{background.color.progressive.default.value}"
         },
         "border-radius": {
             "value": "{border.radius.circle.value}"
