@@ -87,12 +87,17 @@ basic.argTypes = {
 };
 
 export function all(): Component {
-	return {
-		components: { TextArea },
-		template: `
-			<div style="max-width: 95%">
-				<TextArea label="Label" placeholder="Placeholder" />
-			</div>
-		`,
-	};
+    return {
+        components: { TextArea },
+        template: `
+            <div>
+                <div style="max-width: 95%;">
+                    <TextArea label="Default" placeholder="Placeholder" />
+                </div>
+                <div style="max-width: 95%; margin-top: 1em;">
+                    <TextArea label="Read Only" placeholder="Placeholder" :read-only="true" />
+                </div>
+            </div>
+        `,
+    };
 }
