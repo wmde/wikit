@@ -19,6 +19,7 @@
 			:value="value"
 			:rows="rows"
 			:placeholder="placeholder"
+			:readonly="readOnly"
 			label=""
 			@input="$emit( 'input', $event.target.value )"
 		/>
@@ -64,6 +65,15 @@ export default Vue.extend( {
 		rows: {
 			type: Number,
 			default: 2,
+		},
+		/**
+		 * Disable users from editing the content of the textarea, while
+		 * still enabling them to focus and interact with the component
+		 * otherwise.
+		 */
+		readOnly: {
+			type: Boolean,
+			default: false,
 		},
 		/**
 		 * Allows users to expand the component horizontally or vertically
@@ -165,6 +175,10 @@ export default Vue.extend( {
 		/**
 		* State overrides
 		*/
+		&[readonly] {
+			background-color: $wikit-Input-read-only-background-color;
+		}
+
 		&:hover {
 			border-color: $wikit-Input-hover-border-color;
 		}
