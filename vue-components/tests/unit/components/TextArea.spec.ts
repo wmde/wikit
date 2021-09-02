@@ -12,6 +12,15 @@ describe( 'TextArea.vue', () => {
 		expect( wrapper.find( 'textarea' ).attributes( 'rows' ) ).toBe( '42' );
 	} );
 
+	it( 'accepts a read-only property', () => {
+		const wrapper = mount( TextArea, {
+			propsData: { readOnly: true },
+		} );
+
+		expect( wrapper.props().readOnly ).toBe( true );
+		expect( wrapper.find( 'textarea' ).attributes( 'readonly' ) ).toBeDefined();
+	} );
+
 	it( 'accepts resize property', () => {
 		const wrapper = mount( TextArea, {
 			propsData: { resize: ResizeLimit.Horizontal },
