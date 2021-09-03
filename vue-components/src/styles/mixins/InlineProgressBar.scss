@@ -4,10 +4,10 @@
 @mixin InlineProgressBar {
     // We ensure semantic usage by only targeting generic elements that set the
     // correct role 
-    &[role="progressbar"] { 
+    &[role=progressbar] {
         position: relative;
-        width: $wikit-InlineProgressBar-track-width;
-        height: $wikit-InlineProgressBar-track-height;
+        width: $wikit-Progress-inline-track-width;
+        height: $wikit-Progress-inline-track-height;
 
         &::before {
             content: '';
@@ -16,16 +16,16 @@
             left: 0;
             display: block;
             height: 100%;
-            background: $wikit-InlineProgressBar-background-color;
+            background: $wikit-Progress-inline-background-color;
         }
 
         // Indeterminate progress bars should not set the `aria-valuenow` 
         // attribute
         &:not([aria-valuenow])::before {
             width: 20%;
-            border-radius: $wikit-InlineProgressBar-indeterminate-border-radius;
+            border-radius: $wikit-Progress-inline-indeterminate-border-radius;
             animation-name: load-indeterminate;
-            animation-duration: $wikit-InlineProgressBar-animation-duration;
+            animation-duration: $wikit-Progress-inline-animation-duration;
             animation-timing-function: ease;
             animation-iteration-count: infinite;
             animation-delay: 0s;
