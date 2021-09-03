@@ -58,7 +58,9 @@ basic.argTypes = {
     },
     rows: {
         control: {
-            type: 'number',
+            type: 'range',
+            min: 2,
+            max: 20
         },
     },
     readOnly: {
