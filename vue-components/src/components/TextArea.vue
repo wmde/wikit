@@ -149,6 +149,7 @@ export default Vue.extend( {
 	}
 
 	.wikit-TextArea__textarea {
+		box-sizing: border-box;
 		display: block;
 		width: 100%;
 		// The default resizing behaviour should be on the y axis only
