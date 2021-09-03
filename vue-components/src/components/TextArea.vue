@@ -16,7 +16,8 @@
 				:id="id"
 				:class="[
 					'wikit-TextArea__textarea',
-					`wikit-TextArea__textarea--${resizeType}`
+					`wikit-TextArea__textarea--${resizeType}`,
+					{ [ `wikit-TextArea__textarea--${feedback}` ]: feedback }
 				]"
 				:value="value"
 				:rows="rows"
@@ -26,18 +27,36 @@
 				@input="$emit( 'input', $event.target.value )"
 			/>
 		</div>
+		<ValidationMessage
+			v-if="error"
+			:type="error.type"
+			:message="error.message"
+		/>
 	</div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import generateId from '@/components/util/generateUid';
+import VueCompositionAPI, { defineComponent, computed } from '@vue/composition-api';
+
+import ValidationMessage from './ValidationMessage.vue';
 import { ResizeLimit, validateLimit } from '@/components/ResizeLimit';
+import generateId from '@/components/util/generateUid';
+import { errorProp, ErrorProp, getFeedbackTypeFromProps } from '@/compositions/validatable';
+
+Vue.use( VueCompositionAPI );
 
 /**
  * Text areas are multi-line, non auto-sizing input fields that allow manual resizing by users.
  */
-export default Vue.extend( {
+export default defineComponent( {
+	name: 'TextArea',
+	components: { ValidationMessage },
+	setup( props: { error: ErrorProp } ) {
+		return {
+			feedback: computed( getFeedbackTypeFromProps( props ) ),
+		};
+	},
 	props: {
 		/**
 		 * An initial value for the textarea
@@ -60,6 +79,12 @@ export default Vue.extend( {
 			type: String,
 			default: '',
 		},
+		/**
+		 * Any validation message that should be displayed with the
+		 * component. Accepts an object with a `type` (error | warning) and
+		 * a `message`.
+		 */
+		error: errorProp,
 		/**
 		 * Defines the amount of lines of text that the text area can take by
 		 * default before scroll is triggered, therefore influencing the height
@@ -193,7 +218,6 @@ export default Vue.extend( {
 		*/
 		// Sets a basis for the inset box-shadow transition which otherwise doesn't work in Firefox.
 		// https://stackoverflow.com/questions/25410207/css-transition-not-working-on-box-shadow-property/25410897
-		// TODO: replace by token
 		box-shadow: inset 0 0 0 1px transparent;
 		transition-duration: $wikit-Input-transition-duration;
 		transition-timing-function: $wikit-Input-transition-timing-function;
@@ -237,6 +261,37 @@ export default Vue.extend( {
 
 		&--none {
 			resize: none;
+		}
+
+		/**
+		 * Validation overrides
+		 */
+		&--error {
+			&,
+			&:hover,
+			&:focus,
+			&:active {
+				border-color: $wikit-Input-error-border-color;
+			}
+
+			&:focus,
+			&:active {
+				box-shadow: $wikit-Input-error-active-box-shadow;
+			}
+		}
+
+		&--warning {
+			&,
+			&:hover,
+			&:focus,
+			&:active {
+				border-color: $wikit-Input-warning-border-color;
+			}
+
+			&:focus,
+			&:active {
+				box-shadow: $wikit-Input-warning-active-box-shadow;
+			}
 		}
 	}
 </style>
