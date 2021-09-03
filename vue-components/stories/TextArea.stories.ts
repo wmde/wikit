@@ -26,6 +26,7 @@ export function basic( args: object ): Component {
                     :rows="rows"
                     :resize="resize"
                     :read-only="readOnly"
+                    :loading="loading"
                     v-model="currentValue"
                 />
 			</div>
@@ -37,7 +38,8 @@ basic.args = {
     label: 'Label',
     placeholder: 'Placeholder',
     resize: 'vertical',
-    readOnly: false
+    readOnly: false,
+    loading: false
 };
 
 basic.argTypes = {
@@ -53,6 +55,11 @@ basic.argTypes = {
         control: {
             type: 'text',
         },
+    },
+    loading: {
+        control: {
+            type: 'boolean',
+        }
     },
     rows: {
         control: {
@@ -96,6 +103,9 @@ export function all(): Component {
                 </div>
                 <div style="max-width: 95%; margin-top: 1em;">
                     <TextArea label="Read Only" placeholder="Placeholder" :read-only="true" value="Content within a read-only text area can be selected, but it cannot be edited." />
+                </div>
+                <div style="max-width: 95%; margin-top: 1em;">
+                    <TextArea label="Loading" placeholder="Placeholder" :loading="true" value="When the text area is set to loading, an indeterminate progress bar will appear." />
                 </div>
             </div>
         `,
