@@ -26,6 +26,7 @@ export function basic( args: object ): Component {
                     :rows="rows"
                     :resize="resize"
                     :read-only="readOnly"
+                    :disabled="disabled"
                     v-model="currentValue"
                 />
 			</div>
@@ -37,7 +38,8 @@ basic.args = {
     label: 'Label',
     placeholder: 'Placeholder',
     resize: 'vertical',
-    readOnly: false
+    readOnly: false,
+    disabled: false
 };
 
 basic.argTypes = {
@@ -74,7 +76,7 @@ basic.argTypes = {
             type: 'select',
             options: ['vertical', 'horizontal', 'none'],
             default: 'vertical'
-        },
+        }
     },
     input : {
         description: 'Emitted on each character input to the textarea, contains the entire string value of the textarea itself.',
@@ -83,6 +85,11 @@ basic.argTypes = {
                 summary: 'string'
             }
         }
+    },
+    disabled: {
+        control: {
+            type: 'boolean',
+        },
     }
 };
 
@@ -95,7 +102,10 @@ export function all(): Component {
                     <TextArea label="Default" placeholder="Placeholder" />
                 </div>
                 <div style="max-width: 95%; margin-top: 1em;">
-                    <TextArea label="Read Only" placeholder="Placeholder" :read-only="true" value="Content within a read-only text area can be selected, but it cannot be edited." />
+                    <TextArea label="Read-only text area" placeholder="Placeholder" :read-only="true" value="Content within a read-only text area can be selected, but it cannot be edited." />
+                </div>
+                <div style="max-width: 95%; margin-top: 1em;">
+                    <TextArea label="Disabled text area" placeholder="Placeholder" :disabled="true" />
                 </div>
             </div>
         `,

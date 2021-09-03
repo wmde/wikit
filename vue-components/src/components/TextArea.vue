@@ -3,7 +3,8 @@
 		<span class="wikit-TextArea__label-wrapper">
 			<label
 				:class="[
-					'wikit-TextArea__label'
+					'wikit-TextArea__label',
+					disabled ? `wikit-TextInput__label--disabled` : ''
 				]"
 				:for="id"
 			>
@@ -22,6 +23,7 @@
 			:readonly="readOnly"
 			label=""
 			@input="$emit( 'input', $event.target.value )"
+			:disabled="disabled"
 		/>
 	</div>
 </template>
@@ -88,6 +90,13 @@ export default Vue.extend( {
 				return validateLimit( value );
 			},
 			default: ResizeLimit.Vertical,
+		},
+		/**
+		 * Disables the component.
+		 */
+		disabled: {
+			type: Boolean,
+			default: false,
 		},
 	},
 
@@ -199,6 +208,13 @@ export default Vue.extend( {
 			font-weight: $wikit-Input-placeholder-font-weight;
 			line-height: $wikit-Input-placeholder-line-height;
 			color: $wikit-Input-placeholder-color;
+		}
+
+		&:disabled {
+		color: $wikit-Input-disabled-color;
+		border-color: $wikit-Input-disabled-border-color;
+		background-color: $wikit-Input-disabled-background-color;
+		box-shadow: none;
 		}
 
 		/**
