@@ -104,6 +104,9 @@ export function all(): Component {
                 <div style="max-width: 95%; margin-top: 1em;">
                     <TextArea label="Read Only" placeholder="Placeholder" :read-only="true" value="Content within a read-only text area can be selected, but it cannot be edited." />
                 </div>
+                <div style="max-width: 95%; margin-top: 1em;">
+                    <TextArea label="Loading" placeholder="Placeholder" :loading="true" value="When the text area is set to loading, an indeterminate progress bar will appear." />
+                </div>
             </div>
         `,
     };
