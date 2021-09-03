@@ -72,6 +72,26 @@ describe( 'TextArea.vue', () => {
 		expect( wrapper.find( 'textarea' ).attributes( 'placeholder' ) ).toBe( placeholder );
 	} );
 
+	it( 'accepts loading property', () => {
+		const loading = true;
+		const wrapper = mount( TextArea, {
+			propsData: { loading },
+		} );
+
+		expect( wrapper.props().loading ).toBe( loading );
+		expect( wrapper.find( '.wikit-TextArea__progress' ).exists() ).toBe( true );
+		expect( wrapper.find( 'textarea' ).attributes( 'readonly' ) ).toBeDefined();
+	} );
+
+	it( 'does not render progress bar when loading is set to false', () => {
+		const loading = false;
+		const wrapper = mount( TextArea, {
+			propsData: { loading },
+		} );
+
+		expect( wrapper.find( '.wikit-TextArea__progress' ).exists() ).toBe( false );
+	} );
+
 	it( 'should emit a change event with textarea value', () => {
 		const userInput = 'hello';
 		const wrapper = mount( TextArea );

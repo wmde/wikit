@@ -26,6 +26,7 @@ export function basic( args: object ): Component {
                     :rows="rows"
                     :resize="resize"
                     :read-only="readOnly"
+                    :loading="loading"
                     v-model="currentValue"
                 />
 			</div>
@@ -37,7 +38,8 @@ basic.args = {
     label: 'Label',
     placeholder: 'Placeholder',
     resize: 'vertical',
-    readOnly: false
+    readOnly: false,
+    loading: false
 };
 
 basic.argTypes = {
@@ -53,6 +55,11 @@ basic.argTypes = {
         control: {
             type: 'text',
         },
+    },
+    loading: {
+        control: {
+            type: 'boolean',
+        }
     },
     rows: {
         control: {

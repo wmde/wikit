@@ -10,19 +10,22 @@
 				{{ label }}
 			</label>
 		</span>
-		<textarea
-			:id="id"
-			:class="[
-				'wikit-TextArea__textarea',
-				`wikit-TextArea__textarea--${resizeType}`
-			]"
-			:value="value"
-			:rows="rows"
-			:placeholder="placeholder"
-			:readonly="readOnly"
-			label=""
-			@input="$emit( 'input', $event.target.value )"
-		/>
+		<div class="wikit-TextArea__textarea-wrapper">
+			<div class="wikit-TextArea__progress" v-if="loading" role="progressbar" />
+			<textarea
+				:id="id"
+				:class="[
+					'wikit-TextArea__textarea',
+					`wikit-TextArea__textarea--${resizeType}`
+				]"
+				:value="value"
+				:rows="rows"
+				:placeholder="placeholder"
+				:readonly="readOnly || loading"
+				label=""
+				@input="$emit( 'input', $event.target.value )"
+			/>
+		</div>
 	</div>
 </template>
 
@@ -89,6 +92,14 @@ export default Vue.extend( {
 			},
 			default: ResizeLimit.Vertical,
 		},
+		/**
+		 * Sets the textarea to loading mode, which displays an indeterminate
+		 * progress bar and sets the component to readonly mode.
+		 */
+		loading: {
+			type: Boolean,
+			default: false,
+		},
 	},
 
 	data() {
@@ -119,6 +130,21 @@ export default Vue.extend( {
 
 		&__label {
 			@include Label('block');
+		}
+
+		&__textarea-wrapper {
+			position: relative;
+			overflow: hidden;
+		}
+
+		&__progress {
+			@include InlineProgressBar;
+
+			&[role=progressbar] {
+				position: absolute;
+				inset-block-start: 0;
+				inset-inline-start: 0;
+			}
 		}
 	}
 
