@@ -137,7 +137,7 @@ export default Vue.extend( {
 		// The default resizing behaviour should be on the y axis only
 		resize: vertical;
 		// WIP: define min-height based on the default value of the `rows` attribute, 2
-		min-height: 52px;
+		min-height: $dimension-min-height-large;
 		line-height: $font-line-height-style-body;
 		min-width: max-content;
 
