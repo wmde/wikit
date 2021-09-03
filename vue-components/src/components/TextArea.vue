@@ -4,7 +4,7 @@
 			<label
 				:class="[
 					'wikit-TextArea__label',
-					disabled ? `wikit-TextInput__label--disabled` : ''
+					disabled ? `wikit-TextArea__label--disabled` : ''
 				]"
 				:for="id"
 			>
