@@ -136,9 +136,7 @@ export default Vue.extend( {
 		width: 100%;
 		// The default resizing behaviour should be on the y axis only
 		resize: vertical;
-		// WIP: define min-height based on the default value of the `rows` attribute, 2
-		min-height: $dimension-min-height-large;
-		line-height: $font-line-height-style-body;
+		min-height: $wikit-TextArea-min-height;
 		min-width: max-content;
 
 		/**
@@ -153,7 +151,7 @@ export default Vue.extend( {
 		font-family: $wikit-Input-font-family;
 		font-size: $wikit-Input-font-size;
 		font-weight: $wikit-Input-font-weight;
-		line-height: $wikit-Input-line-height;
+		line-height: $wikit-TextArea-line-height;
 
 		/**
 		* Spacing
