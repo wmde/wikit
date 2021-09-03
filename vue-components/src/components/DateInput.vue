@@ -92,19 +92,19 @@ export default defineComponent( {
 .wikit-DateInput {
 	&__IntroText {
 		padding-block-end: $wikit-InputExtender-content-padding-vertical;
-		font-family: $font-family-style-label;
-		font-weight: $font-weight-style-label;
-		font-size: $font-size-style-label;
-		line-height: $font-line-height-style-label;
+		font-family: $font-family-style-body;
+		font-weight: $font-weight-style-body;
+		font-size: $font-size-style-body;
+		line-height: $font-line-height-style-body;
 		color: $font-color-base;
 	}
 
 	&__ParsedValue {
 		padding-block: $wikit-InputExtender-content-padding-vertical;
-		font-family: $font-family-style-label;
-		font-weight: $font-weight-bold;
-		font-size: $font-size-style-label;
-		line-height: $font-line-height-style-label;
+		font-family: $font-family-style-body;
+		font-weight: $font-weight-style-body-bold;
+		font-size: $font-size-style-body;
+		line-height: $font-line-height-style-body;
 		color: $font-color-base;
 	}
 
