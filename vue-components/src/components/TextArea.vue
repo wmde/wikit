@@ -211,10 +211,10 @@ export default Vue.extend( {
 		}
 
 		&:disabled {
-		color: $wikit-Input-disabled-color;
-		border-color: $wikit-Input-disabled-border-color;
-		background-color: $wikit-Input-disabled-background-color;
-		box-shadow: none;
+			color: $wikit-Input-disabled-color;
+			border-color: $wikit-Input-disabled-border-color;
+			background-color: $wikit-Input-disabled-background-color;
+			box-shadow: none;
 		}
 
 		/**
