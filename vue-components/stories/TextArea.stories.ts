@@ -74,11 +74,11 @@ basic.argTypes = {
         },
         control: {
             type: 'select',
-            options: ['vertical', 'horizontal', 'none'],
+            options: ['vertical', 'horizontal', 'both', 'none'],
             default: 'vertical'
         }
     },
-    input : {
+    input: {
         description: 'Emitted on each character input to the textarea, contains the entire string value of the textarea itself.',
         table: {
             type: {

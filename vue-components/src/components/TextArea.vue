@@ -82,7 +82,7 @@ export default Vue.extend( {
 		 * using the expand handler. It can be used to entirely disable manual
 		 * resizing.
 		 *
-		 * Allowed values: `vertical`, `horizontal`,  `none`
+		 * Allowed values: `vertical`, `horizontal`,`both`, `none`.
 		 */
 		resize: {
 			type: String,
@@ -222,6 +222,10 @@ export default Vue.extend( {
 		*/
 		&--horizontal {
 			resize: horizontal;
+		}
+
+		&--both {
+			resize: both;
 		}
 
 		&--none {
