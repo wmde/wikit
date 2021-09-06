@@ -144,7 +144,7 @@ export function all(): Component {
                     <TextArea label="Warning" :error="{ type: 'warning', message: 'Warnings should appear underneath the text area, as long as they are passed to the component.' }" value="To set a warning message for the text area, pass an object with the type: 'warning' along with a message to the 'error' prop." />
                 </div>
                 <div style="max-width: 95%; margin-top: 1em;">
-                    <TextArea label="Warning" :error="{ type: 'error', message: 'Errors should appear underneath the text area, as long as they are passed to the component.' }" value="To set an error message for the text area, pass an object with the type: 'error' along with a message to the 'error' prop." />
+                    <TextArea label="Error" :error="{ type: 'error', message: 'Errors should appear underneath the text area, as long as they are passed to the component.' }" value="To set an error message for the text area, pass an object with the type: 'error' along with a message to the 'error' prop." />
                 </div>
             </div>
         `,
