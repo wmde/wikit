@@ -1,18 +1,16 @@
 {
     "wikit-Table": {
-        "border": {
-            "style": {
-                "value": "{border.style.base.value}"
-            },
-            "width": {
-                "value": "{border.width.thin.value}"
-            },
-            "radius": {
-                "value": "{border.radius.none.value}"
-            },
-            "color": {
-                "value": "{border.color.base.subtle.value}"
-            }
+        "border-style": {
+            "value": "{border.style.base.value}"
+        },
+        "border-width": {
+            "value": "{border.width.thin.value}"
+        },
+        "border-radius": {
+            "value": "{border.radius.none.value}"
+        },
+        "border-color": {
+            "value": "{border.color.base.subtle.value}"
         },
         "background-color": {
             "value": "{background.color.base.default.value}"
