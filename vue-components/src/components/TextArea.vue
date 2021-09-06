@@ -52,7 +52,10 @@ Vue.use( VueCompositionAPI );
 export default defineComponent( {
 	name: 'TextArea',
 	components: { ValidationMessage },
-	setup( props: { error: ErrorProp } ) {
+	setup( props: {
+		error: ErrorProp;
+		resize: string;
+	} ) {
 		return {
 			feedback: computed( getFeedbackTypeFromProps( props ) ),
 		};
