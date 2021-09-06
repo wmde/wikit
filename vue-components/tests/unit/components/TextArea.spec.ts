@@ -67,8 +67,8 @@ describe( 'TextArea.vue', () => {
 	it( 'accepts an error prop', () => {
 		const validation = {
 			type: 'warning',
-			message: 'things don\'t work'
-		}
+			message: 'things don\'t work',
+		};
 
 		const wrapper = mount( TextArea, {
 			propsData: { error: validation },

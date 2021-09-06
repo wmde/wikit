@@ -264,8 +264,8 @@ export default defineComponent( {
 		}
 
 		/**
-		 * Validation overrides
-		 */
+		* Validation overrides
+		*/
 		&--error {
 			&,
 			&:hover,
