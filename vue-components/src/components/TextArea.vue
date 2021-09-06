@@ -24,7 +24,7 @@
 				:rows="rows"
 				:placeholder="placeholder"
 				:readonly="readOnly || loading"
-        :disabled="disabled"
+				:disabled="disabled"
 				label=""
 				@input="$emit( 'input', $event.target.value )"
 			/>
@@ -126,9 +126,10 @@ export default defineComponent( {
 		 * Disables the component
 		 */
 		disabled: {
-    	type: Boolean,
+			type: Boolean,
 			default: false,
 		},
+		/**
 		 * Sets the textarea to loading mode, which displays an indeterminate
 		 * progress bar and sets the component to readonly mode.
 		 */
