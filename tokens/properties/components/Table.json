@@ -38,7 +38,7 @@
                 "value": "{font.color.base.value}"
             },
             "line-height": {
-                "value": "{font.size.style.body.value}"
+                "value": "{font.size.style.body-component.value}"
             },
             "transition": {
                 "timing-function": {
