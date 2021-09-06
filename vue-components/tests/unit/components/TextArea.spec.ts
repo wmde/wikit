@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import TextArea from '@/components/TextArea.vue';
+import ValidationMessage from '@/components/ValidationMessage.vue';
 import { ResizeLimit } from '@/components/ResizeLimit.ts';
 
 describe( 'TextArea.vue', () => {
@@ -61,6 +62,29 @@ describe( 'TextArea.vue', () => {
 
 		expect( wrapper.props().label ).toBe( label );
 		expect( wrapper.find( 'label' ).text() ).toBe( label );
+	} );
+
+	it( 'accepts an error prop', () => {
+		const validation = {
+			type: 'warning',
+			message: 'things don\'t work',
+		};
+
+		const wrapper = mount( TextArea, {
+			propsData: { error: validation },
+		} );
+
+		const validationMessage = wrapper.findComponent( ValidationMessage );
+
+		expect( wrapper.props().error ).toBe( validation );
+		expect( validationMessage.props( 'message' ) ).toBe( validation.message );
+		expect( validationMessage.props( 'type' ) ).toBe( validation.type );
+	} );
+
+	it( 'does not render validation message when error is not set', () => {
+		const wrapper = mount( TextArea );
+
+		expect( wrapper.findComponent( ValidationMessage ).exists() ).toBe( false );
 	} );
 
 	it( 'accepts placeholder property', () => {
