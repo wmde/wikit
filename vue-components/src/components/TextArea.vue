@@ -98,6 +98,9 @@ export default defineComponent( {
 		rows: {
 			type: Number,
 			default: 2,
+			validator( value: number ): boolean {
+				return value >= 2;
+			},
 		},
 		/**
 		 * Disable users from editing the content of the textarea, while
