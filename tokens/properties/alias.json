@@ -177,9 +177,6 @@
                 },
                 "disabled": {
                     "value": "{color.base.70.value}"
-                },
-                "loader": {
-                    "value": "{color.base.30.value}"
                 }
             },
             "field": {

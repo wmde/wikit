@@ -26,10 +26,31 @@ export function basic( args: object ): Component {
                     :rows="rows"
                     :resize="resize"
                     :read-only="readOnly"
+                    :loading="loading"
+                    :error="validation"
                     v-model="currentValue"
                 />
 			</div>
 		`,
+        computed: {
+            validation(): string {
+                // To enable preview of validation states, we add this computed
+                // property and bind it to the component's error prop
+                const mapping = {
+                    'none': null,
+                    'warning': {
+                        type: 'warning',
+                        message: 'This is a warning message'
+                    },
+                    'error': {
+                        type: 'error',
+                        message: 'This is an error message'
+                    }
+                }
+
+                return mapping[this.error];
+            },
+        }
     };
 }
 
@@ -37,12 +58,26 @@ basic.args = {
     label: 'Label',
     placeholder: 'Placeholder',
     resize: 'vertical',
-    readOnly: false
+    readOnly: false,
+    loading: false,
+    error: 'none'
 };
 
 basic.argTypes = {
     value: {
         control: false
+    },
+    error: {
+        control: {
+            type: 'select',
+            options: ['none', 'warning', 'error'],
+            default: 'none'
+        },
+        table: {
+            type: {
+                summary: 'object'
+            }
+        }
     },
     label: {
         control: {
@@ -53,6 +88,11 @@ basic.argTypes = {
         control: {
             type: 'text',
         },
+    },
+    loading: {
+        control: {
+            type: 'boolean',
+        }
     },
     rows: {
         control: {
@@ -96,6 +136,15 @@ export function all(): Component {
                 </div>
                 <div style="max-width: 95%; margin-top: 1em;">
                     <TextArea label="Read Only" placeholder="Placeholder" :read-only="true" value="Content within a read-only text area can be selected, but it cannot be edited." />
+                </div>
+                <div style="max-width: 95%; margin-top: 1em;">
+                    <TextArea label="Loading" placeholder="Placeholder" :loading="true" value="When the text area is set to loading, an indeterminate progress bar will appear." />
+                </div>
+                <div style="max-width: 95%; margin-top: 1em;">
+                    <TextArea label="Warning" :error="{ type: 'warning', message: 'Warnings should appear underneath the text area, as long as they are passed to the component.' }" value="To set a warning message for the text area, pass an object with the type: 'warning' along with a message to the 'error' prop." />
+                </div>
+                <div style="max-width: 95%; margin-top: 1em;">
+                    <TextArea label="Error" :error="{ type: 'error', message: 'Errors should appear underneath the text area, as long as they are passed to the component.' }" value="To set an error message for the text area, pass an object with the type: 'error' along with a message to the 'error' prop." />
                 </div>
             </div>
         `,
