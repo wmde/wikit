@@ -128,9 +128,6 @@
                     "value": "{font.color.base.value}"
                 },
                 "hover": {
-                    "color": {
-                        "value": "{font.color.base.value}"
-                    },
                     "border-color": {
                         "value": "{border.color.neutral.quiet-hover.value}"
                     },
