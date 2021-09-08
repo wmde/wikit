@@ -192,7 +192,7 @@
     },
     "dimension": {
         "dynamic": {
-            "size": {
+            "em": {
                 "0": {
                     "value": "0em"
                 },
@@ -233,7 +233,7 @@
                     "value": "2.500em"
                 }
             },
-            "size-rem": {
+            "rem": {
                 "50": {
                     "value": "0.500rem"
                 },
