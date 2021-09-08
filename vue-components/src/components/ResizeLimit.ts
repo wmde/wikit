@@ -1,6 +1,7 @@
 enum ResizeLimit {
 	Horizontal = 'horizontal',
 	Vertical = 'vertical',
+	Both = 'both',
 	None = 'none'
 }
 

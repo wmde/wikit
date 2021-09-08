@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Get branch hash
         id: get_hash
-        run: echo "::set-output name=hash::$(echo 'refs/heads/${{ github.head_ref }}' | shasum | awk '{print $1}')"
+        run: echo "::set-output name=hash::$(echo '${{ github.ref }}' | shasum | awk '{print $1}')"
       - name: Comment on PR
         uses: thollander/actions-comment-pull-request@1.0.1
         with:
