@@ -222,6 +222,9 @@
                 },
                 "focus": {
                     "value": "{color.base.90.value}"
+                },
+                "quiet-focus": {
+                    "value": "{color.base.100.value}"
                 }
             },
             "destructive": {

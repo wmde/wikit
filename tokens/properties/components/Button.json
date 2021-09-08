@@ -157,7 +157,7 @@
                         "value": "{border.color.neutral.focus.value}"
                     },
                     "background-color": {
-                        "value": "{background.color.neutral.focus.value}"
+                        "value": "{background.color.neutral.quiet-focus.value}"
                     },
                     "box-shadow": {
                         "value": "{box-shadow.inset.focus.progressive.value}",
