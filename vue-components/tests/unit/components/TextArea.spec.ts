@@ -13,6 +13,14 @@ describe( 'TextArea.vue', () => {
 		expect( wrapper.find( 'textarea' ).attributes( 'rows' ) ).toBe( '42' );
 	} );
 
+	it( 'throws given a rows value less than the minimum of 2', () => {
+		expect( () => {
+			mount( TextArea, {
+				propsData: { rows: 1 },
+			} );
+		} ).toThrow();
+	} );
+
 	it( 'accepts a read-only property', () => {
 		const wrapper = mount( TextArea, {
 			propsData: { readOnly: true },

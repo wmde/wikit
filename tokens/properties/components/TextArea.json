@@ -1,0 +1,10 @@
+{
+    "wikit-TextArea": {
+        "line-height": {
+            "value": "{font.line-height.style.body.value}"
+        },
+        "min-height": {
+            "value": "{dimension.min-height.xlarge.value}"
+        }
+    }
+}

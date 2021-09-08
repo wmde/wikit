@@ -390,6 +390,9 @@
             },
             "large": {
                 "value": "{dimension.static.size.500.value}"
+            },
+            "xlarge": {
+                "value": "{dimension.static.size.600.value}"
             }
         },
         "width": {
