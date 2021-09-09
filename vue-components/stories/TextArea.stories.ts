@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import TextArea from '@/components/TextArea';
 import { Component } from 'vue';
 
