@@ -54,6 +54,7 @@ development)_
 - Disabled components will display disabled labels to make it more clear to users
 - Dropdown will not be activated when toggling the tooltip via enter
 - Keyboard-focusable components display a focused error and warning states
+- Dimension-layout tokens are now based on _rem_ instead of _em_
 
 ### Removed
 
