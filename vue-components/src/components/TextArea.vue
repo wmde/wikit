@@ -194,7 +194,7 @@ export default defineComponent( {
 		width: 100%;
 		// The default resizing behaviour should be on the y axis only
 		resize: vertical;
-		min-height: $wikit-TextArea-min-height;
+		min-height: calc(#{$wikit-TextArea-min-height} + 2*#{$dimension-padding-vertical-medium});
 		min-width: max-content;
 
 		/**
