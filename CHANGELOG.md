@@ -12,6 +12,7 @@ development)_
 ## [Unreleased]
 
 - New TextArea Component
+- Dimension-layout tokens are now based on _rem_ instead of _em_
 
 ## [2.0.0] - 19.07.2021
 
@@ -54,7 +55,6 @@ development)_
 - Disabled components will display disabled labels to make it more clear to users
 - Dropdown will not be activated when toggling the tooltip via enter
 - Keyboard-focusable components display a focused error and warning states
-- Dimension-layout tokens are now based on _rem_ instead of _em_
 
 ### Removed
 
