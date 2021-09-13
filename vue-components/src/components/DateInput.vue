@@ -92,37 +92,37 @@ export default defineComponent( {
 .wikit-DateInput {
 	&__IntroText {
 		padding-block-end: $wikit-InputExtender-content-padding-vertical;
-		font-family: $font-family-style-body;
-		font-weight: $font-weight-style-body;
-		font-size: $font-size-style-body;
-		line-height: $font-line-height-style-body-component;
-		color: $font-color-base;
+		font-family: $wikit-DateInput-introText-font-family;
+		font-weight: $wikit-DateInput-introText-font-weight;
+		font-size: $wikit-DateInput-introText-font-size;
+		line-height: $wikit-DateInput-introText-line-height;
+		color: $wikit-DateInput-introText-color;
 	}
 
 	&__ParsedValue {
 		padding-block: $wikit-InputExtender-content-padding-vertical;
-		font-family: $font-family-style-body;
-		font-weight: $font-weight-style-body-bold;
-		font-size: $font-size-style-body;
-		line-height: $font-line-height-style-body-component;
-		color: $font-color-base;
+		font-family: $wikit-DateInput-parsedValue-font-family;
+		font-weight: $wikit-DateInput-parsedValue-font-weight;
+		font-size: $wikit-DateInput-parsedValue-font-size;
+		line-height: $wikit-DateInput-parsedValue-line-height;
+		color: $wikit-DateInput-parsedValue-color;
 	}
 
 	&__CalendarNotice {
 		padding-block-start: $wikit-InputExtender-content-padding-vertical;
-		font-family: $font-family-style-description;
-		font-weight: $font-weight-style-description;
-		font-size: $font-size-style-description;
-		line-height: $font-line-height-style-description;
-		color: $font-color-subtle;
+		font-family: $wikit-DateInput-calendarNotice-font-family;
+		font-weight: $wikit-DateInput-calendarNotice-font-weight;
+		font-size: $wikit-DateInput-calendarNotice-font-size;
+		line-height: $wikit-DateInput-calendarNotice-line-height;
+		color: $wikit-DateInput-calendarNotice-color;
 	}
 
 	&__Prompt {
-		font-family: $font-family-style-placeholder;
-		font-size: $font-size-style-placeholder;
-		font-weight: $font-weight-style-placeholder;
-		line-height: $font-line-height-style-placeholder;
-		color: $font-color-subtle;
+		font-family: $wikit-DateInput-prompt-font-family;
+		font-size: $wikit-DateInput-prompt-font-size;
+		font-weight: $wikit-DateInput-prompt-font-weight;
+		line-height: $wikit-DateInput-prompt-line-height;
+		color: $wikit-DateInput-prompt-color;
 	}
 }
 </style>
