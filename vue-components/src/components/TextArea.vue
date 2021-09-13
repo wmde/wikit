@@ -3,38 +3,65 @@
 		<span class="wikit-TextArea__label-wrapper">
 			<label
 				:class="[
-					'wikit-TextArea__label'
+					'wikit-TextArea__label',
+					disabled ? `wikit-TextArea__label--disabled` : ''
 				]"
 				:for="id"
 			>
 				{{ label }}
 			</label>
 		</span>
-		<textarea
-			:id="id"
-			:class="[
-				'wikit-TextArea__textarea',
-				`wikit-TextArea__textarea--${resizeType}`
-			]"
-			:value="value"
-			:rows="rows"
-			:placeholder="placeholder"
-			:readonly="readOnly"
-			label=""
-			@input="$emit( 'input', $event.target.value )"
+		<div class="wikit-TextArea__textarea-wrapper">
+			<div class="wikit-TextArea__progress" v-if="loading" role="progressbar" />
+			<textarea
+				:id="id"
+				:class="[
+					'wikit-TextArea__textarea',
+					`wikit-TextArea__textarea--${resizeType}`,
+					{ [ `wikit-TextArea__textarea--${feedback}` ]: feedback }
+				]"
+				:value="value"
+				:rows="rows"
+				:placeholder="placeholder"
+				:readonly="readOnly || loading"
+				:disabled="disabled"
+				label=""
+				@input="$emit( 'input', $event.target.value )"
+			/>
+		</div>
+		<ValidationMessage
+			v-if="error"
+			:type="error.type"
+			:message="error.message"
 		/>
 	</div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import generateId from '@/components/util/generateUid';
+import VueCompositionAPI, { defineComponent, computed } from '@vue/composition-api';
+
+import ValidationMessage from './ValidationMessage.vue';
 import { ResizeLimit, validateLimit } from '@/components/ResizeLimit';
+import generateId from '@/components/util/generateUid';
+import { errorProp, ErrorProp, getFeedbackTypeFromProps } from '@/compositions/validatable';
+
+Vue.use( VueCompositionAPI );
 
 /**
  * Text areas are multi-line, non auto-sizing input fields that allow manual resizing by users.
  */
-export default Vue.extend( {
+export default defineComponent( {
+	name: 'TextArea',
+	components: { ValidationMessage },
+	setup( props: {
+		error: ErrorProp;
+		resize: string;
+	} ) {
+		return {
+			feedback: computed( getFeedbackTypeFromProps( props ) ),
+		};
+	},
 	props: {
 		/**
 		 * An initial value for the textarea
@@ -58,6 +85,12 @@ export default Vue.extend( {
 			default: '',
 		},
 		/**
+		 * Any validation message that should be displayed with the
+		 * component. Accepts an object with a `type` (error | warning) and
+		 * a `message`.
+		 */
+		error: errorProp,
+		/**
 		 * Defines the amount of lines of text that the text area can take by
 		 * default before scroll is triggered, therefore influencing the height
 		 * of the component.
@@ -65,6 +98,9 @@ export default Vue.extend( {
 		rows: {
 			type: Number,
 			default: 2,
+			validator( value: number ): boolean {
+				return value >= 2;
+			},
 		},
 		/**
 		 * Disable users from editing the content of the textarea, while
@@ -80,7 +116,7 @@ export default Vue.extend( {
 		 * using the expand handler. It can be used to entirely disable manual
 		 * resizing.
 		 *
-		 * Allowed values: `vertical`, `horizontal`,  `none`
+		 * Allowed values: `vertical`, `horizontal`,`both`, `none`.
 		 */
 		resize: {
 			type: String,
@@ -88,6 +124,21 @@ export default Vue.extend( {
 				return validateLimit( value );
 			},
 			default: ResizeLimit.Vertical,
+		},
+		/**
+		 * Disables the component
+		 */
+		disabled: {
+			type: Boolean,
+			default: false,
+		},
+		/**
+		 * Sets the textarea to loading mode, which displays an indeterminate
+		 * progress bar and sets the component to readonly mode.
+		 */
+		loading: {
+			type: Boolean,
+			default: false,
 		},
 	},
 
@@ -120,13 +171,31 @@ export default Vue.extend( {
 		&__label {
 			@include Label('block');
 		}
+
+		&__textarea-wrapper {
+			position: relative;
+			overflow: hidden;
+		}
+
+		&__progress {
+			@include InlineProgressBar;
+
+			&[role=progressbar] {
+				position: absolute;
+				inset-block-start: 0;
+				inset-inline-start: 0;
+			}
+		}
 	}
 
 	.wikit-TextArea__textarea {
+		box-sizing: border-box;
 		display: block;
 		width: 100%;
 		// The default resizing behaviour should be on the y axis only
 		resize: vertical;
+		min-height: calc(#{$wikit-TextArea-min-height} + 2*#{$dimension-padding-vertical-medium});
+		min-width: max-content;
 
 		/**
 		* Colors
@@ -140,7 +209,7 @@ export default Vue.extend( {
 		font-family: $wikit-Input-font-family;
 		font-size: $wikit-Input-font-size;
 		font-weight: $wikit-Input-font-weight;
-		line-height: $wikit-Input-line-height;
+		line-height: $wikit-TextArea-line-height;
 
 		/**
 		* Spacing
@@ -166,7 +235,6 @@ export default Vue.extend( {
 		*/
 		// Sets a basis for the inset box-shadow transition which otherwise doesn't work in Firefox.
 		// https://stackoverflow.com/questions/25410207/css-transition-not-working-on-box-shadow-property/25410897
-		// TODO: replace by token
 		box-shadow: inset 0 0 0 1px transparent;
 		transition-duration: $wikit-Input-transition-duration;
 		transition-timing-function: $wikit-Input-transition-timing-function;
@@ -201,6 +269,13 @@ export default Vue.extend( {
 			color: $wikit-Input-placeholder-color;
 		}
 
+		&:disabled {
+			color: $wikit-Input-disabled-color;
+			border-color: $wikit-Input-disabled-border-color;
+			background-color: $wikit-Input-disabled-background-color;
+			box-shadow: none;
+		}
+
 		/**
 		* Property overrides
 		*/
@@ -208,8 +283,43 @@ export default Vue.extend( {
 			resize: horizontal;
 		}
 
+		&--both {
+			resize: both;
+		}
+
 		&--none {
 			resize: none;
+		}
+
+		/**
+		* Validation overrides
+		*/
+		&--error {
+			&,
+			&:hover,
+			&:focus,
+			&:active {
+				border-color: $wikit-Input-error-border-color;
+			}
+
+			&:focus,
+			&:active {
+				box-shadow: $wikit-Input-error-active-box-shadow;
+			}
+		}
+
+		&--warning {
+			&,
+			&:hover,
+			&:focus,
+			&:active {
+				border-color: $wikit-Input-warning-border-color;
+			}
+
+			&:focus,
+			&:active {
+				box-shadow: $wikit-Input-warning-active-box-shadow;
+			}
 		}
 	}
 </style>
