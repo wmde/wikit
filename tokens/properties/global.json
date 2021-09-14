@@ -150,7 +150,7 @@
                 "value": "none"
             },
             "small": {
-                "value": "{wmf-line-height-heading.value}"
+                "value": "1.25"
             },
             "medium": {
                 "value": "1.5"

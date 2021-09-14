@@ -7,16 +7,16 @@
             "value": "{font.color.disabled.value}"
         },
         "font-family": {
-            "value": "{font.family.style.label.value}"
+            "value": "{font.family.style.body.value}"
         },
         "font-size": {
-            "value": "{font.size.style.label.value}"
+            "value": "{font.size.style.body.value}"
         },
         "font-weight": {
-            "value": "{font.weight.style.label.value}"
+            "value": "{font.weight.style.body.value}"
         },
         "line-height": {
-            "value": "{font.line-height.style.label.value}"
+            "value": "{font.line-height.style.body-component.value}"
         },
         "padding-block-end": {
             "value": "{dimension.spacing.xsmall.value}"

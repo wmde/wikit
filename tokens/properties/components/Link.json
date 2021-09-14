@@ -4,16 +4,16 @@
             "value": "{font.color.progressive.value}"
         },
         "font-family": {
-            "value": "{font.family.sans.value}"
+            "value": "{font.family.style.body.value}"
         },
         "font-size": {
-            "value": "{font.size.medium.value}"
+            "value": "{font.size.style.body.value}"
         },
         "font-weight": {
-            "value": "{font.weight.regular.value}"
+            "value": "{font.weight.style.body.value}"
         },
         "line-height": {
-            "value": "{font.line-height.medium.value}"
+            "value": "{font.line-height.style.body.value}"
         },
         "transition-duration": {
             "value": "{transition.interaction.link.duration.value}"

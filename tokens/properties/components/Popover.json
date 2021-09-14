@@ -4,13 +4,13 @@
             "value": "{font.color.base.value}"
         },
         "font-family": {
-            "value": "{font.family.style.body.value}"
+            "value": "{font.family.style.body-s.value}"
         },
         "font-size": {
             "value": "{font.size.style.body-s.value}"
         },
         "font-weight": {
-            "value": "{font.weight.style.body.value}"
+            "value": "{font.weight.style.body-s.value}"
         },
         "line-height": {
             "value": "{font.line-height.style.body-s.value}"
@@ -41,7 +41,7 @@
         },
         "transition": {
             "delay": {
-                "value":"{transition.duration.fast.value}",
+                "value": "{transition.duration.fast.value}",
                 "comment": "Show and hide delays"
             }
         },
@@ -49,7 +49,7 @@
             "value": "{dimension.spacing.xsmall.value}",
             "comment": "Aka distance. This refers to the space between the target and the popover pointer. Better names welcome"
         },
-        "pointer":  {
+        "pointer": {
             "width": {
                 "value": "{dimension.spacing.large.value}"
             },
