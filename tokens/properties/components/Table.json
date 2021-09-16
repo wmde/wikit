@@ -16,7 +16,7 @@
             "value": "{background.color.base.default.value}"
         },
         "cell": {
-            "min-height": {
+            "height": {
                 "value": "{dimension.min-height.xlarge.value}"
             },
             "spacing-vertical": {
