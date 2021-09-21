@@ -8,7 +8,7 @@
 on:
   push:
     branches:
-      - master
+      - T290426-test-workflow-to-include-tsc
   pull_request:
 name: Test and Deploy
 jobs:
