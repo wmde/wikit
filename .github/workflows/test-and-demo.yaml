@@ -52,6 +52,9 @@ jobs:
         path: |
           */dist
         key: ${{ runner.os }}-${{ hashFiles('*/dist') }}
+    - name: Build
+      if: steps.cache.outputs.cache-hit == 'true'
+      run: lerna bootstrap
     - name: Install
       if: steps.cache.outputs.cache-hit != 'true'
       run: npm ci
