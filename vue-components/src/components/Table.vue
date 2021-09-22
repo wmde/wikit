@@ -116,15 +116,15 @@ export default Vue.extend( {
 		/**
 		* Colors
 		*/
-		background-color: $background-color-base-default;
-		color: $font-color-base;
+		background-color: $wikit-Table-background-color;
+		color: $wikit-Table-cell-color;
 
 		/**
 		* Typography
 		*/
-		font-family: $font-family-style-body;
-		font-size: $font-size-style-body;
-		font-weight: $font-weight-style-body;
+		font-family: $wikit-Table-cell-font-family;
+		font-size: $wikit-Table-cell-font-size;
+		font-weight: $wikit-Table-cell-font-weight;
 
 		tr {
 			/**
@@ -135,10 +135,10 @@ export default Vue.extend( {
 			/**
 			* Borders
 			*/
-			border-bottom-style: $border-style-base;
-			border-bottom-width: $border-width-thin;
-			border-radius: $border-radius-none;
-			border-bottom-color: $border-color-base-subtle;
+			border-bottom-style: $wikit-Table-border-style;
+			border-bottom-width: $wikit-Table-border-width;
+			border-radius: $wikit-Table-border-radius;
+			border-bottom-color: $wikit-Table-border-color;
 		}
 
 		th,
@@ -152,7 +152,7 @@ export default Vue.extend( {
 			/**
 			* Typography
 			*/
-			line-height: $font-line-height-style-label;
+			line-height: $wikit-Table-cell-line-height;
 			text-align: start;
 			vertical-align: middle;
 			overflow-wrap: break-word;
