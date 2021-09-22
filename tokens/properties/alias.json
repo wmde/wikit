@@ -415,56 +415,56 @@
         "padding": {
             "vertical": {
                 "medium": {
-                    "value": "{dimension.dynamic.size.30.value}",
+                    "value": "{dimension.dynamic.em.30.value}",
                     "comment": "will be replaced by a spacing token in the future"
                 },
                 "large": {
-                    "value": "{dimension.dynamic.size.56.value}",
+                    "value": "{dimension.dynamic.em.56.value}",
                     "comment": "will be replaced by a spacing token in the future"
                 }
             }
         },
         "spacing": {
             "none": {
-                "value": "{dimension.dynamic.size.0.value}"
+                "value": "{dimension.dynamic.em.0.value}"
             },
             "xxsmall": {
-                "value": "{dimension.dynamic.size.12.value}"
+                "value": "{dimension.dynamic.em.12.value}"
             },
             "xsmall": {
-                "value": "{dimension.dynamic.size.25.value}"
+                "value": "{dimension.dynamic.em.25.value}"
             },
             "small": {
-                "value": "{dimension.dynamic.size.50.value}"
+                "value": "{dimension.dynamic.em.50.value}"
             },
             "medium": {
-                "value": "{dimension.dynamic.size.75.value}"
+                "value": "{dimension.dynamic.em.75.value}"
             },
             "large": {
-                "value": "{dimension.dynamic.size.100.value}"
+                "value": "{dimension.dynamic.em.100.value}"
             },
             "xlarge": {
-                "value": "{dimension.dynamic.size.150.value}"
+                "value": "{dimension.dynamic.em.150.value}"
             },
             "xxlarge": {
-                "value": "{dimension.dynamic.size.200.value}"
+                "value": "{dimension.dynamic.em.200.value}"
             }
         },
         "layout": {
             "xxsmall": {
-                "value": "{dimension.dynamic.size.50.value}"
+                "value": "{dimension.dynamic.rem.50.value}"
             },
             "xsmall": {
-                "value": "{dimension.dynamic.size.100.value}"
+                "value": "{dimension.dynamic.rem.100.value}"
             },
             "small": {
-                "value": "{dimension.dynamic.size.150.value}"
+                "value": "{dimension.dynamic.rem.150.value}"
             },
             "medium": {
-                "value": "{dimension.dynamic.size.200.value}"
+                "value": "{dimension.dynamic.rem.200.value}"
             },
             "large": {
-                "value": "{dimension.dynamic.size.250.value}"
+                "value": "{dimension.dynamic.rem.250.value}"
             }
         }
     },
@@ -589,16 +589,16 @@
         },
         "size": {
             "xsmall": {
-                "value": "{dimension.dynamic.size.75.value}"
+                "value": "{dimension.dynamic.em.75.value}"
             },
             "small": {
-                "value": "{dimension.dynamic.size.87.value}"
+                "value": "{dimension.dynamic.em.87.value}"
             },
             "medium": {
-                "value": "{dimension.dynamic.size.100.value}"
+                "value": "{dimension.dynamic.em.100.value}"
             },
             "large": {
-                "value": "{dimension.dynamic.size.125.value}"
+                "value": "{dimension.dynamic.em.125.value}"
             }
         }
     },

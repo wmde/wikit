@@ -26,6 +26,7 @@ export function basic( args: object ): Component {
                     :rows="rows"
                     :resize="resize"
                     :read-only="readOnly"
+                    :disabled="disabled"
                     :loading="loading"
                     :error="validation"
                     v-model="currentValue"
@@ -59,6 +60,7 @@ basic.args = {
     placeholder: 'Placeholder',
     resize: 'vertical',
     readOnly: false,
+    disabled: false,
     loading: false,
     error: 'none'
 };
@@ -96,7 +98,9 @@ basic.argTypes = {
     },
     rows: {
         control: {
-            type: 'number',
+            type: 'range',
+            min: 2,
+            max: 20
         },
     },
     readOnly: {
@@ -112,17 +116,22 @@ basic.argTypes = {
         },
         control: {
             type: 'select',
-            options: ['vertical', 'horizontal', 'none'],
+            options: ['vertical', 'horizontal', 'both', 'none'],
             default: 'vertical'
-        },
+        }
     },
-    input : {
+    input: {
         description: 'Emitted on each character input to the textarea, contains the entire string value of the textarea itself.',
         table: {
             type: {
                 summary: 'string'
             }
         }
+    },
+    disabled: {
+        control: {
+            type: 'boolean',
+        },
     }
 };
 
@@ -135,7 +144,10 @@ export function all(): Component {
                     <TextArea label="Default" placeholder="Placeholder" />
                 </div>
                 <div style="max-width: 95%; margin-top: 1em;">
-                    <TextArea label="Read Only" placeholder="Placeholder" :read-only="true" value="Content within a read-only text area can be selected, but it cannot be edited." />
+                    <TextArea label="Read-only text area" placeholder="Placeholder" :read-only="true" value="Content within a read-only text area can be selected, but it cannot be edited." />
+                </div>
+                <div style="max-width: 95%; margin-top: 1em;">
+                    <TextArea label="Disabled text area" placeholder="Placeholder" :disabled="true" />
                 </div>
                 <div style="max-width: 95%; margin-top: 1em;">
                     <TextArea label="Loading" placeholder="Placeholder" :loading="true" value="When the text area is set to loading, an indeterminate progress bar will appear." />

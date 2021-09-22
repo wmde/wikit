@@ -3,7 +3,8 @@
 		<span class="wikit-TextArea__label-wrapper">
 			<label
 				:class="[
-					'wikit-TextArea__label'
+					'wikit-TextArea__label',
+					disabled ? `wikit-TextArea__label--disabled` : ''
 				]"
 				:for="id"
 			>
@@ -23,6 +24,7 @@
 				:rows="rows"
 				:placeholder="placeholder"
 				:readonly="readOnly || loading"
+				:disabled="disabled"
 				label=""
 				@input="$emit( 'input', $event.target.value )"
 			/>
@@ -96,6 +98,9 @@ export default defineComponent( {
 		rows: {
 			type: Number,
 			default: 2,
+			validator( value: number ): boolean {
+				return value >= 2;
+			},
 		},
 		/**
 		 * Disable users from editing the content of the textarea, while
@@ -111,7 +116,7 @@ export default defineComponent( {
 		 * using the expand handler. It can be used to entirely disable manual
 		 * resizing.
 		 *
-		 * Allowed values: `vertical`, `horizontal`,  `none`
+		 * Allowed values: `vertical`, `horizontal`,`both`, `none`.
 		 */
 		resize: {
 			type: String,
@@ -119,6 +124,13 @@ export default defineComponent( {
 				return validateLimit( value );
 			},
 			default: ResizeLimit.Vertical,
+		},
+		/**
+		 * Disables the component
+		 */
+		disabled: {
+			type: Boolean,
+			default: false,
 		},
 		/**
 		 * Sets the textarea to loading mode, which displays an indeterminate
@@ -182,6 +194,8 @@ export default defineComponent( {
 		width: 100%;
 		// The default resizing behaviour should be on the y axis only
 		resize: vertical;
+		min-height: calc(#{$wikit-TextArea-min-height} + 2*#{$dimension-padding-vertical-medium});
+		min-width: max-content;
 
 		/**
 		* Colors
@@ -195,7 +209,7 @@ export default defineComponent( {
 		font-family: $wikit-Input-font-family;
 		font-size: $wikit-Input-font-size;
 		font-weight: $wikit-Input-font-weight;
-		line-height: $wikit-Input-line-height;
+		line-height: $wikit-TextArea-line-height;
 
 		/**
 		* Spacing
@@ -255,11 +269,22 @@ export default defineComponent( {
 			color: $wikit-Input-placeholder-color;
 		}
 
+		&:disabled {
+			color: $wikit-Input-disabled-color;
+			border-color: $wikit-Input-disabled-border-color;
+			background-color: $wikit-Input-disabled-background-color;
+			box-shadow: none;
+		}
+
 		/**
 		* Property overrides
 		*/
 		&--horizontal {
 			resize: horizontal;
+		}
+
+		&--both {
+			resize: both;
 		}
 
 		&--none {
