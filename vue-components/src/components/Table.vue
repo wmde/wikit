@@ -101,7 +101,7 @@ export default Vue.extend( {
 		td[data-header]::before {
 			content: attr(data-header);
 			display: block;
-			font-weight: $wikit-Table-cell-th-font-weight;
+			font-weight: $wikit-Table-cell-heading-font-weight;
 			flex-basis: 40%;
 			// Ensure headers stay exactly 40%
 			// even if values are wider than 60%
