@@ -14,13 +14,31 @@
 import Vue, { PropType } from 'vue';
 import { Breakpoint, validateBreakpoint } from './Breakpoint';
 
+/**
+ * Tables display categorical information organized across rows and columns in
+ * order to facilitate the comparative analysis of data.
+ *
+ * The WiKit table component provides a wrapper around the common HTML table
+ * elements such as `<thead>`, `<tbody>`, `<tr>`, `<th>` and `<td>`, to apply
+ * design system styles to tabular data.
+ *
+ * Adding a `data-header` attribute to the cells allows us to maintin the column
+ * headers and display them in the table's linearzed form to provide additional
+ * context.
+ *
+ * **Example:**
+ *
+ * ```html
+ * <td data-header="Column Header">Content Here</td>
+ * ```
+ */
 export default Vue.extend( {
 	name: 'Table',
 	props: {
 		/**
 		 * Sets the viewport breakpoint that triggers the linearized view of the
 		 * table in the context of the application.
-		 * 
+		 *
 		 * Allowed Values:  "desktop", "tablet", "mobile"
 		 */
 		linearize: {
