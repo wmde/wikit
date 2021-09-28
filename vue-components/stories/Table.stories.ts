@@ -64,15 +64,14 @@ export function basic( args: object ): Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="cell in cells" :key="cell.col1">
+                        <tr v-for="(cell, i) in cells" :key="i">
                             <!-- When using the table make sure to include the
-                                data-header for linearization and accesibility -->
-                            <td data-header="Vegetable">
-                                {{cell.col1}}
-                            </td>
-                            <td data-header="Column 2">{{cell.col2}}</td>
-                            <td data-header="Column 3">{{cell.col3}}</td>
-                            <td data-header="Column 4">{{cell.col4}}</td>
+                                data-header to provide additional context in the 
+                                table's linearized form -->
+                            <td data-header="Vegetable">{{cell.col1}}</td>
+                            <td data-header="Cooked">{{cell.col2}}</td>
+                            <td data-header="Calories">{{cell.col3}}</td>
+                            <td data-header="Amount">{{cell.col4}}</td>
                         </tr>
                     </tbody>
                 </Table>
