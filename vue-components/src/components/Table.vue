@@ -36,8 +36,7 @@ export default Vue.extend( {
 <style lang="scss">
 	@mixin linear-table {
 		/**
-		* Wipe the thead from the face of the earth
-		* modern screen readers will expose the
+		* Completely removes thead, modern screen readers will expose the
 		* generated content
 		*/
 		thead {
@@ -46,7 +45,7 @@ export default Vue.extend( {
 		}
 
 		/**
-		* make everything display flex for alignment
+		* Make everything display flex for alignment
 		*/
 		tbody,
 		tr,
@@ -66,15 +65,12 @@ export default Vue.extend( {
 		/**
 		* Labeling
 		*
-		* Adding a data-title attribute to the cells
+		* Adding a data-header attribute to the cells
 		* lets us add text before the content to provide
 		* the missing context.
 		*
 		* Markup:
-		*   <td data-title="Column Header">Content Here</td>
-		*
-		* Display:
-		*   Column Header: Content Here
+		*   <td data-header="Column Header">Content Here</td>
 		*/
 		/* stylelint-disable selector-no-qualifying-type  */
 		th[data-header]::before,
@@ -89,7 +85,7 @@ export default Vue.extend( {
 			font-weight: bold;
 		}
 
-		// hide empty cells
+		// Hide empty cells
 		td:empty {
 			display: none;
 		}
