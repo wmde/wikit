@@ -79,6 +79,9 @@ export default Vue.extend( {
 			display: block;
 			font-weight: bold;
 			flex-basis: 40%;
+			// Ensure headers stay exactly 40%
+			// even if values are wider than 60%
+			min-width: 40%;
 		}
 
 		th:not([data-header]) {
