@@ -77,7 +77,7 @@ export default Vue.extend( {
 		td[data-header]::before {
 			content: attr(data-header);
 			display: block;
-			font-weight: bold;
+			font-weight: $font-weight-bold;
 			flex-basis: 40%;
 			// Ensure headers stay exactly 40%
 			// even if values are wider than 60%
@@ -85,7 +85,7 @@ export default Vue.extend( {
 		}
 
 		th:not([data-header]) {
-			font-weight: bold;
+			font-weight: $font-weight-bold;
 		}
 
 		// Hide empty cells
