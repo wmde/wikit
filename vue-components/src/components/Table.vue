@@ -17,6 +17,12 @@ import { Breakpoint, validateBreakpoint } from './Breakpoint';
 export default Vue.extend( {
 	name: 'Table',
 	props: {
+		/**
+		 * Sets the viewport breakpoint that triggers the linearized view of the
+		 * table in the context of the application.
+		 * 
+		 * Allowed Values:  "desktop", "tablet", "mobile"
+		 */
 		linearize: {
 			type: String as PropType<Breakpoint>,
 			validator( value: Breakpoint ): boolean {

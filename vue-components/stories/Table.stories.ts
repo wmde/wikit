@@ -54,7 +54,7 @@ export function basic( args: object ): Component {
         },
         template: `
 			<div style="max-width: 75%">
-                <Table id="some-table" linearize="desktop">
+                <Table id="some-table" :linearize="linearize">
                     <thead>
                         <tr>
                             <th scope="col">Vegetable</th>
@@ -80,3 +80,22 @@ export function basic( args: object ): Component {
 		`,
     };
 }
+
+basic.args = {
+    linearize: 'tablet'
+};
+
+basic.argTypes = {
+    linearize: {
+        table: {
+            defaultValue: {
+                summary: 'tablet'
+            }
+        },
+        control: {
+            type: 'select',
+            options: ['mobile', 'tablet', 'desktop'],
+            default: 'tablet'
+        }
+    }
+};
