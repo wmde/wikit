@@ -11,7 +11,13 @@ development)_
 
 ## [Unreleased]
 
+### Added
+
 - New TextArea Component
+- New Table Component
+
+### Changed
+
 - Dimension-layout tokens are now based on _rem_ instead of _em_
 
 ## [2.0.0] - 19.07.2021
