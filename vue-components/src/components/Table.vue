@@ -77,7 +77,7 @@ export default Vue.extend( {
 		td[data-header]::before {
 			content: attr(data-header);
 			display: block;
-			font-weight: $font-weight-bold;
+			font-weight: $wikit-Table-cell-th-font-weight;
 			flex-basis: 40%;
 			// Ensure headers stay exactly 40%
 			// even if values are wider than 60%
@@ -85,7 +85,7 @@ export default Vue.extend( {
 		}
 
 		th:not([data-header]) {
-			font-weight: $font-weight-bold;
+			font-weight: $wikit-Table-cell-th-font-weight;
 		}
 
 		// Hide empty cells
@@ -129,7 +129,7 @@ export default Vue.extend( {
 			/**
 			* Layout
 			*/
-			height: $dimension-min-height-xlarge;
+			height: $wikit-Table-cell-height;
 
 			/**
 			* Borders
@@ -145,8 +145,8 @@ export default Vue.extend( {
 			/**
 			* Layout
 			*/
-			padding-inline: $dimension-spacing-medium;
-			padding-block: $dimension-spacing-small;
+			padding-inline: $wikit-Table-cell-spacing-horizontal;
+			padding-block: $wikit-Table-cell-spacing-vertical;
 
 			/**
 			* Typography
@@ -162,7 +162,7 @@ export default Vue.extend( {
 			/**
 			* Typography
 			*/
-			font-weight: $font-weight-bold;
+			font-weight: $wikit-Table-cell-th-font-weight;
 		}
 
 		&--linear-mobile {
