@@ -56,7 +56,7 @@
                     "value": "{background.color.base.default.value}"
                 }
             },
-            "th": {
+            "heading": {
                 "font-weight": {
                     "value": "{font.weight.style.body-bold.value}"
                 }
