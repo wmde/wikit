@@ -14,40 +14,40 @@ export function basic( args: object ): Component {
             return {
                 cells: [
                     {
-                        col1: 'Potato',
-                        col2: 'Yes',
-                        col3: 1240,
-                        col4: 15,
+                        col1: 'Uovo in Raviolo',
+                        col2: 'Italy',
+                        col3: 'Egg',
+                        col4: 'High',
                     },
                     {
-                        col1: 'Carrot',
-                        col2: 'Yes',
-                        col3: 800,
-                        col4: 12,
+                        col1: 'Latkes',
+                        col2: 'Israel',
+                        col3: 'Potato',
+                        col4: 'High',
                     },
                     {
-                        col1: 'Onion',
-                        col2: 'Yes',
-                        col3: 50,
-                        col4: 3,
+                        col1: 'Chile en Nogada',
+                        col2: 'Mexico',
+                        col3: 'Poblano pepper',
+                        col4: 'High',
                     },
                     {
-                        col1: 'Tomato',
-                        col2: 'No',
-                        col3: 300,
-                        col4: 10,
+                        col1: 'Käsespätzle',
+                        col2: 'Germany',
+                        col3: 'Spätzle pasta',
+                        col4: 'High',
                     },
                     {
-                        col1: 'Root Beet',
-                        col2: 'Yes',
-                        col3: 200,
-                        col4: 5,
+                        col1: 'Clam Chowder',
+                        col2: 'USA',
+                        col3: 'Clams',
+                        col4: 'High',
                     },
                     {
-                        col1: 'Lettuce',
-                        col2: 'No',
-                        col3: 50,
-                        col4: 1,
+                        col1: 'Salmorejo',
+                        col2: 'Spain',
+                        col3: 'Tomato',
+                        col4: 'High',
                     }
                 ],
             }
@@ -57,10 +57,10 @@ export function basic( args: object ): Component {
                 <Table id="some-table" :linearize="linearize">
                     <thead>
                         <tr>
-                            <th scope="col">Vegetable</th>
-                            <th scope="col">Cooked</th>
-                            <th scope="col">Calories</th>
-                            <th scope="col">Amount</th>
+                            <th scope="col">Dish</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">Main ingredient</th>
+                            <th scope="col">Tastiness</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,10 +68,10 @@ export function basic( args: object ): Component {
                             <!-- When using the table make sure to include the
                                 data-header to provide additional context in the 
                                 table's linearized form -->
-                            <td data-header="Vegetable">{{cell.col1}}</td>
-                            <td data-header="Cooked">{{cell.col2}}</td>
-                            <td data-header="Calories">{{cell.col3}}</td>
-                            <td data-header="Amount">{{cell.col4}}</td>
+                            <td data-header="Dish">{{cell.col1}}</td>
+                            <td data-header="Country">{{cell.col2}}</td>
+                            <td data-header="Main ingredient">{{cell.col3}}</td>
+                            <td data-header="Tastiness">{{cell.col4}}</td>
                         </tr>
                     </tbody>
                 </Table>
