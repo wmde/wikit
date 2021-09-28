@@ -186,7 +186,7 @@ export default Vue.extend( {
 			/**
 			* Typography
 			*/
-			font-weight: $wikit-Table-cell-th-font-weight;
+			font-weight: $wikit-Table-cell-heading-font-weight;
 		}
 
 		&--linear-mobile {
