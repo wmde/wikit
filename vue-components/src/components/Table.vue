@@ -109,7 +109,7 @@ export default Vue.extend( {
 		}
 
 		th:not([data-header]) {
-			font-weight: $wikit-Table-cell-th-font-weight;
+			font-weight: $wikit-Table-cell-heading-font-weight;
 		}
 
 		// Hide empty cells
