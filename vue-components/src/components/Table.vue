@@ -22,8 +22,8 @@ import { Breakpoint, validateBreakpoint } from './Breakpoint';
  * elements such as `<thead>`, `<tbody>`, `<tr>`, `<th>` and `<td>`, to apply
  * design system styles to tabular data.
  *
- * Adding a `data-header` attribute to the cells allows us to maintin the column
- * headers and display them in the table's linearzed form to provide additional
+ * Adding a `data-header` attribute to the cells allows us to maintain the column
+ * headers and display them in the table's linearized form to provide additional
  * context.
  *
  * **Example:**
