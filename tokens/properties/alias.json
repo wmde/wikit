@@ -218,6 +218,9 @@
                     "value": "{color.base.90.value}"
                 },
                 "active": {
+                    "value": "{color.base.70.value}"
+                },
+                "quiet-active": {
                     "value": "{color.base.80.value}"
                 },
                 "focus": {
