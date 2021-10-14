@@ -152,6 +152,9 @@
             "destructive-hover": {
                 "value": "{color.modifier.lighten.utility-red-50.value}"
             },
+            "destructive-active": {
+                "value": "{color.utility.red.30.value}"
+            },
             "error": {
                 "value": "{color.utility.red.50.value}"
             },
