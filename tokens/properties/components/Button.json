@@ -196,7 +196,7 @@
                         "value": "{border.color.progressive.focus.value}"
                     },
                     "background-color": {
-                        "value": "{background.color.base.default.value.value}"
+                        "value": "{background.color.base.default.value}"
                     },
                     "box-shadow": {
                         "value": "{box-shadow.inset.focus.progressive.value}"
@@ -237,7 +237,7 @@
                         "value": "{border.color.destructive.focus.value}"
                     },
                     "background-color": {
-                        "value": "{background.color.base.default.value.value}"
+                        "value": "{background.color.base.default.value}"
                     },
                     "box-shadow": {
                         "value": "{box-shadow.inset.focus.destructive.value}"
