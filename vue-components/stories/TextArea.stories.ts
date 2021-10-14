@@ -60,7 +60,7 @@ basic.args = {
     placeholder: 'Placeholder',
     resize: 'vertical',
     readOnly: false,
-    disabled: false
+    disabled: false,
     loading: false,
     error: 'none'
 };

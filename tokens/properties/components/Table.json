@@ -1,0 +1,66 @@
+{
+    "wikit-Table": {
+        "border-style": {
+            "value": "{border.style.base.value}"
+        },
+        "border-width": {
+            "value": "{border.width.thin.value}"
+        },
+        "border-radius": {
+            "value": "{border.radius.none.value}"
+        },
+        "border-color": {
+            "value": "{border.color.base.subtle.value}"
+        },
+        "background-color": {
+            "value": "{background.color.base.default.value}"
+        },
+        "cell": {
+            "height": {
+                "value": "{dimension.min-height.xlarge.value}"
+            },
+            "spacing-vertical": {
+                "value": "{dimension.spacing.small.value}"
+            },
+            "spacing-horizontal": {
+                "value": "{dimension.spacing.medium.value}"
+            },
+            "font-family": {
+                "value": "{font.family.style.body.value}"
+            },
+            "font-size": {
+                "value": "{font.size.style.body.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.style.body.value}"
+            },
+            "color": {
+                "value": "{font.color.base.value}"
+            },
+            "line-height": {
+                "value": "{font.line-height.style.body-component.value}"
+            },
+            "transition": {
+                "timing-function": {
+                    "value": "{transition.timing-function.ease.value}"
+                },
+                "property": {
+                    "value": "{transition.property.background-color.value}"
+                },
+                "duration": {
+                    "value": "{transition.duration.medium.value}"
+                }
+            },
+            "hover": {
+                "background-color": {
+                    "value": "{background.color.base.default.value}"
+                }
+            },
+            "heading": {
+                "font-weight": {
+                    "value": "{font.weight.style.body-bold.value}"
+                }
+            }
+        }
+    }
+}

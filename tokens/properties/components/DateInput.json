@@ -1,0 +1,73 @@
+{
+    "wikit-DateInput": {
+        "introText": {
+            "font-family": {
+                "value": "{font.family.style.body.value}"
+            },
+            "font-size": {
+                "value": "{font.size.style.body.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.style.body.value}"
+            },
+            "line-height": {
+                "value": "{font.line-height.style.body-component.value}"
+            },
+            "color": {
+                "value": "{font.color.base.value}"
+            }
+        },
+        "parsedValue": {
+            "font-family": {
+                "value": "{font.family.style.body.value}"
+            },
+            "font-size": {
+                "value": "{font.size.style.body.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.style.body-bold.value}"
+            },
+            "line-height": {
+                "value": "{font.line-height.style.body-component.value}"
+            },
+            "color": {
+                "value": "{font.color.base.value}"
+            }
+        },
+        "calendarNotice": {
+            "font-family": {
+                "value": "{font.family.style.description.value}"
+            },
+            "font-size": {
+                "value": "{font.size.style.description.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.style.description.value}"
+            },
+            "line-height": {
+                "value": "{font.line-height.style.description.value}"
+            },
+            "color": {
+                "value": "{font.color.subtle.value}"
+            }
+        },
+        "prompt": {
+            "font-family": {
+                "value": "{font.family.style.placeholder.value}"
+            },
+            "font-size": {
+                "value": "{font.size.style.placeholder.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.style.placeholder.value}"
+            },
+            "line-height": {
+                "value": "{font.line-height.style.placeholder.value}"
+            },
+            "color": {
+                "value": "{font.color.subtle.value}"
+            }
+        }
+
+    }
+}

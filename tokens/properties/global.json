@@ -150,7 +150,7 @@
                 "value": "none"
             },
             "small": {
-                "value": "{wmf-line-height-heading.value}"
+                "value": "1.25"
             },
             "medium": {
                 "value": "1.5"
@@ -192,7 +192,7 @@
     },
     "dimension": {
         "dynamic": {
-            "size": {
+            "em": {
                 "0": {
                     "value": "0em"
                 },
@@ -231,6 +231,23 @@
                 },
                 "250": {
                     "value": "2.500em"
+                }
+            },
+            "rem": {
+                "50": {
+                    "value": "0.500rem"
+                },
+                "100": {
+                    "value": "1rem"
+                },
+                "150": {
+                    "value": "1.500rem"
+                },
+                "200": {
+                    "value": "2rem"
+                },
+                "250": {
+                    "value": "2.500rem"
                 }
             },
             "percentage": {
