@@ -202,9 +202,6 @@
                 },
                 "focus": {
                     "value": "{color.accent.50.value}"
-                },
-                "quiet-focus": {
-                    "value": "{color.base.100.value}"
                 }
             },
             "neutral": {
@@ -225,9 +222,6 @@
                 },
                 "focus": {
                     "value": "{color.base.90.value}"
-                },
-                "quiet-focus": {
-                    "value": "{color.base.100.value}"
                 }
             },
             "destructive": {
@@ -245,9 +239,6 @@
                 },
                 "focus": {
                     "value": "{color.utility.red.50.value}"
-                },
-                "quiet-focus": {
-                    "value": "{color.base.100.value}"
                 }
             },
             "feedback": {
