@@ -9,13 +9,29 @@ export default {
 
 export function normal(): Component {
 	return {
-		components: { Button },
+		components: { Button, Icon },
 		// The normal button types are all in the same story to achieve high % of visual tests coverage.
 		// Do not use controls to change the type unless you actively decide that is better than having test coverage.
 		template: `
 			<div>
-				<Button>Neutral</Button>
-				<Button disabled>Disabled</Button>
+				<div style="margin-bottom:16px;">
+					<Button>Neutral</Button>
+					<Button disabled>Disabled</Button>
+				</div>
+				<div>
+					<Button>
+						<template #prefix>
+							<Icon type="alert" size="medium" color="inherit"/>
+						</template>
+						Neutral
+					</Button>
+					<Button disabled>
+						<template #prefix>
+								<Icon type="edit" size="medium" color="inherit"/>
+						</template>
+						Disabled
+					</Button>
+				</div>
 			</div>
 		`,
 	};
@@ -23,14 +39,36 @@ export function normal(): Component {
 
 export function primary(): Component {
 	return {
-		components: { Button },
+		components: { Button, Icon },
 		// The primary button types are all in the same story to achieve high % of visual tests coverage.
 		// Do not use controls to change the type unless you actively decide that is better than having test coverage.
 		template: `
 			<div>
-				<Button variant="primary" type="progressive">Primary progressive</Button>
-				<Button variant="primary" type="destructive">Primary destructive</Button>
-				<Button variant="primary" type="progressive" disabled="true">Disabled</Button>
+				<div style="margin-bottom:16px;">
+					<Button variant="primary" type="progressive">Primary progressive</Button>
+					<Button variant="primary" type="destructive">Primary destructive</Button>
+					<Button variant="primary" type="progressive" disabled="true">Disabled</Button>
+				</div>
+				<div>
+					<Button variant="primary" type="progressive">
+						<template #prefix>
+							<Icon type="info" size="medium" color="inherit"/>
+						</template>
+						Primary progressive
+					</Button>
+					<Button variant="primary" type="destructive">
+						<template #prefix>
+							<Icon type="trash" size="medium" color="inherit"/>
+						</template>
+						Primary destructive
+					</Button>
+					<Button variant="primary" type="progressive" disabled="true">
+						<template #prefix>
+							<Icon type="edit" size="medium" color="inherit"/>
+						</template>
+						Disabled
+					</Button>
+				</div>
 			</div>
 		`,
 	};
@@ -38,15 +76,43 @@ export function primary(): Component {
 
 export function quiet(): Component {
 	return {
-		components: { Button },
+		components: { Button, Icon },
 		// The quiet button types are all in the same story to achieve high % of visual tests coverage.
 		// Do not use controls to change the type unless you actively decide that is better than having test coverage.
 		template: `
 			<div>
-				<Button variant="quiet" type="neutral">Neutral</Button>
-				<Button variant="quiet" type="progressive">Progressive</Button>
-				<Button variant="quiet" type="destructive">Destructive</Button>
-				<Button variant="quiet" type="neutral" disabled="true">Disabled</Button>
+				<div style="margin-bottom:16px;">
+					<Button variant="quiet" type="neutral">Neutral</Button>
+					<Button variant="quiet" type="progressive">Progressive</Button>
+					<Button variant="quiet" type="destructive">Destructive</Button>
+					<Button variant="quiet" type="neutral" disabled="true">Disabled</Button>
+				</div>
+				<div>
+					<Button variant="quiet" type="neutral">
+						<template #prefix>
+							<Icon type="alert" size="medium" color="inherit"/>
+						</template>
+						Neutral
+					</Button>
+					<Button variant="quiet" type="progressive">
+						<template #prefix>
+							<Icon type="info" size="medium" color="inherit"/>
+						</template>
+						Progressive
+					</Button>
+					<Button variant="quiet" type="destructive">
+						<template #prefix>
+							<Icon type="trash" size="medium" color="inherit"/>
+						</template>
+						Destructive
+					</Button>
+					<Button variant="quiet" type="neutral" disabled="true">
+						<template #prefix>
+							<Icon type="edit" size="medium" color="inherit"/>
+						</template>
+						Disabled
+					</Button>
+				</div>
 			</div>
 		`,
 	};
