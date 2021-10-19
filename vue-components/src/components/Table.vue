@@ -149,6 +149,13 @@ export default Vue.extend( {
 		font-size: $wikit-Table-cell-font-size;
 		font-weight: $wikit-Table-cell-font-weight;
 
+		tbody tr:hover {
+			background-color: $background-color-base-hover;
+			transition-duration: $transition-duration-medium;
+			transition-timing-function: $transition-timing-function-ease;
+			transition-property: $transition-property-background-color;
+		}
+
 		tr {
 			/**
 			* Layout
