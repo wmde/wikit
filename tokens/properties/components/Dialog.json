@@ -1,5 +1,8 @@
 {
     "wikit-Dialog": {
+        "background-color": {
+            "value": "{background.color.base.default.value}"
+        },
         "border-style": {
             "value": "{border.style.base.value}"
         },
@@ -9,15 +12,20 @@
         "border-radius": {
             "value": "{border.radius.base.value}"
         },
-        "background-color": {
-            "value": "{background.color.base.default.value}"
-        },
         "elevation": {
             "value": "{box-shadow.elevation.dialog.value}"
         },
         "transition": {
             "duration": {
                 "value":"{transition.duration.medium.value}"
+            }
+        },
+        "width": {
+            "simple":{
+                "value":"{dimension.width.large.value}"
+            },
+            "complex":{
+                "value":"{dimension.width.xlarge.value}"
             }
         },
         "header": {
@@ -34,7 +42,7 @@
                 "value": "{font.weight.style.h4.value}"
             },
             "line-height": {
-                "value": "{font.line-height.style.h4.value}"
+                "value": "{font.line-height.style.heading.value}"
             },
             "spacing-top": {
                 "value": "{dimension.spacing.large.value}"
