@@ -1,0 +1,149 @@
+{
+    "wikit-Dialog": {
+        "border-style": {
+            "value": "{border.style.base.value}"
+        },
+        "border-width": {
+            "value": "{border.width.thin.value}"
+        },
+        "border-radius": {
+            "value": "{border.radius.base.value}"
+        },
+        "background-color": {
+            "value": "{background.color.base.default.value}"
+        },
+        "elevation": {
+            "value": "{box-shadow.elevation.dialog.value}"
+        },
+        "header": {
+            "font-family": {
+                "value": "{font.family.style.heading-sans.value}"
+            },
+            "font-size": {
+                "value": "{font.size.style.body.value}"
+            },
+            "color": {
+                "value": "{font.color.emphasized.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.style.h4.value}"
+            },
+            "line-height": {
+                "value": "{font.line-height.style.h4.value}"
+            },
+            "spacing-top": {
+                "value": "{dimension.spacing.large.value}"
+            },
+            "spacing-right": {
+                "value": "{dimension.spacing.large.value}"
+            },
+            "spacing-bottom": {
+                "simple": {
+                    "value": "{dimension.spacing.small.value}"
+                },
+                "complex":{
+                    "value": "{dimension.spacing.medium.value}"
+                }
+            },
+            "spacing-left": {
+                "value": "{dimension.spacing.xlarge.value}"
+            },
+            "box-shadow": {
+                "value":"{box-shadow.inset.divider.bottom.value}",
+                "comment":"only for complex dialogs: should be displayed when scroll is activated"
+            }
+        },
+        "body": {
+            "font-family": {
+                "value": "{font.family.style.body.value}"
+            },
+            "font-size": {
+                "value": "{font.size.style.body.value}"
+            },
+            "color": {
+                "value": "{font.color.base.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.style.body.value}"
+            },
+            "line-height": {
+                "value": "{font.line-height.style.body.value}"
+            },
+            "spacing-top": {
+                "simple": {
+                    "value": "{dimension.spacing.none.value}"
+                },
+                "complex":{
+                    "value": "{dimension.spacing.small.value}"
+                }
+            },
+            "spacing-right": {
+                "value": "{dimension.spacing.xlarge.value}"
+            },
+            "spacing-bottom": {
+                "simple": {
+                    "value": "{dimension.spacing.small.value}"
+                },
+                "complex":{
+                    "value": "{dimension.spacing.large.value}"
+                }
+            },
+            "spacing-left": {
+                "value": "{dimension.spacing.xlarge.value}"
+            }
+
+        },
+        "footer": {
+            "spacing": {
+                "value": "{dimension.spacing.small.value}"
+            },
+            "spacing-top": {
+                "simple": {
+                    "value": "{dimension.spacing.small.value}"
+                },
+                "complex":{
+                    "value": "{dimension.spacing.medium.value}"
+                }
+            },
+            "spacing-right": {
+                "value": "{dimension.spacing.xlarge.value}"
+            },
+            "spacing-bottom": {
+                "simple": {
+                    "value": "{dimension.spacing.xlarge.value}"
+                },
+                "complex":{
+                    "value": "{dimension.spacing.medium.value}"
+                }
+            },
+            "spacing-left": {
+                "value": "{dimension.spacing.xlarge.value}"
+            },
+            "box-shadow": {
+                "value":"{box-shadow.inset.divider.top.value}",
+                "comment":"only for complex dialogs"
+            }
+        },
+        "overlay": {
+            "width": {
+                "value": "{dimension.width.full.value}"
+            },
+            "height": {
+                "value": "{dimension.height.full.value}"
+            },
+            "background": {
+                "color": {
+                    "value": "{background.color.base.default.value}"
+                },
+                "opacity": {
+                    "value": "{opacity.overlay.value}"
+                }
+            },
+            "transition": {
+                "duration": {
+                    "value":"{transition.duration.medium.value}"
+                }
+            }
+        }
+    }
+}
