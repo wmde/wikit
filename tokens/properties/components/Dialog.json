@@ -33,10 +33,10 @@
                 "value": "{font.family.style.heading-sans.value}"
             },
             "font-size": {
-                "value": "{font.size.style.body.value}"
+                "value": "{font.size.style.h4.value}"
             },
             "color": {
-                "value": "{font.color.emphasized.value}"
+                "value": "{font.color.base.value}"
             },
             "font-weight": {
                 "value": "{font.weight.style.h4.value}"
