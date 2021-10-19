@@ -146,6 +146,9 @@
             "destructive-hover": {
                 "value": "{color.modifier.lighten.utility-red-50.value}"
             },
+            "destructive-active": {
+                "value": "{color.utility.red.30.value}"
+            },
             "error": {
                 "value": "{color.utility.red.50.value}"
             },
@@ -196,9 +199,6 @@
                 },
                 "focus": {
                     "value": "{color.accent.50.value}"
-                },
-                "quiet-focus": {
-                    "value": "{color.base.100.value}"
                 }
             },
             "neutral": {
@@ -212,6 +212,9 @@
                     "value": "{color.base.90.value}"
                 },
                 "active": {
+                    "value": "{color.base.70.value}"
+                },
+                "quiet-active": {
                     "value": "{color.base.80.value}"
                 },
                 "focus": {
@@ -233,9 +236,6 @@
                 },
                 "focus": {
                     "value": "{color.utility.red.50.value}"
-                },
-                "quiet-focus": {
-                    "value": "{color.base.100.value}"
                 }
             },
             "feedback": {

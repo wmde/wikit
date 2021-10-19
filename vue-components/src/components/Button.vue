@@ -171,7 +171,6 @@ $base: '.wikit-Button';
 			&:hover {
 				color: $wikit-Button-normal-neutral-hover-color;
 				background-color: $wikit-Button-normal-neutral-hover-background-color;
-				border-color: $wikit-Button-normal-neutral-hover-border-color;
 			}
 
 			&:active {
@@ -179,10 +178,6 @@ $base: '.wikit-Button';
 				background-color: $wikit-Button-normal-neutral-active-background-color;
 				border-color: $wikit-Button-normal-neutral-active-border-color;
 				box-shadow: none;
-			}
-
-			&:focus:hover {
-				border-color: $wikit-Button-normal-neutral-focus-border-color;
 			}
 		}
 	}
@@ -266,9 +261,7 @@ $base: '.wikit-Button';
 			}
 
 			&:hover {
-				color: $wikit-Button-quiet-neutral-hover-color;
 				background-color: $wikit-Button-quiet-neutral-hover-background-color;
-				border-color: $wikit-Button-quiet-neutral-hover-border-color;
 			}
 
 			&:active {
@@ -276,10 +269,6 @@ $base: '.wikit-Button';
 				background-color: $wikit-Button-quiet-neutral-active-background-color;
 				border-color: $wikit-Button-quiet-neutral-active-border-color;
 				box-shadow: none;
-			}
-
-			&:focus:hover {
-				border-color: $wikit-Button-quiet-neutral-focus-border-color;
 			}
 		}
 
