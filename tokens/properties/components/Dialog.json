@@ -15,6 +15,11 @@
         "elevation": {
             "value": "{box-shadow.elevation.dialog.value}"
         },
+        "transition": {
+            "duration": {
+                "value":"{transition.duration.medium.value}"
+            }
+        },
         "header": {
             "font-family": {
                 "value": "{font.family.style.heading-sans.value}"
