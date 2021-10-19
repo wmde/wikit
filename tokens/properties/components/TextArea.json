@@ -4,7 +4,7 @@
             "value": "{font.line-height.style.body.value}"
         },
         "min-height": {
-            "value": "{dimension.min-height.xlarge.value}"
+            "value": "{dimension.height.xlarge.value}"
         }
     }
 }

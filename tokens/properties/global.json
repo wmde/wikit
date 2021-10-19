@@ -99,11 +99,14 @@
         }
     },
     "opacity": {
-        "base": {
+        "100": {
             "value": "{wmf-opacity-base.value}"
         },
-        "disabled": {
+        "50": {
             "value": "{wmf-opacity-base--disabled.value}"
+        },
+        "65": {
+            "value": "0.65"
         }
     },
     "font": {
@@ -337,12 +340,22 @@
     },
     "box-shadow": {
         "inset": {
-            "style": {
+            "all": {
                 "thin": {
                     "value": "inset 0 0 0 1px"
                 },
                 "thick": {
                     "value": "inset 0 0 0 2px"
+                }
+            },
+            "top": {
+                "thin": {
+                    "value": "inset 0 1px 0 0"
+                }
+            },
+            "bottom": {
+                "thin": {
+                    "value": "inset 0 -1px 0 0"
                 }
             }
         },
