@@ -63,7 +63,7 @@
             },
             "box-shadow": {
                 "value":"{box-shadow.inset.divider.bottom.value}",
-                "comment":"only for complex dialogs: should be displayed when scroll is activated"
+                "comment":"only for complex dialogs: divider to be displayed when scroll is activated"
             }
         },
         "body": {
@@ -108,7 +108,8 @@
         },
         "footer": {
             "spacing": {
-                "value": "{dimension.spacing.small.value}"
+                "value": "{dimension.spacing.small.value}",
+                "comment": "The space between the footer's buttons"
             },
             "spacing-top": {
                 "simple": {
@@ -134,7 +135,7 @@
             },
             "box-shadow": {
                 "value":"{box-shadow.inset.divider.top.value}",
-                "comment":"only for complex dialogs"
+                "comment":"Only for complex dialogs. Creates a divider"
             }
         },
         "overlay": {
@@ -144,13 +145,11 @@
             "height": {
                 "value": "{dimension.height.full.value}"
             },
-            "background": {
-                "color": {
+            "background-color": {
                     "value": "{background.color.base.default.value}"
-                },
-                "opacity": {
-                    "value": "{opacity.overlay.value}"
-                }
+            },
+            "opacity": {
+                "value": "{opacity.overlay.value}"
             },
             "transition": {
                 "duration": {
