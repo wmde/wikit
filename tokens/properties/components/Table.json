@@ -17,7 +17,7 @@
         },
         "cell": {
             "height": {
-                "value": "{dimension.min-height.xlarge.value}"
+                "value": "{dimension.height.xlarge.value}"
             },
             "spacing-vertical": {
                 "value": "{dimension.spacing.small.value}"
