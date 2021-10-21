@@ -15,6 +15,7 @@ development)_
 
 - New TextArea Component
 - New Table Component
+- New Close icon component
 
 ### Changed
 
