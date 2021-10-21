@@ -25,28 +25,6 @@
 			<path fill="currentColor" d="M9.163 1.68234C9.06078 1.4381 8.89901 1.22746 8.69449 1.07231C8.48997 0.917151 8.25017 0.823144 7.99999 0.800049C7.75116 0.82453 7.51294 0.919178 7.30987 1.07425C7.10679 1.22933 6.94619 1.43922 6.84459 1.68234L0.672272 13.0631C0.0337565 14.2368 0.558251 15.2 1.82768 15.2H14.1723C15.4417 15.2 15.9662 14.2368 15.3277 13.0631L9.163 1.68234ZM8.76013 12.7717H7.23986V11.1528H8.76013V12.7717ZM8.76013 9.53394H7.23986V4.67728H8.76013V9.53394Z" />
 		</svg>
 
-		<!-- arrowPrevious-ltr icon -->
-		<svg
-			class="wikit-Icon__svg"
-			viewBox="0 0 20 20"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			v-else-if="type === IconTypes.ARROWPREVIOUSLTR"
-		>
-			<path fill="currentColor" d="M5.83 9L11.41 3.42L10 2L2 10L10 18L11.41 16.59L5.83 11H18V9H5.83Z" />
-		</svg>
-
-		<!-- arrowPrevious-rtl icon -->
-		<svg
-			class="wikit-Icon__svg"
-			viewBox="0 0 20 20"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			v-else-if="type === IconTypes.ARROWPREVIOUSRTL"
-		>
-			<path fill="currentColor" d="M2 11H14.2L8.6 16.6L10 18L18 10L10 2L8.6 3.4L14.2 9H2V11Z" />
-		</svg>
-
 		<!-- checkmark icon -->
 		<svg
 			class="wikit-Icon__svg"

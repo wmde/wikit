@@ -1,8 +1,6 @@
 export enum IconTypes {
 	ADD = 'add',
 	ALERT = 'alert',
-	ARROWPREVIOUSLTR = 'arrowprevious-ltr',
-	ARROWPREVIOUSRTL = 'arrowprevious-rtl',
 	CHECKMARK = 'checkmark',
 	CLEAR = 'clear',
 	CLOSE = 'close',
