@@ -1,16 +1,19 @@
 export enum IconTypes {
+	ADD = 'add',
 	ALERT = 'alert',
-	ERROR = 'error',
-	INFO = 'info',
-	NEWWINDOW = 'newwindow',
+	ARROWPREVIOUSLTR = 'arrowprevious-ltr',
+	ARROWPREVIOUSRTL = 'arrowprevious-rtl',
 	CHECKMARK = 'checkmark',
 	CLEAR = 'clear',
+	CLOSE = 'close',
 	EDIT = 'edit',
-	TRASH = 'trash',
+	ERROR = 'error',
+	INFO = 'info',
 	INFOOUTLINED = 'info-outlined',
 	LINK = 'link',
-	ADD = 'add',
-	SEARCH = 'search'
+	NEWWINDOW = 'newwindow',
+	SEARCH = 'search',
+	TRASH = 'trash'
 }
 
 export const iconColors = [
