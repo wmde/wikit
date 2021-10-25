@@ -1,3 +1,5 @@
+const path = require( 'path' );
+
 module.exports = {
 	stories: [ '../src/**/*.stories.@(js|mdx)' ],
 	addons: [
@@ -13,5 +15,14 @@ module.exports = {
 			 */
 			url: './vue-components',
 		},
+	},
+	webpackFinal( config ) {
+		config.module.rules.push( {
+			test: /\.scss$/,
+			use: [ 'style-loader', 'css-loader', 'sass-loader' ],
+			include: path.resolve( __dirname, '../' ),
+		} );
+
+		return config;
 	},
 };
