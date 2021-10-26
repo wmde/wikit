@@ -3,6 +3,9 @@
         "background-color": {
             "value": "{background.color.base.default.value}"
         },
+        "border-color": {
+            "value": "{border.color.base.subtle.value}"
+        },
         "border-style": {
             "value": "{border.style.base.value}"
         },
