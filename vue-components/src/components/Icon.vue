@@ -1,23 +1,20 @@
+/* eslint-disable vue/valid-v-else-if */
 <template>
 	<!-- eslint-disable max-len -->
 	<span :class="['wikit', 'wikit-Icon', `wikit-Icon--${size}`, `wikit-Icon--${color}`]">
-		<!-- error icon -->
+
+		<!-- add icon -->
 		<svg
-			class="wikit-Icon__svg"
-			viewBox="0 0 16 16"
+			viewBox="0 0 21 20"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			v-if="type === IconTypes.ERROR"
+			class="wikit-Icon__svg"
+			v-if="type === IconTypes.ADD"
 		>
-			<path
-				fill="currentColor"
-				d="M11.4939 0H4.50612L0 4.50612V11.5102L4.50612 16H11.5102L16 11.4939V4.50612L11.4939 0Z
-					M8.8 11.9938H7.2V10.3999H8.8V11.9938Z
-					M8.8 9.6H7.2V4H8.8V9.6Z"
-			/>
+			<path d="M19.5444 8.5H12.0444V1H9.04443V8.5H1.54443V11.5H9.04443V19H12.0444V11.5H19.5444V8.5Z" fill="currentColor" />
 		</svg>
 
-		<!-- warning icon -->
+		<!-- alert icon -->
 		<svg
 			class="wikit-Icon__svg"
 			viewBox="0 0 16 16"
@@ -26,29 +23,6 @@
 			v-else-if="type === IconTypes.ALERT"
 		>
 			<path fill="currentColor" d="M9.163 1.68234C9.06078 1.4381 8.89901 1.22746 8.69449 1.07231C8.48997 0.917151 8.25017 0.823144 7.99999 0.800049C7.75116 0.82453 7.51294 0.919178 7.30987 1.07425C7.10679 1.22933 6.94619 1.43922 6.84459 1.68234L0.672272 13.0631C0.0337565 14.2368 0.558251 15.2 1.82768 15.2H14.1723C15.4417 15.2 15.9662 14.2368 15.3277 13.0631L9.163 1.68234ZM8.76013 12.7717H7.23986V11.1528H8.76013V12.7717ZM8.76013 9.53394H7.23986V4.67728H8.76013V9.53394Z" />
-		</svg>
-
-		<!-- info icon -->
-		<svg
-			class="wikit-Icon__svg"
-			viewBox="0 0 20 20"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			v-else-if="type === IconTypes.INFO"
-		>
-			<path fill="currentColor" d="M10 0C4.477 0 0 4.477 0 10C0 15.523 4.477 20 10 20C15.523 20 20 15.523 20 10C20 4.477 15.523 0 10 0ZM9 5H11V7H9V5ZM9 9H11V15H9V9Z" />
-		</svg>
-
-		<!-- new window icon -->
-		<svg
-			class="wikit-Icon__svg"
-			viewBox="0 0 20 20"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			v-else-if="type === IconTypes.NEWWINDOW"
-		>
-			<path fill="currentColor" d="M17 17H3V3H8V1H3C2.46957 1 1.96086 1.21071 1.58579 1.58579C1.21071 1.96086 1 2.46957 1 3V17C1 17.5304 1.21071 18.0391 1.58579 18.4142C1.96086 18.7893 2.46957 19 3 19H17C17.5304 19 18.0391 18.7893 18.4142 18.4142C18.7893 18.0391 19 17.5304 19 17V12H17V17Z" />
-			<path fill="currentColor" d="M11 1L14.29 4.29L8.56 10.02L9.98 11.44L15.71 5.71L19 9V1H11Z" />
 		</svg>
 
 		<!-- checkmark icon -->
@@ -73,6 +47,18 @@
 			<path fill="currentColor" d="M10 0a10 10 0 1010 10A10 10 0 0010 0zm5.66 14.24l-1.41 1.41L10 11.41l-4.24 4.25-1.42-1.42L8.59 10 4.34 5.76l1.42-1.42L10 8.59l4.24-4.24 1.41 1.41L11.41 10z" />
 		</svg>
 
+		<!-- close icon -->
+		<svg
+			class="wikit-Icon__svg"
+			viewBox="0 0 20 20"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			v-else-if="type === IconTypes.CLOSE"
+		>
+			<path fill="currentColor" d="M4.33999 2.92999L17.07 15.66L15.66 17.07L2.92999 4.34999L4.33999 2.92999Z" />
+			<path fill="currentColor" d="M17.07 4.33999L4.33999 17.07L2.92999 15.66L15.66 2.92999L17.07 4.33999Z" />
+		</svg>
+
 		<!-- edit icon -->
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -83,18 +69,35 @@
 		>
 			<path fill="currentColor" d="M16.77 8l1.94-2a1 1 0 000-1.41l-3.34-3.3a1 1 0 00-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z" />
 		</svg>
-		<!-- trash icon -->
+
+		<!-- error icon -->
+		<svg
+			class="wikit-Icon__svg"
+			viewBox="0 0 16 16"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			v-else-if="type === IconTypes.ERROR"
+		>
+			<path
+				fill="currentColor"
+				d="M11.4939 0H4.50612L0 4.50612V11.5102L4.50612 16H11.5102L16 11.4939V4.50612L11.4939 0Z
+					M8.8 11.9938H7.2V10.3999H8.8V11.9938Z
+					M8.8 9.6H7.2V4H8.8V9.6Z"
+			/>
+		</svg>
+
+		<!-- info icon -->
 		<svg
 			class="wikit-Icon__svg"
 			viewBox="0 0 20 20"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			v-else-if="type === IconTypes.TRASH"
+			v-else-if="type === IconTypes.INFO"
 		>
-			<path d="M17 2H13.5L12.5 1H7.5L6.5 2H3V4H17V2ZM4 17C4 17.5304 4.21071 18.0391 4.58579 18.4142C4.96086 18.7893 5.46957 19 6 19H14C14.5304 19 15.0391 18.7893 15.4142 18.4142C15.7893 18.0391 16 17.5304 16 17V5H4V17Z" fill="currentColor" />
+			<path fill="currentColor" d="M10 0C4.477 0 0 4.477 0 10C0 15.523 4.477 20 10 20C15.523 20 20 15.523 20 10C20 4.477 15.523 0 10 0ZM9 5H11V7H9V5ZM9 9H11V15H9V9Z" />
 		</svg>
 
-		<!-- info icon -->
+		<!-- info-outlined icon -->
 		<svg
 			viewBox="0 0 20 21"
 			fill="none"
@@ -140,15 +143,16 @@
 			</defs>
 		</svg>
 
-		<!-- add icon -->
+		<!-- new window icon -->
 		<svg
-			viewBox="0 0 21 20"
+			class="wikit-Icon__svg"
+			viewBox="0 0 20 20"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			class="wikit-Icon__svg"
-			v-else-if="type === IconTypes.ADD"
+			v-else-if="type === IconTypes.NEWWINDOW"
 		>
-			<path d="M19.5444 8.5H12.0444V1H9.04443V8.5H1.54443V11.5H9.04443V19H12.0444V11.5H19.5444V8.5Z" fill="currentColor" />
+			<path fill="currentColor" d="M17 17H3V3H8V1H3C2.46957 1 1.96086 1.21071 1.58579 1.58579C1.21071 1.96086 1 2.46957 1 3V17C1 17.5304 1.21071 18.0391 1.58579 18.4142C1.96086 18.7893 2.46957 19 3 19H17C17.5304 19 18.0391 18.7893 18.4142 18.4142C18.7893 18.0391 19 17.5304 19 17V12H17V17Z" />
+			<path fill="currentColor" d="M11 1L14.29 4.29L8.56 10.02L9.98 11.44L15.71 5.71L19 9V1H11Z" />
 		</svg>
 
 		<!-- search icon -->
@@ -159,6 +163,17 @@
 			v-else-if="type === IconTypes.SEARCH"
 		>
 			<path d="M7.5 13c3.04 0 5.5-2.46 5.5-5.5S10.54 2 7.5 2 2 4.46 2 7.5 4.46 13 7.5 13zm4.55.46A7.432 7.432 0 017.5 15C3.36 15 0 11.64 0 7.5S3.36 0 7.5 0C11.64 0 15 3.36 15 7.5c0 1.71-.57 3.29-1.54 4.55l6.49 6.49-1.41 1.41-6.49-6.49z" fill="currentColor" />
+		</svg>
+
+		<!-- trash icon -->
+		<svg
+			class="wikit-Icon__svg"
+			viewBox="0 0 20 20"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			v-else-if="type === IconTypes.TRASH"
+		>
+			<path d="M17 2H13.5L12.5 1H7.5L6.5 2H3V4H17V2ZM4 17C4 17.5304 4.21071 18.0391 4.58579 18.4142C4.96086 18.7893 5.46957 19 6 19H14C14.5304 19 15.0391 18.7893 15.4142 18.4142C15.7893 18.0391 16 17.5304 16 17V5H4V17Z" fill="currentColor" />
 		</svg>
 
 	</span>
