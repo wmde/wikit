@@ -88,7 +88,7 @@ export default Vue.extend( {
 
 	&__content {
 		/**
-		* Overflow-wrap value should be overriden to 'anywhere'
+		* Value of overflow-wrap should be overriden to 'anywhere'
 		* to prevent long URLs from overflowing
 		*/
 		overflow-wrap: break-word;
