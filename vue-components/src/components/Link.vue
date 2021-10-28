@@ -69,7 +69,6 @@ export default Vue.extend( {
 	display: flex;
 	text-decoration: none;
 	align-items: center;
-	width: max-content;
 
 	&--underlined {
 		text-decoration: underline;
@@ -85,6 +84,15 @@ export default Vue.extend( {
 		&--after {
 			padding-inline-start: $wikit-Link-icon-spacing;
 		}
+	}
+
+	&__content {
+		/**
+		* Overflow-wrap value should be overriden to 'anywhere'
+		* to prevent long URLs from overflowing
+		*/
+		overflow-wrap: break-word;
+		hyphens: auto;
 	}
 }
 </style>
