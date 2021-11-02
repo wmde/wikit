@@ -69,6 +69,8 @@ export default Vue.extend( {
 	display: flex;
 	text-decoration: none;
 	align-items: center;
+	overflow-wrap: break-word;
+	hyphens: auto;
 
 	&--underlined {
 		text-decoration: underline;
@@ -84,15 +86,6 @@ export default Vue.extend( {
 		&--after {
 			padding-inline-start: $wikit-Link-icon-spacing;
 		}
-	}
-
-	&__content {
-		/**
-		* Value of overflow-wrap should be overriden to 'anywhere'
-		* to prevent long URLs from overflowing
-		*/
-		overflow-wrap: break-word;
-		hyphens: auto;
 	}
 }
 </style>
