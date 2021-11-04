@@ -27,7 +27,10 @@
 
 		<!-- arrownext icon -->
 		<svg
-			class="wikit-Icon__svg"
+			:class="[
+				'wikit-Icon__svg',
+				flip ? 'wikit-Icon__svg--flipped' : ''
+			]"
 			viewBox="0 0 20 20"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
@@ -203,8 +206,8 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { IconTypes, iconColors, iconSizes } from './iconProps';
+import Vue, { PropType } from 'vue';
+import { IconTypes, IconDirection, iconColors, iconSizes } from './iconProps';
 import generateUid from '@/components/util/generateUid';
 
 /**
@@ -234,6 +237,14 @@ export default Vue.extend( {
 			required: true,
 		},
 
+		dir: {
+			type: String as PropType<IconDirection>,
+			validator( value: string ): boolean {
+				return Object.values( IconDirection ).includes( value as IconDirection );
+			},
+			default: IconDirection.LTR,
+		},
+
 		color: {
 			type: String,
 			validator( value: string ): boolean {
@@ -248,6 +259,12 @@ export default Vue.extend( {
 				return iconSizes.includes( value );
 			},
 			default: 'large',
+		},
+	},
+
+	computed: {
+		flip(): boolean {
+			return this.dir === IconDirection.RTL;
 		},
 	},
 } );

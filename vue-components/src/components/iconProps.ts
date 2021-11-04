@@ -16,7 +16,7 @@ export enum IconTypes {
 	TRASH = 'trash'
 }
 
-export enum iconDirection {
+export enum IconDirection {
 	RTL = 'rtl',
 	LTR = 'ltr'
 }

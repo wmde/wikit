@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Icon from '@/components/Icon.vue';
-import { iconSizes, iconColors, IconTypes } from '@/components/iconProps';
+import { iconSizes, IconDirection, iconColors, IconTypes } from '@/components/iconProps';
 
 jest.mock( '@/components/util/generateUid', () => {
 	return () => 'mockedID';
@@ -142,6 +142,25 @@ describe( 'Icon', () => {
 				size,
 			},
 		} ).classes() ).toContain( `wikit-Icon--${size}` );
+	} );
+
+	it( 'it accepts the dir prop', async () => {
+		const wrapper = mount( Icon, {
+			propsData: {
+				type: 'arrownext',
+				dir: IconDirection.LTR,
+			},
+		} );
+
+		expect( wrapper.props().dir ).toBe( IconDirection.LTR );
+
+		const svg = wrapper.find( '.wikit-Icon__svg' );
+		expect( svg.classes() ).not.toContain( 'wikit-Icon__svg--flipped' );
+
+		await wrapper.setProps( {
+			dir: IconDirection.RTL,
+		} );
+		expect( svg.classes() ).toContain( 'wikit-Icon__svg--flipped' );
 	} );
 
 } );
