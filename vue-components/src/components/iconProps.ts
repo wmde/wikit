@@ -16,6 +16,11 @@ export enum IconTypes {
 	TRASH = 'trash'
 }
 
+export enum iconDirection {
+	RTL = 'rtl',
+	LTR = 'ltr'
+}
+
 export const iconColors = [
 	'base',
 	'subtle',
