@@ -330,5 +330,9 @@ export default Vue.extend( {
 		width: $wikit-Icon-size-xsmall;
 		height: $wikit-Icon-size-xsmall;
 	}
+
+	&__svg--flipped {
+		transform: scaleX(-1);
+	}
 }
 </style>
