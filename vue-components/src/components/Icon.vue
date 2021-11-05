@@ -236,7 +236,11 @@ export default Vue.extend( {
 			},
 			required: true,
 		},
-
+		/**
+		 * Determines the direction of localizable icons.
+		 *
+		 * Possible values: `rtl` and `ltr`.
+		 */
 		dir: {
 			type: String as PropType<IconDirection>,
 			validator( value: string ): boolean {
