@@ -16,6 +16,15 @@ export enum IconTypes {
 	TRASH = 'trash'
 }
 
+/**
+ * List icons that should be localized.
+ */
+export const flippable = [
+	IconTypes.ARROWNEXT,
+	IconTypes.ARROWPREVIOUS,
+	IconTypes.NEWWINDOW,
+];
+
 export enum IconDirection {
 	RTL = 'rtl',
 	LTR = 'ltr'

@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 import Icon from '@/components/Icon.vue';
-import { iconSizes, IconDirection, iconColors, IconTypes } from '@/components/iconProps';
+import { iconSizes, flippable, IconDirection, iconColors, IconTypes } from '@/components/iconProps';
+import { iteratee } from 'lodash';
 
 jest.mock( '@/components/util/generateUid', () => {
 	return () => 'mockedID';
@@ -144,23 +145,30 @@ describe( 'Icon', () => {
 		} ).classes() ).toContain( `wikit-Icon--${size}` );
 	} );
 
-	it( 'it accepts the dir prop', async () => {
+	it.each( flippable )( '%s flips direction when dir is "rtl"', async ( type ) => {
+		const flippedClass = 'wikit-Icon--flipped';
 		const wrapper = mount( Icon, {
-			propsData: {
-				type: 'arrownext',
-				dir: IconDirection.LTR,
-			},
+			propsData: { type },
 		} );
 
 		expect( wrapper.props().dir ).toBe( IconDirection.LTR );
+		expect( wrapper.classes() ).not.toContain( flippedClass );
 
-		const svg = wrapper.find( '.wikit-Icon__svg' );
-		expect( svg.classes() ).not.toContain( 'wikit-Icon__svg--flipped' );
+		await wrapper.setProps( { dir: IconDirection.RTL } );
+		expect( wrapper.props().dir ).toBe( IconDirection.RTL );
+		expect( wrapper.classes() ).toContain( flippedClass );
+	} );
 
-		await wrapper.setProps( {
-			dir: IconDirection.RTL,
+	it ( 'doesn\'t flip direction for unlocalizable icons', async ( ) => {
+		const flippedClass = 'wikit-Icon--flipped';
+		const wrapper = mount( Icon, {
+			propsData: {
+				type: 'edit',
+				dir: IconDirection.RTL,
+			},
 		} );
-		expect( svg.classes() ).toContain( 'wikit-Icon__svg--flipped' );
+
+		expect( wrapper.classes() ).not.toContain( flippedClass );
 	} );
 
 	it( 'validates the dir prop', () => {

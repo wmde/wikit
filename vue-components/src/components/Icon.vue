@@ -1,7 +1,14 @@
 /* eslint-disable vue/valid-v-else-if */
 <template>
 	<!-- eslint-disable max-len -->
-	<span :class="['wikit', 'wikit-Icon', `wikit-Icon--${size}`, `wikit-Icon--${color}`]">
+	<span
+		:class="[
+			'wikit',
+			'wikit-Icon',
+			`wikit-Icon--${size}`,
+			`wikit-Icon--${color}`,
+			flip ? 'wikit-Icon--flipped' : ''
+		]">
 
 		<!-- add icon -->
 		<svg
@@ -27,10 +34,7 @@
 
 		<!-- arrownext icon -->
 		<svg
-			:class="[
-				'wikit-Icon__svg',
-				flip ? 'wikit-Icon__svg--flipped' : ''
-			]"
+			class="wikit-Icon__svg"
 			viewBox="0 0 20 20"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
@@ -41,10 +45,7 @@
 
 		<!-- arrowprevious icon -->
 		<svg
-			:class="[
-				'wikit-Icon__svg',
-				flip ? 'wikit-Icon__svg--flipped' : '' 
-			]"
+			class="wikit-Icon__svg"
 			viewBox="0 0 20 20"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
@@ -210,7 +211,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import { IconTypes, IconDirection, iconColors, iconSizes } from './iconProps';
+import { IconTypes, flippable, IconDirection, iconColors, iconSizes } from './iconProps';
 import generateUid from '@/components/util/generateUid';
 
 /**
@@ -274,7 +275,7 @@ export default Vue.extend( {
 
 	computed: {
 		flip(): boolean {
-			return this.dir === IconDirection.RTL;
+			return this.dir === IconDirection.RTL && flippable.includes( this.type as IconTypes );
 		},
 	},
 } );
@@ -337,7 +338,7 @@ export default Vue.extend( {
 		height: $wikit-Icon-size-xsmall;
 	}
 
-	&__svg--flipped {
+	&--flipped {
 		transform: scaleX(-1);
 	}
 }
