@@ -1,7 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Icon from '@/components/Icon.vue';
 import { iconSizes, flippable, IconDirection, iconColors, IconTypes } from '@/components/iconProps';
-import { iteratee } from 'lodash';
 
 jest.mock( '@/components/util/generateUid', () => {
 	return () => 'mockedID';
@@ -159,7 +158,7 @@ describe( 'Icon', () => {
 		expect( wrapper.classes() ).toContain( flippedClass );
 	} );
 
-	it ( 'doesn\'t flip direction for unlocalizable icons', async ( ) => {
+	it( 'doesn\'t flip direction for unlocalizable icons', async () => {
 		const flippedClass = 'wikit-Icon--flipped';
 		const wrapper = mount( Icon, {
 			propsData: {

@@ -8,7 +8,8 @@
 			`wikit-Icon--${size}`,
 			`wikit-Icon--${color}`,
 			flip ? 'wikit-Icon--flipped' : ''
-		]">
+		]"
+	>
 
 		<!-- add icon -->
 		<svg
