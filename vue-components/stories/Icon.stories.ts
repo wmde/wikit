@@ -1,5 +1,5 @@
 import Icon from '@/components/Icon';
-import { iconSizes, iconColors, IconTypes } from '@/components/iconProps';
+import { iconSizes, IconDirection, iconColors, IconTypes } from '@/components/iconProps';
 import { Component } from 'vue';
 
 export default {
@@ -7,12 +7,44 @@ export default {
 	title: 'Icon',
 };
 
-export function basic(): Component {
+export function basic( args: object ): Component {
 	return {
 		components: { Icon },
-		template: `<Icon type="arrownext"/>`,
+		props: Object.keys( args ),
+		template: '<Icon type="arrownext" :dir="dir"/>',
 	};
 }
+
+basic.args = {
+	dir: IconDirection.LTR,
+};
+
+basic.argTypes = {
+	dir: {
+		control: {
+			type: 'radio',
+			options: Object.values( IconDirection ),
+			default: IconDirection.LTR,
+		},
+		table: {
+			type: {
+				summary: 'string',
+			},
+			defaultValue: {
+				summary: 'ltr',
+			},
+		},
+	},
+	type: {
+		control: false,
+	},
+	color: {
+		control: false,
+	},
+	size: {
+		control: false,
+	},
+};
 
 export function allTypes(): Component {
 	return {
