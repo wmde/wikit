@@ -7,6 +7,13 @@ export default {
 	title: 'Icon',
 };
 
+export function basic(): Component {
+	return {
+		components: { Icon },
+		template: `<Icon type="arrownext"/>`,
+	};
+}
+
 export function allTypes(): Component {
 	return {
 		data(): object {
