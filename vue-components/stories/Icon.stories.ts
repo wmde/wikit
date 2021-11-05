@@ -7,19 +7,28 @@ export default {
 	title: 'Icon',
 };
 
+const typeValues = Object.values( IconTypes );
 export function basic( args: object ): Component {
 	return {
 		components: { Icon },
 		props: Object.keys( args ),
-		template: '<Icon type="arrownext" :dir="dir"/>',
+		template: '<Icon :type="type" :dir="dir"/>',
 	};
 }
 
 basic.args = {
+	type: typeValues[0],
 	dir: IconDirection.LTR,
 };
 
 basic.argTypes = {
+	type: {
+		control: {
+			type: 'select',
+			options: typeValues,
+			default: typeValues[0],
+		},
+	},
 	dir: {
 		control: {
 			type: 'radio',
@@ -34,9 +43,6 @@ basic.argTypes = {
 				summary: 'ltr',
 			},
 		},
-	},
-	type: {
-		control: false,
 	},
 	color: {
 		control: false,

@@ -229,6 +229,9 @@ export default Vue.extend( {
 	},
 
 	props: {
+		/**
+		 * The type of icon to display.
+		 */
 		type: {
 			type: String,
 			validator( value: string ): boolean {
