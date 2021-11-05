@@ -163,4 +163,13 @@ describe( 'Icon', () => {
 		expect( svg.classes() ).toContain( 'wikit-Icon__svg--flipped' );
 	} );
 
+	it( 'validates the dir prop', () => {
+		expect( () => mount( Icon, {
+			propsData: {
+				type: 'error',
+				dir: 'banana',
+			},
+		} ) ).toThrow();
+	} );
+
 } );
