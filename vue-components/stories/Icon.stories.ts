@@ -1,5 +1,5 @@
 import Icon from '@/components/Icon';
-import { iconSizes, IconDirection, iconColors, IconTypes } from '@/components/iconProps';
+import { iconSizes, IconDirection, flippable, IconTypes } from '@/components/iconProps';
 import { Component } from 'vue';
 
 export default {
@@ -8,7 +8,9 @@ export default {
 };
 
 const typeValues = Object.values( IconTypes );
-export function basic( args: object ): Component {
+export function basic( args: { dir: string; type: string }, { argTypes } ): Component {
+	argTypes.dir.control.disable = !flippable.includes( args.type );
+
 	return {
 		components: { Icon },
 		props: Object.keys( args ),
