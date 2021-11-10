@@ -214,6 +214,16 @@
         "__isArgsStory": false
       }
     },
+    "icon--basic": {
+      "id": "icon--basic",
+      "name": "Basic",
+      "kind": "Icon",
+      "story": "Basic",
+      "parameters": {
+        "__id": "icon--basic",
+        "__isArgsStory": true
+      }
+    },
     "icon--all-types": {
       "id": "icon--all-types",
       "name": "All Types",
