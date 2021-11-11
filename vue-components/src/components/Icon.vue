@@ -1,7 +1,15 @@
 /* eslint-disable vue/valid-v-else-if */
 <template>
 	<!-- eslint-disable max-len -->
-	<span :class="['wikit', 'wikit-Icon', `wikit-Icon--${size}`, `wikit-Icon--${color}`]">
+	<span
+		:class="[
+			'wikit',
+			'wikit-Icon',
+			`wikit-Icon--${size}`,
+			`wikit-Icon--${color}`,
+			flip ? 'wikit-Icon--flipped' : ''
+		]"
+	>
 
 		<!-- add icon -->
 		<svg
@@ -23,6 +31,28 @@
 			v-else-if="type === IconTypes.ALERT"
 		>
 			<path fill="currentColor" d="M9.163 1.68234C9.06078 1.4381 8.89901 1.22746 8.69449 1.07231C8.48997 0.917151 8.25017 0.823144 7.99999 0.800049C7.75116 0.82453 7.51294 0.919178 7.30987 1.07425C7.10679 1.22933 6.94619 1.43922 6.84459 1.68234L0.672272 13.0631C0.0337565 14.2368 0.558251 15.2 1.82768 15.2H14.1723C15.4417 15.2 15.9662 14.2368 15.3277 13.0631L9.163 1.68234ZM8.76013 12.7717H7.23986V11.1528H8.76013V12.7717ZM8.76013 9.53394H7.23986V4.67728H8.76013V9.53394Z" />
+		</svg>
+
+		<!-- arrownext icon -->
+		<svg
+			class="wikit-Icon__svg"
+			viewBox="0 0 20 20"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			v-else-if="type === IconTypes.ARROWNEXT"
+		>
+			<path fill="currentColor" d="M8.59 3.42L14.17 9H2V11H14.17L8.59 16.59L10 18L18 10L10 2L8.59 3.42Z" />
+		</svg>
+
+		<!-- arrowprevious icon -->
+		<svg
+			class="wikit-Icon__svg"
+			viewBox="0 0 20 20"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			v-else-if="type === IconTypes.ARROWPREVIOUS"
+		>
+			<path fill="currentColor" d="M5.83 9L11.41 3.42L10 2L2 10L10 18L11.41 16.59L5.83 11H18V9H5.83Z" />
 		</svg>
 
 		<!-- checkmark icon -->
@@ -181,8 +211,8 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { IconTypes, iconColors, iconSizes } from './iconProps';
+import Vue, { PropType } from 'vue';
+import { IconTypes, flippable, IconDirection, iconColors, iconSizes } from './iconProps';
 import generateUid from '@/components/util/generateUid';
 
 /**
@@ -204,12 +234,27 @@ export default Vue.extend( {
 	},
 
 	props: {
+		/**
+		 * The type of icon to display.
+		 */
 		type: {
 			type: String,
 			validator( value: string ): boolean {
 				return Object.values( IconTypes ).includes( value as IconTypes );
 			},
 			required: true,
+		},
+		/**
+		 * Determines the direction of localizable icons.
+		 *
+		 * Possible values: `rtl` and `ltr`.
+		 */
+		dir: {
+			type: String as PropType<IconDirection>,
+			validator( value: string ): boolean {
+				return Object.values( IconDirection ).includes( value as IconDirection );
+			},
+			default: IconDirection.LTR,
 		},
 
 		color: {
@@ -226,6 +271,12 @@ export default Vue.extend( {
 				return iconSizes.includes( value );
 			},
 			default: 'large',
+		},
+	},
+
+	computed: {
+		flip(): boolean {
+			return this.dir === IconDirection.RTL && flippable.includes( this.type as IconTypes );
 		},
 	},
 } );
@@ -286,6 +337,10 @@ export default Vue.extend( {
 	&--xsmall &__svg {
 		width: $wikit-Icon-size-xsmall;
 		height: $wikit-Icon-size-xsmall;
+	}
+
+	&--flipped {
+		transform: scaleX(-1);
 	}
 }
 </style>
