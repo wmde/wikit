@@ -1,10 +1,55 @@
 import Icon from '@/components/Icon';
-import { iconSizes, iconColors, IconTypes } from '@/components/iconProps';
+import { iconSizes, IconDirection, iconColors, IconTypes } from '@/components/iconProps';
 import { Component } from 'vue';
 
 export default {
 	component: Icon,
 	title: 'Icon',
+};
+
+const typeValues = Object.values( IconTypes );
+export function basic( args: object ): Component {
+	return {
+		components: { Icon },
+		props: Object.keys( args ),
+		template: '<Icon :type="type" :dir="dir"/>',
+	};
+}
+
+basic.args = {
+	type: typeValues[0],
+	dir: IconDirection.LTR,
+};
+
+basic.argTypes = {
+	type: {
+		control: {
+			type: 'select',
+			options: typeValues,
+			default: typeValues[0],
+		},
+	},
+	dir: {
+		control: {
+			type: 'radio',
+			options: Object.values( IconDirection ),
+			default: IconDirection.LTR,
+		},
+		table: {
+			type: {
+				summary: 'string',
+			},
+			defaultValue: {
+				summary: 'ltr',
+			},
+		},
+	},
+	color: {
+		control: false,
+	},
+	size: {
+		control: false,
+	},
 };
 
 export function allTypes(): Component {
