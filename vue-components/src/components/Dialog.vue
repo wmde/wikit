@@ -20,7 +20,12 @@
 			:aria-labelledby="`dialog-title-${uid}`"
 		>
 			<div class="wikit-Dialog__overlay" @click="dismiss" />
-			<div class="wikit-Dialog__modal">
+			<div
+				:class="[
+					'wikit-Dialog__modal',
+					scrolled ? 'wikit-Dialog__modal--scrolled' : ''
+				]"
+			>
 				<header class="wikit-Dialog__header">
 					<span :id="`dialog-title-${uid}`" class="wikit-Dialog__title">{{ title }}</span>
 					<Button
@@ -37,10 +42,7 @@
 					</Button>
 				</header>
 				<section
-					:class="[
-						'wikit-Dialog__content',
-						scrolled ? 'wikit-Dialog__content--scrolled' : ''
-					]"
+					class="wikit-Dialog__content"
 					ref="content"
 					@scroll="_handleScroll"
 				>
@@ -68,6 +70,7 @@
 </template>
 
 <script lang="ts">
+// intentional use of _ notation to mark private functions by convention
 /* eslint-disable no-underscore-dangle */
 
 import Vue, { PropType } from 'vue';
@@ -305,22 +308,14 @@ export default Vue.extend( {
 </script>
 
 <style lang="scss">
-	@import '~@wmde/wikit-tokens/dist/_variables.scss';
 	$base: '.wikit-Dialog';
-
-	// This token was missed, and will be fixed in WiKit.
-	// TODO: Replace this with the fixed component token when porting to WiKit
-	$wikit-Dialog-border-color: $border-color-base-subtle;
 
 	#{$base} {
 		/**
 		* Layout
 		*/
 		position: fixed;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
+		inset: 0 0 0 0;
 		z-index: 1;
 	}
 
@@ -331,8 +326,8 @@ export default Vue.extend( {
 		width: $wikit-Dialog-overlay-width;
 		height: $wikit-Dialog-overlay-height;
 		position: absolute;
-		top: 0;
-		left: 0;
+		inset-block-start: 0;
+		inset-inline-start: 0;
 
 		/**
 		* Colors
@@ -353,8 +348,8 @@ export default Vue.extend( {
 		max-height: 90%;
 
 		position: absolute;
-		top: 50%;
-		left: 50%;
+		inset-block-start: 0;
+		inset-inline-start: 0;
 		transform: translate(-50%, -50%);
 
 		/**
@@ -379,6 +374,10 @@ export default Vue.extend( {
 		border-width: $wikit-Dialog-border-width;
 		border-radius: $wikit-Dialog-border-radius;
 		box-shadow: $wikit-Dialog-elevation;
+
+		&--scrolled #{$base}__header {
+			box-shadow: $wikit-Dialog-header-box-shadow;
+		}
 	}
 
 	#{$base}__header {
@@ -411,14 +410,6 @@ export default Vue.extend( {
 		padding-block-end: $wikit-Dialog-body-spacing-bottom-complex;
 		padding-inline-start: $wikit-Dialog-body-spacing-left;
 		padding-inline-end: $wikit-Dialog-body-spacing-left;
-
-		&--scrolled {
-			// This token was actually supposed to go on the header but was
-			// included here due to a token value mistake which will be fixed
-			// in WiKit.
-			// TODO: After porting to wikit move this to `#{$base}__header`
-			box-shadow: $wikit-Dialog-header-box-shadow;
-		}
 	}
 
 	#{$base}__footer {
