@@ -500,7 +500,7 @@
                     "value": "{box-shadow.inset.top.thin.value} {color.base.70.value}"
                 },
                 "bottom": {
-                    "value": "{box-shadow.inset.top.thin.value} {color.base.70.value}"
+                    "value": "{box-shadow.inset.bottom.thin.value} {color.base.70.value}"
                 }
             }
         },
