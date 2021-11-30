@@ -178,6 +178,9 @@ export default Vue.extend( {
 		hide(): void {
 			document.removeEventListener( 'keydown', this._handleKeydown );
 			this.open = false;
+			/**
+			 * is called whenever the visible state of the dialog changes
+			 */
 			this.$emit( 'update:visible', this.open );
 		},
 		show(): void {
@@ -188,10 +191,17 @@ export default Vue.extend( {
 			this.$nextTick( this._resetScroll );
 		},
 		dismiss(): void {
+			/** 
+			 * Closes / dismisses the dialog
+			 */
 			this.$emit( 'dismissed' );
 			this.hide();
 		},
 		_dispatch( namespace: string ): void {
+			/**
+			 * generic action that will be performed by the primary 
+			 * or secondary buttons of the dialog component
+			 */
 			this.$emit( 'action', namespace, this );
 		},
 		_handleKeydown( event: KeyboardEvent ): void {
