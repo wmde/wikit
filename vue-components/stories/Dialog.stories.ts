@@ -17,7 +17,7 @@ export function complex( args: { title: string, actions: string, dismissButton: 
 					@click.native="$refs.simple.show()" 
 					variant="primary" type="progressive"
 				>
-					Open Basic Dialog
+					Open complex dialog
 				</Button>
 				<Dialog
 					:title="title"
