@@ -45,7 +45,7 @@ complex.args = {
 			namespace: 'close'
 		},
 		{
-			label: 'Secondary button',
+			label: 'Secondary action',
 			namespace: 'secondary'
 		}
 	],
