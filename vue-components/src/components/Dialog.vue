@@ -109,6 +109,9 @@ export default Vue.extend( {
 		Icon,
 	},
 	props: {
+		/**
+		 * Text displayed at the top or header of the dialog
+		 */
 		title: {
 			type: String,
 			required: true,
@@ -121,10 +124,16 @@ export default Vue.extend( {
 			type: Array as PropType<DialogAction[]>,
 			required: true,
 		},
+		/**
+		 * Indicates if we want a button on the top right to close the dialog
+		 */
 		dismissButton: {
 			type: Boolean,
 			default: false,
 		},
+		/**
+		 * Should the dialog be open when the page is loaded. When set to false it needs to be opened using an action
+		 */
 		visible: {
 			type: Boolean,
 			default: false,
