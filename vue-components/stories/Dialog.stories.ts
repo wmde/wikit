@@ -37,7 +37,7 @@ export function complex( args: { title: string, actions: string, dismissButton: 
 }
 
 complex.args = {
-	title: 'I am a basic dialog',
+	title: 'I am a complex dialog',
 	dismissButton: 'true',
 	actions: [
 		{
