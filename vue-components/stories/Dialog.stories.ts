@@ -41,7 +41,7 @@ complex.args = {
 	dismissButton: 'true',
 	actions: [
 		{
-			label: 'Close me',
+			label: 'Primary action',
 			namespace: 'close'
 		},
 		{
