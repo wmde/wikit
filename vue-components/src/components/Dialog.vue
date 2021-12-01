@@ -196,7 +196,8 @@ export default Vue.extend( {
 		},
 		dismiss(): void {
 			/** 
-			 * Closes / dismisses the dialog
+			 * Emitted whenever the dialog is dismissed by clicking the **X** button, 
+			 * clicking the page overlay or pressing the <kbd>Esc</kbd> key.
 			 */
 			this.$emit( 'dismissed' );
 			this.hide();
