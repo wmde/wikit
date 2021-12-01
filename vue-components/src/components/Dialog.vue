@@ -179,7 +179,11 @@ export default Vue.extend( {
 			document.removeEventListener( 'keydown', this._handleKeydown );
 			this.open = false;
 			/**
-			 * is called whenever the visible state of the dialog changes
+			 * Emitted whenever the visible state of the dialog changes. Includes a boolean to represent 
+			 * the new state of the dialog as payload.
+			 * 
+			 * Payload:
+			 * `open` - `true` when the dialog is opened, `false` when it is closed 
 			 */
 			this.$emit( 'update:visible', this.open );
 		},
