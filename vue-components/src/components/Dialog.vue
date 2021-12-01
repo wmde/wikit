@@ -203,8 +203,15 @@ export default Vue.extend( {
 		},
 		_dispatch( namespace: string ): void {
 			/**
-			 * generic action that will be performed by the primary 
-			 * or secondary buttons of the dialog component
+			 * Emitted when one of the Dialog's action buttons are pressed. Includes the action's `namespace` 
+			 * as defined in the `actions` prop and an instance of the dialog itself as payload.
+			 *
+			 * Payload:
+			 * `namespace` - A string, specifying the namespace of the action that was triggered, can be 
+			 *  used to differentiate between the primary and secondary actions of the Dialog.
+			 *
+			 * `dialog` - An instance of the dialog the action is triggered from. Can be used to close the dialog 
+			 * with `dialog.hide()` after executing code associated with the action.
 			 */
 			this.$emit( 'action', namespace, this );
 		},
