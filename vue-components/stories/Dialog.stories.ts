@@ -65,9 +65,14 @@ complex.argTypes = {
             type: 'text',
         },
     },
-	actions: {
+    actions: {
         control: {
             type: 'object',
+        },
+        table: {
+            type: {
+                summary: 'array',
+            },
         },
     },
 	dismissButton: {
