@@ -28,7 +28,6 @@ export function complex( args: { title: string, actions: string, dismissButton: 
 					:dismiss-button="dismissButton"
 					:visible="visible"
 				>
-					<p style="margin-bottom:10px">Hello, I am a simple dialog</p>
 					{{ dialogText }}
 				</Dialog>
 			</div>
@@ -37,7 +36,7 @@ export function complex( args: { title: string, actions: string, dismissButton: 
 }
 
 complex.args = {
-	title: 'I am a complex dialog',
+	title: 'Complex dialog',
 	dismissButton: 'true',
 	actions: [
 		{
@@ -50,13 +49,12 @@ complex.args = {
 		}
 	],
 	visible: true,
-	dialogText: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-		Fusce imperdiet metus eget ipsum euismod, non dictum velit 
-		consequat. Curabitur sit amet neque vitae eros placerat luct
-		us. Aenean sagittis, libero sed lacinia sollicitudin,
+	dialogText: `Complex dialogs can display extensive information and contain all kinds of interactive elements
+	(such as inputs, tables, tabs, lists) that may allow users to submit and edit information.\n\n
 
-		Vestibulum vitae tortor ac ipsum blandit vulputate.
-		Suspendisse eget nisi tortor. Vestibulum non odio pharetra`
+	All dialogs require a title. This should be a short, one line overview of the purpose of the dialog.\n\n
+	
+	Dialogs can display up to two action buttons, the secondary action being optional.`
 };
 
 complex.argTypes = {
