@@ -52,7 +52,6 @@ complex.args = {
 	dialogText: `Complex dialogs can display extensive information and contain all kinds of interactive elements
 	(such as inputs, tables, tabs, lists) that may allow users to submit and edit information.
 
-	All dialogs require a title. This should be a short, one line overview of the purpose of the dialog.
 	
 	Dialogs can display up to two action buttons, the secondary action being optional.`
 };
