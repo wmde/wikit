@@ -3,83 +3,87 @@
   "globalParameters": {},
   "kindParameters": {
     "/Loader/BouncingDots": {
-      "fileName": 1700,
+      "fileName": 1702,
       "framework": "vue"
     },
     "/Button": {
-      "fileName": 1703,
+      "fileName": 1705,
       "framework": "vue"
     },
     "Checkbox": {
-      "fileName": 1764,
+      "fileName": 1769,
       "framework": "vue"
     },
     "Wikibase Components/DateInput": {
+      "fileName": 1770,
+      "framework": "vue"
+    },
+    "/Dialog": {
       "fileName": 1765,
       "framework": "vue"
     },
     "Dropdown": {
-      "fileName": 1766,
-      "framework": "vue"
-    },
-    "Wikibase Components/ExtendedNumberInput": {
-      "fileName": 1767,
-      "framework": "vue"
-    },
-    "Icon": {
-      "fileName": 1730,
-      "framework": "vue"
-    },
-    "/Input/Basic": {
-      "fileName": 1731,
-      "framework": "vue"
-    },
-    "/Input/InputWithExtender": {
-      "fileName": 1732,
-      "framework": "vue"
-    },
-    "/Link": {
-      "fileName": 1768,
-      "framework": "vue"
-    },
-    "/Lookup/Lookup": {
-      "fileName": 1769,
-      "framework": "vue"
-    },
-    "/Message/Message": {
-      "fileName": 1770,
-      "framework": "vue"
-    },
-    "OptionsMenu": {
-      "fileName": 1741,
-      "framework": "vue"
-    },
-    "Popover": {
-      "fileName": 1760,
-      "framework": "vue"
-    },
-    "Wikibase Components/QuantityInput": {
       "fileName": 1771,
       "framework": "vue"
     },
-    "Table": {
-      "fileName": 1761,
-      "framework": "vue"
-    },
-    "TextArea": {
-      "fileName": 1762,
-      "framework": "vue"
-    },
-    "/Input/TextInput": {
+    "Wikibase Components/ExtendedNumberInput": {
       "fileName": 1772,
       "framework": "vue"
     },
+    "Icon": {
+      "fileName": 1734,
+      "framework": "vue"
+    },
+    "/Input/Basic": {
+      "fileName": 1735,
+      "framework": "vue"
+    },
+    "/Input/InputWithExtender": {
+      "fileName": 1736,
+      "framework": "vue"
+    },
+    "/Link": {
+      "fileName": 1773,
+      "framework": "vue"
+    },
+    "/Lookup/Lookup": {
+      "fileName": 1774,
+      "framework": "vue"
+    },
+    "/Message/Message": {
+      "fileName": 1775,
+      "framework": "vue"
+    },
+    "OptionsMenu": {
+      "fileName": 1745,
+      "framework": "vue"
+    },
+    "Popover": {
+      "fileName": 1764,
+      "framework": "vue"
+    },
+    "Wikibase Components/QuantityInput": {
+      "fileName": 1776,
+      "framework": "vue"
+    },
+    "Table": {
+      "fileName": 1766,
+      "framework": "vue"
+    },
+    "TextArea": {
+      "fileName": 1767,
+      "framework": "vue"
+    },
+    "/Input/TextInput": {
+      "fileName": 1777,
+      "framework": "vue"
+    },
     "ToggleButton": {
-      "fileName": 1759,
+      "fileName": 1763,
       "framework": "vue"
     },
     "/Message/ValidationMessage": {
-      "fileName": 1756,
+      "fileName": 1760,
       "framework": "vue"
     }
   },
@@ -172,6 +176,16 @@
       "parameters": {
         "__id": "wikibase-components-dateinput--all",
         "__isArgsStory": false
+      }
+    },
+    "dialog--complex": {
+      "id": "dialog--complex",
+      "name": "Complex",
+      "kind": "/Dialog",
+      "story": "Complex",
+      "parameters": {
+        "__id": "dialog--complex",
+        "__isArgsStory": true
       }
     },
     "dropdown--basic": {
