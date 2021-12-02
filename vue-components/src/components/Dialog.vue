@@ -188,11 +188,11 @@ export default Vue.extend( {
 			document.removeEventListener( 'keydown', this._handleKeydown );
 			this.open = false;
 			/**
-			 * Emitted whenever the visible state of the dialog changes. Includes a boolean to represent 
+			 * Emitted whenever the visible state of the dialog changes. Includes a boolean to represent
 			 * the new state of the dialog as payload.
-			 * 
+			 *
 			 * Payload:
-			 * `open` - `true` when the dialog is opened, `false` when it is closed 
+			 * `open` - `true` when the dialog is opened, `false` when it is closed
 			 */
 			this.$emit( 'update:visible', this.open );
 		},
@@ -204,8 +204,8 @@ export default Vue.extend( {
 			this.$nextTick( this._resetScroll );
 		},
 		dismiss(): void {
-			/** 
-			 * Emitted whenever the dialog is dismissed by clicking the **X** button, 
+			/**
+			 * Emitted whenever the dialog is dismissed by clicking the **X** button,
 			 * clicking the page overlay or pressing the <kbd>Esc</kbd> key.
 			 */
 			this.$emit( 'dismissed' );
@@ -213,14 +213,14 @@ export default Vue.extend( {
 		},
 		_dispatch( namespace: string ): void {
 			/**
-			 * Emitted when one of the Dialog's action buttons are pressed. Includes the action's `namespace` 
+			 * Emitted when one of the Dialog's action buttons are pressed. Includes the action's `namespace`
 			 * as defined in the `actions` prop and an instance of the dialog itself as payload.
 			 *
 			 * Payload:
-			 * `namespace` - A string, specifying the namespace of the action that was triggered, can be 
+			 * `namespace` - A string, specifying the namespace of the action that was triggered, can be
 			 *  used to differentiate between the primary and secondary actions of the Dialog.
 			 *
-			 * `dialog` - An instance of the dialog the action is triggered from. Can be used to close the dialog 
+			 * `dialog` - An instance of the dialog the action is triggered from. Can be used to close the dialog
 			 * with `dialog.hide()` after executing code associated with the action.
 			 */
 			this.$emit( 'action', namespace, this );
