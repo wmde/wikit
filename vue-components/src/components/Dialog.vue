@@ -381,7 +381,7 @@ export default Vue.extend( {
 		position: absolute;
 		inset-block-start: 0;
 		inset-inline-start: 0;
-		transform: translate(-50%, -50%);
+		transform: translate(50%, 50%);
 
 		/**
 		* Colors
@@ -466,7 +466,7 @@ export default Vue.extend( {
 	.fade-zoom-enter-active,
 	.fade-zoom-leave-active {
 		// A default transition duration needs to be added, in order to allow
-		// vue to add the crrect classes
+		// vue to add the correct classes
 		transition-duration: $wikit-Dialog-transition-duration;
 
 		#{$base}__overlay {
@@ -488,7 +488,7 @@ export default Vue.extend( {
 
 		#{$base}__modal {
 			opacity: 0;
-			transform: translate(-50%, -50%) scale(0.7);
+			transform: translate(50%, 50%) scale(0.7);
 		}
 	}
 </style>
