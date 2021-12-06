@@ -47,7 +47,7 @@ complex.args = {
 			namespace: 'secondary'
 		}
 	],
-	visible: true,
+	visible: false,
 	content: `Complex dialogs can display extensive information and contain all kinds of interactive elements
 	(such as inputs, tables, tabs, lists) that may allow users to submit and edit information.
 
