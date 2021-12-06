@@ -379,8 +379,8 @@ export default Vue.extend( {
 		max-height: 90%;
 
 		position: absolute;
-		inset-block-start: 0;
-		inset-inline-start: 0;
+		inset-block-start: 50%;
+		inset-inline-start: 50%;
 		transform: translate(-50%, -50%);
 
 		/**

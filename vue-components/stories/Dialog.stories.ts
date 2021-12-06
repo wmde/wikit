@@ -23,7 +23,6 @@ export function complex( args: { title: string, actions: string, dismissButton: 
 					:title="title"
 					ref="simple"
 					:actions="actions"
-					style="transform: translate(50%, 50%)"
 					@action="(_, dialog) => dialog.hide()"
 					:dismiss-button="dismissButton"
 					:visible="visible"
