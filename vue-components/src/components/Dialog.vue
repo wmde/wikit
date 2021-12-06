@@ -38,7 +38,7 @@
 						icon-only
 						@click.native="dismiss"
 					>
-						<icon type="close" size="medium" />
+						<icon type="close" size="large" />
 					</Button>
 				</header>
 				<section
