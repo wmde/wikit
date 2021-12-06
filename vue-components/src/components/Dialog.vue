@@ -288,6 +288,10 @@ export default Vue.extend( {
 
 			( focusable[ indices.next() ] as HTMLElement ).focus();
 		},
+		_hasDocumentScrollbars(): boolean {
+			const root = document.documentElement;
+			return root.scrollHeight + root.scrollWidth > root.clientHeight + root.clientWidth;
+		},
 		_trapFocus(): void {
 			const content = this.$refs.content as HTMLElement;
 			const target: HTMLElement = content.querySelector( '[autofocus]' ) ?? content;
@@ -298,6 +302,11 @@ export default Vue.extend( {
 			}
 		},
 		_trapScroll(): void {
+			// Guard to exit early if there are no scrollbars
+			if ( !this._hasDocumentScrollbars() ) {
+				return;
+			}
+
 			const root = document.documentElement;
 			const documentStyles = window.getComputedStyle( root );
 
@@ -329,6 +338,11 @@ export default Vue.extend( {
 			}
 		},
 		_restoreScroll(): void {
+			// Guard to exit early if there are no scrollbars
+			if ( !this._hasDocumentScrollbars() ) {
+				return;
+			}
+
 			const { overflow, padding } = this.document.cache;
 
 			document.documentElement.style.overflow = overflow;
