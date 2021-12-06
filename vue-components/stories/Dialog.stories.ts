@@ -12,7 +12,7 @@ export function complex( args: { title: string, actions: string, dismissButton: 
 		components: { Button, Dialog },
 		props: Object.keys( args ),
 		template: `
-			<div style="height: 70vh;">
+			<div style="max-height: 70vh;">
 				<Button 
 					@click.native="$refs.simple.show()" 
 					variant="primary" type="progressive"
@@ -47,7 +47,7 @@ complex.args = {
 			namespace: 'secondary'
 		}
 	],
-	visible: true,
+	visible: false,
 	content: `Complex dialogs can display extensive information and contain all kinds of interactive elements
 	(such as inputs, tables, tabs, lists) that may allow users to submit and edit information.
 

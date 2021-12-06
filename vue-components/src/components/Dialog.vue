@@ -172,6 +172,7 @@ export default Vue.extend( {
 	beforeDestroy() {
 		if ( this.open ) {
 			this.hide();
+			this._restoreScroll();
 		}
 	},
 	watch: {
@@ -287,6 +288,10 @@ export default Vue.extend( {
 
 			( focusable[ indices.next() ] as HTMLElement ).focus();
 		},
+		_hasDocumentScrollbars(): boolean {
+			const root = document.documentElement;
+			return root.scrollHeight + root.scrollWidth > root.clientHeight + root.clientWidth;
+		},
 		_trapFocus(): void {
 			const content = this.$refs.content as HTMLElement;
 			const target: HTMLElement = content.querySelector( '[autofocus]' ) ?? content;
@@ -297,6 +302,11 @@ export default Vue.extend( {
 			}
 		},
 		_trapScroll(): void {
+			// Guard to exit early if there are no scrollbars
+			if ( !this._hasDocumentScrollbars() ) {
+				return;
+			}
+
 			const root = document.documentElement;
 			const documentStyles = window.getComputedStyle( root );
 
@@ -328,6 +338,11 @@ export default Vue.extend( {
 			}
 		},
 		_restoreScroll(): void {
+			// Guard to exit early if there are no scrollbars
+			if ( !this._hasDocumentScrollbars() ) {
+				return;
+			}
+
 			const { overflow, padding } = this.document.cache;
 
 			document.documentElement.style.overflow = overflow;
@@ -379,9 +394,9 @@ export default Vue.extend( {
 		max-height: 90%;
 
 		position: absolute;
-		inset-block-start: 0;
-		inset-inline-start: 0;
-		transform: translate(50%, 50%);
+		inset-block-start: 50%;
+		inset-inline-start: 50%;
+		transform: translate(-50%, -50%);
 
 		/**
 		* Colors
@@ -488,7 +503,7 @@ export default Vue.extend( {
 
 		#{$base}__modal {
 			opacity: 0;
-			transform: translate(50%, 50%) scale(0.7);
+			transform: translate(-50%, -50%) scale(0.7);
 		}
 	}
 </style>
