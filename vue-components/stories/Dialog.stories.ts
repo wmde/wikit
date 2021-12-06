@@ -12,7 +12,7 @@ export function complex( args: { title: string, actions: string, dismissButton: 
 		components: { Button, Dialog },
 		props: Object.keys( args ),
 		template: `
-			<div style="height: 70vh;">
+			<div style="max-height: 70vh;">
 				<Button 
 					@click.native="$refs.simple.show()" 
 					variant="primary" type="progressive"
