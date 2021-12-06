@@ -36,7 +36,7 @@ export function complex( args: { title: string, actions: string, dismissButton: 
 
 complex.args = {
 	title: 'Complex dialog',
-	dismissButton: 'true',
+	dismissButton: true,
 	actions: [
 		{
 			label: 'Primary action',
