@@ -172,6 +172,7 @@ export default Vue.extend( {
 	beforeDestroy() {
 		if ( this.open ) {
 			this.hide();
+			this._restoreScroll();
 		}
 	},
 	watch: {
