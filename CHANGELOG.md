@@ -16,6 +16,7 @@ development)_
 - New TextArea Component
 - New Table Component
 - New Close, ArrowNext and ArrowPrevious icons
+- New Dialog Component
 
 ### Changed
 
