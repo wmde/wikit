@@ -41,7 +41,7 @@ const menuItems: MenuItem[] = [
 	},
 ];
 
-export function basic( args ): Component {
+export function basic( args: object ): Component {
 	return {
 		components: { Dropdown, Icon },
 		data(): unknown {
@@ -95,7 +95,7 @@ export function all(): Component {
 						description: 'root vegetable, usually orange in color',
 						value: 'Q81',
 					},
-				]
+				],
 			};
 		},
 		computed: {

@@ -3,56 +3,56 @@ import { Component } from 'vue';
 
 export default {
 	component: Table,
-	title: 'Table'
+	title: 'Table',
 };
 
 export function basic( args: object ): Component {
-    return {
-        components: { Table },
-        props: Object.keys( args ),
-        data(): object {
-            return {
-                cells: [
-                    {
-                        col1: 'Uovo in Raviolo',
-                        col2: 'Italy',
-                        col3: 'Egg',
-                        col4: 'High',
-                    },
-                    {
-                        col1: 'Latkes',
-                        col2: 'Israel',
-                        col3: 'Potato',
-                        col4: 'High',
-                    },
-                    {
-                        col1: 'Chile en Nogada',
-                        col2: 'Mexico',
-                        col3: 'Poblano pepper',
-                        col4: 'High',
-                    },
-                    {
-                        col1: 'Käsespätzle',
-                        col2: 'Germany',
-                        col3: 'Spätzle pasta',
-                        col4: 'High',
-                    },
-                    {
-                        col1: 'Clam Chowder',
-                        col2: 'USA',
-                        col3: 'Clams',
-                        col4: 'High',
-                    },
-                    {
-                        col1: 'Salmorejo',
-                        col2: 'Spain',
-                        col3: 'Tomato',
-                        col4: 'High',
-                    }
-                ],
-            }
-        },
-        template: `
+	return {
+		components: { Table },
+		props: Object.keys( args ),
+		data(): object {
+			return {
+				cells: [
+					{
+						col1: 'Uovo in Raviolo',
+						col2: 'Italy',
+						col3: 'Egg',
+						col4: 'High',
+					},
+					{
+						col1: 'Latkes',
+						col2: 'Israel',
+						col3: 'Potato',
+						col4: 'High',
+					},
+					{
+						col1: 'Chile en Nogada',
+						col2: 'Mexico',
+						col3: 'Poblano pepper',
+						col4: 'High',
+					},
+					{
+						col1: 'Käsespätzle',
+						col2: 'Germany',
+						col3: 'Spätzle pasta',
+						col4: 'High',
+					},
+					{
+						col1: 'Clam Chowder',
+						col2: 'USA',
+						col3: 'Clams',
+						col4: 'High',
+					},
+					{
+						col1: 'Salmorejo',
+						col2: 'Spain',
+						col3: 'Tomato',
+						col4: 'High',
+					},
+				],
+			};
+		},
+		template: `
 			<div style="max-width: 75%">
                 <Table id="some-table" :linearize="linearize">
                     <thead>
@@ -77,24 +77,24 @@ export function basic( args: object ): Component {
                 </Table>
 		    </div>
 		`,
-    };
+	};
 }
 
 basic.args = {
-    linearize: 'tablet'
+	linearize: 'tablet',
 };
 
 basic.argTypes = {
-    linearize: {
-        table: {
-            defaultValue: {
-                summary: 'tablet'
-            }
-        },
-        control: {
-            type: 'select',
-            options: ['mobile', 'tablet', 'desktop'],
-            default: 'tablet'
-        }
-    }
+	linearize: {
+		table: {
+			defaultValue: {
+				summary: 'tablet',
+			},
+		},
+		control: {
+			type: 'select',
+			options: [ 'mobile', 'tablet', 'desktop' ],
+			default: 'tablet',
+		},
+	},
 };

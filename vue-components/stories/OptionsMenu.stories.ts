@@ -12,7 +12,7 @@ const vegetableItems = [
 		label: 'potato',
 		description: 'root vegetable',
 		value: 'Q10998',
-		tag: 'limited support'
+		tag: 'limited support',
 	},
 	{
 		label: 'carrot',
@@ -55,7 +55,7 @@ const vegetableItems = [
 	},
 ];
 
-export function withItems( args: { boldLabels: boolean, selectedItemIndex: number } ): Component {
+export function withItems( args: { boldLabels: boolean; selectedItemIndex: number } ): Component {
 	return {
 		components: { OptionsMenu },
 		computed: {
