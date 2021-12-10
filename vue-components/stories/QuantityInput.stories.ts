@@ -1,7 +1,7 @@
-import QuantityInput from '@/components/QuantityInput';
+import { QuantityInput } from '@/main';
 import { Component } from 'vue';
-import { MenuItem } from '../src/components/MenuItem';
-import validateExtendedNumberInput from '@/components/util/validateExtendedNumberInput';
+import { MenuItem } from '@/components/MenuItem'; // eslint-disable-line no-restricted-imports
+import validateExtendedNumberInput from '@/components/util/validateExtendedNumberInput'; // eslint-disable-line no-restricted-imports
 
 const vegetableItems = [
 	{

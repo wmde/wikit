@@ -1,4 +1,4 @@
-import ExtendedNumberInput from '@/components/ExtendedNumberInput';
+import { ExtendedNumberInput } from '@/main';
 import { Component } from 'vue';
 import { ErrorProp } from '../dist/compositions/validatable';
 

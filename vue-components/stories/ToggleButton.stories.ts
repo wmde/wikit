@@ -1,5 +1,4 @@
-import ToggleButton from '@/components/ToggleButton';
-import ToggleButtonGroup from '@/components/ToggleButtonGroup';
+import { ToggleButton, ToggleButtonGroup } from '@/main';
 import { Component } from 'vue';
 
 export default {

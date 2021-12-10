@@ -1,4 +1,4 @@
-import Input from '@/components/Input';
+import { Input } from '@/main';
 import { Component } from 'vue';
 
 export default {

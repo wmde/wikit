@@ -1,5 +1,4 @@
-import Checkbox from '@/components/Checkbox';
-import Icon from '@/components/Icon';
+import { Checkbox, Icon } from '@/main';
 import { Component } from 'vue';
 
 export default {

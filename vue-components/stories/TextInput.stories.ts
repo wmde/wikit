@@ -1,5 +1,4 @@
-import TextInput from '@/components/TextInput';
-import Icon from '@/components/Icon';
+import { TextInput, Icon } from '@/main';
 import { Component } from 'vue';
 
 export default {

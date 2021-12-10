@@ -1,7 +1,5 @@
-import Popover from '@/components/Popover';
-import Icon from '@/components/Icon';
-import Button from '@/components/Button';
-import { PopoverPositions } from '@/components/PopoverProps';
+import { Popover, Icon, Button } from '@/main';
+import { PopoverPositions } from '@/components/PopoverProps'; // eslint-disable-line no-restricted-imports
 import { Component } from 'vue';
 
 export default {

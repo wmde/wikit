@@ -1,7 +1,6 @@
-import Dropdown from '@/components/Dropdown';
-import Icon from '@/components/Icon';
+import { Dropdown, Icon } from '@/main';
 import { Component } from 'vue';
-import { MenuItem } from '@/components/MenuItem';
+import { MenuItem } from '@/components/MenuItem'; // eslint-disable-line no-restricted-imports
 
 export default {
 	component: Dropdown,

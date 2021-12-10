@@ -1,4 +1,4 @@
-import Link from '@/components/Link';
+import { Link } from '@/main';
 import { Component } from 'vue';
 
 export default {

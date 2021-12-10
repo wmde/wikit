@@ -1,5 +1,5 @@
-import BouncingDots from '@/components/BouncingDots';
-import { bouncingDotsSizes } from '@/components/bouncingDotsProps';
+import { BouncingDots } from '@/main';
+import { bouncingDotsSizes } from '@/components/bouncingDotsProps'; // eslint-disable-line no-restricted-imports
 import { Component } from 'vue';
 
 export default {

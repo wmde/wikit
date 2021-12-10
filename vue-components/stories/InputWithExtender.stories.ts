@@ -1,4 +1,4 @@
-import InputWithExtender from '../src/components/InputWithExtender.vue';
+import { InputWithExtender } from '@/main';
 import { Component } from 'vue';
 
 export default {

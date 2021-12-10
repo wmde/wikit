@@ -1,4 +1,4 @@
-import Table from '@/components/Table';
+import { Table } from '@/main';
 import { Component } from 'vue';
 
 export default {

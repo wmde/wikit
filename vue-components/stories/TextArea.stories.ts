@@ -1,4 +1,4 @@
-import TextArea from '@/components/TextArea';
+import { TextArea } from '@/main';
 import { Component } from 'vue';
 
 export default {

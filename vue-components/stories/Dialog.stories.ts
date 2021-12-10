@@ -1,5 +1,4 @@
-import Dialog from '@/components/Dialog';
-import Button from '@/components/Button';
+import { Button, Dialog } from '@/main';
 import { Component } from 'vue';
 
 export default {

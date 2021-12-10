@@ -1,7 +1,6 @@
-import Lookup from '@/components/Lookup';
-import Icon from '@/components/Icon';
+import { Lookup, Icon } from '@/main';
 import { Component } from 'vue';
-import { MenuItem } from '@/components/MenuItem';
+import { MenuItem } from '@/components/MenuItem'; // eslint-disable-line no-restricted-imports
 
 export default {
 	component: Lookup,

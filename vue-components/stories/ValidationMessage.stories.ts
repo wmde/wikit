@@ -1,4 +1,4 @@
-import ValidationMessage from '@/components/ValidationMessage';
+import { ValidationMessage } from '@/main';
 import { Component } from 'vue';
 
 export default {

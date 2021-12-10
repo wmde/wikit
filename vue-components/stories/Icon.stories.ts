@@ -1,5 +1,9 @@
-import Icon from '@/components/Icon';
-import { iconSizes, IconDirection, IconTypes } from '@/components/iconProps';
+import { Icon } from '@/main';
+import { // eslint-disable-line no-restricted-imports
+	iconSizes,
+	IconDirection,
+	IconTypes,
+} from '@/components/iconProps';
 import { Component } from 'vue';
 
 export default {

@@ -1,6 +1,6 @@
-import OptionsMenu from '@/components/OptionsMenu';
+import { OptionsMenu } from '@/main';
 import { Component } from 'vue';
-import { MenuItem } from '@/components/MenuItem';
+import { MenuItem } from '@/components/MenuItem'; // eslint-disable-line no-restricted-imports
 
 export default {
 	component: OptionsMenu,
