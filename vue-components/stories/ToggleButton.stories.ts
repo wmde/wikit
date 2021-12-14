@@ -30,7 +30,7 @@ export function Basic( args: { label: string } ): Component {
 		data(): unknown {
 			return {
 				isActive: false,
-				label: 'Single ToggleButton'
+				label: 'Single ToggleButton',
 			};
 		},
 		props: Object.keys( args ),
@@ -87,7 +87,7 @@ export function Group(): Component {
 			};
 		},
 		computed: {
-			options() {
+			options(): unknown {
 				return options;
 			},
 		},

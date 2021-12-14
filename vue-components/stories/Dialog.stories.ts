@@ -7,7 +7,7 @@ export default {
 	title: '/Dialog',
 };
 
-export function complex( args: { title: string, actions: string, dismissButton: boolean, visible: boolean, dialogText }): Component {
+export function complex( args: { title: string; actions: string; dismissButton: boolean; visible: boolean; dialogText } ): Component {
 	return {
 		components: { Button, Dialog },
 		props: Object.keys( args ),
@@ -40,45 +40,45 @@ complex.args = {
 	actions: [
 		{
 			label: 'Primary action',
-			namespace: 'close'
+			namespace: 'close',
 		},
 		{
 			label: 'Secondary action',
-			namespace: 'secondary'
-		}
+			namespace: 'secondary',
+		},
 	],
 	visible: false,
 	content: `Complex dialogs can display extensive information and contain all kinds of interactive elements
 	(such as inputs, tables, tabs, lists) that may allow users to submit and edit information.
 
 	
-	Dialogs can display up to two action buttons, the secondary action being optional.`
+	Dialogs can display up to two action buttons, the secondary action being optional.`,
 };
 
 complex.argTypes = {
-    title: {
-        control: {
-            type: 'text',
-        },
-    },
-    actions: {
-        control: {
-            type: 'object',
-        },
-        table: {
-            type: {
-                summary: 'array',
-            },
-        },
-    },
+	title: {
+		control: {
+			type: 'text',
+		},
+	},
+	actions: {
+		control: {
+			type: 'object',
+		},
+		table: {
+			type: {
+				summary: 'array',
+			},
+		},
+	},
 	dismissButton: {
-        control: {
-            type: 'boolean',
-        },
-    },
+		control: {
+			type: 'boolean',
+		},
+	},
 	visible: {
-        control: {
-            type: 'boolean',
-        },
-    },
+		control: {
+			type: 'boolean',
+		},
+	},
 };

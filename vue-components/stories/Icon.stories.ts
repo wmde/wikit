@@ -1,5 +1,5 @@
 import Icon from '@/components/Icon';
-import { iconSizes, IconDirection, iconColors, IconTypes } from '@/components/iconProps';
+import { iconSizes, IconDirection, IconTypes } from '@/components/iconProps';
 import { Component } from 'vue';
 
 export default {
@@ -17,7 +17,7 @@ export function basic( args: object ): Component {
 }
 
 basic.args = {
-	type: typeValues[0],
+	type: typeValues[ 0 ],
 	dir: IconDirection.LTR,
 };
 
@@ -26,7 +26,7 @@ basic.argTypes = {
 		control: {
 			type: 'select',
 			options: typeValues,
-			default: typeValues[0],
+			default: typeValues[ 0 ],
 		},
 	},
 	dir: {

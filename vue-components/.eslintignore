@@ -1,5 +1,6 @@
 !.storybook/
 dist/
+storybook-static/
 node_modules/
 src/shims-tsx.d.ts
 src/shims-vue.d.ts

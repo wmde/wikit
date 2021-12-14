@@ -7,10 +7,10 @@ export default {
 	title: 'Checkbox',
 };
 
-export function basic( args ): Component {
+export function basic( args: object ): Component {
 	return {
 		data(): object {
-			return { checked: false, };
+			return { checked: false };
 		},
 		components: { Checkbox, Icon },
 		props: Object.keys( args ),

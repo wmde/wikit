@@ -67,11 +67,11 @@ export default {
 	title: 'Wikibase Components/QuantityInput',
 };
 
-export function basic( args ): Component {
+export function basic( args: object ): Component {
 	return {
 		components: { QuantityInput },
 		props: Object.keys( args ),
-		data() {
+		data(): unknown {
 			return {
 				search: '',
 				selectedUnit: null,
@@ -83,7 +83,7 @@ export function basic( args ): Component {
 			menuItems(): MenuItem[] {
 				return vegetableItems.filter( ( item ) => item.label.includes( this.search ) );
 			},
-			error(): { type: string; message: string; } | null {
+			error(): { type: string; message: string } | null {
 				if ( !this.enteredNumber ) {
 					return null;
 				}
@@ -96,7 +96,7 @@ export function basic( args ): Component {
 		template: `
 			<div dir="ltr">
 				<p>
-					<QuantityInput 
+					<QuantityInput
 						:label="label"
 						:numberInputPlaceholder="numberInputPlaceholder"
 						:number-input-value.sync="enteredNumber"
@@ -152,7 +152,7 @@ export function all(): Component {
 		template: `
 			<div dir="ltr">
 				<p>
-					<QuantityInput 
+					<QuantityInput
 						label="Value and Unit (optional)"
 						numberInputPlaceholder="Enter a number"
 						unit-lookup-label="Unit (optional)"
