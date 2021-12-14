@@ -50,7 +50,7 @@ export function basic( args: object ): Component {
 			};
 		},
 		computed: {
-			error(): any {
+			error(): unknown {
 				if ( this.selectedItem?.value === 'later' ) {
 					return { type: 'warning', message: 'Warning to be careful 🚧' };
 				}
@@ -99,7 +99,7 @@ export function all(): Component {
 			};
 		},
 		computed: {
-			error(): any {
+			error(): unknown {
 				if ( this.selectedItem?.value === 'later' ) {
 					return { type: 'warning', message: 'Warning to be careful 🚧' };
 				}
