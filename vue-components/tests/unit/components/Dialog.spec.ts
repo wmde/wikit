@@ -246,12 +246,4 @@ describe( 'Dialog.vue', () => {
 		expect( wrapper.emitted().dismissed ).toBeTruthy();
 		expect( content.isVisible() ).toBe( false );
 	} );
-
-	/**
-	 * Additional Behaviour Browser tests to add to WiKit:
-	 * - Traps page focus, so that only visually focused elements are tab-able
-	 * - Prevents underlying page from scrolling when opened and on initial render
-	 * - Reset dialog scroll bars to top when closed and reopened
-	 * - Doesn't add padding to the page if there are no scrollbars
-	 */
 } );
