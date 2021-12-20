@@ -159,11 +159,14 @@ export default defineComponent( {
 			// the following comment generates the event's description for the docs tab in storybook
 			/**
 			 * This event is emitted whenever an item is selected on the Dropdown.
+			 * As long as the selected item is different from the current selection.
 			 *
 			 * @property {MenuItem|null} The event payload contains the whole MenuItem object.
 			 *                           The payload is null when no item is selected or the item is deselected.
 			 */
-			this.$emit( 'input', menuItem );
+			if ( menuItem !== this.value ) {
+				this.$emit( 'input', menuItem );
+			}
 		},
 		onClick(): void {
 			this.startShowingTheMenu();
