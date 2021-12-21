@@ -6,10 +6,10 @@ import ValidationMessage from '@/components/ValidationMessage.vue';
 import { MenuItem } from '@/components/MenuItem';
 
 async function createDropdownWrapperWithExpandedMenu( menuItems: MenuItem[],
-	value?: Record<string, any> | null ): Promise<Wrapper<Dropdown>> {
+	value?: MenuItem ): Promise<Wrapper<Dropdown>> {
 	const wrapper = mount( Dropdown, { propsData: {
 		menuItems,
-		value: value || null,
+		value,
 	} } );
 	wrapper.find( '.wikit-Dropdown__select' ).trigger( 'click' );
 
