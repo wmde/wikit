@@ -5,11 +5,11 @@ describe( 'Dialog', function () {
 			.pause( 500 )
 			.init( client.launch_url + '/iframe.html?id=dialog--complex&viewMode=story' )
 			// focus button to open Dialog
-			.sendKeysToActiveElement( client.Keys.TAB )
+			.sendKeys( 'body', client.Keys.TAB )
 			.execute( 'document.body.style.height = "150vh";' )
 			.execute( 'window.scrollTo( 0, document.body.scrollHeight );' )
 			// hit enter to open Dialog after scroll. a click brings the button back into focus
-			.sendKeysToActiveElement( client.Keys.ENTER )
+			.sendKeys( '.wikit-Button', client.Keys.ENTER )
 			.pause( 500 )
 			.waitForElementPresent( '.wikit-Dialog' );
 	} );
