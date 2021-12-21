@@ -55,4 +55,24 @@ describe( 'Dialog', function () {
 					this.assert.not.ok( result.value === false, 'body does not show scrollbars' );
 				} );
 	} );
+
+	it( 'resets dialog scroll bars to top when closed and reopened', function ( client ) {
+
+		client
+			// substract 100px from the dialog's original height so scrollbars are shown
+			.execute( `document.querySelector( ".wikit-Dialog__modal" ).style.height =
+				document.querySelector( ".wikit-Dialog__modal" ).offsetHeight - 100 + "px"` )
+			.execute( `document.querySelector(".wikit-Dialog__content" )
+				.scrollTo( 0, document.querySelector(".wikit-Dialog__content").scrollHeight)` )
+			.click( '.wikit-Dialog__close' )
+			// wait for animation
+			.pause( 500 )
+			.click( '.wikit-Button' )
+			// wait for animation
+			.pause( 500 )
+			.execute( 'return document.querySelector(".wikit-Dialog__content" ).scrollTop',
+				function ( result ) {
+					this.assert.ok( result.value === 0, 'dialog scrollbar is positioned at 0' );
+				} );
+	} );
 } );
