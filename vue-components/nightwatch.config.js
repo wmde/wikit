@@ -23,6 +23,7 @@ module.exports = {
 			launch_url: `http://storybook-vue:${process.env.VUECOMPONENTS_STORYBOOK_PORT}`,
 			isLocal: true,
 			selenium_host: 'selenium',
+			selenium_port: 4444,
 			desiredCapabilities: {
 				browserName: 'chrome',
 				chromeOptions: {

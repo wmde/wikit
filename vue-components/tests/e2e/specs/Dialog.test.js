@@ -5,11 +5,11 @@ describe( 'Dialog', function () {
 			.pause( 500 )
 			.init( client.launch_url + '/iframe.html?id=dialog--complex&viewMode=story' )
 			// focus button to open Dialog
-			.sendKeys( 'body', client.Keys.TAB )
+			.keys( client.Keys.TAB )
 			.execute( 'document.body.style.height = "150vh";' )
 			.execute( 'window.scrollTo( 0, document.body.scrollHeight );' )
 			// hit enter to open Dialog after scroll. a click brings the button back into focus
-			.sendKeys( '.wikit-Button', client.Keys.ENTER )
+			.keys( client.Keys.ENTER )
 			.pause( 500 )
 			.waitForElementPresent( '.wikit-Dialog' );
 	} );
@@ -22,13 +22,13 @@ describe( 'Dialog', function () {
 
 	it( 'traps page focus, so that only visually focused elements are tab-able', function ( client ) {
 		client
-			.sendKeysToActiveElement( client.Keys.TAB )
+			.keys( client.Keys.TAB )
 			.elementActive( function ( result ) {
 				client.elementIdText( result.value.ELEMENT, ( element ) => {
 					client.assert.equal( element.value, 'Primary action' );
 				} );
 			} )
-			.sendKeysToActiveElement( client.Keys.TAB )
+			.keys( client.Keys.TAB )
 			.elementActive( function ( result ) {
 				client.elementIdText( result.value.ELEMENT, ( element ) => {
 					// this one is to make sure that the tab is working
@@ -36,8 +36,8 @@ describe( 'Dialog', function () {
 				} );
 			} )
 			// makes sure it goes back to the first element after three tabs
-			.sendKeysToActiveElement( client.Keys.TAB )
-			.sendKeysToActiveElement( client.Keys.TAB )
+			.keys( client.Keys.TAB )
+			.keys( client.Keys.TAB )
 			.elementActive( function ( result ) {
 				client.elementIdText( result.value.ELEMENT, ( element ) => {
 					client.assert.equal( element.value, 'Primary action' );
