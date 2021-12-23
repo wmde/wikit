@@ -23,8 +23,8 @@ describe( 'Dialog', function () {
 				.pause( 500 )
 				.waitForElementPresent( '.wikit-Dialog' )
 				.sendKeys( 'body', client.Keys.TAB )
-				.elementActive( function ( result ) {
-					client.elementIdText( result.value.ELEMENT, ( element ) => {
+				.elementActive( async function ( result ) {
+					client.elementIdText( await result.value.ELEMENT, ( element ) => {
 						client.assert.equal( element.value, 'Primary action' );
 					} );
 				} )
