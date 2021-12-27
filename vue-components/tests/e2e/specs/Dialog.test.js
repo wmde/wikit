@@ -18,30 +18,46 @@ describe( 'Dialog', function () {
 		// ie: https://github.com/nightwatchjs/nightwatch/issues/2536
 		// firefox: https://github.com/nightwatchjs/nightwatch/issues/2468
 		if ( client.options.desiredCapabilities.browserName !== 'internet explorer' ) {
+
+			let elementValue1, elementValue2, elementValue3;
+
 			client
 				.click( '.wikit-Button' )
 				.pause( 500 )
 				.waitForElementPresent( '.wikit-Dialog' )
 				.sendKeys( 'body', client.Keys.TAB )
-				.elementActive( async function ( result ) {
-					client.elementIdText( await result.value.ELEMENT, ( element ) => {
+				.elementActive( function ( result ) {
+					elementValue1 = result.value;
+				} )
+				.perform( ( done ) => {
+					// Now we have to retrieve the element text
+					// Another async call
+					client.elementIdText( elementValue1.ELEMENT, ( element ) => {
 						client.assert.equal( element.value, 'Primary action' );
+						done();
 					} );
 				} )
 				// sending multiple keys inside array will fail in Firefox.
 				// See: https://github.com/nightwatchjs/nightwatch/issues/2468#issuecomment-738089219
 				.sendKeys( 'body', client.Keys.TAB + client.Keys.TAB )
 				.elementActive( function ( result ) {
-					client.elementIdText( result.value.ELEMENT, ( element ) => {
-						// this one is to make sure that the tab is working
+					elementValue2 = result.value;
+				} )
+				.perform( ( done ) => {
+					client.elementIdText( elementValue2.ELEMENT, ( element ) => {
 						client.assert.equal( element.value, 'Secondary action' );
+						done();
 					} );
 				} )
 				// makes sure it goes back to the first element after four tabs
 				.sendKeys( 'body', client.Keys.TAB + client.Keys.TAB + client.Keys.TAB + client.Keys.TAB )
 				.elementActive( function ( result ) {
-					client.elementIdText( result.value.ELEMENT, ( element ) => {
+					elementValue3 = result.value;
+				} )
+				.perform( ( done ) => {
+					client.elementIdText( elementValue3.ELEMENT, ( element ) => {
 						client.assert.equal( element.value, 'Primary action' );
+						done();
 					} );
 				} );
 		}
