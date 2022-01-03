@@ -1,3 +1,16 @@
+/**
+ * Gets the WebElement ID from the result of a `client.activeElement` call.
+ * In chrome,  result.value always has an `ELEMENT` key, whereas in other browser it
+ * has a different format with varying keys. This function assumes that `result.value`
+ * is always an object with a single entry.
+ *
+ * @param {Object} result
+ * @return {string}
+ */
+function getWebElementIdFromActiveElementResult( result ) {
+	return Object.values( result.value )[ 0 ];
+}
+
 describe( 'Dialog', function () {
 
 	beforeEach( function ( client ) {
@@ -18,46 +31,29 @@ describe( 'Dialog', function () {
 		// ie: https://github.com/nightwatchjs/nightwatch/issues/2536
 		// firefox: https://github.com/nightwatchjs/nightwatch/issues/2468
 		if ( client.options.desiredCapabilities.browserName !== 'internet explorer' ) {
-
-			let elementValue1, elementValue2, elementValue3;
-
 			client
 				.click( '.wikit-Button' )
 				.pause( 500 )
 				.waitForElementPresent( '.wikit-Dialog' )
 				.sendKeys( 'body', client.Keys.TAB )
 				.elementActive( function ( result ) {
-					elementValue1 = result.value;
-				} )
-				.perform( ( done ) => {
-					// Now we have to retrieve the element text
-					// Another async call
-					client.elementIdText( elementValue1.ELEMENT, ( element ) => {
+					client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
 						client.assert.equal( element.value, 'Primary action' );
-						done();
 					} );
 				} )
 				// sending multiple keys inside array will fail in Firefox.
 				// See: https://github.com/nightwatchjs/nightwatch/issues/2468#issuecomment-738089219
 				.sendKeys( 'body', client.Keys.TAB + client.Keys.TAB )
 				.elementActive( function ( result ) {
-					elementValue2 = result.value;
-				} )
-				.perform( ( done ) => {
-					client.elementIdText( elementValue2.ELEMENT, ( element ) => {
+					client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
 						client.assert.equal( element.value, 'Secondary action' );
-						done();
 					} );
 				} )
 				// makes sure it goes back to the first element after four tabs
 				.sendKeys( 'body', client.Keys.TAB + client.Keys.TAB + client.Keys.TAB + client.Keys.TAB )
 				.elementActive( function ( result ) {
-					elementValue3 = result.value;
-				} )
-				.perform( ( done ) => {
-					client.elementIdText( elementValue3.ELEMENT, ( element ) => {
+					client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
 						client.assert.equal( element.value, 'Primary action' );
-						done();
 					} );
 				} );
 		}
