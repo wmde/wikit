@@ -38,7 +38,8 @@ describe( 'Dialog', function () {
 				.sendKeys( 'body', client.Keys.TAB )
 				.elementActive( function ( result ) {
 					client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
-						client.assert.equal( element.value, 'Primary action' );
+						elementText = element.value.replace( /\s+/g, ' ' ).trim();
+						client.assert.equal( elementText, 'Primary action' );
 					} );
 				} )
 				// sending multiple keys inside array will fail in Firefox.
@@ -46,14 +47,16 @@ describe( 'Dialog', function () {
 				.sendKeys( 'body', client.Keys.TAB + client.Keys.TAB )
 				.elementActive( function ( result ) {
 					client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
-						client.assert.equal( element.value, 'Secondary action' );
+						elementText = element.value.replace( /\s+/g, ' ' ).trim();
+						client.assert.equal( elementText, 'Secondary action' );
 					} );
 				} )
 				// makes sure it goes back to the first element after four tabs
 				.sendKeys( 'body', client.Keys.TAB + client.Keys.TAB + client.Keys.TAB + client.Keys.TAB )
 				.elementActive( function ( result ) {
 					client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
-						client.assert.equal( element.value, 'Primary action' );
+						elementText = element.value.replace( /\s+/g, ' ' ).trim();
+						client.assert.equal( elementText, 'Primary action' );
 					} );
 				} );
 		}
