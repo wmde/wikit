@@ -24,7 +24,7 @@ module.exports = {
 			isLocal: true,
 			selenium_host: 'selenium',
 			desiredCapabilities: {
-				browserName: 'chrome',
+				browserName: 'firefox',
 				chromeOptions: {
 					args: [ 'headless', 'no-sandbox', 'disable-gpu' ],
 					w3c: false,

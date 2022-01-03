@@ -12,7 +12,7 @@ services:
             - selenium
             - storybook-vue
     selenium:
-        image: selenium/standalone-chrome
+        image: selenium/standalone-firefox
         shm_size: '2gb'
         depends_on:
             - storybook-vue
