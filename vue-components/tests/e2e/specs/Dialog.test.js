@@ -21,6 +21,10 @@ describe( 'Dialog', function () {
 	} );
 
 	it( 'traps page focus, so that only visually focused elements are tab-able', function ( client ) {
+		if ( client.options.desiredCapabilities.browserName === 'internet explorer' ) {
+			return;
+		}
+
 		client
 			.sendKeysToActiveElement( client.Keys.TAB )
 			.elementActive( function ( result ) {
