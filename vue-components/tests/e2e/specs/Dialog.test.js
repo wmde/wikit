@@ -33,7 +33,7 @@ describe( 'Dialog', function () {
 		// and .sendKeys functions
 		// ie: https://github.com/nightwatchjs/nightwatch/issues/2536
 		// firefox: https://github.com/nightwatchjs/nightwatch/issues/2468
-		if ( currentBrowser !== 'internet explorer' ) {
+		if ( currentBrowser !== 'internet explorer' && currentBrowser !== 'safari' ) {
 			client
 				.click( '.wikit-Button' )
 				.pause( 500 )
