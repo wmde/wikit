@@ -84,7 +84,7 @@ module.exports = {
 			extends: 'sauceLabs',
 			desiredCapabilities: {
 				browserName: 'safari',
-				platform: 'macOS 10.15',
+				platform: 'macOS 12',
 				version: 'latest',
 			},
 		},
