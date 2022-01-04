@@ -26,11 +26,14 @@ describe( 'Dialog', function () {
 	} );
 
 	it( 'traps page focus, so that only visually focused elements are tab-able', function ( client ) {
+
+		const currentBrowser = client.options.desiredCapabilities.browserName;
+
 		// exclude internet explorer for now because there is a known bug in the .keys
 		// and .sendKeys functions
 		// ie: https://github.com/nightwatchjs/nightwatch/issues/2536
 		// firefox: https://github.com/nightwatchjs/nightwatch/issues/2468
-		if ( client.options.desiredCapabilities.browserName !== 'internet explorer' ) {
+		if ( currentBrowser !== 'internet explorer' ) {
 			client
 				.click( '.wikit-Button' )
 				.pause( 500 )
@@ -38,25 +41,32 @@ describe( 'Dialog', function () {
 				.sendKeys( 'body', client.Keys.TAB )
 				.elementActive( function ( result ) {
 					client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
-						elementText = element.value.replace( /\s+/g, ' ' ).trim();
-						client.assert.equal( elementText, 'Primary action' );
+						const elementText1 = element.value.replace( /\s+/g, ' ' ).trim();
+						client.assert.equal( elementText1, 'Primary action' );
 					} );
 				} )
 				// sending multiple keys inside array will fail in Firefox.
 				// See: https://github.com/nightwatchjs/nightwatch/issues/2468#issuecomment-738089219
-				.sendKeys( 'body', client.Keys.TAB + client.Keys.TAB )
+				.sendKeys( 'body',
+					currentBrowser !== 'firefox' ?
+						client.Keys.TAB + client.Keys.TAB : client.Keys.TAB )
 				.elementActive( function ( result ) {
 					client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
-						elementText = element.value.replace( /\s+/g, ' ' ).trim();
-						client.assert.equal( elementText, 'Secondary action' );
+						const elementText2 = element.value.replace( /\s+/g, ' ' ).trim();
+						client.assert.equal( elementText2, 'Secondary action' );
 					} );
 				} )
-				// makes sure it goes back to the first element after four tabs
-				.sendKeys( 'body', client.Keys.TAB + client.Keys.TAB + client.Keys.TAB + client.Keys.TAB )
+				// different browsers are counting the combinations differently.
+				// firefox starts in the previous selected element,
+				// while chrome starts the tab count on each elementActive call
+				// chrome: makes sure it goes back to the first element after four tabs
+				.sendKeys( 'body', currentBrowser !== 'firefox' ?
+					client.Keys.TAB + client.Keys.TAB + client.Keys.TAB + client.Keys.TAB
+					: client.Keys.TAB + client.Keys.TAB )
 				.elementActive( function ( result ) {
 					client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
-						elementText = element.value.replace( /\s+/g, ' ' ).trim();
-						client.assert.equal( elementText, 'Primary action' );
+						const elementText3 = element.value.replace( /\s+/g, ' ' ).trim();
+						client.assert.equal( elementText3, 'Primary action' );
 					} );
 				} );
 		}
@@ -73,7 +83,6 @@ describe( 'Dialog', function () {
 					} )
 				.click( '.wikit-Button' )
 				.pause( 250 )
-				.saveScreenshot( './screenshot/checkDialog.png' )
 				.execute( 'return document.documentElement.scrollHeight > document.documentElement.clientHeight;',
 					function ( result ) {
 						this.assert.not.ok( result.value === false, 'body does not show scrollbars' );
