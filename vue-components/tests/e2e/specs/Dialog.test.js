@@ -32,44 +32,46 @@ describe( 'Dialog', function () {
 		// exclude internet explorer for now because there is a known bug in the .keys
 		// and .sendKeys functions
 		// ie: https://github.com/nightwatchjs/nightwatch/issues/2536
-		// firefox: https://github.com/nightwatchjs/nightwatch/issues/2468
-		if ( currentBrowser !== 'internet explorer' && currentBrowser !== 'safari' ) {
-			client
-				.click( '.wikit-Button' )
-				.pause( 500 )
-				.waitForElementPresent( '.wikit-Dialog' )
-				.sendKeys( 'body', client.Keys.TAB )
-				.elementActive( function ( result ) {
-					client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
-						const elementText1 = element.value.replace( /\s+/g, ' ' ).trim();
-						client.assert.equal( elementText1, 'Primary action' );
-					} );
-				} )
-				// sending multiple keys inside array will fail in Firefox.
-				// See: https://github.com/nightwatchjs/nightwatch/issues/2468#issuecomment-738089219
-				.sendKeys( 'body',
-					currentBrowser !== 'firefox' ?
-						client.Keys.TAB + client.Keys.TAB : client.Keys.TAB )
-				.elementActive( function ( result ) {
-					client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
-						const elementText2 = element.value.replace( /\s+/g, ' ' ).trim();
-						client.assert.equal( elementText2, 'Secondary action' );
-					} );
-				} )
-				// different browsers are counting the combinations differently.
-				// firefox starts in the previous selected element,
-				// while chrome starts the tab count on each elementActive call
-				// chrome: makes sure it goes back to the first element after four tabs
-				.sendKeys( 'body', currentBrowser !== 'firefox' ?
-					client.Keys.TAB + client.Keys.TAB + client.Keys.TAB + client.Keys.TAB
-					: client.Keys.TAB + client.Keys.TAB )
-				.elementActive( function ( result ) {
-					client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
-						const elementText3 = element.value.replace( /\s+/g, ' ' ).trim();
-						client.assert.equal( elementText3, 'Primary action' );
-					} );
-				} );
+		// skipping safari because there are some display issues in safari that need
+		// to be solved first. See: https://phabricator.wikimedia.org/T298551
+		if ( currentBrowser === 'internet explorer' || currentBrowser === 'safari' ) {
+			return;
 		}
+		client
+			.click( '.wikit-Button' )
+			.pause( 500 )
+			.waitForElementPresent( '.wikit-Dialog' )
+			.sendKeys( 'body', client.Keys.TAB )
+			.elementActive( function ( result ) {
+				client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
+					const elementText1 = element.value.replace( /\s+/g, ' ' ).trim();
+					client.assert.equal( elementText1, 'Primary action' );
+				} );
+			} )
+			// sending multiple keys inside array will fail in Firefox.
+			// See: https://github.com/nightwatchjs/nightwatch/issues/2468#issuecomment-738089219
+			.sendKeys( 'body',
+				currentBrowser !== 'firefox' ?
+					client.Keys.TAB + client.Keys.TAB : client.Keys.TAB )
+			.elementActive( function ( result ) {
+				client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
+					const elementText2 = element.value.replace( /\s+/g, ' ' ).trim();
+					client.assert.equal( elementText2, 'Secondary action' );
+				} );
+			} )
+			// different browsers are counting the combinations differently.
+			// firefox starts in the previous selected element,
+			// while chrome starts the tab count on each elementActive call
+			// chrome: makes sure it goes back to the first element after four tabs
+			.sendKeys( 'body', currentBrowser !== 'firefox' ?
+				client.Keys.TAB + client.Keys.TAB + client.Keys.TAB + client.Keys.TAB
+				: client.Keys.TAB + client.Keys.TAB )
+			.elementActive( function ( result ) {
+				client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
+					const elementText3 = element.value.replace( /\s+/g, ' ' ).trim();
+					client.assert.equal( elementText3, 'Primary action' );
+				} );
+			} );
 	} );
 
 	it( 'prevents underlying page from scrolling when opened and on initial render', function ( client ) {
@@ -97,7 +99,6 @@ describe( 'Dialog', function () {
 				.pause( 500 )
 				.waitForElementPresent( '.wikit-Dialog' )
 				// substract 100px from the dialog's original height so scrollbars are shown
-				// TODO: see why this is failing in IE11 in saucelabs
 				.execute( `document.querySelector( ".wikit-Dialog__modal" ).style.height =
 					document.querySelector( ".wikit-Dialog__modal" ).offsetHeight - 100 + "px"` )
 				.execute( `document.querySelector(".wikit-Dialog__content" )
