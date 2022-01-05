@@ -29,9 +29,7 @@ describe( 'Dialog', function () {
 
 		const currentBrowser = client.options.desiredCapabilities.browserName;
 
-		// exclude internet explorer for now because there is a known bug in the .keys
-		// and .sendKeys functions
-		// ie: https://github.com/nightwatchjs/nightwatch/issues/2536
+		// Dialog doesn't yet work in IE11: https://phabricator.wikimedia.org/T298238
 		// skipping safari because there are some display issues in safari that need
 		// to be solved first. See: https://phabricator.wikimedia.org/T298551
 		if ( currentBrowser === 'internet explorer' || currentBrowser === 'safari' ) {
