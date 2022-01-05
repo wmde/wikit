@@ -28,11 +28,8 @@ describe( 'Dialog', function () {
 	it( 'traps page focus, so that only visually focused elements are tab-able', function ( client ) {
 		const currentBrowser = client.options.desiredCapabilities.browserName;
 
-		// Dialog doesn't yet work in IE11: https://phabricator.wikimedia.org/T298238
-		// skipping safari because there are some display issues in safari that need
-		// to be solved first. See: https://phabricator.wikimedia.org/T298551
-		if ( currentBrowser === 'internet explorer' || currentBrowser === 'safari' ) {
-			return;
+		if ( currentBrowser === 'internet explorer' ) {
+			return; // https://phabricator.wikimedia.org/T298238
 		}
 		client
 			.click( '.wikit-Button' )
