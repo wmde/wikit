@@ -38,31 +38,22 @@ describe( 'Dialog', function () {
 			.click( '.wikit-Button' )
 			.pause( 500 )
 			.waitForElementPresent( '.wikit-Dialog' )
-			.sendKeys( 'body', client.Keys.TAB )
+			.sendKeysToActiveElement( client.Keys.TAB )
 			.elementActive( function ( result ) {
 				client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
 					const elementText1 = element.value.replace( /\s+/g, ' ' ).trim();
 					client.assert.equal( elementText1, 'Primary action' );
 				} );
 			} )
-			// sending multiple keys inside array will fail in Firefox.
-			// See: https://github.com/nightwatchjs/nightwatch/issues/2468#issuecomment-738089219
-			.sendKeys( 'body',
-				currentBrowser !== 'firefox' ?
-					client.Keys.TAB + client.Keys.TAB : client.Keys.TAB )
+			.sendKeysToActiveElement( client.Keys.TAB )
 			.elementActive( function ( result ) {
 				client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
 					const elementText2 = element.value.replace( /\s+/g, ' ' ).trim();
 					client.assert.equal( elementText2, 'Secondary action' );
 				} );
 			} )
-			// different browsers are counting the combinations differently.
-			// firefox starts in the previous selected element,
-			// while chrome starts the tab count on each elementActive call
-			// chrome: makes sure it goes back to the first element after four tabs
-			.sendKeys( 'body', currentBrowser !== 'firefox' ?
-				client.Keys.TAB + client.Keys.TAB + client.Keys.TAB + client.Keys.TAB
-				: client.Keys.TAB + client.Keys.TAB )
+			.sendKeysToActiveElement( client.Keys.TAB )
+			.sendKeysToActiveElement( client.Keys.TAB )
 			.elementActive( function ( result ) {
 				client.elementIdText( getWebElementIdFromActiveElementResult( result ), ( element ) => {
 					const elementText3 = element.value.replace( /\s+/g, ' ' ).trim();
