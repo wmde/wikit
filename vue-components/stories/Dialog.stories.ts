@@ -23,7 +23,7 @@ export function complex( args: { title: string; actions: string; dismissButton: 
 					:title="title"
 					ref="simple"
 					:actions="actions"
-					@action="(_, dialog) => dialog.hide()"
+					@action="function ( _, dialog ){ dialog.hide() }"
 					:dismiss-button="dismissButton"
 					:visible="visible"
 				>
