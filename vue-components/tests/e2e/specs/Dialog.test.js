@@ -26,11 +26,6 @@ describe( 'Dialog', function () {
 	} );
 
 	it( 'traps page focus, so that only visually focused elements are tab-able', function ( client ) {
-		const currentBrowser = client.options.desiredCapabilities.browserName;
-
-		if ( currentBrowser === 'internet explorer' ) {
-			return; // https://phabricator.wikimedia.org/T298238
-		}
 		client
 			.click( '.wikit-Button' )
 			.pause( 500 )
@@ -60,10 +55,6 @@ describe( 'Dialog', function () {
 	} );
 
 	it( 'prevents underlying page from scrolling when opened and on initial render', function ( client ) {
-		if ( client.options.desiredCapabilities.browserName === 'internet explorer' ) {
-			return; // https://phabricator.wikimedia.org/T298238
-		}
-
 		client
 			.execute( 'document.body.style.height = "150vh";' )
 			.execute( 'window.scrollTo( 0, document.body.scrollHeight );' )
@@ -80,10 +71,6 @@ describe( 'Dialog', function () {
 	} );
 
 	it( 'resets dialog scroll bars to top when closed and reopened', function ( client ) {
-		if ( client.options.desiredCapabilities.browserName === 'internet explorer' ) {
-			return; // https://phabricator.wikimedia.org/T298238
-		}
-
 		client
 			.click( '.wikit-Button' )
 			.pause( 500 )
