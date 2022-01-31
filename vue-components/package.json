@@ -1,6 +1,6 @@
 {
   "name": "@wmde/wikit-vue-components",
-  "version": "2.1.0-alpha.7",
+  "version": "2.1.0-alpha.10",
   "description": "The component implementation of WiKit in vue",
   "author": {
     "name": "The Wikidata team"
@@ -17,11 +17,11 @@
     "e2e:saucelabs": "env DATE=\"$(date)\" nightwatch --config nightwatch.config.js --env sauceChrome,sauceFirefox,sauceIE,sauceEdge,sauceSafari",
     "build:extract-stories": "npx sb extract storybook-static storybook-static/stories.json",
     "build:storybook": "build-storybook",
-    "fix": "vue-cli-service lint",
+    "fix": "eslint --ext .js,.ts,.vue --fix .",
     "fix:css": "stylelint '**/*.vue' --fix",
     "storybook": "start-storybook",
     "test": "npm-run-all test:*",
-    "test:lint": "vue-cli-service lint --no-fix --max-warnings 0",
+    "test:lint": "eslint --ext .js,.ts,.vue --max-warnings 0 .",
     "test:lintcss": "stylelint '**/*.vue'",
     "test-unit-coverage": "vue-cli-service test:unit -c ./jest.config.js --coverage",
     "chromatic": "npx chromatic build --project-token=3evi132fpys --build-script-name=build:storybook",
@@ -35,7 +35,7 @@
   "types": "dist/main.d.ts",
   "dependencies": {
     "@vue/composition-api": "^1.0.0-beta.20",
-    "@wmde/wikit-tokens": "^2.1.0-alpha.7",
+    "@wmde/wikit-tokens": "^2.1.0-alpha.10",
     "core-js": "^3.7.0",
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
