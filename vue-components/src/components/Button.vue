@@ -47,7 +47,8 @@ Vue.use( VueCompositionAPI );
  * https://bugzilla.mozilla.org/show_bug.cgi?id=1581369#c5
  */
 export default defineComponent( {
-	name: 'Button',
+	// eslint-disable-next-line no-undef
+	name: process.env.VUE_APP_VUE3COMPAT ? 'WikitButton' : 'Button',
 	props: {
 		/**
 		 * The type of the button

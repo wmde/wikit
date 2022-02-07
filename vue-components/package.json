@@ -10,7 +10,7 @@
   },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --formats commonjs --name wikit-vue-components src/main.ts --report --report-json && tsc --emitDeclarationOnly",
+    "build": "vue-cli-service build --target lib --formats commonjs --name wikit-vue-components src/main.ts --report --report-json && tsc --emitDeclarationOnly && VUE_APP_VUE3COMPAT=true vue-cli-service build --target lib --formats commonjs --name wikit-vue-components-vue3compat --no-clean src/main.ts",
     "test:unit": "vue-cli-service test:unit",
     "test:a11y": "jest --testMatch=\"**/tests/a11y/**\"",
     "e2e": "vue-cli-service test:e2e",
