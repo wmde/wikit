@@ -1,5 +1,5 @@
 import React from 'react';
-import { components } from '@storybook/components/dist/typography/DocumentFormatting';
+import { components } from '@storybook/components';
 import { flattenTokenTree } from './flattenTokenTree';
 import { TokenTable } from './TokenTable';
 import './../styles/token-table.css';

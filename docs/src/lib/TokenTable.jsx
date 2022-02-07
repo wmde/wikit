@@ -1,7 +1,7 @@
 import React from 'react';
 import { TokenPresenter } from './TokenPresenter';
-import { components } from '@storybook/components/dist/typography/DocumentFormatting';
-import { AnchorMdx } from '@storybook/addon-docs/dist/blocks/mdx';
+import { components } from '@storybook/components';
+import { AnchorMdx } from '@storybook/addon-docs';
 import './../styles/token-table.css';
 
 export function TokenTable( { tokens } ) {

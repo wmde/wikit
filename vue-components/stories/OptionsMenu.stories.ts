@@ -79,6 +79,7 @@ export function withItems( args: { boldLabels: boolean; selectedItemIndex: numbe
 
 withItems.args = {
 	boldLabels: true,
+	selectedItemIndex: -1,
 };
 withItems.argTypes = {
 	menuItems: {
