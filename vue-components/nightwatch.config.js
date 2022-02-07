@@ -62,15 +62,6 @@ module.exports = {
 			},
 		},
 
-		sauceIE: {
-			extends: 'sauceLabs',
-			desiredCapabilities: {
-				browserName: 'internet explorer',
-				platform: 'Windows 10',
-				version: 'latest',
-			},
-		},
-
 		sauceEdge: {
 			extends: 'sauceLabs',
 			desiredCapabilities: {
