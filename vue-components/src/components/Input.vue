@@ -17,7 +17,8 @@ import Vue from 'vue';
  * identical.
  */
 export default Vue.extend( {
-	name: 'Input',
+	// eslint-disable-next-line no-undef
+	name: process.env.VUE_APP_VUE3COMPAT ? 'WikitInput' : 'Input',
 	props: {
 		feedbackType: {
 			type: String,

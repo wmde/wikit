@@ -33,7 +33,8 @@ import { Breakpoint, validateBreakpoint } from './Breakpoint';
  * ```
  */
 export default Vue.extend( {
-	name: 'Table',
+	// eslint-disable-next-line no-undef
+	name: process.env.VUE_APP_VUE3COMPAT ? 'WikitTable' : 'Table',
 	props: {
 		/**
 		 * Sets the viewport breakpoint that triggers the linearized view of the
