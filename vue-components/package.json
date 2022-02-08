@@ -14,7 +14,7 @@
     "test:unit": "vue-cli-service test:unit",
     "test:a11y": "jest --testMatch=\"**/tests/a11y/**\"",
     "e2e": "vue-cli-service test:e2e",
-    "e2e:saucelabs": "env DATE=\"$(date)\" nightwatch --config nightwatch.config.js --env sauceChrome,sauceFirefox,sauceIE,sauceEdge,sauceSafari",
+    "e2e:saucelabs": "env DATE=\"$(date)\" nightwatch --config nightwatch.config.js --env sauceChrome,sauceFirefox,sauceEdge,sauceSafari",
     "build:extract-stories": "npx sb extract storybook-static storybook-static/stories.json",
     "build:storybook": "build-storybook",
     "fix": "eslint --ext .js,.ts,.vue --fix .",

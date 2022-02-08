@@ -2,8 +2,7 @@ last 2 Chrome versions
 last 2 Firefox versions
 last 2 Opera versions
 last 2 Edge versions
-IE >=11
-Safari >=5.1
-iOS >=6.1
-Android >=4.1
-defaults
+
+Safari >=10
+iOS >=10
+last 2 Android versions
