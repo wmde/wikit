@@ -17,6 +17,8 @@ development)_
 - New Table Component
 - New Close, ArrowNext and ArrowPrevious icons
 - New Dialog Component
+- Experimental `vue3compat` build, compatible with the Vue 3 migration build;
+  see the vue-components README
 
 ### Changed
 
