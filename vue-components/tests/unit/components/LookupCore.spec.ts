@@ -191,7 +191,7 @@ describe( 'LookupInput', () => {
 			const wrapper = await createLookupInputWrapperWithExpandedMenu( menuItems );
 
 			const selectedItem = 1;
-			wrapper.findAll( '.wikit-OptionsMenu__item' ).at( selectedItem ).element.click();
+			wrapper.findAll( '.wikit-OptionsMenu__item' ).at( selectedItem ).trigger( 'click' );
 
 			expect( wrapper.emitted( 'input' )![ 0 ] ).toStrictEqual( [ menuItems[ selectedItem ] ] );
 		} );
@@ -221,7 +221,7 @@ describe( 'LookupInput', () => {
 				const wrapper = await createLookupInputWrapperWithExpandedMenu( menuItems );
 
 				const selectedItem = 1;
-				wrapper.findAll( '.wikit-OptionsMenu__item' ).at( selectedItem ).element.click();
+				wrapper.findAll( '.wikit-OptionsMenu__item' ).at( selectedItem ).trigger( 'click' );
 
 				expect( ( wrapper.emitted( 'update:searchInput' ) )![ 0 ] )
 					.toStrictEqual( [ menuItems[ selectedItem ].label ] );
