@@ -63,6 +63,14 @@
     color: $color;
 }
 
+@mixin small-text ($color: $font-color-base, $font-weight: $font-weight-style-body) {
+    font-family: $font-family-style-body;
+    font-size: $font-size-style-small-text;
+    font-weight: $font-weight; //can also be $font-weight-style-body-bold
+    line-height: $font-line-height-style-small-text;
+    color: $color;
+}
+
 @mixin placeholder ($color: $font-color-base, $line-height: $font-line-height-style-body, $font-weight: $font-weight-style-body) {
     font-family: $font-family-style-placeholder;
     font-size: $font-size-style-placeholder;

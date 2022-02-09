@@ -17,6 +17,8 @@
 
 .body-s { @include body-s; }
 
+.small-text { @include small-text; }
+
 .placeholder { @include placeholder; }
 
 .description { @include description; }
