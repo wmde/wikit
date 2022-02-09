@@ -5,9 +5,11 @@ import './01-typography.scss';
 
 ## Typography
 
-You can use the available <a href="https://github.com/wmde/wikit/blob/master/vue-components/src/styles/mixins/Typography.scss">typography mixins</a> to apply WiKit text styles in context.
+You can use <a href="https://github.com/wmde/wikit/blob/master/vue-components/src/styles/mixins/Typography.scss">typography mixins</a> to apply WiKit text styles in context and customize any of their available attributes.
 
 ### Heading 1
+
+`@mixin heading-1 ($color: $font-color-emphasized)`
 
 <Canvas withSource="none">
 	<div className="heading-1">Time flies like an arrow; fruit flies like a banana</div>
@@ -15,11 +17,15 @@ You can use the available <a href="https://github.com/wmde/wikit/blob/master/vue
 
 ### Heading 2
 
+`@mixin heading-2 ($color: $font-color-emphasized)`
+
 <Canvas withSource="none">
 	<div className="heading-2">Time flies like an arrow; fruit flies like a banana</div>
 </Canvas>
 
 ### Heading 3
+
+`@mixin heading-3 ($color: $font-color-emphasized)`
 
 <Canvas withSource="none">
 	<div className="heading-3">Time flies like an arrow; fruit flies like a banana</div>
@@ -27,11 +33,15 @@ You can use the available <a href="https://github.com/wmde/wikit/blob/master/vue
 
 ### Heading 4
 
+`@mixin heading-4 ($color: $font-color-emphasized)`
+
 <Canvas withSource="none">
 	<div className="heading-4">Time flies like an arrow; fruit flies like a banana</div>
 </Canvas>
 
 ### Heading 5
+
+`@mixin heading-5 ($color: $font-color-emphasized)`
 
 <Canvas withSource="none">
 	<div className="heading-5">Time flies like an arrow; fruit flies like a banana</div>
@@ -39,11 +49,15 @@ You can use the available <a href="https://github.com/wmde/wikit/blob/master/vue
 
 ### Heading 6
 
+`@mixin heading-6 ($color: $font-color-emphasized)`
+
 <Canvas withSource="none">
 	<div className="heading-6">Time flies like an arrow; fruit flies like a banana</div>
 </Canvas>
 
 ### Body
+
+`@mixin body ($color: $font-color-base, $line-height: $font-line-height-style-body, $font-weight: $font-weight-style-body)`
 
 <Canvas withSource="none">
 	<div className="body">Time flies like an arrow; fruit flies like a banana</div>
@@ -51,11 +65,15 @@ You can use the available <a href="https://github.com/wmde/wikit/blob/master/vue
 
 ### Body – Small
 
+`@mixin body-s ($color: $font-color-base, $font-weight: $font-weight-style-body-s)`
+
 <Canvas withSource="none">
 	<div className="body-s">Time flies like an arrow; fruit flies like a banana</div>
 </Canvas>
 
 ### Small text
+
+`@mixin small-text ($color: $font-color-base, $font-weight: $font-weight-style-body)`
 
 <Canvas withSource="none">
 	<div className="small-text">Time flies like an arrow; fruit flies like a banana</div>
@@ -63,11 +81,15 @@ You can use the available <a href="https://github.com/wmde/wikit/blob/master/vue
 
 ### Description
 
+`@mixin description ($color: $font-color-base)`
+
 <Canvas withSource="none">
 	<div className="description">Time flies like an arrow; fruit flies like a banana</div>
 </Canvas>
 
 ### Placeholder
+
+`@mixin placeholder ($color: $font-color-base, $line-height: $font-line-height-style-body, $font-weight: $font-weight-style-body)`
 
 <Canvas withSource="none">
 	<div className="placeholder">Time flies like an arrow; fruit flies like a banana</div>
