@@ -15,10 +15,16 @@ development)_
 
 - New TextArea Component
 - New Table Component
+- New Close, ArrowNext and ArrowPrevious icons
+- New Dialog Component
+- Experimental `vue3compat` build, compatible with the Vue 3 migration build;
+  see the vue-components README
 
 ### Changed
 
 - Dimension-layout tokens are now based on _rem_ instead of _em_
+- Add `dir` prop to Icon component
+- Fix Dropdown component to not emit an event upon choosing the selected value
 
 ## [2.0.0] - 19.07.2021
 

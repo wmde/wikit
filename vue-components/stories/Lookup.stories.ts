@@ -70,7 +70,7 @@ const vegetableItems = [
 export function all(): Component {
 	return {
 		components: { Lookup, Icon },
-		data() {
+		data(): unknown {
 			return {
 				search: '',
 				selectedItem: null,
@@ -83,9 +83,9 @@ export function all(): Component {
 			},
 		},
 		methods: {
-			onScroll( firstIndex, lastIndex ): void {
+			onScroll( firstIndex: number, lastIndex: number ): void {
 				this.visibleItems = { firstIndex, lastIndex };
-			}
+			},
 		},
 		template: `
 			<div>

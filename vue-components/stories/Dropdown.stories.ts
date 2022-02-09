@@ -41,7 +41,7 @@ const menuItems: MenuItem[] = [
 	},
 ];
 
-export function basic( args ): Component {
+export function basic( args: object ): Component {
 	return {
 		components: { Dropdown, Icon },
 		data(): unknown {
@@ -50,7 +50,7 @@ export function basic( args ): Component {
 			};
 		},
 		computed: {
-			error(): any {
+			error(): unknown {
 				if ( this.selectedItem?.value === 'later' ) {
 					return { type: 'warning', message: 'Warning to be careful 🚧' };
 				}
@@ -95,11 +95,11 @@ export function all(): Component {
 						description: 'root vegetable, usually orange in color',
 						value: 'Q81',
 					},
-				]
+				],
 			};
 		},
 		computed: {
-			error(): any {
+			error(): unknown {
 				if ( this.selectedItem?.value === 'later' ) {
 					return { type: 'warning', message: 'Warning to be careful 🚧' };
 				}

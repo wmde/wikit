@@ -33,7 +33,8 @@ import { Breakpoint, validateBreakpoint } from './Breakpoint';
  * ```
  */
 export default Vue.extend( {
-	name: 'Table',
+	// eslint-disable-next-line no-undef
+	name: process.env.VUE_APP_VUE3COMPAT ? 'WikitTable' : 'Table',
 	props: {
 		/**
 		 * Sets the viewport breakpoint that triggers the linearized view of the
@@ -101,7 +102,7 @@ export default Vue.extend( {
 		td[data-header]::before {
 			content: attr(data-header);
 			display: block;
-			font-weight: $wikit-Table-cell-heading-font-weight;
+			font-weight: $wikit-Table-cell-header-font-weight;
 			flex-basis: 40%;
 			// Ensure headers stay exactly 40%
 			// even if values are wider than 60%
@@ -109,7 +110,7 @@ export default Vue.extend( {
 		}
 
 		th:not([data-header]) {
-			font-weight: $wikit-Table-cell-heading-font-weight;
+			font-weight: $wikit-Table-cell-header-font-weight;
 		}
 
 		// Hide empty cells
@@ -149,11 +150,17 @@ export default Vue.extend( {
 		font-size: $wikit-Table-cell-font-size;
 		font-weight: $wikit-Table-cell-font-weight;
 
+		tbody tr:hover {
+			background-color: $background-color-base-hover;
+			transition-duration: $transition-duration-medium;
+			transition-timing-function: $transition-timing-function-ease;
+			transition-property: $transition-property-background-color;
+		}
+
 		tr {
 			/**
 			* Layout
 			*/
-			height: $wikit-Table-cell-height;
 
 			/**
 			* Borders
@@ -170,23 +177,39 @@ export default Vue.extend( {
 			* Layout
 			*/
 			padding-inline: $wikit-Table-cell-spacing-horizontal;
-			padding-block: $wikit-Table-cell-spacing-vertical;
 
 			/**
 			* Typography
 			*/
 			line-height: $wikit-Table-cell-line-height;
 			text-align: start;
-			vertical-align: middle;
 			overflow-wrap: break-word;
 			hyphens: auto;
 		}
 
-		th {
+		td {
+			/**
+			* Layout
+			*/
+			height: $wikit-Table-cell-height;
+			padding-block: $wikit-Table-cell-spacing-vertical;
+
 			/**
 			* Typography
 			*/
-			font-weight: $wikit-Table-cell-heading-font-weight;
+			vertical-align: middle;
+		}
+
+		th {
+			/**
+			* Layout
+			*/
+			padding-block: $wikit-Table-cell-header-spacing-vertical;
+			/**
+			* Typography
+			*/
+			font-weight: $wikit-Table-cell-header-font-weight;
+			vertical-align: top;
 		}
 
 		&--linear-mobile {

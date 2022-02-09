@@ -128,9 +128,6 @@
                     "value": "{font.color.base.value}"
                 },
                 "hover": {
-                    "color": {
-                        "value": "{font.color.base.value}"
-                    },
                     "border-color": {
                         "value": "{border.color.neutral.quiet-hover.value}"
                     },
@@ -146,7 +143,7 @@
                         "value": "{border.color.neutral.active.value}"
                     },
                     "background-color": {
-                        "value": "{background.color.neutral.active.value}"
+                        "value": "{background.color.neutral.quiet-active.value}"
                     }
                 },
                 "focus": {
@@ -157,7 +154,7 @@
                         "value": "{border.color.neutral.focus.value}"
                     },
                     "background-color": {
-                        "value": "{background.color.neutral.focus.value}"
+                        "value": "{background.color.base.default.value}"
                     },
                     "box-shadow": {
                         "value": "{box-shadow.inset.focus.progressive.value}",
@@ -199,7 +196,7 @@
                         "value": "{border.color.progressive.focus.value}"
                     },
                     "background-color": {
-                        "value": "{background.color.progressive.quiet-focus.value}"
+                        "value": "{background.color.base.default.value}"
                     },
                     "box-shadow": {
                         "value": "{box-shadow.inset.focus.progressive.value}"
@@ -240,7 +237,7 @@
                         "value": "{border.color.destructive.focus.value}"
                     },
                     "background-color": {
-                        "value": "{background.color.destructive.quiet-focus.value}"
+                        "value": "{background.color.base.default.value}"
                     },
                     "box-shadow": {
                         "value": "{box-shadow.inset.focus.destructive.value}"

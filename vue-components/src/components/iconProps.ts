@@ -1,16 +1,33 @@
 export enum IconTypes {
+	ADD = 'add',
 	ALERT = 'alert',
-	ERROR = 'error',
-	INFO = 'info',
-	NEWWINDOW = 'newwindow',
+	ARROWNEXT = 'arrownext',
+	ARROWPREVIOUS = 'arrowprevious',
 	CHECKMARK = 'checkmark',
 	CLEAR = 'clear',
+	CLOSE = 'close',
 	EDIT = 'edit',
-	TRASH = 'trash',
+	ERROR = 'error',
+	INFO = 'info',
 	INFOOUTLINED = 'info-outlined',
 	LINK = 'link',
-	ADD = 'add',
-	SEARCH = 'search'
+	NEWWINDOW = 'newwindow',
+	SEARCH = 'search',
+	TRASH = 'trash'
+}
+
+/**
+ * List icons that should be localized.
+ */
+export const flippable = [
+	IconTypes.ARROWNEXT,
+	IconTypes.ARROWPREVIOUS,
+	IconTypes.NEWWINDOW,
+];
+
+export enum IconDirection {
+	RTL = 'rtl',
+	LTR = 'ltr'
 }
 
 export const iconColors = [

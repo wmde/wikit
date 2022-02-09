@@ -17,7 +17,7 @@
         },
         "cell": {
             "height": {
-                "value": "{dimension.min-height.xlarge.value}"
+                "value": "{dimension.height.xlarge.value}"
             },
             "spacing-vertical": {
                 "value": "{dimension.spacing.small.value}"
@@ -51,14 +51,17 @@
                     "value": "{transition.duration.medium.value}"
                 }
             },
+            "header": {
+                "font-weight": {
+                    "value": "{font.weight.style.body-bold.value}"
+                },
+                "spacing-vertical": {
+                    "value": "{dimension.spacing.medium.value}"
+                }
+            },
             "hover": {
                 "background-color": {
                     "value": "{background.color.base.default.value}"
-                }
-            },
-            "heading": {
-                "font-weight": {
-                    "value": "{font.weight.style.body-bold.value}"
                 }
             }
         }
