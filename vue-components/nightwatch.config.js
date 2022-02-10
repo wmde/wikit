@@ -1,6 +1,6 @@
 const build = `Nightwatch build-${process.env.DATE}`;
 
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable camelcase */
 module.exports = {
 	src_folders: [ 'tests/e2e/specs' ],
 	page_objects_path: 'tests/e2e/page-objects',

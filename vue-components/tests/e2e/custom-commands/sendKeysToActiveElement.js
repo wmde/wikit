@@ -7,7 +7,6 @@
  * it using this selector with `.sendKeys()`.
  *
  * @param {string|Array} keys key(s) to send
- *
  * @return {self}
  */
 exports.command = function ( keys ) {

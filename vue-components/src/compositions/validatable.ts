@@ -1,12 +1,12 @@
 import { PropType } from '@vue/composition-api';
 
+interface ErrorProp { type?: 'error'|'warning'; message?: string }
+
 function getFeedbackTypeFromProps( props: { error: ErrorProp } ): () => string|null {
 	return () => {
 		return props.error && props.error.type || null;
 	};
 }
-
-interface ErrorProp { type?: 'error'|'warning'; message?: string }
 
 const errorProp = {
 	type: Object as PropType<ErrorProp>,
