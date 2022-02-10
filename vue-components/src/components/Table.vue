@@ -14,9 +14,34 @@
 import Vue, { PropType } from 'vue';
 import { Breakpoint, validateBreakpoint } from './Breakpoint';
 
+/**
+ * Tables display categorical information organized across rows and columns in
+ * order to facilitate the comparative analysis of data.
+ *
+ * The WiKit table component provides a wrapper around the common HTML table
+ * elements such as `<thead>`, `<tbody>`, `<tr>`, `<th>` and `<td>`, to apply
+ * design system styles to tabular data.
+ *
+ * Adding a `data-header` attribute to the cells allows us to maintain the column
+ * headers and display them in the table's linearized form to provide additional
+ * context.
+ *
+ * **Example:**
+ *
+ * ```html
+ * <td data-header="Column Header">Content Here</td>
+ * ```
+ */
 export default Vue.extend( {
-	name: 'Table',
+	// eslint-disable-next-line no-undef
+	name: process.env.VUE_APP_VUE3COMPAT ? 'WikitTable' : 'Table',
 	props: {
+		/**
+		 * Sets the viewport breakpoint that triggers the linearized view of the
+		 * table in the context of the application.
+		 *
+		 * Allowed Values:  "desktop", "tablet", "mobile"
+		 */
 		linearize: {
 			type: String as PropType<Breakpoint>,
 			validator( value: Breakpoint ): boolean {
@@ -36,8 +61,7 @@ export default Vue.extend( {
 <style lang="scss">
 	@mixin linear-table {
 		/**
-		* Wipe the thead from the face of the earth
-		* modern screen readers will expose the
+		* Completely removes thead, modern screen readers will expose the
 		* generated content
 		*/
 		thead {
@@ -46,7 +70,7 @@ export default Vue.extend( {
 		}
 
 		/**
-		* make everything display flex for alignment
+		* Make everything display flex for alignment
 		*/
 		tbody,
 		tr,
@@ -66,30 +90,30 @@ export default Vue.extend( {
 		/**
 		* Labeling
 		*
-		* Adding a data-title attribute to the cells
+		* Adding a data-header attribute to the cells
 		* lets us add text before the content to provide
 		* the missing context.
 		*
 		* Markup:
-		*   <td data-title="Column Header">Content Here</td>
-		*
-		* Display:
-		*   Column Header: Content Here
+		*   <td data-header="Column Header">Content Here</td>
 		*/
 		/* stylelint-disable selector-no-qualifying-type  */
 		th[data-header]::before,
 		td[data-header]::before {
 			content: attr(data-header);
 			display: block;
-			font-weight: bold;
+			font-weight: $wikit-Table-cell-header-font-weight;
 			flex-basis: 40%;
+			// Ensure headers stay exactly 40%
+			// even if values are wider than 60%
+			min-width: 40%;
 		}
 
 		th:not([data-header]) {
-			font-weight: bold;
+			font-weight: $wikit-Table-cell-header-font-weight;
 		}
 
-		// hide empty cells
+		// Hide empty cells
 		td:empty {
 			display: none;
 		}
@@ -116,29 +140,35 @@ export default Vue.extend( {
 		/**
 		* Colors
 		*/
-		background-color: $background-color-base-default;
-		color: $font-color-base;
+		background-color: $wikit-Table-background-color;
+		color: $wikit-Table-cell-color;
 
 		/**
 		* Typography
 		*/
-		font-family: $font-family-style-body;
-		font-size: $font-size-style-body;
-		font-weight: $font-weight-style-body;
+		font-family: $wikit-Table-cell-font-family;
+		font-size: $wikit-Table-cell-font-size;
+		font-weight: $wikit-Table-cell-font-weight;
+
+		tbody tr:hover {
+			background-color: $background-color-base-hover;
+			transition-duration: $transition-duration-medium;
+			transition-timing-function: $transition-timing-function-ease;
+			transition-property: $transition-property-background-color;
+		}
 
 		tr {
 			/**
 			* Layout
 			*/
-			height: $dimension-min-height-xlarge;
 
 			/**
 			* Borders
 			*/
-			border-bottom-style: $border-style-base;
-			border-bottom-width: $border-width-thin;
-			border-radius: $border-radius-none;
-			border-bottom-color: $border-color-base-subtle;
+			border-bottom-style: $wikit-Table-border-style;
+			border-bottom-width: $wikit-Table-border-width;
+			border-radius: $wikit-Table-border-radius;
+			border-bottom-color: $wikit-Table-border-color;
 		}
 
 		th,
@@ -146,24 +176,40 @@ export default Vue.extend( {
 			/**
 			* Layout
 			*/
-			padding-inline: $dimension-spacing-medium;
-			padding-block: $dimension-spacing-small;
+			padding-inline: $wikit-Table-cell-spacing-horizontal;
 
 			/**
 			* Typography
 			*/
-			line-height: $font-line-height-style-label;
+			line-height: $wikit-Table-cell-line-height;
 			text-align: start;
-			vertical-align: middle;
 			overflow-wrap: break-word;
 			hyphens: auto;
 		}
 
-		th {
+		td {
+			/**
+			* Layout
+			*/
+			height: $wikit-Table-cell-height;
+			padding-block: $wikit-Table-cell-spacing-vertical;
+
 			/**
 			* Typography
 			*/
-			font-weight: $font-weight-bold;
+			vertical-align: middle;
+		}
+
+		th {
+			/**
+			* Layout
+			*/
+			padding-block: $wikit-Table-cell-header-spacing-vertical;
+			/**
+			* Typography
+			*/
+			font-weight: $wikit-Table-cell-header-font-weight;
+			vertical-align: top;
 		}
 
 		&--linear-mobile {

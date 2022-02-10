@@ -5,9 +5,11 @@ import OptionsMenu from '@/components/OptionsMenu.vue';
 import ValidationMessage from '@/components/ValidationMessage.vue';
 import { MenuItem } from '@/components/MenuItem';
 
-async function createDropdownWrapperWithExpandedMenu( menuItems: MenuItem[] ): Promise<Wrapper<Dropdown>> {
+async function createDropdownWrapperWithExpandedMenu( menuItems: MenuItem[],
+	value?: MenuItem ): Promise<Wrapper<Dropdown>> {
 	const wrapper = mount( Dropdown, { propsData: {
 		menuItems,
+		value,
 	} } );
 	wrapper.find( '.wikit-Dropdown__select' ).trigger( 'click' );
 
@@ -121,6 +123,21 @@ describe( 'Dropdown', () => {
 		wrapper.findAll( '.wikit-OptionsMenu__item' ).at( selectedItem ).element.click();
 
 		expect( wrapper.emitted( 'input' )![ 0 ] ).toEqual( [ menuItems[ selectedItem ] ] );
+	} );
+
+	it( 'doesn\'t emit an `input` event if currently selected item is selected again', async () => {
+		const menuItems = [
+			{ label: 'potato', description: 'root vegetable' },
+			{ label: 'duck', description: 'aquatic bird' },
+		];
+		const selectedItem = 1;
+		const value = menuItems[ selectedItem ];
+		const wrapper = await createDropdownWrapperWithExpandedMenu( menuItems, value );
+
+		wrapper.findAll( '.wikit-OptionsMenu__item' ).at( selectedItem ).element.click();
+
+		expect( wrapper.emitted( 'input' ) ).toBe( undefined );
+
 	} );
 
 	it( 'shows the currently selected menu item after reopening it', async () => {

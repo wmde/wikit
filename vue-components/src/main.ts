@@ -1,8 +1,10 @@
 import Button from './components/Button.vue';
 import Checkbox from './components/Checkbox.vue';
 import DateInput from './components/DateInput.vue';
+import Dialog from './components/Dialog.vue';
 import ExtendedNumberInput from './components/ExtendedNumberInput.vue';
 import TextArea from './components/TextArea.vue';
+import Table from './components/Table.vue';
 import TextInput from './components/TextInput.vue';
 import ToggleButton from './components/ToggleButton.vue';
 import ToggleButtonGroup from './components/ToggleButtonGroup.vue';
@@ -19,8 +21,10 @@ export {
 	Button,
 	Checkbox,
 	DateInput,
+	Dialog,
 	Dropdown,
 	ExtendedNumberInput,
+	Table,
 	TextArea,
 	TextInput,
 	ToggleButton,

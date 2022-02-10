@@ -9,7 +9,21 @@
 		]"
 		:type="nativeType"
 	>
-		<slot />
+		<div class="wikit-Button--content">
+			<!-- @slot Use this slot to pass an icon to appear before the label-->
+			<slot name="prefix" />
+			<div
+				:class="[
+					hasPrefixSlot ? `wikit-Button--content--start` : '',
+					hasSuffixSlot ? `wikit-Button--content--end` : '',
+				]"
+			>
+				<!-- @slot Default slot for label-->
+				<slot />
+			</div>
+			<!-- @slot Use this slot to pass an icon to appear after the label-->
+			<slot name="suffix" />
+		</div>
 	</button>
 </template>
 
@@ -33,7 +47,8 @@ Vue.use( VueCompositionAPI );
  * https://bugzilla.mozilla.org/show_bug.cgi?id=1581369#c5
  */
 export default defineComponent( {
-	name: 'Button',
+	// eslint-disable-next-line no-undef
+	name: process.env.VUE_APP_VUE3COMPAT ? 'WikitButton' : 'Button',
 	props: {
 		/**
 		 * The type of the button
@@ -76,6 +91,14 @@ export default defineComponent( {
 			default: 'button',
 		},
 	},
+	computed: {
+		hasPrefixSlot(): boolean {
+			return !!this.$slots.prefix;
+		},
+		hasSuffixSlot(): boolean {
+			return !!this.$slots.suffix;
+		},
+	},
 	setup( props: {
 		type: 'neutral' | 'progressive' | 'destructive';
 		variant: 'normal' | 'primary' | 'quiet';
@@ -115,6 +138,18 @@ $base: '.wikit-Button';
 	transition-property: $wikit-Button-transition-property;
 	white-space: nowrap;
 
+	#{$base}--content {
+		display: flex; // aligns the slots content inside the button, e.g. an icon and label
+	}
+
+	#{$base}--content--start {
+		padding-inline-start: $dimension-spacing-small;
+	}
+
+	#{$base}--content--end {
+		padding-inline-end: $dimension-spacing-small;
+	}
+
 	// TODO use breakpoint mixin?
 	@media (max-width: $width-breakpoint-mobile) {
 		padding-inline: $wikit-Button-large-padding-horizontal;
@@ -137,7 +172,6 @@ $base: '.wikit-Button';
 			&:hover {
 				color: $wikit-Button-normal-neutral-hover-color;
 				background-color: $wikit-Button-normal-neutral-hover-background-color;
-				border-color: $wikit-Button-normal-neutral-hover-border-color;
 			}
 
 			&:active {
@@ -145,10 +179,6 @@ $base: '.wikit-Button';
 				background-color: $wikit-Button-normal-neutral-active-background-color;
 				border-color: $wikit-Button-normal-neutral-active-border-color;
 				box-shadow: none;
-			}
-
-			&:focus:hover {
-				border-color: $wikit-Button-normal-neutral-focus-border-color;
 			}
 		}
 	}
@@ -232,9 +262,7 @@ $base: '.wikit-Button';
 			}
 
 			&:hover {
-				color: $wikit-Button-quiet-neutral-hover-color;
 				background-color: $wikit-Button-quiet-neutral-hover-background-color;
-				border-color: $wikit-Button-quiet-neutral-hover-border-color;
 			}
 
 			&:active {
@@ -242,10 +270,6 @@ $base: '.wikit-Button';
 				background-color: $wikit-Button-quiet-neutral-active-background-color;
 				border-color: $wikit-Button-quiet-neutral-active-border-color;
 				box-shadow: none;
-			}
-
-			&:focus:hover {
-				border-color: $wikit-Button-quiet-neutral-focus-border-color;
 			}
 		}
 

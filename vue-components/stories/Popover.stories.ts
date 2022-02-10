@@ -9,7 +9,7 @@ export default {
 	title: 'Popover',
 };
 
-export function basic( args ): Component {
+export function basic( args: object ): Component {
 	return {
 		components: { Popover, Icon, Button },
 		props: Object.keys( args ),
@@ -101,7 +101,7 @@ export function all(): Component {
 					<template v-slot:default>
 						<div>
 							<span v-if="direction === 'ltr'">current position: <b><em>{{ value }}</em></b>.</span>
-							<bdi v-if="direction === 'rtl'"><b><em>{{ value }}</em></b> :מיקום נוכחי</bdi> 
+							<bdi v-if="direction === 'rtl'"><b><em>{{ value }}</em></b> :מיקום נוכחי</bdi>
 						</div>
 					</template>
 				</Popover>

@@ -69,7 +69,8 @@ export default Vue.extend( {
 	display: flex;
 	text-decoration: none;
 	align-items: center;
-	width: max-content;
+	overflow-wrap: break-word;
+	hyphens: auto;
 
 	&--underlined {
 		text-decoration: underline;

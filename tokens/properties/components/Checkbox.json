@@ -9,7 +9,7 @@
         },
         "input": {
             "size": {
-                "value": "{dimension.min-height.small.value}",
+                "value": "{dimension.height.small.value}",
                 "comment": "Not the ideal value, but all these min-height tokens already in use could be renamed as 'size' in a coordinated way"
             },
             "right-spacing": {
