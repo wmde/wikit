@@ -25,7 +25,7 @@
 			@esc="onEsc"
 			ref="menu"
 		>
-			<template v-slot:no-results>
+			<template #no-results>
 				<slot name="no-results" />
 			</template>
 		</OptionsMenu>

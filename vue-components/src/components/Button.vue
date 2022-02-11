@@ -41,7 +41,7 @@ Vue.use( VueCompositionAPI );
  *
  * Known issues:
  *
- * * The styles defined on `:focus` do not apply in Safari and Firefox on macOS.<br>
+ * The styles defined on `:focus` do not apply in Safari and Firefox on macOS.<br>
  * This seems to be a desired behavior and not a bug<br>
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Clicking_and_focus<br>
  * https://bugzilla.mozilla.org/show_bug.cgi?id=1581369#c5

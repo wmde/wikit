@@ -27,7 +27,7 @@
 			@input="$emit('input', $event)"
 			@scroll="(firstIndex, lastIndex) => $emit('scroll', firstIndex, lastIndex)"
 		>
-			<template v-slot:no-results>
+			<template #no-results>
 				<slot name="no-results" />
 			</template>
 		</LookupInput>
