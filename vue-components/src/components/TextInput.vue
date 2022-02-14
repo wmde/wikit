@@ -1,5 +1,5 @@
 <template>
-	<div :class="[ 'wikit', 'wikit-TextInput' ]">
+	<div :class="[ 'wikit', 'wikit-TextInput', extraClasses ]" :style="extraStyles">
 		<span class="wikit-TextInput__label-wrapper">
 			<label
 				:class="[
@@ -19,6 +19,7 @@
 			:feedback-type="feedbackType"
 			:placeholder="placeholder"
 			:disabled="disabled"
+			v-bind="otherAttributes"
 		/>
 		<ValidationMessage
 			v-if="error"
@@ -45,8 +46,13 @@ Vue.use( VueCompositionAPI );
  */
 export default defineComponent( {
 	name: 'TextInput',
-	setup( props: { error: ErrorProp } ) {
+	inheritAttrs: false,
+	setup( props: { error: ErrorProp }, context ) {
+		const { class: extraClasses, style: extraStyles, ...otherAttributes } = context.attrs;
 		return {
+			extraClasses,
+			extraStyles,
+			otherAttributes,
 			feedbackType: computed( getFeedbackTypeFromProps( props ) ),
 		};
 	},

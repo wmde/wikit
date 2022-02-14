@@ -14,7 +14,7 @@ export function all(): Component {
 		template: `
 			<div>
 				<p>
-					<TextInput label="Label" placeholder="Placeholder"></TextInput>
+					<TextInput label="Label" placeholder="Placeholder" name="attrOnInputTag"></TextInput>
 				</p>
 				<p>
 					<TextInput label="Label" disabled="disabled" placeholder="Placeholder"></TextInput>
