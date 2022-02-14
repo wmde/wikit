@@ -1,0 +1,24 @@
+@import '~@wmde/wikit-tokens/dist/_variables.scss';
+@import '~@wmde/wikit-vue-components/src/styles/mixins/Typography.scss';
+
+.heading-1 { @include heading-1; }
+
+.heading-2 { @include heading-2; }
+
+.heading-3 { @include heading-3; }
+
+.heading-4 { @include heading-4; }
+
+.heading-5 { @include heading-5; }
+
+.heading-6 { @include heading-6; }
+
+.body { @include body; }
+
+.body-s { @include body-s; }
+
+.small-text { @include small-text; }
+
+.placeholder { @include placeholder; }
+
+.description { @include description; }

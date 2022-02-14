@@ -70,6 +70,9 @@
                 "body-s": {
                     "value": "{font.line-height.large.value}"
                 },
+                "small-text": {
+                    "value": "{font.line-height.large.value}"
+                },
                 "body-component": {
                     "value": "{font.line-height.small.value}"
                 },
@@ -106,6 +109,9 @@
                 },
                 "body-s": {
                     "value": "{font.size.small.value}"
+                },
+                "small-text": {
+                    "value": "{font.size.xsmall.value}"
                 },
                 "placeholder": {
                     "value": "{font.size.medium.value}"
