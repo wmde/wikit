@@ -46,6 +46,8 @@
     "eslint-plugin-react": "^7.21.5",
     "npm-run-all": "^4.1.5",
     "react": "^16.14.0",
-    "react-is": "^16.13.1"
+    "react-is": "^16.13.1",
+    "sass": "^1.43.3",
+    "sass-loader": "^10"
   }
 }
