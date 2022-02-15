@@ -19,6 +19,8 @@ development)_
 - New Dialog Component
 - Experimental `vue3compat` build, compatible with the Vue 3 migration build;
   see the vue-components README
+- New Typography Mixins
+- TextInput now accepts additional attributes
 
 ### Changed
 
