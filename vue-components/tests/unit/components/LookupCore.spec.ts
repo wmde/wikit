@@ -55,13 +55,13 @@ describe( 'LookupInput', () => {
 		expect( wrapper.findComponent( OptionsMenu ).isVisible() ).toBe( false );
 	} );
 
-	it( 'shows the lookup menu if the input field is focused and has content', () => {
+	it( 'shows the lookup menu if the input field is focused and has content', async () => {
 		const wrapper = mount( LookupInput, {
 			propsData: {
 				searchInput: 'some non-empty input',
 			},
 		} );
-		wrapper.findComponent( Input ).trigger( 'focus' );
+		await wrapper.findComponent( Input ).trigger( 'focus' );
 
 		return Vue.nextTick().then( () => {
 			expect( wrapper.findComponent( OptionsMenu ).isVisible() ).toBe( true );
