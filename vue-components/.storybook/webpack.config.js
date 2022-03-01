@@ -29,8 +29,9 @@ module.exports = async ( { config } ) => {
 			{
 				loader: 'postcss-loader',
 				options: {
-					ident: 'postcss',
-					plugins: ourPostCssConfig.plugins,
+					postcssOptions: {
+						plugins: ourPostCssConfig.plugins,
+					},
 				},
 			},
 			{

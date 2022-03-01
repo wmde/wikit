@@ -12,7 +12,7 @@ async function createLookupInputWrapperWithExpandedMenu( menuItems: MenuItem[] )
 			searchInput: 'some non-empty input',
 		},
 	} );
-	wrapper.findComponent( Input ).trigger( 'focus' );
+	wrapper.findComponent( Input ).trigger( 'focus.native' );
 
 	await Vue.nextTick();
 	return wrapper;
@@ -61,7 +61,7 @@ describe( 'LookupInput', () => {
 				searchInput: 'some non-empty input',
 			},
 		} );
-		wrapper.findComponent( Input ).trigger( 'focus' );
+		wrapper.findComponent( Input ).trigger( 'focus.native' );
 
 		return Vue.nextTick().then( () => {
 			expect( wrapper.findComponent( OptionsMenu ).isVisible() ).toBe( true );
@@ -375,7 +375,7 @@ describe( 'LookupInput', () => {
 
 			expect( OptionsMenuWrapper.isVisible() ).toBe( false );
 
-			wrapper.findComponent( Input ).trigger( 'focus' );
+			wrapper.findComponent( Input ).trigger( 'focus.native' );
 			await Vue.nextTick();
 			expect( OptionsMenuWrapper.isVisible() ).toBe( true );
 		} );
