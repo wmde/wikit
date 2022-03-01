@@ -24,7 +24,7 @@ describe( 'Lookup Menu', function () {
 		client
 			.setValue( 'input', 'whatever' )
 			.waitForElementPresent( '.wikit-OptionsMenu' )
-			.assert.containsText( '.wikit-OptionsMenu__no-results', 'No match was found' );
+			.assert.textContains( '.wikit-OptionsMenu__no-results', 'No match was found' );
 	} );
 
 	it( 'selects menu item when OptionsMenu-Item clicked', function ( client ) {
@@ -33,8 +33,8 @@ describe( 'Lookup Menu', function () {
 			.waitForElementPresent( '.wikit-OptionsMenu' )
 			.assert.visible( '.wikit-OptionsMenu__item' )
 			.click( '.wikit-OptionsMenu__item' )
-			.assert.containsText( '.selected-item-label', 'potato' )
-			.assert.containsText( '.selected-item-id', 'Q10998' );
+			.assert.textContains( '.selected-item-label', 'potato' )
+			.assert.textContains( '.selected-item-id', 'Q10998' );
 	} );
 
 	it( 'emits first and last index on scroll change', function ( client ) {
@@ -42,7 +42,7 @@ describe( 'Lookup Menu', function () {
 			.setValue( 'input', 'a' )
 			.waitForElementPresent( '.wikit-OptionsMenu' )
 			.execute( 'document.querySelectorAll(".wikit-OptionsMenu__item")[7].scrollIntoView(false)' )
-			.assert.containsText( '.first-visible-element-index', '2' )
-			.assert.containsText( '.last-visible-element-index', '7' );
+			.assert.textContains( '.first-visible-element-index', '2' )
+			.assert.textContains( '.last-visible-element-index', '7' );
 	} );
 } );
