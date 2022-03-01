@@ -43,6 +43,7 @@
     "vue": "^2.6.12"
   },
   "devDependencies": {
+    "@rushstack/eslint-patch": "^1.1.0",
     "@storybook/addon-a11y": "~6.4.18",
     "@storybook/addon-backgrounds": "~6.4.18",
     "@storybook/addon-controls": "~6.4.18",
@@ -63,11 +64,11 @@
     "@vue/cli-service": "^4.5.15",
     "@vue/eslint-config-typescript": "^8.0.0",
     "@vue/test-utils": "^1.3.0",
-    "@wmde/eslint-config-wikimedia-typescript": "^0.2.0",
+    "@wmde/eslint-config-wikimedia-typescript": "^0.2.2",
     "chromatic": "^6.4.3",
     "chromedriver": "83",
     "eslint": "^7.13.0",
-    "eslint-config-wikimedia": "^0.16.2",
+    "eslint-config-wikimedia": "^0.21.0",
     "eslint-plugin-filenames": "^1.3.2",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsdoc": "^37.8.2",

@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-shadow
 enum Breakpoint {
 	Mobile = 'mobile',
 	Tablet = 'tablet',

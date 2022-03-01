@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-shadow
 export enum IconTypes {
 	ADD = 'add',
 	ALERT = 'alert',
@@ -25,6 +26,7 @@ export const flippable = [
 	IconTypes.NEWWINDOW,
 ];
 
+// eslint-disable-next-line no-shadow
 export enum IconDirection {
 	RTL = 'rtl',
 	LTR = 'ltr'
