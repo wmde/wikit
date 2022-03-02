@@ -47,7 +47,7 @@ module.exports = {
 		sauceChrome: {
 			extends: 'sauceLabs',
 			desiredCapabilities: {
-				browserName: 'googlechrome',
+				browserName: 'chrome',
 				platform: 'Windows 10',
 				version: 'latest',
 			},
