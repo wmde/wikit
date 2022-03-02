@@ -14,7 +14,7 @@ module.exports = {
 
 	test_settings: {
 		// full default config at
-		// https://github.com/vuejs/vue-cli/blob/dev/packages/%40vue/cli-plugin-e2e-nightwatch/nightwatch.config.js
+		// https://github.com/vuejs/vue-cli/blob/dev/packages/@vue/cli-plugin-e2e-nightwatch/nightwatch.conf.js
 		default: {
 			launch_url: process.env.STORYBOOK_URL,
 			isLocal: true,
