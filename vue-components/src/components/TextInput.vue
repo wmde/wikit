@@ -1,5 +1,5 @@
 <template>
-	<div :class="[ 'wikit', 'wikit-TextInput', extraClasses ]" :style="extraStyles">
+	<div :class="[ 'wikit', 'wikit-TextInput', extraClasses ]" :style="(extraStyles as any)">
 		<span class="wikit-TextInput__label-wrapper">
 			<label
 				:class="[
@@ -30,14 +30,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import VueCompositionAPI, { defineComponent, computed } from '@vue/composition-api';
+import { defineComponent, computed } from 'vue';
 import ValidationMessage from './ValidationMessage.vue';
 import Input from './Input.vue';
 import generateUid from '@/components/util/generateUid';
 import { errorProp, ErrorProp, getFeedbackTypeFromProps } from '@/compositions/validatable';
-
-Vue.use( VueCompositionAPI );
 
 /**
  * Text input fields are form elements that let users input and edit values in the form of text.

@@ -6,8 +6,8 @@
 		<Input
 			:value="searchInput"
 			@input="onInput"
-			@focus.native="onFocus"
-			@blur.native="showMenu = false"
+			@focus="onFocus"
+			@blur="showMenu = false"
 			:feedback-type="feedbackType"
 			:placeholder="placeholder"
 			:disabled="disabled"
@@ -32,35 +32,111 @@
 	</div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import Input from '@/components/Input.vue';
-import OptionsMenu from '@/components/OptionsMenu.vue';
+<script setup lang="ts">
+import { computed, ref } from 'vue';
 import isEqual from 'lodash.isequal';
-import VueCompositionAPI, { defineComponent, ref } from '@vue/composition-api';
+import OptionsMenu from '@/components/OptionsMenu.vue';
+import Input from '@/components/Input.vue';
 import { MenuItem } from '@/components/MenuItem';
 
-Vue.use( VueCompositionAPI );
+interface Props {
+	feedbackType?: 'warning' | 'error' | null;
+	/**
+	 * Array of objects that will be displayed in the lookup menu. Must contain a `label` and a `description` field.
+	 */
+	menuItems?: MenuItem[];
+	disabled?: boolean;
+	placeholder?: string;
+	/**
+	 * The selected menu item
+	 *
+	 * The data usually comes from the consumer's `v-model` annotation on the Lookup component.
+	 */
+	value?: MenuItem | null;
+	/**
+	 * Sets the value of the Lookup component's inner `<input>` element. This prop can be used with the `.sync`
+	 * modifier. When bound to a field in the consuming component's data object, it can be used within a watcher or
+	 * computed property to dynamically update the Lookup's `menuItems` prop.
+	 */
+	searchInput?: string;
+}
+
+const props = withDefaults( defineProps<Props>(), {
+	feedbackType: null,
+	menuItems: (): [] => [],
+	disabled: false,
+	placeholder: '',
+	value: null,
+	searchInput: '',
+} );
+
+/**
+ * Events are documented in the Lookup component
+ */
+// eslint-disable-next-line func-call-spacing
+const emit = defineEmits<{
+	( e: 'scroll', firstIndex: number, lastIndex: number ): void;
+	( e: 'input', value: MenuItem | null ): void;
+	( e: 'update:searchInput', value: string ): void;
+}>();
+
+const menu = ref<InstanceType<typeof OptionsMenu> | null>( null );
+
+function triggerKeyDown( event: KeyboardEvent ): void {
+	menu.value?.onKeyDown( event );
+}
+
+const showMenu = ref( false );
+
+function canShowMenu( currentSearchInput: string ): boolean {
+	return currentSearchInput.length > 0;
+}
+
+function onFocus(): void {
+	if ( canShowMenu( props.searchInput ) ) {
+		showMenu.value = true;
+	}
+}
+
+function onInput( value: string ): void {
+	showMenu.value = canShowMenu( value );
+
+	emit( 'update:searchInput', value );
+	emit( 'input', null );
+}
+
+function onSelect( menuItem: MenuItem ): void {
+	showMenu.value = false;
+
+	emit( 'input', menuItem );
+	emit( 'update:searchInput', menuItem.label );
+}
+
+function onEsc(): void {
+	showMenu.value = false;
+}
+
+const selectedItemIndex = computed( (): number => {
+	if ( props.value === null || props.menuItems.length === 0 ) {
+		return -1;
+	}
+
+	return props.menuItems.findIndex(
+		( menuItem ) => {
+			return isEqual( menuItem, props.value );
+		},
+		this,
+	);
+} );
+
+</script>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
 
 export default defineComponent( {
 	name: 'LookupInput',
 	inheritAttrs: false,
-	components: {
-		Input,
-		OptionsMenu,
-	},
-	setup() {
-		const menu = ref<InstanceType<typeof OptionsMenu> | null>( null );
-
-		function triggerKeyDown( event: KeyboardEvent ): void {
-			menu.value?.onKeyDown( event );
-		}
-
-		return {
-			triggerKeyDown,
-			menu,
-		};
-	},
 	data() {
 		return {
 			showMenu: false,
@@ -68,110 +144,14 @@ export default defineComponent( {
 			scrollIndexEnd: null as ( number | null ),
 		};
 	},
-	props: {
-		feedbackType: {
-			type: String,
-			validator( value: string | null ): boolean {
-				return value === null || [ 'warning', 'error' ].includes( value );
-			},
-			default: null,
-		},
-		/**
-		 * Array of objects that will be displayed in the lookup menu. Must contain a `label` and a `description` field.
-		 */
-		menuItems: {
-			type: Array,
-			default: (): [] => [],
-		},
-		disabled: {
-			type: Boolean,
-			default: false,
-		},
-		placeholder: {
-			type: String,
-			default: '',
-		},
-		/**
-		 * The selected menu item, can be of type `MenuItem` or `null`.
-		 *
-		 * The data usually comes from the consumer's `v-model` annotation on the Lookup component.
-		 */
-		value: {
-			type: Object,
-			default: null,
-		},
-		/**
-		 * Sets the value of the Lookup component's inner `<input>` element. This prop can be used with the `.sync`
-		 * modifier. When bound to a field in the consuming component's data object, it can be used within a watcher or
-		 * computed property to dynamically update the Lookup's `menuItems` prop.
-		 */
-		searchInput: {
-			type: String,
-			default: '',
-		},
-	},
 	methods: {
-		canShowMenu( currentSearchInput: string ): boolean {
-			return currentSearchInput.length > 0;
-		},
-		onInput( value: string ): void {
-			this.showMenu = this.canShowMenu( value );
-
-			// the following comment generates the event's description for the docs tab in storybook
-			/**
-			 * Enables the `searchInput` prop to be used with the `.sync` modifier. It's used to transport the value of
-			 * the Lookup component's inner `<input>` element to the parent component.
-			 */
-			this.$emit( 'update:searchInput', value );
-			this.$emit( 'input', null );
-		},
-
-		onSelect( menuItem: MenuItem ): void {
-			this.showMenu = false;
-
-			// the following comment generates the event's description for the docs tab in storybook
-			/**
-			 * This event is emitted whenever an item is selected on the Lookup. The event payload contains the whole
-			 * MenuItem object. The payload is null when no item is selected or the item is deselected.
-			 */
-			this.$emit( 'input', menuItem );
-			this.$emit( 'update:searchInput', menuItem.label );
-		},
-		onFocus(): void {
-			if ( this.canShowMenu( this.searchInput ) ) {
-				this.showMenu = true;
-			}
-		},
-		onEsc(): void {
-			this.showMenu = false;
-		},
 		onScroll( firstIndex: number, lastIndex: number ): void {
 			if ( firstIndex !== this.scrollIndexStart || lastIndex !== this.scrollIndexEnd ) {
-				/**
-				 * This event is emitted whenever the first or last index of the
-				 * visible menuItems changes. If the user scrolls but the indexes remain
-				 * unchanged the event won't fire.
-				 *
-				 */
 				this.$emit( 'scroll', firstIndex, lastIndex );
 				this.scrollIndexStart = firstIndex;
 				this.scrollIndexEnd = lastIndex;
 			}
 
-		},
-	},
-	computed: {
-		selectedItemIndex(): number {
-			if ( this.value === null || this.menuItems.length === 0 ) {
-				return -1;
-			}
-
-			return this.menuItems.findIndex(
-				( menuItem ) => {
-					return isEqual( menuItem, this.value );
-				},
-				this,
-			);
 		},
 	},
 } );

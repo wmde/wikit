@@ -8,7 +8,7 @@ describe( 'Input', () => {
 		'warning',
 	] )( 'renders the feedback-type as a root node class', ( type ) => {
 		const wrapper = shallowMount( Input, {
-			propsData: {
+			props: {
 				feedbackType: type,
 			},
 		} );
@@ -18,7 +18,7 @@ describe( 'Input', () => {
 
 	it( 'validates the `feedback-type` prop', () => {
 		expect( () => shallowMount( Input, {
-			propsData: {
+			props: {
 				feedbackType: 'potato',
 			},
 		} ) ).toThrow();
@@ -26,7 +26,7 @@ describe( 'Input', () => {
 
 	it( 'does not render the feedback-type as a root node class if null', () => {
 		const wrapper = shallowMount( Input, {
-			propsData: {
+			props: {
 				feedbackType: null,
 			},
 		} );

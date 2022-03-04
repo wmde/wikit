@@ -1,27 +1,27 @@
 <template>
-	<!-- re-emits the input event so that parent components can use `@input` instead of `@input.native` -->
 	<input
 		type="text"
-		:class="[ 'wikit', 'wikit-Input', { [ `wikit-Input--${this.feedbackType}` ]: this.feedbackType !== null } ]"
-		@input="$emit( 'input', $event.target.value )"
+		:class="[ 'wikit', 'wikit-Input', { [ `wikit-Input--${feedbackType}` ]: feedbackType !== null } ]"
+		@input="$emit( 'input', ($event.target as HTMLInputElement).value )"
 		:value="value"
 	>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent, PropType } from 'vue';
 
 /**
  * This is an internal component, not to be confused with the TextInput system component, which is intended to be shared
  * between system components such as TextInput and Lookup that have an input field which should look and behave
  * identical.
  */
-export default Vue.extend( {
+export default defineComponent( {
 	// eslint-disable-next-line no-undef
 	name: process.env.VUE_APP_VUE3COMPAT ? 'WikitInput' : 'Input',
+	emits: [ 'input' ],
 	props: {
 		feedbackType: {
-			type: String,
+			type: String as PropType<string|null>,
 			validator( value: string|null ): boolean {
 				return value === null ||
 					[ 'warning', 'error' ].includes( value );

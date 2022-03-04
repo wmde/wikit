@@ -43,13 +43,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent, PropType } from 'vue';
 import debounce from 'lodash/debounce';
+import { MenuItem } from './MenuItem';
 
 /**
  * This is an internal component which used by the Lookup component.
  */
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'OptionsMenu',
 	data() {
 		return {
@@ -58,9 +59,10 @@ export default Vue.extend( {
 			keyboardHoveredItemIndex: -1,
 		};
 	},
+	emits: [ 'scroll', 'select', 'esc' ],
 	props: {
 		menuItems: {
-			type: Array,
+			type: Array as PropType<MenuItem[]>,
 			default: (): [] => [],
 		},
 		/**
@@ -154,7 +156,8 @@ export default Vue.extend( {
 				this.maxHeight = null;
 			}
 		},
-		onScroll: debounce( function ( this: Vue ) {
+		/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+		onScroll: debounce( function ( this: any ) {
 			const rootElem = this.$refs[ 'lookup-menu' ] as HTMLElement;
 			const menuItems = this.$refs[ 'menu-items' ] as HTMLElement[];
 			const menuTop = rootElem.scrollTop;

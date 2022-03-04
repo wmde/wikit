@@ -40,15 +40,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import VueCompositionAPI, { defineComponent, computed, PropType } from '@vue/composition-api';
+import { defineComponent, computed, PropType } from 'vue';
 import ValidationMessage from './ValidationMessage.vue';
 import generateUid from '@/components/util/generateUid';
 import { MenuItem } from '@/components/MenuItem';
 import { getFeedbackTypeFromProps, errorProp, ErrorProp } from '@/compositions/validatable';
 import LookupInput from '@/components/LookupInput.vue';
-
-Vue.use( VueCompositionAPI );
 
 /**
  * The lookup component is a text input field that provides matching selectable suggestions as a user types into it.
@@ -68,6 +65,24 @@ export default defineComponent( {
 			inputId: generateUid( 'wikit-Lookup' ),
 		};
 	},
+	emits: [
+		/**
+		 * This event is emitted whenever an item is selected on the Lookup. The event payload contains the whole
+		 * MenuItem object. The payload is null when no item is selected or the item is deselected.
+		 */
+		'input',
+		/**
+		 * Enables the `searchInput` prop. It's used to transport the value of
+		 * the Lookup component's inner `<input>` element to the parent component.
+		 */
+		'update:searchInput',
+		/**
+		 * This event is emitted whenever the first or last index of the
+		 * visible menuItems changes. If the user scrolls but the indexes remain
+		 * unchanged the event won't fire.
+		 */
+		'scroll',
+	],
 	props: {
 		error: errorProp,
 		/**
@@ -95,7 +110,7 @@ export default defineComponent( {
 		 * The data usually comes from the consumer's `v-model` annotation on the Lookup component.
 		 */
 		value: {
-			type: Object,
+			type: Object as PropType<MenuItem | null>,
 			default: null,
 		},
 		/**

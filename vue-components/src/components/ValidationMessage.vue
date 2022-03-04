@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import Icon from './Icon.vue';
 
 /**
@@ -20,7 +20,7 @@ import Icon from './Icon.vue';
  *
  * Uses the following components internally: Icon
  */
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'ValidationMessage',
 	props: {
 		message: {

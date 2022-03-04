@@ -10,7 +10,7 @@ describe( 'Icon', () => {
 
 	it( 'renders an error icon given type "error"', () => {
 		const wrapper = mount( Icon, {
-			propsData: {
+			props: {
 				type: 'error',
 			},
 		} );
@@ -20,7 +20,7 @@ describe( 'Icon', () => {
 
 	it( 'renders an alert icon given type "alert"', () => {
 		const wrapper = mount( Icon, {
-			propsData: {
+			props: {
 				type: 'alert',
 			},
 		} );
@@ -30,7 +30,7 @@ describe( 'Icon', () => {
 
 	it( 'renders an edit icon given type "edit"', () => {
 		const wrapper = mount( Icon, {
-			propsData: {
+			props: {
 				type: 'edit',
 			},
 		} );
@@ -40,7 +40,7 @@ describe( 'Icon', () => {
 
 	it( 'renders an error icon given type "trash"', () => {
 		const wrapper = mount( Icon, {
-			propsData: {
+			props: {
 				type: 'trash',
 			},
 		} );
@@ -50,7 +50,7 @@ describe( 'Icon', () => {
 
 	it( 'renders a clear icon given type "clear"', () => {
 		const wrapper = mount( Icon, {
-			propsData: {
+			props: {
 				type: 'clear',
 			},
 		} );
@@ -60,7 +60,7 @@ describe( 'Icon', () => {
 
 	it( 'renders a newwindow icon given type "newwindow"', () => {
 		const wrapper = mount( Icon, {
-			propsData: {
+			props: {
 				type: 'newwindow',
 			},
 		} );
@@ -70,7 +70,7 @@ describe( 'Icon', () => {
 
 	it( 'renders a clear icon given type "link"', () => {
 		const wrapper = mount( Icon, {
-			propsData: {
+			props: {
 				type: 'link',
 			},
 		} );
@@ -80,7 +80,7 @@ describe( 'Icon', () => {
 
 	it( 'renders an outlined info icon given type "info-outlined"', () => {
 		const wrapper = mount( Icon, {
-			propsData: {
+			props: {
 				type: 'info-outlined',
 			},
 		} );
@@ -90,7 +90,7 @@ describe( 'Icon', () => {
 
 	it( 'validates the type prop', () => {
 		expect( () => mount( Icon, {
-			propsData: {
+			props: {
 				type: 'potato',
 			},
 		} ) ).toThrow();
@@ -98,7 +98,7 @@ describe( 'Icon', () => {
 
 	it( 'validates the color prop', () => {
 		expect( () => mount( Icon, {
-			propsData: {
+			props: {
 				type: 'error',
 				color: 'potato',
 			},
@@ -107,7 +107,7 @@ describe( 'Icon', () => {
 
 	it( 'validates the size prop', () => {
 		expect( () => mount( Icon, {
-			propsData: {
+			props: {
 				type: 'error',
 				size: 'potato',
 			},
@@ -118,7 +118,7 @@ describe( 'Icon', () => {
 		Object.values( IconTypes ),
 	)( '%s: has at least one part of the SVG element that can be colored', ( iconType ) => {
 		const wrapper = mount( Icon, {
-			propsData: {
+			props: {
 				type: iconType,
 			},
 		} );
@@ -128,7 +128,7 @@ describe( 'Icon', () => {
 
 	it.each( iconColors )( 'renders the color "%s" as a root node class', ( color ) => {
 		expect( mount( Icon, {
-			propsData: {
+			props: {
 				type: 'alert',
 				color,
 			},
@@ -137,7 +137,7 @@ describe( 'Icon', () => {
 
 	it.each( iconSizes )( 'renders the size "%s" as a root node class', ( size ) => {
 		expect( mount( Icon, {
-			propsData: {
+			props: {
 				type: 'alert',
 				size,
 			},
@@ -147,7 +147,7 @@ describe( 'Icon', () => {
 	it.each( flippable )( '%s flips direction when dir is "rtl"', async ( type ) => {
 		const flippedClass = 'wikit-Icon--flipped';
 		const wrapper = mount( Icon, {
-			propsData: { type },
+			props: { type },
 		} );
 
 		expect( wrapper.props().dir ).toBe( IconDirection.LTR );
@@ -161,7 +161,7 @@ describe( 'Icon', () => {
 	it( 'doesn\'t flip direction for unlocalizable icons', async () => {
 		const flippedClass = 'wikit-Icon--flipped';
 		const wrapper = mount( Icon, {
-			propsData: {
+			props: {
 				type: 'edit',
 				dir: IconDirection.RTL,
 			},
@@ -172,7 +172,7 @@ describe( 'Icon', () => {
 
 	it( 'validates the dir prop', () => {
 		expect( () => mount( Icon, {
-			propsData: {
+			props: {
 				type: 'error',
 				dir: 'banana',
 			},

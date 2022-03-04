@@ -7,13 +7,13 @@ describe( 'TextInput', () => {
 	it( 'takes text input', () => {
 		const content = 'a value';
 		const wrapper = mount( TextInput, {
-			propsData: {
+			props: {
 				value: content,
 			},
 		} );
 		const inputElement = wrapper.find( 'input' );
 
-		expect( ( inputElement.element as HTMLFormElement ).value ).toBe( content );
+		expect( inputElement.element.value ).toBe( content );
 	} );
 
 	it( 'emits an input event on user input', () => {
@@ -27,7 +27,7 @@ describe( 'TextInput', () => {
 	it( 'has a label', () => {
 		const label = 'a label';
 		const wrapper = mount( TextInput, {
-			propsData: {
+			props: {
 				label,
 			},
 		} );
@@ -37,18 +37,18 @@ describe( 'TextInput', () => {
 
 	it( 'can be disabled', () => {
 		const wrapper = mount( TextInput, {
-			propsData: {
+			props: {
 				disabled: true,
 			},
 		} );
 
-		expect( wrapper.find( 'input' ).attributes( 'disabled' ) ).toBeTruthy();
+		expect( wrapper.find( 'input' ).attributes( 'disabled' ) ).toBe( '' );
 	} );
 
 	it( 'can have a placeholder', () => {
 		const placeholder = 'a placeholder';
 		const wrapper = mount( TextInput, {
-			propsData: {
+			props: {
 				placeholder,
 			},
 		} );
@@ -58,7 +58,7 @@ describe( 'TextInput', () => {
 
 	it( 'rejects errors without a message', () => {
 		expect( () => mount( TextInput, {
-			propsData: {
+			props: {
 				error: {
 					type: 'warning',
 				},
@@ -68,7 +68,7 @@ describe( 'TextInput', () => {
 
 	it( 'rejects errors without a type', () => {
 		expect( () => mount( TextInput, {
-			propsData: {
+			props: {
 				error: {
 					message: 'things went wrong',
 				},
@@ -78,7 +78,7 @@ describe( 'TextInput', () => {
 
 	it( 'rejects invalid error types', () => {
 		expect( () => mount( TextInput, {
-			propsData: {
+			props: {
 				error: {
 					type: 'not-that-bad',
 				},
@@ -92,7 +92,7 @@ describe( 'TextInput', () => {
 	] )( 'passes the error to the ValidationMessage child component', ( errorType ) => {
 		const errorMessage = 'error!!!!';
 		const wrapper = mount( TextInput, {
-			propsData: {
+			props: {
 				error: {
 					type: errorType,
 					message: errorMessage,

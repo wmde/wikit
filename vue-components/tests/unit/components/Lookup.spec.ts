@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import { mount, shallowMount } from '@vue/test-utils';
 import Lookup from '@/components/Lookup.vue';
 import Input from '@/components/Input.vue';
@@ -11,7 +10,7 @@ describe( 'Lookup', () => {
 	it( 'passes the no-results slot to the lookup menu', async () => {
 		const noResultsText = 'no results :(';
 		const wrapper = mount( Lookup, {
-			propsData: {
+			props: {
 				menuItems: [],
 				searchInput: 'some non-empty input',
 			},
@@ -19,9 +18,7 @@ describe( 'Lookup', () => {
 				'no-results': noResultsText,
 			},
 		} );
-		wrapper.findComponent( Input ).trigger( 'focus' );
-
-		await Vue.nextTick();
+		await wrapper.findComponent( Input ).trigger( 'focus' );
 
 		expect( wrapper.find( '.wikit-OptionsMenu' ).text() ).toBe( noResultsText );
 	} );
@@ -30,7 +27,7 @@ describe( 'Lookup', () => {
 		it( ':label - has a label', () => {
 			const label = 'a label';
 			const wrapper = mount( Lookup, {
-				propsData: {
+				props: {
 					label,
 				},
 			} );
@@ -43,47 +40,45 @@ describe( 'Lookup', () => {
 				{ label: 'potato', description: 'root vegetable' },
 				{ label: 'duck', description: 'aquatic bird' },
 			];
-			const wrapper = mount( Lookup, { propsData: { menuItems } } );
+			const wrapper = mount( Lookup, { props: { menuItems } } );
 
-			expect( wrapper.findComponent( OptionsMenu ).props( 'menuItems' ) ).toBe( menuItems );
+			expect( wrapper.findComponent( OptionsMenu ).props( 'menuItems' ) ).toStrictEqual( menuItems );
 		} );
 
 		it( ':value - is the selected MenuItem, passed down to the LookupInput', async () => {
 			const testValue = { label: 'duck', description: 'aquatic bird' };
 			const wrapper = shallowMount( Lookup );
 
-			wrapper.setProps( { value: testValue } );
-			await Vue.nextTick();
+			await wrapper.setProps( { value: testValue } );
 
-			expect( wrapper.findComponent( LookupInput ).props( 'value' ) ).toBe( testValue );
+			expect( wrapper.findComponent( LookupInput ).props( 'value' ) ).toStrictEqual( testValue );
 		} );
 
 		it( ':searchInput - is the text of the input', async () => {
 			const testSearchInput = 'Lorem Ipsum';
 			const wrapper = mount( Lookup );
 
-			expect( wrapper.find( 'input' ).props( 'value' ) ).toBe( '' );
+			expect( wrapper.findComponent( 'input' ).props( 'value' ) ).toBe( '' );
 
-			wrapper.setProps( { searchInput: testSearchInput } );
-			await Vue.nextTick();
+			await wrapper.setProps( { searchInput: testSearchInput } );
 
-			expect( wrapper.find( 'input' ).props( 'value' ) ).toBe( testSearchInput );
+			expect( wrapper.findComponent( 'input' ).props( 'value' ) ).toBe( testSearchInput );
 		} );
 
 		it( ':disabled - can be disabled', () => {
 			const wrapper = mount( Lookup, {
-				propsData: {
+				props: {
 					disabled: true,
 				},
 			} );
 
-			expect( wrapper.find( 'input' ).attributes( 'disabled' ) ).toBeTruthy();
+			expect( wrapper.find( 'input' ).attributes( 'disabled' ) ).toBe( '' );
 		} );
 
 		it( ':placeholder - can have a placeholder', () => {
 			const placeholder = 'a placeholder';
 			const wrapper = mount( Lookup, {
-				propsData: {
+				props: {
 					placeholder,
 				},
 			} );
@@ -93,7 +88,7 @@ describe( 'Lookup', () => {
 
 		it( ':error - rejects errors without a message', () => {
 			expect( () => mount( Lookup, {
-				propsData: {
+				props: {
 					error: {
 						type: 'warning',
 					},
@@ -103,7 +98,7 @@ describe( 'Lookup', () => {
 
 		it( ':error - rejects errors without a type', () => {
 			expect( () => mount( Lookup, {
-				propsData: {
+				props: {
 					error: {
 						message: 'things went wrong',
 					},
@@ -113,7 +108,7 @@ describe( 'Lookup', () => {
 
 		it( ':error - rejects invalid error types', () => {
 			expect( () => mount( Lookup, {
-				propsData: {
+				props: {
 					error: {
 						type: 'not-that-bad',
 					},
@@ -129,7 +124,7 @@ describe( 'Lookup', () => {
 			( errorType ) => {
 				const errorMessage = 'error!!!!';
 				const wrapper = mount( Lookup, {
-					propsData: {
+					props: {
 						error: {
 							type: errorType,
 							message: errorMessage,

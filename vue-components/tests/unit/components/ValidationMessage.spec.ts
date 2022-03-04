@@ -7,7 +7,7 @@ describe( 'ValidationMessage', () => {
 	it( 'shows the validation message', () => {
 		const message = 'hello, things went wrong.';
 		const wrapper = shallowMount( ValidationMessage, {
-			propsData: {
+			props: {
 				type: 'error',
 				message,
 			},
@@ -21,7 +21,7 @@ describe( 'ValidationMessage', () => {
 		[ 'error', 'error' ],
 	] )( 'shows the right icon depending on the type', ( errorType, expectedIcon ) => {
 		const wrapper = mount( ValidationMessage, {
-			propsData: {
+			props: {
 				type: errorType,
 				message: 'things went wrong',
 			},
@@ -35,7 +35,7 @@ describe( 'ValidationMessage', () => {
 		'warning',
 	] )( 'renders the type as a root node class', ( type ) => {
 		const wrapper = shallowMount( ValidationMessage, {
-			propsData: {
+			props: {
 				type,
 				message: 'sad',
 			},
@@ -46,7 +46,7 @@ describe( 'ValidationMessage', () => {
 
 	it( 'validates the `feedback-type` prop', () => {
 		expect( () => shallowMount( ValidationMessage, {
-			propsData: {
+			props: {
 				feedbackType: 'potato',
 			},
 		} ) ).toThrow();
