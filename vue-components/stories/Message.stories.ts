@@ -9,11 +9,8 @@ export default {
 
 export function basic( args: { content: string; type: string } ): Component {
 	return {
-		data(): object {
-			return { args };
-		},
+		data: () => args,
 		components: { Message },
-		props: Object.keys( args ),
 		template: `
 			<div>
 			<p><Message :type="type"><span v-html="content" /></Message></p>

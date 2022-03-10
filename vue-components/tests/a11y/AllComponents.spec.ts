@@ -126,7 +126,7 @@ describe( 'Message', () => {
 	it( 'should not have obvious accessibility issues', async () => {
 		const message = 'hello, things went wrong.';
 		const wrapper = mount( Message, {
-			propsData: {
+			props: {
 				type: 'error',
 			},
 			slots: {

@@ -19,14 +19,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import Icon from './Icon.vue';
 import { IconTypes } from '@/components/iconProps';
 
 /**
  * Uses the following components internally: Icon
  */
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'Message',
 	props: {
 		type: {
