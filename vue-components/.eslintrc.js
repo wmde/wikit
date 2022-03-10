@@ -17,6 +17,9 @@ module.exports = {
 	},
 	root: true,
 	rules: {
+		// This would be the right thing to do, but too late now
+		'vue/multi-word-component-names': 'off',
+
 		'function-paren-newline': [ 'error', 'consistent' ],
 		'filenames/match-exported': 'error',
 		'object-shorthand': [ 'error', 'always' ],
@@ -39,7 +42,6 @@ module.exports = {
 			singleline: 3,
 			multiline: {
 				max: 1,
-				allowFirstLine: false,
 			},
 		} ],
 
