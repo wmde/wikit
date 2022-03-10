@@ -43,7 +43,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
+import { ComponentPublicInstance, defineComponent, PropType } from 'vue';
 import debounce from 'lodash/debounce';
 import { MenuItem } from './MenuItem';
 
@@ -156,8 +156,7 @@ export default defineComponent( {
 				this.maxHeight = null;
 			}
 		},
-		/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-		onScroll: debounce( function ( this: any ) {
+		onScroll: debounce( function ( this: ComponentPublicInstance ) {
 			const rootElem = this.$refs[ 'lookup-menu' ] as HTMLElement;
 			const menuItems = this.$refs[ 'menu-items' ] as HTMLElement[];
 			const menuTop = rootElem.scrollTop;

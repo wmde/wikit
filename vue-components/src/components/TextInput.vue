@@ -1,5 +1,5 @@
 <template>
-	<div :class="[ 'wikit', 'wikit-TextInput', extraClasses ]" :style="(extraStyles as any)">
+	<div :class="[ 'wikit', 'wikit-TextInput', extraClasses ]" :style="extraStyles">
 		<span class="wikit-TextInput__label-wrapper">
 			<label
 				:class="[
@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, StyleValue } from 'vue';
 import ValidationMessage from './ValidationMessage.vue';
 import Input from './Input.vue';
 import generateUid from '@/components/util/generateUid';
@@ -48,7 +48,7 @@ export default defineComponent( {
 		const { class: extraClasses, style: extraStyles, ...otherAttributes } = context.attrs;
 		return {
 			extraClasses,
-			extraStyles,
+			extraStyles: extraStyles as StyleValue,
 			otherAttributes,
 			feedbackType: computed( getFeedbackTypeFromProps( props ) ),
 		};
