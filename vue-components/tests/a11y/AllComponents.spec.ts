@@ -34,7 +34,7 @@ describe( 'Icon', () => {
 
 	it( 'should not have obvious accessibility issues', async () => {
 		const wrapper = mount( Icon, {
-			propsData: {
+			props: {
 				type: 'error',
 				color: 'error',
 			},
@@ -54,7 +54,7 @@ describe( 'Input', () => {
 
 	it( 'should not have obvious accessibility issues', async () => {
 		const wrapper = mount( Input, {
-			propsData: {
+			props: {
 				feedbackType: null,
 			},
 		} );
@@ -78,7 +78,7 @@ describe( 'Lookup', () => {
 			{ label: 'duck', description: 'aquatic bird' },
 		];
 		const wrapper = mount( Lookup, {
-			propsData: {
+			props: {
 				label: 'a label',
 				menuItems,
 			},
@@ -102,7 +102,7 @@ describe( 'LookupInput', () => {
 			{ label: 'duck', description: 'aquatic bird' },
 		];
 		const wrapper = mount( LookupInput, {
-			propsData: {
+			props: {
 				value: { label: 'duck', description: 'aquatic bird' },
 				menuItems,
 				searchInput: 'potato',
@@ -127,7 +127,7 @@ describe( 'OptionsMenu', () => {
 			{ label: 'potato', description: 'root vegetable' },
 			{ label: 'duck', description: 'aquatic bird' },
 		];
-		const wrapper = mount( OptionsMenu, { propsData: { menuItems } } );
+		const wrapper = mount( OptionsMenu, { props: { menuItems } } );
 		const results = await axe( wrapper.element, {
 			rules: {
 				'region': { enabled: false },
@@ -143,7 +143,7 @@ describe( 'TextInput', () => {
 
 	it( 'should not have obvious accessibility issues', async () => {
 		const wrapper = mount( TextInput, {
-			propsData: {
+			props: {
 				value: 'a value',
 				label: 'a label',
 			},
@@ -165,7 +165,7 @@ describe( 'ValidationMessage', () => {
 	it( 'should not have obvious accessibility issues', async () => {
 		const message = 'hello, things went wrong.';
 		const wrapper = mount( ValidationMessage, {
-			propsData: {
+			props: {
 				type: 'error',
 				message,
 			},

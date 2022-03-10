@@ -27,14 +27,8 @@
 	</button>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import VueCompositionAPI, {
-	defineComponent,
-	onMounted,
-} from '@vue/composition-api';
-
-Vue.use( VueCompositionAPI );
+<script setup lang="ts">
+import { onMounted, computed, useSlots } from 'vue';
 
 /**
  *  An interactive element signaling a single-step action that will occur when the user clicks or taps on it.
@@ -46,77 +40,51 @@ Vue.use( VueCompositionAPI );
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Clicking_and_focus<br>
  * https://bugzilla.mozilla.org/show_bug.cgi?id=1581369#c5
  */
-export default defineComponent( {
-	// eslint-disable-next-line no-undef
-	name: process.env.VUE_APP_VUE3COMPAT ? 'WikitButton' : 'Button',
-	props: {
-		/**
-		 * The type of the button
-		 *
-		 * Allowed values: `neutral`, `progressive`, `destructive`
-		 */
-		type: {
-			type: String,
-			validator( value: string ): boolean {
-				return [ 'neutral', 'progressive', 'destructive' ].includes( value );
-			},
-			default: 'neutral',
-		},
-		/**
-		 * The variant of the button
-		 *
-		 * Allowed values: `normal`, `primary`, `quiet`
-		 */
-		variant: {
-			type: String,
-			validator( value: string ): boolean {
-				return [ 'normal', 'primary', 'quiet' ].includes( value );
-			},
-			default: 'normal',
-		},
-		iconOnly: {
-			type: Boolean,
-			default: false,
-		},
-		/**
-		 * The default behavior of the button
-		 *
-		 * Allowed values: `submit`, `reset`, `button`
-		 */
-		nativeType: {
-			type: String,
-			validator( value: string ): boolean {
-				return [ 'submit', 'reset', 'button' ].includes( value );
-			},
-			default: 'button',
-		},
-	},
-	computed: {
-		hasPrefixSlot(): boolean {
-			return !!this.$slots.prefix;
-		},
-		hasSuffixSlot(): boolean {
-			return !!this.$slots.suffix;
-		},
-	},
-	setup( props: {
-		type: 'neutral' | 'progressive' | 'destructive';
-		variant: 'normal' | 'primary' | 'quiet';
-	} ) {
-		onMounted( () => {
-			const supportedCombinations = {
-				normal: [ 'neutral' ],
-				primary: [ 'progressive', 'destructive' ],
-				quiet: [ 'neutral', 'progressive', 'destructive' ],
-			};
-			if ( !supportedCombinations[ props.variant ].includes( props.type ) ) {
-				throw new Error(
-					`The combination of variant "${props.variant}" and type "${props.type}" is not yet supported!`,
-				);
-			}
-		} );
-	},
+
+interface Props {
+	/**
+	 * The type of the button
+	 *
+	 * Allowed values: `neutral`, `progressive`, `destructive`
+	 */
+	type?: 'neutral' | 'progressive' | 'destructive';
+	/**
+	 * The variant of the button
+	 *
+	 * Allowed values: `normal`, `primary`, `quiet`
+	 */
+	variant?: 'normal' | 'primary' | 'quiet';
+	iconOnly?: boolean;
+	/**
+	 * The default behavior of the button
+	 *
+	 * Allowed values: `submit`, `reset`, `button`
+	 */
+	nativeType?: 'button' | 'submit' | 'reset';
+}
+
+const props = withDefaults( defineProps<Props>(), {
+	type: 'neutral',
+	variant: 'normal',
+	iconOnly: false,
+	nativeType: 'button',
 } );
+
+onMounted( () => {
+	const supportedCombinations = {
+		normal: [ 'neutral' ],
+		primary: [ 'progressive', 'destructive' ],
+		quiet: [ 'neutral', 'progressive', 'destructive' ],
+	};
+	if ( !supportedCombinations[ props.variant ].includes( props.type ) ) {
+		throw new Error(
+			`The combination of variant "${props.variant}" and type "${props.type}" is not yet supported!`,
+		);
+	}
+} );
+const slots = useSlots();
+const hasPrefixSlot = computed( () => !!slots.prefix );
+const hasSuffixSlot = computed( () => !!slots.suffix );
 </script>
 
 <style lang="scss">

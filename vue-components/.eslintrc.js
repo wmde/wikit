@@ -14,6 +14,7 @@ module.exports = {
 	parser: 'vue-eslint-parser',
 	env: {
 		browser: true,
+		'vue/setup-compiler-macros': true,
 	},
 	root: true,
 	rules: {

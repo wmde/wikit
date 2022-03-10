@@ -7,24 +7,24 @@ describe( 'OptionsMenu', () => {
 			{ label: 'potato', description: 'root vegetable' },
 			{ label: 'duck', description: 'aquatic bird' },
 		];
-		const wrapper = mount( OptionsMenu, { propsData: { menuItems } } );
+		const wrapper = mount( OptionsMenu, { props: { menuItems } } );
 		const renderedMenuItems = wrapper.findAll( '.wikit-OptionsMenu__item' );
 
 		expect( renderedMenuItems.length ).toBe( 2 );
-		expect( renderedMenuItems.at( 0 ).find( '.wikit-OptionsMenu__item__label' ).text() )
+		expect( renderedMenuItems[ 0 ].find( '.wikit-OptionsMenu__item__label' ).text() )
 			.toBe( menuItems[ 0 ].label );
-		expect( renderedMenuItems.at( 0 ).find( '.wikit-OptionsMenu__item__description' ).text() )
+		expect( renderedMenuItems[ 0 ].find( '.wikit-OptionsMenu__item__description' ).text() )
 			.toBe( menuItems[ 0 ].description );
-		expect( renderedMenuItems.at( 1 ).find( '.wikit-OptionsMenu__item__label' ).text() )
+		expect( renderedMenuItems[ 1 ].find( '.wikit-OptionsMenu__item__label' ).text() )
 			.toBe( menuItems[ 1 ].label );
-		expect( renderedMenuItems.at( 1 ).find( '.wikit-OptionsMenu__item__description' ).text() )
+		expect( renderedMenuItems[ 1 ].find( '.wikit-OptionsMenu__item__description' ).text() )
 			.toBe( menuItems[ 1 ].description );
 	} );
 
 	it( 'shows the "no match found" text if there are no menu items', () => {
 		const noResultsFoundText = 'no results. so sad.';
 		const wrapper = mount( OptionsMenu, {
-			propsData: {
+			props: {
 				menuItems: [],
 			},
 			slots: {
@@ -37,7 +37,7 @@ describe( 'OptionsMenu', () => {
 
 	it( 'does not show the "no match found" text if there are menu items', () => {
 		const wrapper = mount( OptionsMenu, {
-			propsData: {
+			props: {
 				menuItems: [
 					{ label: 'potato', description: 'root vegetable' },
 					{ label: 'duck', description: 'aquatic bird' },
@@ -56,10 +56,10 @@ describe( 'OptionsMenu', () => {
 			{ label: 'potato', description: 'root vegetable', tag: 'i am a tag' },
 			{ label: 'duck', description: 'aquatic bird' },
 		];
-		const wrapper = mount( OptionsMenu, { propsData: { menuItems } } );
+		const wrapper = mount( OptionsMenu, { props: { menuItems } } );
 		const renderedMenuItems = wrapper.findAll( '.wikit-OptionsMenu__item' );
 
-		expect( renderedMenuItems.at( 0 ).find( '.wikit-OptionsMenu__item__tag' ).text() )
+		expect( renderedMenuItems[ 0 ].find( '.wikit-OptionsMenu__item__tag' ).text() )
 			.toBe( menuItems[ 0 ].tag );
 
 	} );

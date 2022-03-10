@@ -63,7 +63,7 @@ export function withItems( args: { boldLabels: boolean; selectedItemIndex: numbe
 				return vegetableItems;
 			},
 		},
-		props: Object.keys( args ),
+		data: () => args,
 		template: `
 			<div>
 				<OptionsMenu

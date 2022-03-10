@@ -20,7 +20,7 @@ describe( 'Button', () => {
 		[ 'quiet', 'destructive' ],
 	] )( 'renders the variant %s and type %s as a root node classes', ( variant, type ) => {
 		expect( mount( Button, {
-			propsData: {
+			props: {
 				variant,
 				type,
 			},
@@ -29,7 +29,7 @@ describe( 'Button', () => {
 
 	it( 'validates the type prop', () => {
 		expect( () => mount( Button, {
-			propsData: {
+			props: {
 				type: 'random',
 			},
 		} ) ).toThrow();
@@ -37,7 +37,7 @@ describe( 'Button', () => {
 
 	it( 'validates the variant prop', () => {
 		expect( () => mount( Button, {
-			propsData: {
+			props: {
 				variant: 'random',
 			},
 		} ) ).toThrow();
@@ -45,7 +45,7 @@ describe( 'Button', () => {
 
 	it( 'throws for invalid combinations', () => {
 		expect( () => mount( Button, {
-			propsData: {
+			props: {
 				variant: 'primary',
 				type: 'neutral',
 			},
@@ -54,7 +54,7 @@ describe( 'Button', () => {
 
 	it( 'validates the native type prop', () => {
 		expect( () => mount( Button, {
-			propsData: {
+			props: {
 				nativeType: 'random',
 			},
 		} ) ).toThrow();

@@ -10,8 +10,8 @@ export default {
 const typeValues = Object.values( IconTypes );
 export function basic( args: object ): Component {
 	return {
+		data: () => args,
 		components: { Icon },
-		props: Object.keys( args ),
 		template: '<Icon :type="type" :dir="dir"/>',
 	};
 }

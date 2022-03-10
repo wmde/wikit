@@ -9,6 +9,9 @@ export default {
 
 export function normal(): Component {
 	return {
+		compilerOptions: {
+			whitespace: 'preserve',
+		},
 		components: { Button, Icon },
 		// The normal button types are all in the same story to achieve high % of visual tests coverage.
 		// Do not use controls to change the type unless you actively decide that is better than having test coverage.
@@ -39,6 +42,9 @@ export function normal(): Component {
 
 export function primary(): Component {
 	return {
+		compilerOptions: {
+			whitespace: 'preserve',
+		},
 		components: { Button, Icon },
 		// The primary button types are all in the same story to achieve high % of visual tests coverage.
 		// Do not use controls to change the type unless you actively decide that is better than having test coverage.
@@ -76,6 +82,9 @@ export function primary(): Component {
 
 export function quiet(): Component {
 	return {
+		compilerOptions: {
+			whitespace: 'preserve',
+		},
 		components: { Button, Icon },
 		// The quiet button types are all in the same story to achieve high % of visual tests coverage.
 		// Do not use controls to change the type unless you actively decide that is better than having test coverage.
@@ -121,6 +130,9 @@ export function quiet(): Component {
 export function iconOnly(): Component {
 
 	return {
+		compilerOptions: {
+			whitespace: 'preserve',
+		},
 		components: { Button, Icon },
 		template: `
 				<div>

@@ -1,6 +1,5 @@
 /* eslint-disable vue/valid-v-else-if */
 <template>
-	<!-- eslint-disable max-len -->
 	<span
 		:class="[
 			'wikit',
@@ -10,6 +9,7 @@
 			flip ? 'wikit-Icon--flipped' : ''
 		]"
 	>
+		<!-- eslint-disable max-len -->
 
 		<!-- add icon -->
 		<svg
@@ -206,12 +206,12 @@
 			<path d="M17 2H13.5L12.5 1H7.5L6.5 2H3V4H17V2ZM4 17C4 17.5304 4.21071 18.0391 4.58579 18.4142C4.96086 18.7893 5.46957 19 6 19H14C14.5304 19 15.0391 18.7893 15.4142 18.4142C15.7893 18.0391 16 17.5304 16 17V5H4V17Z" fill="currentColor" />
 		</svg>
 
-	</span>
 	<!-- eslint-enable max-len -->
+	</span>
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import { IconTypes, flippable, IconDirection, iconColors, iconSizes } from './iconProps';
 import generateUid from '@/components/util/generateUid';
 
@@ -223,7 +223,7 @@ import generateUid from '@/components/util/generateUid';
  * https://css-tricks.com/cascading-svg-fill-color/
  *
  */
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'Icon',
 	data: () => {
 		return {
