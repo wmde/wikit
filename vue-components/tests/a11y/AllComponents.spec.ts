@@ -4,6 +4,7 @@ import Icon from '@/components/Icon.vue';
 import Input from '@/components/Input.vue';
 import Lookup from '@/components/Lookup.vue';
 import LookupInput from '@/components/LookupInput.vue';
+import Message from '@/components/Message.vue';
 import OptionsMenu from '@/components/OptionsMenu.vue';
 import TextInput from '@/components/TextInput.vue';
 import ValidationMessage from '@/components/ValidationMessage.vue';
@@ -112,6 +113,29 @@ describe( 'LookupInput', () => {
 			rules: {
 				'region': { enabled: false },
 				'label': { enabled: false },
+			},
+		} );
+
+		expect( results ).toHaveNoViolations();
+	} );
+
+} );
+
+describe( 'Message', () => {
+
+	it( 'should not have obvious accessibility issues', async () => {
+		const message = 'hello, things went wrong.';
+		const wrapper = mount( Message, {
+			props: {
+				type: 'error',
+			},
+			slots: {
+				default: message,
+			},
+		} );
+		const results = await axe( wrapper.element, {
+			rules: {
+				'region': { enabled: false },
 			},
 		} );
 
