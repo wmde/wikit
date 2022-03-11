@@ -9,7 +9,12 @@ _**Important:** This file contains a draft to the official release notes, and is
 not a stable documentation of the upcoming version (as it will frequently change during
 development)_
 
-## [Unreleased]
+###[Unreleased / 3.0.0]
+
+- Many components removed
+- upgrade to Vue 3
+
+###[Unreleased / 2.1.0]
 
 ### Added
 
