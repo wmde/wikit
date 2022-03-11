@@ -16,8 +16,7 @@ import { defineComponent, PropType } from 'vue';
  * identical.
  */
 export default defineComponent( {
-	// eslint-disable-next-line no-undef
-	name: process.env.VUE_APP_VUE3COMPAT ? 'WikitInput' : 'Input',
+	name: 'WikitInput',
 	emits: [ 'input' ],
 	props: {
 		feedbackType: {
