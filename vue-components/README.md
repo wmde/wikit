@@ -4,9 +4,9 @@ The component implementation of [WiKit](https://github.com/wmde/wikit) in vue
 
 ## Installation
 
-## Vue 2
+### Vue 3
 
-**The library assumes the consuming application uses Vue.js v2.6+.**
+**The library assumes the consuming application uses Vue.js v3.2+.**
 
 #### 1. Install via npm
 
@@ -25,17 +25,6 @@ or in your entry component, e.g `App.vue`, add
 #### 3. Import a component
 
 `import { Button } from '@wmde/wikit-vue-components';`
-
-### Vue 3 migration build
-
-There is an experimental build that works with the Vue 3 migration build (`@vue3/compat`).
-To use it, change your imports to
-`@wmde/wikit-vue-components/dist/wikit-vue-components-vue3compat.common.js`
-(or configure `@wmde/wikit-vue-components` to be an alias for that),
-then configure your build so that `vue` and `@vue/composition-api` are both aliases for `@vue/compat`.
-
-Keep in mind that this build still uses Vue 2 APIs,
-so it is only compatible with the migration build, not with pure Vue 3.
 
 ## Development
 
