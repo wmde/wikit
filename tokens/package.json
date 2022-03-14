@@ -1,6 +1,6 @@
 {
   "name": "@wmde/wikit-tokens",
-  "version": "3.0.0-alpha.1",
+  "version": "3.0.0-alpha.2",
   "description": "Design tokens for WiKit in different formats",
   "author": "The Wikidata team",
   "homepage": "https://github.com/wmde/wikit/tree/master/tokens#readme",
