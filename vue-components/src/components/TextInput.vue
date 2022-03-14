@@ -43,6 +43,7 @@ import { errorProp, ErrorProp, getFeedbackTypeFromProps } from '@/compositions/v
  */
 export default defineComponent( {
 	name: 'TextInput',
+	emits: [ 'input' ],
 	inheritAttrs: false,
 	setup( props: { error: ErrorProp }, context ) {
 		const { class: extraClasses, style: extraStyles, ...otherAttributes } = context.attrs;
