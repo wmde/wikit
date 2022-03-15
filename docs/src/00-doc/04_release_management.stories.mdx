@@ -30,6 +30,7 @@ If you want to be able to test components and features prior to their official r
  - Ensure that all CI checks are passing on master
  - Create a new branch from master and switch to it. Hint: Do not name the branch the same as the expected tag name, to avoid a git reference conflict.
  - To release a new version, run the command `npm run bump-version -- [premajor | preminor | prepatch | prerelease]`. This will take care of updating the version number in all package.json files.
+   - Some of the old version numbers might remain in the various `package-lock.json` files, but that doesn't seem to cause any issues
  - Commit and push the changes you made to package files and open a PR.
  - After the PR is merged, create and push a new tag named after the version number with a "v" prefix and an `alpha` suffix, e.g. `v1.2.3-alpha.0` (0 stands for the first pre-release of this version, for each consecutive pre-release this number must be incremented).
  - Then go to the [Releases page](https://github.com/wmde/wikit/releases) in wikit's GitHub repository and click `Draft a new release`to create a new pre-release out of that tag.
@@ -52,6 +53,7 @@ _**Note:** after creating the pre-release, you can go to https://www.npmjs.com/p
 
 Once your changes are merged and you want to release a new version of the components library you need to take the following steps:
  - To release a new version run the command `npm run bump-version -- [major | minor | patch]`. This will take care of updating the version number in all package.json files.
+   - Some of the old version numbers might remain in the various `package-lock.json` files, but that doesn't seem to cause any issues
  - Proofread and review the `CHANGELOG.md` file to ensure all changes are included (this will be later used in the release notes).
  - Rename the "[Unreleased]" heading in the chagelog file to the current version and Add a new "[Unreleased]" heading above it.
  - Commit and push the changes you made to package files and open a PR.
