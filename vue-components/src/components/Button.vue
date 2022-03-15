@@ -87,6 +87,14 @@ const hasPrefixSlot = computed( () => !!slots.prefix );
 const hasSuffixSlot = computed( () => !!slots.suffix );
 </script>
 
+<script lang="ts">
+export default {
+	compatConfig: {
+		MODE: 3,
+	},
+};
+</script>
+
 <style lang="scss">
 $base: '.wikit-Button';
 

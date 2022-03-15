@@ -127,6 +127,10 @@ export default defineComponent( {
 		LookupInput,
 		ValidationMessage,
 	},
+
+	compatConfig: {
+		MODE: 3,
+	},
 } );
 </script>
 

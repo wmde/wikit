@@ -187,6 +187,10 @@ export default defineComponent( {
 			this.resizeMenu();
 		},
 	},
+
+	compatConfig: {
+		MODE: 3,
+	},
 } );
 </script>
 

@@ -32,6 +32,10 @@ export default defineComponent( {
 			default: '',
 		},
 	},
+
+	compatConfig: {
+		MODE: 3,
+	},
 } );
 </script>
 
