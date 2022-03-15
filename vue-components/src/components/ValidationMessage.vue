@@ -39,6 +39,10 @@ export default defineComponent( {
 	components: {
 		Icon,
 	},
+
+	compatConfig: {
+		MODE: 3,
+	},
 } );
 </script>
 

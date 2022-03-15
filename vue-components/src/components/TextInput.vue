@@ -94,6 +94,10 @@ export default defineComponent( {
 		Input,
 		ValidationMessage,
 	},
+
+	compatConfig: {
+		MODE: 3,
+	},
 } );
 </script>
 

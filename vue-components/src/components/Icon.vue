@@ -279,6 +279,10 @@ export default defineComponent( {
 			return this.dir === IconDirection.RTL && flippable.includes( this.type as IconTypes );
 		},
 	},
+
+	compatConfig: {
+		MODE: 3,
+	},
 } );
 </script>
 
