@@ -29,7 +29,7 @@ It is also their responsibility to inform other relevant roles like UX and PM (i
 If you want to be able to test components and features prior to their official release, you may create a pre-release. To make a pre-release you need to take the following steps: 
  - Ensure that all CI checks are passing on master
  - Create a new branch from master and switch to it. Hint: Do not name the branch the same as the expected tag name, to avoid a git reference conflict.
- - To release a new version, run the command `npm run bump-version -- [premajor | preminor | prepatch | prerelease]`. This will take care of updating the version number in all package.json files.
+ - To release a new version, run the command `npm run bump-version -- [premajor | preminor | prepatch | prerelease]`. This will take care of updating the version number in all package.json files. **Note:** Some of the old version numbers might remain in the various `package-lock.json` files, but that doesn't seem to cause any issues
  - Commit and push the changes you made to package files and open a PR.
  - After the PR is merged, create and push a new tag named after the version number with a "v" prefix and an `alpha` suffix, e.g. `v1.2.3-alpha.0` (0 stands for the first pre-release of this version, for each consecutive pre-release this number must be incremented).
  - Then go to the [Releases page](https://github.com/wmde/wikit/releases) in wikit's GitHub repository and click `Draft a new release`to create a new pre-release out of that tag.
@@ -45,13 +45,13 @@ If you want to be able to test components and features prior to their official r
  - Creating the new release will trigger a GitHub action, which will publish **both** the `tokens` and the `vue-components` packages under the `next` distribution tag on npm.
  - Go to https://www.npmjs.com/ to check the newly created versions.
 
-_**Note:** after creating the pre-release, you can go to https://www.npmjs.com/package/@wmde/wikit-vue-components/v/{{ LATEST_VERSION}} (e.g. https://www.npmjs.com/package/@wmde/wikit-vue-components/v/2.0.0-alpha.9 ). If you don't see 404 on the page, that means the realse is in NPM. (if you see 404, wait a few minutes and refresh the page)_.
+_**Note:** after creating the pre-release, you can go to https://www.npmjs.com/package/@wmde/wikit-vue-components/v/{{ LATEST_VERSION}} (e.g. https://www.npmjs.com/package/@wmde/wikit-vue-components/v/2.0.0-alpha.9 ). If you don't see 404 on the page, that means the release is in NPM. (if you see 404, wait a few minutes and refresh the page)_.
 
 
 ## Creating a release 
 
 Once your changes are merged and you want to release a new version of the components library you need to take the following steps:
- - To release a new version run the command `npm run bump-version -- [major | minor | patch]`. This will take care of updating the version number in all package.json files.
+ - To release a new version run the command `npm run bump-version -- [major | minor | patch]`. This will take care of updating the version number in all package.json files. **Note:** Some of the old version numbers might remain in the various `package-lock.json` files, but that doesn't seem to cause any issues
  - Proofread and review the `CHANGELOG.md` file to ensure all changes are included (this will be later used in the release notes).
  - Rename the "[Unreleased]" heading in the chagelog file to the current version and Add a new "[Unreleased]" heading above it.
  - Commit and push the changes you made to package files and open a PR.
