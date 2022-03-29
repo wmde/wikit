@@ -43,7 +43,7 @@
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
     "ress": "^3.0.0",
-    "vue": "^2.6.12"
+    "vue": "^2.6.14"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "~6.0.28",
@@ -54,7 +54,7 @@
     "@storybook/vue": "~6.0.28",
     "@types/jest": "^24.0.19",
     "@types/jest-axe": "^3.5.1",
-    "@types/lodash": "^4.14.165",
+    "@types/lodash": "^4.14.180",
     "@types/lodash.isequal": "^4.5.5",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
@@ -67,7 +67,7 @@
     "@vue/eslint-config-standard": "^5.1.2",
     "@vue/eslint-config-typescript": "^5.1.0",
     "@vue/test-utils": "^1.1.1",
-    "@wmde/eslint-config-wikimedia-typescript": "^0.2.0",
+    "@wmde/eslint-config-wikimedia-typescript": "^0.2.3",
     "chromatic": "^5.4.0",
     "chromedriver": "83",
     "eslint": "^7.13.0",
@@ -96,7 +96,7 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-use-logical": "^1.1.0",
     "typescript": "^3.9.7",
-    "vue-template-compiler": "^2.6.12"
+    "vue-template-compiler": "^2.6.14"
   },
   "homepage": "https://github.com/wmde/wikit/tree/master/vue-components#readme",
   "license": "BSD-3-Clause",
