@@ -5,6 +5,7 @@
 			:type="type === 'error' ? 'error' : 'alert'"
 			:color="type"
 			size="medium"
+			aria-hidden="true"
 		/>
 		{{ message }}
 	</div>

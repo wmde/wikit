@@ -12,6 +12,7 @@
 				:type="getIconType"
 				:color="type"
 				size="large"
+				aria-hidden="true"
 			/>
 			<span><slot /></span>
 		</span>
