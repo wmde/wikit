@@ -6,6 +6,7 @@
 			:color="type"
 			size="medium"
 			aria-hidden="true"
+			focusable="false"
 		/>
 		{{ message }}
 	</div>

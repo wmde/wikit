@@ -13,6 +13,7 @@
 				:color="type"
 				size="large"
 				aria-hidden="true"
+				focusable="false"
 			/>
 			<span><slot /></span>
 		</span>
