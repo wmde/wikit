@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Icon renders a clear icon given type "clear" 1`] = `
+exports[`Icon clear: matches snapshot 1`] = `
 <span
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >
@@ -20,7 +20,7 @@ exports[`Icon renders a clear icon given type "clear" 1`] = `
 </span>
 `;
 
-exports[`Icon renders a clear icon given type "link" 1`] = `
+exports[`Icon link: matches snapshot 1`] = `
 <span
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >
@@ -61,7 +61,7 @@ exports[`Icon renders a clear icon given type "link" 1`] = `
 </span>
 `;
 
-exports[`Icon renders a newwindow icon given type "newwindow" 1`] = `
+exports[`Icon newwindow: matches snapshot 1`] = `
 <span
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >
@@ -86,7 +86,7 @@ exports[`Icon renders a newwindow icon given type "newwindow" 1`] = `
 </span>
 `;
 
-exports[`Icon renders an alert icon given type "alert" 1`] = `
+exports[`Icon alert: matches snapshot 1`] = `
 <span
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >
@@ -106,7 +106,7 @@ exports[`Icon renders an alert icon given type "alert" 1`] = `
 </span>
 `;
 
-exports[`Icon renders an edit icon given type "edit" 1`] = `
+exports[`Icon edit: matches snapshot 1`] = `
 <span
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >
@@ -126,7 +126,7 @@ exports[`Icon renders an edit icon given type "edit" 1`] = `
 </span>
 `;
 
-exports[`Icon renders an error icon given type "error" 1`] = `
+exports[`Icon error: matches snapshot 1`] = `
 <span
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >
@@ -148,7 +148,7 @@ exports[`Icon renders an error icon given type "error" 1`] = `
 </span>
 `;
 
-exports[`Icon renders an error icon given type "trash" 1`] = `
+exports[`Icon trash: matches snapshot 1`] = `
 <span
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >
@@ -168,7 +168,7 @@ exports[`Icon renders an error icon given type "trash" 1`] = `
 </span>
 `;
 
-exports[`Icon renders an outlined info icon given type "info-outlined" 1`] = `
+exports[`Icon info-outlined: matches snapshot 1`] = `
 <span
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >

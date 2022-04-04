@@ -8,7 +8,7 @@ jest.mock( '@/components/util/generateUid', () => {
 
 describe( 'Icon', () => {
 
-	it( 'renders an error icon given type "error"', () => {
+	it( 'error: matches snapshot', () => {
 		const wrapper = mount( Icon, {
 			propsData: {
 				type: 'error',
@@ -18,7 +18,7 @@ describe( 'Icon', () => {
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 
-	it( 'renders an alert icon given type "alert"', () => {
+	it( 'alert: matches snapshot', () => {
 		const wrapper = mount( Icon, {
 			propsData: {
 				type: 'alert',
@@ -28,7 +28,7 @@ describe( 'Icon', () => {
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 
-	it( 'renders an edit icon given type "edit"', () => {
+	it( 'edit: matches snapshot', () => {
 		const wrapper = mount( Icon, {
 			propsData: {
 				type: 'edit',
@@ -38,7 +38,7 @@ describe( 'Icon', () => {
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 
-	it( 'renders an error icon given type "trash"', () => {
+	it( 'trash: matches snapshot', () => {
 		const wrapper = mount( Icon, {
 			propsData: {
 				type: 'trash',
@@ -48,7 +48,7 @@ describe( 'Icon', () => {
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 
-	it( 'renders a clear icon given type "clear"', () => {
+	it( 'clear: matches snapshot', () => {
 		const wrapper = mount( Icon, {
 			propsData: {
 				type: 'clear',
@@ -58,7 +58,7 @@ describe( 'Icon', () => {
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 
-	it( 'renders a newwindow icon given type "newwindow"', () => {
+	it( 'newwindow: matches snapshot', () => {
 		const wrapper = mount( Icon, {
 			propsData: {
 				type: 'newwindow',
@@ -68,7 +68,7 @@ describe( 'Icon', () => {
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 
-	it( 'renders a clear icon given type "link"', () => {
+	it( 'link: matches snapshot', () => {
 		const wrapper = mount( Icon, {
 			propsData: {
 				type: 'link',
@@ -78,7 +78,7 @@ describe( 'Icon', () => {
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 
-	it( 'renders an outlined info icon given type "info-outlined"', () => {
+	it( 'info-outlined: matches snapshot', () => {
 		const wrapper = mount( Icon, {
 			propsData: {
 				type: 'info-outlined',
