@@ -5,8 +5,10 @@ exports[`Icon renders a clear icon given type "clear" 1`] = `
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >
   <svg
+    aria-hidden="true"
     class="wikit-Icon__svg"
     fill="none"
+    focusable="false"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -23,8 +25,10 @@ exports[`Icon renders a clear icon given type "link" 1`] = `
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >
   <svg
+    aria-hidden="true"
     class="wikit-Icon__svg"
     fill="none"
+    focusable="false"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -62,8 +66,10 @@ exports[`Icon renders a newwindow icon given type "newwindow" 1`] = `
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >
   <svg
+    aria-hidden="true"
     class="wikit-Icon__svg"
     fill="none"
+    focusable="false"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -85,8 +91,10 @@ exports[`Icon renders an alert icon given type "alert" 1`] = `
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >
   <svg
+    aria-hidden="true"
     class="wikit-Icon__svg"
     fill="none"
+    focusable="false"
     viewBox="0 0 16 16"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -103,8 +111,10 @@ exports[`Icon renders an edit icon given type "edit" 1`] = `
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >
   <svg
+    aria-hidden="true"
     class="wikit-Icon__svg"
     fill="none"
+    focusable="false"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -121,8 +131,10 @@ exports[`Icon renders an error icon given type "error" 1`] = `
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >
   <svg
+    aria-hidden="true"
     class="wikit-Icon__svg"
     fill="none"
+    focusable="false"
     viewBox="0 0 16 16"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -141,8 +153,10 @@ exports[`Icon renders an error icon given type "trash" 1`] = `
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >
   <svg
+    aria-hidden="true"
     class="wikit-Icon__svg"
     fill="none"
+    focusable="false"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -159,8 +173,10 @@ exports[`Icon renders an outlined info icon given type "info-outlined" 1`] = `
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >
   <svg
+    aria-hidden="true"
     class="wikit-Icon__svg"
     fill="none"
+    focusable="false"
     viewBox="0 0 20 21"
     xmlns="http://www.w3.org/2000/svg"
   >
