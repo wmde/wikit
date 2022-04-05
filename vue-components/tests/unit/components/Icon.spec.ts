@@ -8,80 +8,12 @@ jest.mock( '@/components/util/generateUid', () => {
 
 describe( 'Icon', () => {
 
-	it( 'renders an error icon given type "error"', () => {
+	it.each(
+		Object.values( IconTypes ),
+	)( '%s: matches snapshot', ( iconType ) => {
 		const wrapper = mount( Icon, {
 			props: {
-				type: 'error',
-			},
-		} );
-
-		expect( wrapper.element ).toMatchSnapshot();
-	} );
-
-	it( 'renders an alert icon given type "alert"', () => {
-		const wrapper = mount( Icon, {
-			props: {
-				type: 'alert',
-			},
-		} );
-
-		expect( wrapper.element ).toMatchSnapshot();
-	} );
-
-	it( 'renders an edit icon given type "edit"', () => {
-		const wrapper = mount( Icon, {
-			props: {
-				type: 'edit',
-			},
-		} );
-
-		expect( wrapper.element ).toMatchSnapshot();
-	} );
-
-	it( 'renders an error icon given type "trash"', () => {
-		const wrapper = mount( Icon, {
-			props: {
-				type: 'trash',
-			},
-		} );
-
-		expect( wrapper.element ).toMatchSnapshot();
-	} );
-
-	it( 'renders a clear icon given type "clear"', () => {
-		const wrapper = mount( Icon, {
-			props: {
-				type: 'clear',
-			},
-		} );
-
-		expect( wrapper.element ).toMatchSnapshot();
-	} );
-
-	it( 'renders a newwindow icon given type "newwindow"', () => {
-		const wrapper = mount( Icon, {
-			props: {
-				type: 'newwindow',
-			},
-		} );
-
-		expect( wrapper.element ).toMatchSnapshot();
-	} );
-
-	it( 'renders a clear icon given type "link"', () => {
-		const wrapper = mount( Icon, {
-			props: {
-				type: 'link',
-			},
-		} );
-
-		expect( wrapper.element ).toMatchSnapshot();
-	} );
-
-	it( 'renders an outlined info icon given type "info-outlined"', () => {
-		const wrapper = mount( Icon, {
-			props: {
-				type: 'info-outlined',
+				type: iconType,
 			},
 		} );
 
