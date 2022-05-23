@@ -160,3 +160,24 @@ iconOnly.parameters = { docs: { storyDescription: `
 Please be aware that buttons that contain only an icon as a visual label require a textual label for screen readers.
 This can for example be implemented by using the [aria-label attribute](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
 ` } };
+
+export function selfDisablingButton(): Component {
+	return {
+		compilerOptions: {
+			whitespace: 'preserve',
+		},
+		components: { Button },
+		data(): unknown {
+			return { disabled: false };
+		},
+		template: `
+			<div>
+				<Button variant="primary" type="progressive" :disabled="disabled" @click.native="disabled = true">
+					<span v-if="disabled">I am disabled.</span>
+					<span v-else>Disable me!</span>
+				</Button>
+				<Button @click.native="disabled = false">(re)enable the other one</Button>
+			</div>
+		`,
+	};
+}
