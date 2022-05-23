@@ -13,6 +13,8 @@
 			:disabled="disabled"
 			autocomplete="off"
 			v-bind="$attrs"
+			:aria-owns="keyboardHoverIndex > -1 ? `menu-item-${keyboardHoverIndex}` : ''"
+			:aria-activedescendant="keyboardHoverIndex > -1 ? `menu-item-${keyboardHoverIndex}` : ''"
 		/>
 		<OptionsMenu
 			class="wikit-LookupInput__menu"
@@ -23,6 +25,7 @@
 			@select="onSelect"
 			@scroll="onScroll"
 			@esc="onEsc"
+			@keyboard-hover-change="onKeyboardHoverChange"
 			ref="menu"
 		>
 			<template v-slot:no-results>
@@ -66,6 +69,7 @@ export default defineComponent( {
 			showMenu: false,
 			scrollIndexStart: null as ( number | null ),
 			scrollIndexEnd: null as ( number | null ),
+			keyboardHoverIndex: -1,
 		};
 	},
 	props: {
@@ -140,6 +144,7 @@ export default defineComponent( {
 		onFocus(): void {
 			if ( this.canShowMenu( this.searchInput ) ) {
 				this.showMenu = true;
+				this.$emit( 'expanded', true );
 			}
 		},
 		onEsc(): void {
@@ -158,6 +163,9 @@ export default defineComponent( {
 				this.scrollIndexEnd = lastIndex;
 			}
 
+		},
+		onKeyboardHoverChange( index: number ): void {
+			this.keyboardHoverIndex = index;
 		},
 	},
 	computed: {

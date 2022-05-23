@@ -3,6 +3,8 @@
 		:class="[ 'wikit', 'wikit-OptionsMenu' ]"
 		@scroll.passive="onScroll"
 		ref="lookup-menu"
+		role="menu"
+		:aria-expanded="showMenu || 'false'"
 		:style="{ maxHeight: maxHeight ? maxHeight + 'px' : null }"
 	>
 		<div
@@ -18,6 +20,9 @@
 			@mousedown.prevent="activeItemIndex = index"
 			@mouseup="activeItemIndex = -1"
 			ref="menu-items"
+			role="menuitem"
+			:aria-label="`${menuItem.label} - ${menuItem.description}`"
+			:id="`menu-item-${index}`"
 		>
 			<div class="wikit-OptionsMenu__item__label-wrapper">
 				<div
@@ -105,7 +110,9 @@ export default Vue.extend( {
 					} else {
 						this.keyboardHoveredItemIndex = Math.max( 0, this.keyboardHoveredItemIndex - 1 );
 					}
-
+					if ( this.keyboardHoveredItemIndex > -1 ) {
+						this.$emit( 'keyboard-hover-change', this.keyboardHoveredItemIndex );
+					}
 					this.keyboardScroll();
 					break;
 				case 'ArrowDown':
@@ -118,6 +125,9 @@ export default Vue.extend( {
 							this.menuItems.length - 1,
 							this.keyboardHoveredItemIndex + 1,
 						);
+					}
+					if ( this.keyboardHoveredItemIndex > -1 ) {
+						this.$emit( 'keyboard-hover-change', this.keyboardHoveredItemIndex );
 					}
 					this.keyboardScroll();
 					break;
