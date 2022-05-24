@@ -72,7 +72,7 @@ export default defineComponent( {
 			showMenu: false,
 			scrollIndexStart: null as ( number | null ),
 			scrollIndexEnd: null as ( number | null ),
-			keyboardHoverId: null,
+			keyboardHoverId: null as ( string | null ),
 			optionsMenuId: generateUid( 'wikit-OptionsMenu' ),
 		};
 	},
