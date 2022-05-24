@@ -3,9 +3,9 @@
 		:class="[ 'wikit', 'wikit-OptionsMenu' ]"
 		@scroll.passive="onScroll"
 		ref="lookup-menu"
-		role="menu"
-		:aria-expanded="showMenu || 'false'"
+		role="listbox"
 		:style="{ maxHeight: maxHeight ? maxHeight + 'px' : null }"
+		aria-label="Options Menu"
 	>
 		<div
 			class="wikit-OptionsMenu__item"
@@ -20,9 +20,9 @@
 			@mousedown.prevent="activeItemIndex = index"
 			@mouseup="activeItemIndex = -1"
 			ref="menu-items"
-			role="menuitem"
+			role="option"
 			:aria-label="`${menuItem.label} - ${menuItem.description}`"
-			:id="`menu-item-${index}`"
+			:id="`${menuItemId}-${index}`"
 		>
 			<div class="wikit-OptionsMenu__item__label-wrapper">
 				<div
@@ -50,6 +50,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import debounce from 'lodash/debounce';
+import generateUid from '@/components/util/generateUid';
 
 /**
  * This is an internal component which used by the Lookup component.
@@ -61,6 +62,7 @@ export default Vue.extend( {
 			maxHeight: null as number|null,
 			activeItemIndex: -1,
 			keyboardHoveredItemIndex: -1,
+			menuItemId: generateUid( 'wikit-OptionsMenu__item__id' ),
 		};
 	},
 	props: {
@@ -111,7 +113,7 @@ export default Vue.extend( {
 						this.keyboardHoveredItemIndex = Math.max( 0, this.keyboardHoveredItemIndex - 1 );
 					}
 					if ( this.keyboardHoveredItemIndex > -1 ) {
-						this.$emit( 'keyboard-hover-change', this.keyboardHoveredItemIndex );
+						this.$emit( 'keyboard-hover-change', `${this.menuItemId}-${this.keyboardHoveredItemIndex}` );
 					}
 					this.keyboardScroll();
 					break;
@@ -127,7 +129,7 @@ export default Vue.extend( {
 						);
 					}
 					if ( this.keyboardHoveredItemIndex > -1 ) {
-						this.$emit( 'keyboard-hover-change', this.keyboardHoveredItemIndex );
+						this.$emit( 'keyboard-hover-change', `${this.menuItemId}-${this.keyboardHoveredItemIndex}` );
 					}
 					this.keyboardScroll();
 					break;

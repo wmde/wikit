@@ -13,8 +13,8 @@
 			:disabled="disabled"
 			autocomplete="off"
 			v-bind="$attrs"
-			:aria-owns="keyboardHoverIndex > -1 ? `menu-item-${keyboardHoverIndex}` : ''"
-			:aria-activedescendant="keyboardHoverIndex > -1 ? `menu-item-${keyboardHoverIndex}` : ''"
+			:aria-owns="optionsMenuId"
+			:aria-activedescendant="keyboardHoverId"
 		/>
 		<OptionsMenu
 			class="wikit-LookupInput__menu"
@@ -27,6 +27,8 @@
 			@esc="onEsc"
 			@keyboard-hover-change="onKeyboardHoverChange"
 			ref="menu"
+			:aria-expanded="showMenu || 'false'"
+			:id="optionsMenuId"
 		>
 			<template v-slot:no-results>
 				<slot name="no-results" />
@@ -40,6 +42,7 @@ import Vue from 'vue';
 import Input from '@/components/Input.vue';
 import OptionsMenu from '@/components/OptionsMenu.vue';
 import isEqual from 'lodash.isequal';
+import generateUid from '@/components/util/generateUid';
 import VueCompositionAPI, { defineComponent, ref } from '@vue/composition-api';
 import { MenuItem } from '@/components/MenuItem';
 
@@ -69,7 +72,8 @@ export default defineComponent( {
 			showMenu: false,
 			scrollIndexStart: null as ( number | null ),
 			scrollIndexEnd: null as ( number | null ),
-			keyboardHoverIndex: -1,
+			keyboardHoverId: null,
+			optionsMenuId: generateUid( 'wikit-OptionsMenu' ),
 		};
 	},
 	props: {
@@ -149,6 +153,7 @@ export default defineComponent( {
 		},
 		onEsc(): void {
 			this.showMenu = false;
+			this.keyboardHoverId = null;
 		},
 		onScroll( firstIndex: number, lastIndex: number ): void {
 			if ( firstIndex !== this.scrollIndexStart || lastIndex !== this.scrollIndexEnd ) {
@@ -164,8 +169,8 @@ export default defineComponent( {
 			}
 
 		},
-		onKeyboardHoverChange( index: number ): void {
-			this.keyboardHoverIndex = index;
+		onKeyboardHoverChange( menuItemId: string ): void {
+			this.keyboardHoverId = menuItemId;
 		},
 	},
 	computed: {
