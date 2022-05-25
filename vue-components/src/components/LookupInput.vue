@@ -29,6 +29,7 @@
 			ref="menu"
 			:aria-expanded="showMenu || 'false'"
 			:id="optionsMenuId"
+			:label="label"
 		>
 			<template v-slot:no-results>
 				<slot name="no-results" />
@@ -114,6 +115,10 @@ export default defineComponent( {
 		 * computed property to dynamically update the Lookup's `menuItems` prop.
 		 */
 		searchInput: {
+			type: String,
+			default: '',
+		},
+		label: {
 			type: String,
 			default: '',
 		},

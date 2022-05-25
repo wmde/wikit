@@ -5,7 +5,7 @@
 		ref="lookup-menu"
 		role="listbox"
 		:style="{ maxHeight: maxHeight ? maxHeight + 'px' : null }"
-		aria-label="Options Menu"
+		:aria-label="label"
 	>
 		<div
 			class="wikit-OptionsMenu__item"
@@ -90,6 +90,10 @@ export default Vue.extend( {
 		allowLooping: {
 			type: Boolean,
 			default: false,
+		},
+		label: {
+			type: String,
+			default: '',
 		},
 	},
 	methods: {

@@ -28,6 +28,7 @@
 			@scroll="(firstIndex, lastIndex) => $emit('scroll', firstIndex, lastIndex)"
 			aria-autocomplete="list"
 			aria-haspopup="listbox"
+			:label="label"
 		>
 			<template v-slot:no-results>
 				<slot name="no-results" />
