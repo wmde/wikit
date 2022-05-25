@@ -21,8 +21,7 @@
 			@mouseup="activeItemIndex = -1"
 			ref="menu-items"
 			role="option"
-			:aria-label="menuItem.label"
-			:aria-description="menuItem.description"
+			:aria-label="`${menuItem.label} - ${menuItem.description}`"
 			:id="`${menuItemId}-${index}`"
 		>
 			<div class="wikit-OptionsMenu__item__label-wrapper">

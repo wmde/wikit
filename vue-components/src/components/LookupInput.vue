@@ -13,8 +13,6 @@
 			:disabled="disabled"
 			autocomplete="off"
 			v-bind="$attrs"
-			:aria-owns="optionsMenuId"
-			:aria-expanded="showMenu || 'false'"
 			:aria-activedescendant="keyboardHoverId"
 		/>
 		<OptionsMenu
@@ -30,6 +28,8 @@
 			ref="menu"
 			:id="optionsMenuId"
 			:label="label"
+			:aria-owns="optionsMenuId"
+			:aria-expanded="showMenu || 'false'"
 		>
 			<template v-slot:no-results>
 				<slot name="no-results" />
