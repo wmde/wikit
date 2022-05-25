@@ -23,6 +23,7 @@
 			role="option"
 			:aria-label="`${menuItem.label} - ${menuItem.description}`"
 			:id="`${menuItemId}-${index}`"
+			:aria-selected="index === selectedItemIndex || 'false'"
 		>
 			<div class="wikit-OptionsMenu__item__label-wrapper">
 				<div
