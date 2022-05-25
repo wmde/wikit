@@ -153,7 +153,6 @@ export default defineComponent( {
 		onFocus(): void {
 			if ( this.canShowMenu( this.searchInput ) ) {
 				this.showMenu = true;
-				this.$emit( 'expanded', true );
 			}
 		},
 		onEsc(): void {
