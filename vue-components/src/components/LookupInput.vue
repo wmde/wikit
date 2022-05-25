@@ -14,6 +14,7 @@
 			autocomplete="off"
 			v-bind="$attrs"
 			:aria-owns="optionsMenuId"
+			:aria-expanded="showMenu || 'false'"
 			:aria-activedescendant="keyboardHoverId"
 		/>
 		<OptionsMenu
@@ -27,7 +28,6 @@
 			@esc="onEsc"
 			@keyboard-hover-change="onKeyboardHoverChange"
 			ref="menu"
-			:aria-expanded="showMenu || 'false'"
 			:id="optionsMenuId"
 			:label="label"
 		>
