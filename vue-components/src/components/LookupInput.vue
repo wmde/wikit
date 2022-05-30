@@ -17,6 +17,8 @@
 			:aria-owns="optionsMenuId"
 			aria-autocomplete="list"
 			aria-haspopup="listbox"
+			:aria-expanded="showMenu || 'false'"
+			role="combobox"
 		/>
 		<OptionsMenu
 			class="wikit-LookupInput__menu"
@@ -31,7 +33,6 @@
 			ref="menu"
 			:id="optionsMenuId"
 			:label="label"
-			:aria-expanded="showMenu || 'false'"
 		>
 			<template v-slot:no-results>
 				<slot name="no-results" />
