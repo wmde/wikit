@@ -21,7 +21,8 @@
 			@mouseup="activeItemIndex = -1"
 			ref="menu-items"
 			role="option"
-			:aria-label="`${menuItem.label} - ${menuItem.description}`"
+			:aria-label="menuItem.label"
+			:aria-describedby="`${menuItemId}__description-${index}`"
 			:id="`${menuItemId}-${index}`"
 			:aria-selected="index === selectedItemIndex || 'false'"
 		>
@@ -38,7 +39,7 @@
 					{{ menuItem.tag }}
 				</div>
 			</div>
-			<div class="wikit-OptionsMenu__item__description">
+			<div class="wikit-OptionsMenu__item__description" :id="`${menuItemId}__description-${index}`">
 				{{ menuItem.description }}
 			</div>
 		</div>
