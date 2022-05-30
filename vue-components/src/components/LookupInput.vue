@@ -121,6 +121,10 @@ export default defineComponent( {
 			type: String,
 			default: '',
 		},
+		/**
+		 * Sets the label to be passed down to the inner `<OptionsMenu>` component so it can be properly announced
+		 * by screen readers.
+		 */
 		label: {
 			type: String,
 			default: '',
