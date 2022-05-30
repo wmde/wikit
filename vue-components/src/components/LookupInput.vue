@@ -14,6 +14,7 @@
 			autocomplete="off"
 			v-bind="$attrs"
 			:aria-activedescendant="keyboardHoverId"
+			:aria-owns="optionsMenuId"
 		/>
 		<OptionsMenu
 			class="wikit-LookupInput__menu"
@@ -28,7 +29,6 @@
 			ref="menu"
 			:id="optionsMenuId"
 			:label="label"
-			:aria-owns="optionsMenuId"
 			:aria-expanded="showMenu || 'false'"
 		>
 			<template v-slot:no-results>
