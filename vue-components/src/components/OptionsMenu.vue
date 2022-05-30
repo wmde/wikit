@@ -43,7 +43,7 @@
 				{{ menuItem.description }}
 			</div>
 		</div>
-		<div v-if="menuItems.length === 0" class="wikit-OptionsMenu__no-results" role="alert">
+		<div v-if="menuItems.length === 0" class="wikit-OptionsMenu__no-results">
 			<slot name="no-results" />
 		</div>
 	</div>
