@@ -15,6 +15,8 @@
 			v-bind="$attrs"
 			:aria-activedescendant="keyboardHoverId"
 			:aria-owns="optionsMenuId"
+			aria-autocomplete="list"
+			aria-haspopup="listbox"
 		/>
 		<OptionsMenu
 			class="wikit-LookupInput__menu"

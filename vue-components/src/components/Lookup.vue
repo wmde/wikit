@@ -26,8 +26,6 @@
 			@update:searchInput="$emit('update:searchInput', $event)"
 			@input="$emit('input', $event)"
 			@scroll="(firstIndex, lastIndex) => $emit('scroll', firstIndex, lastIndex)"
-			aria-autocomplete="list"
-			aria-haspopup="listbox"
 			:label="label"
 		>
 			<template v-slot:no-results>
