@@ -92,6 +92,7 @@ export default defineComponent( {
 			switch ( event.key ) {
 				case 'Enter':
 					if ( this.keyboardHoveredItemIndex !== -1 ) {
+						event.preventDefault();
 						this.$emit( 'select', this.menuItems[ this.keyboardHoveredItemIndex ] );
 					}
 					break;
