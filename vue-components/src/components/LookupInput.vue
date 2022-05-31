@@ -137,6 +137,11 @@ export default defineComponent( {
 		onInput( value: string ): void {
 			this.showMenu = this.canShowMenu( value );
 
+			// reset hover state id to reset aria-activedescendant
+			if ( value === '' ) {
+				this.keyboardHoverId = null;
+			}
+
 			// the following comment generates the event's description for the docs tab in storybook
 			/**
 			 * Enables the `searchInput` prop to be used with the `.sync` modifier. It's used to transport the value of
