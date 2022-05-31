@@ -7,7 +7,7 @@
 			:value="searchInput"
 			@input="onInput"
 			@focus.native="onFocus"
-			@blur.native="onBlurAndEsc"
+			@blur.native="showMenu = false"
 			:feedback-type="feedbackType"
 			:placeholder="placeholder"
 			:disabled="disabled"
@@ -28,7 +28,7 @@
 			v-show="showMenu"
 			@select="onSelect"
 			@scroll="onScroll"
-			@esc="onBlurAndEsc"
+			@esc="onEsc"
 			@keyboard-hover-change="onKeyboardHoverChange"
 			ref="menu"
 			:id="optionsMenuId"
@@ -162,7 +162,7 @@ export default defineComponent( {
 				this.showMenu = true;
 			}
 		},
-		onBlurAndEsc(): void {
+		onEsc(): void {
 			this.showMenu = false;
 			this.keyboardHoverId = null;
 		},
