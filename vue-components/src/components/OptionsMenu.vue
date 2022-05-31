@@ -118,9 +118,6 @@ export default Vue.extend( {
 					} else {
 						this.keyboardHoveredItemIndex = Math.max( 0, this.keyboardHoveredItemIndex - 1 );
 					}
-					if ( this.keyboardHoveredItemIndex > -1 ) {
-						this.$emit( 'keyboard-hover-change', `${this.menuItemId}-${this.keyboardHoveredItemIndex}` );
-					}
 					this.keyboardScroll();
 					break;
 				case 'ArrowDown':
@@ -133,9 +130,6 @@ export default Vue.extend( {
 							this.menuItems.length - 1,
 							this.keyboardHoveredItemIndex + 1,
 						);
-					}
-					if ( this.keyboardHoveredItemIndex > -1 ) {
-						this.$emit( 'keyboard-hover-change', `${this.menuItemId}-${this.keyboardHoveredItemIndex}` );
 					}
 					this.keyboardScroll();
 					break;
@@ -201,6 +195,13 @@ export default Vue.extend( {
 			await this.$nextTick();
 			this.keyboardHoveredItemIndex = this.selectedItemIndex;
 			this.resizeMenu();
+		},
+		keyboardHoveredItemIndex( hoveredIndex: number ): void {
+			if ( hoveredIndex > -1 ) {
+				this.$emit( 'keyboard-hover-change', `${this.menuItemId}-${hoveredIndex}` );
+			} else {
+				this.$emit( 'keyboard-hover-change', null );
+			}
 		},
 	},
 } );
