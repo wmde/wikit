@@ -1,6 +1,7 @@
 const path = require( 'path' );
 
 module.exports = {
+	staticDirs: [ '../src/00-doc/static' ],
 	stories: [ '../src/**/*.stories.@(js|mdx)' ],
 	addons: [
 		'@storybook/addon-a11y',
