@@ -91,7 +91,7 @@ export function all(): Component {
 			<div>
 				<div style="margin-bottom: 20px">
 					<Lookup
-						:search-input.sync="search"
+						v-model:search-input="search"
 						label="Label"
 						v-model="selectedItem"
 						:menu-items="menuItems"
@@ -131,7 +131,7 @@ export function all(): Component {
 				</div>
 				<div style="margin-bottom: 20px" dir="ltr">
 					<Lookup
-						:search-input.sync="search"
+						v-model:search-input="search"
 						label="Label with suffix icon"
 						v-model="selectedItem"
 						:menu-items="menuItems"
