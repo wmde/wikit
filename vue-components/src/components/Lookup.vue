@@ -114,8 +114,8 @@ export default defineComponent( {
 			default: null,
 		},
 		/**
-		 * Sets the value of the Lookup component's inner `<input>` element. This prop can be used with the `.sync`
-		 * modifier. When bound to a field in the consuming component's data object, it can be used within a watcher or
+		 * Sets the value of the Lookup component's inner `<input>` element. This prop can be used with v-model.
+		 * When bound to a field in the consuming component's data object, it can be used within a watcher or
 		 * computed property to dynamically update the Lookup's `menuItems` prop.
 		 */
 		searchInput: {
