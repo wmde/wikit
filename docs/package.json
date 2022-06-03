@@ -18,11 +18,11 @@
     "url": "git+https://github.com/wmde/wikit.git"
   },
   "scripts": {
-    "storybook": "start-storybook -s src/00-doc/static",
+    "storybook": "start-storybook",
     "test": "npm-run-all test:*",
     "test:lint": "eslint . --ext .js --ext .jsx --max-warnings 0",
     "fix": "npm run test:lint -- --fix",
-    "build": "build-storybook -o dist -s src/00-doc/static"
+    "build": "build-storybook -o dist"
   },
   "dependencies": {
     "@wmde/wikit-tokens": "^3.0.0-alpha.3",
@@ -47,8 +47,7 @@
     "eslint-config-wikimedia": "^0.16.2",
     "eslint-plugin-react": "^7.21.5",
     "npm-run-all": "^4.1.5",
-    "react": "^17.0.0",
-    "react-is": "^17.0.0",
+    "react": "^16.14.0",
     "sass": "^1.43.3",
     "sass-loader": "^10"
   }
