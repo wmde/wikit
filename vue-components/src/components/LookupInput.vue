@@ -81,12 +81,13 @@ const emit = defineEmits<{
 }>();
 
 const menu = ref<InstanceType<typeof OptionsMenu> | null>( null );
+const showMenu = ref( false );
 
 function triggerKeyDown( event: KeyboardEvent ): void {
-	menu.value?.onKeyDown( event );
+	if ( showMenu.value ) {
+		menu.value?.onKeyDown( event );
+	}
 }
-
-const showMenu = ref( false );
 
 function canShowMenu( currentSearchInput: string ): boolean {
 	return currentSearchInput.length > 0;
