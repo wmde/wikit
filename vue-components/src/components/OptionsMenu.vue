@@ -22,7 +22,7 @@
 			ref="menu-items"
 			role="option"
 			:aria-label="menuItem.label"
-			:aria-describedby="`${menuItemId}__description-${index}`"
+			:aria-describedby="`${menuItemId}__description-${index} ${menuItemId}__tag-${index}`"
 			:id="`${menuItemId}-${index}`"
 			:aria-selected="index === selectedItemIndex || 'false'"
 		>
@@ -35,7 +35,7 @@
 				>
 					{{ menuItem.label }}
 				</div>
-				<div v-if="menuItem.tag" class="wikit-OptionsMenu__item__tag">
+				<div v-if="menuItem.tag" class="wikit-OptionsMenu__item__tag" :id="`${menuItemId}__tag-${index}`">
 					{{ menuItem.tag }}
 				</div>
 			</div>
