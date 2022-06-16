@@ -58,11 +58,11 @@ describe( 'Lookup', () => {
 			const testSearchInput = 'Lorem Ipsum';
 			const wrapper = mount( Lookup );
 
-			expect( wrapper.findComponent( 'input' ).props( 'value' ) ).toBe( '' );
+			expect( wrapper.findComponent( Input ).props( 'value' ) ).toBe( '' );
 
 			await wrapper.setProps( { searchInput: testSearchInput } );
 
-			expect( wrapper.findComponent( 'input' ).props( 'value' ) ).toBe( testSearchInput );
+			expect( wrapper.findComponent( Input ).props( 'value' ) ).toBe( testSearchInput );
 		} );
 
 		it( ':disabled - can be disabled', () => {
