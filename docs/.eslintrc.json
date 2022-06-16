@@ -1,8 +1,7 @@
 {
 	"extends": [
 		"wikimedia",
-		"wikimedia/client",
-		"wikimedia/language/es6",
+		"wikimedia/client-es6",
 		"plugin:react/recommended"
 	],
 	"parserOptions": {
