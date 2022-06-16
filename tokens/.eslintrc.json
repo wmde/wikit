@@ -1,17 +1,26 @@
 {
-	"extends": [
-		"wikimedia",
-		"wikimedia/node",
-		"plugin:json/recommended"
-	],
-	"rules": {
-		"comma-dangle": [ "error", {
-			"arrays": "always-multiline",
-			"objects": "always-multiline",
-			"imports": "always-multiline",
-			"exports": "always-multiline",
-			"functions": "always-multiline"
-		} ],
-		"func-style": [ "error", "declaration" ]
-	}
+    "extends": [
+        "wikimedia",
+        "wikimedia/node"
+    ],
+    "rules": {
+        "comma-dangle": [ "error", {
+            "arrays": "always-multiline",
+            "objects": "always-multiline",
+            "imports": "always-multiline",
+            "exports": "always-multiline",
+            "functions": "always-multiline"
+        } ],
+        "func-style": [ "error", "declaration" ]
+    },
+    "ignorePatterns": [ "package*.json" ],
+    "overrides": [
+        {
+            "files": [ "**/*.json", "**/*.jsonc" ],
+            "rules": {
+                "indent": [ "error", 4 ],
+                "comma-dangle": "off"
+            }
+        }
+    ]
 }
