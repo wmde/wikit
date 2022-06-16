@@ -7,7 +7,7 @@
     "url": "git+https://github.com/wmde/wikit.git"
   },
   "scripts": {
-    "postinstall": "lerna bootstrap",
+    "postinstall": "lerna bootstrap --ci",
     "lerna": "lerna",
     "test": "lerna run test",
     "test:e2e": "lerna run e2e:saucelabs --scope @wmde/wikit-vue-components",
@@ -21,7 +21,7 @@
     "publish-tokens-vue": "lerna publish from-package --yes"
   },
   "devDependencies": {
-    "lerna": "^4.0.0",
+    "lerna": "^5.1.4",
     "npm-run-all": "^4.1.5"
   },
   "bugs": {

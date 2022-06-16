@@ -22,9 +22,9 @@ export function TokenTable( { tokens } ) {
 							&nbsp;<strong className="token-name">{ token.name }</strong>
 								<div className="referenced-tokens" title="value influenced by">
 									{token.referencedTokens.length > 0 ?
-										token.referencedTokens.map( ( token, i ) => [
+										token.referencedTokens.map( ( tokenName, i ) => [
 											i > 0 ? ', ' : '',
-											<span key={i} className="token-name">{token}</span>,
+											<span key={i} className="token-name">{tokenName}</span>,
 										] ) :
 										'-'
 									}
