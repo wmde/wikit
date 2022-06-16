@@ -38,10 +38,6 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '16'
-    - name: Print node version
-      run: node --version
-    - name: Print npm version
-      run: npm --version
     - name: Cache dependencies
       uses: actions/cache@v2
       id: cache
