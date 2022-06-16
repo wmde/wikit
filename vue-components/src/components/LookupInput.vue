@@ -13,6 +13,12 @@
 			:disabled="disabled"
 			autocomplete="off"
 			v-bind="$attrs"
+			:aria-activedescendant="keyboardHoverId"
+			:aria-owns="optionsMenuId"
+			aria-autocomplete="list"
+			aria-haspopup="listbox"
+			:aria-expanded="showMenu || 'false'"
+			role="combobox"
 		/>
 		<OptionsMenu
 			class="wikit-LookupInput__menu"
@@ -23,7 +29,10 @@
 			@select="onSelect"
 			@scroll="onScroll"
 			@esc="onEsc"
+			@keyboard-hover-change="onKeyboardHoverChange"
 			ref="menu"
+			:id="optionsMenuId"
+			:label="label"
 		>
 			<template v-slot:no-results>
 				<slot name="no-results" />
@@ -37,6 +46,7 @@ import Vue from 'vue';
 import Input from '@/components/Input.vue';
 import OptionsMenu from '@/components/OptionsMenu.vue';
 import isEqual from 'lodash.isequal';
+import generateUid from '@/components/util/generateUid';
 import VueCompositionAPI, { defineComponent, ref } from '@vue/composition-api';
 import { MenuItem } from '@/components/MenuItem';
 
@@ -66,6 +76,8 @@ export default defineComponent( {
 			showMenu: false,
 			scrollIndexStart: null as ( number | null ),
 			scrollIndexEnd: null as ( number | null ),
+			keyboardHoverId: null as ( string | null ),
+			optionsMenuId: generateUid( 'wikit-OptionsMenu' ),
 		};
 	},
 	props: {
@@ -109,6 +121,14 @@ export default defineComponent( {
 			type: String,
 			default: '',
 		},
+		/**
+		 * Sets the label to be passed down to the inner `<OptionsMenu>` component so it can be properly announced
+		 * by screen readers.
+		 */
+		label: {
+			type: String,
+			default: '',
+		},
 	},
 	methods: {
 		canShowMenu( currentSearchInput: string ): boolean {
@@ -144,6 +164,7 @@ export default defineComponent( {
 		},
 		onEsc(): void {
 			this.showMenu = false;
+			this.keyboardHoverId = null;
 		},
 		onScroll( firstIndex: number, lastIndex: number ): void {
 			if ( firstIndex !== this.scrollIndexStart || lastIndex !== this.scrollIndexEnd ) {
@@ -158,6 +179,9 @@ export default defineComponent( {
 				this.scrollIndexEnd = lastIndex;
 			}
 
+		},
+		onKeyboardHoverChange( menuItemId: string ): void {
+			this.keyboardHoverId = menuItemId;
 		},
 	},
 	computed: {

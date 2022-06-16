@@ -26,6 +26,7 @@
 			@update:searchInput="$emit('update:searchInput', $event)"
 			@input="$emit('input', $event)"
 			@scroll="(firstIndex, lastIndex) => $emit('scroll', firstIndex, lastIndex)"
+			:label="label"
 		>
 			<template v-slot:no-results>
 				<slot name="no-results" />
