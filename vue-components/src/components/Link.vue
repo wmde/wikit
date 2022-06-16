@@ -34,7 +34,7 @@ import Icon from './Icon.vue';
  * Uses the following components internally: Icon
  */
 export default defineComponent( {
-	name: 'Link',
+	name: 'WikitLink',
 	props: {
 		icon: {
 			type: String,

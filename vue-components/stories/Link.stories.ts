@@ -1,8 +1,8 @@
-import Link from '@/components/Link';
+import WikitLink from '@/components/Link';
 import { Component } from 'vue';
 
 export default {
-	component: Link,
+	component: WikitLink,
 	// the `/` prefix in the title is needed for "Message" to appear as a folded navigation item, and not a headline
 	title: '/Link',
 };
@@ -12,14 +12,14 @@ export function basic( args: { content: string; underlined: boolean } ): Compone
 		data(): object {
 			return { args };
 		},
-		components: { Link },
+		components: { WikitLink },
 		props: Object.keys( args ),
 		template: `
 			<div>
-			<p><Link
+			<p><WikitLink
                 :underlined="underlined"
                 :href="'#' + Math.random()"
-            ><span v-html="content" /></Link></p>
+            ><span v-html="content" /></WikitLink></p>
 			</div>
 		`,
 	};
@@ -45,13 +45,13 @@ basic.argTypes = {
 
 export function all(): Component {
 	return {
-		components: { Link },
+		components: { WikitLink },
 		template: `
 			<div>
-            <p><Link :href="'#' + Math.random()">Click here</Link></p>
-            <p><Link :href="'#' + Math.random()" underlined>Click here</Link></p>
-            <p><Link :href="'#' + Math.random()" icon="before">About Wikidata</Link></p>
-            <p><Link :href="'#' + Math.random()" icon="after">About Wikidata</Link></p>
+            <p><WikitLink :href="'#' + Math.random()">Click here</WikitLink></p>
+            <p><WikitLink :href="'#' + Math.random()" underlined>Click here</WikitLink></p>
+            <p><WikitLink :href="'#' + Math.random()" icon="before">About Wikidata</WikitLink></p>
+            <p><WikitLink :href="'#' + Math.random()" icon="after">About Wikidata</WikitLink></p>
             </div>
 		`,
 	};
