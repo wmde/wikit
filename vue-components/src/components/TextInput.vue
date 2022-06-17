@@ -12,7 +12,7 @@
 			</label>
 			<span><slot name="suffix" /></span>
 		</span>
-		<Input
+		<WikitInput
 			:id="id"
 			:value="value"
 			@input="emitInputEvent"
@@ -32,7 +32,7 @@
 <script lang="ts">
 import { defineComponent, computed, StyleValue } from 'vue';
 import ValidationMessage from './ValidationMessage.vue';
-import Input from './Input.vue';
+import WikitInput from './Input.vue';
 import generateUid from '@/components/util/generateUid';
 import { errorProp, ErrorProp, getFeedbackTypeFromProps } from '@/compositions/validatable';
 
@@ -91,7 +91,7 @@ export default defineComponent( {
 	},
 
 	components: {
-		Input,
+		WikitInput,
 		ValidationMessage,
 	},
 

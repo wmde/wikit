@@ -151,7 +151,8 @@ describe( 'OptionsMenu', () => {
 			{ label: 'potato', description: 'root vegetable' },
 			{ label: 'duck', description: 'aquatic bird' },
 		];
-		const wrapper = mount( OptionsMenu, { props: { menuItems } } );
+		const lookupLabel = 'Label of the parent Lookup';
+		const wrapper = mount( OptionsMenu, { props: { menuItems, label: lookupLabel } } );
 		const results = await axe( wrapper.element, {
 			rules: {
 				'region': { enabled: false },

@@ -20,15 +20,15 @@
         },
         "transition": {
             "duration": {
-                "value":"{transition.duration.medium.value}"
+                "value": "{transition.duration.medium.value}"
             }
         },
         "width": {
-            "simple":{
-                "value":"{dimension.width.large.value}"
+            "simple": {
+                "value": "{dimension.width.large.value}"
             },
-            "complex":{
-                "value":"{dimension.width.xlarge.value}"
+            "complex": {
+                "value": "{dimension.width.xlarge.value}"
             }
         },
         "header": {
@@ -57,7 +57,7 @@
                 "simple": {
                     "value": "{dimension.spacing.small.value}"
                 },
-                "complex":{
+                "complex": {
                     "value": "{dimension.spacing.medium.value}"
                 }
             },
@@ -65,8 +65,8 @@
                 "value": "{dimension.spacing.xlarge.value}"
             },
             "box-shadow": {
-                "value":"{box-shadow.inset.divider.bottom.value}",
-                "comment":"only for complex dialogs: divider to be displayed when scroll is activated"
+                "value": "{box-shadow.inset.divider.bottom.value}",
+                "comment": "only for complex dialogs: divider to be displayed when scroll is activated"
             }
         },
         "body": {
@@ -89,7 +89,7 @@
                 "simple": {
                     "value": "{dimension.spacing.none.value}"
                 },
-                "complex":{
+                "complex": {
                     "value": "{dimension.spacing.small.value}"
                 }
             },
@@ -100,7 +100,7 @@
                 "simple": {
                     "value": "{dimension.spacing.small.value}"
                 },
-                "complex":{
+                "complex": {
                     "value": "{dimension.spacing.large.value}"
                 }
             },
@@ -118,7 +118,7 @@
                 "simple": {
                     "value": "{dimension.spacing.small.value}"
                 },
-                "complex":{
+                "complex": {
                     "value": "{dimension.spacing.medium.value}"
                 }
             },
@@ -129,7 +129,7 @@
                 "simple": {
                     "value": "{dimension.spacing.xlarge.value}"
                 },
-                "complex":{
+                "complex": {
                     "value": "{dimension.spacing.medium.value}"
                 }
             },
@@ -137,8 +137,8 @@
                 "value": "{dimension.spacing.xlarge.value}"
             },
             "box-shadow": {
-                "value":"{box-shadow.inset.divider.top.value}",
-                "comment":"Only for complex dialogs. Creates a divider"
+                "value": "{box-shadow.inset.divider.top.value}",
+                "comment": "Only for complex dialogs. Creates a divider"
             }
         },
         "overlay": {
@@ -149,14 +149,14 @@
                 "value": "{dimension.height.full.value}"
             },
             "background-color": {
-                    "value": "{background.color.base.default.value}"
+                "value": "{background.color.base.default.value}"
             },
             "opacity": {
                 "value": "{opacity.overlay.value}"
             },
             "transition": {
                 "duration": {
-                    "value":"{transition.duration.medium.value}"
+                    "value": "{transition.duration.medium.value}"
                 }
             }
         }

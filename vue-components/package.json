@@ -1,6 +1,6 @@
 {
   "name": "@wmde/wikit-vue-components",
-  "version": "3.0.0-alpha.3",
+  "version": "3.0.0-alpha.4",
   "description": "The component implementation of WiKit in vue",
   "author": {
     "name": "The Wikidata team"
@@ -34,7 +34,7 @@
   ],
   "types": "dist/main.d.ts",
   "dependencies": {
-    "@wmde/wikit-tokens": "^3.0.0-alpha.3",
+    "@wmde/wikit-tokens": "^3.0.0-alpha.4",
     "core-js": "^3.7.0",
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
@@ -63,21 +63,21 @@
     "@vue/cli-plugin-typescript": "^5",
     "@vue/cli-plugin-unit-jest": "^5",
     "@vue/cli-service": "^5",
-    "@vue/eslint-config-typescript": "^10.0.0",
+    "@vue/eslint-config-typescript": "^11.0.0",
     "@vue/test-utils": "^2.0.0-rc.17",
     "@vue/vue3-jest": "^27.0.0-alpha.4",
-    "@wmde/eslint-config-wikimedia-typescript": "0.2.2",
+    "@wmde/eslint-config-wikimedia-typescript": "0.2.3",
     "chromatic": "^6.4.3",
     "chromedriver": "83",
-    "eslint": "^8.10.0",
-    "eslint-config-wikimedia": "0.21.0",
+    "eslint": "^8.17.0",
+    "eslint-config-wikimedia": "0.22.1",
     "eslint-plugin-filenames": "^1.3.2",
     "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jsdoc": "^37.8.2",
+    "eslint-plugin-jsdoc": "^39.3.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-standard": "^5.0.0",
-    "eslint-plugin-vue": "^8.5.0",
+    "eslint-plugin-vue": "^9.1.1",
     "eslint-plugin-vue-root-class": "0.2.0",
     "geckodriver": "^1.19.1",
     "jest-axe": "^4.1.0",
@@ -99,7 +99,7 @@
     "ts-jest": "^27.1.3",
     "ts-loader": "^9.2.6",
     "typescript": "~4.5.0",
-    "vue-eslint-parser": "^8.3.0"
+    "vue-eslint-parser": "^9.0.2"
   },
   "homepage": "https://github.com/wmde/wikit/tree/master/vue-components#readme",
   "license": "BSD-3-Clause",

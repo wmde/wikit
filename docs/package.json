@@ -1,7 +1,7 @@
 {
   "name": "@wmde/wikit-docs",
   "private": true,
-  "version": "3.0.0-alpha.3",
+  "version": "3.0.0-alpha.4",
   "description": "Storybook for illustrating design tokens and components",
   "keywords": [
     "wikit",
@@ -25,8 +25,8 @@
     "build": "build-storybook -o dist"
   },
   "dependencies": {
-    "@wmde/wikit-tokens": "^3.0.0-alpha.3",
-    "@wmde/wikit-vue-components": "^3.0.0-alpha.3",
+    "@wmde/wikit-tokens": "^3.0.0-alpha.4",
+    "@wmde/wikit-vue-components": "^3.0.0-alpha.4",
     "traverse": "^0.6.6"
   },
   "bugs": {
@@ -43,8 +43,9 @@
     "@storybook/manager-webpack5": "^6.5.6",
     "@storybook/theming": "^6.5.6",
     "babel-loader": "^8.1.0",
-    "eslint": "^7.12.1",
-    "eslint-config-wikimedia": "^0.16.2",
+    "eslint": "^8.17.0",
+    "eslint-config-wikimedia": "^0.22.1",
+    "eslint-plugin-es": "^4.1.0",
     "eslint-plugin-react": "^7.21.5",
     "npm-run-all": "^4.1.5",
     "react": "^16.14.0",

@@ -13,6 +13,12 @@
 			:disabled="disabled"
 			autocomplete="off"
 			v-bind="$attrs"
+			:aria-activedescendant="keyboardHoverId"
+			:aria-owns="optionsMenuId"
+			aria-autocomplete="list"
+			aria-haspopup="listbox"
+			:aria-expanded="showMenu || 'false'"
+			role="combobox"
 		/>
 		<OptionsMenu
 			class="wikit-LookupInput__menu"
@@ -23,7 +29,10 @@
 			@select="onSelect"
 			@scroll="onScroll"
 			@esc="onEsc"
+			@keyboard-hover-change="onKeyboardHoverChange"
 			ref="menu"
+			:id="optionsMenuId"
+			:label="label"
 		>
 			<template #no-results>
 				<slot name="no-results" />
@@ -59,6 +68,11 @@ interface Props {
 	 * computed property to dynamically update the Lookup's `menuItems` prop.
 	 */
 	searchInput?: string;
+	/**
+	 * Sets the label to be passed down to the inner `<OptionsMenu>` component so it can be properly announced
+	 * by screen readers.
+	 */
+	label?: string;
 }
 
 const props = withDefaults( defineProps<Props>(), {
@@ -68,6 +82,7 @@ const props = withDefaults( defineProps<Props>(), {
 	placeholder: '',
 	value: null,
 	searchInput: '',
+	label: '',
 } );
 
 /**
@@ -81,12 +96,13 @@ const emit = defineEmits<{
 }>();
 
 const menu = ref<InstanceType<typeof OptionsMenu> | null>( null );
+const showMenu = ref( false );
 
 function triggerKeyDown( event: KeyboardEvent ): void {
-	menu.value?.onKeyDown( event );
+	if ( showMenu.value ) {
+		menu.value?.onKeyDown( event );
+	}
 }
-
-const showMenu = ref( false );
 
 function canShowMenu( currentSearchInput: string ): boolean {
 	return currentSearchInput.length > 0;
@@ -112,8 +128,14 @@ function onSelect( menuItem: MenuItem ): void {
 	emit( 'update:searchInput', menuItem.label );
 }
 
+const keyboardHoverId = ref<string|null>( null );
 function onEsc(): void {
 	showMenu.value = false;
+	keyboardHoverId.value = null;
+}
+
+function onKeyboardHoverChange( menuItemId: string ): void {
+	keyboardHoverId.value = menuItemId;
 }
 
 const selectedItemIndex = computed( (): number => {
@@ -133,6 +155,7 @@ const selectedItemIndex = computed( (): number => {
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import generateUid from '@/components/util/generateUid';
 
 export default defineComponent( {
 	name: 'LookupInput',
@@ -142,6 +165,7 @@ export default defineComponent( {
 			showMenu: false,
 			scrollIndexStart: null as ( number | null ),
 			scrollIndexEnd: null as ( number | null ),
+			optionsMenuId: generateUid( 'wikit-OptionsMenu' ),
 		};
 	},
 	methods: {
