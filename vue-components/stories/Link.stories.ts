@@ -9,11 +9,8 @@ export default {
 
 export function basic( args: { content: string; underlined: boolean } ): Component {
 	return {
-		data(): object {
-			return { args };
-		},
+		data: () => args,
 		components: { WikitLink },
-		props: Object.keys( args ),
 		template: `
 			<div>
 			<p><WikitLink
