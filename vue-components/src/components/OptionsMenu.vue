@@ -3,7 +3,9 @@
 		:class="[ 'wikit', 'wikit-OptionsMenu' ]"
 		@scroll.passive="onScroll"
 		ref="lookup-menu"
+		role="listbox"
 		:style="{ maxHeight: maxHeight ? maxHeight + 'px' : null }"
+		:aria-label="label"
 	>
 		<div
 			class="wikit-OptionsMenu__item"
@@ -18,6 +20,11 @@
 			@mousedown.prevent="activeItemIndex = index"
 			@mouseup="activeItemIndex = -1"
 			ref="menu-items"
+			role="option"
+			:aria-label="menuItem.label"
+			:aria-describedby="`${menuItemId}__description-${index} ${menuItemId}__tag-${index}`"
+			:id="`${menuItemId}-${index}`"
+			:aria-selected="index === selectedItemIndex || 'false'"
 		>
 			<div class="wikit-OptionsMenu__item__label-wrapper">
 				<div
@@ -28,11 +35,11 @@
 				>
 					{{ menuItem.label }}
 				</div>
-				<div v-if="menuItem.tag" class="wikit-OptionsMenu__item__tag">
+				<div v-if="menuItem.tag" class="wikit-OptionsMenu__item__tag" :id="`${menuItemId}__tag-${index}`">
 					{{ menuItem.tag }}
 				</div>
 			</div>
-			<div class="wikit-OptionsMenu__item__description">
+			<div class="wikit-OptionsMenu__item__description" :id="`${menuItemId}__description-${index}`">
 				{{ menuItem.description }}
 			</div>
 		</div>
@@ -46,6 +53,7 @@
 import { ComponentPublicInstance, defineComponent, PropType } from 'vue';
 import debounce from 'lodash/debounce';
 import { MenuItem } from './MenuItem';
+import generateUid from '@/components/util/generateUid';
 
 /**
  * This is an internal component which used by the Lookup component.
@@ -57,9 +65,10 @@ export default defineComponent( {
 			maxHeight: null as number|null,
 			activeItemIndex: -1,
 			keyboardHoveredItemIndex: -1,
+			menuItemId: generateUid( 'wikit-OptionsMenu__item__id' ),
 		};
 	},
-	emits: [ 'scroll', 'select', 'esc' ],
+	emits: [ 'scroll', 'select', 'esc', 'keyboard-hover-change' ],
 	props: {
 		menuItems: {
 			type: Array as PropType<MenuItem[]>,
@@ -86,6 +95,10 @@ export default defineComponent( {
 			type: Boolean,
 			default: false,
 		},
+		label: {
+			type: String,
+			default: '',
+		},
 	},
 	methods: {
 		onKeyDown( event: KeyboardEvent ): void {
@@ -108,7 +121,6 @@ export default defineComponent( {
 					} else {
 						this.keyboardHoveredItemIndex = Math.max( 0, this.keyboardHoveredItemIndex - 1 );
 					}
-
 					this.keyboardScroll();
 					break;
 				case 'ArrowDown':
@@ -186,6 +198,13 @@ export default defineComponent( {
 			await this.$nextTick();
 			this.keyboardHoveredItemIndex = this.selectedItemIndex;
 			this.resizeMenu();
+		},
+		keyboardHoveredItemIndex( hoveredIndex: number ): void {
+			if ( hoveredIndex > -1 ) {
+				this.$emit( 'keyboard-hover-change', `${this.menuItemId}-${hoveredIndex}` );
+			} else {
+				this.$emit( 'keyboard-hover-change', null );
+			}
 		},
 	},
 
