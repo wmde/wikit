@@ -16,7 +16,8 @@ describe( 'Dialog', function () {
 	beforeEach( function ( client ) {
 		client
 			.pause( 500 )
-			.init( client.launch_url + '/iframe.html?id=dialog--complex&viewMode=story' );
+			.init( client.launch_url + '/iframe.html?id=dialog--complex&viewMode=story' )
+			.waitForElementPresent( '.wikit-Button' );
 	} );
 
 	afterEach( function ( client, done ) {
