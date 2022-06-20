@@ -1,6 +1,6 @@
 {
   "name": "@wmde/wikit-vue-components",
-  "version": "3.0.0-alpha.5",
+  "version": "3.0.0-alpha.6",
   "description": "The component implementation of WiKit in vue",
   "author": {
     "name": "The Wikidata team"
@@ -34,7 +34,7 @@
   ],
   "types": "dist/main.d.ts",
   "dependencies": {
-    "@wmde/wikit-tokens": "^3.0.0-alpha.5",
+    "@wmde/wikit-tokens": "^3.0.0-alpha.6",
     "core-js": "^3.7.0",
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
