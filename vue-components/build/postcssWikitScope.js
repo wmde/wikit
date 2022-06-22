@@ -21,19 +21,20 @@ const addWikitClassToFirstSelectorNode = selectorParser( ( selectors ) => {
 } );
 
 function applyWikitScope( selector ) {
+	if ( selector.startsWith( '.wikit ' ) ) {
+		return selector; // already applied
+	}
 	return `.wikit ${selector}, ${addWikitClassToFirstSelectorNode.processSync( selector )}`;
 }
 
 module.exports = () => ( {
 	postcssPlugin: 'wikit-scope',
-	Once( root ) {
-		root.walkRules( ( rule ) => {
-			if ( !isRuleScopable( rule ) ) {
-				return;
-			}
+	Rule( rule ) {
+		if ( !isRuleScopable( rule ) ) {
+			return;
+		}
 
-			rule.selectors = rule.selectors.map( applyWikitScope );
-		} );
+		rule.selectors = rule.selectors.map( applyWikitScope );
 	},
 } );
 module.exports.postcss = true;
