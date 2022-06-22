@@ -1,4 +1,3 @@
-const postcss = require( 'postcss' );
 const selectorParser = require( 'postcss-selector-parser' );
 
 // copied & modified from https://github.com/pazams/postcss-scopify/blob/master/index.js#L86
