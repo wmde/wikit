@@ -24,12 +24,16 @@ function applyWikitScope( selector ) {
 	return `.wikit ${selector}, ${addWikitClassToFirstSelectorNode.processSync( selector )}`;
 }
 
-module.exports = postcss.plugin( 'wikit-scope', () => ( ( root ) => {
-	root.walkRules( ( rule ) => {
-		if ( !isRuleScopable( rule ) ) {
-			return;
-		}
+module.exports = () => ( {
+	postcssPlugin: 'wikit-scope',
+	Once( root ) {
+		root.walkRules( ( rule ) => {
+			if ( !isRuleScopable( rule ) ) {
+				return;
+			}
 
-		rule.selectors = rule.selectors.map( applyWikitScope );
-	} );
-} ) );
+			rule.selectors = rule.selectors.map( applyWikitScope );
+		} );
+	},
+} );
+module.exports.postcss = true;
