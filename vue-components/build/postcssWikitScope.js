@@ -1,4 +1,3 @@
-const postcss = require( 'postcss' );
 const selectorParser = require( 'postcss-selector-parser' );
 
 // copied & modified from https://github.com/pazams/postcss-scopify/blob/master/index.js#L86
@@ -24,12 +23,16 @@ function applyWikitScope( selector ) {
 	return `.wikit ${selector}, ${addWikitClassToFirstSelectorNode.processSync( selector )}`;
 }
 
-module.exports = postcss.plugin( 'wikit-scope', () => ( ( root ) => {
-	root.walkRules( ( rule ) => {
-		if ( !isRuleScopable( rule ) ) {
-			return;
-		}
+module.exports = () => ( {
+	postcssPlugin: 'wikit-scope',
+	Once( root ) {
+		root.walkRules( ( rule ) => {
+			if ( !isRuleScopable( rule ) ) {
+				return;
+			}
 
-		rule.selectors = rule.selectors.map( applyWikitScope );
-	} );
-} ) );
+			rule.selectors = rule.selectors.map( applyWikitScope );
+		} );
+	},
+} );
+module.exports.postcss = true;
