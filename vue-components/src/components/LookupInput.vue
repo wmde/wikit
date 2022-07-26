@@ -18,6 +18,7 @@
 			aria-autocomplete="list"
 			aria-haspopup="listbox"
 			:aria-expanded="showMenu || 'false'"
+			:aria-required="ariaRequired ? 'true' : 'false'"
 			role="combobox"
 		/>
 		<OptionsMenu
@@ -55,6 +56,7 @@ interface Props {
 	 */
 	menuItems?: MenuItem[];
 	disabled?: boolean;
+	ariaRequired?: boolean;
 	placeholder?: string;
 	/**
 	 * The selected menu item
@@ -79,6 +81,7 @@ const props = withDefaults( defineProps<Props>(), {
 	feedbackType: null,
 	menuItems: (): [] => [],
 	disabled: false,
+	ariaRequired: false,
 	placeholder: '',
 	value: null,
 	searchInput: '',
