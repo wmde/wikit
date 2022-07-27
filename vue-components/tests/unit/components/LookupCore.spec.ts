@@ -107,6 +107,22 @@ describe( 'LookupInput', () => {
 			expect( wrapper.find( 'input' ).attributes( 'disabled' ) ).toBeTruthy();
 		} );
 
+		it( ':ariaRequired - not required by default', () => {
+			const wrapper = mount( LookupInput );
+
+			expect( wrapper.find( 'input' ).attributes( 'aria-required' ) ).toBe( 'false' );
+		} );
+
+		it( ':ariaRequired - can be required', () => {
+			const wrapper = mount( LookupInput, {
+				propsData: {
+					ariaRequired: true,
+				},
+			} );
+
+			expect( wrapper.find( 'input' ).attributes( 'aria-required' ) ).toBe( 'true' );
+		} );
+
 		it( ':placeholder - shows the placeholder in the input', () => {
 			const placeholder = 'a placeholder';
 			const wrapper = mount( LookupInput, {
