@@ -20,6 +20,7 @@
 			:feedback-type="feedbackType"
 			:menu-items="menuItems"
 			:disabled="disabled"
+			:aria-required="ariaRequired"
 			:placeholder="placeholder"
 			:value="value"
 			:search-input="searchInput"
@@ -94,6 +95,10 @@ export default defineComponent( {
 			default: (): [] => [],
 		},
 		disabled: {
+			type: Boolean,
+			default: false,
+		},
+		ariaRequired: {
 			type: Boolean,
 			default: false,
 		},
