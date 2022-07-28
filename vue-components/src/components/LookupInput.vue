@@ -18,6 +18,7 @@
 			aria-autocomplete="list"
 			aria-haspopup="listbox"
 			:aria-expanded="showMenu || 'false'"
+			:aria-required="ariaRequired ? 'true' : 'false'"
 			role="combobox"
 		/>
 		<OptionsMenu
@@ -96,6 +97,10 @@ export default defineComponent( {
 			default: (): [] => [],
 		},
 		disabled: {
+			type: Boolean,
+			default: false,
+		},
+		ariaRequired: {
 			type: Boolean,
 			default: false,
 		},
