@@ -81,6 +81,10 @@ export default defineComponent( {
 		outline: none;
 	}
 
+	&::placeholder {
+		color: $wikit-Input-placeholder-color;
+	}
+
 	&:not(&--error):not(&--warning) {
 		&:not(:disabled) {
 			&:hover {
