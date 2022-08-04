@@ -1,5 +1,14 @@
+@use '~@wmde/wikit-tokens/dist/variables' with (
+    $font-family-style-heading-serif: 'monospace',
+    $font-family-style-heading-sans: 'monospace',
+    $font-family-style-body: 'monospace',
+    $font-family-style-body-s:'monospace',
+    $font-family-style-placeholder: 'monospace',
+    $font-family-style-description:'monospace'
+);
+
 @import '~ress';
-@import '~@wmde/wikit-tokens/dist/variables';
+// @import '~@wmde/wikit-tokens/dist/variables';
 @import './mixins/Label';
 @import './mixins/Link';
 @import './mixins/InlineProgressBar';
