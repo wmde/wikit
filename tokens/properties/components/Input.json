@@ -47,7 +47,7 @@
                 "value": "{font.color.subtle.value}"
             },
             "opacity": {
-                "value": "{opacity.placeholder.value}"
+                "value": "{opacity.base.value}"
             }
         },
         "disabled": {

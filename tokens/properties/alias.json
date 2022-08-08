@@ -381,7 +381,7 @@
         "overlay": {
             "value": "{opacity.65.value}"
         },
-        "placeholder": {
+        "base": {
             "value": "{opacity.100.value}"
         }
     },
