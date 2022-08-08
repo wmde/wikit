@@ -83,6 +83,7 @@ export default defineComponent( {
 
 	&::placeholder {
 		color: $wikit-Input-placeholder-color;
+		opacity: $wikit-Input-placeholder-opacity;
 	}
 
 	&:not(&--error):not(&--warning) {

@@ -380,6 +380,9 @@
     "opacity": {
         "overlay": {
             "value": "{opacity.65.value}"
+        },
+        "placeholder": {
+            "value": "{opacity.100.value}"
         }
     },
     "dimension": {
