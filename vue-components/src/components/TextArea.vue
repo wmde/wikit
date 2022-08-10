@@ -267,6 +267,7 @@ export default defineComponent( {
 			font-weight: $wikit-Input-placeholder-font-weight;
 			line-height: $wikit-Input-placeholder-line-height;
 			color: $wikit-Input-placeholder-color;
+			opacity: $wikit-Input-placeholder-opacity;
 		}
 
 		&:disabled {
