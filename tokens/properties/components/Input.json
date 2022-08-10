@@ -45,6 +45,9 @@
             },
             "color": {
                 "value": "{font.color.subtle.value}"
+            },
+            "opacity": {
+                "value": "{opacity.base.value}"
             }
         },
         "disabled": {
