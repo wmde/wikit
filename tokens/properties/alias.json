@@ -7,8 +7,8 @@
                     "themeable": true
                 },
                 "heading-sans": {
-                    "themeable": true,
-                    "value": "{font.family.sans.value}"
+                    "value": "{font.family.sans.value}",
+                    "themeable": true
                 },
                 "body": {
                     "value": "{font.family.sans.value}",
