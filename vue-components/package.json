@@ -26,7 +26,7 @@
     "test": "npm-run-all test:*",
     "test:lint": "eslint --ext .js,.ts,.vue --max-warnings 0 .",
     "test:lintcss": "stylelint '**/*.vue'",
-    "test-unit-coverage": "vue-cli-service test:unit -c ./jest.config.js --coverage",
+    "test-unit-coverage": "vue-cli-service test:unit -c ./jest.config.js --coverage -u",
     "chromatic": "npx chromatic build --project-token=3evi132fpys --build-script-name=build:storybook",
     "prepare": "npm run build"
   },
