@@ -14,7 +14,7 @@
     "build:main": "vue-cli-service build --target lib --formats commonjs --name wikit-vue-components src/main.ts --report --report-json",
     "build:tsdecl": "tsc --emitDeclarationOnly",
     "build:vue3compat": "VUE_APP_VUE3COMPAT=true vue-cli-service build --target lib --formats commonjs --name wikit-vue-components-vue3compat --no-clean src/main.ts",
-    "test:unit": "vue-cli-service test:unit",
+    "test:unit": "vue-cli-service test:unit -u",
     "test:a11y": "jest --testMatch=\"**/tests/a11y/**\"",
     "e2e": "vue-cli-service test:e2e",
     "e2e:saucelabs": "env DATE=\"$(date)\" nightwatch --config nightwatch.config.js --env sauceChrome,sauceFirefox,sauceIE,sauceEdge,sauceSafari",
@@ -26,7 +26,7 @@
     "test": "npm-run-all test:*",
     "test:lint": "eslint --ext .js,.ts,.vue --max-warnings 0 .",
     "test:lintcss": "stylelint '**/*.vue'",
-    "test-unit-coverage": "vue-cli-service test:unit -c ./jest.config.js --coverage -u",
+    "test-unit-coverage": "vue-cli-service test:unit -c ./jest.config.js --coverage",
     "chromatic": "npx chromatic build --project-token=3evi132fpys --build-script-name=build:storybook",
     "prepare": "npm run build"
   },
