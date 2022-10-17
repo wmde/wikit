@@ -13,6 +13,7 @@ export enum IconTypes {
 	INFOOUTLINED = 'info-outlined',
 	LINK = 'link',
 	NEWWINDOW = 'newwindow',
+	DIE = 'die',
 	SEARCH = 'search',
 	TRASH = 'trash'
 }
