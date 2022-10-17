@@ -187,6 +187,10 @@ exports[`Icon die: matches snapshot 1`] = `
 <span
   class="wikit wikit-Icon wikit-Icon--large wikit-Icon--base"
 >
+  <!-- eslint-disable max-len -->
+  <!-- add icon -->
+  
+  <!-- random icon -->
   <svg
     aria-hidden="true"
     class="wikit-Icon__svg"
@@ -200,6 +204,8 @@ exports[`Icon die: matches snapshot 1`] = `
       fill="currentColor"
     />
   </svg>
+  
+  <!-- eslint-enable max-len -->
 </span>
 `;
 
