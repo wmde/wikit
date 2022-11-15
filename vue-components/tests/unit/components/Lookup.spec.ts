@@ -75,22 +75,6 @@ describe( 'Lookup', () => {
 			expect( wrapper.find( 'input' ).attributes( 'disabled' ) ).toBe( '' );
 		} );
 
-		it( ':ariaRequired - not required by default', () => {
-			const wrapper = mount( Lookup );
-
-			expect( wrapper.find( 'input' ).attributes( 'aria-required' ) ).toBe( 'false' );
-		} );
-
-		it( ':ariaRequired - can be required', () => {
-			const wrapper = mount( Lookup, {
-				props: {
-					ariaRequired: true,
-				},
-			} );
-
-			expect( wrapper.find( 'input' ).attributes( 'aria-required' ) ).toBe( 'true' );
-		} );
-
 		it( ':placeholder - can have a placeholder', () => {
 			const placeholder = 'a placeholder';
 			const wrapper = mount( Lookup, {
@@ -154,6 +138,22 @@ describe( 'Lookup', () => {
 				expect( wrapper.findComponent( Input ).props( 'feedbackType' ) ).toStrictEqual( errorType );
 			},
 		);
+
+		it( 'other props - are passed through to the input, except class and style', () => {
+			const wrapper = mount( Lookup, {
+				props: {
+					tabindex: 1,
+					ariaRequired: true,
+					class: 'foo',
+					style: 'color: red',
+				},
+			} );
+
+			expect( wrapper.find( 'input' ).attributes( 'tabindex' ) ).toBe( '1' );
+			expect( wrapper.find( 'input' ).attributes( 'aria-required' ) ).toBe( 'true' );
+			expect( wrapper.classes() ).toContain( 'foo' );
+			expect( wrapper.attributes( 'style' ) ).toBe( 'color: red;' );
+		} );
 	} );
 
 	describe( '@events', () => {
