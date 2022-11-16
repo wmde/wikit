@@ -1,6 +1,7 @@
 <template>
 	<div
-		:class="[ 'wikit', 'wikit-Lookup' ]"
+		:class="[ 'wikit', 'wikit-Lookup', extraClasses ]"
+		:style="extraStyles"
 	>
 		<span class="wikit-Lookup__label-wrapper">
 			<label
@@ -20,7 +21,6 @@
 			:feedback-type="feedbackType"
 			:menu-items="menuItems"
 			:disabled="disabled"
-			:aria-required="ariaRequired"
 			:placeholder="placeholder"
 			:value="value"
 			:search-input="searchInput"
@@ -28,6 +28,7 @@
 			@input="$emit('input', $event)"
 			@scroll="(firstIndex, lastIndex) => $emit('scroll', firstIndex, lastIndex)"
 			:label="label"
+			v-bind="otherAttributes"
 		>
 			<template #no-results>
 				<slot name="no-results" />
@@ -42,7 +43,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, PropType } from 'vue';
+import { defineComponent, computed, PropType, StyleValue } from 'vue';
 import ValidationMessage from './ValidationMessage.vue';
 import generateUid from '@/components/util/generateUid';
 import { MenuItem } from '@/components/MenuItem';
@@ -57,8 +58,13 @@ import LookupInput from '@/components/LookupInput.vue';
  */
 export default defineComponent( {
 	name: 'Lookup',
-	setup( props: { error: ErrorProp } ) {
+	inheritAttrs: false,
+	setup( props: { error: ErrorProp }, context ) {
+		const { class: extraClasses, style: extraStyles, ...otherAttributes } = context.attrs;
 		return {
+			extraClasses,
+			extraStyles: extraStyles as StyleValue,
+			otherAttributes,
 			feedbackType: computed( getFeedbackTypeFromProps( props ) ),
 		};
 	},
@@ -95,10 +101,6 @@ export default defineComponent( {
 			default: (): [] => [],
 		},
 		disabled: {
-			type: Boolean,
-			default: false,
-		},
-		ariaRequired: {
 			type: Boolean,
 			default: false,
 		},
