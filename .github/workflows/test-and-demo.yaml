@@ -20,11 +20,11 @@ jobs:
       behavioral: ${{ steps.filter.outputs.behavioral }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0 # chromatic needs access to the history
     - name: Check Paths
-      uses: dorny/paths-filter@v2.9.0
+      uses: dorny/paths-filter@v2
       id: filter
       with:
         filters: |
@@ -34,11 +34,11 @@ jobs:
           behavioral:
             - 'vue-components/**'
     - name: Set up node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
         node-version: '14.x'
     - name: Cache dependencies
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       id: cache
       with:
         path: |
@@ -46,7 +46,7 @@ jobs:
           */node_modules
         key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json', '**/package.json') }}
     - name: Cache artifacts
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       id: dist
       with:
         path: |
@@ -64,15 +64,15 @@ jobs:
     needs: setup
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0 # chromatic needs access to the history
     - name: Set up node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
         node-version: '14.x'
     - name: Restore dependencies
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: |
           node_modules
@@ -87,22 +87,22 @@ jobs:
     if: ${{ needs.setup.outputs.visual == 'true' || github.ref == 'refs/heads/master' }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0 # chromatic needs access to the history
     - name: Set up node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
         node-version: '14.x'
     - name: Restore dependencies
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: |
           node_modules
           */node_modules
         key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json', '**/package.json') }}
     - name: Restore artifacts
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: |
           */dist
@@ -120,13 +120,13 @@ jobs:
       deploy_url: ${{ env.NETLIFY_DEPLOY_URL }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Set up node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
         node-version: '14.x'
     - name: Restore dependencies
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: |
           node_modules
@@ -151,13 +151,13 @@ jobs:
     if: ${{ needs.setup.outputs.behavioral == 'true' || github.ref == 'refs/heads/master' }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Set up node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
         node-version: '14.x'
     - name: Restore dependencies
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: |
           node_modules
