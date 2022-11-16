@@ -1,6 +1,7 @@
 <template>
 	<div
-		:class="[ 'wikit', 'wikit-Lookup' ]"
+		:class="[ 'wikit', 'wikit-Lookup', extraClasses ]"
+		:style="extraStyles"
 	>
 		<span class="wikit-Lookup__label-wrapper">
 			<label
@@ -20,7 +21,6 @@
 			:feedback-type="feedbackType"
 			:menu-items="menuItems"
 			:disabled="disabled"
-			:aria-required="ariaRequired"
 			:placeholder="placeholder"
 			:value="value"
 			:search-input="searchInput"
@@ -28,6 +28,7 @@
 			@input="$emit('input', $event)"
 			@scroll="(firstIndex, lastIndex) => $emit('scroll', firstIndex, lastIndex)"
 			:label="label"
+			v-bind="otherAttributes"
 		>
 			<template v-slot:no-results>
 				<slot name="no-results" />
@@ -60,8 +61,13 @@ Vue.use( VueCompositionAPI );
  */
 export default defineComponent( {
 	name: 'Lookup',
-	setup( props: { error: ErrorProp } ) {
+	inheritAttrs: false,
+	setup( props: { error: ErrorProp }, context ) {
+		const { class: extraClasses, style: extraStyles, ...otherAttributes } = context.attrs;
 		return {
+			extraClasses,
+			extraStyles,
+			otherAttributes,
 			feedbackType: computed( getFeedbackTypeFromProps( props ) ),
 		};
 	},
@@ -80,10 +86,6 @@ export default defineComponent( {
 			default: (): [] => [],
 		},
 		disabled: {
-			type: Boolean,
-			default: false,
-		},
-		ariaRequired: {
 			type: Boolean,
 			default: false,
 		},
