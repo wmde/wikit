@@ -1,7 +1,6 @@
 import Lookup from '@/components/Lookup';
 import Icon from '@/components/Icon';
 import { Component } from 'vue';
-import { MenuItem } from '@/components/MenuItem';
 
 export default {
 	component: Lookup,
@@ -67,6 +66,24 @@ const vegetableItems = [
 	},
 ];
 
+const addOnScroll = [
+	{
+		label: 'passionfruit',
+		description: 'sour sweet tropical fruit',
+		value: 'Q165449',
+	},
+	{
+		label: 'jackfruit',
+		description: 'edible fruit of the jack tree',
+		value: 'Q16136843',
+	},
+	{
+		label: 'sweet potato',
+		description: 'a potato like root vegetable with a sweet taste',
+		value: 'Q37937',
+	},
+];
+
 export function all(): Component {
 	return {
 		components: { Lookup, Icon },
@@ -75,16 +92,25 @@ export function all(): Component {
 				search: '',
 				selectedItem: null,
 				visibleItems: null,
+				menuVegetableItems: vegetableItems,
 			};
 		},
 		computed: {
-			menuItems(): MenuItem[] {
-				return vegetableItems.filter( ( item ) => item.label.includes( this.search ) );
+			menuItems: {
+				get(){
+					return this.menuVegetableItems.filter( ( item ) => item.label.includes( this.search ) );
+				},
+				set( newMenuItems ){
+					this.menuVegetableItems = newMenuItems
+				}
 			},
 		},
 		methods: {
 			onScroll( firstIndex: number, lastIndex: number ): void {
 				this.visibleItems = { firstIndex, lastIndex };
+				if( lastIndex === this.menuItems.length - 1  ) {
+					this.menuItems = [ ...vegetableItems, ...addOnScroll ]
+				}
 			},
 		},
 		template: `
