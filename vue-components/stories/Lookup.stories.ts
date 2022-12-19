@@ -1,5 +1,6 @@
 import Lookup from '@/components/Lookup';
 import Icon from '@/components/Icon';
+import { MenuItem } from '@/components/MenuItem';
 import { Component } from 'vue';
 
 export default {
@@ -97,19 +98,19 @@ export function all(): Component {
 		},
 		computed: {
 			menuItems: {
-				get(){
+				get(): MenuItem {
 					return this.menuVegetableItems.filter( ( item ) => item.label.includes( this.search ) );
 				},
-				set( newMenuItems ){
-					this.menuVegetableItems = newMenuItems
-				}
+				set( newMenuItems: MenuItem[] ): void {
+					this.menuVegetableItems = newMenuItems;
+				},
 			},
 		},
 		methods: {
 			onScroll( firstIndex: number, lastIndex: number ): void {
 				this.visibleItems = { firstIndex, lastIndex };
-				if( lastIndex === this.menuItems.length - 1  ) {
-					this.menuItems = [ ...vegetableItems, ...addOnScroll ]
+				if ( lastIndex === this.menuItems.length - 1 ) {
+					this.menuItems = [ ...vegetableItems, ...addOnScroll ];
 				}
 			},
 		},
