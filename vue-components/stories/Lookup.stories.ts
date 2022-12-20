@@ -98,7 +98,7 @@ export function all(): Component {
 		},
 		computed: {
 			menuItems: {
-				get(): MenuItem {
+				get(): MenuItem[] {
 					return this.menuVegetableItems.filter( ( item ) => item.label.includes( this.search ) );
 				},
 				set( newMenuItems: MenuItem[] ): void {
