@@ -117,6 +117,8 @@ export function all(): Component {
 		template: `
 			<div>
 				<div style="margin-bottom: 20px">
+					<p>Try pressing <kbd>a</kbd> to see several search results. 
+					Some additional results will load when you scroll.</p>
 					<Lookup
 						:search-input.sync="search"
 						label="Label"
