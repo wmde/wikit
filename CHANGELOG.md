@@ -21,12 +21,17 @@ development)_
   see the vue-components README
 - New Typography Mixins
 - TextInput now accepts additional attributes
+- Let Lookup attributes fall through to <input>
 
 ### Changed
 
 - Dimension-layout tokens are now based on _rem_ instead of _em_
 - Add `dir` prop to Icon component
 - Fix Dropdown component to not emit an event upon choosing the selected value
+
+### Fixed
+
+- Fix Lookup navigation on arrow down
 
 ## [2.0.0] - 19.07.2021
 
