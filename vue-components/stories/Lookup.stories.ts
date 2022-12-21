@@ -67,7 +67,7 @@ const vegetableItems = [
 	},
 ];
 
-const addOnScroll = [
+const itemsToAddOnScroll = [
 	{
 		label: 'passionfruit',
 		description: 'sour sweet tropical fruit',
@@ -110,7 +110,7 @@ export function all(): Component {
 			onScroll( firstIndex: number, lastIndex: number ): void {
 				this.visibleItems = { firstIndex, lastIndex };
 				if ( lastIndex === this.menuItems.length - 1 ) {
-					this.menuItems = [ ...vegetableItems, ...addOnScroll ];
+					this.menuItems = [ ...vegetableItems, ...itemsToAddOnScroll ];
 				}
 			},
 		},
