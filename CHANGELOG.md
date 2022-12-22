@@ -13,6 +13,7 @@ development)_
 
 - Many components removed
 - upgrade to Vue 3
+- Fix Lookup navigation on arrow down
 
 ###[Unreleased / 2.1.0]
 
