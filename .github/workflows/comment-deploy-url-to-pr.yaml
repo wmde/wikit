@@ -8,13 +8,14 @@ on:
 jobs:
   comment-on-pr:
     runs-on: ubuntu-latest
+    env: 
+      hash: $(echo '${{ github.ref }}' | shasum | awk '{print $1}')
     name: Comment deploy URL to PR
     steps:
+      - name: print hash
+        run: echo ${{ env.hash }}
       - name: Comment on PR
-        env: 
-          hash: $(echo '${{ github.ref }}' | shasum | awk '{print $1}')
         uses: thollander/actions-comment-pull-request@1.0.1
         with:
-          run: echo ${{env.hash}}
           message: "<https://${{ env.hash }}--wmde-wikit.netlify.app>"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
