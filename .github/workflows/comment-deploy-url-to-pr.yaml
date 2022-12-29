@@ -11,9 +11,9 @@ jobs:
     steps:
       - name: Get branch hash
         id: get_hash
-        run: echo "::set-output name=hash::$(echo '${{ github.ref }}' | shasum | awk '{print $1}')"
+        run: echo "PR_HASH=$(echo '${{ github.ref }}' | shasum | awk '{print $1}')" >> $GITHUB_ENV
       - name: Comment on PR
         uses: thollander/actions-comment-pull-request@1.0.1
         with:
-          message: "<https://${{ steps.get_hash.outputs.hash }}--wmde-wikit.netlify.app>"
+          message: "<https://${{ env.PR_HASH }}--wmde-wikit.netlify.app>"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
