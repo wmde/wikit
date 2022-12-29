@@ -10,7 +10,6 @@ jobs:
     name: Comment deploy URL to PR
     steps:
       - name: Get branch hash
-        id: get_hash
         run: echo "PR_HASH=$(echo '${{ github.ref }}' | shasum | awk '{print $1}')" >> $GITHUB_ENV
       - name: Comment on PR
         uses: thollander/actions-comment-pull-request@1.0.1
