@@ -118,7 +118,7 @@ jobs:
     needs: setup
     if: ${{ github.repository_owner == 'wmde' }}
     outputs:
-      deploy_url: ${{ steps.netlify_deploy.outputs.url }}
+      deploy_url: ${{ env.NETLIFY_DEPLOY_URL }}
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -136,16 +136,15 @@ jobs:
     - name: Build Project
       run: npm run build:storybook
     - name: Deploy to netlify
-      id: netlify_deploy
-      run: echo "::set-output name=url::$(npx -p netlify-cli
+      run: echo "NETLIFY_DEPLOY_URL=$(npx -p netlify-cli
         netlify deploy --dir=docs/dist --json
         --alias $(echo '${{ github.ref }}' | shasum | awk '{print $1}')
-        | jq '.deploy_url' --raw-output)"
+        | jq '.deploy_url' --raw-output)" >> $GITHUB_ENV
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
     - name: Print deploy URL
-      run: echo ${{ steps.netlify_deploy.outputs.url }}
+      run: echo ${{ env.NETLIFY_DEPLOY_URL }}
 
   browser-tests:
     runs-on: ubuntu-latest
