@@ -1,18 +1,20 @@
 name: Comment deploy URL to PR
 
 on:
-  pull_request:
-    types: [opened]
+  push
+  # pull_request:
+  #   types: [opened]
 
 jobs:
   comment-on-pr:
     runs-on: ubuntu-latest
     name: Comment deploy URL to PR
-    env: 
-      hash: $(echo '${{ github.ref }}' | shasum | awk '{print $1}')
     steps:
       - name: Comment on PR
+        env: 
+          hash: $(echo '${{ github.ref }}' | shasum | awk '{print $1}')
         uses: thollander/actions-comment-pull-request@1.0.1
         with:
-          message: "<https://${{ $hash }}--wmde-wikit.netlify.app>"
+          run: echo ${{env.hash}}
+          message: "<https://${{ env.hash }}--wmde-wikit.netlify.app>"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
