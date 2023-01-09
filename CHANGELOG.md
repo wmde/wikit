@@ -21,7 +21,7 @@ development)_
   see the vue-components README
 - New Typography Mixins
 - TextInput now accepts additional attributes
-- Let Lookup attributes fall through to <input>
+- Let Lookup attributes fall through to `<input>`
 
 ### Changed
 
