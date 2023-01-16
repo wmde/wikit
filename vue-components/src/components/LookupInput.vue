@@ -14,6 +14,7 @@
 			autocomplete="off"
 			v-bind="$attrs"
 			:aria-activedescendant="keyboardHoverId"
+			:aria-controls="optionsMenuId"
 			:aria-owns="optionsMenuId"
 			aria-autocomplete="list"
 			aria-haspopup="listbox"
