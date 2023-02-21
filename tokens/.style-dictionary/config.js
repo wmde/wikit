@@ -17,6 +17,9 @@ const StyleDictionary = require( 'style-dictionary' ),
 					destination: '_variables.scss',
 					format: 'scss/variables',
 					filter: removeWikimediaUiBaseVars,
+					options: {
+						outputReferences: false,
+					},
 				} ],
 			},
 			css: {

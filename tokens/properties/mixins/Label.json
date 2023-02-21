@@ -7,7 +7,8 @@
             "value": "{font.color.disabled.value}"
         },
         "font-family": {
-            "value": "{font.family.style.body.value}"
+            "value": "{font.family.style.body.value}",
+            "themeable": "true"
         },
         "font-size": {
             "value": "{font.size.style.body.value}"
