@@ -10,6 +10,7 @@ export enum IconTypes {
 	ERROR = 'error',
 	INFO = 'info',
 	INFOOUTLINED = 'info-outlined',
+	LANGUAGESELECTOR = 'language-selector',
 	LINK = 'link',
 	NEWWINDOW = 'newwindow',
 	DIE = 'die',
