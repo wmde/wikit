@@ -22,6 +22,7 @@ development)_
 - New Typography Mixins
 - TextInput now accepts additional attributes
 - Let Lookup attributes fall through to `<input>`
+- New language-selection Icon
 
 ### Changed
 
