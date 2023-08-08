@@ -161,7 +161,10 @@ export default Vue.extend( {
 			const maxNumberOfElementsDisplayed = 6;
 			if ( menuItems && menuItems.length > maxNumberOfElementsDisplayed ) {
 				const menuHeight = menuItems[ maxNumberOfElementsDisplayed ].offsetTop - menuItems[ 0 ].offsetTop;
-				this.maxHeight = menuHeight;
+				// See: https://phabricator.wikimedia.org/T325822#9078296
+				if ( menuHeight > 0 ) {
+					this.maxHeight = menuHeight;
+				}
 			} else {
 				this.maxHeight = null;
 			}
