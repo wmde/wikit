@@ -44,20 +44,18 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
 import Input from '@/components/Input.vue';
 import OptionsMenu from '@/components/OptionsMenu.vue';
 import isEqual from 'lodash.isequal';
 import generateUid from '@/components/util/generateUid';
-import VueCompositionAPI, { defineComponent, ref } from '@vue/composition-api';
+import { defineComponent, ref } from 'vue';
 import { MenuItem } from '@/components/MenuItem';
-
-Vue.use( VueCompositionAPI );
 
 export default defineComponent( {
 	name: 'LookupInput',
 	inheritAttrs: false,
 	components: {
+		// eslint-disable-next-line vue/no-reserved-component-names
 		Input,
 		OptionsMenu,
 	},
@@ -197,7 +195,7 @@ export default defineComponent( {
 			}
 
 			return this.menuItems.findIndex(
-				( menuItem ) => {
+				( menuItem: MenuItem ) => {
 					return isEqual( menuItem, this.value );
 				},
 				this,

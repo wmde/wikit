@@ -29,12 +29,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VueCompositionAPI, {
+import {
 	defineComponent,
 	onMounted,
-} from '@vue/composition-api';
-
-Vue.use( VueCompositionAPI );
+} from 'vue';
 
 /**
  *  An interactive element signaling a single-step action that will occur when the user clicks or taps on it.

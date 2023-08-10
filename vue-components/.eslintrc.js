@@ -2,14 +2,17 @@ module.exports = {
 	extends: [
 		'wikimedia',
 		'wikimedia/language/rules-es2017', // the not-* parts are obsolete after transpiling and polyfills
-		'plugin:vue/strongly-recommended',
+		//'plugin:vue/strongly-recommended',
 		'@wmde/wikimedia-typescript',
+		'plugin:vue/vue3-recommended'
 	],
 	plugins: [
 		'filenames',
 		'vue-root-class',
 	],
-	parser: 'vue-eslint-parser',
+	parserOptions: {
+		parser: 'vue-eslint-parser',
+	},
 	env: {
 		browser: true,
 	},
@@ -33,13 +36,15 @@ module.exports = {
 		'valid-jsdoc': 'off',
 
 		'vue/html-indent': [ 'error', 'tab' ],
-		'vue/max-attributes-per-line': [ 'error', {
-			singleline: 3,
-			multiline: {
-				max: 1,
-				allowFirstLine: false,
-			},
-		} ],
+		// 'vue/max-attributes-per-line': [ 'error', {
+		// 	singleline: 3,
+		// 	multiline: {
+		// 		max: 1,
+		// 		allowFirstLine: false,
+		// 	},
+		// } ],
+		'vue/max-attributes-per-line': 'off',
+		'vue/multi-word-component-names': 'off',
 
 		// duplicate with @typescript-eslint/indent
 		'indent': 'off',

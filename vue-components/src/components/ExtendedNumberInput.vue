@@ -28,14 +28,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VueCompositionAPI, { defineComponent, computed } from '@vue/composition-api';
+import { defineComponent, computed } from 'vue';
 import ValidationMessage from './ValidationMessage.vue';
 import Input from './Input.vue';
 import generateUid from '@/components/util/generateUid';
 import { errorProp, ErrorProp, getFeedbackTypeFromProps } from '@/compositions/validatable';
 import validateExtendedNumberInput from '@/components/util/validateExtendedNumberInput';
-
-Vue.use( VueCompositionAPI );
 
 /**
  * Number input fields are form elements that let users input and edit values in the form of number.

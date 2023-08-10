@@ -43,15 +43,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import VueCompositionAPI, { defineComponent, computed, PropType } from '@vue/composition-api';
+import { defineComponent, computed, PropType } from 'vue';
 import ValidationMessage from './ValidationMessage.vue';
 import generateUid from '@/components/util/generateUid';
 import { MenuItem } from '@/components/MenuItem';
 import { getFeedbackTypeFromProps, errorProp, ErrorProp } from '@/compositions/validatable';
 import LookupInput from '@/components/LookupInput.vue';
-
-Vue.use( VueCompositionAPI );
 
 /**
  * The lookup component is a text input field that provides matching selectable suggestions as a user types into it.

@@ -1,6 +1,6 @@
 module.exports = {
 	configureWebpack: () => ( {
-		externals: process.env.VUE_APP_VUE3COMPAT ? [ 'vue', '@vue/composition-api' ] : [ 'vue' ],
+		externals: process.env.VUE_APP_VUE3COMPAT ? [ 'vue' ] : [ 'vue' ],
 	} ),
 	css: {
 		loaderOptions: {
