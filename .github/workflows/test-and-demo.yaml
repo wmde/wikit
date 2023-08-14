@@ -36,7 +36,7 @@ jobs:
     - name: Set up node
       uses: actions/setup-node@v3
       with:
-        node-version: '14.x'
+        node-version: '16.x'
     - name: Cache dependencies
       uses: actions/cache@v3
       id: cache
@@ -70,7 +70,7 @@ jobs:
     - name: Set up node
       uses: actions/setup-node@v3
       with:
-        node-version: '14.x'
+        node-version: '16.x'
     - name: Restore dependencies
       uses: actions/cache@v3
       with:
@@ -93,7 +93,7 @@ jobs:
     - name: Set up node
       uses: actions/setup-node@v3
       with:
-        node-version: '14.x'
+        node-version: '16.x'
     - name: Restore dependencies
       uses: actions/cache@v3
       with:
@@ -124,7 +124,7 @@ jobs:
     - name: Set up node
       uses: actions/setup-node@v3
       with:
-        node-version: '14.x'
+        node-version: '16.x'
     - name: Restore dependencies
       uses: actions/cache@v3
       with:
@@ -155,7 +155,7 @@ jobs:
     - name: Set up node
       uses: actions/setup-node@v3
       with:
-        node-version: '14.x'
+        node-version: '16.x'
     - name: Restore dependencies
       uses: actions/cache@v3
       with:
