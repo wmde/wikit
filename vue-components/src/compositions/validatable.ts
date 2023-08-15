@@ -1,4 +1,4 @@
-import { PropType } from '@vue/composition-api';
+import { PropType } from 'vue';
 
 function getFeedbackTypeFromProps( props: { error: ErrorProp } ): () => string|null {
 	return () => {

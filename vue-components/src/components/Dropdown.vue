@@ -58,15 +58,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import VueCompositionAPI, { defineComponent, computed, ref } from '@vue/composition-api';
+import { defineComponent, computed, ref } from 'vue';
 import { MenuItem } from '@/components/MenuItem';
 import OptionsMenu from '@/components/OptionsMenu.vue';
 import { getFeedbackTypeFromProps, errorProp, ErrorProp } from '@/compositions/validatable';
 import isEqual from 'lodash.isequal';
 import ValidationMessage from '@/components/ValidationMessage.vue';
-
-Vue.use( VueCompositionAPI );
 
 export default defineComponent( {
 	name: 'Dropdown',
@@ -117,7 +114,7 @@ export default defineComponent( {
 			}
 
 			return this.menuItems.findIndex(
-				( menuItem ) => { return isEqual( menuItem, this.value ); },
+				( menuItem: MenuItem ) => { return isEqual( menuItem, this.value ); },
 				this,
 			);
 		},

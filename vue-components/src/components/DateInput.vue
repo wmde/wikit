@@ -35,13 +35,11 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VueCompositionAPI, { defineComponent } from '@vue/composition-api';
+import { defineComponent } from 'vue';
 import { errorProp } from '@/compositions/validatable';
 import Icon from '@/components/Icon.vue';
 import InputWithExtender from '@/components/InputWithExtender.vue';
 import BouncingDots from '@/components/BouncingDots.vue';
-
-Vue.use( VueCompositionAPI );
 
 export default defineComponent( {
 	name: 'DateInput',

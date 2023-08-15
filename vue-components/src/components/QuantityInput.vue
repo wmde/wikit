@@ -50,15 +50,13 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VueCompositionAPI, { defineComponent, computed, PropType } from '@vue/composition-api';
+import { defineComponent, computed, PropType } from 'vue';
 import Input from '@/components/Input.vue';
 import LookupInput from '@/components/LookupInput.vue';
 import ValidationMessage from '@/components/ValidationMessage.vue';
 import generateUid from '@/components/util/generateUid';
 import { ErrorProp, errorProp, getFeedbackTypeFromProps } from '@/compositions/validatable';
 import { MenuItem } from '@/components/MenuItem';
-
-Vue.use( VueCompositionAPI );
 
 export default defineComponent( {
 	props: {

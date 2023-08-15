@@ -38,19 +38,17 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import VueCompositionAPI, { computed, defineComponent } from '@vue/composition-api';
+import { computed, defineComponent } from 'vue';
 import Input from '@/components/Input.vue';
 import ValidationMessage from '@/components/ValidationMessage.vue';
 import { ErrorProp, errorProp, getFeedbackTypeFromProps } from '@/compositions/validatable';
 import generateUid from '@/components/util/generateUid';
 
-Vue.use( VueCompositionAPI );
-
 export default defineComponent( {
 	name: 'InputWithExtender',
 	inheritAttrs: false,
 	components: {
+		// eslint-disable-next-line vue/no-reserved-component-names
 		Input,
 		ValidationMessage,
 	},

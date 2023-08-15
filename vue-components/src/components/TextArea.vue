@@ -39,14 +39,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VueCompositionAPI, { defineComponent, computed } from '@vue/composition-api';
+import { defineComponent, computed } from 'vue';
 
 import ValidationMessage from './ValidationMessage.vue';
 import { ResizeLimit, validateLimit } from '@/components/ResizeLimit';
 import generateId from '@/components/util/generateUid';
 import { errorProp, ErrorProp, getFeedbackTypeFromProps } from '@/compositions/validatable';
-
-Vue.use( VueCompositionAPI );
 
 /**
  * Text areas are multi-line, non auto-sizing input fields that allow manual resizing by users.
