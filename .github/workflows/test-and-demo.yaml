@@ -52,7 +52,7 @@ jobs:
       with:
         path: |
           */dist
-        key: ${{ runner.os }}-${{ hashFiles('*/dist') }}
+        key: ${{ runner.os }}-${{ github.sha }}
     - name: Install
       if: steps.cache.outputs.cache-hit != 'true'
       run: npm ci
@@ -107,7 +107,7 @@ jobs:
       with:
         path: |
           */dist
-        key: ${{ runner.os }}-${{ hashFiles('*/dist') }}
+        key: ${{ runner.os }}-${{ github.sha }}
     - name: Build Storybooks
       run: npm run build:storybook
     - name: Deploy Storybook
