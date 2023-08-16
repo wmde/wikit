@@ -14,6 +14,7 @@ development)_
 - Many components removed
 - upgrade to Vue 3
 - Fix Lookup navigation on arrow down
+- Fix scrollbar in Lookup when closing and reopening menu
 
 ###[Unreleased / 2.1.0]
 
