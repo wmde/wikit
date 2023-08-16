@@ -87,7 +87,7 @@ describe( 'Dialog', function () {
 
 		client
 			.click( '.wikit-Button' )
-			.pause( 500 )
+			.pause( 1000 )
 			.waitForElementPresent( '.wikit-Dialog' )
 			// substract 100px from the dialog's original height so scrollbars are shown
 			.execute( `document.querySelector( ".wikit-Dialog__modal" ).style.height =
