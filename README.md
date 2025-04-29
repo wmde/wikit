@@ -1,20 +1,15 @@
-# WiKit
+# WiKit [DEPRECATED]
 
 [![wikit-vue-components](https://img.shields.io/npm/v/@wmde/wikit-vue-components?label=wikit-vue-components)](https://www.npmjs.com/package/@wmde/wikit-vue-components)
 [![wikit-tokens](https://img.shields.io/npm/v/@wmde/wikit-tokens?label=wikit-tokens)](https://www.npmjs.com/package/@wmde/wikit-tokens)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
   
-[![github](https://github.com/wmde/wikit/workflows/Build%20and%20Deploy%20documentation/badge.svg)](https://wmde.github.io/wikit/)
-[![github](https://github.com/wmde/wikit/workflows/Test%20and%20Deploy/badge.svg)](https://www.chromatic.com/builds?appId=5efdb3b5f65950002286285d)
-
-[![Sauce Test Status](https://app.saucelabs.com/buildstatus/wikit)](https://app.saucelabs.com/u/wikit)
-
-[![Sauce Test Status](https://app.saucelabs.com/browser-matrix/wikit.svg)](https://app.saucelabs.com/u/wikit)
-
-The Wikibase Design System and home of WMDE-supported component implementations.
+[DEPRECATED] The former Wikibase Design System and home of its component implementations.
 
 ## Development
+
+Wikit is no longer maintained. For a similar vue component library, please see [@wikimedia/codex](https://github.com/wikimedia/design-codex)
 
 This project uses [lerna](https://lerna.js.org/) to orchestrate multiple packages.
 
