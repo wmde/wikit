@@ -3,22 +3,28 @@
         "family": {
             "style": {
                 "heading-serif": {
-                    "value": "{font.family.serif.value}"
+                    "value": "{font.family.serif.value}",
+                    "themeable": true
                 },
                 "heading-sans": {
-                    "value": "{font.family.sans.value}"
+                    "value": "{font.family.sans.value}",
+                    "themeable": true
                 },
                 "body": {
-                    "value": "{font.family.sans.value}"
+                    "value": "{font.family.sans.value}",
+                    "themeable": true
                 },
                 "body-s": {
-                    "value": "{font.family.sans.value}"
+                    "value": "{font.family.sans.value}",
+                    "themeable": true
                 },
                 "placeholder": {
-                    "value": "{font.family.sans.value}"
+                    "value": "{font.family.sans.value}",
+                    "themeable": true
                 },
                 "description": {
-                    "value": "{font.family.sans.value}"
+                    "value": "{font.family.sans.value}",
+                    "themeable": true
                 }
             }
         },
@@ -561,10 +567,12 @@
             },
             "link": {
                 "property": {
-                    "value": "{transition.property.color.value}"
+                    "value": "{transition.property.color.value}",
+                    "themeable": true
                 },
                 "duration": {
-                    "value": "{transition.duration.fast.value}"
+                    "value": "{transition.duration.fast.value}",
+                    "themeable": true
                 }
             }
         }
